@@ -39,3 +39,16 @@ body {
   border-radius: 0 0.5rem 0.5rem 0;
   @apply border-r-1;
 }
+
+.sidebar .grid-holder {
+  /* background: */
+  /* radial-gradient(black 5%, transparent 8%) 0 0,
+  radial-gradient(black 5%, transparent 8%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 5%, transparent 8%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 5%, transparent 8%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px; */
+  @apply bg-gray-700;
+  box-shadow: 0 0 8px 4px rgba(0,0,0,0.5) inset;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(37, 37, 37, 0.5) 5px, rgba(37, 45, 56, 0.5) 10px);
+}

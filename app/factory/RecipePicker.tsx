@@ -49,7 +49,7 @@ export default function RecipePicker({
 
   console.log("maxInputs", maxInputs, "maxOutputs", maxOutputs, "cols", cols);
 
-  return (<table className="recipe-list w-full border-spacing-y-1 border-separate text-sm">
+  return (<table className="recipe-list w-full border-spacing-y-1 border-separate text-sm"><tbody>
     {recipes.map(recipe => {
       const machine = machineData[recipe.machine];
       const outputCells = Math.max((recipe.outputs.length * 2) - 1, 0);
@@ -104,5 +104,5 @@ export default function RecipePicker({
           {outputs}
       </tr>)
     })}
-  </table>);
+  </tbody></table>);
 }

@@ -1,5 +1,6 @@
 import type { Node, NodeProps } from "@xyflow/react";
 import { Handle, Position } from "@xyflow/react";
+import { memo } from "react";
 
 export type PositionLoggerNodeData = {
   label?: string;
@@ -7,7 +8,7 @@ export type PositionLoggerNodeData = {
 
 export type PositionLoggerNode = Node<PositionLoggerNodeData>;
 
-export default function PositionLoggerNode({
+function PositionLoggerNode({
   positionAbsoluteX,
   positionAbsoluteY,
   data,
@@ -28,3 +29,5 @@ export default function PositionLoggerNode({
     </div>
   );
 }
+
+export default memo(PositionLoggerNode);
