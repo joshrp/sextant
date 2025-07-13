@@ -10,10 +10,11 @@ export default class Solver {
     // Initialize the solver here if needed
     console.log("Solver initialized with Highs", highs);
   }
+
+
 }
 
 const recipeData = loadRecipeData();
-const productData = loadProductData();
 
 const defaultUrl = "https://lovasoa.github.io/highs-js/";
 export const useHighs = () => {
@@ -41,74 +42,54 @@ export const useHighs = () => {
 }
 
 
-export const rebuildContraints = (nodes: CustomNodeType[], edges: CustomEdgeType[]) => {
-  console.log("rebuildContraints", nodes, edges);
+/** Hold a list of nodes this node connects to via edges
+```
+  nodeId: {
+    recipe: Recipe Data
+    inputs: {
+      water: [{ sourceNodeId, edgeId }]
+    },
+    outputs: {
+      steam: [{targetNodeId, edgeId}]
+    }
+  }
+```
+*/
+export type NodeConnection = {
+  recipe: Recipe,
+  inputs: {
+    [k in ProductId]?: { nodeId: string, edgeId: string }[]
+  },
+  outputs: {
+    [k in ProductId]?: { nodeId: string, edgeId: string }[]
+  }
+};
+export type NodeConnections = Record<string, NodeConnection>;
+
+export const buildNodeConnections = (nodes: CustomNodeType[], edges: CustomEdgeType[]) => {
   // TODO:: Graph walking to find seperate graphs. Not supported for now.
 
   let nodesById: Record<string, CustomNodeType> = {};
 
   const nodeRecipe = {} as Record<string, Recipe>;
 
-  /**
-   * 
-   * @param nodeId Node to fetch recipe from
-   * @param itemId Which product
-   * @param direction from the "inputs" or "outputs"
-   * @returns 
-   */
-  const getRecipeQty = (nodeId: string, itemId: ProductId, direction: "inputs" | "outputs"): number | undefined => {
-    return nodeRecipe[nodeId][direction].find(x => x.id == itemId)?.quantity;
-  }
-
-  type NodeConnections = {
-    inputs: {
-      [k in ProductId]?: [
-        string, string
-      ][]
-    },
-    outputs: {
-      [k in ProductId]?: [
-        string, string
-      ][]
-    }
-  };
-  /** Hold a list of nodes this node connects to via edges
-      ```
-      nodeId: {
-        inputs: {
-          water: [[
-            sourceNodeId, edgeId
-          ]]
-        },
-        outputs: {
-          steam: [[
-            targetNodeId, edgeId
-          ]]
-            
-          }
-        }
-      }
-        ```
-     */
-  const nodeConnections = {} as Record<string, NodeConnections>;
+  const nodeConnections = {} as Record<string, NodeConnection>;
   const nodeOrder = {} as Record<string, number>;
   nodes.forEach((node, index) => {
     nodesById[node.id] = node;
     nodeOrder[node.id] = index;
     nodeRecipe[node.id] = recipeData[node.data.recipeId];
-    const inputs: NodeConnections['inputs'] = {};
-    const outputs: NodeConnections['outputs'] = {};
+    const inputs: NodeConnection['inputs'] = {};
+    const outputs: NodeConnection['outputs'] = {};
 
     nodeConnections[node.id] = {
+      recipe: recipeData[node.data.recipeId],
       inputs: nodeRecipe[node.id].inputs.reduce((acc, curr) => (acc[curr.id] = [], acc), inputs),
       outputs: nodeRecipe[node.id].outputs.reduce((acc, curr) => (acc[curr.id] = [], acc), outputs)
     };
   });
 
-  // Index all the edge connections by Node ID, listing which nodes they connect to for each of their products
-  const edgesById: Record<string, CustomEdgeType> = {}
   edges.forEach(edge => {
-    edgesById[edge.id] = edge;
     const productId = edge.targetHandle as ProductId;
 
     // Some sanity checks first
@@ -121,21 +102,22 @@ export const rebuildContraints = (nodes: CustomNodeType[], edges: CustomEdgeType
       console.error("Error matching source", edge.sourceHandle, "and target", edge.targetHandle);
       throw new Error("Source and Target type do not match, something is wrong");
     }
-    (nodeConnections[edge.target].inputs[productId] ||= []).push([edge.source, edge.id]);
-    (nodeConnections[edge.source].outputs[productId] ||= []).push([edge.target, edge.id]);
+
+    (nodeConnections[edge.target].inputs[productId] ||= []).push({ nodeId: edge.source, edgeId: edge.id });
+    (nodeConnections[edge.source].outputs[productId] ||= []).push({ nodeId: edge.target, edgeId: edge.id });
   });
 
-  const goals: {
-    [k in ProductId]?: {
-      qty: number
-    }
-  } = {
-    "acid": {
-      qty: 48
-    }
-  };
+  return nodeConnections;
 
+}
 
+export type Goals = {
+  [k in ProductId]?: {
+    qty: number
+  }
+};
+
+export const buildLpp = (nodeConnections: NodeConnections, goals: Goals) => {
   // To build a constrain for an item we need to know all the usages that are linked together. 
   // For simple a->b paths that is a - b = 0
   // For one to many paths a->[b,c] that is a - b - c = 0
@@ -160,53 +142,60 @@ export const rebuildContraints = (nodes: CustomNodeType[], edges: CustomEdgeType
   // Which edges ends (vertices) have already appeared in constraints (via walking)
   const vertexInConstraints: Record<string, string> = {};
 
-  const walkConnections = (connections: [string, string][], nodeId: string, productId: ProductId, isInput: boolean, constraintId: string): Constraint["terms"] => {
+  // Get an LPP appropriate label for a node ID. They can't be long or contain some chars
+  // They need a consistent label among all terms though so it needs storing somewhere
+  const nodeIdToLabels = {} as Record<string, string>;
+  let nodeLabelInc = 0;
+  const getNodeLabel = (node: string) => (nodeIdToLabels[node] ||= "n_" + nodeLabelInc++, nodeIdToLabels[node]);
+
+  const walkConnections = (nodeId: string, productId: ProductId, isInput: boolean, constraintId: string): Constraint["terms"] => {
     const ioString = isInput ? "inputs" : "outputs";
+    const connections = nodeConnections[nodeId][ioString][productId];
+
     const vertextId = `${nodeId}/${ioString}/${productId}`;
+
+    if (vertexInConstraints[vertextId] !== undefined) return [];
+    vertexInConstraints[vertextId] = constraintId;
+
     const terms: Constraint["terms"] = [];
-    if (vertexInConstraints[vertextId] !== undefined) {
-      console.log("Vertex", vertextId, "already present in constraint", vertexInConstraints[vertextId]);
-    } else {
-      vertexInConstraints[vertextId] = constraintId;
-      const goal = goals[productId];
 
-      let term = '';
-      const recipeQty = getRecipeQty(nodeId, productId, ioString);
-      if (!recipeQty) {
-        console.error('Could not find recipe quantity for', productId,'on',nodeId);        
-      } else {
-        // Build up the term to add. This could be a single product or part of a long chain
-        // Single dangling items could be input or output, or goals, all need different handling
-        let negate = isInput;
-        let prefix = '';
-        if (goal || !connections?.length) {
-          prefix = productId;
-          negate = true;
-          
-          if (isInput)
-            openInputs.push(productId);
-          else
-            openOutputs.push(productId);
-        }
+    const goal = goals[productId];
 
-        term = prefix + (negate ? "-" : "+") + recipeQty;
-      }
-      
-      if (term)
-        terms.push({
-          id: `n${nodeOrder[nodeId]}`,
-          nodeId: nodeId,
-          term
-        });
-
-      connections.forEach(conn => {
-        // Get all the connections on the otherside of this edge
-        // If we're processing an input, we're getting all their outputs, and vice versa.
-        const otherSideId = conn[0];
-        const otherSideConnections = nodeConnections[otherSideId][isInput ? "outputs" : "inputs"][productId];
-        terms.push(...walkConnections(otherSideConnections || [], otherSideId, productId, !isInput, constraintId));
-      })
+    const recipeQty = nodeConnections[nodeId].recipe[ioString].find(p=>productId == p.id)?.quantity
+    if (!recipeQty) {
+      console.error('Could not find recipe quantity for', productId, 'as', ioString,'on', nodeId);
+      return [];
     }
+    
+    // Build up the term to add. This could be a single product or part of a long chain
+    // Single dangling items could be input or output, or goals, all need different handling
+    let term = '';
+    let negate = isInput;
+    let prefix = '';
+    if (goal || !connections?.length) {
+      prefix = productId;
+      negate = true;
+
+      if (isInput)
+        openInputs.push(productId);
+      else
+        openOutputs.push(productId);
+    }
+
+    term = prefix + (negate ? "-" : "+") + recipeQty;
+
+    if (term)
+      terms.push({
+        id: getNodeLabel(nodeId),
+        nodeId: nodeId,
+        term
+      });
+
+    connections?.forEach(conn => {
+      // Get all the connections on the otherside of this edge
+      // If we're processing an input, we're getting all their outputs, and vice versa.
+      terms.push(...walkConnections(conn.nodeId, productId, !isInput, constraintId));
+    })
 
     return terms;
   }
@@ -214,47 +203,44 @@ export const rebuildContraints = (nodes: CustomNodeType[], edges: CustomEdgeType
   let constraintIdInc = 0;
   for (const nodeId of Object.keys(nodeConnections)) {
     for (const productId of Object.keys(nodeConnections[nodeId].inputs) as ProductId[]) {
-      const sources = nodeConnections[nodeId].inputs[productId];
       const constraintId = `c${constraintIdInc++}`;
-      console.log("New Constraint:", constraintId,"for", productId, "as input of", nodeId);
-      const terms = walkConnections(sources || [], nodeId, productId, true, constraintId);
+      // console.log("New Constraint:", constraintId, "for", productId, "as input of", nodeId);
+      const terms = walkConnections(nodeId, productId, true, constraintId);
       if (terms.length)
         constraints.push({
           id: constraintId,
           productId,
           terms
         });
-      console.log("Done constraint", constraintId, constraints[constraints.length -1]);
+      console.log("Constraint", constraintId, constraints[constraints.length - 1]);
     }
 
     for (const productId of Object.keys(nodeConnections[nodeId].outputs) as ProductId[]) {
-      const targets = nodeConnections[nodeId].outputs[productId];
       const constraintId = `c${constraintIdInc++}`;
-      console.log("New Constraint:", constraintId,"for", productId, "as output of", nodeId);
-      const terms = walkConnections(targets || [], nodeId, productId, false, constraintId);
+      // console.log("New Constraint:", constraintId, "for", productId, "as output of", nodeId);
+      const terms = walkConnections(nodeId, productId, false, constraintId);
       if (terms.length)
         constraints.push({
           id: constraintId,
           productId,
           terms
         });
-      console.log("Done constraint", constraintId, constraints[constraints.length -1]);
+      console.log("Constraint", constraintId, constraints[constraints.length - 1]);
     }
   }
 
   let lpp = `
 minimize
   obj: ${openInputs.join('+')}
-subject to
-    ` + constraints.map(con => `
+subject to ` + constraints.map(con => `
       \\${con.id}: ${con.productId}
       ${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} = 0
     `).join('') + `
-${Object.keys(nodeOrder).map(n => `
-      \\n${nodeOrder[n]}: ${n}`).join('\n')}
+${Object.keys(nodeIdToLabels).map(n => `
+      \\${nodeIdToLabels[n]}: ${n}`).join('\n')}
 Bounds ${openInputs.map(o => `
   0 <= ${o}`).join('')}
-  ${Object.keys(goals).map(g => `${g} = ${goals[g as ProductId]?.qty}`).join("\n")}
+  ${Object.keys(goals).map(g => `${g} >= ${goals[g as ProductId]?.qty}`).join("\n")}
 end`;
   console.log('LPP found: ', lpp)
 

@@ -9,11 +9,12 @@ import {
 
 import { initialNodes, type CustomNodeType } from "./graph/nodes";
 import { initialEdges, type CustomEdgeType } from "./graph/edges";
-import { rebuildContraints } from "./solver";
+import { buildNodeConnections, type NodeConnections } from "./solver";
 
 export interface GraphStore {
   nodes: CustomNodeType[];
   edges: CustomEdgeType[];
+  nodeConnections: NodeConnections | null;
   constraints: {
     lpp: string;
     openOutputs: ProductId[];
@@ -32,6 +33,7 @@ const useStore = create<GraphStore>((set, get) => ({
   loadingHighs: true,
   nodes: initialNodes,
   edges: initialEdges,
+  nodeConnections: null,
   constraints: {
     lpp: '',
     openOutputs: [],
@@ -69,7 +71,7 @@ const useStore = create<GraphStore>((set, get) => ({
   },
   graphChangeAction: () => {
     set({
-      constraints: rebuildContraints(get().nodes, get().edges)
+      nodeConnections: buildNodeConnections(get().nodes, get().edges)
     });
   },
 }));

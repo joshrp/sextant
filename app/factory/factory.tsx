@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { CloseButton, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 
-
 import Sidebar from "./graph/sidebar";
 import Graph from "./graph/graph";
-import useStore, { type GraphStore } from "./store";
-import Solver, { useHighs } from "./solver/index";
+import useStore from "./store";
+import Solver, { buildLpp, useHighs } from "./solver/index";
 
 import {
   loadMachineData,
@@ -16,10 +15,9 @@ import {
 } from "./graph/loadJsonData";
 
 import RecipePicker from "./RecipePicker";
-import { useShallow } from "zustand/shallow";
 import FactorySummary from "./summary";
-import type { Highs } from "highs";
 import { useFactory, type FactorySettings } from "./FactoryProvider";
+import type { GenericHighsSolution, Highs, HighsSolution } from "highs";
 
 const recipeData = loadRecipeData();
 const machineData = loadMachineData();
@@ -31,22 +29,38 @@ export type FactoryProps = {
 
 export function Factory({ }: FactoryProps) {
   const { highs, loading: loadingHighs } = useHighs();
+  const [calcResults, setCalcResults] = useState({});
 
   const factory = useFactory();
   const factorySettings = factory.settings;
 
   const addNode = useStore(state => state.addNode);
 
-  const constraints = useStore(state => state.constraints);
+  const nodeConnections = useStore(state => state.nodeConnections);
   useEffect(() => {
-    // useStore(state => state.rebuildConstraintsAction)();
-    console.log('constraints changed', constraints);
+    // useStore(state => state.rebuildnodeConnectionsAction)();
+    console.log('nodeConnections changed', nodeConnections);
     let solver: Solver | null = null;
-    if (!loadingHighs) {
-      solver = new Solver(highs);
-      console.log(highs.solve(constraints.lpp));
+    if (!loadingHighs && nodeConnections) {
+      const lpp = buildLpp(nodeConnections, {acid:{qty:48}, carbon_dioxide:{qty:100}, brine:{qty:24}});
+      // solver = new Solver(highs);
+
+      // No idea how to do the typing on this one
+      const res = highs.solve(lpp.lpp) as any;
+      
+      const simpleResults: {[k: string]: number} = {};
+      Object.keys(res.Columns).forEach(k => {simpleResults[k] = res.Columns[k].Primal})
+      
+      const calc = {
+        status: res.Status,
+        items: simpleResults,
+        cols: res.Columns,
+      }
+      setCalcResults(calc);
+    } else {
+      console.log('loading highs', loadingHighs)
     }
-  }, [constraints]);
+  }, [nodeConnections]);
 
   // const [isOpen, setIsOpen] = useState(false);
   const [addingNewProduct, setAddingNewProduct] = useState(false);
@@ -95,7 +109,7 @@ export function Factory({ }: FactoryProps) {
   return (
     <div className="h-[90vh] flex flex-row w-full" >
       <div className="h-full w-[30vw] resize-x overflow-x-hidden w-max-[50vw]">
-        <Sidebar selectAProduct={selectAProduct} outputs={factorySettings.desiredOutputs} />
+        <Sidebar selectAProduct={selectAProduct} calcResults={calcResults} outputs={factorySettings.desiredOutputs} />
       </div>
       <div className="flex-1 flex flex-col items-center gap-3 h-full">
         <Graph />

@@ -9,12 +9,13 @@ const items = loadProductData();
 
 type props = {
   selectAProduct: () => void;
+  calcResults?: any;
   outputs: FactorySettings["desiredOutputs"]
 };
 
 
 
-function SideBar({ selectAProduct, outputs }: props) {
+function SideBar({ selectAProduct, outputs, calcResults }: props) {
   // const transform = useStore(transformSelector);
   const factory = useFactory().settings;
   const constraints = useStore(state => state.constraints);
@@ -75,6 +76,9 @@ function SideBar({ selectAProduct, outputs }: props) {
         })}
       </div>
       <button className="p-4 m-4 bg-blue-500 cursor-pointer" onClick={recalc}>Recalc</button>
+      <div className="results w-full overflow-auto text-xs">
+        <pre>{JSON.stringify(calcResults, null, 2)}</pre>
+      </div>
     </div>
   );
 };
