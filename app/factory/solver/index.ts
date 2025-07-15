@@ -58,13 +58,17 @@ export const useHighs = () => {
 export type NodeConnection = {
   recipe: Recipe,
   inputs: {
-    [k in ProductId]?: { nodeId: string, edgeId: string }[]
+    [k in ProductId]?: { nodeId: string, edgeId?: string }[]
   },
   outputs: {
-    [k in ProductId]?: { nodeId: string, edgeId: string }[]
+    [k in ProductId]?: { nodeId: string, edgeId?: string }[]
   }
 };
 export type NodeConnections = Record<string, NodeConnection>;
+export type OpenConnections = {
+  inputs: {[k in ProductId]?: string[]},
+  outputs: {[k in ProductId]?: string[]}
+}
 
 export const buildNodeConnections = (nodes: CustomNodeType[], edges: CustomEdgeType[]) => {
   // TODO:: Graph walking to find seperate graphs. Not supported for now.
@@ -73,21 +77,38 @@ export const buildNodeConnections = (nodes: CustomNodeType[], edges: CustomEdgeT
 
   const nodeRecipe = {} as Record<string, Recipe>;
 
-  const nodeConnections = {} as Record<string, NodeConnection>;
+  const nodeConnections: NodeConnections = {};
+  const openConnections: OpenConnections = {
+    inputs: {},
+    outputs: {},
+  };
+
   const nodeOrder = {} as Record<string, number>;
   nodes.forEach((node, index) => {
     nodesById[node.id] = node;
     nodeOrder[node.id] = index;
     nodeRecipe[node.id] = recipeData[node.data.recipeId];
-    const inputs: NodeConnection['inputs'] = {};
-    const outputs: NodeConnection['outputs'] = {};
+    const inputs: NodeConnection["inputs"] = {};
+    const outputs: NodeConnection["outputs"] = {};
+
+    nodeRecipe[node.id].inputs.forEach(product => {
+      inputs[product.id] = [];
+      (openConnections.inputs[product.id] ||= []).push(node.id)
+    });
+
+    nodeRecipe[node.id].outputs.forEach(product => {
+      outputs[product.id] = [];
+      (openConnections.outputs[product.id] ||= []).push(node.id)
+    });
 
     nodeConnections[node.id] = {
       recipe: recipeData[node.data.recipeId],
-      inputs: nodeRecipe[node.id].inputs.reduce((acc, curr) => (acc[curr.id] = [], acc), inputs),
-      outputs: nodeRecipe[node.id].outputs.reduce((acc, curr) => (acc[curr.id] = [], acc), outputs)
+      inputs: inputs,
+      outputs: outputs,
     };
   });
+
+  console.log('open connections after nodes', JSON.stringify(openConnections,null,2) )
 
   edges.forEach(edge => {
     const productId = edge.targetHandle as ProductId;
@@ -105,19 +126,31 @@ export const buildNodeConnections = (nodes: CustomNodeType[], edges: CustomEdgeT
 
     (nodeConnections[edge.target].inputs[productId] ||= []).push({ nodeId: edge.source, edgeId: edge.id });
     (nodeConnections[edge.source].outputs[productId] ||= []).push({ nodeId: edge.target, edgeId: edge.id });
+
+    // Update open connections list so we know this Product is connected to something
+    if (openConnections.inputs[productId] !== undefined) {
+      openConnections.inputs[productId] = openConnections.inputs[productId].filter(n => n != edge.target)
+      if (openConnections.inputs[productId].length === 0) 
+        delete openConnections.inputs[productId];
+    }
+    if (openConnections.outputs[productId] !== undefined) {
+      openConnections.outputs[productId] = openConnections.outputs[productId]?.filter(n => n != edge.source)
+      if (openConnections.outputs[productId]?.length === 0) 
+        delete openConnections.outputs[productId];
+    }
   });
 
-  return nodeConnections;
-
+  return {nodeConnections, openConnections};
 }
 
-export type Goals = {
-  [k in ProductId]?: {
-    qty: number
-  }
+export type FactoryGoal = {
+  productId: ProductId,
+  qty: number,
+  type: "eq" | "lt" | "gt",
+  dir: "input" | "output"
 };
 
-export const buildLpp = (nodeConnections: NodeConnections, goals: Goals) => {
+export const buildLpp = (nodeConnections: NodeConnections, openConnections: OpenConnections, goals: FactoryGoal[]) => {
   // To build a constrain for an item we need to know all the usages that are linked together. 
   // For simple a->b paths that is a - b = 0
   // For one to many paths a->[b,c] that is a - b - c = 0
@@ -128,16 +161,13 @@ export const buildLpp = (nodeConnections: NodeConnections, goals: Goals) => {
   type Constraint = {
     id: string,
     productId: ProductId,
-    terms: {
-      nodeId: string,
+    terms: ({
+      nodeId?: string,
       id: string,
       term: string
-    }[],
+    })[],
   };
   const constraints: Constraint[] = [];
-
-  let openOutputs = [] as ProductId[];
-  let openInputs = [] as ProductId[];
 
   // Which edges ends (vertices) have already appeared in constraints (via walking)
   const vertexInConstraints: Record<string, string> = {};
@@ -159,37 +189,17 @@ export const buildLpp = (nodeConnections: NodeConnections, goals: Goals) => {
 
     const terms: Constraint["terms"] = [];
 
-    const goal = goals[productId];
-
-    const recipeQty = nodeConnections[nodeId].recipe[ioString].find(p=>productId == p.id)?.quantity
+    const recipeQty = nodeConnections[nodeId].recipe[ioString].find(p => productId == p.id)?.quantity
     if (!recipeQty) {
-      console.error('Could not find recipe quantity for', productId, 'as', ioString,'on', nodeId);
+      console.error('Could not find recipe quantity for', productId, 'as', ioString, 'on', nodeId);
       return [];
     }
-    
-    // Build up the term to add. This could be a single product or part of a long chain
-    // Single dangling items could be input or output, or goals, all need different handling
-    let term = '';
-    let negate = isInput;
-    let prefix = '';
-    if (goal || !connections?.length) {
-      prefix = productId;
-      negate = true;
 
-      if (isInput)
-        openInputs.push(productId);
-      else
-        openOutputs.push(productId);
-    }
-
-    term = prefix + (negate ? "-" : "+") + recipeQty;
-
-    if (term)
-      terms.push({
-        id: getNodeLabel(nodeId),
-        nodeId: nodeId,
-        term
-      });
+    terms.push({
+      id: getNodeLabel(nodeId),
+      nodeId: nodeId,
+      term: (isInput ? "-" : "+") + recipeQty
+    });
 
     connections?.forEach(conn => {
       // Get all the connections on the otherside of this edge
@@ -200,48 +210,118 @@ export const buildLpp = (nodeConnections: NodeConnections, goals: Goals) => {
     return terms;
   }
 
+  const metaConstraints: {
+    [k in ProductId]?: Constraint      
+  } = {};
+
+  const bounds: string[] = [];
+  /**
+   * Meta Constraints contrast recipe constraints. 
+   * Some things must be balanced across the whole graph, not just between many-many recipe relationships
+   * i.e. Global Inputs / outputs, goal products, and multi use items 
+   */
+  const addMetaConstraint = (productId: ProductId, isInput: boolean, parentConstraintId: string) => {
+    (metaConstraints[productId] ||= {
+      terms: [],
+      id: productId + "_sink",
+      productId: productId
+    }).terms.push({
+      id: parentConstraintId + "_sink",
+      term: isInput ? "-" : "+"
+    })    
+  }
+
+  const newConstraint = (nodeId: string, productId: ProductId, isInput: boolean) => {
+    const constraintId = `c${constraintIdInc++}`;
+
+    const terms = walkConnections(nodeId, productId, isInput, constraintId);
+    if (terms.length) {      
+      terms.push({
+        id: constraintId + "_sink",
+        term: "+"
+      });      
+
+      constraints.push({
+        id: constraintId,
+        productId,
+        terms
+      });
+
+      // If it's an open connection (nothing attached), 
+      // it needs a meta constraint adding, for tracking across multiple nodes
+      // if not, it needs bounding to 0 until we WANT it to be free
+      if (openConnections.inputs[productId] !== undefined) 
+        addMetaConstraint(productId, true, constraintId)
+      else if (openConnections.outputs[productId] !== undefined) 
+        addMetaConstraint(productId, false, constraintId)
+      else bounds.push(constraintId + "_sink");
+    }
+    console.log("Constraint", constraintId, constraints[constraints.length - 1]);
+  }
+
+  // Loop all the inputs and outputs found in nodeConnections 
   let constraintIdInc = 0;
   for (const nodeId of Object.keys(nodeConnections)) {
     for (const productId of Object.keys(nodeConnections[nodeId].inputs) as ProductId[]) {
-      const constraintId = `c${constraintIdInc++}`;
-      // console.log("New Constraint:", constraintId, "for", productId, "as input of", nodeId);
-      const terms = walkConnections(nodeId, productId, true, constraintId);
-      if (terms.length)
-        constraints.push({
-          id: constraintId,
-          productId,
-          terms
-        });
-      console.log("Constraint", constraintId, constraints[constraints.length - 1]);
+      newConstraint(nodeId, productId, true);
     }
 
     for (const productId of Object.keys(nodeConnections[nodeId].outputs) as ProductId[]) {
-      const constraintId = `c${constraintIdInc++}`;
-      // console.log("New Constraint:", constraintId, "for", productId, "as output of", nodeId);
-      const terms = walkConnections(nodeId, productId, false, constraintId);
-      if (terms.length)
-        constraints.push({
-          id: constraintId,
-          productId,
-          terms
-        });
-      console.log("Constraint", constraintId, constraints[constraints.length - 1]);
+      newConstraint(nodeId, productId, false);
     }
   }
 
+  getKeysTyped(metaConstraints).forEach(productId => {
+    const constraint = metaConstraints[productId];
+
+    if (constraint !== undefined) {
+      // if (constraint.terms.length > 1) {
+        constraint.terms.push({
+          id: constraint.id,
+          term: "-"
+        });
+        constraints.push(constraint)
+      // }
+      
+    }
+  })
+
+  const objective = getKeysTyped(openConnections.inputs).map(i => metaConstraints[i]?.id).join('+')
+  const constraintsMap = new Map<string, Constraint>;
+  const constraintsList = constraints.map(con => {
+    constraintsMap.set(con.id, con);
+
+    return `
+      ${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} = 0`;
+  }).join('');
+
+  let boundsList = getKeysTyped(metaConstraints).map(c =>
+    metaConstraints[c]?.terms.map(t => {
+      return `  ${t.id} free`
+    }).join('\n')
+  ).join('\n');
+
+  boundsList += "\n" + bounds.map(b => `${b} = 0`).join('\n');
+
+  boundsList += "\n" + goals.map(g => {
+    // The LT and GT here are flipped because the sinks are negated. Must be less than 20 == must be greater than -20
+    return `
+    ${metaConstraints[g.productId]?.id} ${g.type == "lt" ? ">=" : g.type == "gt" ? "<=" : "="} -${g.qty}`
+  }).join("\n");
+
   let lpp = `
 minimize
-  obj: ${openInputs.join('+')}
-subject to ` + constraints.map(con => `
-      \\${con.id}: ${con.productId}
-      ${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} = 0
-    `).join('') + `
-${Object.keys(nodeIdToLabels).map(n => `
-      \\${nodeIdToLabels[n]}: ${n}`).join('\n')}
-Bounds ${openInputs.map(o => `
-  0 <= ${o}`).join('')}
-  ${Object.keys(goals).map(g => `${g} >= ${goals[g as ProductId]?.qty}`).join("\n")}
+  obj: ${objective}
+subject to 
+  ${constraintsList}
+Bounds 
+  ${boundsList}
 end`;
 
-  return { constraints, openOutputs, openInputs, lpp };
+  return { constraints, lpp, nodeIdToLabels, constraintsMap };
 }
+
+
+  function getKeysTyped<T extends {}>(obj: T): (keyof T)[] {
+    return Object.keys(obj) as (keyof typeof obj)[];
+  }

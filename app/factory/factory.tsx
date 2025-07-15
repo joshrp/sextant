@@ -1,22 +1,20 @@
 import { useCallback, useEffect, useState } from "react";
-import { CloseButton, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 
-import Sidebar from "./graph/sidebar";
-import Graph from "./graph/graph";
-import { type FactoryStore, type GraphStore } from "./store";
-import Solver, { buildLpp, useHighs } from "./solver/index";
-
+import { SelectorDialog } from 'app/components/Dialog';
+import Graph from "app/factory/graph/graph";
+import Sidebar from "app/factory/graph/sidebar";
+import { buildLpp, useHighs } from "app/factory/solver/index";
 import {
   loadMachineData,
   loadProductData,
   loadRecipeData,
   type ProductId,
-  type RecipeId,
+  type RecipeId
 } from "./graph/loadJsonData";
 
+import { useFactory } from "./FactoryProvider";
 import RecipePicker from "./RecipePicker";
-import FactorySummary from "./summary";
-import { useFactory, type FactorySettings } from "./FactoryProvider";
+import { ReactFlowProvider } from "@xyflow/react";
 
 const recipeData = loadRecipeData();
 const machineData = loadMachineData();
@@ -34,51 +32,45 @@ export function Factory({ }: FactoryProps) {
   const useStore = factory.useStore;
 
   const addNode = useStore(state => state.addNode);
-  const updated = useStore(state => state.throttledNodeUpdate);
 
   const nodeConnections = useStore(state => state.nodeConnections);
+  const openConnections = useStore(state => state.openConnections);
+  const goals = useStore(state => state.constraints);
+
   useEffect(() => {
-    console.log('nodeConnections changed', nodeConnections);
+    console.log('nodeConnections changed', nodeConnections, goals);
     // let solver: Solver | null = null;
-    if (!loadingHighs && nodeConnections) {
-      const lpp = buildLpp(nodeConnections, {acid:{qty:48}, carbon_dioxide:{qty:100}, brine:{qty:24}});
+    if (!loadingHighs && nodeConnections && openConnections) {
+      const lpp = buildLpp(nodeConnections, openConnections, goals);
       // solver = new Solver(highs);
+      if (lpp) {
+        console.log('Solving:', lpp.lpp, lpp.constraintsMap, lpp.nodeIdToLabels)
+        const res = highs.solve(lpp.lpp) as any; // No idea how to do the typing on this one
 
-      // No idea how to do the typing on this one
-      const res = highs.solve(lpp.lpp) as any;
-      
-      const simpleResults: {[k: string]: number} = {};
-      Object.keys(res.Columns).forEach(k => {simpleResults[k] = res.Columns[k].Primal})
+        const simpleResults: { [k: string]: number } = {};
+        Object.keys(res.Columns).forEach(k => { simpleResults[k] = res.Columns[k].Primal })
 
-      const calc = {
-        status: res.Status,
-        items: simpleResults,
-        cols: res.Columns,
+        const calc = {
+          status: res.Status,
+          items: simpleResults,
+          cols: res.Columns,
+        }
+        setCalcResults(calc);
       }
-      setCalcResults(calc);
-    } else {
-      console.log('loading highs', loadingHighs)
     }
-  }, [nodeConnections]);
+  }, [nodeConnections, goals]);
 
   // const [isOpen, setIsOpen] = useState(false);
-  const [addingNewProduct, setAddingNewProduct] = useState(false);
   const [recipeSelectorProductId, setRecipeSelectorProduct] = useState<ProductId | null>(null);
   const recipeSelectorProduct = recipeSelectorProductId ? productData[recipeSelectorProductId] : null
 
-  const chooseRecipe = (id: ProductId) => {
-    setAddingNewProduct(false);
+  const addNewRecipe = (id: ProductId) => {
     setRecipeSelectorProduct(id);
   };
 
-  const selectAProduct = useCallback(() => {
-    setRecipeSelectorProduct(null);
-    setAddingNewProduct(true);
-  }, []);
-
   const addProductToGraph = useCallback((id: RecipeId, productId: ProductId) => {
     if (!productId) return;
-    
+
     const newNode = {
       id: id + "_" + (new Date().getTime()),
       // TODO:: Positioning new nodes. ELK?
@@ -90,14 +82,6 @@ export function Factory({ }: FactoryProps) {
     };
 
     addNode(newNode);
-    factory.updateSettings({
-      desiredOutputs: factorySettings.desiredOutputs.concat([{
-        id: productId,
-        qty: 100,
-        priority: 0
-      }])
-    });
-
     setRecipeSelectorProduct(null);
   }, [recipeData, factorySettings]);
 
@@ -108,37 +92,16 @@ export function Factory({ }: FactoryProps) {
   return (
     <div className="h-[90vh] flex flex-row w-full" >
       <div className="h-full w-[30vw] resize-x overflow-x-hidden w-max-[50vw]">
-        <Sidebar selectAProduct={selectAProduct} calcResults={calcResults} outputs={factorySettings.desiredOutputs} />
+        <Sidebar calcResults={calcResults} addNewRecipe={addNewRecipe}/>
       </div>
       <div className="flex-1 flex flex-col items-center gap-3 h-full">
-        <Graph />
+        <ReactFlowProvider >
+          <Graph />
+        </ReactFlowProvider>
       </div>
-      {addingNewProduct ? (
-        <SelectorDialog title={"Select Product to make"} isOpen={addingNewProduct} setIsOpen={setAddingNewProduct}>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,4fr))] gap-2 overflow-y-auto">
-            {(Object.keys(productData) as ProductId[]).map((key) => {
-              const item = productData[key];
-              return (<div key={item.id} className="">
-                <div id={"tooltip-" + item.id} role="tooltip" className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
-                  {item.name}
-                  <div className="tooltip-arrow" data-popper-arrow></div>
-                </div>
-                <button
-                  data-tooltip-target={"tooltip-" + item.id}
-                  className="bg-transparent hover:bg-gray-500 hover:border hover:border-black-500 rounded block"
-                  onClick={() => chooseRecipe(item.id)}
-                ><img src={'/assets/products/' + item.icon} alt={item.name} className="inline-block p-2" />
-                </button>
-              </div>)
-            })}
-          </div>
-        </SelectorDialog>
-
-      ) : ("")}
       {recipeSelectorProductId ? (
         <SelectorDialog title={recipeSelectorProduct?.name} isOpen={recipeSelectorProductId !== null} setIsOpen={blankRecipeSelectorProduct}>
-
           <RecipePicker
             productId={recipeSelectorProductId}
             selectRecipe={(recipeId) => {
@@ -150,28 +113,3 @@ export function Factory({ }: FactoryProps) {
     </div>);
 }
 
-function SelectorDialog({ isOpen, setIsOpen, title, children }: { isOpen: boolean, setIsOpen: (open: boolean) => void, title?: string, children?: React.ReactNode }) {
-
-  return <Dialog open={isOpen} onClose={setIsOpen} className="">
-    <DialogBackdrop className="fixed inset-0 bg-gray-500/75 transition-opacity data-open:opacity-40 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in" />
-    <div className="fixed flex inset-0 z-10">
-      <DialogPanel className="m-auto max-h-[80vh] grid grid-rows-[min-content_1fr] min-w-20 w-[60vw] bg-gray-100 dark:bg-gray-800 transition-opacity data-open:opacity-100 data-closed:opacity-0 data-enter:duration-2000 data-enter:ease-out data-leave:duration-200 data-leave:ease-in text-center sm:items-center sm:p-0">
-        <div className="w-full flex items-center justify-between mb-2 p-2 border-b-2 border-gray-300 dark:border-gray-700 relative">
-          <div className="flex-1" />
-          <DialogTitle className="flex-6">
-            Make {title}
-          </DialogTitle>
-          <CloseButton className="flex-1 text-right" onClick={() => setIsOpen(false)}>
-            <span className="sr-only">Close</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </CloseButton>
-        </div>
-        <div className="p-2 overflow-y-auto max-h-full">
-          {children}
-        </div>
-      </DialogPanel>
-    </div>
-  </Dialog>
-}

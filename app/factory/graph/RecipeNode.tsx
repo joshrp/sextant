@@ -1,6 +1,7 @@
 import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
 import { memo } from 'react';
 import { loadProductData, loadRecipeData, type RecipeId } from './loadJsonData';
+import { useFactory } from '../FactoryProvider';
 
 const recipeData = loadRecipeData();
 const productData = loadProductData();
@@ -16,10 +17,10 @@ export type RecipeNode = Node<RecipeNodeData>;
 
 function RecipeNode(props: NodeProps<RecipeNode>) {
   const recipe = recipeData[props.data.recipeId];
-
+  const removeNode = useFactory().useStore(state => state.removeNode);
   return (
     <div className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
-      <div className="">{recipe.name}</div>
+      <div className="">{recipe.name}<button onClick={()=>removeNode(props.id)}>Del</button></div>
 
       <div className="products flex flex-row justify-between mt-4">
         <div className="recipe-inputs flex-2 items-start relative -left-8">

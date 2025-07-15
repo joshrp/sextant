@@ -16,6 +16,7 @@ export const initialEdges = [
     target: "acid_mixing_1", 
     sourceHandle: "sulfur",
     targetHandle: "sulfur",
+    animated: true,
     type: "button-edge" 
   },
   { 

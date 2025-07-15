@@ -1,47 +1,107 @@
-import { memo } from 'react';
-import { loadProductData, type ProductId, type ProductData } from './loadJsonData';
-import { PlusIcon } from '@heroicons/react/24/solid';
-import { useFactory, type FactorySettings } from '../FactoryProvider';
-import useStore from '../store';
+import { Button, Field, Fieldset, Input, Label, Menu, MenuButton, MenuItem, MenuItems, Radio, RadioGroup } from '@headlessui/react';
+import { ClockIcon, PlusIcon } from '@heroicons/react/24/solid';
+import { useCallback, useState, type ChangeEvent } from 'react';
+
+import { SelectorDialog } from 'app/components/Dialog';
+import { useFactory } from 'app/factory/FactoryProvider';
+import type { FactoryGoal } from 'app/factory/solver';
+import { loadProductData, type Product, type ProductId } from './loadJsonData';
 
 // const transformSelector = (state: any) => state.transform;
-const items = loadProductData();
+const productData = loadProductData();
 
 type props = {
-  selectAProduct: () => void;
   calcResults?: any;
-  outputs: FactorySettings["desiredOutputs"]
+  addNewRecipe: (productId: ProductId) => void
 };
 
-
-
-function SideBar({ selectAProduct, outputs, calcResults }: props) {
+function SideBar({ calcResults, addNewRecipe }: props) {
   // const transform = useStore(transformSelector);
-  const factory = useFactory().settings;
   const useStore = useFactory().useStore;
-  const constraints = useStore(state => state.constraints);
-  const recalc = useStore(state => state.graphChangeAction);
 
-  return (
+  const recalc = useStore(state => state.graphChangeAction);
+  const goals = useStore(state => state.constraints);
+
+  const [editGoal, setEditGoal] = useState<FactoryGoal | null>(null);
+  const addGoal = useCallback((goal: FactoryGoal): void => {
+    const exists = goals.findIndex(g => goal.productId == g.productId);
+    useStore.setState(state => {
+      if (exists !== -1)
+        state.constraints[exists] = goal;
+      else
+        state.constraints.push(goal);
+      return state;
+    });
+
+    setEditGoal(null);
+  }, [goals, useStore]);
+
+  const editGoalFor = (product: Product) => {
+    setEditGoal({
+      dir: "output",
+      type: "eq",
+      productId: product.id,
+      qty: 10
+    });
+  }
+
+  const [selectProductDialog, setSelectProductDialog] = useState(false);
+  const menuOptions = [{
+    label: "Edit",
+    onClick: (c: FactoryGoal) => ()=>setEditGoal(c)
+  },{
+    label: "Remove",
+    onClick: (goal: FactoryGoal) => ()=>{
+      // Filter for only constraints that don't match this product
+      console.log("removing", goal)
+      useStore.setState(state => ({
+        constraints: state.constraints.filter(c => c.productId !== goal.productId)
+      }))
+    }
+  },{
+    label: "Add Producer",
+    onClick: (goal: FactoryGoal)=>()=>addNewRecipe(goal.productId),
+  }]
+  return (<>
     <div className='sidebar h-full p-2 border-r-2 border-dotted border-gray-300 dark:border-gray-700'>
       <div className="title">Goals</div>
       <div className="bg-gray-800 
-        grid-holder p-2
-        grid gap-2 
-         
-        grid-cols-[repeat(auto-fit,minmax(40px,2fr))]">
-        {factory.desiredOutputs.map(desire => {
-          const fulfilled = constraints.openOutputs.findIndex(val => desire.id == val) > -1;
-          return <button className={`p-2 pb-0 text-center 
-                                  bg-gray-700 hover: bg-gray-900
-                                    rounded cursor-pointer
-                                    border-1 border-gray-500 ${fulfilled ? "bg-green-500" : "bg-red-500"}`}
-                                    >
-            <img className="inline-block" src={'/assets/products/' + items[desire.id].icon} />
-            <span className="text-xs text-shadow-xl text-shadow-black ">{desire.qty}</span>
-          </button>
+        flex-wrap p-2
+        flex gap-1
+        ">
+        {goals.map(c => {
+          const fulfilled = false;// constraints.openOutputs.findIndex(val => desire.id == val) > -1;
+          return <Menu>
+            <MenuButton className={`output-goal w-min max-w-20 flex-1 p-2 pb-0 text-center 
+                                  bg-gray-700 hover:bg-gray-900
+                                    rounded cursor-pointer 
+                                    border-1 border-gray-500 ${fulfilled ? "bg-green-700" : "bg-red-700"}`}
+            >
+
+              <img className="inline" src={'/assets/products/' + productData[c.productId].icon} />
+              <div className="w-full text-center text-xs text-shadow-xl text-shadow-black text-nowrap">
+                {(() => {
+                  switch (c.type) {
+                    case "eq":
+                      return "Exactly";
+                    case "lt":
+                      return "Max of";
+                    case "gt":
+                      return "Min of";
+                  }
+                })()} {c.qty}
+              </div>
+            </MenuButton>
+            <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded">
+              {menuOptions.map(m =>
+                <MenuItem onClick={m.onClick(c)} as="button" className="p-2 px-4 w-full text-center block border-b-1 border-gray-600 cursor-pointer data-focus:bg-blue-900">
+                  {m.label}
+                </MenuItem>
+              )}
+            </MenuItems>
+          </Menu>
         })}
-        <button onClick={selectAProduct} className="cursor-pointer bg-gray-700 rounded hover:bg-gray-900 focus:bg-gray-900 active:bg-gray-900 ">
+        <button onClick={() => setSelectProductDialog(true)} className="cursor-pointer bg-gray-700 rounded hover:bg-gray-900 focus:bg-gray-900 active:bg-gray-900 ">
           <div className="inline-flex text-center w-8 align-middle">
             <PlusIcon />
           </div>
@@ -57,31 +117,101 @@ function SideBar({ selectAProduct, outputs, calcResults }: props) {
         items-stetch justify-start-safe 
         grid-rows-[repeat(auto-fit,minmax(40px,50px))] 
         grid-cols-[repeat(auto-fit,minmax(40px,50px))]">
-        {constraints.openOutputs.map(input => {
+        {/* {constraints.openOutputs.map(input => {
           return <div className="p-2 text-center bg-gray-700">
             <img className="inline-block h-full" src={'/assets/products/' + items[input].icon} />
           </div>
-        })}
+        })} */}
       </div>
       <div className="subtitle">Required Inputs</div>
-            <div className="bg-gray-800 
+      <div className="bg-gray-800 
         grid-holder p-2
         grid gap-2 
         items-stetch justify-start-safe 
         grid-rows-[repeat(auto-fit,minmax(40px,50px))] 
         grid-cols-[repeat(auto-fit,minmax(40px,50px))]">
-        {constraints.openInputs.map(input => {
+        {/* {constraints.openInputs.map(input => {
           return <div className="p-2 text-center bg-gray-700">
             <img className="inline-block h-full" src={'/assets/products/' + items[input].icon} />
           </div>
-        })}
+        })} */}
       </div>
       <button className="p-4 m-4 bg-blue-500 cursor-pointer" onClick={recalc}>Recalc</button>
       <div className="results w-full overflow-auto text-xs">
         <pre>{JSON.stringify(calcResults, null, 2)}</pre>
       </div>
     </div>
-  );
+    {selectProductDialog ? (
+      <SelectorDialog title={"Select Product to make"} isOpen={selectProductDialog} setIsOpen={setSelectProductDialog}>
+
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,4fr))] gap-2 overflow-y-auto">
+          {(Object.keys(productData) as ProductId[]).map((key) => {
+            const item = productData[key]
+            return (<div key={item.id} className="">
+              <div id={"tooltip-" + item.id} role="tooltip" className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                {item.name}
+                <div className="tooltip-arrow" data-popper-arrow></div>
+              </div>
+              <button
+                data-tooltip-target={"tooltip-" + item.id}
+                className="bg-transparent hover:bg-gray-500 hover:border hover:border-black-500 rounded block"
+                onClick={() => editGoalFor(item)}
+              ><img src={'/assets/products/' + item.icon} alt={item.name} className="inline-block p-2" />
+              </button>
+            </div>)
+          })}
+        </div>
+      </SelectorDialog>
+
+    ) : ("")}
+    {editGoal ? (
+      <SelectorDialog title={"Change " + productData[editGoal.productId].name + " Goal"} isOpen={editGoal !== null} setIsOpen={() => setEditGoal(null)}>
+        <NewProductOptions addGoal={addGoal} goal={editGoal} />
+      </SelectorDialog>
+    ) : ("")}
+  </>);
 };
 
-export default memo(SideBar);
+type NewProductOptionsProps = {
+  goal: FactoryGoal,
+  addGoal: (goal: FactoryGoal) => void,
+}
+function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
+  const [goalData, setGoalData] = useState(goal);
+
+  const updateState = (e: ChangeEvent<HTMLInputElement>) => {
+    const prop = e.target.name;
+    if (!prop) return;
+    setGoalData(d => ({ ...d, [prop]: (e.target.value) }));
+  }
+  return <>
+    <Fieldset className="w-full min-h-50 flex flex-col gap-4">
+
+      {/* <RadioGroup className="flex justify-stretch w-full gap-2"> */}
+      <RadioGroup name="type" value={goalData.type} onChange={v => setGoalData(d => ({ ...d, type: v }))} className="flex justify-stretch w-full gap-2">
+        {[["Minimum of", "gt"], ["Exactly", "eq"], ["Maximum of", "lt"]].map(r => (
+          <Field className="flex-1 justify-around gap-2">
+            <Radio key={r[1]} value={r[1]} className="group block rounded border-1 data-checked:border-2 border-gray-700 data-checked:bg-teal-900 w-full h-full">
+              <Label >{r[0] + " " + goalData.qty}</Label>
+            </Radio>
+          </Field>
+        ))}
+
+      </RadioGroup>
+      <Field className="flex gap-2 justify-center align-middle">
+        <Label className="p-1">Amount</Label>
+        <Input value={goalData.qty} onChange={updateState} className="bg-gray-600 p-1 w-[6rem]" name="qty" type="number" placeholder="50" />
+        <span className="text-xs mt-2 text-gray-400">
+          60 <ClockIcon className="inline w-4 pb-1  text-gray-500" />
+        </span>
+      </Field>
+      <Field>
+        <Button onClick={() => { addGoal(goalData) }} className="addItemAsGoal p-2 px-8 cursor-pointer mt-8 hover:bg-gray-900 rounded bg-gray-700 border-2 border-gray-500">Save</Button>
+      </Field>
+    </Fieldset>
+  </>
+}
+
+
+
+export default SideBar;
