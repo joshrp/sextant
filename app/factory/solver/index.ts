@@ -5,6 +5,8 @@ import type { CustomNodeType } from '../graph/nodes';
 import type { CustomEdgeType } from '../graph/edges';
 import { loadProductData, loadRecipeData, type Product, type ProductId, type Recipe } from '../graph/loadJsonData';
 
+export type EqualityTypes = "eq" | "gt" | "lt";
+
 export default class Solver {
   constructor(highs: HighsType) {
     // Initialize the solver here if needed
@@ -56,10 +58,10 @@ export const useHighs = () => {
 export type NodeConnection = {
   recipe: Recipe,
   inputs: {
-    [k in ProductId]?: { nodeId: string, edgeId?: string }[]
+    [k in ProductId]?: { nodeId: string, edgeId: string }[]
   },
   outputs: {
-    [k in ProductId]?: { nodeId: string, edgeId?: string }[]
+    [k in ProductId]?: { nodeId: string, edgeId: string }[]
   }
 };
 export type NodeConnections = Record<string, NodeConnection>;
@@ -152,28 +154,27 @@ const debug = (...args: any[]) => {
     console.debug(...args);
 }
 
+// Every constraint needs to know what to add and subtract, what item it's for and which nodes they came from
+// The constraint "label" in LPP will be the item (+ a uniq), while the nodes will be the variables (the recipe / building)
+type Constraint = {
+  id: string,
+  productId: ProductId,
+  edges: Set<string>,
+  type: EqualityTypes,
+  unconnected: boolean,
+  terms: ({
+    nodeId?: string,
+    id: string,
+    term: string,
+  })[],
+};
+
 export const buildLpp = (nodeConnections: NodeConnections, openConnections: OpenConnections, goals: FactoryGoal[]) => {
-  // To build a constrain for an item we need to know all the usages that are linked together. 
+  // To build a constraint for an item we need to know all the usages that are linked together. 
   // For simple a->b paths that is a - b = 0
   // For one to many paths a->[b,c] that is a - b - c = 0
-  // For many to many we need to walk the tree, finding connections on either end and adding them to the constraint.
 
-  // Every constraint needs to know what to add and subtract, what item it's for and which nodes they came from
-  // The constraint "label" in LPP will be the item (+ a uniq), while the nodes will be the variables (the recipe / building)
-  type Constraint = {
-    id: string,
-    productId: ProductId,
-    edges: Set<string>,
-    terms: ({
-      nodeId?: string,
-      id: string,
-      term: string
-    })[],
-  };
   const constraints: Map<string, Constraint> = new Map();
-
-  // Which edges ends (vertices) have already appeared in constraints (via walking)
-  const vertexInConstraints: Record<string, string> = {};
 
   // Get an LPP appropriate label for a node ID. They can't be long or contain some chars
   // They need a consistent label among all terms though so it needs storing somewhere
@@ -181,169 +182,241 @@ export const buildLpp = (nodeConnections: NodeConnections, openConnections: Open
   let nodeLabelInc = 0;
   const getNodeLabel = (node: string) => (nodeIdToLabels[node] ||= "n_" + nodeLabelInc++, nodeIdToLabels[node]);
 
-  const walkConnections = (nodeId: string, productId: ProductId, isInput: boolean, constraintId: string): {
-    terms: Constraint["terms"],
-    edges: string[],
-  } => {
-    const response: ReturnType<typeof walkConnections> = { terms: [], edges: [] };
+  const getTerm = (nodeId: string, productId: ProductId, isInput: boolean): Constraint["terms"][0] | null => {
     const ioString = isInput ? "inputs" : "outputs";
-    const connections = nodeConnections[nodeId][ioString][productId];
-
-    const vertextId = `${nodeId}/${ioString}/${productId}`;
-
-    if (vertexInConstraints[vertextId] !== undefined) return response;
-    vertexInConstraints[vertextId] = constraintId;
 
     const recipeQty = nodeConnections[nodeId].recipe[ioString].find(p => productId == p.id)?.quantity
     if (!recipeQty) {
       console.error('Could not find recipe quantity for', productId, 'as', ioString, 'on', nodeId);
-      return response;
+      return null;
     }
 
-    response.terms.push({
+    return {
       id: getNodeLabel(nodeId),
       nodeId: nodeId,
       term: (isInput ? "-" : "+") + recipeQty
-    });
-
-    connections?.forEach(conn => {
-      if (conn.edgeId)
-        response.edges.push(conn.edgeId);
-      // Get all the connections on the otherside of this edge
-      // If we're processing an input, we're getting all their outputs, and vice versa.
-      const nextConnection = walkConnections(conn.nodeId, productId, !isInput, constraintId);
-      response.terms.push(...nextConnection.terms);
-      response.edges.push(...nextConnection.edges);
-    })
-
-    return response;
+    };
   }
-
-  const itemConstraints: {
-    [k in ProductId]?: string
-  } = {};
-
-  const openConstraintSinks: string[] = [];
-  const closedConstraintSinks: string[] = [];
 
   /**
    * Open items in the graph need a meta constraint that binds all their inputs / outputs into one final variable.
    * This is build over time and stored in itemConstraints for reference later
    */
-  const addItemConstraint = (productId: ProductId, isInput: boolean, parentConstraintId: string) => {
-    const ioString = isInput ? "input" : "output";
-    const itemConstraintId = productId + "_" + ioString + "_sink";
-
-    if (!constraints.has(itemConstraintId)) {
-      itemConstraints[productId] = itemConstraintId;
-      constraints.set(itemConstraintId, {
+  const upsertConstraint = (id: string, productId: ProductId) => {
+    let constraint: Constraint | undefined = constraints.get(id);
+    if (!constraint) {
+      constraint = {
         terms: [],
-        id: itemConstraintId,
+        id: id,
         edges: new Set<string>(), // These item "meta" constraints should never have edges, by definition.
-        productId: productId
-      })
-      constraints.get(itemConstraintId)?.terms.push({
-        id: itemConstraintId,
+        productId: productId,
+        // Item sinks should balance to zero.
+        // This lets the sink variable expose what is required to acheive balance
+        type: "eq",
+        unconnected: false,
+      };
+
+      // Add a sink for this constraint for problem solving later. They are pinned to 0 by default.
+      // This term is negated compared to the others so that the sink can balance 
+      // the ins/outs of this constraint back to 0.  
+      constraint.terms.push({
+        id: id,
         term: "-"
       });
-      debug('Added new item constraint for', productId, constraints.get(itemConstraintId))
-      // If this product isn't a goal, it's free to vary 
-      if (goals.findIndex(g => g.productId == productId) == -1)
-        openConstraintSinks.push(itemConstraintId);
+
+      constraints.set(id, constraint);
+      debug('Added new item constraint for', productId, constraint)
     }
 
-    constraints.get(itemConstraintId)?.terms.push({
-      id: parentConstraintId + "_sink",
-      term: isInput ? "-" : "+"
-    })
-    openConstraintSinks.push(parentConstraintId + "_sink");
+    return constraint;
   }
 
-  const newConstraint = (nodeId: string, productId: ProductId, isInput: boolean) => {
-    const constraintId = `c${constraintIdInc++}`;
+  const visitedVertices: Set<string> = new Set();
+  const makeVertexId = (node: string, io: string, product: string) => {
+    return `${node}/${io}/${product}`
+  }  
 
-    const { terms, edges } = walkConnections(nodeId, productId, isInput, constraintId);
-    if (terms.length) {
-      // These terms are opposite so the sink can balance out the ins/outs of this constraint    
-      terms.push({
-        id: constraintId + "_sink",
-        term: isInput ? "+" : "-"
-      });
+  const itemConstraints: {
+    [k in ProductId]?: string
+  } = {};
 
-      constraints.set(constraintId, {
-        id: constraintId,
-        productId,
-        edges: new Set(edges),
-        terms
-      });
+  /** 
+   * Some terms:
+   * Node - A box on the graph, almost always a Recipe Node (others planned)
+   * Vertex - A single input / output product on a node,
+   * Edge - A connection between vertices
+   * "NodeConnections" / "Connections" a graph structure built from nodes & edges
+   * 
+   * 3 ways this can go
+   * 
+   * 1. 0 connections
+   *   !! add to open item constraint
+   * 
+   * 2. only 1 connection
+   *     other side has 1 connection
+   *      !! add = 0 constraint
+   *     other side has many
+   *       run again for other side ( will skip to 3.)
+   * 3. many connections
+   *     is only part of the loop (otherside also has many connections)
+   *       !! add < or > constraint
+   *       !! add flag for loop finding later on
+   *     is whole closed loop
+   *       !! add = 0 constraint
+  */
+  const addDirectConstraints = (nodeId: string, productId: ProductId, isInput: boolean, groupConstraintId: string | null = null) => {
 
-      // If it's an open connection (nothing attached), 
-      // it needs a meta constraint adding, for tracking across multiple nodes
-      // if not, it needs bounding to 0 until we WANT it to be free
-      const ioString = isInput ? "inputs" : "outputs";
-      const connections = nodeConnections[nodeId]?.[ioString][productId];
-      debug('Checking', nodeId, 'for', productId, 'as', ioString, nodeConnections[nodeId][ioString][productId]);
+    const ioString = isInput ? "inputs" : "outputs";
+    const ioStringOpp = isInput ? "outputs" : "inputs"
 
-      if (connections && connections.length == 0)
-        addItemConstraint(productId, isInput, constraintId)
-      else
-        closedConstraintSinks.push(constraintId);
+    const vertextId = makeVertexId(nodeId, ioString, productId);
+    // We've seen this before
+    if (visitedVertices.has(vertextId)) { debug('Skipping vertex', vertextId); return; }
+    visitedVertices.add(vertextId);
+    debug('Processing vertex', vertextId);
+
+    const connections = nodeConnections[nodeId]?.[ioString][productId];
+    const myTerm = getTerm(nodeId, productId, isInput);
+    if (!myTerm) return;
+
+    // No connections means it's an open input/output
+    // These are collated across all graphs for matching goals and reporting by-products and input needs
+    if (!connections || connections?.length == 0) {
+      debug('Open Item', vertextId);
+      const itemConstraintId = ioString.slice(0,1) + "_" + productId;
+      const constraint = upsertConstraint(itemConstraintId, productId);
+      itemConstraints[productId] = itemConstraintId;
+
+      constraint.unconnected = true;
+      constraint.terms.push(myTerm);
+      return;
     }
-    debug("Constraint", constraintId, constraints.get(constraintId));
+
+    const oppositeConnections = nodeConnections[connections[0].nodeId][ioStringOpp][productId];
+    if (oppositeConnections === undefined) return;
+
+    // If we only have 1 connection it's either a closed 1-1, OR our neighbour has many
+    // If it's a 1-1 it should balance to 0,
+    // otherwise it needs to be loose
+    if (connections.length == 1) {
+      const constraint = upsertConstraint(`c${constraintIdInc++}`, productId);
+      constraint.terms.push(myTerm);
+
+      const otherTerm = getTerm(connections[0].nodeId, productId, !isInput);
+      if (otherTerm) constraint.terms.push(otherTerm);
+      constraint.edges.add(connections[0].edgeId);
+
+      if (oppositeConnections.length > 1) {
+        constraint.type = isInput ? "gt" : "lt";
+
+        debug("I have 1 connection, they have more");
+        addDirectConstraints(connections[0].nodeId, productId, !isInput);
+      }
+      return;
+    }
+
+    let groupConstraint: Constraint | null = null;
+    // A group constraint is required if we're part of a larger loop
+    // If an ID was passed in, continue with that one, 
+    // otherwise check if one is needed and make it, then pass it around
+    if (groupConstraintId) {
+      debug('Using GROUP constraint', groupConstraintId);
+      groupConstraint = upsertConstraint(groupConstraintId, productId);
+    } else {
+      // Check all my connections, if they have more than 1, start a group chat (constraint)      
+      if (connections.some(conn => (nodeConnections[conn.nodeId][ioStringOpp][productId] || []).length > 1)) {
+        groupConstraintId = `c_${productId}_${constraintIdInc++}`;
+        debug('Creating GROUP constraint', groupConstraintId);
+        groupConstraint = upsertConstraint(groupConstraintId, productId);
+        groupConstraint.terms.push(myTerm);
+        groupConstraint.type = "eq";
+      }
+    }
+
+    const myConstraint = upsertConstraint(`c${constraintIdInc++}`, productId);
+    myConstraint.terms.push(myTerm);
+
+    // If there's a larger constraint this one should be variable
+    if (groupConstraint) myConstraint.type = isInput ? "gt" : "lt";
+
+    connections.forEach(conn => {
+      const term = getTerm(conn.nodeId, productId, !isInput);
+
+      myConstraint?.edges.add(conn.edgeId);
+      groupConstraint?.edges.add(conn.edgeId);
+
+      if (groupConstraint && term) {
+        const otherVertex = makeVertexId(conn.nodeId, ioStringOpp, productId);
+        // Only add the term if the other vertex hasn't ran through processing
+        if (!visitedVertices.has(otherVertex)) {
+          debug("adding term to group", term);
+          groupConstraint?.terms.push(term);
+        }
+      }
+
+      if (term) myConstraint?.terms.push(term);
+
+      addDirectConstraints(conn.nodeId, productId, !isInput, groupConstraintId);
+    });
   }
 
   // Loop all the inputs and outputs found in nodeConnections 
   let constraintIdInc = 0;
   for (const nodeId of Object.keys(nodeConnections)) {
     for (const productId of Object.keys(nodeConnections[nodeId].inputs) as ProductId[]) {
-      newConstraint(nodeId, productId, true);
+      addDirectConstraints(nodeId, productId, true);
     }
 
     for (const productId of Object.keys(nodeConnections[nodeId].outputs) as ProductId[]) {
-      newConstraint(nodeId, productId, false);
+      addDirectConstraints(nodeId, productId, false);
     }
   }
 
-  const objective = getKeysTyped(openConnections.inputs).map(i => itemConstraints[i]).join('+')
-  let constraintsList = '';
+  const getEquality = (type: EqualityTypes) => {
+    switch (type) {
+      case "eq":
+        return "=";
+      case "gt":
+        return ">=";
+      case "lt":
+        return "<=";
+    }
+  }
+  const objectives = Object.values(nodeIdToLabels);
+  let boundsList = [];
+  let constraintsList = [];
   for (const con of constraints.values()) {
-    constraintsList += `
-      ${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} = 0`;
+    constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} ${getEquality(con.type)} 0`);
+
+    // // If this product is a goal, it will have a bound set elsewhere
+    // if (goals.findIndex(g => g.productId == con.productId) !== -1)
+    //   continue;
+
+    if (con.unconnected)
+      boundsList.push(`${con.id} free`);
+    else
+      boundsList.push(`${con.id} = 0`);
   };
 
-  let boundsList = openConstraintSinks.map(c => `${c} free`).join('\n');
-
-  // let boundsList = getKeysTyped(itemConstraints).map(id => {
-  //   if (itemConstraints[id] === undefined) return;
-  //   const constraint = constraints.get(itemConstraints[id]);
-  //   return constraint?.terms.map(t => {
-  //     return `  ${t.id} free`
-  //   }).join('\n')
-  // }).join('\n');
-
-  boundsList += "\n" + closedConstraintSinks.map(b => `${b}_sink = 0`).join('\n');
-
+  // Keep track of missed goals to flag them
   const missedGoals: string[] = [];
-  boundsList += "\n" + goals.map(g => {
+  boundsList.push(...goals.map(g => {
     if (itemConstraints[g.productId] === undefined) {
       missedGoals.push(g.productId);
       return
     }
     return `${itemConstraints[g.productId]} ${g.type == "lt" ? "<=" : g.type == "gt" ? ">=" : "="} ${g.qty}`
-  }).join("\n");
+  }))
 
   let lpp = `
-max
-  obj: ${objective}
+min
+  obj: ${objectives.join('+')}
 subject to 
-  ${constraintsList}
+  ${constraintsList.join("\n")}
 Bounds 
-  ${boundsList}
+  ${boundsList.join("\n")}
 end`;
 
-  return { constraints, lpp, nodeIdToLabels, closedConstraintSinks, missedGoals };
+  return { constraints, lpp, nodeIdToLabels, missedGoals };
 }
 
-function getKeysTyped<T extends {}>(obj: T): (keyof T)[] {
-  return Object.keys(obj) as (keyof typeof obj)[];
-}

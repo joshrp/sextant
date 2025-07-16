@@ -2,10 +2,9 @@ import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
 import { memo, useEffect, useState } from 'react';
 import { loadProductData, loadRecipeData, type RecipeId } from './loadJsonData';
 import { useFactory } from '../FactoryProvider';
+import { TrashIcon } from '@heroicons/react/24/outline';
 
 let LANG = "en-GB";
-
-console.log('LANG', LANG)
 
 const recipeData = loadRecipeData();
 const productData = loadProductData();
@@ -27,7 +26,7 @@ export type RecipeNode = Node<RecipeNodeData>;
 
 function RecipeNode(props: NodeProps<RecipeNode>) {
   const recipe = recipeData[props.data.recipeId];
-  
+
   useEffect(() => {
     if (typeof window !== undefined)
       LANG = window.navigator.language;
@@ -36,7 +35,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   const solution = props.data.solution;
   let mult = 1;
   if (solution?.solved && solution.runCount !== undefined) {
-    
+
     mult = solution.runCount;
   }
   const getQuantityDisplay = (qty: number) => {
@@ -45,8 +44,12 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   const removeNode = useFactory().useStore(state => state.removeNode);
   return (
     <div className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
-      <div className="">{recipe.name}<button onClick={() => removeNode(props.id)}>Del</button></div>
-
+      <div className="recipe-node-title-bar flex justify-between">
+        <div className="flex-10 justify-start">{recipe.name}</div>
+        <div className="flex-1 justify-end-safe text-right"><button onClick={() => removeNode(props.id)}>
+          <TrashIcon className='w-6 text-red-700'/>  
+        </button></div>
+      </div>
       <div className="products flex flex-row justify-between mt-4">
         <div className="recipe-inputs flex-2 items-start relative -left-8">
           {recipe.inputs.map((input, index) => {

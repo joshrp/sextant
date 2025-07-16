@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { SelectorDialog } from 'app/components/Dialog';
 import Graph from "app/factory/graph/graph";
 import Sidebar from "app/factory/graph/sidebar";
-import { buildLpp, useHighs } from "app/factory/solver/index";
+import { buildLpp, useHighs, type FactoryGoal } from "app/factory/solver/index";
 import {
   loadMachineData,
   loadProductData,
@@ -20,12 +20,32 @@ const recipeData = loadRecipeData();
 const machineData = loadMachineData();
 const productData = loadProductData();
 
+export type Solution = {
+  status: "Solved" | "Infeasible" | "Error",
+  errorMessage?: string,
+  goals?: {
+    goal: FactoryGoal,
+    resultCount: number,
+  }[],
+  products?: {
+    inputs: { productId: ProductId, amount: number }[]
+    outputs: { productId: ProductId, amount: number }[]
+  },
+  nodeCounts?: { nodeId: string, count: number }[]
+  freeableConstraints?: {
+    id: string,
+    product: ProductId,
+  }[]
+}
+
 export type FactoryProps = {
 }
 const nodeLabelMatcher = /^n_\d+/;
+const inputMatcher = /^i_(.+)$/;
+const outputMatcher = /^o_(.+)$/;
 export function Factory({ }: FactoryProps) {
   const { highs, loading: loadingHighs } = useHighs();
-  const [calcResults, setCalcResults] = useState({});
+  const [calcResults, setCalcResults] = useState<Solution | null>(null);
 
   const factory = useFactory();
   const factorySettings = factory.settings;
@@ -55,37 +75,78 @@ export function Factory({ }: FactoryProps) {
       })
       if (lpp) {
         console.log('Running Solver:', lpp)
-        console.log('LPP:',lpp.lpp)
-        const res = highs.solve(lpp.lpp) as any; // No idea how to do the typing on this one
+        console.log('LPP:', lpp.lpp)
+        let res: ReturnType<typeof highs.solve> | null = null;
+        try {
+          res = highs.solve(lpp.lpp); // No idea how to do the typing on this one
+        } catch (e) {
+          console.error('Error solving LPP');
+          console.error(e);
+        }
 
-        const simpleResults: { [k: string]: number } = {};
-        const nodeResults: [string, number][] = [];
-        Object.keys(res.Columns).forEach(k => { 
+        if (res == null) {
+          setCalcResults({
+            status: "Error",
+            errorMessage: lpp.lpp
+          })
+          return;
+        };
+        console.log(res);
+        const nodeResults: Solution["nodeCounts"] = [];
+        const productResults: Solution["products"] = { inputs: [], outputs: [] };
+        Object.keys(res.Columns).forEach(k => {
           const nodeLabel = k.match(nodeLabelMatcher)?.[0]
-          const node = Object.keys(lpp.nodeIdToLabels).find(l => lpp.nodeIdToLabels[l] == nodeLabel);
-          if (nodeLabel && node) nodeResults.push([node, res.Columns[nodeLabel].Primal]);
-          
-          simpleResults[k] = res.Columns[k].Primal 
+          if (nodeLabel) {
+            const node = Object.keys(lpp.nodeIdToLabels).find(l => lpp.nodeIdToLabels[l] == nodeLabel);
+            if (node) nodeResults.push({
+              nodeId: node,
+              count: res.Columns[nodeLabel].Primal,
+            });
+          }
+
+          const outputLabel = k.match(outputMatcher)?.[1]
+          if (outputLabel)
+            productResults?.outputs.push({
+              productId: outputLabel,
+              amount: res.Columns[k].Primal
+            });
+
+          const inputLabel = k.match(inputMatcher)?.[1]
+          if (inputLabel)
+            productResults?.inputs.push({
+              productId: inputLabel,
+              amount: res.Columns[k].Primal
+            });
         })
 
-        const calc = {
+        const calc: Solution = {
           status: res.Status,
-          items: simpleResults,
-          cols: res.Columns,
-          nodeResults
+          errorMessage: '',
+          goals: goals.map(goal => {
+            const columnPrefix = goal.dir == "input" ? "i" : "o";
+            return {
+              goal,
+              resultCount: res.Columns[columnPrefix + "_" + goal.productId]
+            };
+          }),
+          products: productResults,
+          nodeCounts: nodeResults,
+          freeableConstraints: [], // TODO
         }
+
         setCalcResults(calc);
         setNodeRunAmount(nodeResults);
-        
       }
     }
   }, [nodeConnections, goals]);
 
-  const setNodeRunAmount = (results: [string, number][]) => {
-    results.forEach(([node, amount]) => setNodeData(node, {solution: {
-      solved: true,
-      runCount: amount
-    }}));
+  const setNodeRunAmount = (results: Solution["nodeCounts"]) => {
+    results?.forEach(res => setNodeData(res.nodeId, {
+      solution: {
+        solved: true,
+        runCount: res.count
+      }
+    }));
   }
 
   // const [isOpen, setIsOpen] = useState(false);
@@ -119,8 +180,8 @@ export function Factory({ }: FactoryProps) {
 
   return (
     <div className="h-[90vh] flex flex-row w-full" >
-      <div className="h-full w-[30vw] resize-x overflow-x-hidden w-max-[50vw]">
-        <Sidebar calcResults={calcResults} addNewRecipe={addNewRecipe}/>
+      <div className="h-full w-[20vw] resize-x overflow-x-hidden w-max-[50vw]">
+        <Sidebar calcResults={calcResults} addNewRecipe={addNewRecipe} />
       </div>
       <div className="flex-1 flex flex-col items-center gap-3 h-full">
         <ReactFlowProvider >

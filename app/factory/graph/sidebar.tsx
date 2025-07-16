@@ -6,12 +6,14 @@ import { SelectorDialog } from 'app/components/Dialog';
 import { useFactory } from 'app/factory/FactoryProvider';
 import type { FactoryGoal } from 'app/factory/solver';
 import { loadProductData, type Product, type ProductId } from './loadJsonData';
+import type { Solution } from '../factory';
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 // const transformSelector = (state: any) => state.transform;
 const productData = loadProductData();
 
 type props = {
-  calcResults?: any;
+  calcResults: Solution | null;
   addNewRecipe: (productId: ProductId) => void
 };
 
@@ -48,38 +50,36 @@ function SideBar({ calcResults, addNewRecipe }: props) {
   const [selectProductDialog, setSelectProductDialog] = useState(false);
   const menuOptions = [{
     label: "Edit",
-    onClick: (c: FactoryGoal) => ()=>setEditGoal(c)
-  },{
+    onClick: (c: FactoryGoal) => () => setEditGoal(c)
+  }, {
     label: "Remove",
-    onClick: (goal: FactoryGoal) => ()=>{
+    onClick: (goal: FactoryGoal) => () => {
       // Filter for only constraints that don't match this product
       console.log("removing", goal)
       useStore.setState(state => ({
         constraints: state.constraints.filter(c => c.productId !== goal.productId)
       }))
     }
-  },{
+  }, {
     label: "Add Producer",
-    onClick: (goal: FactoryGoal)=>()=>addNewRecipe(goal.productId),
+    onClick: (goal: FactoryGoal) => () => addNewRecipe(goal.productId),
   }]
   return (<>
     <div className='sidebar h-full p-2 border-r-2 border-dotted border-gray-300 dark:border-gray-700'>
       <div className="title">Goals</div>
-      <div className="bg-gray-800 
-        flex-wrap p-2
-        flex gap-1
-        ">
+      <div className="bg-gray-800">
         {goals.map(c => {
           const fulfilled = false;// constraints.openOutputs.findIndex(val => desire.id == val) > -1;
           return <Menu>
-            <MenuButton className={`output-goal w-min max-w-20 flex-1 p-2 pb-0 text-center 
+            <MenuButton className={`output-goal w-full p-2 flex h-10 my-1
                                   bg-gray-700 hover:bg-gray-900
                                     rounded cursor-pointer 
-                                    border-1 border-gray-500 ${fulfilled ? "bg-green-700" : "bg-red-700"}`}
+                                    border-1 border-gray-500 ${fulfilled ? "bg-green-900" : "bg-red-950"}`}
             >
-
-              <img className="inline" src={'/assets/products/' + productData[c.productId].icon} />
-              <div className="w-full text-center text-xs text-shadow-xl text-shadow-black text-nowrap">
+              <div className="flex-1 justify-self-start">
+                <img className="h-full" src={'/assets/products/' + productData[c.productId].icon} />
+              </div>
+              <div className="w-full flex-1 justify-self-end-safe text-right text-xs text-nowrap">
                 {(() => {
                   switch (c.type) {
                     case "eq":
@@ -108,38 +108,50 @@ function SideBar({ calcResults, addNewRecipe }: props) {
         </button>
 
       </div>
-      <div className="title">Results</div>
-      <div className="subtitle">Extra Outputs</div>
+      <div className="subtitle">By Products</div>
 
-      <div className="bg-gray-800 
-        grid-holder p-2
-        grid gap-2 
-        items-stetch justify-start-safe 
-        grid-rows-[repeat(auto-fit,minmax(40px,50px))] 
-        grid-cols-[repeat(auto-fit,minmax(40px,50px))]">
-        {/* {constraints.openOutputs.map(input => {
-          return <div className="p-2 text-center bg-gray-700">
-            <img className="inline-block h-full" src={'/assets/products/' + items[input].icon} />
+      <div className="bg-gray-800 p-2">
+        {calcResults?.products?.outputs.map(output => {
+          const goal = goals.find(g => g.productId === output.productId && g.dir == "output");
+          let amount = output.amount;
+          let isSurplus = false;
+          if (goal) {
+            amount -= goal.qty;
+            isSurplus = true;
+          }
+          if (amount <= 0) return;
+
+          return <div className={`"output-goal w-full p-2 flex h-10 my-1
+                                bg-gray-700 hover:bg-gray-900
+                                rounded cursor-pointer 
+                                border-1 border-gray-500 ${isSurplus ? "bg-green-900" : ""}`}>
+            <img className="flex-1 h-full justify-self-start" src={'/assets/products/' + productData[output.productId].icon} />
+            <span className="flex-8 justify-self-end-safe text-right">{amount} {isSurplus ? "extra" : ""}</span>
           </div>
-        })} */}
+        })}
       </div>
-      <div className="subtitle">Required Inputs</div>
-      <div className="bg-gray-800 
-        grid-holder p-2
-        grid gap-2 
-        items-stetch justify-start-safe 
-        grid-rows-[repeat(auto-fit,minmax(40px,50px))] 
-        grid-cols-[repeat(auto-fit,minmax(40px,50px))]">
-        {/* {constraints.openInputs.map(input => {
-          return <div className="p-2 text-center bg-gray-700">
-            <img className="inline-block h-full" src={'/assets/products/' + items[input].icon} />
+      <div className="subtitle">Inputs</div>
+      <div className="bg-gray-800 p-1">
+        {calcResults?.products?.inputs.map(input => {
+          // const goal = goals.find(g => g.productId === input.productId && g.dir == "input");
+          let amount = input.amount * -1;
+          let isSurplus = false;
+          // if (goal) {
+          //   amount -= goal.qty;
+          //   isSurplus = true;
+          // }
+          if (amount <= 0) return;
+
+          return <div className={`"input-goal w-full p-2 flex h-10 my-1
+                                bg-gray-700 hover:bg-gray-900
+                                rounded cursor-pointer 
+                                border-1 border-gray-500 ${isSurplus ? "bg-green-900" : ""}`}>
+            <img className="flex-1 h-full justify-self-start" src={'/assets/products/' + productData[input.productId].icon} />
+            <span className="flex-8 justify-self-end-safe text-right">{amount} {isSurplus ? "extra" : ""}</span>
           </div>
-        })} */}
+        })}
       </div>
-      <button className="p-4 m-4 bg-blue-500 cursor-pointer" onClick={recalc}>Recalc</button>
-      <div className="results w-full overflow-auto text-xs">
-        <pre>{JSON.stringify(calcResults, null, 2)}</pre>
-      </div>
+      <button className="h-10 py-1 w-20 mx-auto my-4 block bg-blue-500 cursor-pointer" onClick={recalc}><ArrowPathIcon className="mx-auto h-full"/></button>
     </div>
     {selectProductDialog ? (
       <SelectorDialog title={"Select Product to make"} isOpen={selectProductDialog} setIsOpen={setSelectProductDialog}>
