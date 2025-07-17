@@ -4,9 +4,8 @@ import { useCallback, useState, type ChangeEvent } from 'react';
 
 import { SelectorDialog } from 'app/components/Dialog';
 import { useFactory } from 'app/factory/FactoryProvider';
-import type { FactoryGoal } from 'app/factory/solver';
 import { loadProductData, type Product, type ProductId } from './loadJsonData';
-import type { Solution } from '../factory';
+import type { FactoryGoal, Solution } from '../solver/types';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 // const transformSelector = (state: any) => state.transform;
@@ -17,21 +16,27 @@ type props = {
   addNewRecipe: (productId: ProductId) => void
 };
 
+const icons = {
+  "gt": "\u2265",
+  "lt": "\u2264",
+  "eq": "\u003D"
+}
+
 function SideBar({ calcResults, addNewRecipe }: props) {
   // const transform = useStore(transformSelector);
   const useStore = useFactory().useStore;
 
   const recalc = useStore(state => state.graphChangeAction);
-  const goals = useStore(state => state.constraints);
+  const goals = useStore(state => state.goals);
 
   const [editGoal, setEditGoal] = useState<FactoryGoal | null>(null);
   const addGoal = useCallback((goal: FactoryGoal): void => {
     const exists = goals.findIndex(g => goal.productId == g.productId);
     useStore.setState(state => {
       if (exists !== -1)
-        state.constraints[exists] = goal;
+        state.goals[exists] = goal;
       else
-        state.constraints.push(goal);
+        state.goals.push(goal);
       return state;
     });
 
@@ -57,44 +62,51 @@ function SideBar({ calcResults, addNewRecipe }: props) {
       // Filter for only constraints that don't match this product
       console.log("removing", goal)
       useStore.setState(state => ({
-        constraints: state.constraints.filter(c => c.productId !== goal.productId)
+        goals: state.goals.filter(c => c.productId !== goal.productId)
       }))
     }
   }, {
     label: "Add Producer",
     onClick: (goal: FactoryGoal) => () => addNewRecipe(goal.productId),
   }]
+  
   return (<>
     <div className='sidebar h-full p-2 border-r-2 border-dotted border-gray-300 dark:border-gray-700'>
       <div className="title">Goals</div>
       <div className="bg-gray-800">
-        {goals.map(c => {
-          const fulfilled = false;// constraints.openOutputs.findIndex(val => desire.id == val) > -1;
+        {goals.map(goal => {       
+          const resultCount = calcResults?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
+
+          let fulfilled = false;
+          if (resultCount !== undefined) {
+            if (goal.type == "eq")
+              fulfilled = goal.qty == resultCount;
+            else if(goal.type == "lt")
+              fulfilled = goal.qty >= resultCount;
+            else if(goal.type == "gt")
+              fulfilled = goal.qty <= resultCount;
+          }
+
           return <Menu>
-            <MenuButton className={`output-goal w-full p-2 flex h-10 my-1
-                                  bg-gray-700 hover:bg-gray-900
+            <MenuButton as="div" className={`output-goal w-full gap-2 p-2 flex my-1
+                                  hover:bg-gray-900
                                     rounded cursor-pointer 
-                                    border-1 border-gray-500 ${fulfilled ? "bg-green-900" : "bg-red-950"}`}
+                                    border-1 border-gray-500  text-xs 
+                                    ${fulfilled ? "bg-green-900" : "bg-red-900"}
+                                    `}
             >
-              <div className="flex-1 justify-self-start">
-                <img className="h-full" src={'/assets/products/' + productData[c.productId].icon} />
+              <div className="flex-1 max-w-10 justify-self-start">
+                <img className="w-full" src={'/assets/products/' + productData[goal.productId].icon} />
               </div>
-              <div className="w-full flex-1 justify-self-end-safe text-right text-xs text-nowrap">
-                {(() => {
-                  switch (c.type) {
-                    case "eq":
-                      return "Exactly";
-                    case "lt":
-                      return "Max of";
-                    case "gt":
-                      return "Min of";
-                  }
-                })()} {c.qty}
+              <div className="flex-3 content-center-safe">{icons[goal.type]} {goal.qty}</div>
+              <div className="verticalRule self-stretch w-0.5 bg-neutral-500 opacity-50"></div>
+              <div className="w-full flex-2 content-center-safe justify-self-end-safe text-right text-nowrap">
+                {resultCount || ''}
               </div>
             </MenuButton>
             <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded">
               {menuOptions.map(m =>
-                <MenuItem onClick={m.onClick(c)} as="button" className="p-2 px-4 w-full text-center block border-b-1 border-gray-600 cursor-pointer data-focus:bg-blue-900">
+                <MenuItem onClick={m.onClick(goal)} as="button" className="p-2 px-4 w-full text-center block border-b-1 border-gray-600 cursor-pointer data-focus:bg-blue-900">
                   {m.label}
                 </MenuItem>
               )}

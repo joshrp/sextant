@@ -37,12 +37,15 @@ export default function Graph(props: GraphProps) {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore(
     useShallow(selector),
   );
-  
+
+  // Only fit viewport to nodes when we go from none to some,
+  // This could fire other times, but mostly it's just the page loading
+  const fit = nodes.length > 0;
   const { fitBounds } = useReactFlow();
   useEffect(()=> {fitBounds(getNodesBounds(nodes), {
-    padding: 0.4,
+    padding: 0.2,
     duration: 200
-  }); return;}, [fitBounds]);
+  }); return;}, [fitBounds, fit]);
 
   return (
     <ReactFlow<CustomNodeType, CustomEdgeType>

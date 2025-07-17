@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import Highs, { type Highs as HighsType } from "highs";
 
 import { SelectorDialog } from 'app/components/Dialog';
 import Graph from "app/factory/graph/graph";
 import Sidebar from "app/factory/graph/sidebar";
-import { buildLpp, useHighs, type FactoryGoal } from "app/factory/solver/index";
+import { type FactoryGoal } from "app/factory/solver/types";
 import {
   loadMachineData,
   loadProductData,
@@ -15,34 +16,14 @@ import {
 import { useFactory } from "./FactoryProvider";
 import RecipePicker from "./RecipePicker";
 import { ReactFlowProvider } from "@xyflow/react";
+import type { Solution } from "./solver/types";
 
 const recipeData = loadRecipeData();
 const machineData = loadMachineData();
 const productData = loadProductData();
 
-export type Solution = {
-  status: "Solved" | "Infeasible" | "Error",
-  errorMessage?: string,
-  goals?: {
-    goal: FactoryGoal,
-    resultCount: number,
-  }[],
-  products?: {
-    inputs: { productId: ProductId, amount: number }[]
-    outputs: { productId: ProductId, amount: number }[]
-  },
-  nodeCounts?: { nodeId: string, count: number }[]
-  freeableConstraints?: {
-    id: string,
-    product: ProductId,
-  }[]
-}
-
 export type FactoryProps = {
 }
-const nodeLabelMatcher = /^n_\d+/;
-const inputMatcher = /^i_(.+)$/;
-const outputMatcher = /^o_(.+)$/;
 export function Factory({ }: FactoryProps) {
   const { highs, loading: loadingHighs } = useHighs();
   const [calcResults, setCalcResults] = useState<Solution | null>(null);
@@ -54,91 +35,28 @@ export function Factory({ }: FactoryProps) {
   const addNode = useStore(state => state.addNode);
 
   const setNodeData = useStore(state => state.setNodeData);
-  const nodeConnections = useStore(state => state.nodeConnections);
-  const openConnections = useStore(state => state.openConnections);
-  const goals = useStore(state => state.constraints);
+  const solver = useStore(state => state.solver);
+  const goals = useStore(state => state.goals);
 
   useEffect(() => {
     // let solver: Solver | null = null;
-    if (!loadingHighs && nodeConnections && openConnections) {
-      console.log('Running Builder');
+    if (!loadingHighs && solver) {
       console.log({
-        nodeConnections,
-        openConnections,
+        solver,
         goals
       });
-      const lpp = buildLpp(nodeConnections, openConnections, goals);
-      goals.forEach(g => {
-        if (openConnections.inputs[g.productId]) {
-          throw new Error('One of your goal items has an unconstrained input. Cannot gurarantee output while also inputting the same item.');
-        }
-      })
-      if (lpp) {
-        console.log('Running Solver:', lpp)
-        console.log('LPP:', lpp.lpp)
-        let res: ReturnType<typeof highs.solve> | null = null;
-        try {
-          res = highs.solve(lpp.lpp); // No idea how to do the typing on this one
-        } catch (e) {
-          console.error('Error solving LPP');
-          console.error(e);
-        }
+      const solution = solver.solve(highs, goals);
+      // TODO Check these
+      // goals.forEach(g => {
+      //   if (openConnections.inputs[g.productId]) {
+      //     throw new Error('One of your goal items has an unconstrained input. Cannot gurarantee output while also inputting the same item.');
+      //   }
+      // })      
 
-        if (res == null) {
-          setCalcResults({
-            status: "Error",
-            errorMessage: lpp.lpp
-          })
-          return;
-        };
-        console.log(res);
-        const nodeResults: Solution["nodeCounts"] = [];
-        const productResults: Solution["products"] = { inputs: [], outputs: [] };
-        Object.keys(res.Columns).forEach(k => {
-          const nodeLabel = k.match(nodeLabelMatcher)?.[0]
-          if (nodeLabel) {
-            const node = Object.keys(lpp.nodeIdToLabels).find(l => lpp.nodeIdToLabels[l] == nodeLabel);
-            if (node) nodeResults.push({
-              nodeId: node,
-              count: res.Columns[nodeLabel].Primal,
-            });
-          }
-
-          const outputLabel = k.match(outputMatcher)?.[1]
-          if (outputLabel)
-            productResults?.outputs.push({
-              productId: outputLabel,
-              amount: res.Columns[k].Primal
-            });
-
-          const inputLabel = k.match(inputMatcher)?.[1]
-          if (inputLabel)
-            productResults?.inputs.push({
-              productId: inputLabel,
-              amount: res.Columns[k].Primal
-            });
-        })
-
-        const calc: Solution = {
-          status: res.Status,
-          errorMessage: '',
-          goals: goals.map(goal => {
-            const columnPrefix = goal.dir == "input" ? "i" : "o";
-            return {
-              goal,
-              resultCount: res.Columns[columnPrefix + "_" + goal.productId]
-            };
-          }),
-          products: productResults,
-          nodeCounts: nodeResults,
-          freeableConstraints: [], // TODO
-        }
-
-        setCalcResults(calc);
-        setNodeRunAmount(nodeResults);
-      }
+      setCalcResults(solution);
+      setNodeRunAmount(solution.nodeCounts);
     }
-  }, [nodeConnections, goals]);
+  }, [solver, goals]);
 
   const setNodeRunAmount = (results: Solution["nodeCounts"]) => {
     results?.forEach(res => setNodeData(res.nodeId, {
@@ -202,3 +120,27 @@ export function Factory({ }: FactoryProps) {
     </div>);
 }
 
+export const useHighs = () => {
+  const defaultUrl = "https://lovasoa.github.io/highs-js/";
+
+  const url = useRef('');
+  const [highs, setHighs] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  const load = async (url: string) => {
+    console.log("Loading Highs from", url);
+    return await Highs({ locateFile: (file: string) => url + file });
+  }
+
+  useEffect(() => {
+    console.log("useHighs effect", url.current, defaultUrl);
+    if (url.current !== defaultUrl) {
+      setLoading(true);
+      url.current = defaultUrl;
+      load(defaultUrl)
+        .then(exports => setHighs(exports))
+        .finally(() => setLoading(false))
+    }
+  }, [defaultUrl]);
+  return { highs, loading };
+}

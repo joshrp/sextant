@@ -2,8 +2,6 @@ import React, { createContext, useContext, useEffect, useState, type ReactNode }
 import type { ProductId } from "./graph/loadJsonData";
 import { LocalStorageProvider } from "./LocalStorageProvider";
 
-import { initialNodes, type CustomNodeType } from "./graph/nodes";
-import { initialEdges, type CustomEdgeType } from "./graph/edges";
 import useStore, { type FactoryStore } from "./store";
 
 export type FactorySettings = {
@@ -33,9 +31,9 @@ export const FactoryProvider = ({ children, id = "default-factory" }: { children
   // Init store with factory data
   const store = useStore({
     id: id,
-    edges: initialEdges, 
-    nodes: initialNodes, 
-    constraints: []
+    edges: [], 
+    nodes: [], 
+    goals: []
   });
 
   return (
