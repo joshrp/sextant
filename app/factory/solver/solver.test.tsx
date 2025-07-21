@@ -1,16 +1,10 @@
 import { expect, test, describe } from 'vitest'
-import Highs, { type Highs as HighsType } from "highs";
 
 import { initialNodes } from "../graph/nodes";
 import { initialEdges } from "../graph/edges";
 
-import Solver from './solver';
+import { buildLpp, createGraph, solve } from './solver';
 import type { FactoryGoal } from './types';
-
-const load = (async (url: string) => {
-  console.log("Loading Highs from", url);
-  return await Highs({ locateFile: (file: string) => url + file });
-})("node_modules/highs/build/");
 
 describe("Solver", () => {
   // test("Version 1 basic LPP check", () => {
@@ -43,18 +37,18 @@ describe("Solver", () => {
   // });
 
   test("Version 2 basic LPP check", async () => {
-    const solver = new Solver(initialNodes, initialEdges);
-    expect(solver.graph).not.toBeNull();
+    const graph = createGraph(initialNodes, initialEdges);
+    expect(graph).not.toBeNull();
     
-    const lpp = solver.buildLpp(basicGoals);
+    const lpp = buildLpp(graph, basicGoals, new Set<string>());
     expect(lpp).toEqual(basicLpp);
   });
 
   test("Version 2 basic LPP check", async () => {
-    const solver = new Solver(initialNodes, initialEdges);
-    expect(solver.graph).not.toBeNull();
+    const graph = createGraph(initialNodes, initialEdges);
+    expect(graph).not.toBeNull();
     
-    expect(solver.solve(await load, basicGoals)).not.toBeNull();
+    expect(solve(graph, basicGoals)).not.toBeNull();
   });
 
   

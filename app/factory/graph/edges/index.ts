@@ -1,4 +1,4 @@
-import type { BuiltInEdge, Edge, EdgeTypes } from "@xyflow/react";
+import type { EdgeTypes } from "@xyflow/react";
 
 import ButtonEdge, { type ButtonEdge as ButtonEdgeType } from "./ButtonEdge";
 

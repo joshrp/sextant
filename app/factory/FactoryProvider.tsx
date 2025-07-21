@@ -1,6 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import type { ProductId } from "./graph/loadJsonData";
-import { LocalStorageProvider } from "./LocalStorageProvider";
+import React, { createContext, useContext, type ReactNode } from "react";
 
 import useStore, { type FactoryStore } from "./store";
 
@@ -10,34 +8,25 @@ export type FactorySettings = {
   icon?: string;
 }
 
-const DEFAULT_SETTINGS: FactorySettings = {
-  id: "default-factory",
-  name: "Default",
-}
-
-type FactoryContextType =  LocalStorageProvider<FactorySettings> & {
+type FactoryContextType = {
   useStore: FactoryStore;
 };
 
 const FactoryContext = createContext<FactoryContextType | undefined>(undefined);
 
-const localstoragePrefix = "Factory_settings_" ;
-
 export const FactoryProvider = ({ children, id = "default-factory" }: { children: ReactNode, id: string }) => {
   console.log("FactoryProvider initialized for", id);
-
-  const {settings, updateSettings, resetSettings} = LocalStorageProvider(localstoragePrefix + id, DEFAULT_SETTINGS);
 
   // Init store with factory data
   const store = useStore({
     id: id,
     edges: [], 
     nodes: [], 
-    goals: []
+    goals: [],
   });
 
   return (
-    <FactoryContext.Provider value={{ settings, updateSettings, resetSettings, useStore: store }}>
+    <FactoryContext.Provider value={{ useStore: store }}>
       {children}
     </FactoryContext.Provider>
   );

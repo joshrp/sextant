@@ -3,7 +3,6 @@ import {
   Controls,
   MiniMap,
   ReactFlow,
-  type ReactFlowProps,
   useReactFlow,
   getNodesBounds
 } from "@xyflow/react";
@@ -17,10 +16,6 @@ import { useShallow } from "zustand/shallow";
 import { useFactory } from "../FactoryProvider";
 import { useEffect } from "react";
 
-export interface GraphProps extends ReactFlowProps<CustomNodeType, CustomEdgeType> {
-
-}
-
 const selector = (state: GraphStore) => ({
   nodes: state.nodes,
   edges: state.edges,
@@ -31,7 +26,7 @@ const selector = (state: GraphStore) => ({
   addNode: state.addNode,
 });
 
-export default function Graph(props: GraphProps) {
+export default function Graph() {
   const useStore = useFactory().useStore;
 
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore(
@@ -58,6 +53,9 @@ export default function Graph(props: GraphProps) {
       onConnect={onConnect}
       minZoom={0.1}
       colorMode="dark"
+      snapGrid={[20,20]}
+      
+      snapToGrid={true}
     >
       <Background />
       <MiniMap />

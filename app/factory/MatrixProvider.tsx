@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import type { ProductId } from "./graph/loadJsonData";
+import { createContext, useContext, type ReactNode } from "react";
 import { LocalStorageProvider } from "./LocalStorageProvider";
 
 type ProductionMatrixSettings = {

@@ -1,5 +1,5 @@
 import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect } from 'react';
 import { loadProductData, loadRecipeData, type RecipeId } from './loadJsonData';
 import { useFactory } from '../FactoryProvider';
 import { TrashIcon } from '@heroicons/react/24/outline';
@@ -28,18 +28,17 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   const recipe = recipeData[props.data.recipeId];
 
   useEffect(() => {
-    if (typeof window !== undefined)
+    if (typeof window !== "undefined")
       LANG = window.navigator.language;
   }, []);
 
   const solution = props.data.solution;
-  let mult = 1;
+  let runCount = 1;
   if (solution?.solved && solution.runCount !== undefined) {
-
-    mult = solution.runCount;
+    runCount = solution.runCount;
   }
   const getQuantityDisplay = (qty: number) => {
-    return (qty * mult).toLocaleString(LANG, { maximumFractionDigits: 1 });
+    return (qty * runCount).toLocaleString(LANG, { maximumFractionDigits: 1 });
   }
   const removeNode = useFactory().useStore(state => state.removeNode);
   return (
@@ -50,9 +49,10 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
           <TrashIcon className='w-6 text-red-700'/>  
         </button></div>
       </div>
+        <div className="w-full">x{runCount}</div>
       <div className="products flex flex-row justify-between mt-4">
         <div className="recipe-inputs flex-2 items-start relative -left-8">
-          {recipe.inputs.map((input, index) => {
+          {recipe.inputs.map(input => {
             const product = productData[input.id];
 
             return (<div className="recipe-input flex gap-1 mb-4" key={input.id} >
@@ -66,7 +66,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
           })}
         </div>
         <div className="recipe-outputs flex-2 items-end relative -right-16 ">
-          {recipe.outputs.map((output, index) => {
+          {recipe.outputs.map(output => {
             const product = productData[output.id];
 
             return (<div className="recipe-output flex gap-1 mb-4" key={output.id} >

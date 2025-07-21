@@ -19,7 +19,9 @@ const buttonStyle = {
   lineHeight: 1,
 };
 
-type ButtonEdgeData = {};
+type ButtonEdgeData = {
+  isManifold?: boolean
+};
 
 export type ButtonEdge = Edge<ButtonEdgeData> & {
   sourceHandle: ProductId,

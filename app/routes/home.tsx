@@ -1,8 +1,5 @@
-import type { Route } from "./+types/home";
 import { Factory } from "../factory/factory";
-import { ProductionMatrixProvider, useProductionMatrix } from "~/factory/MatrixProvider";
-import { use } from "react";
-import FactorySummary from "~/factory/summary";
+import { useProductionMatrix } from "~/factory/MatrixProvider";
 import { FactoryProvider, useFactory } from "~/factory/FactoryProvider";
 
 export function meta() {
@@ -27,11 +24,11 @@ export default function Home() {
 }
 
 function Header() {
-  const selected = useFactory();
+  const name = useFactory().useStore(state => state.name);
   
   return <header className="flex flex-col items-center gap-3 h-[10vh]">
     <div className="max-w-[100vw] p-4">
-      Factory {selected.settings.name}
+      Factory {name}
     </div>
   </header>
 }

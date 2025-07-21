@@ -30,7 +30,7 @@ export type FactoryGoal = {
 export type Constraint = {
   id: string,
   productId: ProductId,
-  edges: Set<string>,
+  edges: {[k: string]: boolean},
   type: EqualityTypes,
   unconnected: boolean,
   terms: ({
@@ -39,7 +39,6 @@ export type Constraint = {
     term: string,
   })[],
 };
-
 
 export type Solution = {
   status: "Solved" | "Infeasible" | "Error",
@@ -53,8 +52,5 @@ export type Solution = {
     outputs: { productId: ProductId, amount: number }[]
   },
   nodeCounts?: { nodeId: string, count: number }[]
-  freeableConstraints?: {
-    id: string,
-    product: ProductId,
-  }[]
+  manifolds?: {[constraintId: string]: number}
 }

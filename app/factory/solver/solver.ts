@@ -1,4 +1,4 @@
-import Highs, { type HighsSolution, type Highs as HighsType } from "highs";
+import highsLoader, { type Highs } from "highs";
 import { loadRecipeData, type ProductId, type Recipe } from "../graph/loadJsonData";
 
 import type { CustomNodeType } from '../graph/nodes';
@@ -6,7 +6,12 @@ import type { CustomEdgeType } from '../graph/edges';
 import type { Constraint, EqualityTypes, FactoryGoal, NodeConnection, NodeConnections, OpenConnections, Solution } from "./types";
 
 const recipeData = loadRecipeData();
-
+let highsProm: Promise<Highs>;
+console.log("window", typeof window)
+if (typeof window === "undefined") 
+  highsProm = highsLoader();
+else
+  highsProm = highsLoader({ locateFile: (file: string) => "https://lovasoa.github.io/highs-js/" + file });
 
 /** 
  * Some terms:
@@ -39,25 +44,159 @@ const recipeData = loadRecipeData();
  *     is whole closed loop
  *       !! add = 0 constraint
 */
+export type GraphModel = {
+  constraints: { [key: string]: Constraint };
+  graph: NodeConnections;
+  itemConstraints: {
+    [k in ProductId]?: string
+  };
+  nodeIdToLabels: Record<string, string>;
+  manifolds: string[],
+}
+
+export function createGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): GraphModel {
+  const solver = new Solver(nodes, edges);
+  
+  return solver.toGraphModel()
+}
+
+export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraints: Set<string>): string {
+  const objectives = Object.values(graph.nodeIdToLabels);
+  const boundsList = [];
+  const constraintsList = [];
+  for (const con of Object.values(graph.constraints)) {
+    constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} ${getEquality(con.type)} 0`);
+
+    // // If this product is a goal, it will have a bound set elsewhere
+    // if (goals.findIndex(g => g.productId == con.productId) !== -1)
+    //   continue;
+
+    if (con.unconnected || freeConstraints.has(con.id))
+      boundsList.push(`${con.id} free`);
+    else
+      boundsList.push(`${con.id} = 0`);
+  };
+
+  // Keep track of missed goals to flag them
+  const missedGoals: string[] = [];
+  boundsList.push(...goals.map(g => {
+    if (graph.itemConstraints[g.productId] === undefined) {
+      missedGoals.push(g.productId);
+      return
+    }
+    return `${graph.itemConstraints[g.productId]} ${g.type == "lt" ? "<=" : g.type == "gt" ? ">=" : "="} ${g.qty}`
+  }))
+
+  return `
+min
+  obj: ${objectives.join('+')}
+subject to 
+  ${constraintsList.join("\n")}
+Bounds 
+  ${boundsList.join("\n")}
+end`;
+
+}
+
+export async function solve(graph: GraphModel, goals: FactoryGoal[], freeConstraintsArr: string[] = []): Promise<Solution> {
+  const freeConstraints = new Set(freeConstraintsArr)
+  const lpp = buildLpp(graph, goals, freeConstraints);
+  debug(lpp);
+
+  const highs = await highsProm;
+  let res: ReturnType<typeof highs.solve> | null = null;
+  try {
+    res = highs.solve(lpp); // No idea how to do the typing on this one
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (e: any) {
+    console.error('Error solving LPP');
+    console.error(e);
+    return {
+      status: "Error",
+      errorMessage: e?.message
+    }
+  }
+  if (!res) return { status: "Error", errorMessage: "No result" };
+  if (res.Status == "Infeasible") {
+    return {status: "Infeasible"};
+  }
+
+
+  const nodeResults: Solution["nodeCounts"] = [];
+  const productResults: Solution["products"] = { inputs: [], outputs: [] };
+  const manifoldResults: Solution["manifolds"] = {};
+  const manifoldsSet = new Set(graph.manifolds);
+  Object.keys(res.Columns).forEach(k => {
+    const nodeLabel = k.match(nodeLabelMatcher)?.[0]
+    if (nodeLabel) {
+      const node = Object.keys(graph.nodeIdToLabels).find(l => graph.nodeIdToLabels[l] == nodeLabel);
+      if (node) nodeResults.push({
+        nodeId: node,
+        count: res.Columns[nodeLabel].Primal,
+      });
+    }
+
+    const outputLabel = k.match(outputMatcher)?.[1]
+    if (outputLabel)
+      productResults?.outputs.push({
+        productId: outputLabel,
+        amount: res.Columns[k].Primal
+      });
+
+    const inputLabel = k.match(inputMatcher)?.[1]
+    if (inputLabel)
+      productResults?.inputs.push({
+        productId: inputLabel,
+        amount: res.Columns[k].Primal
+      });
+    if (manifoldsSet.has(k)) {
+      manifoldResults[k] = res.Columns[k].Primal;
+    }
+  });
+
+  return {
+    status: "Solved",
+    goals: goals.map(goal => {
+      const columnPrefix = goal.dir == "input" ? "i" : "o";
+      return {
+        goal,
+        resultCount: res.Columns[columnPrefix + "_" + goal.productId]?.Primal
+      };
+    }),
+    products: productResults,
+    nodeCounts: nodeResults,
+    manifolds: manifoldResults,
+  }
+}
 
 export default class Solver {
-  private visitedVertices: Set<string> = new Set();
-  public constraints: Map<string, Constraint> = new Map();
-  private oneToOnes: Set<string> = new Set();
-  private constraintIdInc = 0;
-  public graph: NodeConnections;
-
-  private nodeIdToLabels: Record<string, string> = {};
   private nodeLabelInc: number = 0;
-  private itemConstraints: {
+  private visitedVertices: Set<string> = new Set();
+  private constraintIdInc = 0;
+  private oneToOnes: Set<string> = new Set();
+
+  public constraints: { [key: string]: Constraint } = {};
+  public graph: NodeConnections;
+  public manifolds: Set<string> = new Set();
+  
+  public nodeIdToLabels: Record<string, string> = {};
+  public itemConstraints: {
     [k in ProductId]?: string
   } = {};
 
   constructor(nodes: CustomNodeType[], edges: CustomEdgeType[]) {
-    // if (!highs || !("solve" in highs)) throw new Error("Highs not initialised");
-    // console.log("Solver initialized with Highs");
     this.graph = buildGraph(nodes, edges);
     this.fillConstraints();
+  }
+
+  toGraphModel(): GraphModel {
+    return {
+      constraints: this.constraints,
+      nodeIdToLabels: this.nodeIdToLabels,
+      graph: this.graph,
+      itemConstraints: this.itemConstraints,
+      manifolds: Array.from(this.manifolds)
+    }
   }
 
   getNodeLabel(node: string): string {
@@ -91,12 +230,12 @@ export default class Solver {
    *  and group constraints (long chains of edges for a single product)
    */
   upsertConstraint(id: string, productId: ProductId): Constraint {
-    let constraint: Constraint | undefined = this.constraints.get(id);
+    let constraint: Constraint | undefined = this.constraints[id];
     if (!constraint) {
       constraint = {
         terms: [],
         id: id,
-        edges: new Set<string>(),
+        edges: {} as {[k: string]: boolean},
         productId: productId,
         // Default to equality, this is overridden when required
         type: "eq",
@@ -110,7 +249,7 @@ export default class Solver {
         term: "-"
       });
 
-      this.constraints.set(id, constraint);
+      this.constraints[id] = constraint;
       debug('Added new item constraint for', productId, constraint)
     }
 
@@ -155,13 +294,14 @@ export default class Solver {
       if (oppositeConnections.length === 1) {
         if (this.oneToOnes.has(connections[0].edgeId))
           return;
+        this.oneToOnes.add(connections[0].edgeId);
       }
       const constraint = this.upsertConstraint(`c${this.constraintIdInc++}`, productId);
       constraint.terms.push(myTerm);
 
       const otherTerm = this.getTerm(connections[0].nodeId, productId, !isInput);
       if (otherTerm) constraint.terms.push(otherTerm);
-      constraint.edges.add(connections[0].edgeId);
+      constraint.edges[connections[0].edgeId] = true;
 
       if (oppositeConnections.length > 1) {
         constraint.type = isInput ? "gt" : "lt";
@@ -169,10 +309,13 @@ export default class Solver {
         debug("I have 1 connection, they have more");
         this.gatherNodeConstraints(connections[0].nodeId, productId, !isInput);
       } else {
-        this.oneToOnes.add(connections[0].edgeId);
+        this.manifolds.add(constraint.id);
       }
       return;
     }
+
+    const myConstraint = this.upsertConstraint(`c${this.constraintIdInc++}`, productId);
+    myConstraint.terms.push(myTerm);
 
     let groupConstraint: Constraint | null = null;
     // A group constraint is required if we're part of a larger loop
@@ -188,29 +331,30 @@ export default class Solver {
         debug('Creating GROUP constraint', groupConstraintId);
         groupConstraint = this.upsertConstraint(groupConstraintId, productId);
         groupConstraint.terms.push(myTerm);
-        groupConstraint.type = "eq";
+        groupConstraint.type = "eq";        
+        this.manifolds.add(groupConstraint.id);
+      } else {
+        // There's no surrounding group, this is the whole manifold
+        this.manifolds.add(myConstraint.id);
       }
     }
 
-    const myConstraint = this.upsertConstraint(`c${this.constraintIdInc++}`, productId);
-    myConstraint.terms.push(myTerm);
-
     // If there's a larger constraint this one should be variable
-    if (groupConstraint) myConstraint.type = isInput ? "gt" : "lt";
+    if (groupConstraintId) {
+      myConstraint.type = isInput ? "gt" : "lt";
+    }
 
     connections.forEach(conn => {
       const term = this.getTerm(conn.nodeId, productId, !isInput);
       if (term) {
-        myConstraint?.edges.add(conn.edgeId);
+        myConstraint.edges[conn.edgeId] = true;
 
         if (groupConstraint) {
-          groupConstraint.edges.add(conn.edgeId);
-          const otherVertex = makeVertexId(conn.nodeId, ioStringOpp, productId);
+          groupConstraint.edges[conn.edgeId] = true;
           // Only add the term if the other vertex hasn't ran through processing
-          if (!this.visitedVertices.has(otherVertex)) {
-            debug("adding term to group", term);
+          debug("adding term to group", term);
+          if (groupConstraint?.terms.find(x => x.id == term.id) === undefined)
             groupConstraint?.terms.push(term);
-          }
         }
 
         myConstraint?.terms.push(term);
@@ -232,102 +376,10 @@ export default class Solver {
       }
     }
   }
-
-  buildLpp(goals: FactoryGoal[]): string {
-    const objectives = Object.values(this.nodeIdToLabels);
-    let boundsList = [];
-    let constraintsList = [];
-    for (const con of this.constraints.values()) {
-      constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} ${getEquality(con.type)} 0`);
-
-      // // If this product is a goal, it will have a bound set elsewhere
-      // if (goals.findIndex(g => g.productId == con.productId) !== -1)
-      //   continue;
-
-      if (con.unconnected)
-        boundsList.push(`${con.id} free`);
-      else
-        boundsList.push(`${con.id} = 0`);
-    };
-
-    // Keep track of missed goals to flag them
-    const missedGoals: string[] = [];
-    boundsList.push(...goals.map(g => {
-      if (this.itemConstraints[g.productId] === undefined) {
-        missedGoals.push(g.productId);
-        return
-      }
-      return `${this.itemConstraints[g.productId]} ${g.type == "lt" ? "<=" : g.type == "gt" ? ">=" : "="} ${g.qty}`
-    }))
-
-    return `
-min
-  obj: ${objectives.join('+')}
-subject to 
-  ${constraintsList.join("\n")}
-Bounds 
-  ${boundsList.join("\n")}
-end`;
-
-  }
-
-  solve(highs: HighsType, goals: FactoryGoal[]): Solution {
-    const lpp = this.buildLpp(goals);
-
-    let res: ReturnType<typeof highs.solve> | null = null;
-    try {
-      res = highs.solve(lpp); // No idea how to do the typing on this one
-    } catch (e) {
-      console.error('Error solving LPP');
-      console.error(e);
-    }
-    if (!res || res.Status !== "Optimal") return {status: "Error", errorMessage: "No result"}; // TODO:: Help?
-
-    const nodeResults: Solution["nodeCounts"] = [];
-    const productResults: Solution["products"] = { inputs: [], outputs: [] };
-    Object.keys(res.Columns).forEach(k => {
-      const nodeLabel = k.match(nodeLabelMatcher)?.[0]
-      if (nodeLabel) {
-        const node = Object.keys(this.nodeIdToLabels).find(l => this.nodeIdToLabels[l] == nodeLabel);
-        if (node) nodeResults.push({
-          nodeId: node,
-          count: res.Columns[nodeLabel].Primal,
-        });
-      }
-
-      const outputLabel = k.match(outputMatcher)?.[1]
-      if (outputLabel)
-        productResults?.outputs.push({
-          productId: outputLabel,
-          amount: res.Columns[k].Primal
-        });
-
-      const inputLabel = k.match(inputMatcher)?.[1]
-      if (inputLabel)
-        productResults?.inputs.push({
-          productId: inputLabel,
-          amount: res.Columns[k].Primal
-        });
-    })
-
-    return {
-      status: "Solved",
-      goals: goals.map(goal => {
-        const columnPrefix = goal.dir == "input" ? "i" : "o";
-        return {
-          goal,
-          resultCount: res.Columns[columnPrefix + "_" + goal.productId]?.Primal
-        };
-      }),
-      products: productResults,
-      nodeCounts: nodeResults,
-      freeableConstraints: [], // TODO
-    }
-  }
 }
 
 function buildGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): NodeConnections {
-  let nodesById: Record<string, CustomNodeType> = {};
+  const nodesById: Record<string, CustomNodeType> = {};
 
   const nodeRecipe = {} as Record<string, Recipe>;
 
@@ -399,7 +451,9 @@ const nodeLabelMatcher = /^n_\d+/;
 const inputMatcher = /^i_(.+)$/;
 const outputMatcher = /^o_(.+)$/;
 
-export let DEBUG_SOLVER = false;
+// eslint-disable-next-line prefer-const
+export let DEBUG_SOLVER = true;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const debug = (...args: any[]) => {
   if (DEBUG_SOLVER)
     console.debug(...args);

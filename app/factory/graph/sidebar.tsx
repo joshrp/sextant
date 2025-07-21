@@ -1,20 +1,22 @@
-import { Button, Field, Fieldset, Input, Label, Menu, MenuButton, MenuItem, MenuItems, Radio, RadioGroup } from '@headlessui/react';
+import { Button, Checkbox, Field, Fieldset, Input, Label, Menu, MenuButton, MenuItem, MenuItems, Radio, RadioGroup } from '@headlessui/react';
 import { ClockIcon, PlusIcon } from '@heroicons/react/24/solid';
 import { useCallback, useState, type ChangeEvent } from 'react';
 
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { SelectorDialog } from 'app/components/Dialog';
 import { useFactory } from 'app/factory/FactoryProvider';
+import type { FactoryGoal } from '../solver/types';
 import { loadProductData, type Product, type ProductId } from './loadJsonData';
-import type { FactoryGoal, Solution } from '../solver/types';
-import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 // const transformSelector = (state: any) => state.transform;
 const productData = loadProductData();
+const productIcon = (id: string) => `/assets/products/${productData[id].icon}`;
 
 type props = {
-  calcResults: Solution | null;
   addNewRecipe: (productId: ProductId) => void
 };
+
+
 
 const icons = {
   "gt": "\u2265",
@@ -22,12 +24,18 @@ const icons = {
   "eq": "\u003D"
 }
 
-function SideBar({ calcResults, addNewRecipe }: props) {
+function SideBar({ addNewRecipe }: props) {
   // const transform = useStore(transformSelector);
   const useStore = useFactory().useStore;
 
-  const recalc = useStore(state => state.graphChangeAction);
+  const recalc = useStore().graphUpdateAction;
+  const resolve = useStore().solutionUpdateAction;
+  const solution = useStore(state => state.solution);
   const goals = useStore(state => state.goals);
+  const model = useStore(state => state.graph);
+  const edges = useStore(state => state.edges);
+  const solutionUpdateAction = useStore().solutionUpdateAction;
+  const freedState = useStore(state=>state.freeConstraints);
 
   const [editGoal, setEditGoal] = useState<FactoryGoal | null>(null);
   const addGoal = useCallback((goal: FactoryGoal): void => {
@@ -39,8 +47,10 @@ function SideBar({ calcResults, addNewRecipe }: props) {
         state.goals.push(goal);
       return state;
     });
-
+    resolve();
     setEditGoal(null);
+    setSelectProductDialog(false);
+
   }, [goals, useStore]);
 
   const editGoalFor = (product: Product) => {
@@ -53,42 +63,88 @@ function SideBar({ calcResults, addNewRecipe }: props) {
   }
 
   const [selectProductDialog, setSelectProductDialog] = useState(false);
-  const menuOptions = [{
+  const goalsMenuOptions = [{
     label: "Edit",
     onClick: (c: FactoryGoal) => () => setEditGoal(c)
   }, {
     label: "Remove",
     onClick: (goal: FactoryGoal) => () => {
       // Filter for only constraints that don't match this product
-      console.log("removing", goal)
       useStore.setState(state => ({
-        goals: state.goals.filter(c => c.productId !== goal.productId)
-      }))
+        goals: state.goals.filter(c => c.productId !== goal.productId || c.dir !== goal.dir)
+      }));
     }
   }, {
     label: "Add Producer",
     onClick: (goal: FactoryGoal) => () => addNewRecipe(goal.productId),
   }]
-  
+  const inputsMenuOptions = [{
+    label: "Add Producer",
+    onClick: <T extends { productId: string }>(input: T) => () => addNewRecipe(input.productId),
+  }];
+
+  const freed = new Set(freedState);
+  const manifolds = model?.manifolds.map(m => {
+    const constraint = model?.constraints[m];
+    const amount = solution?.manifolds?.[m];
+
+    if (!constraint) {
+      console.error('Constraint not found for manifold', m);
+    }
+
+    const inputs: Set<Product> = new Set();
+    const outputs: Set<Product> = new Set();
+
+    Object.keys(constraint.edges).forEach(e => {
+      const edge = edges.find(x => x.id == e);
+      if (!edge) return
+      model.graph[edge.source].recipe.inputs.map(p => inputs.add(productData[p.id]));
+      model.graph[edge.target].recipe.outputs.map(p => outputs.add(productData[p.id]));
+    })
+    if (inputs.size == 0 || inputs.size == 0) return;
+
+
+    return {
+      amount,
+      flexible: freed.has(m),
+      ...productData[constraint.productId],
+      inputs,
+      outputs,
+      constraintId: m,
+    }
+  });
+
+  const toggleFreed = (id: string) => {
+    if (freed.has(id)) 
+      useStore.setState(state=>({
+        freeConstraints: state.freeConstraints.filter(x => x != id)
+      }));
+    else
+      useStore.setState(state=>({
+        freeConstraints: [...state.freeConstraints, id]
+      }));
+    solutionUpdateAction();
+  }
+
   return (<>
-    <div className='sidebar h-full p-2 border-r-2 border-dotted border-gray-300 dark:border-gray-700'>
+    <div className='sidebar flex flex-col h-full p-2 border-r-2 border-dotted border-gray-300 dark:border-gray-700'>
       <div className="title">Goals</div>
-      <div className="bg-gray-800">
-        {goals.map(goal => {       
-          const resultCount = calcResults?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
+      <div className="bg-gray-900 flex-1 p-1">
+        {goals.map((goal, i) => {
+          const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
 
           let fulfilled = false;
           if (resultCount !== undefined) {
             if (goal.type == "eq")
               fulfilled = goal.qty == resultCount;
-            else if(goal.type == "lt")
+            else if (goal.type == "lt")
               fulfilled = goal.qty >= resultCount;
-            else if(goal.type == "gt")
+            else if (goal.type == "gt")
               fulfilled = goal.qty <= resultCount;
           }
 
-          return <Menu>
-            <MenuButton as="div" className={`output-goal w-full gap-2 p-2 flex my-1
+          return <Menu key={"goal-"+i}>
+            <MenuButton key={"goal-" + i} as="div" className={`output-goal w-full gap-2 p-2 flex my-1
                                   hover:bg-gray-900
                                     rounded cursor-pointer 
                                     border-1 border-gray-500  text-xs 
@@ -96,7 +152,7 @@ function SideBar({ calcResults, addNewRecipe }: props) {
                                     `}
             >
               <div className="flex-1 max-w-10 justify-self-start">
-                <img className="w-full" src={'/assets/products/' + productData[goal.productId].icon} />
+                <img className="w-full" src={productIcon(goal.productId)} />
               </div>
               <div className="flex-3 content-center-safe">{icons[goal.type]} {goal.qty}</div>
               <div className="verticalRule self-stretch w-0.5 bg-neutral-500 opacity-50"></div>
@@ -104,9 +160,9 @@ function SideBar({ calcResults, addNewRecipe }: props) {
                 {resultCount || ''}
               </div>
             </MenuButton>
-            <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded">
-              {menuOptions.map(m =>
-                <MenuItem onClick={m.onClick(goal)} as="button" className="p-2 px-4 w-full text-center block border-b-1 border-gray-600 cursor-pointer data-focus:bg-blue-900">
+            <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded-sm shadow-lg">
+              {goalsMenuOptions.map(m =>
+                <MenuItem key={"goal-item-"+m.label}onClick={m.onClick(goal)} as="button" className="p-2 px-4 w-full block text-left border-b-1 border-gray-600 cursor-pointer data-focus:bg-blue-900">
                   {m.label}
                 </MenuItem>
               )}
@@ -122,8 +178,8 @@ function SideBar({ calcResults, addNewRecipe }: props) {
       </div>
       <div className="subtitle">By Products</div>
 
-      <div className="bg-gray-800 p-2">
-        {calcResults?.products?.outputs.map(output => {
+      <div className="bg-gray-800 p-1 flex-1">
+        {solution?.products?.outputs.map((output,i) => {
           const goal = goals.find(g => g.productId === output.productId && g.dir == "output");
           let amount = output.amount;
           let isSurplus = false;
@@ -133,7 +189,7 @@ function SideBar({ calcResults, addNewRecipe }: props) {
           }
           if (amount <= 0) return;
 
-          return <div className={`"output-goal w-full p-2 flex h-10 my-1
+          return <div key={"output-"+i} className={`"output-goal w-full p-2 flex h-10 my-1
                                 bg-gray-700 hover:bg-gray-900
                                 rounded cursor-pointer 
                                 border-1 border-gray-500 ${isSurplus ? "bg-green-900" : ""}`}>
@@ -143,27 +199,68 @@ function SideBar({ calcResults, addNewRecipe }: props) {
         })}
       </div>
       <div className="subtitle">Inputs</div>
-      <div className="bg-gray-800 p-1">
-        {calcResults?.products?.inputs.map(input => {
-          // const goal = goals.find(g => g.productId === input.productId && g.dir == "input");
-          let amount = input.amount * -1;
-          let isSurplus = false;
-          // if (goal) {
-          //   amount -= goal.qty;
-          //   isSurplus = true;
-          // }
+      <div className="bg-gray-800 p-1 flex-1">
+        {solution?.products?.inputs.map((input, i) => {
+          const amount = input.amount * -1;
           if (amount <= 0) return;
-
-          return <div className={`"input-goal w-full p-2 flex h-10 my-1
+          return <Menu key={"input-" + i}>
+            <MenuButton as="div" className={`"input-goal w-full p-2 flex h-10 my-1
                                 bg-gray-700 hover:bg-gray-900
                                 rounded cursor-pointer 
-                                border-1 border-gray-500 ${isSurplus ? "bg-green-900" : ""}`}>
-            <img className="flex-1 h-full justify-self-start" src={'/assets/products/' + productData[input.productId].icon} />
-            <span className="flex-8 justify-self-end-safe text-right">{amount} {isSurplus ? "extra" : ""}</span>
-          </div>
+                                border-1 border-gray-500 `}
+            >
+              <img className="flex-1 h-full justify-self-start" src={'/assets/products/' + productData[input.productId].icon} />
+              <span className="flex-8 justify-self-end-safe text-right">{amount}</span>
+            </MenuButton>
+            <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded-sm shadow-xl">
+              {inputsMenuOptions.map(m =>
+                <MenuItem key={"input-menu-"+m.label} onClick={m.onClick(input)} as="button" className="p-2 px-4 w-full text-center block border-b-1 border-gray-600 cursor-pointer data-focus:bg-blue-900">
+                  {m.label}
+                </MenuItem>
+              )}
+            </MenuItems>
+          </Menu>
         })}
       </div>
-      <button className="h-10 py-1 w-20 mx-auto my-4 block bg-blue-500 cursor-pointer" onClick={recalc}><ArrowPathIcon className="mx-auto h-full"/></button>
+      <div className="subtitle justify-self-end-safe">Manifolds</div>
+      <div className="bg-gray-800 flex-1 p-1 items-end-safe justify-self-end-safe justify-end-safe">
+        {manifolds?.map(m => {
+          if (!m) return;
+
+          return <div key={"manifold-"+m.id} className="cursor-pointer my-1 border-2 rounded-sm border-gray-700 p-1" onClick={()=>toggleFreed(m.constraintId)}>
+            <div className="flex flex-row gap-1 align-middle justify-between">
+              <div className="w-[40%] flex flex-wrap gap-1">
+                {Array.from(m.inputs).map(i => <div key={"manifold-input-"+i.id}>
+                  <img className="w-4" src={'/assets/products/' + i.icon} title={i.name} />
+                </div>
+                )}
+              </div>
+              <div className="flex w-[20%] text-center align-middle justify-center-safe">
+                <img className="h-8" src={'/assets/products/' + m.icon} title={m.name} />
+              </div>
+              <div className="flex w-[40%] flex-wrap gap-1 justify-end-safe">
+                {Array.from(m.outputs).map(i => <div key={"manifold-output-"+i.id}>
+                  <img className="w-4" src={'/assets/products/' + i.icon} title={i.name} />
+                </div>
+                )}
+              </div>
+            </div>
+            {m.flexible == false ? "" : (
+              <div className="flex text-xs">
+                <Field className="flex-1 text-right">
+                  <Checkbox name="flexible" />
+                  <Label className="">Flexible</Label>
+                </Field>
+                <span className="flex-1 justify-self-end text-right">{m.amount}</span>
+              </div>
+            )}
+          </div>
+        })}
+
+      </div>
+
+
+      <button className="h-10 py-1 w-20 mx-auto my-4 block bg-blue-500 cursor-pointer" onClick={recalc}><ArrowPathIcon className="mx-auto h-full" /></button>
     </div>
     {selectProductDialog ? (
       <SelectorDialog title={"Select Product to make"} isOpen={selectProductDialog} setIsOpen={setSelectProductDialog}>
@@ -180,7 +277,7 @@ function SideBar({ calcResults, addNewRecipe }: props) {
                 data-tooltip-target={"tooltip-" + item.id}
                 className="bg-transparent hover:bg-gray-500 hover:border hover:border-black-500 rounded block"
                 onClick={() => editGoalFor(item)}
-              ><img src={'/assets/products/' + item.icon} alt={item.name} className="inline-block p-2" />
+              ><img src={'/assets/products/' + item.icon} title={item.name} className="inline-block p-2" />
               </button>
             </div>)
           })}
@@ -214,7 +311,7 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
       {/* <RadioGroup className="flex justify-stretch w-full gap-2"> */}
       <RadioGroup name="type" value={goalData.type} onChange={v => setGoalData(d => ({ ...d, type: v }))} className="flex justify-stretch w-full gap-2">
         {[["Minimum of", "gt"], ["Exactly", "eq"], ["Maximum of", "lt"]].map(r => (
-          <Field className="flex-1 justify-around gap-2">
+          <Field className="flex-1 justify-around gap-2" key={"goal-type-"+r[1]}>
             <Radio key={r[1]} value={r[1]} className="group block rounded border-1 data-checked:border-2 border-gray-700 data-checked:bg-teal-900 w-full h-full">
               <Label >{r[0] + " " + goalData.qty}</Label>
             </Radio>

@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 
-var localStorage: any;
+let localStorage: Storage;
 if (typeof window === 'undefined') {
   localStorage = {
-    getItem: (a: string) => null,
-    setItem: (a: string, b: any) => { },
-    removeItem: (a: string) => { },
-  };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    getItem: (_: string) => null,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setItem: (_: string, __: unknown) => { },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    removeItem: (_: string) => { },
+  } as Storage;
 } else {
   localStorage = window.localStorage;
 }
