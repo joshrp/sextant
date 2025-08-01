@@ -1,0 +1,190 @@
+{"game_version":"0.7.7.0","vehicles":[{
+"name":"Truck","costs":[{
+"product":"Vehicle Parts II","quantity":30
+}
+,{
+"product":"Rubber","quantity":30
+}
+,{
+"product":"Diesel","quantity":15
+}
+]
+}
+,{
+"name":"Truck","costs":[{
+"product":"Vehicle Parts II","quantity":30
+}
+,{
+"product":"Rubber","quantity":30
+}
+,{
+"product":"Electronics","quantity":20
+}
+,{
+"product":"Hydrogen","quantity":18
+}
+]
+}
+,{
+"name":"Pickup","costs":[{
+"product":"Vehicle Parts","quantity":20
+}
+,{
+"product":"Rubber","quantity":10
+}
+,{
+"product":"Diesel","quantity":5
+}
+]
+}
+,{
+"name":"Haul truck (dump)","costs":[{
+"product":"Vehicle Parts III","quantity":90
+}
+,{
+"product":"Rubber","quantity":90
+}
+,{
+"product":"Diesel","quantity":36
+}
+]
+}
+,{
+"name":"Haul truck (tank)","costs":[{
+"product":"Vehicle Parts III","quantity":90
+}
+,{
+"product":"Rubber","quantity":90
+}
+,{
+"product":"Diesel","quantity":36
+}
+]
+}
+,{
+"name":"Haul truck (dump)","costs":[{
+"product":"Rubber","quantity":90
+}
+,{
+"product":"Vehicle Parts III","quantity":110
+}
+,{
+"product":"Hydrogen","quantity":43
+}
+]
+}
+,{
+"name":"Haul truck (tank)","costs":[{
+"product":"Rubber","quantity":90
+}
+,{
+"product":"Vehicle Parts III","quantity":110
+}
+,{
+"product":"Hydrogen","quantity":43
+}
+]
+}
+,{
+"name":"Mega excavator","costs":[{
+"product":"Vehicle Parts III","quantity":180
+}
+,{
+"product":"Steel","quantity":90
+}
+,{
+"product":"Diesel","quantity":70
+}
+]
+}
+,{
+"name":"Mega excavator","costs":[{
+"product":"Steel","quantity":90
+}
+,{
+"product":"Vehicle Parts III","quantity":220
+}
+,{
+"product":"Hydrogen","quantity":84
+}
+]
+}
+,{
+"name":"Excavator","costs":[{
+"product":"Vehicle Parts II","quantity":60
+}
+,{
+"product":"Steel","quantity":30
+}
+,{
+"product":"Diesel","quantity":27
+}
+]
+}
+,{
+"name":"Excavator","costs":[{
+"product":"Vehicle Parts II","quantity":60
+}
+,{
+"product":"Steel","quantity":30
+}
+,{
+"product":"Electronics","quantity":40
+}
+,{
+"product":"Hydrogen","quantity":32
+}
+]
+}
+,{
+"name":"Small excavator","costs":[{
+"product":"Vehicle Parts","quantity":40
+}
+,{
+"product":"Iron","quantity":20
+}
+,{
+"product":"Diesel","quantity":10
+}
+]
+}
+,{
+"name":"Large tree harvester","costs":[{
+"product":"Vehicle Parts II","quantity":60
+}
+,{
+"product":"Steel","quantity":20
+}
+,{
+"product":"Diesel","quantity":32
+}
+]
+}
+,{
+"name":"Large tree harvester","costs":[{
+"product":"Vehicle Parts II","quantity":60
+}
+,{
+"product":"Steel","quantity":20
+}
+,{
+"product":"Electronics","quantity":40
+}
+,{
+"product":"Hydrogen","quantity":38
+}
+]
+}
+,{
+"name":"Tree harvester","costs":[{
+"product":"Vehicle Parts","quantity":30
+}
+,{
+"product":"Iron","quantity":10
+}
+,{
+"product":"Diesel","quantity":12
+}
+]
+}
+]}

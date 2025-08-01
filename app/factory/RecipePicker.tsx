@@ -18,7 +18,7 @@ export default function RecipePicker({
   const product = productData[productId];
   let recipes: Recipe[] = [];
   if (productIs === "input" || productIs === "any") {
-    recipes.concat(product.recipes.input.map(id => recipeData[id]));
+    recipes = recipes.concat(product.recipes.input.map(id => recipeData[id]));
   }
   if (productIs === "output" || productIs === "any") {
     recipes = recipes.concat(product.recipes.output.map(id => recipeData[id]));
@@ -76,7 +76,7 @@ export default function RecipePicker({
           <td key={output.id} className="has-tooltip">
             <span className='tooltip rounded shadow-lg p-1 border-1 bg-gray-900 -mt-8 -ml-8 text-nowrap'>{product.name}</span>
             <img src={'/assets/products/' + product.icon} alt={product.name} className="block mb-2 mx-auto max-w-[60px]" />
-            {output.quantity.toPrecision(2)}
+            {Math.round(output.quantity) !== Math.round(output.quantity) ? output.quantity?.toFixed(2) || 0 : output.quantity} 
           </td>
         </>);
       }).concat(suffixOutputCells);
@@ -100,7 +100,7 @@ export default function RecipePicker({
               <path fillRule="evenodd" d="m -8 5 L 11 5 L 11 3 L 14 6 L 11 9 V 7 H -8 Z" clipRule="evenodd" />
             </svg><br/>
 
-            {recipe.duration} <ClockIcon className="inline w-4 pb-1  text-gray-500" />
+            {recipe.duration || 60} <ClockIcon className="inline w-4 pb-1  text-gray-500" />
           </td>
           {outputs}
       </tr>)

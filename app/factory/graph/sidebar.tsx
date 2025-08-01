@@ -9,10 +9,11 @@ import type { FactoryGoal } from '../solver/types';
 import { loadProductData, type Product, type ProductId } from './loadJsonData';
 import Manifold from './Manifold';
 import { useShallow } from 'zustand/shallow';
+import { formatNumber } from '~/uiUtils';
 
 // const transformSelector = (state: any) => state.transform;
 const productData = loadProductData();
-const productIcon = (id: string) => `/assets/products/${productData[id].icon}`;
+const productIcon = (id: ProductId) => `/assets/products/${productData[id].icon}`;
 
 type props = {
   addNewRecipe: (productId: ProductId) => void
@@ -85,7 +86,7 @@ function SideBar({ addNewRecipe }: props) {
   }]
   const inputsMenuOptions = [{
     label: "Add Producer",
-    onClick: <T extends { productId: string }>(input: T) => () => addNewRecipe(input.productId),
+    onClick: <T extends { productId: ProductId }>(input: T) => () => addNewRecipe(input.productId),
   }];
 
 
@@ -114,7 +115,7 @@ function SideBar({ addNewRecipe }: props) {
             else if (goal.type == "gt")
               fulfilled = goal.qty <= resultCount;
           }
-
+          console.log(goal.productId, productData[goal.productId], goal.qty, resultCount, fulfilled);
           return <Menu key={"goal-" + i}>
             <MenuButton key={"goal-" + i} as="div" className={`output-goal w-full gap-2 p-2 flex my-1
                                   hover:bg-gray-900
@@ -126,10 +127,10 @@ function SideBar({ addNewRecipe }: props) {
               <div className="flex-1 max-w-10 justify-self-start">
                 <img className="w-full" src={productIcon(goal.productId)} />
               </div>
-              <div className="flex-3 content-center-safe">{icons[goal.type]} {goal.qty}</div>
+              <div className="flex-3 content-center-safe">{icons[goal.type]} {formatNumber(goal.qty, productData[goal.productId].unit)}</div>
               <div className="verticalRule self-stretch w-0.5 bg-neutral-500 opacity-50"></div>
               <div className="w-full flex-2 content-center-safe justify-self-end-safe text-right text-nowrap">
-                {resultCount || ''}
+                {resultCount ? formatNumber(resultCount, productData[goal.productId].unit) : ''}
               </div>
             </MenuButton>
             <MenuItems anchor="bottom" className="bg-gray-800 border-2 border- border-gray-500 rounded-sm shadow-lg -mt-2">
@@ -217,9 +218,10 @@ function SideBar({ addNewRecipe }: props) {
               </div>
               <button
                 data-tooltip-target={"tooltip-" + item.id}
-                className="bg-transparent hover:bg-gray-500 hover:border hover:border-black-500 rounded block"
+                style={{ borderColor: item.color }}
+                className={"cursor-pointer bg-transparent hover:bg-gray-700 hover:border-2  p-2 hover:p-1 rounded block"}
                 onClick={() => editGoalFor(item)}
-              ><img src={'/assets/products/' + item.icon} title={item.name} className="inline-block p-2" />
+              ><img src={'/assets/products/' + item.icon} title={item.name} className="inline-block" />
               </button>
             </div>)
           })}

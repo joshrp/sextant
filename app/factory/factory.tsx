@@ -25,6 +25,7 @@ export function Factory() {
   const addNode = useFactoryStore(state => state.addNode);
   const onConnect = useFactoryStore(state => state.onConnect);
 
+  const [ recipeSelectorProductIsOutput, setRecipeSelectorProductIsOutput ] = useState<boolean>(true);
   const [recipeSelectorProductId, setRecipeSelectorProduct] = useState<ProductId | null>(null);
   const recipeSelectorProduct = recipeSelectorProductId ? productData[recipeSelectorProductId] : null
   const newNodeFor = useFactoryStore(state => state.newNodeFor);
@@ -32,6 +33,7 @@ export function Factory() {
   useEffect(() => {
       if (newNodeFor) {
         setRecipeSelectorProduct(newNodeFor.productId);
+        setRecipeSelectorProductIsOutput(newNodeFor.produce);
       }
   }, [newNodeFor]); 
 
@@ -107,7 +109,7 @@ export function Factory() {
             selectRecipe={(recipeId) => {
               addProductToGraph(recipeId, recipeSelectorProductId)
             }}
-            productIs="output" />
+            productIs={recipeSelectorProductIsOutput ? "output" : "input"}/>
         </SelectorDialog>
       ) : ("")}
     </div>);

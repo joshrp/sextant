@@ -1,11 +1,11 @@
 import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
-import { memo, useEffect } from 'react';
-import { loadProductData, loadRecipeData, type RecipeId } from './loadJsonData';
+import { memo } from 'react';
+import { loadProductData, loadRecipeData, type RecipeId, type RecipeProduct } from './loadJsonData';
 import useFactory from '../FactoryContext';
 import { TrashIcon } from '@heroicons/react/24/outline';
 import { useStore } from 'zustand';
+import { formatNumber } from '~/uiUtils';
 
-let LANG = "en-GB";
 
 const recipeData = loadRecipeData();
 const productData = loadProductData();
@@ -28,18 +28,16 @@ export type RecipeNode = Node<RecipeNodeData>;
 function RecipeNode(props: NodeProps<RecipeNode>) {
   const recipe = recipeData[props.data.recipeId];
 
-  useEffect(() => {
-    if (typeof window !== "undefined")
-      LANG = window.navigator.language;
-  }, []);
-
   const solution = props.data.solution;
   let runCount = 1;
   if (solution?.solved && solution.runCount !== undefined) {
     runCount = solution.runCount;
   }
-  const getQuantityDisplay = (qty: number) => {
-    return (qty * runCount).toLocaleString(LANG, { maximumFractionDigits: 1 });
+  const getQuantityDisplay = (recipeProd: RecipeProduct) => {
+    const product = productData[recipeProd.id];
+    const amount = recipeProd.quantity * runCount;
+      
+    return formatNumber(amount, product.unit);;
   }
   const removeNode = useStore(useFactory().store, state => state.removeNode);
   return (
@@ -61,7 +59,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
                 <img src={'/assets/products/' + product.icon} alt={product.name} className="pointer-events-none inline max-w-8" />
               </Handle>
               <div className="text-xs min-w-4 p-2 bg-blue-950 hover:bg-blue-700">
-                {getQuantityDisplay(input.quantity)}
+                {getQuantityDisplay(input)}
               </div>
             </div>);
           })}
@@ -72,7 +70,9 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
 
             return (<div className="recipe-output flex gap-1 mb-4" key={output.id} >
 
-              <div className="text-xs text-right min-w-4 p-2 bg-blue-950 hover:bg-blue-700">{getQuantityDisplay(output.quantity)}</div>
+              <div className="text-xs text-right min-w-4 p-2 bg-blue-950 hover:bg-blue-700">
+                {getQuantityDisplay(output)}
+              </div>
               <Handle
                 type="source"
                 position={Position.Right}

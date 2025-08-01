@@ -13,6 +13,7 @@ import type { CustomNodeType, } from "./graph/nodes";
 import type { RecipeNodeData } from "./graph/RecipeNode";
 import { createGraph, solve } from "./solver/solver";
 import type { Constraint, FactoryGoal, GraphModel, ManifoldOptions, Solution } from "./solver/types";
+import type { ProductId } from "./graph/loadJsonData";
 
 export interface GraphStore {
   id: string,
@@ -25,7 +26,7 @@ export interface GraphStore {
   solution?: Solution;
   solutionStatus?: "Solved" | "Error" | "Infeasible";
   newNodeFor?: { 
-    productId: string, 
+    productId: ProductId, 
     position: { x: number, y: number },
     produce: boolean, // true = produce this item, false = consume
     otherNode: string,

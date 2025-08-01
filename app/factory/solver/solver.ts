@@ -198,14 +198,14 @@ function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: Factor
     const outputLabel = k.match(outputMatcher)?.[1]
     if (outputLabel)
       productResults?.outputs.push({
-        productId: outputLabel,
+        productId: outputLabel as ProductId,
         amount: res.Columns[k].Primal
       });
 
     const inputLabel = k.match(inputMatcher)?.[1]
     if (inputLabel)
       productResults?.inputs.push({
-        productId: inputLabel,
+        productId: inputLabel as ProductId,
         amount: res.Columns[k].Primal
       });
     if (manifoldsSet.has(k)) {

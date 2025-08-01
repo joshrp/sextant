@@ -16,6 +16,7 @@ import useFactory from "../FactoryContext";
 import { type GraphStore } from "../store";
 import { edgeTypes, type CustomEdgeType } from "./edges";
 import { nodeTypes, type CustomNodeType } from "./nodes";
+import type { ProductId } from "./loadJsonData";
 
 const selector = (state: GraphStore) => ({
   nodes: state.nodes,
@@ -47,8 +48,8 @@ export default function Graph() {
   }, [fitBounds, fit]);
 
   const onConnectEnd = useCallback((event: MouseEvent | TouchEvent, connectionState: FinalConnectionState) => {
-    // when a connection is dropped on the pane it's not valid
-    const productId = connectionState.fromHandle?.id;
+    // when a connection is dropped on the pane it's not valid 
+    const productId = connectionState.fromHandle?.id as ProductId | undefined;
     if (!connectionState.isValid && connectionState.fromHandle && productId) {
       // we need to remove the wrapper bounds, in order to get the correct position
       const { clientX, clientY } =

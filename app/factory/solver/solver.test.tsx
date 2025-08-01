@@ -5,6 +5,7 @@ import { initialEdges } from "../graph/edges";
 
 import { buildLpp, createGraph, solve } from './solver';
 import type { FactoryGoal } from './types';
+import type { ProductId } from '../graph/loadJsonData';
 
 describe("Solver", () => {
   // test("Version 1 basic LPP check", () => {
@@ -48,7 +49,7 @@ describe("Solver", () => {
     const graph = createGraph(initialNodes, initialEdges);
     expect(graph).not.toBeNull();
     
-    expect(solve(graph, basicGoals)).not.toBeNull();
+    expect(solve(graph, basicGoals, [], false)).not.toBeNull();
   });
 
   
@@ -56,12 +57,12 @@ describe("Solver", () => {
 
 const basicGoals: FactoryGoal[] = [{
   dir: "output",
-  productId: "acid",
+  productId: "acid" as ProductId,
   qty: 48,
   type: "eq"
 }, {
   dir: "output",
-  productId: "air_pollution",
+  productId: "air_pollution" as ProductId,
   qty: 48,
   type: "gt"
 }];
