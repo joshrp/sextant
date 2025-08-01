@@ -14,8 +14,6 @@ const DEFAULT_SETTINGS: ProductionMatrixSettings = {
 };
 
 export const ProductionMatrixProvider = ({ children }: { children: ReactNode }) => {
-  console.log("ProductionMatrixProvider initialized");
-
   const {settings, updateSettings, resetSettings} = LocalStorageProvider(LOCAL_STORAGE_KEY, DEFAULT_SETTINGS);
 
   return (  

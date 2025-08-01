@@ -1,16 +1,11 @@
-import MachinesAndBuildings from "./raw/machines_and_buildings.json";
-import RawProducts from "./raw/products.json";
 
+
+import * as ColorThief from "colorthief";
 import { assert } from "node:console";
 import { createHash } from "node:crypto";
-import type { Machine, MachineSerialized, Product, Recipe } from "../app/factory/graph/loadJsonData";
-import { readFileSync, statSync, writeFileSync } from "node:fs";
-import ColorThief from "colorthief";
-
-const raw = {
-  products: RawProducts,
-  machinesAndBuildings: MachinesAndBuildings,
-};
+import { readFileSync, writeFileSync } from "node:fs";
+import type { Machine, MachineId, MachineSerialized, Product, ProductId, ProductSerialized, Recipe, RecipeId, RecipeSerialized } from "../app/factory/graph/loadJsonData";
+import path from "node:path";
 
 type RawProduct = {
   id: string;
@@ -28,12 +23,12 @@ type RawRecipe = {
   duration: number;
   power_multiplier: number;
   inputs: {
-    name: string; 
+    name: string;
     quantity: number;
     optional?: boolean;
   }[];
   outputs: {
-    name: string; 
+    name: string;
     quantity: number;
     optional?: boolean;
   }[];
@@ -62,38 +57,74 @@ type RawMachine = {
     quantity: number;
   }[],
   coolant?: {
-    productIn: string; 
-    productOut: string; 
-    quantityIn: number; 
-    quantityOut: number; 
+    productIn: string;
+    productOut: string;
+    quantityIn: number;
+    quantityOut: number;
     optional: boolean; // Whether the coolant is optional
   }
 };
 
-function rgbToHex(r: number, g: number, b: number): string {
-  return `#${((1<<24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+type SerializedData = {
+  products: Map<ProductId, ProductSerialized>;
+  machines: Map<MachineId, MachineSerialized>;
+  recipes: Map<RecipeId, RecipeSerialized>;
 }
 
-function formatColor(rawColor: RawProduct["color"]): string {
-  // Convert the raw color from (r, g, b, a) format to hex format
-  const rgba = rawColor.replace(/[()]/g, "").split(",").map(Number);
-  const [r, g, b] = rgba;
-  if (r == 0 && g == 0 && b == 0) {
-    return "#ffffff";
-  }
-  return rgbToHex(r, g, b);
+if (import.meta.url === `file://${process.argv[1]}`) {
+  reformatRawData().catch(err => {
+    console.error("Error reformatting raw data:", err);
+    process.exit(1);
+  });
 }
+export async function reformatRawData(): Promise<void> {
+  const allData = await getDataFromRaw();
+  writeRawData(allData, "./app/gameData.ts");
+  console.log("Reformatted raw data written to ./app/gameData.ts");
+}
+
+export async function getDataFromRaw(rawPath = "./data/raw"): Promise<SerializedData> {
+  const machinesAndBuildings = readFileSync(path.join(rawPath, "machines_and_buildings.json"), { encoding: "utf-8" });
+  const products = readFileSync(path.join(rawPath, "products.json"), { encoding: "utf-8" });
+  const productData = await formatProductData(JSON.parse(products).products as RawProduct[]);
+  const machineData = await initialMachineAndRecipeData(JSON.parse(machinesAndBuildings).machines_and_buildings, productData);
+
+  return {
+    products: machineData.products,
+    machines: machineData.machines,
+    recipes: machineData.recipes,
+  };
+}
+
+export function writeRawData(allData: SerializedData, path = "./data/data.ts"): void {
+  writeFileSync(path, `
+    export default ${JSON.stringify({
+    products: Object.fromEntries(allData.products),
+    machines: Object.fromEntries(allData.machines),
+    recipes: Object.fromEntries(allData.recipes),
+  }, null, 2)
+    }`, { encoding: "utf-8" });
+}
+
 
 async function getImageColors(iconPath: string, name: string): Promise<number[][]> {
-  const buf = readFileSync(`public/assets/products/${iconPath}`);
-  if (!buf || buf.length === 0) {
-    throw new Error(`Icon file for product ${name} (${iconPath}) is empty. Please check the icon path.`);
+  let rgbs = [[255, 255, 255]] as number[][];
+
+  try {
+    const buf = readFileSync(`public/assets/products/${iconPath}`);
+    if (!buf || buf.length === 0) {
+      throw new Error(`Icon file for product ${name} (${iconPath}) is empty. Please check the icon path.`);
+    }
+    // Grab 4 colors using sample size of 1px, it's a small icon and perf isn't a concern here
+    const thief = (await ColorThief.getPalette(buf, 4, 1));
+    if (!thief || thief.length === 0) {
+      throw new Error(`Could not extract color from icon file for product ${name} (${iconPath}).`);
+    }
+    rgbs = thief;
+  } catch (error) {
+    console.warn(`Error extracting color from icon file for product ${name} (${iconPath}):`, error);
   }
-  // Grab 4 colors using sample size of 1px, it's a small icon and perf isn't a concern here
-  const rgbs = (await ColorThief.getPalette(buf, 4, 1));
-  if (!rgbs || rgbs.length === 0) {
-    throw new Error(`Could not extract color from icon file for product ${name} (${iconPath}).`);
-  }
+
   return rgbs;
 }
 
@@ -102,34 +133,31 @@ function sanitizeFileName(fileName: string): string {
   return fileName.replace(/[^a-zA-Z0-9_-]/g, "").toLowerCase();
 }
 
-export async function initialProductData() {
-  const productData = new Map<string, Product>();
-  
-  for (const rawProduct of raw.products.products as RawProduct[]) {
+export async function formatProductData(rawProducts: RawProduct[]) {
+  const productData = new Map<string, ProductSerialized>();
+
+  for (const rawProduct of rawProducts) {
     assert(productData.has(rawProduct.name) === false, `Product ${rawProduct.name} already exists in product data.`);
     const iconPath = sanitizeFileName(rawProduct.icon) + ".png";
-    const imageExists = statSync(`public/assets/products/${iconPath}`, { throwIfNoEntry: false })?.isFile();
-    if (!imageExists) {
-      // throw new Error(`Icon file for product ${rawProduct.name} (${iconPath}) does not exist. Please check the icon path.`);
-      // console.warn(`Icon file for product ${rawProduct.name} (${iconPath}) does not exist. Skipping`);
-      // continue;
-    }
+    // const imageExists = statSync(`public/assets/products/${iconPath}`, { throwIfNoEntry: false })?.isFile();
+    // if (!imageExists) {
+    // throw new Error(`Icon file for product ${rawProduct.name} (${iconPath}) does not exist. Please check the icon path.`);
+    // console.warn(`Icon file for product ${rawProduct.name} (${iconPath}) does not exist. Skipping`);
+    // continue;
+    // }
 
-    // If the color is white, try to extract the color from the icon file
-    let color = formatColor(rawProduct.color);
-    if (color === "#ffffff") {
-      try {
-        const rgbs = await getImageColors(rawProduct.icon, rawProduct.name);
+    let color = '';
+    if (rawProduct.color)
+      color = formatColor(rawProduct.color);
+    else {
+      const rgbs = await getImageColors(iconPath, rawProduct.name);
 
-        // Some products like crushed ore, powder, yellowcake, etc. have a prominent color that is not helpful, so we use the second.
+      // Some products like crushed ore, powder, yellowcake, etc. 
+      //  have a prominent color that is not helpful, so we use the second color.
+      if (rawProduct.name.match(/(crushed)|(powder)|(yellowcake)|(concentrate)|(sulfur)|(station)|(waste)|(lens)/i))
+        color = rgbToHex(rgbs[1][0], rgbs[1][1], rgbs[1][2]);
+      else
         color = rgbToHex(rgbs[0][0], rgbs[0][1], rgbs[0][2]);
-        if (rawProduct.name.match(/(crushed)|(powder)|(yellowcake)|(concentrate)|(sulfur)|(station)|(waste)|(lens)/i)) {
-          color = rgbToHex(rgbs[1][0], rgbs[1][1], rgbs[1][2]);          
-        }
-        
-      } catch(error) {
-        console.error(`Could not extract color for ${rawProduct.name}:`, error);
-      }
     }
 
     productData.set(rawProduct.name, {
@@ -146,31 +174,32 @@ export async function initialProductData() {
 }
 
 function getRecipeQty60(io: RawRecipe["inputs" | "outputs"][0], duration: number): number {
-  // Convert the io quantity to a per-minute basis
+  // Mech power doesn't scale with duration
   if (io.name === "Mechanical power") return io.quantity
   return (io.quantity * 60) / duration;
 }
 
-export async function initialMachineAndRecipeData(products?: Map<string, Product>) {
-  if (!products) {
-    products = await initialProductData();
-  }
-  const machineData = new Map<string, MachineSerialized>();
-  const recipeData = new Map<string, Recipe>();
+export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMachine[], products: Awaited<ReturnType<typeof formatProductData>>) {
+  const machineData = new Map<MachineId, MachineSerialized>();
+  const recipeData = new Map<RecipeId, RecipeSerialized>();
 
-  const dupedRecipes = new Set<string>();
+  const dupedRecipes = new Map<string, RecipeId[]>();
 
-  for (const rawMachine of raw.machinesAndBuildings.machines_and_buildings as RawMachine[]) {
+  for (const rawMachine of rawMachinesAndBuildings) {
+
     const machine: Partial<MachineSerialized> = {
       id: rawMachine.id as Machine["id"],
       name: rawMachine.name,
       category_id: rawMachine.category as Machine["category_id"],
       workers: rawMachine.workers,
       recipes: [],
-      buildCosts: rawMachine.build_costs.map(cost => ({
-        id: cost.product as Product["id"],
-        quantity: cost.quantity,
-      })),
+      buildCosts: rawMachine.build_costs.map(cost => {
+        assert(products.has(cost.product), `Product ${cost.product} not found in product data.`);
+        return {
+          id: products.get(cost.product)!.id,
+          quantity: cost.quantity,
+        }
+      }),
       isFarm: false, // TODO: Maybe don't need this?
       electricity_consumed: rawMachine.electricity_consumed,
       electricity_generated: rawMachine.electricity_generated,
@@ -191,9 +220,9 @@ export async function initialMachineAndRecipeData(products?: Map<string, Product
     }
 
     for (const rawRecipe of rawMachine.recipes) {
-      let newRecipeId = rawRecipe.id;
+      let newRecipeId = rawRecipe.id as Recipe["id"];
       const duration = rawRecipe.duration || 60; // Default to 60 seconds if no duration is specified
-      
+
       if (recipeData.has(newRecipeId)) {
         const num = newRecipeId.match(/^(.*)_(\d+)$/);
         // if there's an int on the end of the recipe ID, increment it
@@ -201,15 +230,15 @@ export async function initialMachineAndRecipeData(products?: Map<string, Product
         if (num) {
           const baseId = num[1];
           const newNum = parseInt(num[2], 10) + 1;
-          newRecipeId = `${baseId}_${newNum}`;
+          newRecipeId = `${baseId}_${newNum}` as Recipe["id"];
         } else
-          newRecipeId = `${newRecipeId}_1`;
+          newRecipeId = `${newRecipeId}_1` as Recipe["id"];
       }
 
       const inputs = rawRecipe.inputs.map(input => {
         const existingProduct = products.get(input.name);
         assert(existingProduct, `Product ${input.name} not found in product data.`);
-        existingProduct!.recipes.input.push(newRecipeId as Recipe["id"]);
+        existingProduct!.recipes.input.push(newRecipeId);
         return {
           id: existingProduct!.id,
           quantity: getRecipeQty60(input, duration),
@@ -220,7 +249,7 @@ export async function initialMachineAndRecipeData(products?: Map<string, Product
       const outputs = rawRecipe.outputs.map(output => {
         const existingProduct = products.get(output.name);
         assert(existingProduct, `Product ${output.name} not found in product data.`);
-        existingProduct!.recipes.output.push(newRecipeId as Recipe["id"]);
+        existingProduct!.recipes.output.push(newRecipeId);
 
         return {
           id: existingProduct!.id,
@@ -235,10 +264,11 @@ export async function initialMachineAndRecipeData(products?: Map<string, Product
       // TODO:: Don't store as a set, need a map of involved recipes to backfill the link ID to
       if (dupedRecipes.has(dedupKey)) {
         tierId = dedupKey;
+        dupedRecipes.get(dedupKey)!.push(newRecipeId);
       } else
-        dupedRecipes.add(dedupKey);
+        dupedRecipes.set(dedupKey, [newRecipeId]);
 
-      const recipe: Recipe = {
+      const recipe: RecipeSerialized = {
         id: newRecipeId as Recipe["id"],
         name: rawRecipe.name,
         linkId: tierId,
@@ -258,15 +288,16 @@ export async function initialMachineAndRecipeData(products?: Map<string, Product
     machineData.set(rawMachine.id, machine as MachineSerialized);
   }
 
-  const productsById: Record<string, Product> = {};
+  const productsById: Map<ProductId, ProductSerialized> = new Map();
   for (const product of products.values()) {
-    productsById[product.id] = product;
+    productsById.set(product.id, product);
   }
-  writeFileSync("data/test_machines.json", JSON.stringify(Object.fromEntries(machineData.entries()), null, 2));
-  writeFileSync("data/test_recipes.json", JSON.stringify(Object.fromEntries(recipeData.entries()), null, 2));
-  writeFileSync("data/test_products.json", JSON.stringify(productsById, null, 2));
-  console.log("Wrote test data to data/test_machines.json, data/test_recipes.json, and data/test_products.json");
-  return { machines: machineData, recipes: recipeData, products: productsById };
+
+  return {
+    machines: machineData,
+    recipes: recipeData,
+    products: productsById,
+  };
 }
 
 
@@ -276,10 +307,21 @@ export async function initialMachineAndRecipeData(products?: Map<string, Product
  * 
  * Outputs are listed with their inputs at ratio, with a placeholder for no outputs / inputs.
  */
-const makeRecipeDeduplicationKey = (inputs: Recipe["inputs"], outputs: Recipe["outputs"]) => {
+const makeRecipeDeduplicationKey = (inputs: RecipeSerialized["inputs"], outputs: RecipeSerialized["outputs"]) => {
   const emptyProduct = [{ id: "None", quantity: 1 }];
   const key = (outputs.length > 0 ? outputs : emptyProduct).sort().map(output => {
     return `${output.id}:${(inputs.length > 0 ? inputs : emptyProduct).sort().map(i => `${i.id}:${i.quantity / output.quantity}`).join('+')}`;
   }).join(',');
   return createHash("shake256", { outputLength: 32 }).update(key).digest("hex");
+}
+
+function rgbToHex(r: number, g: number, b: number): string {
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+}
+
+function formatColor(rawColor: RawProduct["color"]): string {
+  // Convert the raw color from (r, g, b, a) format to hex format
+  const rgba = rawColor.replace(/[()]/g, "").split(",").map(Number);
+  const [r, g, b] = rgba;
+  return rgbToHex(r, g, b);
 }

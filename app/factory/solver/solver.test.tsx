@@ -70,19 +70,19 @@ const basicLpp = `
 min
   obj: n_0+n_1+n_2+n_3
 subject to 
-  c0: - c0 -24 n_0 +24 n_1 +24 n_2 = 0
+  c0: - c0 -24 n_0 +24 n_1 +48 n_2 = 0
 c1: - c1 +24 n_1 -24 n_0 <= 0
-c2: - c2 +24 n_2 -24 n_0 <= 0
-c3: - c3 +12 n_0 -24 n_1 -12 n_3 = 0
+c2: - c2 +48 n_2 -24 n_0 <= 0
+c3: - c3 +12 n_0 -24 n_1 -60 n_3 = 0
 c4: - c4 -24 n_1 +12 n_0 >= 0
-c5: - c5 -12 n_3 +12 n_0 >= 0
-c6: - c6 -6 n_3 +6 n_1 = 0
-o_acid: - o_acid +24 n_3 = 0
-i_exhaust: - i_exhaust -180 n_1 = 0
-o_carbon_dioxide: - o_carbon_dioxide +72 n_1 = 0
-o_air_pollution: - o_air_pollution +24 n_1 = 0
-i_steam_hi: - i_steam_hi -24 n_2 = 0
-o_mechanical_power: - o_mechanical_power +6000 n_2 = 0
+c5: - c5 -60 n_3 +12 n_0 >= 0
+c6: - c6 -12 n_3 +6 n_1 = 0
+o_Product_Acid: - o_Product_Acid +72 n_3 = 0
+i_Product_Exhaust: - i_Product_Exhaust -240 n_1 = 0
+o_Product_CarbonDioxide: - o_Product_CarbonDioxide +96 n_1 = 0
+o_Product_Virtual_PollutedAir: - o_Product_Virtual_PollutedAir +24 n_1 = 0
+i_Product_SteamHi: - i_Product_SteamHi -48 n_2 = 0
+o_Product_Virtual_MechPower: - o_Product_Virtual_MechPower +12000 n_2 = 0
 Bounds 
   c0 = 0
 c1 = 0
@@ -91,12 +91,12 @@ c3 = 0
 c4 = 0
 c5 = 0
 c6 = 0
-o_acid free
-i_exhaust free
-o_carbon_dioxide free
-o_air_pollution free
-i_steam_hi free
-o_mechanical_power free
-o_acid = 48
-o_air_pollution >= 48
+o_Product_Acid free
+i_Product_Exhaust free
+o_Product_CarbonDioxide free
+o_Product_Virtual_PollutedAir free
+i_Product_SteamHi free
+o_Product_Virtual_MechPower free
+
+
 end`

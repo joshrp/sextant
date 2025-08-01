@@ -4,47 +4,47 @@ import ButtonEdge, { type ButtonEdge as ButtonEdgeType } from "./ButtonEdge";
 
 export const initialEdges = [
   { id: "filtering->condensing", 
-    source: "exhaust_filtering_1", 
-    sourceHandle: "steam_lo", 
-    target: "lo-press_steam_condensation", 
-    targetHandle: "steam_lo",
+    source: "ExhaustFiltering", 
+    sourceHandle: "Product_SteamLP", 
+    target: "SteamLpCondensation", 
+    targetHandle: "Product_SteamLP",
     animated: true ,
     type: "button-edge"
   },
   { id: "filtering->acid_sulfur", 
-    source: "exhaust_filtering_1", 
-    target: "acid_mixing_1", 
-    sourceHandle: "sulfur",
-    targetHandle: "sulfur",
+    source: "ExhaustFiltering", 
+    target: "AcidMixMixingT2", 
+    sourceHandle: "Product_Sulfur",
+    targetHandle: "Product_Sulfur",
     animated: true,
     type: "button-edge" 
   },
   { 
     id: "condensing->filtering", 
-    target: "exhaust_filtering_1", 
-    source: "lo-press_steam_condensation", 
-    sourceHandle: "water",
-    targetHandle: "water",
+    target: "ExhaustFiltering", 
+    source: "SteamLpCondensation", 
+    sourceHandle: "Product_Water",
+    targetHandle: "Product_Water",
     animated: true,
     type: "button-edge" 
 
   },
   { 
     id: "condensing->acid", 
-    target: "acid_mixing_1", 
-    source: "lo-press_steam_condensation", 
-    sourceHandle: "water",
-    targetHandle: "water",
+    target: "AcidMixMixingT2", 
+    source: "SteamLpCondensation", 
+    sourceHandle: "Product_Water",
+    targetHandle: "Product_Water",
     animated: true,
     type: "button-edge" 
 
   },
   { 
     id: "turbine->condensing", 
-    source: "turbinehighpress", 
-    target: "lo-press_steam_condensation",
-    sourceHandle: "steam_lo",
-    targetHandle: "steam_lo",
+    source: "TurbineHighPressT2", 
+    target: "SteamLpCondensation",
+    sourceHandle: "Product_SteamLP",
+    targetHandle: "Product_SteamLP",
     animated: true,
     type: "button-edge"
   },

@@ -4,6 +4,10 @@ import { FactoryProvider } from "~/factory/FactoryProvider";
 import useProductionMatrix from "~/factory/MatrixContext";
 import { Factory } from "../factory/factory";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
+import { loadData } from "~/factory/graph/loadJsonData";
+import { machineIcon, productIcon } from "~/uiUtils";
+
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function meta() {
@@ -13,20 +17,34 @@ export function meta() {
   ];
 }
 
+const { products, machines } = loadData();
+
 export default function Home() {
   const prodMatrix = useProductionMatrix();
   let selected = prodMatrix.settings.factories.find(f => f.id === prodMatrix.settings.selected);
   if (!selected) selected = prodMatrix.settings.factories[0];
-  
-  return <FactoryProvider id={selected?.id}>
+  const [images, setImages] = useState<string[]>([]); 
+  useEffect(() => {
+    const newImg = Array.from(products.values().map(p => productIcon(p.icon)));
+    newImg.push(...Array.from(machines.values().map(m => machineIcon(m))));
+    setImages(newImg);
+  }, [products, machines]); 
+  return <>
     <main className="flex items-center justify-center">
-      <div className="flex-1 flex flex-col items-center h-full">
-        <Header selected={selected?.id} />
+      <FactoryProvider id={selected?.id}>
+        <div className="flex-1 flex flex-col items-center h-full">
+          <Header selected={selected?.id} />
 
-        <Factory />
-      </div>
-    </main>
-  </FactoryProvider>
+          <Factory />
+        </div>
+      </FactoryProvider>
+      {images.map((img, idx) => (
+        <>
+          <link key={idx} rel="preload" href={img} as="image" />
+        </>
+      ))}
+    </main >
+  </>
 }
 
 function Header({ selected }: { selected?: string }) {

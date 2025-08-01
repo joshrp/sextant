@@ -1,12 +1,16 @@
-import machineData from "data/machines.json"
-import productData from "data/products.json"
-import recipeData from "data/recipes.json"
-import categoryData from "data/categories.json"
-
 export type MachineId = string // keyof typeof machineData;
 export type RecipeId = "A Recipe ID" | "Some other Recipe ID"; // keyof typeof recipeData;
 export type ProductId = "A Product String Example" | "Some other product"; // keyof typeof productData; // This was killing performance, it's used everywhere and is too large
 export type CategoryId = "A Machine Category ID" | "Some other category"; // keyof typeof categoryData;
+import untyped from "../../gameData";
+
+export type GameData = {
+  machines: Record<MachineId, MachineSerialized>  ;
+  products: Record<ProductId, ProductSerialized>;
+  recipes: Record<RecipeId, RecipeSerialized>;
+};
+
+const gameData = untyped as unknown as GameData
 
 export type BuildCost = {
   id: ProductId;
@@ -16,8 +20,6 @@ export type BuildCost = {
 
 type MachineBase = {
   id: MachineId;
-  game_id: string;
-  icon: string;
   name: string;
   category_id: CategoryId;
   workers: number;
@@ -32,8 +34,6 @@ type MachineBase = {
   storage_capacity: number;
   unity_cost: number;
   research_speed: number;
-  isMine: boolean;
-  isStorage: boolean;
   isFarm: boolean;
   cooling?: { // TODO:: Needs exporting
     input: ProductId[];
@@ -52,10 +52,11 @@ export type MachineSerialized = MachineBase & {
 
 export type Machine = MachineBase & {
   recipes: Recipe[];
+  icon: string;
   buildCosts: {
     product: Product;
     quantity: number;
-  }
+  }[]
 }
 
 export type Category = {
@@ -65,12 +66,15 @@ export type Category = {
   recipes: RecipeId[];
 }
 
-export type Product = {
+export type ProductBase = {
   id: ProductId;
   name: string;
   icon: string;
   color: string; // Hex color code
   unit: string; // "{0} kW" | "{0} TFlops" | ""
+}
+
+export type ProductSerialized = ProductBase & {
   recipes: {
     input: RecipeId[];
     output: RecipeId[];
@@ -80,41 +84,146 @@ export type Product = {
     output: MachineId[];
   }
 }
+export type Product = ProductBase & {
+  recipes: {
+    input: Recipe[];
+    output: Recipe[];
+  }
+  machines: {
+    input: Machine[];
+    output: Machine[];
+  }
+}
 
 export type RecipeProduct = {
+  product: Product;
+  quantity: number;
+}
+
+export type RecipeProductSerialized = {
   id: ProductId;
   quantity: number;
 }
 
-export type Recipe = {
+export type RecipeBase = {
   id: RecipeId;
   name: string;
   linkId?: string;
-  machine: MachineId;
-  duration: number; 
+  duration: number;
   origDuration: number;
+}
+export type Recipe = RecipeBase & {
+  machine: Machine;
   inputs: RecipeProduct[];
   outputs: RecipeProduct[];
 }
 
-export type MachineData = { [id in MachineId]: Machine }
-export type RecipeData = { [id in RecipeId]: Recipe }
-export type ProductData = { [id in ProductId]: Product }
-export type CategoryData = { [id in CategoryId]: Category }
-
-export const loadMachineData = () => {
-  return machineData as unknown as MachineData
+export type RecipeSerialized = RecipeBase & {
+  machine: MachineId;
+  inputs: RecipeProductSerialized[];
+  outputs: RecipeProductSerialized[];
 }
 
-export const loadProductData = () => {
-  return productData as unknown as ProductData
+let loadedData: {
+  machines: Map<MachineId, Machine>;
+  products: Map<ProductId, Product>;
+  recipes: Map<RecipeId, Recipe>;
+} | null = null;
+
+export function loadData() {
+  return loadedData || (loadedData = parseData());
 }
 
-export const loadRecipeData = () => {
-  return recipeData as unknown as RecipeData
-}
+export function parseData(unparsedData = gameData) {
+  try {
+    // Map all recipes and link their products and machine directly
+    const newData = {
+      machines: new Map<MachineId, Machine>,
+      products: new Map<ProductId, Product>,
+      recipes: new Map<RecipeId, Recipe>,
+    }
 
-export const loadCategoryData = () => {
-  return categoryData as unknown as CategoryData
-}
+    // setup machines and products
+    for (const productId in unparsedData.products) {
+      const product = unparsedData.products[productId as ProductId];
+      const newProduct: Product = {
+        ...product,
+        recipes: {
+          input: [],
+          output: [],
+        },
+        machines: {
+          input: [],
+          output: [],
+        },
+      }
+      newData.products.set(productId as ProductId, newProduct);
+    }
 
+    for (const machineId in unparsedData.machines) {
+      const machine = unparsedData.machines[machineId];
+      const newMachine: Machine = {
+        ...machine,
+        icon: machine.id,
+        recipes: [],
+        buildCosts: machine.buildCosts.map(cost => {
+          const product = newData.products.get(cost.id);
+          if (!product) {
+            throw new Error(`Product ${cost.id} not found for machine ${machineId}`);
+          }
+          return {
+            product: newData.products.get(cost.id)!,
+            quantity: cost.quantity,
+          }
+        }),
+      }
+      newData.machines.set(machineId, newMachine);
+    }
+
+    for (const key in unparsedData.recipes) {
+      const recipeId = key as RecipeId;
+      const recipe = unparsedData.recipes[recipeId];
+      const machine = newData.machines.get(recipe.machine);
+      if (!machine)
+        throw new Error(`Machine ${recipe.machine} not found for recipe ${recipeId}`);
+
+      newData.recipes.set(recipeId, {
+        ...recipe,
+        machine: machine,
+        inputs: [],
+        outputs: [],
+      });
+      const newRecipe = newData.recipes.get(recipeId)!;
+      machine.recipes.push(newRecipe);
+
+      newRecipe.inputs = recipe.inputs.map(input => {
+        const product = newData.products.get(input.id);
+        if (!product) {
+          throw new Error(`Product ${input.id} not found for recipe ${recipeId}`);
+        }
+        product.recipes.input.push(newRecipe);
+        return {
+          product: product,
+          quantity: input.quantity,
+        }
+      });
+      newRecipe.outputs = recipe.outputs.map(output => {
+        const product = newData.products.get(output.id);
+        if (!product) {
+          throw new Error(`Product ${output.id} not found for recipe ${recipeId}`);
+        }
+        product.recipes.output.push(newRecipe);
+        return {
+          product: product,
+          quantity: output.quantity,
+        }
+      });
+    }
+
+    return newData;
+
+  } catch (error) {
+    console.error("Error parsing game data:", error);
+    throw "Failed to load data";
+  }
+}

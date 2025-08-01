@@ -1,13 +1,12 @@
 import highsLoader, { type Highs, type HighsSolution } from "highs";
-import { loadRecipeData, type ProductId, type Recipe } from "../graph/loadJsonData";
+import { loadData, type ProductId, type Recipe } from "../graph/loadJsonData";
 
 import type { CustomEdgeType } from '../graph/edges';
 import type { CustomNodeType } from '../graph/nodes';
 import { type Constraint, type EqualityTypes, type FactoryGoal, type GraphModel, type ManifoldOptions, type NodeConnection, type NodeConnections, type OpenConnections, type Solution } from "./types";
 
-const recipeData = loadRecipeData();
+const recipeData = loadData().recipes;
 let highsProm: Promise<Highs>;
-console.log("window", typeof window)
 if (typeof window === "undefined")
   highsProm = highsLoader();
 else
@@ -270,8 +269,11 @@ export default class Solver {
    */
   getTerm(nodeId: string, productId: ProductId, isInput: boolean): Constraint["terms"][0] | null {
     const ioString = isInput ? "inputs" : "outputs";
-
-    const recipeQty = this.graph?.[nodeId].recipe[ioString].find(p => productId == p.id)?.quantity
+    const recipe = recipeData.get(this.graph?.[nodeId].recipeId);
+    if (!recipe) {
+      throw new Error(`Recipe not found for node ${nodeId} with recipeId ${this.graph?.[nodeId].recipeId}`);
+    }
+    const recipeQty = recipe[ioString].find(p => productId == p.product.id)?.quantity
     if (!recipeQty) {
       console.error('Could not find recipe quantity for', productId, 'as', ioString, 'on', nodeId);
       return null;
@@ -464,22 +466,22 @@ function buildGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): NodeConne
   nodes.forEach((node, index) => {
     nodesById[node.id] = node;
     nodeOrder[node.id] = index;
-    nodeRecipe[node.id] = recipeData[node.data.recipeId];
+    nodeRecipe[node.id] = recipeData.get(node.data.recipeId)!;
     const inputs: NodeConnection["inputs"] = {};
     const outputs: NodeConnection["outputs"] = {};
 
-    nodeRecipe[node.id].inputs.forEach(product => {
-      inputs[product.id] = [];
-      (openConnections.inputs[product.id] ||= []).push(node.id)
+    nodeRecipe[node.id].inputs.forEach(input => {
+      inputs[input.product.id] = [];
+      (openConnections.inputs[input.product.id] ||= []).push(node.id)
     });
 
-    nodeRecipe[node.id].outputs.forEach(product => {
-      outputs[product.id] = [];
-      (openConnections.outputs[product.id] ||= []).push(node.id)
+    nodeRecipe[node.id].outputs.forEach(output => {
+      outputs[output.product.id] = [];
+      (openConnections.outputs[output.product.id] ||= []).push(node.id)
     });
 
     nodeConnections[node.id] = {
-      recipe: recipeData[node.data.recipeId],
+      recipeId: node.data.recipeId,
       inputs: inputs,
       outputs: outputs,
     };
@@ -523,7 +525,7 @@ const inputMatcher = /^i_(.+)$/;
 const outputMatcher = /^o_(.+)$/;
 
 // Instead of exporting a variable, export a setter function
-let DEBUG_SOLVER = false;
+let DEBUG_SOLVER = true;
 export function setDebugSolver(val: boolean) {
   DEBUG_SOLVER = val;
 }

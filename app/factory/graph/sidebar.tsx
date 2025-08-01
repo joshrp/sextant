@@ -6,14 +6,12 @@ import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { SelectorDialog } from 'app/components/Dialog';
 import useFactory, { useFactoryStore } from '~/factory/FactoryContext';
 import type { FactoryGoal } from '../solver/types';
-import { loadProductData, type Product, type ProductId } from './loadJsonData';
+import { loadData, type Product, type ProductId } from './loadJsonData';
 import Manifold from './Manifold';
 import { useShallow } from 'zustand/shallow';
-import { formatNumber } from '~/uiUtils';
+import { formatNumber, productIcon } from '~/uiUtils';
 
-// const transformSelector = (state: any) => state.transform;
-const productData = loadProductData();
-const productIcon = (id: ProductId) => `/assets/products/${productData[id].icon}`;
+const productData = loadData()?.products;
 
 type props = {
   addNewRecipe: (productId: ProductId) => void
@@ -26,7 +24,7 @@ const icons = {
 }
 
 function SideBar({ addNewRecipe }: props) {
-  
+
   const store = useFactory().store;
 
   const solution = useFactoryStore(useShallow(state => state.solution));
@@ -37,14 +35,14 @@ function SideBar({ addNewRecipe }: props) {
   const solutionUpdateAction = useFactoryStore(useShallow(state => state.solutionUpdateAction));
 
   const [editGoal, setEditGoal] = useState<FactoryGoal | null>(null);
-  
+
   const addGoal = useCallback((goal: FactoryGoal): void => {
     console.log("Adding goal", goal, "to goals", goals);
     const exists = goals.findIndex(g => goal.productId == g.productId);
     if (exists >= 0)
-      store.setState(state => ({goals: state.goals.filter(g => g.productId != goal.productId)}), false, "Remove existing goal before adding new one");
+      store.setState(state => ({ goals: state.goals.filter(g => g.productId != goal.productId) }), false, "Remove existing goal before adding new one");
     else
-      store.setState(state => ({goals: [...state.goals, goal]}), false, "Add new goal");
+      store.setState(state => ({ goals: [...state.goals, goal] }), false, "Add new goal");
     solutionUpdateAction();
 
     setEditGoal(null);
@@ -105,7 +103,11 @@ function SideBar({ addNewRecipe }: props) {
       <div className="flex-1">
         {goals.map((goal, i) => {
           const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
-
+          const product = productData.get(goal.productId);
+          if (!product) {
+            console.warn("Product not found for goal", goal);
+            return null;
+          }
           let fulfilled = false;
           if (resultCount !== undefined) {
             if (goal.type == "eq")
@@ -115,7 +117,6 @@ function SideBar({ addNewRecipe }: props) {
             else if (goal.type == "gt")
               fulfilled = goal.qty <= resultCount;
           }
-          console.log(goal.productId, productData[goal.productId], goal.qty, resultCount, fulfilled);
           return <Menu key={"goal-" + i}>
             <MenuButton key={"goal-" + i} as="div" className={`output-goal w-full gap-2 p-2 flex my-1
                                   hover:bg-gray-900
@@ -125,12 +126,12 @@ function SideBar({ addNewRecipe }: props) {
                                     `}
             >
               <div className="flex-1 max-w-10 justify-self-start">
-                <img className="w-full" src={productIcon(goal.productId)} />
+                <img className="w-full" src={productIcon(product.icon)} />
               </div>
-              <div className="flex-3 content-center-safe">{icons[goal.type]} {formatNumber(goal.qty, productData[goal.productId].unit)}</div>
+              <div className="flex-3 content-center-safe">{icons[goal.type]} {formatNumber(goal.qty, product.unit)}</div>
               <div className="verticalRule self-stretch w-0.5 bg-neutral-500 opacity-50"></div>
               <div className="w-full flex-2 content-center-safe justify-self-end-safe text-right text-nowrap">
-                {resultCount ? formatNumber(resultCount, productData[goal.productId].unit) : ''}
+                {resultCount ? formatNumber(resultCount, product.unit) : ''}
               </div>
             </MenuButton>
             <MenuItems anchor="bottom" className="bg-gray-800 border-2 border- border-gray-500 rounded-sm shadow-lg -mt-2">
@@ -154,6 +155,11 @@ function SideBar({ addNewRecipe }: props) {
       <div className="byproducts flex-1 grid grid-cols-2 gap-1 content-start">
         {solution?.products?.outputs.map((output, i) => {
           const goal = goals.find(g => g.productId === output.productId && g.dir == "output");
+          const product = productData.get(output.productId);
+          if (!product) {
+            console.warn("Product not found for output", output);
+            return null;
+          }
           let amount = output.amount;
           let isSurplus = false;
           if (goal) {
@@ -166,7 +172,7 @@ function SideBar({ addNewRecipe }: props) {
                                 bg-gray-800 hover:bg-gray-900
                                 rounded cursor-pointer 
                                 ${isSurplus ? "bg-green-900" : ""}`}>
-            <img className="h-full justify-self-start" src={'/assets/products/' + productData[output.productId].icon} />
+            <img className="h-full justify-self-start" src={productIcon(product.icon)} />
             <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{amount} {isSurplus ? "extra" : ""}</span>
           </div>
         })}
@@ -174,6 +180,11 @@ function SideBar({ addNewRecipe }: props) {
       <div className="subtitle">Inputs</div>
       <div className="flex-1 grid grid-cols-2 gap-1 content-start">
         {solution?.products?.inputs.map((input, i) => {
+          const product = productData.get(input.productId);
+          if (!product) {
+            console.warn("Product not found for input", input);
+            return null;
+          }
           const amount = input.amount * -1;
           if (amount <= 0) return;
           return <Menu key={"input-" + i}>
@@ -181,7 +192,7 @@ function SideBar({ addNewRecipe }: props) {
                                 bg-gray-800 hover:bg-gray-900
                                 rounded cursor-pointer`}
             >
-              <img className="h-full justify-self-start" src={'/assets/products/' + productData[input.productId].icon} />
+              <img className="h-full justify-self-start" src={productIcon(product.icon)} />
               <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{amount}</span>
             </MenuButton>
             <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded-sm shadow-xl">
@@ -209,8 +220,7 @@ function SideBar({ addNewRecipe }: props) {
       <SelectorDialog title={"Select Product to make"} isOpen={selectProductDialog} setIsOpen={setSelectProductDialog}>
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,4fr))] gap-2 overflow-y-auto">
-          {(Object.keys(productData) as ProductId[]).map((key) => {
-            const item = productData[key]
+          {productData.values().map((item) => {
             return (<div key={item.id} className="">
               <div id={"tooltip-" + item.id} role="tooltip" className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
                 {item.name}
@@ -230,7 +240,7 @@ function SideBar({ addNewRecipe }: props) {
 
     ) : ("")}
     {editGoal ? (
-      <SelectorDialog title={"Change " + productData[editGoal.productId].name + " Goal"} isOpen={editGoal !== null} setIsOpen={() => setEditGoal(null)}>
+      <SelectorDialog title={"Change " + productData.get(editGoal.productId)?.name + " Goal"} isOpen={editGoal !== null} setIsOpen={() => setEditGoal(null)}>
         <NewProductOptions addGoal={addGoal} goal={editGoal} />
       </SelectorDialog>
     ) : ("")}

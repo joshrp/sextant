@@ -1,20 +1,26 @@
-import { initialMachineAndRecipeData, initialProductData } from "./reformat";
+import { parseData, type GameData, type ProductId } from "~/factory/graph/loadJsonData";
+import { getDataFromRaw, writeRawData } from "./reformat";
 
-import { describe, expect, test } from 'vitest';
+import { beforeAll, describe, expect, test } from 'vitest';
 
-describe("Reformat", () => {
-  test("Load product data", async () => {
-    const products = await initialProductData();
-    expect(products).toBeDefined();
-    console.log("Products loaded:", products.size);
-    expect(products.size).toBeGreaterThan(0);
-    expect(products.get("Maintenance II")).toBeDefined();
-    expect(products.get("Maintenance II")?.name).toBe("Maintenance II");
-    expect(products.get("Maintenance II")?.icon).toBe("maintenance2.png");
+describe("Check refomatted data", () => {
+  let allData: Awaited<ReturnType<typeof getDataFromRaw>>;
+  beforeAll(async () => {
+    allData = await getDataFromRaw();
+    writeRawData(allData, "./data_test.json");
   });
 
-  test("Load machine & recipe data", async () => {
-    const { machines } = await initialMachineAndRecipeData();
+  test("Load product data", () => {
+    const products = allData.products;
+    expect(products).toBeDefined();
+    expect(products.size).toBeGreaterThan(0);
+    expect(products.get("Product_Virtual_MaintenanceT2" as ProductId)).toBeDefined();
+    expect(products.get("Product_Virtual_MaintenanceT2" as ProductId)?.name).toBe("Maintenance II");
+    expect(products.get("Product_Virtual_MaintenanceT2" as ProductId)?.icon).toBe("maintenance2.png");
+  });
+
+  test("Load machine & recipe data", () => {
+    const { machines } = allData;
     const assembler2 = machines.get("AssemblyRoboticT1");
     expect(assembler2).toBeDefined();
     expect(assembler2?.name).toBe("Assembly IV");
@@ -25,9 +31,9 @@ describe("Reformat", () => {
   //   [ 134, 134, 134 ],
   // [ 58, 123, 58 ],
 
-  test("All recipes with a link ID should have the same input and output products", async ()=>{
-    const { recipes } = await initialMachineAndRecipeData();
-    const linkIdMap = new Map<string, {inputs: Set<string>, outputs: Set<string>}>();
+  test("All recipes with a link ID should have the same input and output products", () => {
+    const { recipes } = allData;
+    const linkIdMap = new Map<string, { inputs: Set<string>, outputs: Set<string> }>();
 
     for (const recipe of recipes.values()) {
       if (recipe.linkId) {
@@ -39,23 +45,23 @@ describe("Reformat", () => {
         } else {
           const { inputs, outputs } = linkIdMap.get(recipe.linkId)!;
           expect(new Set(recipe.inputs.map(i => i.id)), `checking inputs for ${recipe.id}`).toEqual(inputs);
-          expect(new Set(recipe.outputs.map(o => o.id)),`checking outputs for ${recipe.id}`).toEqual(outputs);
+          expect(new Set(recipe.outputs.map(o => o.id)), `checking outputs for ${recipe.id}`).toEqual(outputs);
         }
       }
     }
-    expect(linkIdMap.size).toBeLessThan(recipes.size);
+    expect(linkIdMap.size).toBeLessThan(recipes.size / 2);
   })
 
   test("All products should have their relevant recipes in their array", async () => {
-    const { recipes, products } = await initialMachineAndRecipeData();
+    const { recipes, products } = allData;
     for (const recipe of recipes.values()) {
       for (const input of recipe.inputs) {
-        const product = products[input.id];
+        const product = products.get(input.id);
         expect(product, `Product ${input.id} not found for recipe ${recipe.id}`).toBeDefined();
         expect(product?.recipes.input.includes(recipe.id), `Recipe ${recipe.id} not found in input recipes for product ${input.id}`).toBe(true);
       }
       for (const output of recipe.outputs) {
-        const product = products[output.id];
+        const product = products.get(output.id);
         expect(product, `Product ${output.id} not found for recipe ${recipe.id}`).toBeDefined();
         expect(product?.recipes.output.includes(recipe.id), `Recipe ${recipe.id} not found in output recipes for product ${output.id}`).toBe(true);
       }
@@ -75,13 +81,40 @@ describe("Reformat", () => {
   });
 
   test("All recipe inputs and outputs should have valid number quantities", async () => {
-    const { recipes } = await initialMachineAndRecipeData();
+    const { recipes } = allData;
     for (const recipe of recipes.values()) {
       for (const input of recipe.inputs) {
         expect(input.quantity, `Input ${input.id} in recipe ${recipe.id} has invalid quantity`).toBeGreaterThan(0);
       }
       for (const output of recipe.outputs) {
         expect(output.quantity, `Output ${output.id} in recipe ${recipe.id} has invalid quantity`).toBeGreaterThan(0);
+      }
+    }
+  });
+});
+
+describe("Check parsed data", () => {
+  let loadedData: ReturnType<typeof parseData>;
+  beforeAll(async () => {
+    const allData = await getDataFromRaw();
+    loadedData = parseData({
+      products: Object.fromEntries(allData.products),
+      machines: Object.fromEntries(allData.machines),
+      recipes: Object.fromEntries(allData.recipes),
+    } as GameData);
+  });
+
+  test("All products should be linked to their recipes", () => {
+    const recipes = loadedData.recipes;
+
+    for (const [recipeId, recipe] of recipes) {
+      for (const input of recipe.inputs) {
+        expect(input.product).toBeDefined();
+        expect(input.product.recipes.input.find(r => r.id === recipeId)).toBeDefined();
+      }
+      for (const output of recipe.outputs) {
+        expect(output.product).toBeDefined();
+        expect(output.product.recipes.output.find(r => r.id === recipeId)).toBeDefined();
       }
     }
   });

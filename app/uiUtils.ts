@@ -1,3 +1,5 @@
+import type { Machine } from "./factory/graph/loadJsonData";
+
 let LANG = "en-GB";
 if (typeof window !== "undefined")
   LANG = window.navigator.language;
@@ -19,3 +21,7 @@ export function formatNumber(value: number, unit: string): string {
   }
   return value.toLocaleString(LANG, { maximumFractionDigits: 1 }) + " " + unit;
 }
+
+export const productIcon = (icon: string) => `/assets/products/${icon}`;
+
+export const machineIcon = (machine: Machine) => `/assets/buildings/${machine.id}.png`;

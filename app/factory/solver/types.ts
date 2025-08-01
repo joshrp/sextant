@@ -1,9 +1,9 @@
 import type { CustomEdgeType } from "../graph/edges";
-import type { ProductId, Recipe } from "../graph/loadJsonData";
+import type { ProductId, RecipeId } from "../graph/loadJsonData";
 import type { CustomNodeType } from "../graph/nodes";
 
 export type NodeConnection = {
-  recipe: Recipe,
+  recipeId: RecipeId,
   inputs: {
     [k in ProductId]?: { nodeId: string, edgeId: string }[]
   },

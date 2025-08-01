@@ -1,2057 +1,685 @@
-{
-  "game_version": "0.7.7.0",
-  "products": [
-    {
-      "id": "Product_Virtual_Electricity",
-      "name": "Electricity",
-      "icon": "Electricity",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Electricity.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": "{0} kW"
-    },
-    {
-      "id": "Product_Virtual_MechPower",
-      "name": "Mechanical power",
-      "icon": "Mechanicalpower",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MechanicalPower.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": "{0} kW"
-    },
-    {
-      "id": "Product_Virtual_Computing",
-      "name": "Computing",
-      "icon": "Computing",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Unity/UserInterface/General/Computing128.png",
-      "color": "(0, 0, 0, 0)",
-      "unit": "{0} TFlops"
-    },
-    {
-      "id": "Product_Virtual_Upoints",
-      "name": "Unity",
-      "icon": "Unity",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Unity/UserInterface/General/Unity128.png",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_Heat",
-      "name": "Heat",
-      "icon": "Heat",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Heat.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_MaintenanceT1",
-      "name": "Maintenance I",
-      "icon": "Maintenance1",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Maintenance1.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_MaintenanceT2",
-      "name": "Maintenance II",
-      "icon": "Maintenance2",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Maintenance2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_MaintenanceT3",
-      "name": "Maintenance III",
-      "icon": "Maintenance3",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Maintenance3.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_SpaceCrew",
-      "name": "Space crew",
-      "icon": "Spacecrew",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SpaceCrew.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_SpaceResearchPoints",
-      "name": "Space research points",
-      "icon": "Spaceresearchpoints",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SpaceResearchPoints.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Wood",
-      "name": "Wood",
-      "icon": "Wood",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Wood.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Woodchips",
-      "name": "Woodchips",
-      "icon": "Woodchips",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Woodchips.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Fertilizer",
-      "name": "Fertilizer I",
-      "icon": "Fertilizer1",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Fertilizer.svg",
-      "color": "(147, 129, 102, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Fertilizer2",
-      "name": "Fertilizer II",
-      "icon": "Fertilizer2",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Fertilizer2.svg",
-      "color": "(147, 141, 79, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_FertilizerOrganic",
-      "name": "Fertilizer (organic)",
-      "icon": "Fertilizerorganic",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/FertilizerOrganic.svg",
-      "color": "(123, 138, 69, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TreeSapling",
-      "name": "Tree sapling",
-      "icon": "Treesapling",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TreeSapling.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Paper",
-      "name": "Paper",
-      "icon": "Paper",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Paper.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Dirt",
-      "name": "Dirt",
-      "icon": "Dirt",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Dirt.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Compost",
-      "name": "Compost",
-      "icon": "Compost",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Digestate.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Sludge",
-      "name": "Sludge",
-      "icon": "Sludge",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Sludge.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Limestone",
-      "name": "Limestone",
-      "icon": "Limestone",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Limestone.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Rock",
-      "name": "Rock",
-      "icon": "Rock",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Rock.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Gravel",
-      "name": "Gravel",
-      "icon": "Gravel",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Gravel.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ManufacturedSand",
-      "name": "Manufactured sand",
-      "icon": "Manufacturedsand",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ManufacturedSand.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_FilterMedia",
-      "name": "Filter media",
-      "icon": "Filtermedia",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/FilterMedia.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Coal",
-      "name": "Coal",
-      "icon": "Coal",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Coal.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Graphite",
-      "name": "Graphite",
-      "icon": "Graphite",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Graphite.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Slag",
-      "name": "Slag",
-      "icon": "Slag",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Slag.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SlagCrushed",
-      "name": "Slag crushed",
-      "icon": "Slagcrushed",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SlagCrushed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_IronOre",
-      "name": "Iron ore",
-      "icon": "Ironore",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/IronOre.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_IronOreCrushed",
-      "name": "Iron ore crushed",
-      "icon": "Ironorecrushed",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/IronCrushed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_IronScrap",
-      "name": "Iron scrap",
-      "icon": "Ironscrap",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/IronScrap.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_IronScrapPressed",
-      "name": "Iron scrap pressed",
-      "icon": "Ironscrappressed",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/IronScrapPressed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenIron",
-      "name": "Molten iron",
-      "icon": "Molteniron",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/IronMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenSteel",
-      "name": "Molten steel",
-      "icon": "Moltensteel",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SteelMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Iron",
-      "name": "Iron",
-      "icon": "Iron",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Iron.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Steel",
-      "name": "Steel",
-      "icon": "Steel",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Steel.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CopperOre",
-      "name": "Copper ore",
-      "icon": "Copperore",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CopperOre.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CopperOreCrushed",
-      "name": "Copper ore crushed",
-      "icon": "Copperorecrushed",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CopperCrushed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CopperScrap",
-      "name": "Copper scrap",
-      "icon": "Copperscrap",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CopperScrap.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CopperScrapPressed",
-      "name": "Copper scrap pressed",
-      "icon": "Copperscrappressed",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CopperScrapPressed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenCopper",
-      "name": "Molten copper",
-      "icon": "Moltencopper",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CopperMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ImpureCopper",
-      "name": "Impure copper",
-      "icon": "Impurecopper",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CopperImpure.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Copper",
-      "name": "Copper",
-      "icon": "Copper",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Copper.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Bauxite",
-      "name": "Bauxite",
-      "icon": "Bauxite",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Bauxite.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_BauxitePowder",
-      "name": "Bauxite powder",
-      "icon": "Bauxitepowder",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/BauxitePowder.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_RedMud",
-      "name": "Red mud",
-      "icon": "Redmud",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/RedMud.svg",
-      "color": "(110, 65, 52, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_HydratedAlumina",
-      "name": "Hydrated alumina",
-      "icon": "Hydratedalumina",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/AluminaHydrated.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Alumina",
-      "name": "Alumina",
-      "icon": "Alumina",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Alumina.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_AluminumScrap",
-      "name": "Aluminum scrap",
-      "icon": "Aluminumscrap",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/AluminumScrap.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_AluminumScrapPressed",
-      "name": "Aluminum scrap pressed",
-      "icon": "Aluminumscrappressed",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/AluminumScrapPressed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenAluminum",
-      "name": "Molten aluminum",
-      "icon": "Moltenaluminum",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/AluminumMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Aluminum",
-      "name": "Aluminum",
-      "icon": "Aluminum",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Aluminum.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TitaniumOre",
-      "name": "Titanium ore",
-      "icon": "Titaniumore",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumOre.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TitaniumOreCrushed",
-      "name": "Titanium ore crushed",
-      "icon": "Titaniumorecrushed",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumOreCrushed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TitaniumSlag",
-      "name": "Titanium slag",
-      "icon": "Titaniumslag",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumSlag.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TitaniumChloride",
-      "name": "Titanium chloride",
-      "icon": "Titaniumchloride",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumChloride.svg",
-      "color": "(148, 135, 89, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TitaniumChloridePure",
-      "name": "Titanium chloride (pure)",
-      "icon": "Titaniumchloridepure",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumChloridePure.svg",
-      "color": "(147, 148, 89, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TitaniumSponge",
-      "name": "Titanium sponge",
-      "icon": "Titaniumsponge",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumSponge.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenTitanium",
-      "name": "Molten titanium",
-      "icon": "Moltentitanium",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenTitaniumAlloy",
-      "name": "Molten titanium alloy",
-      "icon": "Moltentitaniumalloy",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/TitaniumAlloyMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_TitaniumAlloy",
-      "name": "Titanium alloy",
-      "icon": "Titaniumalloy",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Titanium.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_GoldOre",
-      "name": "Gold ore",
-      "icon": "Goldore",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GoldOre.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_GoldOreCrushed",
-      "name": "Gold ore crushed",
-      "icon": "Goldorecrushed",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GoldOreCrushed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_GoldOrePowder",
-      "name": "Gold ore powder",
-      "icon": "Goldorepowder",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GoldOrePowder.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_GoldOreConcentrate",
-      "name": "Gold ore concentrate",
-      "icon": "Goldoreconcentrate",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GoldOreConcentrate.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Gold",
-      "name": "Gold",
-      "icon": "Gold",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Gold.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_GoldScrap",
-      "name": "Gold scrap",
-      "icon": "Goldscrap",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GoldScrap.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_GoldScrapPressed",
-      "name": "Gold scrap pressed",
-      "icon": "Goldscrappressed",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GoldScrapPressed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Sand",
-      "name": "Sand",
-      "icon": "Sand",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Sand.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenGlass",
-      "name": "Molten glass",
-      "icon": "Moltenglass",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GlassMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_BrokenGlass",
-      "name": "Broken glass",
-      "icon": "Brokenglass",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/BrokenGlass.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Glass",
-      "name": "Glass",
-      "icon": "Glass",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Glass.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_GlassMix",
-      "name": "Glass mix",
-      "icon": "Glassmix",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/GlassMix.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_UraniumOre",
-      "name": "Uranium ore",
-      "icon": "Uraniumore",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/UraniumOre.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_UraniumOreCrushed",
-      "name": "Uranium ore powder",
-      "icon": "Uraniumorepowder",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/UraniumOreCrushed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Yellowcake",
-      "name": "Yellowcake",
-      "icon": "Yellowcake",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/YellowCake.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_UraniumEnriched",
-      "name": "Enriched uranium (4%)",
-      "icon": "Enricheduranium4%",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/UraniumEnriched4Perc.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_UraniumEnriched20",
-      "name": "Enriched uranium (20%)",
-      "icon": "Enricheduranium20%",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/UraniumEnriched20Perc.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_UraniumReprocessed",
-      "name": "Reprocessed uranium (1%)",
-      "icon": "Reprocesseduranium1%",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ReprocessedUranium.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Plutonium",
-      "name": "Plutonium",
-      "icon": "Plutonium",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Plutonium.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_UraniumDepleted",
-      "name": "Depleted uranium",
-      "icon": "Depleteduranium",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/DepletedUranium.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_UraniumRod",
-      "name": "Uranium rod",
-      "icon": "Uraniumrod",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/UraniumRod.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoxRod",
-      "name": "MOX rod",
-      "icon": "MOXrod",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MoxRod.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SpentFuel",
-      "name": "Spent fuel",
-      "icon": "Spentfuel",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SpentFuel.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SpentMox",
-      "name": "Spent MOX",
-      "icon": "SpentMOX",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SpentMox.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_FissionProduct",
-      "name": "Fission product",
-      "icon": "Fissionproduct",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/FissionProduct.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_RetiredWaste",
-      "name": "Retired waste",
-      "icon": "Retiredwaste",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/RetiredWaste.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CoreFuel",
-      "name": "Core fuel",
-      "icon": "Corefuel",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CoreFuel.svg",
-      "color": "(167, 125, 125, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CoreFuelDirty",
-      "name": "Core fuel (spent)",
-      "icon": "Corefuelspent",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CoreFuelDirty.svg",
-      "color": "(152, 130, 102, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_BlanketFuel",
-      "name": "Blanket fuel",
-      "icon": "Blanketfuel",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/BlanketFuel.svg",
-      "color": "(134, 148, 167, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_BlanketFuelEnriched",
-      "name": "Blanket fuel (enriched)",
-      "icon": "Blanketfuelenriched",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/BlanketFuelEnriched.svg",
-      "color": "(146, 139, 167, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Quartz",
-      "name": "Quartz",
-      "icon": "Quartz",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Quartz.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_QuartzCrushed",
-      "name": "Quartz crushed",
-      "icon": "Quartzcrushed",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/QuartzCrushed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MoltenSilicon",
-      "name": "Molten silicon",
-      "icon": "Moltensilicon",
-      "type": "MoltenProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SiliconMolten.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_PolySilicon",
-      "name": "Silicon (poly)",
-      "icon": "Siliconpoly",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Silicon.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SiliconWafer",
-      "name": "Silicon wafer",
-      "icon": "Siliconwafer",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MonoWafer.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Water",
-      "name": "Water",
-      "icon": "Water",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Water.svg",
-      "color": "(121, 148, 176, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ChilledWater",
-      "name": "Chilled water",
-      "icon": "Chilledwater",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/WaterChilled.svg",
-      "color": "(107, 153, 151, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Seawater",
-      "name": "Seawater",
-      "icon": "Seawater",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SeaWater.svg",
-      "color": "(128, 137, 175, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Brine",
-      "name": "Brine",
-      "icon": "Brine",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Brine.svg",
-      "color": "(169, 169, 169, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_WasteWater",
-      "name": "Waste water",
-      "icon": "Wastewater",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/WasteWater.svg",
-      "color": "(89, 69, 41, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ToxicSlurry",
-      "name": "Toxic slurry",
-      "icon": "Toxicslurry",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ToxicSlurry.svg",
-      "color": "(147, 156, 98, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_PollutedWater",
-      "name": "Water pollution",
-      "icon": "Waterpollution",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/WaterPollution.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_PollutedAir",
-      "name": "Air pollution",
-      "icon": "Airpollution",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/AirPollution.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Chlorine",
-      "name": "Chlorine",
-      "icon": "Chlorine",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Chlorine.svg",
-      "color": "(145, 147, 62, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SteamSp",
-      "name": "Steam (super)",
-      "icon": "Steamsuper",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SteamSp.svg",
-      "color": "(170, 170, 170, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SteamHi",
-      "name": "Steam (high)",
-      "icon": "Steamhigh",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SteamHp.svg",
-      "color": "(170, 170, 170, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SteamLP",
-      "name": "Steam (low)",
-      "icon": "Steamlow",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SteamLp.svg",
-      "color": "(170, 170, 170, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SteamDepleted",
-      "name": "Steam (depleted)",
-      "icon": "Steamdepleted",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SteamDepleated.svg",
-      "color": "(170, 170, 170, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Salt",
-      "name": "Salt",
-      "icon": "Salt",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Salt.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Exhaust",
-      "name": "Exhaust",
-      "icon": "Exhaust",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Exhaust.svg",
-      "color": "(102, 102, 102, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Recyclables",
-      "name": "Recyclables",
-      "icon": "Recyclables",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MetalScrap128.png",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_RecyclablesPressed",
-      "name": "Recyclables pressed",
-      "icon": "Recyclablespressed",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/RecyclablesPressed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CrudeOil",
-      "name": "Crude oil",
-      "icon": "Crudeoil",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CrudeOil.svg",
-      "color": "(63, 63, 63, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Diesel",
-      "name": "Diesel",
-      "icon": "Diesel",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Diesel.svg",
-      "color": "(173, 143, 59, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Naphtha",
-      "name": "Naphtha",
-      "icon": "Naphtha",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Naphtha.svg",
-      "color": "(159, 152, 94, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_FuelGas",
-      "name": "Fuel gas",
-      "icon": "Fuelgas",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/FuelGas.svg",
-      "color": "(135, 94, 43, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Sulfur",
-      "name": "Sulfur",
-      "icon": "Sulfur",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Sulfur.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SourWater",
-      "name": "Sour water",
-      "icon": "Sourwater",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SourWater.svg",
-      "color": "(125, 139, 93, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Ammonia",
-      "name": "Ammonia",
-      "icon": "Ammonia",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Ammonia.svg",
-      "color": "(141, 165, 186, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Acid",
-      "name": "Acid",
-      "icon": "Acid",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Acid.svg",
-      "color": "(153, 111, 106, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_HeavyOil",
-      "name": "Heavy oil",
-      "icon": "Heavyoil",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/OilHeavy.svg",
-      "color": "(91, 73, 39, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MediumOil",
-      "name": "Medium oil",
-      "icon": "Mediumoil",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/OilMedium.svg",
-      "color": "(99, 90, 99, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_LightOil",
-      "name": "Light oil",
-      "icon": "Lightoil",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/OilLight.svg",
-      "color": "(108, 111, 67, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Plastic",
-      "name": "Plastic",
-      "icon": "Plastic",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Plastic.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Rubber",
-      "name": "Rubber",
-      "icon": "Rubber",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Rubber.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Hydrogen",
-      "name": "Hydrogen",
-      "icon": "Hydrogen",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Hydrogen.svg",
-      "color": "(170, 183, 222, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Nitrogen",
-      "name": "Nitrogen",
-      "icon": "Nitrogen",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Nitrogen.svg",
-      "color": "(87, 111, 147, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CarbonDioxide",
-      "name": "Carbon dioxide",
-      "icon": "Carbondioxide",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CarbonDioxide.svg",
-      "color": "(85, 85, 85, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Ethanol",
-      "name": "Ethanol",
-      "icon": "Ethanol",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Ethanol.svg",
-      "color": "(157, 157, 157, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Potato",
-      "name": "Potato",
-      "icon": "Potato",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Potato128.png",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Corn",
-      "name": "Corn",
-      "icon": "Corn",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Corn.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Wheat",
-      "name": "Wheat",
-      "icon": "Wheat",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Wheat.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Soybean",
-      "name": "Soybean",
-      "icon": "Soybean",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Soybean.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SugarCane",
-      "name": "Sugar cane",
-      "icon": "Sugarcane",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SugarCane.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Canola",
-      "name": "Canola",
-      "icon": "Canola",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Canola.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Vegetables",
-      "name": "Vegetables",
-      "icon": "Vegetables",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Vegetables.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Fruit",
-      "name": "Fruit",
-      "icon": "Fruit",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Fruits.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Poppy",
-      "name": "Poppy",
-      "icon": "Poppy",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Poppy.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Bread",
-      "name": "Bread",
-      "icon": "Bread",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Bread.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Flour",
-      "name": "Flour",
-      "icon": "Flour",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Flour.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_AnimalFeed",
-      "name": "Animal feed",
-      "icon": "Animalfeed",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/AnimalFood.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Biomass",
-      "name": "Biomass",
-      "icon": "Biomass",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Biomass.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Eggs",
-      "name": "Eggs",
-      "icon": "Eggs",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Eggs.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Tofu",
-      "name": "Tofu",
-      "icon": "Tofu",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Tofu.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CookingOil",
-      "name": "Cooking oil",
-      "icon": "Cookingoil",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CookingOil.svg",
-      "color": "(164, 148, 66, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Meat",
-      "name": "Meat",
-      "icon": "Meat",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Meat.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Sausage",
-      "name": "Sausage",
-      "icon": "Sausage",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Sausage.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Snack",
-      "name": "Snack",
-      "icon": "Snack",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Snack.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Cake",
-      "name": "Cake",
-      "icon": "Cake",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Cake.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_FoodPack",
-      "name": "Food pack",
-      "icon": "Foodpack",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/FoodPack.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Chicken",
-      "name": "Chicken",
-      "icon": "Chicken",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Chicken.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CargoShip",
-      "name": "Cargo ship",
-      "icon": "Cargoship",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Unity/UserInterface/WorldMap/CargoShipStoryIcon256.png",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ChickenCarcass",
-      "name": "Chicken carcass",
-      "icon": "Chickencarcass",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ChickenCarcass.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MeatTrimmings",
-      "name": "Meat trimmings",
-      "icon": "Meattrimmings",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MeatTrimmings.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Sugar",
-      "name": "Sugar",
-      "icon": "Sugar",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Sugar.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CornMash",
-      "name": "Corn mash",
-      "icon": "Cornmash",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CornMash.svg",
-      "color": "(152, 129, 64, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_HouseholdGoods",
-      "name": "Household goods",
-      "icon": "Householdgoods",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/HouseholdGoods.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_HouseholdAppliances",
-      "name": "Household appliances",
-      "icon": "Householdappliances",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/HouseholdAppliances.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ConsumerElectronics",
-      "name": "Consumer electronics",
-      "icon": "Consumerelectronics",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ConsumerElectronics.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_LuxuryGoods",
-      "name": "Luxury goods",
-      "icon": "Luxurygoods",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/LuxuryGoods.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ImportedGoods",
-      "name": "Imported goods",
-      "icon": "Importedgoods",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ImportedGoods.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Antibiotics",
-      "name": "Antibiotics",
-      "icon": "Antibiotics",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Penicillin.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Disinfectant",
-      "name": "Disinfectant",
-      "icon": "Disinfectant",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Disinfectant.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Anesthetics",
-      "name": "Anesthetics",
-      "icon": "Anesthetics",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Anesthetics.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Morphine",
-      "name": "Morphine",
-      "icon": "Morphine",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Morphine.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MedicalEquipment",
-      "name": "Medical equipment",
-      "icon": "Medicalequipment",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MedicalEquipment.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MedicalSupplies",
-      "name": "Medical Supplies",
-      "icon": "MedicalSupplies",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MedicalSupplies.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MedicalSupplies2",
-      "name": "Medical Supplies II",
-      "icon": "MedicalSupplies2",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MedicalSupplies2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MedicalSupplies3",
-      "name": "Medical Supplies III",
-      "icon": "MedicalSupplies3",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MedicalSupplies3.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Cement",
-      "name": "Cement",
-      "icon": "Cement",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Cement.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ConcreteSlab",
-      "name": "Concrete slab",
-      "icon": "Concreteslab",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Concrete.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Bricks",
-      "name": "Bricks",
-      "icon": "Bricks",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Bricks.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ConstructionParts",
-      "name": "Construction Parts",
-      "icon": "ConstructionParts",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ConstructionParts1.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ConstructionParts2",
-      "name": "Construction Parts II",
-      "icon": "ConstructionParts2",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ConstructionParts2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ConstructionParts3",
-      "name": "Construction Parts III",
-      "icon": "ConstructionParts3",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ConstructionParts3.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ConstructionParts4",
-      "name": "Construction Parts IV",
-      "icon": "ConstructionParts4",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ConstructionParts4.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MechanicalParts",
-      "name": "Mechanical Parts",
-      "icon": "MechanicalParts",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MechanicalParts.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_VehicleParts",
-      "name": "Vehicle Parts",
-      "icon": "VehicleParts",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/VehicleParts1.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_VehicleParts2",
-      "name": "Vehicle Parts II",
-      "icon": "VehicleParts2",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/VehicleParts2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_VehicleParts3",
-      "name": "Vehicle Parts III",
-      "icon": "VehicleParts3",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/VehicleParts3.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_LabEquipment",
-      "name": "Lab Equipment",
-      "icon": "LabEquipment",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/LabEquipment1.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_LabEquipment2",
-      "name": "Lab Equipment II",
-      "icon": "LabEquipment2",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/LabEquipment2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_LabEquipment3",
-      "name": "Lab Equipment III",
-      "icon": "LabEquipment3",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/LabEquipment3.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_LabEquipment4",
-      "name": "Lab Equipment IV",
-      "icon": "LabEquipment4",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/LabEquipment4.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_RailParts",
-      "name": "Rail Parts",
-      "icon": "RailParts",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/RailParts.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_OfficeSupplies",
-      "name": "Office Supplies",
-      "icon": "OfficeSupplies",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/OfficeSupplies.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Electronics",
-      "name": "Electronics",
-      "icon": "Electronics",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Electronics1.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_PCB",
-      "name": "PCB",
-      "icon": "PCB",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/PCB.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Electronics2",
-      "name": "Electronics II",
-      "icon": "Electronics2",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Electronics2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Electronics3",
-      "name": "Electronics III",
-      "icon": "Electronics3",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Electronics3.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Electronics4",
-      "name": "Electronics IV",
-      "icon": "Electronics4",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Electronics4.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Server",
-      "name": "Server",
-      "icon": "Server",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Server.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Microchips",
-      "name": "Microchips",
-      "icon": "Microchips",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Microchip.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage1A",
-      "name": "Microchips stage 1 a",
-      "icon": "Microchipsstage1a",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer1A.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage1B",
-      "name": "Microchips stage 1 b",
-      "icon": "Microchipsstage1b",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer1B.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage1C",
-      "name": "Microchips stage 1 c",
-      "icon": "Microchipsstage1c",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer1C.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage2A",
-      "name": "Microchips stage 2 a",
-      "icon": "Microchipsstage2a",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer2A.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage2B",
-      "name": "Microchips stage 2 b",
-      "icon": "Microchipsstage2b",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer2B.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage2C",
-      "name": "Microchips stage 2 c",
-      "icon": "Microchipsstage2c",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer2C.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage3A",
-      "name": "Microchips stage 3 a",
-      "icon": "Microchipsstage3a",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer3A.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage3B",
-      "name": "Microchips stage 3 b",
-      "icon": "Microchipsstage3b",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer3B.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage3C",
-      "name": "Microchips stage 3 c",
-      "icon": "Microchipsstage3c",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer3C.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage4A",
-      "name": "Microchips stage 4 a",
-      "icon": "Microchipsstage4a",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer4A.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_MicrochipsStage4B",
-      "name": "Microchips stage 4 b",
-      "icon": "Microchipsstage4b",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/MicrochipWafer4B.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Diamond",
-      "name": "Diamond",
-      "icon": "Diamond",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Diamond.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_DiamondPaste",
-      "name": "Diamond paste",
-      "icon": "Diamondpaste",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/DiamondPaste.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SapphireWafer",
-      "name": "Sapphire wafer",
-      "icon": "Sapphirewafer",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SapphireWafer.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Lens",
-      "name": "Lens",
-      "icon": "Lens",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Lens.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SolarCell",
-      "name": "Solar cell",
-      "icon": "Solarcell",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SolarCell.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SolarCellMono",
-      "name": "Solar cell mono",
-      "icon": "Solarcellmono",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SolarCellMono.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CompositePanel",
-      "name": "Composite panel",
-      "icon": "Compositepanel",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CompositePanel.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CompositeBodyBasic",
-      "name": "Composite core basic",
-      "icon": "Compositecorebasic",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CompositeCore1.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CompositeCore",
-      "name": "Composite core",
-      "icon": "Compositecore",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CompositeCore2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_ChemicalFuel",
-      "name": "Chemical fuel",
-      "icon": "Chemicalfuel",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/ChemicalFuel.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SpaceStationParts1",
-      "name": "Station parts (basic)",
-      "icon": "Stationpartsbasic",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SpaceStationParts1.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SpaceStationParts2",
-      "name": "Station parts",
-      "icon": "Stationparts",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SpaceStationParts2.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CrewSupplies",
-      "name": "Crew supplies",
-      "icon": "Crewsupplies",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CrewSupplies.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_SpaceProbeParts",
-      "name": "Space probe parts",
-      "icon": "Spaceprobeparts",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/SpaceProbeParts.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_AsteroidBoosterParts",
-      "name": "Asteroid booster parts",
-      "icon": "Asteroidboosterparts",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/AsteroidBoosterParts.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_CompactReactor",
-      "name": "Compact reactor",
-      "icon": "Compactreactor",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/CompactReactor.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Oxygen",
-      "name": "Oxygen",
-      "icon": "Oxygen",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Oxygen.svg",
-      "color": "(123, 80, 75, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_HydrogenFluoride",
-      "name": "Hydrogen fluoride",
-      "icon": "Hydrogenfluoride",
-      "type": "FluidProductProto",
-      "icon_path": "Assets/Base/Products/Icons/HydrogenFluoride.svg",
-      "color": "(150, 148, 81, 255)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Waste",
-      "name": "Waste",
-      "icon": "Waste",
-      "type": "LooseProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Waste.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_WastePressed",
-      "name": "Waste pressed",
-      "icon": "Wastepressed",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/WastePressed.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Flowers",
-      "name": "Flowers",
-      "icon": "Flowers",
-      "type": "CountableProductProto",
-      "icon_path": "Assets/Base/Products/Icons/Flowers.svg",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    },
-    {
-      "id": "Product_Virtual_CargoShip",
-      "name": "Cargo Ships Built",
-      "icon": "CargoShipsBuilt",
-      "type": "VirtualProductProto",
-      "icon_path": "Assets/Unity/UserInterface/WorldMap/CargoShipStoryIcon256.png",
-      "color": "(0, 0, 0, 0)",
-      "unit": ""
-    }
-  ]
+{"game_version":"0.7.7.0","products":[{
+"id":"Product_Virtual_Electricity","name":"Electricity","icon":"Electricity","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/Electricity.svg","unit":"{0} kW"
 }
+,{
+"id":"Product_Virtual_MechPower","name":"Mechanical power","icon":"Mechanicalpower","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/MechanicalPower.svg","unit":"{0} kW"
+}
+,{
+"id":"Product_Virtual_Computing","name":"Computing","icon":"Computing","type":"VirtualProductProto","icon_path":"Assets/Unity/UserInterface/General/Computing128.png","unit":"{0} TFlops"
+}
+,{
+"id":"Product_Virtual_Upoints","name":"Unity","icon":"Unity","type":"VirtualProductProto","icon_path":"Assets/Unity/UserInterface/General/Unity128.png","unit":""
+}
+,{
+"id":"Product_Virtual_Heat","name":"Heat","icon":"Heat","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/Heat.svg","unit":""
+}
+,{
+"id":"Product_Virtual_MaintenanceT1","name":"Maintenance I","icon":"Maintenance1","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/Maintenance1.svg","unit":""
+}
+,{
+"id":"Product_Virtual_MaintenanceT2","name":"Maintenance II","icon":"Maintenance2","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/Maintenance2.svg","unit":""
+}
+,{
+"id":"Product_Virtual_MaintenanceT3","name":"Maintenance III","icon":"Maintenance3","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/Maintenance3.svg","unit":""
+}
+,{
+"id":"Product_Virtual_SpaceCrew","name":"Space crew","icon":"Spacecrew","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/SpaceCrew.svg","unit":""
+}
+,{
+"id":"Product_Virtual_SpaceResearchPoints","name":"Space research points","icon":"Spaceresearchpoints","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/SpaceResearchPoints.svg","unit":""
+}
+,{
+"id":"Product_Wood","name":"Wood","icon":"Wood","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Wood.svg","unit":""
+}
+,{
+"id":"Product_Woodchips","name":"Woodchips","icon":"Woodchips","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Woodchips.svg","unit":""
+}
+,{
+"id":"Product_Fertilizer","name":"Fertilizer I","icon":"Fertilizer1","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Fertilizer.svg","color":"(147, 129, 102, 255)","unit":""
+}
+,{
+"id":"Product_Fertilizer2","name":"Fertilizer II","icon":"Fertilizer2","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Fertilizer2.svg","color":"(147, 141, 79, 255)","unit":""
+}
+,{
+"id":"Product_FertilizerOrganic","name":"Fertilizer (organic)","icon":"Fertilizerorganic","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/FertilizerOrganic.svg","color":"(123, 138, 69, 255)","unit":""
+}
+,{
+"id":"Product_TreeSapling","name":"Tree sapling","icon":"Treesapling","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/TreeSapling.svg","unit":""
+}
+,{
+"id":"Product_Paper","name":"Paper","icon":"Paper","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Paper.svg","unit":""
+}
+,{
+"id":"Product_Dirt","name":"Dirt","icon":"Dirt","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Dirt.svg","unit":""
+}
+,{
+"id":"Product_Compost","name":"Compost","icon":"Compost","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Digestate.svg","unit":""
+}
+,{
+"id":"Product_Sludge","name":"Sludge","icon":"Sludge","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Sludge.svg","unit":""
+}
+,{
+"id":"Product_Limestone","name":"Limestone","icon":"Limestone","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Limestone.svg","unit":""
+}
+,{
+"id":"Product_Rock","name":"Rock","icon":"Rock","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Rock.svg","unit":""
+}
+,{
+"id":"Product_Gravel","name":"Gravel","icon":"Gravel","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Gravel.svg","unit":""
+}
+,{
+"id":"Product_ManufacturedSand","name":"Manufactured sand","icon":"Manufacturedsand","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/ManufacturedSand.svg","unit":""
+}
+,{
+"id":"Product_FilterMedia","name":"Filter media","icon":"Filtermedia","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/FilterMedia.svg","unit":""
+}
+,{
+"id":"Product_Coal","name":"Coal","icon":"Coal","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Coal.svg","unit":""
+}
+,{
+"id":"Product_Graphite","name":"Graphite","icon":"Graphite","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Graphite.svg","unit":""
+}
+,{
+"id":"Product_Slag","name":"Slag","icon":"Slag","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Slag.svg","unit":""
+}
+,{
+"id":"Product_SlagCrushed","name":"Slag crushed","icon":"Slagcrushed","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/SlagCrushed.svg","unit":""
+}
+,{
+"id":"Product_IronOre","name":"Iron ore","icon":"Ironore","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/IronOre.svg","unit":""
+}
+,{
+"id":"Product_IronOreCrushed","name":"Iron ore crushed","icon":"Ironorecrushed","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/IronCrushed.svg","unit":""
+}
+,{
+"id":"Product_IronScrap","name":"Iron scrap","icon":"Ironscrap","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/IronScrap.svg","unit":""
+}
+,{
+"id":"Product_IronScrapPressed","name":"Iron scrap pressed","icon":"Ironscrappressed","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/IronScrapPressed.svg","unit":""
+}
+,{
+"id":"Product_MoltenIron","name":"Molten iron","icon":"Molteniron","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/IronMolten.svg","unit":""
+}
+,{
+"id":"Product_MoltenSteel","name":"Molten steel","icon":"Moltensteel","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/SteelMolten.svg","unit":""
+}
+,{
+"id":"Product_Iron","name":"Iron","icon":"Iron","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Iron.svg","unit":""
+}
+,{
+"id":"Product_Steel","name":"Steel","icon":"Steel","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Steel.svg","unit":""
+}
+,{
+"id":"Product_CopperOre","name":"Copper ore","icon":"Copperore","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/CopperOre.svg","unit":""
+}
+,{
+"id":"Product_CopperOreCrushed","name":"Copper ore crushed","icon":"Copperorecrushed","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/CopperCrushed.svg","unit":""
+}
+,{
+"id":"Product_CopperScrap","name":"Copper scrap","icon":"Copperscrap","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/CopperScrap.svg","unit":""
+}
+,{
+"id":"Product_CopperScrapPressed","name":"Copper scrap pressed","icon":"Copperscrappressed","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/CopperScrapPressed.svg","unit":""
+}
+,{
+"id":"Product_MoltenCopper","name":"Molten copper","icon":"Moltencopper","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/CopperMolten.svg","unit":""
+}
+,{
+"id":"Product_ImpureCopper","name":"Impure copper","icon":"Impurecopper","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/CopperImpure.svg","unit":""
+}
+,{
+"id":"Product_Copper","name":"Copper","icon":"Copper","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Copper.svg","unit":""
+}
+,{
+"id":"Product_Bauxite","name":"Bauxite","icon":"Bauxite","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Bauxite.svg","unit":""
+}
+,{
+"id":"Product_BauxitePowder","name":"Bauxite powder","icon":"Bauxitepowder","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/BauxitePowder.svg","unit":""
+}
+,{
+"id":"Product_RedMud","name":"Red mud","icon":"Redmud","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/RedMud.svg","color":"(110, 65, 52, 255)","unit":""
+}
+,{
+"id":"Product_HydratedAlumina","name":"Hydrated alumina","icon":"Hydratedalumina","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/AluminaHydrated.svg","unit":""
+}
+,{
+"id":"Product_Alumina","name":"Alumina","icon":"Alumina","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Alumina.svg","unit":""
+}
+,{
+"id":"Product_AluminumScrap","name":"Aluminum scrap","icon":"Aluminumscrap","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/AluminumScrap.svg","unit":""
+}
+,{
+"id":"Product_AluminumScrapPressed","name":"Aluminum scrap pressed","icon":"Aluminumscrappressed","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/AluminumScrapPressed.svg","unit":""
+}
+,{
+"id":"Product_MoltenAluminum","name":"Molten aluminum","icon":"Moltenaluminum","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/AluminumMolten.svg","unit":""
+}
+,{
+"id":"Product_Aluminum","name":"Aluminum","icon":"Aluminum","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Aluminum.svg","unit":""
+}
+,{
+"id":"Product_TitaniumOre","name":"Titanium ore","icon":"Titaniumore","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumOre.svg","unit":""
+}
+,{
+"id":"Product_TitaniumOreCrushed","name":"Titanium ore crushed","icon":"Titaniumorecrushed","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumOreCrushed.svg","unit":""
+}
+,{
+"id":"Product_TitaniumSlag","name":"Titanium slag","icon":"Titaniumslag","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumSlag.svg","unit":""
+}
+,{
+"id":"Product_TitaniumChloride","name":"Titanium chloride","icon":"Titaniumchloride","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumChloride.svg","color":"(148, 135, 89, 255)","unit":""
+}
+,{
+"id":"Product_TitaniumChloridePure","name":"Titanium chloride (pure)","icon":"Titaniumchloridepure","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumChloridePure.svg","color":"(147, 148, 89, 255)","unit":""
+}
+,{
+"id":"Product_TitaniumSponge","name":"Titanium sponge","icon":"Titaniumsponge","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumSponge.svg","unit":""
+}
+,{
+"id":"Product_MoltenTitanium","name":"Molten titanium","icon":"Moltentitanium","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumMolten.svg","unit":""
+}
+,{
+"id":"Product_MoltenTitaniumAlloy","name":"Molten titanium alloy","icon":"Moltentitaniumalloy","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/TitaniumAlloyMolten.svg","unit":""
+}
+,{
+"id":"Product_TitaniumAlloy","name":"Titanium alloy","icon":"Titaniumalloy","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Titanium.svg","unit":""
+}
+,{
+"id":"Product_GoldOre","name":"Gold ore","icon":"Goldore","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/GoldOre.svg","unit":""
+}
+,{
+"id":"Product_GoldOreCrushed","name":"Gold ore crushed","icon":"Goldorecrushed","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/GoldOreCrushed.svg","unit":""
+}
+,{
+"id":"Product_GoldOrePowder","name":"Gold ore powder","icon":"Goldorepowder","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/GoldOrePowder.svg","unit":""
+}
+,{
+"id":"Product_GoldOreConcentrate","name":"Gold ore concentrate","icon":"Goldoreconcentrate","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/GoldOreConcentrate.svg","unit":""
+}
+,{
+"id":"Product_Gold","name":"Gold","icon":"Gold","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Gold.svg","unit":""
+}
+,{
+"id":"Product_GoldScrap","name":"Gold scrap","icon":"Goldscrap","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/GoldScrap.svg","unit":""
+}
+,{
+"id":"Product_GoldScrapPressed","name":"Gold scrap pressed","icon":"Goldscrappressed","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/GoldScrapPressed.svg","unit":""
+}
+,{
+"id":"Product_Sand","name":"Sand","icon":"Sand","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Sand.svg","unit":""
+}
+,{
+"id":"Product_MoltenGlass","name":"Molten glass","icon":"Moltenglass","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/GlassMolten.svg","unit":""
+}
+,{
+"id":"Product_BrokenGlass","name":"Broken glass","icon":"Brokenglass","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/BrokenGlass.svg","unit":""
+}
+,{
+"id":"Product_Glass","name":"Glass","icon":"Glass","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Glass.svg","unit":""
+}
+,{
+"id":"Product_GlassMix","name":"Glass mix","icon":"Glassmix","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/GlassMix.svg","unit":""
+}
+,{
+"id":"Product_UraniumOre","name":"Uranium ore","icon":"Uraniumore","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/UraniumOre.svg","unit":""
+}
+,{
+"id":"Product_UraniumOreCrushed","name":"Uranium ore powder","icon":"Uraniumorepowder","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/UraniumOreCrushed.svg","unit":""
+}
+,{
+"id":"Product_Yellowcake","name":"Yellowcake","icon":"Yellowcake","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/YellowCake.svg","unit":""
+}
+,{
+"id":"Product_UraniumEnriched","name":"Enriched uranium (4%)","icon":"Enricheduranium4%","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/UraniumEnriched4Perc.svg","unit":""
+}
+,{
+"id":"Product_UraniumEnriched20","name":"Enriched uranium (20%)","icon":"Enricheduranium20%","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/UraniumEnriched20Perc.svg","unit":""
+}
+,{
+"id":"Product_UraniumReprocessed","name":"Reprocessed uranium (1%)","icon":"Reprocesseduranium1%","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ReprocessedUranium.svg","unit":""
+}
+,{
+"id":"Product_Plutonium","name":"Plutonium","icon":"Plutonium","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Plutonium.svg","unit":""
+}
+,{
+"id":"Product_UraniumDepleted","name":"Depleted uranium","icon":"Depleteduranium","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/DepletedUranium.svg","unit":""
+}
+,{
+"id":"Product_UraniumRod","name":"Uranium rod","icon":"Uraniumrod","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/UraniumRod.svg","unit":""
+}
+,{
+"id":"Product_MoxRod","name":"MOX rod","icon":"MOXrod","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MoxRod.svg","unit":""
+}
+,{
+"id":"Product_SpentFuel","name":"Spent fuel","icon":"Spentfuel","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SpentFuel.svg","unit":""
+}
+,{
+"id":"Product_SpentMox","name":"Spent MOX","icon":"SpentMOX","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SpentMox.svg","unit":""
+}
+,{
+"id":"Product_FissionProduct","name":"Fission product","icon":"Fissionproduct","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/FissionProduct.svg","unit":""
+}
+,{
+"id":"Product_RetiredWaste","name":"Retired waste","icon":"Retiredwaste","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/RetiredWaste.svg","unit":""
+}
+,{
+"id":"Product_CoreFuel","name":"Core fuel","icon":"Corefuel","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/CoreFuel.svg","color":"(167, 125, 125, 255)","unit":""
+}
+,{
+"id":"Product_CoreFuelDirty","name":"Core fuel (spent)","icon":"Corefuelspent","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/CoreFuelDirty.svg","color":"(152, 130, 102, 255)","unit":""
+}
+,{
+"id":"Product_BlanketFuel","name":"Blanket fuel","icon":"Blanketfuel","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/BlanketFuel.svg","color":"(134, 148, 167, 255)","unit":""
+}
+,{
+"id":"Product_BlanketFuelEnriched","name":"Blanket fuel (enriched)","icon":"Blanketfuelenriched","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/BlanketFuelEnriched.svg","color":"(146, 139, 167, 255)","unit":""
+}
+,{
+"id":"Product_Quartz","name":"Quartz","icon":"Quartz","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Quartz.svg","unit":""
+}
+,{
+"id":"Product_QuartzCrushed","name":"Quartz crushed","icon":"Quartzcrushed","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/QuartzCrushed.svg","unit":""
+}
+,{
+"id":"Product_MoltenSilicon","name":"Molten silicon","icon":"Moltensilicon","type":"MoltenProductProto","icon_path":"Assets/Base/Products/Icons/SiliconMolten.svg","unit":""
+}
+,{
+"id":"Product_PolySilicon","name":"Silicon (poly)","icon":"Siliconpoly","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Silicon.svg","unit":""
+}
+,{
+"id":"Product_SiliconWafer","name":"Silicon wafer","icon":"Siliconwafer","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MonoWafer.svg","unit":""
+}
+,{
+"id":"Product_Water","name":"Water","icon":"Water","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Water.svg","color":"(121, 148, 176, 255)","unit":""
+}
+,{
+"id":"Product_ChilledWater","name":"Chilled water","icon":"Chilledwater","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/WaterChilled.svg","color":"(107, 153, 151, 255)","unit":""
+}
+,{
+"id":"Product_Seawater","name":"Seawater","icon":"Seawater","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/SeaWater.svg","color":"(128, 137, 175, 255)","unit":""
+}
+,{
+"id":"Product_Brine","name":"Brine","icon":"Brine","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Brine.svg","color":"(169, 169, 169, 255)","unit":""
+}
+,{
+"id":"Product_WasteWater","name":"Waste water","icon":"Wastewater","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/WasteWater.svg","color":"(89, 69, 41, 255)","unit":""
+}
+,{
+"id":"Product_ToxicSlurry","name":"Toxic slurry","icon":"Toxicslurry","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/ToxicSlurry.svg","color":"(147, 156, 98, 255)","unit":""
+}
+,{
+"id":"Product_Virtual_PollutedWater","name":"Water pollution","icon":"Waterpollution","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/WaterPollution.svg","unit":""
+}
+,{
+"id":"Product_Virtual_PollutedAir","name":"Air pollution","icon":"Airpollution","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/AirPollution.svg","unit":""
+}
+,{
+"id":"Product_Chlorine","name":"Chlorine","icon":"Chlorine","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Chlorine.svg","color":"(145, 147, 62, 255)","unit":""
+}
+,{
+"id":"Product_SteamSp","name":"Steam (super)","icon":"Steamsuper","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/SteamSp.svg","color":"(142, 75, 75, 255)","unit":""
+}
+,{
+"id":"Product_SteamHi","name":"Steam (high)","icon":"Steamhigh","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/SteamHp.svg","color":"(161, 97, 59, 255)","unit":""
+}
+,{
+"id":"Product_SteamLP","name":"Steam (low)","icon":"Steamlow","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/SteamLp.svg","color":"(70, 109, 141, 255)","unit":""
+}
+,{
+"id":"Product_SteamDepleted","name":"Steam (depleted)","icon":"Steamdepleted","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/SteamDepleated.svg","color":"(85, 85, 85, 255)","unit":""
+}
+,{
+"id":"Product_Salt","name":"Salt","icon":"Salt","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Salt.svg","unit":""
+}
+,{
+"id":"Product_Exhaust","name":"Exhaust","icon":"Exhaust","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Exhaust.svg","color":"(102, 102, 102, 255)","unit":""
+}
+,{
+"id":"Product_Recyclables","name":"Recyclables","icon":"Recyclables","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/MetalScrap128.png","unit":""
+}
+,{
+"id":"Product_RecyclablesPressed","name":"Recyclables pressed","icon":"Recyclablespressed","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/RecyclablesPressed.svg","unit":""
+}
+,{
+"id":"Product_CrudeOil","name":"Crude oil","icon":"Crudeoil","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/CrudeOil.svg","color":"(63, 63, 63, 255)","unit":""
+}
+,{
+"id":"Product_Diesel","name":"Diesel","icon":"Diesel","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Diesel.svg","color":"(173, 143, 59, 255)","unit":""
+}
+,{
+"id":"Product_Naphtha","name":"Naphtha","icon":"Naphtha","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Naphtha.svg","color":"(159, 152, 94, 255)","unit":""
+}
+,{
+"id":"Product_FuelGas","name":"Fuel gas","icon":"Fuelgas","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/FuelGas.svg","color":"(135, 94, 43, 255)","unit":""
+}
+,{
+"id":"Product_Sulfur","name":"Sulfur","icon":"Sulfur","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Sulfur.svg","unit":""
+}
+,{
+"id":"Product_SourWater","name":"Sour water","icon":"Sourwater","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/SourWater.svg","color":"(125, 139, 93, 255)","unit":""
+}
+,{
+"id":"Product_Ammonia","name":"Ammonia","icon":"Ammonia","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Ammonia.svg","color":"(141, 165, 186, 255)","unit":""
+}
+,{
+"id":"Product_Acid","name":"Acid","icon":"Acid","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Acid.svg","color":"(153, 111, 106, 255)","unit":""
+}
+,{
+"id":"Product_HeavyOil","name":"Heavy oil","icon":"Heavyoil","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/OilHeavy.svg","color":"(91, 73, 39, 255)","unit":""
+}
+,{
+"id":"Product_MediumOil","name":"Medium oil","icon":"Mediumoil","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/OilMedium.svg","color":"(99, 90, 99, 255)","unit":""
+}
+,{
+"id":"Product_LightOil","name":"Light oil","icon":"Lightoil","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/OilLight.svg","color":"(108, 111, 67, 255)","unit":""
+}
+,{
+"id":"Product_Plastic","name":"Plastic","icon":"Plastic","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Plastic.svg","unit":""
+}
+,{
+"id":"Product_Rubber","name":"Rubber","icon":"Rubber","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Rubber.svg","unit":""
+}
+,{
+"id":"Product_Hydrogen","name":"Hydrogen","icon":"Hydrogen","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Hydrogen.svg","color":"(170, 183, 222, 255)","unit":""
+}
+,{
+"id":"Product_Nitrogen","name":"Nitrogen","icon":"Nitrogen","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Nitrogen.svg","color":"(87, 111, 147, 255)","unit":""
+}
+,{
+"id":"Product_CarbonDioxide","name":"Carbon dioxide","icon":"Carbondioxide","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/CarbonDioxide.svg","color":"(85, 85, 85, 255)","unit":""
+}
+,{
+"id":"Product_Ethanol","name":"Ethanol","icon":"Ethanol","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Ethanol.svg","color":"(157, 157, 157, 255)","unit":""
+}
+,{
+"id":"Product_Potato","name":"Potato","icon":"Potato","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Potato128.png","unit":""
+}
+,{
+"id":"Product_Corn","name":"Corn","icon":"Corn","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Corn.svg","unit":""
+}
+,{
+"id":"Product_Wheat","name":"Wheat","icon":"Wheat","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Wheat.svg","unit":""
+}
+,{
+"id":"Product_Soybean","name":"Soybean","icon":"Soybean","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Soybean.svg","unit":""
+}
+,{
+"id":"Product_SugarCane","name":"Sugar cane","icon":"Sugarcane","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/SugarCane.svg","unit":""
+}
+,{
+"id":"Product_Canola","name":"Canola","icon":"Canola","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Canola.svg","unit":""
+}
+,{
+"id":"Product_Vegetables","name":"Vegetables","icon":"Vegetables","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Vegetables.svg","unit":""
+}
+,{
+"id":"Product_Fruit","name":"Fruit","icon":"Fruit","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Fruits.svg","unit":""
+}
+,{
+"id":"Product_Poppy","name":"Poppy","icon":"Poppy","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Poppy.svg","unit":""
+}
+,{
+"id":"Product_Bread","name":"Bread","icon":"Bread","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Bread.svg","unit":""
+}
+,{
+"id":"Product_Flour","name":"Flour","icon":"Flour","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Flour.svg","unit":""
+}
+,{
+"id":"Product_AnimalFeed","name":"Animal feed","icon":"Animalfeed","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/AnimalFood.svg","unit":""
+}
+,{
+"id":"Product_Biomass","name":"Biomass","icon":"Biomass","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Biomass.svg","unit":""
+}
+,{
+"id":"Product_Eggs","name":"Eggs","icon":"Eggs","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Eggs.svg","unit":""
+}
+,{
+"id":"Product_Tofu","name":"Tofu","icon":"Tofu","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Tofu.svg","unit":""
+}
+,{
+"id":"Product_CookingOil","name":"Cooking oil","icon":"Cookingoil","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/CookingOil.svg","color":"(164, 148, 66, 255)","unit":""
+}
+,{
+"id":"Product_Meat","name":"Meat","icon":"Meat","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Meat.svg","unit":""
+}
+,{
+"id":"Product_Sausage","name":"Sausage","icon":"Sausage","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Sausage.svg","unit":""
+}
+,{
+"id":"Product_Snack","name":"Snack","icon":"Snack","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Snack.svg","unit":""
+}
+,{
+"id":"Product_Cake","name":"Cake","icon":"Cake","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Cake.svg","unit":""
+}
+,{
+"id":"Product_FoodPack","name":"Food pack","icon":"Foodpack","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/FoodPack.svg","unit":""
+}
+,{
+"id":"Product_Chicken","name":"Chicken","icon":"Chicken","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/Chicken.svg","unit":""
+}
+,{
+"id":"Product_CargoShip","name":"Cargo ship","icon":"Cargoship","type":"VirtualProductProto","icon_path":"Assets/Unity/UserInterface/WorldMap/CargoShipStoryIcon256.png","unit":""
+}
+,{
+"id":"Product_ChickenCarcass","name":"Chicken carcass","icon":"Chickencarcass","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ChickenCarcass.svg","unit":""
+}
+,{
+"id":"Product_MeatTrimmings","name":"Meat trimmings","icon":"Meattrimmings","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/MeatTrimmings.svg","unit":""
+}
+,{
+"id":"Product_Sugar","name":"Sugar","icon":"Sugar","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Sugar.svg","unit":""
+}
+,{
+"id":"Product_CornMash","name":"Corn mash","icon":"Cornmash","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/CornMash.svg","color":"(152, 129, 64, 255)","unit":""
+}
+,{
+"id":"Product_HouseholdGoods","name":"Household goods","icon":"Householdgoods","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/HouseholdGoods.svg","unit":""
+}
+,{
+"id":"Product_HouseholdAppliances","name":"Household appliances","icon":"Householdappliances","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/HouseholdAppliances.svg","unit":""
+}
+,{
+"id":"Product_ConsumerElectronics","name":"Consumer electronics","icon":"Consumerelectronics","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ConsumerElectronics.svg","unit":""
+}
+,{
+"id":"Product_LuxuryGoods","name":"Luxury goods","icon":"Luxurygoods","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/LuxuryGoods.svg","unit":""
+}
+,{
+"id":"Product_ImportedGoods","name":"Imported goods","icon":"Importedgoods","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ImportedGoods.svg","unit":""
+}
+,{
+"id":"Product_Antibiotics","name":"Antibiotics","icon":"Antibiotics","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Penicillin.svg","unit":""
+}
+,{
+"id":"Product_Disinfectant","name":"Disinfectant","icon":"Disinfectant","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Disinfectant.svg","unit":""
+}
+,{
+"id":"Product_Anesthetics","name":"Anesthetics","icon":"Anesthetics","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Anesthetics.svg","unit":""
+}
+,{
+"id":"Product_Morphine","name":"Morphine","icon":"Morphine","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Morphine.svg","unit":""
+}
+,{
+"id":"Product_MedicalEquipment","name":"Medical equipment","icon":"Medicalequipment","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MedicalEquipment.svg","unit":""
+}
+,{
+"id":"Product_MedicalSupplies","name":"Medical Supplies","icon":"MedicalSupplies","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MedicalSupplies.svg","unit":""
+}
+,{
+"id":"Product_MedicalSupplies2","name":"Medical Supplies II","icon":"MedicalSupplies2","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MedicalSupplies2.svg","unit":""
+}
+,{
+"id":"Product_MedicalSupplies3","name":"Medical Supplies III","icon":"MedicalSupplies3","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MedicalSupplies3.svg","unit":""
+}
+,{
+"id":"Product_Cement","name":"Cement","icon":"Cement","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Cement.svg","unit":""
+}
+,{
+"id":"Product_ConcreteSlab","name":"Concrete slab","icon":"Concreteslab","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Concrete.svg","unit":""
+}
+,{
+"id":"Product_Bricks","name":"Bricks","icon":"Bricks","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Bricks.svg","unit":""
+}
+,{
+"id":"Product_ConstructionParts","name":"Construction Parts","icon":"ConstructionParts","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ConstructionParts1.svg","unit":""
+}
+,{
+"id":"Product_ConstructionParts2","name":"Construction Parts II","icon":"ConstructionParts2","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ConstructionParts2.svg","unit":""
+}
+,{
+"id":"Product_ConstructionParts3","name":"Construction Parts III","icon":"ConstructionParts3","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ConstructionParts3.svg","unit":""
+}
+,{
+"id":"Product_ConstructionParts4","name":"Construction Parts IV","icon":"ConstructionParts4","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ConstructionParts4.svg","unit":""
+}
+,{
+"id":"Product_MechanicalParts","name":"Mechanical Parts","icon":"MechanicalParts","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MechanicalParts.svg","unit":""
+}
+,{
+"id":"Product_VehicleParts","name":"Vehicle Parts","icon":"VehicleParts","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/VehicleParts1.svg","unit":""
+}
+,{
+"id":"Product_VehicleParts2","name":"Vehicle Parts II","icon":"VehicleParts2","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/VehicleParts2.svg","unit":""
+}
+,{
+"id":"Product_VehicleParts3","name":"Vehicle Parts III","icon":"VehicleParts3","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/VehicleParts3.svg","unit":""
+}
+,{
+"id":"Product_LabEquipment","name":"Lab Equipment","icon":"LabEquipment","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/LabEquipment1.svg","unit":""
+}
+,{
+"id":"Product_LabEquipment2","name":"Lab Equipment II","icon":"LabEquipment2","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/LabEquipment2.svg","unit":""
+}
+,{
+"id":"Product_LabEquipment3","name":"Lab Equipment III","icon":"LabEquipment3","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/LabEquipment3.svg","unit":""
+}
+,{
+"id":"Product_LabEquipment4","name":"Lab Equipment IV","icon":"LabEquipment4","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/LabEquipment4.svg","unit":""
+}
+,{
+"id":"Product_RailParts","name":"Rail Parts","icon":"RailParts","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/RailParts.svg","unit":""
+}
+,{
+"id":"Product_OfficeSupplies","name":"Office Supplies","icon":"OfficeSupplies","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/OfficeSupplies.svg","unit":""
+}
+,{
+"id":"Product_Electronics","name":"Electronics","icon":"Electronics","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Electronics1.svg","unit":""
+}
+,{
+"id":"Product_PCB","name":"PCB","icon":"PCB","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/PCB.svg","unit":""
+}
+,{
+"id":"Product_Electronics2","name":"Electronics II","icon":"Electronics2","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Electronics2.svg","unit":""
+}
+,{
+"id":"Product_Electronics3","name":"Electronics III","icon":"Electronics3","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Electronics3.svg","unit":""
+}
+,{
+"id":"Product_Electronics4","name":"Electronics IV","icon":"Electronics4","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Electronics4.svg","unit":""
+}
+,{
+"id":"Product_Server","name":"Server","icon":"Server","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Server.svg","unit":""
+}
+,{
+"id":"Product_Microchips","name":"Microchips","icon":"Microchips","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Microchip.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage1A","name":"Microchips stage 1 a","icon":"Microchipsstage1a","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer1A.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage1B","name":"Microchips stage 1 b","icon":"Microchipsstage1b","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer1B.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage1C","name":"Microchips stage 1 c","icon":"Microchipsstage1c","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer1C.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage2A","name":"Microchips stage 2 a","icon":"Microchipsstage2a","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer2A.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage2B","name":"Microchips stage 2 b","icon":"Microchipsstage2b","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer2B.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage2C","name":"Microchips stage 2 c","icon":"Microchipsstage2c","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer2C.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage3A","name":"Microchips stage 3 a","icon":"Microchipsstage3a","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer3A.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage3B","name":"Microchips stage 3 b","icon":"Microchipsstage3b","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer3B.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage3C","name":"Microchips stage 3 c","icon":"Microchipsstage3c","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer3C.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage4A","name":"Microchips stage 4 a","icon":"Microchipsstage4a","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer4A.svg","unit":""
+}
+,{
+"id":"Product_MicrochipsStage4B","name":"Microchips stage 4 b","icon":"Microchipsstage4b","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/MicrochipWafer4B.svg","unit":""
+}
+,{
+"id":"Product_Diamond","name":"Diamond","icon":"Diamond","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Diamond.svg","unit":""
+}
+,{
+"id":"Product_DiamondPaste","name":"Diamond paste","icon":"Diamondpaste","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/DiamondPaste.svg","unit":""
+}
+,{
+"id":"Product_SapphireWafer","name":"Sapphire wafer","icon":"Sapphirewafer","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SapphireWafer.svg","unit":""
+}
+,{
+"id":"Product_Lens","name":"Lens","icon":"Lens","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Lens.svg","unit":""
+}
+,{
+"id":"Product_SolarCell","name":"Solar cell","icon":"Solarcell","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SolarCell.svg","unit":""
+}
+,{
+"id":"Product_SolarCellMono","name":"Solar cell mono","icon":"Solarcellmono","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SolarCellMono.svg","unit":""
+}
+,{
+"id":"Product_CompositePanel","name":"Composite panel","icon":"Compositepanel","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/CompositePanel.svg","unit":""
+}
+,{
+"id":"Product_CompositeBodyBasic","name":"Composite core basic","icon":"Compositecorebasic","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/CompositeCore1.svg","unit":""
+}
+,{
+"id":"Product_CompositeCore","name":"Composite core","icon":"Compositecore","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/CompositeCore2.svg","unit":""
+}
+,{
+"id":"Product_ChemicalFuel","name":"Chemical fuel","icon":"Chemicalfuel","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/ChemicalFuel.svg","unit":""
+}
+,{
+"id":"Product_SpaceStationParts1","name":"Station parts (basic)","icon":"Stationpartsbasic","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SpaceStationParts1.svg","unit":""
+}
+,{
+"id":"Product_SpaceStationParts2","name":"Station parts","icon":"Stationparts","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SpaceStationParts2.svg","unit":""
+}
+,{
+"id":"Product_CrewSupplies","name":"Crew supplies","icon":"Crewsupplies","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/CrewSupplies.svg","unit":""
+}
+,{
+"id":"Product_SpaceProbeParts","name":"Space probe parts","icon":"Spaceprobeparts","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/SpaceProbeParts.svg","unit":""
+}
+,{
+"id":"Product_AsteroidBoosterParts","name":"Asteroid booster parts","icon":"Asteroidboosterparts","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/AsteroidBoosterParts.svg","unit":""
+}
+,{
+"id":"Product_CompactReactor","name":"Compact reactor","icon":"Compactreactor","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/CompactReactor.svg","unit":""
+}
+,{
+"id":"Product_Oxygen","name":"Oxygen","icon":"Oxygen","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/Oxygen.svg","color":"(123, 80, 75, 255)","unit":""
+}
+,{
+"id":"Product_HydrogenFluoride","name":"Hydrogen fluoride","icon":"Hydrogenfluoride","type":"FluidProductProto","icon_path":"Assets/Base/Products/Icons/HydrogenFluoride.svg","color":"(150, 148, 81, 255)","unit":""
+}
+,{
+"id":"Product_Waste","name":"Waste","icon":"Waste","type":"LooseProductProto","icon_path":"Assets/Base/Products/Icons/Waste.svg","unit":""
+}
+,{
+"id":"Product_WastePressed","name":"Waste pressed","icon":"Wastepressed","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/WastePressed.svg","unit":""
+}
+,{
+"id":"Product_Flowers","name":"Flowers","icon":"Flowers","type":"CountableProductProto","icon_path":"Assets/Base/Products/Icons/Flowers.svg","unit":""
+}
+,{
+"id":"Product_Virtual_CargoShip","name":"Cargo Ships Built","icon":"CargoShipsBuilt","type":"VirtualProductProto","icon_path":"Assets/Unity/UserInterface/WorldMap/CargoShipStoryIcon256.png","unit":""
+}
+]}

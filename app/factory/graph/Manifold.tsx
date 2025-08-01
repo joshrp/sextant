@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useShallow } from "zustand/shallow";
 import { useFactoryStore } from "../FactoryContext";
 import type { Constraint } from "../solver/types";
-import { loadProductData, type Product } from "./loadJsonData";
+import { loadData, type Product } from "./loadJsonData";
 
 type ManifoldProps = {
   manifoldId: string
@@ -26,9 +26,7 @@ type ManifoldRender = Product & {
   constraintId: string;
 }
 
-const productData = loadProductData();
-// const productIcon = (id: string) => `/assets/products/${productData[id].icon}`;
-
+const {products, recipes} = loadData();
 
 export default function Manifold(props: ManifoldProps) {
   const m = props.manifoldId;
@@ -54,8 +52,11 @@ export default function Manifold(props: ManifoldProps) {
     edges.forEach(e => {
       const edge = model.edges.find(x => x.id == e);
       if (!edge) return
-      model.graph[edge.source].recipe.inputs.map(p => inputs.add(productData[p.id]));
-      model.graph[edge.target].recipe.outputs.map(p => outputs.add(productData[p.id]));
+      const sourceRecipe = recipes.get(model.graph[edge.source].recipeId);
+      const targetRecipe = recipes.get(model.graph[edge.target].recipeId);
+      
+      sourceRecipe?.inputs.map(p => inputs.add(p.product));
+      targetRecipe?.outputs.map(p => outputs.add(p.product));
     });
     return { inputs, outputs }
   }
@@ -89,7 +90,7 @@ export default function Manifold(props: ManifoldProps) {
   const mani: ManifoldRender = {
     amount: amount,
     flexible: freed > 0,
-    ...productData[constraint.productId],
+    ...products.get(constraint.productId)!,
     parent,
     children,
     constraintId: m,
@@ -111,8 +112,8 @@ export default function Manifold(props: ManifoldProps) {
   return <div
 
     key={"manifold-" + mani.id}
-    data-isOver={isOver || null}
-    data-isUnder={isUnder || null}
+    data-isover={isOver || null}
+    data-isunder={isUnder || null}
     className="flex flex-col my-1 gap-2 border-2 border-gray-700 rounded bg-gray-800 p-1 "
   >
     <div
@@ -136,13 +137,13 @@ export default function Manifold(props: ManifoldProps) {
     <div
       className="
         allItems 
-        grid grid-rows-[1fr] data-isOpen:grid-rows-[0fr] 
+        grid grid-rows-[1fr] data-isopen:grid-rows-[0fr] 
         border-t-1 border-gray-700 data-isOpen:border-t-0
         data-isOpen:-mt-4 pt-2
         transition-[grid-template-rows_margin-top] duration-300 ease-in-out
 
       "
-      data-isOpen={childrenOpen || null}
+      data-isopen={childrenOpen || null}
       onMouseEnter={() => mouseEnter(constraint.edges)}
       onMouseLeave={() => mouseLeave(constraint.edges)}
     ><div className="overflow-hidden flex flex-row gap-1 align-middle justify-between">

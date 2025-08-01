@@ -1,0 +1,25336 @@
+
+    export default {
+  "products": {
+    "Product_Virtual_Electricity": {
+      "id": "Product_Virtual_Electricity",
+      "name": "Electricity",
+      "icon": "electricity.png",
+      "color": "#000000",
+      "unit": "kW",
+      "recipes": {
+        "input": [
+          "BasicServerRack"
+        ],
+        "output": [
+          "PowerGeneratorT1",
+          "PowerGeneratorT2",
+          "DieselGenerator",
+          "DieselGeneratorT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_MechPower": {
+      "id": "Product_Virtual_MechPower",
+      "name": "Mechanical power",
+      "icon": "mechanicalpower.png",
+      "color": "#000000",
+      "unit": "kW",
+      "recipes": {
+        "input": [
+          "PowerGeneratorT1",
+          "PowerGeneratorT2"
+        ],
+        "output": [
+          "TurbineSuperPress",
+          "TurbineHighPressT2",
+          "TurbineHighPress",
+          "TurbineLowPressT2",
+          "TurbineLowPress"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_Computing": {
+      "id": "Product_Virtual_Computing",
+      "name": "Computing",
+      "icon": "computing.png",
+      "color": "#000000",
+      "unit": "TFlops",
+      "recipes": {
+        "input": [],
+        "output": [
+          "BasicServerRack"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_Upoints": {
+      "id": "Product_Virtual_Upoints",
+      "name": "Unity",
+      "icon": "unity.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_Heat": {
+      "id": "Product_Virtual_Heat",
+      "name": "Heat",
+      "icon": "heat.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_MaintenanceT1": {
+      "id": "Product_Virtual_MaintenanceT1",
+      "name": "Maintenance I",
+      "icon": "maintenance1.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "MaintenanceT1Recipe",
+          "MaintenanceT1Recycling",
+          "MaintenanceT0Recipe"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_MaintenanceT2": {
+      "id": "Product_Virtual_MaintenanceT2",
+      "name": "Maintenance II",
+      "icon": "maintenance2.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "MaintenanceT2Recipe",
+          "MaintenanceT2Recycling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_MaintenanceT3": {
+      "id": "Product_Virtual_MaintenanceT3",
+      "name": "Maintenance III",
+      "icon": "maintenance3.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "BasicServerRack"
+        ],
+        "output": [
+          "MaintenanceT3Recipe",
+          "MaintenanceT3Recycling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_SpaceCrew": {
+      "id": "Product_Virtual_SpaceCrew",
+      "name": "Space crew",
+      "icon": "spacecrew.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_SpaceResearchPoints": {
+      "id": "Product_Virtual_SpaceResearchPoints",
+      "name": "Space research points",
+      "icon": "spaceresearchpoints.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Wood": {
+      "id": "Product_Wood",
+      "name": "Wood",
+      "icon": "wood.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CpAssemblyT5",
+          "CpAssemblySteelT5",
+          "HouseholdGoodsAssemblyT4",
+          "CpAssemblyT4",
+          "CpAssemblySteelT4",
+          "HouseholdGoodsAssemblyT3",
+          "CpAssemblyT3",
+          "CpAssemblySteelT3",
+          "HouseholdGoodsAssemblyT2",
+          "CpAssemblyT2",
+          "HouseholdGoodsAssemblyT1",
+          "CpAssemblyT1",
+          "CharcoalBurning",
+          "ShreddingWood"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Woodchips": {
+      "id": "Product_Woodchips",
+      "name": "Woodchips",
+      "icon": "woodchips.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationWood",
+          "PaperProductionT2",
+          "PaperProduction"
+        ],
+        "output": [
+          "ShreddingWood"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Fertilizer": {
+      "id": "Product_Fertilizer",
+      "name": "Fertilizer I",
+      "icon": "fertilizer1.png",
+      "color": "#938166",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Fertilizer2ProductionT2",
+          "Fertilizer2Production",
+          "FertilizerChem1Dumping",
+          "Crop_Potato_Product_Fertilizer",
+          "Crop_Corn_Product_Fertilizer",
+          "Crop_Wheat_Product_Fertilizer",
+          "Crop_TreeSapling_Product_Fertilizer",
+          "Crop_Soybeans_Product_Fertilizer",
+          "Crop_SugarCane_Product_Fertilizer",
+          "Crop_Vegetables_Product_Fertilizer",
+          "Crop_Fruits_Product_Fertilizer",
+          "Crop_Canola_Product_Fertilizer",
+          "Crop_Poppy_Product_Fertilizer",
+          "Crop_Flowers_Product_Fertilizer",
+          "Crop_Potato_Product_Fertilizer_1",
+          "Crop_Corn_Product_Fertilizer_1",
+          "Crop_Wheat_Product_Fertilizer_1",
+          "Crop_TreeSapling_Product_Fertilizer_1",
+          "Crop_Soybeans_Product_Fertilizer_1",
+          "Crop_SugarCane_Product_Fertilizer_1",
+          "Crop_Vegetables_Product_Fertilizer_1",
+          "Crop_Fruits_Product_Fertilizer_1",
+          "Crop_Canola_Product_Fertilizer_1",
+          "Crop_Poppy_Product_Fertilizer_1",
+          "Crop_Flowers_Product_Fertilizer_1",
+          "Crop_Potato_Product_Fertilizer_1",
+          "Crop_Corn_Product_Fertilizer_1",
+          "Crop_Wheat_Product_Fertilizer_1",
+          "Crop_TreeSapling_Product_Fertilizer_1",
+          "Crop_Soybeans_Product_Fertilizer_1",
+          "Crop_Vegetables_Product_Fertilizer_1",
+          "Crop_Canola_Product_Fertilizer_1"
+        ],
+        "output": [
+          "FertilizerProductionT2",
+          "FertilizerProductionFromOrganicT2",
+          "FertilizerProduction",
+          "FertilizerProductionFromOrganic"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Fertilizer2": {
+      "id": "Product_Fertilizer2",
+      "name": "Fertilizer II",
+      "icon": "fertilizer2.png",
+      "color": "#938D4F",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FertilizerChem2Dumping",
+          "Crop_Potato_Product_Fertilizer2",
+          "Crop_Corn_Product_Fertilizer2",
+          "Crop_Wheat_Product_Fertilizer2",
+          "Crop_TreeSapling_Product_Fertilizer2",
+          "Crop_Soybeans_Product_Fertilizer2",
+          "Crop_SugarCane_Product_Fertilizer2",
+          "Crop_Vegetables_Product_Fertilizer2",
+          "Crop_Fruits_Product_Fertilizer2",
+          "Crop_Canola_Product_Fertilizer2",
+          "Crop_Poppy_Product_Fertilizer2",
+          "Crop_Flowers_Product_Fertilizer2",
+          "Crop_Potato_Product_Fertilizer2_1",
+          "Crop_Corn_Product_Fertilizer2_1",
+          "Crop_Wheat_Product_Fertilizer2_1",
+          "Crop_TreeSapling_Product_Fertilizer2_1",
+          "Crop_Soybeans_Product_Fertilizer2_1",
+          "Crop_SugarCane_Product_Fertilizer2_1",
+          "Crop_Vegetables_Product_Fertilizer2_1",
+          "Crop_Fruits_Product_Fertilizer2_1",
+          "Crop_Canola_Product_Fertilizer2_1",
+          "Crop_Poppy_Product_Fertilizer2_1",
+          "Crop_Flowers_Product_Fertilizer2_1",
+          "Crop_Potato_Product_Fertilizer2_1",
+          "Crop_Corn_Product_Fertilizer2_1",
+          "Crop_Wheat_Product_Fertilizer2_1",
+          "Crop_TreeSapling_Product_Fertilizer2_1",
+          "Crop_Soybeans_Product_Fertilizer2_1",
+          "Crop_Vegetables_Product_Fertilizer2_1",
+          "Crop_Canola_Product_Fertilizer2_1"
+        ],
+        "output": [
+          "Fertilizer2ProductionT2",
+          "Fertilizer2Production"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_FertilizerOrganic": {
+      "id": "Product_FertilizerOrganic",
+      "name": "Fertilizer (organic)",
+      "icon": "fertilizerorganic.png",
+      "color": "#7B8A45",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FertilizerProductionFromOrganicT2",
+          "FertilizerProductionFromOrganic",
+          "FertilizerOrganicDumping",
+          "Crop_Potato_Product_FertilizerOrganic",
+          "Crop_Corn_Product_FertilizerOrganic",
+          "Crop_Wheat_Product_FertilizerOrganic",
+          "Crop_TreeSapling_Product_FertilizerOrganic",
+          "Crop_Soybeans_Product_FertilizerOrganic",
+          "Crop_SugarCane_Product_FertilizerOrganic",
+          "Crop_Vegetables_Product_FertilizerOrganic",
+          "Crop_Fruits_Product_FertilizerOrganic",
+          "Crop_Canola_Product_FertilizerOrganic",
+          "Crop_Poppy_Product_FertilizerOrganic",
+          "Crop_Flowers_Product_FertilizerOrganic",
+          "Crop_Potato_Product_FertilizerOrganic_1",
+          "Crop_Corn_Product_FertilizerOrganic_1",
+          "Crop_Wheat_Product_FertilizerOrganic_1",
+          "Crop_TreeSapling_Product_FertilizerOrganic_1",
+          "Crop_Soybeans_Product_FertilizerOrganic_1",
+          "Crop_SugarCane_Product_FertilizerOrganic_1",
+          "Crop_Vegetables_Product_FertilizerOrganic_1",
+          "Crop_Fruits_Product_FertilizerOrganic_1",
+          "Crop_Canola_Product_FertilizerOrganic_1",
+          "Crop_Poppy_Product_FertilizerOrganic_1",
+          "Crop_Flowers_Product_FertilizerOrganic_1",
+          "Crop_Potato_Product_FertilizerOrganic_1",
+          "Crop_Corn_Product_FertilizerOrganic_1",
+          "Crop_Wheat_Product_FertilizerOrganic_1",
+          "Crop_TreeSapling_Product_FertilizerOrganic_1",
+          "Crop_Soybeans_Product_FertilizerOrganic_1",
+          "Crop_Vegetables_Product_FertilizerOrganic_1",
+          "Crop_Canola_Product_FertilizerOrganic_1"
+        ],
+        "output": [
+          "OrganicFertilizerProductionT2",
+          "OrganicFertilizerProductionDirtT2",
+          "OrganicFertilizerProduction",
+          "OrganicFertilizerProductionDirt"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TreeSapling": {
+      "id": "Product_TreeSapling",
+      "name": "Tree sapling",
+      "icon": "treesapling.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ShreddingSaplings"
+        ],
+        "output": [
+          "Crop_TreeSapling_Product_Fertilizer",
+          "Crop_TreeSapling_Product_Fertilizer2",
+          "Crop_TreeSapling_Product_FertilizerOrganic",
+          "Crop_TreeSapling_Product_Fertilizer_1",
+          "Crop_TreeSapling_Product_Fertilizer2_1",
+          "Crop_TreeSapling_Product_FertilizerOrganic_1",
+          "Crop_TreeSapling_Product_Fertilizer_1",
+          "Crop_TreeSapling_Product_Fertilizer2_1",
+          "Crop_TreeSapling_Product_FertilizerOrganic_1",
+          "Crop_TreeSapling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Paper": {
+      "id": "Product_Paper",
+      "name": "Paper",
+      "icon": "paper.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LabEquipment2AssemblyT4",
+          "OfficeSuppliesAssemblyT3",
+          "LabEquipment2AssemblyT3",
+          "OfficeSuppliesAssemblyT2",
+          "LabEquipment2AssemblyT2",
+          "OfficeSuppliesAssemblyT1"
+        ],
+        "output": [
+          "PaperProductionT2",
+          "PaperProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Dirt": {
+      "id": "Product_Dirt",
+      "name": "Dirt",
+      "icon": "dirt.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "OrganicFertilizerProductionDirtT2",
+          "OrganicFertilizerProductionDirt"
+        ],
+        "output": [
+          "DirtMixingT2",
+          "DirtMixing"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Compost": {
+      "id": "Product_Compost",
+      "name": "Compost",
+      "icon": "compost.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "OrganicFertilizerProductionT2",
+          "OrganicFertilizerProductionDirtT2",
+          "DirtMixingT2",
+          "OrganicFertilizerProduction",
+          "OrganicFertilizerProductionDirt",
+          "DirtMixing"
+        ],
+        "output": [
+          "AnimalFeedCompostT2",
+          "BiomassCompostT2",
+          "MeatTrimmingsCompostT2",
+          "AnimalFeedCompost",
+          "BiomassCompost",
+          "MeatTrimmingsCompost",
+          "SludgeDigestion",
+          "PotatoDigestion",
+          "VegetablesDigestion",
+          "FruitDigestion",
+          "PoppyDigestion",
+          "WheatDigestion",
+          "CornDigestion",
+          "SoybeanDigestion",
+          "SugarCaneDigestion",
+          "MeatTrimmingsDigestion",
+          "EggsDigestion"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Sludge": {
+      "id": "Product_Sludge",
+      "name": "Sludge",
+      "icon": "sludge.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SludgeBurning",
+          "SludgeDigestion"
+        ],
+        "output": [
+          "WaterTreatment",
+          "WaterTreatmentT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Limestone": {
+      "id": "Product_Limestone",
+      "name": "Limestone",
+      "icon": "limestone.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TofuProduction",
+          "SimpleConcreteMaking",
+          "CementProductionGas",
+          "CementProductionHydrogen",
+          "CementProduction",
+          "RedMudSettling",
+          "RedMudSettlingAcid",
+          "IronSmeltingArc",
+          "IronSmeltingArcT1",
+          "IronSmeltingT2",
+          "GlassMixMixingT2",
+          "GlassMixMixingWithAcidT2",
+          "SulfurNeutralizationT2",
+          "Fertilizer2ProductionT2",
+          "GlassMixMixing",
+          "GlassMixMixingWithAcid",
+          "SulfurNeutralization",
+          "Fertilizer2Production",
+          "PaperProductionT2",
+          "PaperProduction",
+          "ExhaustFilteringLime"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Rock": {
+      "id": "Product_Rock",
+      "name": "Rock",
+      "icon": "rock.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FluorideLeaching",
+          "RockCrushing",
+          "RockCrushingT2"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Gravel": {
+      "id": "Product_Gravel",
+      "name": "Gravel",
+      "icon": "gravel.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ConcreteMixingGravelT3",
+          "ConcreteMixingGravelMT3",
+          "ConcreteMixingGravelT2",
+          "ConcreteMixingGravelMT2",
+          "ConcreteMixingGravel",
+          "ConcreteMixingGravelM",
+          "GravelCrushing",
+          "GravelCrushingT2",
+          "FilterMediaMixingT2",
+          "FilterMediaMixingMT2",
+          "DirtMixingT2",
+          "FilterMediaMixing",
+          "FilterMediaMixingM",
+          "DirtMixing"
+        ],
+        "output": [
+          "RockCrushing",
+          "RockCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ManufacturedSand": {
+      "id": "Product_ManufacturedSand",
+      "name": "Manufactured sand",
+      "icon": "manufacturedsand.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ConcreteMixingSlagMT3",
+          "ConcreteMixingGravelMT3",
+          "ConcreteMixingSlagMT2",
+          "ConcreteMixingGravelMT2",
+          "ConcreteMixingGravelM",
+          "ConcreteMixingSlagM",
+          "FilterMediaMixingMT2",
+          "FilterMediaMixingM"
+        ],
+        "output": [
+          "GravelCrushing",
+          "GravelCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_FilterMedia": {
+      "id": "Product_FilterMedia",
+      "name": "Filter media",
+      "icon": "filtermedia.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "WaterTreatmentT2",
+          "ToxicSlurryTreatment"
+        ],
+        "output": [
+          "FilterMediaMixingT2",
+          "FilterMediaMixingMT2",
+          "FilterMediaMixing",
+          "FilterMediaMixingM"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Coal": {
+      "id": "Product_Coal",
+      "name": "Coal",
+      "icon": "coal.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "DieselDistillationBasic",
+          "WaterDesalinationBasic",
+          "SteamGenerationCoal",
+          "SimpleConcreteMaking",
+          "CementProduction",
+          "SiliconSmeltingArc2",
+          "SiliconSmeltingArc",
+          "IronSmeltingT2Scrap",
+          "IronSmeltingT2",
+          "CopperSmeltingT2Scrap",
+          "CopperSmeltingT2",
+          "GlassSmeltingT2",
+          "GlassSmeltingT2WithBroken",
+          "IronSmeltingT1Scrap",
+          "IronSmeltingT1Coal",
+          "CopperSmeltingT1Scrap",
+          "CopperSmeltingT1",
+          "GlassSmelting",
+          "GlassSmeltingWithBroken",
+          "FilterMediaMixingT2",
+          "FilterMediaMixingMT2",
+          "FilterMediaMixing",
+          "FilterMediaMixingM",
+          "GraphiteProductionT2",
+          "GraphiteProductionT1",
+          "RubberProductionNaphthaAlt",
+          "RubberProductionDieselWithCoal"
+        ],
+        "output": [
+          "CharcoalBurning"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Graphite": {
+      "id": "Product_Graphite",
+      "name": "Graphite",
+      "icon": "graphite.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "DiamondSynthesis",
+          "IronSmeltingArcScrap",
+          "IronSmeltingArc",
+          "CopperSmeltingArcScrap",
+          "CopperSmeltingArc",
+          "GlassSmeltingArc",
+          "GlassSmeltingArcWithBroken",
+          "SiliconSmeltingArc2",
+          "AluminumSmeltingScrapArcT2",
+          "IlmeniteSmeltingArc2",
+          "TitaniumSmeltingArc2",
+          "IronSmeltingArcScrapT1",
+          "IronSmeltingArcT1",
+          "CopperSmeltingArcScrapT1",
+          "CopperSmeltingArcT1",
+          "GlassSmeltingArcT1",
+          "GlassSmeltingArcT1WithBroken",
+          "SiliconSmeltingArc",
+          "AluminumSmeltingScrapArcT1",
+          "AluminumElectrolysis",
+          "TitaniumChlorination"
+        ],
+        "output": [
+          "GraphiteProductionT2",
+          "GraphiteProductionCo2",
+          "GraphiteProductionT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Slag": {
+      "id": "Product_Slag",
+      "name": "Slag",
+      "icon": "slag.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SlagCrushing",
+          "SlagCrushingT2"
+        ],
+        "output": [
+          "FluorideLeaching",
+          "RedMudSettling",
+          "RedMudSettlingAcid",
+          "IronSmeltingArc",
+          "CopperSmeltingArc",
+          "GlassSmeltingArc",
+          "SiliconSmeltingArc2",
+          "IronSmeltingArcT1",
+          "CopperSmeltingArcT1",
+          "GlassSmeltingArcT1",
+          "SiliconSmeltingArc",
+          "IronSmeltingT2",
+          "CopperSmeltingT2",
+          "GlassSmeltingT2",
+          "IronSmeltingT1Coal",
+          "CopperSmeltingT1",
+          "GlassSmelting",
+          "SulfurNeutralizationT2",
+          "SulfurNeutralization",
+          "TitaniumChlorination",
+          "ExhaustFilteringLime",
+          "ToxicSlurryTreatment"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SlagCrushed": {
+      "id": "Product_SlagCrushed",
+      "name": "Slag crushed",
+      "icon": "slagcrushed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ConcreteMixingSlagT3",
+          "ConcreteMixingSlagMT3",
+          "ConcreteMixingSlagT2",
+          "ConcreteMixingSlagMT2",
+          "ConcreteMixingSlag",
+          "ConcreteMixingSlagM"
+        ],
+        "output": [
+          "SlagCrushing",
+          "SlagCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_IronOre": {
+      "id": "Product_IronOre",
+      "name": "Iron ore",
+      "icon": "ironore.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "IronOreCrushing",
+          "IronOreCrushingT2",
+          "IronSmeltingT1Coal"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_IronOreCrushed": {
+      "id": "Product_IronOreCrushed",
+      "name": "Iron ore crushed",
+      "icon": "ironorecrushed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "IronSmeltingArc",
+          "IronSmeltingArcT1",
+          "IronSmeltingT2"
+        ],
+        "output": [
+          "RedMudSettlingAcid",
+          "IronOreCrushing",
+          "IronOreCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_IronScrap": {
+      "id": "Product_IronScrap",
+      "name": "Iron scrap",
+      "icon": "ironscrap.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "IronSmeltingArcScrap",
+          "IronSmeltingArcScrapT1",
+          "IronSmeltingT2Scrap",
+          "IronSmeltingT1Scrap",
+          "PressingOfIronScrap"
+        ],
+        "output": [
+          "ShreddingIronScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_IronScrapPressed": {
+      "id": "Product_IronScrapPressed",
+      "name": "Iron scrap pressed",
+      "icon": "ironscrappressed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ShreddingIronScrap"
+        ],
+        "output": [
+          "PressingOfIronScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenIron": {
+      "id": "Product_MoltenIron",
+      "name": "Molten iron",
+      "icon": "molteniron.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "IronCastingCooled",
+          "IronCasting",
+          "SteelSmeltingT2",
+          "SteelSmelting"
+        ],
+        "output": [
+          "IronSmeltingArcScrap",
+          "IronSmeltingArc",
+          "IlmeniteSmeltingArc2",
+          "IronSmeltingArcScrapT1",
+          "IronSmeltingArcT1",
+          "IronSmeltingT2Scrap",
+          "IronSmeltingT2",
+          "IronSmeltingT1Scrap",
+          "IronSmeltingT1Coal"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenSteel": {
+      "id": "Product_MoltenSteel",
+      "name": "Molten steel",
+      "icon": "moltensteel.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteelCastingCooledT2",
+          "SteelCastingCooled"
+        ],
+        "output": [
+          "SteelSmeltingT2",
+          "SteelSmelting"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Iron": {
+      "id": "Product_Iron",
+      "name": "Iron",
+      "icon": "iron.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CpAssemblyT5",
+          "MechPartsAssemblyT5Iron",
+          "CpAssemblyT4",
+          "MechPartsAssemblyT4Iron",
+          "CpAssemblyT3",
+          "MechPartsAssemblyT3Iron",
+          "CpAssemblyT2",
+          "MechPartsAssemblyT2",
+          "CpAssemblyT1",
+          "MechPartsAssemblyT1",
+          "CargoShipRecipe"
+        ],
+        "output": [
+          "IronCastingCooled",
+          "IronCasting"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Steel": {
+      "id": "Product_Steel",
+      "name": "Steel",
+      "icon": "steel.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CpAssemblySteelT5",
+          "Cp3AssemblyT4",
+          "MechPartsAssemblyT5",
+          "VehicleParts2AssemblyT3",
+          "RailPartsAssemblyT3",
+          "HouseholdGoodsAssemblyT4",
+          "HouseholdAppliancesAssemblyT3",
+          "UraniumRodsAssemblyT3",
+          "SolarCellAssemblyT3",
+          "ServerAssemblyT2",
+          "MedicalEquipmentAssemblyT3",
+          "CompositePanelAssemblyT3",
+          "CompositeCoreBasicAssemblyT3",
+          "CpAssemblySteelT4",
+          "Cp3AssemblyT3",
+          "MechPartsAssemblyT4",
+          "VehicleParts2AssemblyT2",
+          "RailPartsAssemblyT2",
+          "HouseholdGoodsAssemblyT3",
+          "HouseholdAppliancesAssemblyT2",
+          "UraniumRodsAssemblyT2",
+          "SolarCellAssemblyT2",
+          "ServerAssemblyT1",
+          "MedicalEquipmentAssemblyT2",
+          "CompositePanelAssemblyT2",
+          "CompositeCoreBasicAssemblyT2",
+          "CpAssemblySteelT3",
+          "Cp3AssemblyT2",
+          "MechPartsAssemblyT3",
+          "VehicleParts2AssemblyT1",
+          "RailPartsAssemblyT1",
+          "HouseholdGoodsAssemblyT2",
+          "HouseholdAppliancesAssemblyT1",
+          "UraniumRodsAssemblyT1",
+          "SolarCellAssemblyT1",
+          "MedicalEquipmentAssemblyT1",
+          "CompositePanelAssemblyT1",
+          "CompositeCoreBasicAssemblyT1",
+          "Cp3AssemblyT1",
+          "HouseholdGoodsAssemblyT1",
+          "CoreFuelReprocessing",
+          "AnestheticsProduction",
+          "CargoShipRecipeT2"
+        ],
+        "output": [
+          "SteelCastingCooledT2",
+          "SteelCastingCooled"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CopperOre": {
+      "id": "Product_CopperOre",
+      "name": "Copper ore",
+      "icon": "copperore.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CopperOreCrushing",
+          "CopperOreCrushingT2",
+          "CopperSmeltingT1"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CopperOreCrushed": {
+      "id": "Product_CopperOreCrushed",
+      "name": "Copper ore crushed",
+      "icon": "copperorecrushed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CopperSmeltingArc",
+          "CopperSmeltingArcT1",
+          "CopperSmeltingT2"
+        ],
+        "output": [
+          "CopperOreCrushing",
+          "CopperOreCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CopperScrap": {
+      "id": "Product_CopperScrap",
+      "name": "Copper scrap",
+      "icon": "copperscrap.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CopperSmeltingArcScrap",
+          "CopperSmeltingArcScrapT1",
+          "CopperSmeltingT2Scrap",
+          "CopperSmeltingT1Scrap",
+          "PressingOfCopperScrap"
+        ],
+        "output": [
+          "ShreddingCopperScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CopperScrapPressed": {
+      "id": "Product_CopperScrapPressed",
+      "name": "Copper scrap pressed",
+      "icon": "copperscrappressed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ShreddingCopperScrap"
+        ],
+        "output": [
+          "PressingOfCopperScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenCopper": {
+      "id": "Product_MoltenCopper",
+      "name": "Molten copper",
+      "icon": "moltencopper.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CopperCastingCooled",
+          "CopperCasting"
+        ],
+        "output": [
+          "CopperSmeltingArcScrap",
+          "CopperSmeltingArc",
+          "CopperSmeltingArcScrapT1",
+          "CopperSmeltingArcT1",
+          "CopperSmeltingT2Scrap",
+          "CopperSmeltingT2",
+          "CopperSmeltingT1Scrap",
+          "CopperSmeltingT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ImpureCopper": {
+      "id": "Product_ImpureCopper",
+      "name": "Impure copper",
+      "icon": "impurecopper.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CopperElectrolysisProcess",
+          "CopperElectrolysisWithWater"
+        ],
+        "output": [
+          "CopperCastingCooled",
+          "CopperCasting"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Copper": {
+      "id": "Product_Copper",
+      "name": "Copper",
+      "icon": "copper.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "PCBAssemblyT3",
+          "ElectronicsAssemblyT5",
+          "PCBAssemblyT2",
+          "ElectronicsAssemblyT4",
+          "PCBAssemblyT1",
+          "ElectronicsAssemblyT3",
+          "ElectronicsAssemblyT2",
+          "ElectronicsAssemblyT1",
+          "MicrochipMachineT2_MicrochipProdStage2A",
+          "MicrochipMachineT2_MicrochipProdStage2B",
+          "MicrochipMachineT2_MicrochipProdStage2C",
+          "MicrochipMachineT2_MicrochipProdStage2D",
+          "MicrochipMachine_MicrochipProdStage2A",
+          "MicrochipMachine_MicrochipProdStage2B",
+          "MicrochipMachine_MicrochipProdStage2C",
+          "MicrochipMachine_MicrochipProdStage2D"
+        ],
+        "output": [
+          "CopperElectrolysisProcess",
+          "CopperElectrolysisWithWater"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Bauxite": {
+      "id": "Product_Bauxite",
+      "name": "Bauxite",
+      "icon": "bauxite.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "BauxiteMilling",
+          "BauxiteMillingT2"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_BauxitePowder": {
+      "id": "Product_BauxitePowder",
+      "name": "Bauxite powder",
+      "icon": "bauxitepowder.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "BauxiteDigestion"
+        ],
+        "output": [
+          "BauxiteMilling",
+          "BauxiteMillingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_RedMud": {
+      "id": "Product_RedMud",
+      "name": "Red mud",
+      "icon": "redmud.png",
+      "color": "#6E4134",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "RedMudSettling",
+          "RedMudSettlingAcid",
+          "RedMudDumping"
+        ],
+        "output": [
+          "BauxiteDigestion"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_HydratedAlumina": {
+      "id": "Product_HydratedAlumina",
+      "name": "Hydrated alumina",
+      "icon": "hydratedalumina.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "AluminaCalcificationGas",
+          "AluminaCalcificationHydrogen"
+        ],
+        "output": [
+          "BauxiteDigestion"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Alumina": {
+      "id": "Product_Alumina",
+      "name": "Alumina",
+      "icon": "alumina.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "AluminumElectrolysis",
+          "AluminaCrystallization"
+        ],
+        "output": [
+          "AluminaCalcificationGas",
+          "AluminaCalcificationHydrogen"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_AluminumScrap": {
+      "id": "Product_AluminumScrap",
+      "name": "Aluminum scrap",
+      "icon": "aluminumscrap.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "AluminumSmeltingScrapArcT2",
+          "AluminumSmeltingScrapArcT1",
+          "PressingOfAluminumScrap"
+        ],
+        "output": [
+          "ShreddingAluminumScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_AluminumScrapPressed": {
+      "id": "Product_AluminumScrapPressed",
+      "name": "Aluminum scrap pressed",
+      "icon": "aluminumscrappressed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ShreddingAluminumScrap"
+        ],
+        "output": [
+          "PressingOfAluminumScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenAluminum": {
+      "id": "Product_MoltenAluminum",
+      "name": "Molten aluminum",
+      "icon": "moltenaluminum.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "AluminumCastingT2",
+          "AluminumCasting",
+          "TitaniumAlloyMixing"
+        ],
+        "output": [
+          "AluminumSmeltingScrapArcT2",
+          "AluminumSmeltingScrapArcT1",
+          "AluminumElectrolysis"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Aluminum": {
+      "id": "Product_Aluminum",
+      "name": "Aluminum",
+      "icon": "aluminum.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SolarCellMonoAssemblyT1",
+          "ConsumerElectronicsAssemblyT1",
+          "CompositePanelAssemblyT3",
+          "CompositePanelAssemblyT2",
+          "CompositePanelAssemblyT1",
+          "ChemicalFuelProduction",
+          "CargoShipRecipeT2"
+        ],
+        "output": [
+          "AluminumCastingT2",
+          "AluminumCasting"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TitaniumOre": {
+      "id": "Product_TitaniumOre",
+      "name": "Titanium ore",
+      "icon": "titaniumore.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "IlmeniteMilling",
+          "IlmeniteMillingT2"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TitaniumOreCrushed": {
+      "id": "Product_TitaniumOreCrushed",
+      "name": "Titanium ore crushed",
+      "icon": "titaniumorecrushed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "IlmeniteSmeltingArc2"
+        ],
+        "output": [
+          "IlmeniteMilling",
+          "IlmeniteMillingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TitaniumSlag": {
+      "id": "Product_TitaniumSlag",
+      "name": "Titanium slag",
+      "icon": "titaniumslag.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TitaniumChlorination"
+        ],
+        "output": [
+          "IlmeniteSmeltingArc2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TitaniumChloride": {
+      "id": "Product_TitaniumChloride",
+      "name": "Titanium chloride",
+      "icon": "titaniumchloride.png",
+      "color": "#948759",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TitaniumPurification"
+        ],
+        "output": [
+          "TitaniumChlorination"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TitaniumChloridePure": {
+      "id": "Product_TitaniumChloridePure",
+      "name": "Titanium chloride (pure)",
+      "icon": "titaniumchloridepure.png",
+      "color": "#939459",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TitaniumChlorideReduction"
+        ],
+        "output": [
+          "TitaniumPurification"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TitaniumSponge": {
+      "id": "Product_TitaniumSponge",
+      "name": "Titanium sponge",
+      "icon": "titaniumsponge.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TitaniumSmeltingArc2"
+        ],
+        "output": [
+          "TitaniumChlorideReduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenTitanium": {
+      "id": "Product_MoltenTitanium",
+      "name": "Molten titanium",
+      "icon": "moltentitanium.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TitaniumAlloyMixing"
+        ],
+        "output": [
+          "TitaniumSmeltingArc2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenTitaniumAlloy": {
+      "id": "Product_MoltenTitaniumAlloy",
+      "name": "Molten titanium alloy",
+      "icon": "moltentitaniumalloy.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TitaniumAlloyCastingT2"
+        ],
+        "output": [
+          "TitaniumAlloyMixing"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_TitaniumAlloy": {
+      "id": "Product_TitaniumAlloy",
+      "name": "Titanium alloy",
+      "icon": "titaniumalloy.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CompositeCoreAssembly",
+          "CompactReactorAssembly"
+        ],
+        "output": [
+          "TitaniumAlloyCastingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_GoldOre": {
+      "id": "Product_GoldOre",
+      "name": "Gold ore",
+      "icon": "goldore.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GoldOreCrushing",
+          "GoldOreCrushingT2"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_GoldOreCrushed": {
+      "id": "Product_GoldOreCrushed",
+      "name": "Gold ore crushed",
+      "icon": "goldorecrushed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GoldMilling",
+          "GoldOreMillingT2"
+        ],
+        "output": [
+          "GoldOreCrushing",
+          "GoldOreCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_GoldOrePowder": {
+      "id": "Product_GoldOrePowder",
+      "name": "Gold ore powder",
+      "icon": "goldorepowder.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GoldSettling"
+        ],
+        "output": [
+          "GoldMilling",
+          "GoldOreMillingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_GoldOreConcentrate": {
+      "id": "Product_GoldOreConcentrate",
+      "name": "Gold ore concentrate",
+      "icon": "goldoreconcentrate.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GoldSmelting"
+        ],
+        "output": [
+          "GoldSettling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Gold": {
+      "id": "Product_Gold",
+      "name": "Gold",
+      "icon": "gold.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LuxuryGoodsAssemblyT3",
+          "LuxuryGoodsAssemblyT2",
+          "LuxuryGoodsAssemblyT1",
+          "MicrochipMachineT2_MicrochipProdStage3A",
+          "MicrochipMachineT2_MicrochipProdStage3B",
+          "MicrochipMachineT2_MicrochipProdStage3C",
+          "MicrochipMachineT2_MicrochipProdFinalStage",
+          "MicrochipMachine_MicrochipProdStage3A",
+          "MicrochipMachine_MicrochipProdStage3B",
+          "MicrochipMachine_MicrochipProdStage3C",
+          "MicrochipMachine_MicrochipProdFinalStage"
+        ],
+        "output": [
+          "GoldSmelting",
+          "GoldScrapSmelting"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_GoldScrap": {
+      "id": "Product_GoldScrap",
+      "name": "Gold scrap",
+      "icon": "goldscrap.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GoldScrapSmelting",
+          "PressingOfGoldScrap"
+        ],
+        "output": [
+          "ShreddingGoldScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_GoldScrapPressed": {
+      "id": "Product_GoldScrapPressed",
+      "name": "Gold scrap pressed",
+      "icon": "goldscrappressed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ShreddingGoldScrap"
+        ],
+        "output": [
+          "PressingOfGoldScrap"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Sand": {
+      "id": "Product_Sand",
+      "name": "Sand",
+      "icon": "sand.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ConcreteMixingSlagT3",
+          "ConcreteMixingGravelT3",
+          "ConcreteMixingSlagT2",
+          "ConcreteMixingGravelT2",
+          "ConcreteMixingSlag",
+          "ConcreteMixingGravel",
+          "CopperSmeltingArc",
+          "SiliconSmeltingArc2",
+          "CopperSmeltingArcT1",
+          "SiliconSmeltingArc",
+          "CopperSmeltingT2",
+          "GoldSmelting",
+          "GlassMixMixingT2",
+          "GlassMixMixingWithAcidT2",
+          "FilterMediaMixingT2",
+          "GlassMixMixing",
+          "GlassMixMixingWithAcid",
+          "FilterMediaMixing",
+          "WaterTreatment"
+        ],
+        "output": [
+          "QuartzMilling",
+          "QuartzMillingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenGlass": {
+      "id": "Product_MoltenGlass",
+      "name": "Molten glass",
+      "icon": "moltenglass.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SpentFuelReprocessing",
+          "SpentFuelToBlanket",
+          "SpentMoxToBlanket",
+          "CoreFuelReprocessing",
+          "GlassCastingT2",
+          "GlassCastingT1"
+        ],
+        "output": [
+          "GlassSmeltingArc",
+          "GlassSmeltingArcWithBroken",
+          "GlassSmeltingArcT1",
+          "GlassSmeltingArcT1WithBroken",
+          "GlassSmeltingT2",
+          "GlassSmeltingT2WithBroken",
+          "GlassSmelting",
+          "GlassSmeltingWithBroken"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_BrokenGlass": {
+      "id": "Product_BrokenGlass",
+      "name": "Broken glass",
+      "icon": "brokenglass.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GlassSmeltingArcWithBroken",
+          "GlassSmeltingArcT1WithBroken",
+          "GlassSmeltingT2WithBroken",
+          "GlassSmeltingWithBroken"
+        ],
+        "output": [
+          "GlassCastingT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Glass": {
+      "id": "Product_Glass",
+      "name": "Glass",
+      "icon": "glass.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "VehicleParts2AssemblyT3",
+          "LabEquipment2AssemblyT4",
+          "HouseholdGoodsAssemblyT4",
+          "PCBAssemblyT3",
+          "SolarCellAssemblyT3",
+          "SolarCellMonoAssemblyT1",
+          "VehicleParts2AssemblyT2",
+          "LabEquipment2AssemblyT3",
+          "HouseholdGoodsAssemblyT3",
+          "PCBAssemblyT2",
+          "SolarCellAssemblyT2",
+          "VehicleParts2AssemblyT1",
+          "LabEquipment2AssemblyT2",
+          "HouseholdGoodsAssemblyT2",
+          "PCBAssemblyT1",
+          "SolarCellAssemblyT1",
+          "HouseholdGoodsAssemblyT1",
+          "MorphineProduction"
+        ],
+        "output": [
+          "GlassCastingT2",
+          "GlassCastingT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_GlassMix": {
+      "id": "Product_GlassMix",
+      "name": "Glass mix",
+      "icon": "glassmix.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GlassSmeltingArc",
+          "GlassSmeltingArcT1",
+          "GlassSmeltingT2",
+          "GlassSmelting"
+        ],
+        "output": [
+          "GlassMixMixingT2",
+          "GlassMixMixingWithAcidT2",
+          "GlassMixMixing",
+          "GlassMixMixingWithAcid"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_UraniumOre": {
+      "id": "Product_UraniumOre",
+      "name": "Uranium ore",
+      "icon": "uraniumore.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "UraniumCrushing",
+          "UraniumCrushingT2"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_UraniumOreCrushed": {
+      "id": "Product_UraniumOreCrushed",
+      "name": "Uranium ore powder",
+      "icon": "uraniumorepowder.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "UraniumLeaching"
+        ],
+        "output": [
+          "UraniumCrushing",
+          "UraniumCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Yellowcake": {
+      "id": "Product_Yellowcake",
+      "name": "Yellowcake",
+      "icon": "yellowcake.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "UraniumEnrichment",
+          "BlanketFuelFromYellowcake"
+        ],
+        "output": [
+          "UraniumLeaching"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_UraniumEnriched": {
+      "id": "Product_UraniumEnriched",
+      "name": "Enriched uranium (4%)",
+      "icon": "enricheduranium4.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "UraniumRodsAssemblyT3",
+          "UraniumRodsAssemblyT2",
+          "UraniumEnrichedAssemblyT1",
+          "UraniumRodsAssemblyT1",
+          "UraniumEnrichment20"
+        ],
+        "output": [
+          "UraniumEnrichment",
+          "ReprocessedUraniumEnrichment"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_UraniumEnriched20": {
+      "id": "Product_UraniumEnriched20",
+      "name": "Enriched uranium (20%)",
+      "icon": "enricheduranium20.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CompactReactorAssembly",
+          "CoreFuelFromEnriched"
+        ],
+        "output": [
+          "UraniumEnrichedAssemblyT1",
+          "UraniumEnrichment20",
+          "BlanketFuelReprocessingToU30"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_UraniumReprocessed": {
+      "id": "Product_UraniumReprocessed",
+      "name": "Reprocessed uranium (1%)",
+      "icon": "reprocesseduranium1.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ReprocessedUraniumEnrichment"
+        ],
+        "output": [
+          "SpentFuelReprocessing"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Plutonium": {
+      "id": "Product_Plutonium",
+      "name": "Plutonium",
+      "icon": "plutonium.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ProbePartsAssembly",
+          "UraniumEnrichedAssemblyT1",
+          "MoxRodsAssemblyT1",
+          "CoreFuelFromPu"
+        ],
+        "output": [
+          "BlanketFuelReprocessingToPu",
+          "SpentFuelReprocessing"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_UraniumDepleted": {
+      "id": "Product_UraniumDepleted",
+      "name": "Depleted uranium",
+      "icon": "depleteduranium.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MoxRodsAssemblyT1",
+          "BlanketFuelFromDepleted"
+        ],
+        "output": [
+          "UraniumEnrichment",
+          "ReprocessedUraniumEnrichment",
+          "UraniumEnrichment20"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_UraniumRod": {
+      "id": "Product_UraniumRod",
+      "name": "Uranium rod",
+      "icon": "uraniumrod.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "NuclearReactorT21",
+          "NuclearReactorT23",
+          "NuclearReactor",
+          "NuclearReactor1"
+        ],
+        "output": [
+          "UraniumRodsAssemblyT3",
+          "UraniumRodsAssemblyT2",
+          "UraniumRodsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoxRod": {
+      "id": "Product_MoxRod",
+      "name": "MOX rod",
+      "icon": "moxrod.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "NuclearReactorT2",
+          "NuclearReactorT22"
+        ],
+        "output": [
+          "MoxRodsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SpentFuel": {
+      "id": "Product_SpentFuel",
+      "name": "Spent fuel",
+      "icon": "spentfuel.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SpentFuelReprocessing",
+          "SpentFuelToBlanket"
+        ],
+        "output": [
+          "NuclearReactorT21",
+          "NuclearReactorT23",
+          "NuclearReactor",
+          "NuclearReactor1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SpentMox": {
+      "id": "Product_SpentMox",
+      "name": "Spent MOX",
+      "icon": "spentmox.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SpentMoxToBlanket"
+        ],
+        "output": [
+          "NuclearReactorT2",
+          "NuclearReactorT22"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_FissionProduct": {
+      "id": "Product_FissionProduct",
+      "name": "Fission product",
+      "icon": "fissionproduct.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "SpentFuelReprocessing",
+          "SpentFuelToBlanket",
+          "SpentMoxToBlanket",
+          "CoreFuelReprocessing"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_RetiredWaste": {
+      "id": "Product_RetiredWaste",
+      "name": "Retired waste",
+      "icon": "retiredwaste.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ShreddingRetiredWaste"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CoreFuel": {
+      "id": "Product_CoreFuel",
+      "name": "Core fuel",
+      "icon": "corefuel.png",
+      "color": "#A77D7D",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FastBreederReactor",
+          "FastBreederReactor1",
+          "FastBreederReactor2",
+          "FastBreederReactor3"
+        ],
+        "output": [
+          "BlanketFuelReprocessing",
+          "CoreFuelReprocessing",
+          "CoreFuelFromEnriched",
+          "CoreFuelFromPu"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CoreFuelDirty": {
+      "id": "Product_CoreFuelDirty",
+      "name": "Core fuel (spent)",
+      "icon": "corefuelspent.png",
+      "color": "#988266",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CoreFuelReprocessing"
+        ],
+        "output": [
+          "FastBreederReactor",
+          "FastBreederReactor1",
+          "FastBreederReactor2",
+          "FastBreederReactor3"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_BlanketFuel": {
+      "id": "Product_BlanketFuel",
+      "name": "Blanket fuel",
+      "icon": "blanketfuel.png",
+      "color": "#8694A7",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FastBreederReactor1",
+          "FastBreederReactor3"
+        ],
+        "output": [
+          "BlanketFuelReprocessing",
+          "BlanketFuelReprocessingToPu",
+          "BlanketFuelReprocessingToU30",
+          "SpentFuelToBlanket",
+          "SpentMoxToBlanket",
+          "BlanketFuelFromDepleted",
+          "BlanketFuelFromYellowcake"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_BlanketFuelEnriched": {
+      "id": "Product_BlanketFuelEnriched",
+      "name": "Blanket fuel (enriched)",
+      "icon": "blanketfuelenriched.png",
+      "color": "#928BA7",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "BlanketFuelReprocessing",
+          "BlanketFuelReprocessingToPu",
+          "BlanketFuelReprocessingToU30",
+          "BlanketFuelFromDepleted"
+        ],
+        "output": [
+          "FastBreederReactor1",
+          "FastBreederReactor3"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Quartz": {
+      "id": "Product_Quartz",
+      "name": "Quartz",
+      "icon": "quartz.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "QuartzCrushing",
+          "QuartzCrushingT2"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_QuartzCrushed": {
+      "id": "Product_QuartzCrushed",
+      "name": "Quartz crushed",
+      "icon": "quartzcrushed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "QuartzMilling",
+          "QuartzMillingT2"
+        ],
+        "output": [
+          "QuartzCrushing",
+          "QuartzCrushingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MoltenSilicon": {
+      "id": "Product_MoltenSilicon",
+      "name": "Molten silicon",
+      "icon": "moltensilicon.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SiliconTreatment"
+        ],
+        "output": [
+          "SiliconSmeltingArc2",
+          "SiliconSmeltingArc"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_PolySilicon": {
+      "id": "Product_PolySilicon",
+      "name": "Silicon (poly)",
+      "icon": "siliconpoly.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Electronics2AssemblyT3",
+          "SolarCellAssemblyT3",
+          "Electronics2AssemblyT2",
+          "SolarCellAssemblyT2",
+          "Electronics2AssemblyT1",
+          "SolarCellAssemblyT1",
+          "SiliconCrystallization"
+        ],
+        "output": [
+          "SiliconTreatment"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SiliconWafer": {
+      "id": "Product_SiliconWafer",
+      "name": "Silicon wafer",
+      "icon": "siliconwafer.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SolarCellMonoAssemblyT1",
+          "MicrochipMachineT2_MicrochipProdStage1A",
+          "MicrochipMachine_MicrochipProdStage1A"
+        ],
+        "output": [
+          "SiliconCrystallization"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Water": {
+      "id": "Product_Water",
+      "name": "Water",
+      "icon": "water.png",
+      "color": "#7994B0",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CornMilling",
+          "TofuProduction",
+          "MeatProcessing",
+          "SugarRefiningCane",
+          "BreadProduction",
+          "SteamGenerationCoal",
+          "SteamGenerationWood",
+          "SteamGenerationBiomass",
+          "SteamGenerationAnimalFeed",
+          "SteamGenerationHeavyOil",
+          "SteamGenerationMediumOil",
+          "SteamGenerationLightOil",
+          "SteamGenerationNaphtha",
+          "SteamGenerationEthanol",
+          "SteamGenerationFuelGas",
+          "SteamGenerationHydrogen",
+          "SteamGenerationElectric",
+          "SteamGenerationElectricHalf",
+          "SteamGenerationSpElectric",
+          "WaterChilling",
+          "SimpleConcreteMaking",
+          "ConcreteMixingSlagT3",
+          "ConcreteMixingGravelT3",
+          "ConcreteMixingSlagMT3",
+          "ConcreteMixingGravelMT3",
+          "ConcreteMixingSlagT2",
+          "ConcreteMixingGravelT2",
+          "ConcreteMixingSlagMT2",
+          "ConcreteMixingGravelMT2",
+          "ConcreteMixingSlag",
+          "ConcreteMixingGravel",
+          "ConcreteMixingGravelM",
+          "ConcreteMixingSlagM",
+          "MicrochipMachineT2_MicrochipProdStage1A",
+          "MicrochipMachineT2_MicrochipProdStage1B",
+          "MicrochipMachineT2_MicrochipProdStage1C",
+          "MicrochipMachineT2_MicrochipProdStage1D",
+          "MicrochipMachine_MicrochipProdStage1A",
+          "MicrochipMachine_MicrochipProdStage1B",
+          "MicrochipMachine_MicrochipProdStage1C",
+          "MicrochipMachine_MicrochipProdStage1D",
+          "WaterElectrolysisT2",
+          "WaterElectrolysis",
+          "IronSmeltingArcScrap",
+          "IronSmeltingArc",
+          "CopperSmeltingArcScrap",
+          "CopperSmeltingArc",
+          "GlassSmeltingArc",
+          "GlassSmeltingArcWithBroken",
+          "SiliconSmeltingArc2",
+          "AluminumSmeltingScrapArcT2",
+          "IlmeniteSmeltingArc2",
+          "TitaniumSmeltingArc2",
+          "SteelCastingCooledT2",
+          "TitaniumAlloyCastingT2",
+          "SteelCastingCooled",
+          "CopperElectrolysisWithWater",
+          "SiliconCrystallization",
+          "AcidMixMixingT2",
+          "BrineProductionT2",
+          "OrganicFertilizerProductionT2",
+          "OrganicFertilizerProductionDirtT2",
+          "AcidMixMixing",
+          "BrineProduction",
+          "OrganicFertilizerProduction",
+          "OrganicFertilizerProductionDirt",
+          "HydrogenProductionFromSteamSp",
+          "OceanWaterDumping",
+          "ExhaustFiltering",
+          "ExhaustFilteringLime",
+          "IncinerationOfWaste",
+          "IncinerationOfWastePressed",
+          "IncinerationOfWasteHydrogen",
+          "IncinerationOfWastePressedHydrogen",
+          "Crop_Potato_Product_Fertilizer",
+          "Crop_Potato_Product_Fertilizer2",
+          "Crop_Potato_Product_FertilizerOrganic",
+          "Crop_Corn_Product_Fertilizer",
+          "Crop_Corn_Product_Fertilizer2",
+          "Crop_Corn_Product_FertilizerOrganic",
+          "Crop_Wheat_Product_Fertilizer",
+          "Crop_Wheat_Product_Fertilizer2",
+          "Crop_Wheat_Product_FertilizerOrganic",
+          "Crop_TreeSapling_Product_Fertilizer",
+          "Crop_TreeSapling_Product_Fertilizer2",
+          "Crop_TreeSapling_Product_FertilizerOrganic",
+          "Crop_Soybeans_Product_Fertilizer",
+          "Crop_Soybeans_Product_Fertilizer2",
+          "Crop_Soybeans_Product_FertilizerOrganic",
+          "Crop_SugarCane_Product_Fertilizer",
+          "Crop_SugarCane_Product_Fertilizer2",
+          "Crop_SugarCane_Product_FertilizerOrganic",
+          "Crop_Vegetables_Product_Fertilizer",
+          "Crop_Vegetables_Product_Fertilizer2",
+          "Crop_Vegetables_Product_FertilizerOrganic",
+          "Crop_Fruits_Product_Fertilizer",
+          "Crop_Fruits_Product_Fertilizer2",
+          "Crop_Fruits_Product_FertilizerOrganic",
+          "Crop_Canola_Product_Fertilizer",
+          "Crop_Canola_Product_Fertilizer2",
+          "Crop_Canola_Product_FertilizerOrganic",
+          "Crop_Poppy_Product_Fertilizer",
+          "Crop_Poppy_Product_Fertilizer2",
+          "Crop_Poppy_Product_FertilizerOrganic",
+          "Crop_Flowers_Product_Fertilizer",
+          "Crop_Flowers_Product_Fertilizer2",
+          "Crop_Flowers_Product_FertilizerOrganic",
+          "Crop_Potato_Product_Fertilizer_1",
+          "Crop_Potato_Product_Fertilizer2_1",
+          "Crop_Potato_Product_FertilizerOrganic_1",
+          "Crop_Corn_Product_Fertilizer_1",
+          "Crop_Corn_Product_Fertilizer2_1",
+          "Crop_Corn_Product_FertilizerOrganic_1",
+          "Crop_Wheat_Product_Fertilizer_1",
+          "Crop_Wheat_Product_Fertilizer2_1",
+          "Crop_Wheat_Product_FertilizerOrganic_1",
+          "Crop_TreeSapling_Product_Fertilizer_1",
+          "Crop_TreeSapling_Product_Fertilizer2_1",
+          "Crop_TreeSapling_Product_FertilizerOrganic_1",
+          "Crop_Soybeans_Product_Fertilizer_1",
+          "Crop_Soybeans_Product_Fertilizer2_1",
+          "Crop_Soybeans_Product_FertilizerOrganic_1",
+          "Crop_SugarCane_Product_Fertilizer_1",
+          "Crop_SugarCane_Product_Fertilizer2_1",
+          "Crop_SugarCane_Product_FertilizerOrganic_1",
+          "Crop_Vegetables_Product_Fertilizer_1",
+          "Crop_Vegetables_Product_Fertilizer2_1",
+          "Crop_Vegetables_Product_FertilizerOrganic_1",
+          "Crop_Fruits_Product_Fertilizer_1",
+          "Crop_Fruits_Product_Fertilizer2_1",
+          "Crop_Fruits_Product_FertilizerOrganic_1",
+          "Crop_Canola_Product_Fertilizer_1",
+          "Crop_Canola_Product_Fertilizer2_1",
+          "Crop_Canola_Product_FertilizerOrganic_1",
+          "Crop_Poppy_Product_Fertilizer_1",
+          "Crop_Poppy_Product_Fertilizer2_1",
+          "Crop_Poppy_Product_FertilizerOrganic_1",
+          "Crop_Flowers_Product_Fertilizer_1",
+          "Crop_Flowers_Product_Fertilizer2_1",
+          "Crop_Flowers_Product_FertilizerOrganic_1",
+          "Crop_Potato_Product_Fertilizer_1",
+          "Crop_Potato_Product_Fertilizer2_1",
+          "Crop_Potato_Product_FertilizerOrganic_1",
+          "Crop_Corn_Product_Fertilizer_1",
+          "Crop_Corn_Product_Fertilizer2_1",
+          "Crop_Corn_Product_FertilizerOrganic_1",
+          "Crop_Wheat_Product_Fertilizer_1",
+          "Crop_Wheat_Product_Fertilizer2_1",
+          "Crop_Wheat_Product_FertilizerOrganic_1",
+          "Crop_TreeSapling_Product_Fertilizer_1",
+          "Crop_TreeSapling_Product_Fertilizer2_1",
+          "Crop_TreeSapling_Product_FertilizerOrganic_1",
+          "Crop_Soybeans_Product_Fertilizer_1",
+          "Crop_Soybeans_Product_Fertilizer2_1",
+          "Crop_Soybeans_Product_FertilizerOrganic_1",
+          "Crop_Vegetables_Product_Fertilizer_1",
+          "Crop_Vegetables_Product_Fertilizer2_1",
+          "Crop_Vegetables_Product_FertilizerOrganic_1",
+          "Crop_Canola_Product_Fertilizer_1",
+          "Crop_Canola_Product_Fertilizer2_1",
+          "Crop_Canola_Product_FertilizerOrganic_1",
+          "ChickenFarm",
+          "NuclearReactorT2",
+          "NuclearReactorT21",
+          "NuclearReactorT22",
+          "NuclearReactorT23",
+          "NuclearReactor",
+          "NuclearReactor1",
+          "FastBreederReactor",
+          "FastBreederReactor1",
+          "FastBreederReactor2",
+          "FastBreederReactor3"
+        ],
+        "output": [
+          "WaterDesalinationBasic",
+          "LandWaterPumping",
+          "DesalinationFromSP",
+          "DesalinationFromHP",
+          "DesalinationFromLP",
+          "DesalinationFromDepleted",
+          "SteamHpCondensation",
+          "SteamLpCondensation",
+          "SteamDepletedCondensation",
+          "SteamSpCondensationT2",
+          "SteamHpCondensationT2",
+          "SteamLpCondensationT2",
+          "SteamDepletedCondensationT2",
+          "FuelGasSynthesis",
+          "CarbonToEthanolProduction",
+          "FuelGasReforming",
+          "SourWaterStripping",
+          "WaterTreatment",
+          "WaterTreatmentT2",
+          "ToxicSlurryTreatment",
+          "RainwaterHarvester",
+          "BasicServerRack"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ChilledWater": {
+      "id": "Product_ChilledWater",
+      "name": "Chilled water",
+      "icon": "chilledwater.png",
+      "color": "#6B9997",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "BasicServerRack"
+        ],
+        "output": [
+          "WaterChilling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Seawater": {
+      "id": "Product_Seawater",
+      "name": "Seawater",
+      "icon": "seawater.png",
+      "color": "#8089AF",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "WaterDesalinationBasic",
+          "CarbonDioxideInjection",
+          "BrineMakingHeated",
+          "SaltMakingHeated",
+          "BrineMaking",
+          "SaltMaking",
+          "DesalinationFromSP",
+          "DesalinationFromHP",
+          "DesalinationFromLP",
+          "DesalinationFromDepleted",
+          "RedMudSettling",
+          "SeaWaterDumping"
+        ],
+        "output": [
+          "OceanWaterPumping",
+          "OceanWaterPumpingT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Brine": {
+      "id": "Product_Brine",
+      "name": "Brine",
+      "icon": "brine.png",
+      "color": "#A9A9A9",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SaltMakingFromBrineHeated",
+          "SaltMakingFromBrine",
+          "BrineElectrolysisT2",
+          "BrineElectrolysis",
+          "BauxiteDigestion",
+          "BrineDumping",
+          "ToxicSlurryTreatment"
+        ],
+        "output": [
+          "WaterDesalinationBasic",
+          "BrineMakingHeated",
+          "BrineMaking",
+          "DesalinationFromSP",
+          "DesalinationFromHP",
+          "DesalinationFromLP",
+          "DesalinationFromDepleted",
+          "BrineProductionT2",
+          "BrineProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_WasteWater": {
+      "id": "Product_WasteWater",
+      "name": "Waste water",
+      "icon": "wastewater.png",
+      "color": "#594529",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "OceanWasteWaterPumping",
+          "WaterTreatment",
+          "WaterTreatmentT2"
+        ],
+        "output": [
+          "DieselDistillationBasic",
+          "RubberProductionNaphthaAlt",
+          "RubberProductionDieselWithCoal"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ToxicSlurry": {
+      "id": "Product_ToxicSlurry",
+      "name": "Toxic slurry",
+      "icon": "toxicslurry.png",
+      "color": "#939C62",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ToxicSlurryDumping",
+          "ToxicSlurryTreatment"
+        ],
+        "output": [
+          "GoldSettling",
+          "UraniumLeaching"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_PollutedWater": {
+      "id": "Product_Virtual_PollutedWater",
+      "name": "Water pollution",
+      "icon": "waterpollution.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "OceanWasteWaterPumping",
+          "SourWaterDumping",
+          "WasteAcidDumping",
+          "ToxicSlurryDumping",
+          "FertilizerOrganicDumping",
+          "FertilizerChem1Dumping",
+          "FertilizerChem2Dumping",
+          "RedMudDumping"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_PollutedAir": {
+      "id": "Product_Virtual_PollutedAir",
+      "name": "Air pollution",
+      "icon": "airpollution.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "DieselGenerator",
+          "SmokeStackLargeExhaust",
+          "SmokeStackLargeCarbonDioxide",
+          "SmokeStackExhaust",
+          "SmokeStackCarbonDioxide",
+          "FlareDiesel",
+          "FlareHeavyOil",
+          "FlareLightOil",
+          "FlareNaphtha",
+          "FlareEthanol",
+          "FlareFuelGas",
+          "FlareAmmonia",
+          "ExhaustFiltering",
+          "LandfillBurning",
+          "BiomassBurning",
+          "AnimalFeedBurning",
+          "CanolaBurning",
+          "MeatTrimmingsBurning",
+          "ChickenCarcassBurning",
+          "SulfurBurning",
+          "SludgeBurning"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Chlorine": {
+      "id": "Product_Chlorine",
+      "name": "Chlorine",
+      "icon": "chlorine.png",
+      "color": "#91933E",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "GraphiteProductionT2",
+          "TitaniumChlorination",
+          "GraphiteProductionT1",
+          "PlasticMaking",
+          "PlasticMakingEthanol",
+          "WaterTreatment",
+          "WaterTreatmentT2"
+        ],
+        "output": [
+          "BrineElectrolysisT2",
+          "BrineElectrolysis",
+          "TitaniumChlorideReduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SteamSp": {
+      "id": "Product_SteamSp",
+      "name": "Steam (super)",
+      "icon": "steamsuper.png",
+      "color": "#AAAAAA",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TurbineSuperPress",
+          "DesalinationFromSP",
+          "SteamSpCondensationT2",
+          "HydrogenProductionFromSteamSp",
+          "SmokeStackLargeSpSteam",
+          "SmokeStackSpSteam"
+        ],
+        "output": [
+          "SteamGenerationSpElectric",
+          "FastBreederReactor",
+          "FastBreederReactor1",
+          "FastBreederReactor2",
+          "FastBreederReactor3"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SteamHi": {
+      "id": "Product_SteamHi",
+      "name": "Steam (high)",
+      "icon": "steamhigh.png",
+      "color": "#AAAAAA",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TurbineHighPressT2",
+          "TurbineHighPress",
+          "DesalinationFromHP",
+          "SteamHpCondensation",
+          "SteamHpCondensationT2",
+          "PaperProductionT2",
+          "PaperProduction",
+          "CrudeOilRefiningT1",
+          "CrudeOilRefiningT2",
+          "HeavyDistillateRefining",
+          "TitaniumPurification",
+          "DieselReforming",
+          "NaphthaReformingToGas",
+          "HydrogenReforming",
+          "SourWaterStripping",
+          "SmokeStackLargeHpSteam",
+          "SmokeStackHpSteam"
+        ],
+        "output": [
+          "TurbineSuperPress",
+          "SteamGenerationCoal",
+          "SteamGenerationWood",
+          "SteamGenerationBiomass",
+          "SteamGenerationAnimalFeed",
+          "SteamGenerationHeavyOil",
+          "SteamGenerationMediumOil",
+          "SteamGenerationLightOil",
+          "SteamGenerationNaphtha",
+          "SteamGenerationEthanol",
+          "SteamGenerationFuelGas",
+          "SteamGenerationHydrogen",
+          "SteamGenerationElectric",
+          "SteamGenerationElectricHalf",
+          "IncinerationOfWaste",
+          "IncinerationOfWastePressed",
+          "IncinerationOfWasteHydrogen",
+          "IncinerationOfWastePressedHydrogen",
+          "NuclearReactorT2",
+          "NuclearReactorT21",
+          "NuclearReactorT22",
+          "NuclearReactorT23",
+          "NuclearReactor",
+          "NuclearReactor1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SteamLP": {
+      "id": "Product_SteamLP",
+      "name": "Steam (low)",
+      "icon": "steamlow.png",
+      "color": "#AAAAAA",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TurbineLowPressT2",
+          "TurbineLowPress",
+          "DesalinationFromLP",
+          "SteamLpCondensation",
+          "SteamLpCondensationT2",
+          "SmokeStackLargeLpSteam",
+          "SmokeStackLpSteam"
+        ],
+        "output": [
+          "TurbineHighPressT2",
+          "TurbineHighPress",
+          "IronSmeltingArcScrap",
+          "IronSmeltingArc",
+          "CopperSmeltingArcScrap",
+          "CopperSmeltingArc",
+          "GlassSmeltingArc",
+          "GlassSmeltingArcWithBroken",
+          "SiliconSmeltingArc2",
+          "AluminumSmeltingScrapArcT2",
+          "IlmeniteSmeltingArc2",
+          "TitaniumSmeltingArc2",
+          "ExhaustFiltering",
+          "ExhaustFilteringLime"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SteamDepleted": {
+      "id": "Product_SteamDepleted",
+      "name": "Steam (depleted)",
+      "icon": "steamdepleted.png",
+      "color": "#AAAAAA",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "DesalinationFromDepleted",
+          "SteamDepletedCondensation",
+          "SteamDepletedCondensationT2",
+          "SmokeStackLargeDepletedSteam",
+          "SmokeStackDepletedSteam"
+        ],
+        "output": [
+          "TurbineLowPressT2",
+          "TurbineLowPress",
+          "SteamGenerationHydrogen",
+          "CementProductionHydrogen",
+          "AluminaCalcificationHydrogen",
+          "TitaniumPurification",
+          "HydrogenProductionFromSteamSp"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Salt": {
+      "id": "Product_Salt",
+      "name": "Salt",
+      "icon": "salt.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MeatProcessing",
+          "SausageProduction",
+          "SnackProductionPotato",
+          "SnackProductionCorn",
+          "DiamondSynthesis",
+          "SpentFuelToBlanket",
+          "SpentMoxToBlanket",
+          "GlassMixMixingT2",
+          "GlassMixMixingWithAcidT2",
+          "BrineProductionT2",
+          "GlassMixMixing",
+          "GlassMixMixingWithAcid",
+          "BrineProduction",
+          "TitaniumChlorideReduction",
+          "BlanketFuelFromDepleted",
+          "BlanketFuelFromYellowcake",
+          "CoreFuelFromEnriched",
+          "CoreFuelFromPu"
+        ],
+        "output": [
+          "SaltMakingHeated",
+          "SaltMakingFromBrineHeated",
+          "SaltMaking",
+          "SaltMakingFromBrine"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Exhaust": {
+      "id": "Product_Exhaust",
+      "name": "Exhaust",
+      "icon": "exhaust.png",
+      "color": "#666666",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SmokeStackLargeExhaust",
+          "SmokeStackExhaust",
+          "ExhaustFiltering",
+          "ExhaustFilteringLime"
+        ],
+        "output": [
+          "DieselGeneratorT2",
+          "DieselDistillationBasic",
+          "WaterDesalinationBasic",
+          "SteamGenerationCoal",
+          "SteamGenerationWood",
+          "SteamGenerationBiomass",
+          "SteamGenerationAnimalFeed",
+          "SteamGenerationHeavyOil",
+          "SteamGenerationMediumOil",
+          "SteamGenerationLightOil",
+          "SteamGenerationNaphtha",
+          "SimpleConcreteMaking",
+          "CementProduction",
+          "CharcoalBurning",
+          "IronSmeltingArcScrap",
+          "IronSmeltingArc",
+          "CopperSmeltingArcScrap",
+          "CopperSmeltingArc",
+          "GlassSmeltingArc",
+          "GlassSmeltingArcWithBroken",
+          "SiliconSmeltingArc2",
+          "AluminumSmeltingScrapArcT2",
+          "IlmeniteSmeltingArc2",
+          "TitaniumSmeltingArc2",
+          "IronSmeltingArcScrapT1",
+          "IronSmeltingArcT1",
+          "CopperSmeltingArcScrapT1",
+          "CopperSmeltingArcT1",
+          "GlassSmeltingArcT1",
+          "GlassSmeltingArcT1WithBroken",
+          "SiliconSmeltingArc",
+          "AluminumSmeltingScrapArcT1",
+          "IronSmeltingT2Scrap",
+          "IronSmeltingT2",
+          "CopperSmeltingT2Scrap",
+          "CopperSmeltingT2",
+          "GlassSmeltingT2",
+          "GlassSmeltingT2WithBroken",
+          "IronSmeltingT1Scrap",
+          "IronSmeltingT1Coal",
+          "CopperSmeltingT1Scrap",
+          "CopperSmeltingT1",
+          "GlassSmelting",
+          "GlassSmeltingWithBroken",
+          "SteelSmeltingT2",
+          "SteelSmelting",
+          "GoldSmelting",
+          "PlasticMaking",
+          "PlasticMakingEthanol",
+          "IncinerationOfWaste",
+          "IncinerationOfWastePressed",
+          "IncinerationOfWasteHydrogen",
+          "IncinerationOfWastePressedHydrogen"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Recyclables": {
+      "id": "Product_Recyclables",
+      "name": "Recyclables",
+      "icon": "recyclables.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "PressingOfRecyclables"
+        ],
+        "output": [
+          "ShreddingRetiredWaste",
+          "ShreddingPolyCells",
+          "MaintenanceT1Recycling",
+          "MaintenanceT2Recycling",
+          "MaintenanceT3Recycling",
+          "ResearchLab21",
+          "ResearchLab31",
+          "ResearchLab41",
+          "ResearchLab51"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_RecyclablesPressed": {
+      "id": "Product_RecyclablesPressed",
+      "name": "Recyclables pressed",
+      "icon": "recyclablespressed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "PressingOfRecyclables"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CrudeOil": {
+      "id": "Product_CrudeOil",
+      "name": "Crude oil",
+      "icon": "crudeoil.png",
+      "color": "#3F3F3F",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "DieselDistillationBasic",
+          "CrudeOilRefiningT1"
+        ],
+        "output": [
+          "OilGroundPumping"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Diesel": {
+      "id": "Product_Diesel",
+      "name": "Diesel",
+      "icon": "diesel.png",
+      "color": "#AD8F3B",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "DieselGenerator",
+          "DieselGeneratorT2",
+          "RubberProductionDiesel",
+          "RubberProductionDieselWithCoal",
+          "DieselReforming",
+          "FlareDiesel",
+          "CargoShipRecipeT2"
+        ],
+        "output": [
+          "DieselDistillationBasic",
+          "EthanolCookingOilReformingT2",
+          "EthanolCookingOilReforming",
+          "CrudeOilRefiningT2",
+          "HeavyOilCracking",
+          "NaphthaReforming",
+          "FuelGasReforming"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Naphtha": {
+      "id": "Product_Naphtha",
+      "name": "Naphtha",
+      "icon": "naphtha.png",
+      "color": "#9F985E",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationNaphtha",
+          "RubberProductionNaphtha",
+          "RubberProductionNaphthaAlt",
+          "NaphthaReforming",
+          "NaphthaReformingToGas",
+          "PlasticMaking",
+          "FlareNaphtha"
+        ],
+        "output": [
+          "HeavyDistillateRefining",
+          "HeavyOilCrackingToNaphtha",
+          "DieselReforming"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_FuelGas": {
+      "id": "Product_FuelGas",
+      "name": "Fuel gas",
+      "icon": "fuelgas.png",
+      "color": "#875E2B",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationFuelGas",
+          "CementProductionGas",
+          "AluminaCalcificationGas",
+          "ChemicalFuelProduction",
+          "FuelGasReforming",
+          "HydrogenReforming",
+          "FlareFuelGas",
+          "IncinerationOfWaste",
+          "IncinerationOfWastePressed"
+        ],
+        "output": [
+          "FuelGasSynthesis",
+          "HeavyDistillateRefining",
+          "HeavyOilCracking",
+          "HeavyOilCrackingToNaphtha",
+          "NaphthaReforming",
+          "DieselReforming",
+          "NaphthaReformingToGas",
+          "SludgeDigestion",
+          "PotatoDigestion",
+          "VegetablesDigestion",
+          "FruitDigestion",
+          "PoppyDigestion",
+          "WheatDigestion",
+          "CornDigestion",
+          "SoybeanDigestion",
+          "SugarCaneDigestion",
+          "MeatTrimmingsDigestion",
+          "EggsDigestion"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Sulfur": {
+      "id": "Product_Sulfur",
+      "name": "Sulfur",
+      "icon": "sulfur.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "TofuProduction",
+          "AcidMixMixingT2",
+          "SulfurNeutralizationT2",
+          "Fertilizer2ProductionT2",
+          "AcidMixMixing",
+          "SulfurNeutralization",
+          "Fertilizer2Production",
+          "RubberProductionNaphtha",
+          "RubberProductionEthanol",
+          "RubberProductionDiesel",
+          "SulfurBurning"
+        ],
+        "output": [
+          "SourWaterStripping",
+          "ExhaustFiltering",
+          "ExhaustFilteringLime"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SourWater": {
+      "id": "Product_SourWater",
+      "name": "Sour water",
+      "icon": "sourwater.png",
+      "color": "#7D8B5D",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SourWaterStripping",
+          "SourWaterDumping"
+        ],
+        "output": [
+          "GraphiteProductionT2",
+          "GraphiteProductionT1",
+          "CrudeOilRefiningT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Ammonia": {
+      "id": "Product_Ammonia",
+      "name": "Ammonia",
+      "icon": "ammonia.png",
+      "color": "#8DA5BA",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "AmmoniaElectrolysisT2",
+          "AmmoniaElectrolysis",
+          "AntibioticsFermentation",
+          "FertilizerProductionT2",
+          "FertilizerProductionFromOrganicT2",
+          "AnestheticsProduction",
+          "ChemicalFuelProduction",
+          "FertilizerProduction",
+          "FertilizerProductionFromOrganic",
+          "FlareAmmonia"
+        ],
+        "output": [
+          "AmmoniaSynthesisT2",
+          "AmmoniaSynthesis",
+          "SourWaterStripping"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Acid": {
+      "id": "Product_Acid",
+      "name": "Acid",
+      "icon": "acid.png",
+      "color": "#996F6A",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage1A",
+          "MicrochipMachineT2_MicrochipProdStage1B",
+          "MicrochipMachineT2_MicrochipProdStage1C",
+          "MicrochipMachineT2_MicrochipProdStage1D",
+          "MicrochipMachine_MicrochipProdStage1A",
+          "MicrochipMachine_MicrochipProdStage1B",
+          "MicrochipMachine_MicrochipProdStage1C",
+          "MicrochipMachine_MicrochipProdStage1D",
+          "GoldSettling",
+          "UraniumLeaching",
+          "FluorideLeaching",
+          "RedMudSettlingAcid",
+          "SpentFuelReprocessing",
+          "SpentFuelToBlanket",
+          "SpentMoxToBlanket",
+          "CoreFuelReprocessing",
+          "CopperElectrolysisProcess",
+          "GlassMixMixingWithAcidT2",
+          "GlassMixMixingWithAcid",
+          "MorphineProduction",
+          "WasteAcidDumping"
+        ],
+        "output": [
+          "AcidMixMixingT2",
+          "AcidMixMixing"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_HeavyOil": {
+      "id": "Product_HeavyOil",
+      "name": "Heavy oil",
+      "icon": "heavyoil.png",
+      "color": "#5B4927",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationHeavyOil",
+          "DiamondPasteFromHeavyOil",
+          "HeavyOilCracking",
+          "HeavyOilCrackingToNaphtha",
+          "FlareHeavyOil"
+        ],
+        "output": [
+          "CrudeOilRefiningT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MediumOil": {
+      "id": "Product_MediumOil",
+      "name": "Medium oil",
+      "icon": "mediumoil.png",
+      "color": "#635A63",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationMediumOil",
+          "CrudeOilRefiningT2"
+        ],
+        "output": [
+          "CrudeOilRefiningT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_LightOil": {
+      "id": "Product_LightOil",
+      "name": "Light oil",
+      "icon": "lightoil.png",
+      "color": "#6C6F43",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationLightOil",
+          "HeavyDistillateRefining",
+          "FlareLightOil"
+        ],
+        "output": [
+          "CrudeOilRefiningT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Plastic": {
+      "id": "Product_Plastic",
+      "name": "Plastic",
+      "icon": "plastic.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SnackProductionPotato",
+          "SnackProductionCorn",
+          "PCBAssemblyT3",
+          "ConsumerElectronicsAssemblyT1",
+          "MedicalEquipmentAssemblyT3",
+          "CompositePanelAssemblyT3",
+          "CrewSuppliesAssemblyT3",
+          "PCBAssemblyT2",
+          "MedicalEquipmentAssemblyT2",
+          "CompositePanelAssemblyT2",
+          "CrewSuppliesAssemblyT2",
+          "PCBAssemblyT1",
+          "MedicalEquipmentAssemblyT1",
+          "CompositePanelAssemblyT1",
+          "CrewSuppliesAssemblyT1",
+          "MicrochipMachineT2_MicrochipProdStage2A",
+          "MicrochipMachineT2_MicrochipProdStage2B",
+          "MicrochipMachineT2_MicrochipProdStage2C",
+          "MicrochipMachineT2_MicrochipProdStage2D",
+          "MicrochipMachine_MicrochipProdStage2A",
+          "MicrochipMachine_MicrochipProdStage2B",
+          "MicrochipMachine_MicrochipProdStage2C",
+          "MicrochipMachine_MicrochipProdStage2D",
+          "DisinfectantProductionT2",
+          "DisinfectantProduction"
+        ],
+        "output": [
+          "PlasticMaking",
+          "PlasticMakingEthanol"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Rubber": {
+      "id": "Product_Rubber",
+      "name": "Rubber",
+      "icon": "rubber.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ElectronicsAssemblyT5",
+          "ElectronicsAssemblyT4",
+          "ElectronicsAssemblyT3",
+          "ElectronicsAssemblyT2",
+          "ElectronicsAssemblyT1"
+        ],
+        "output": [
+          "RubberProductionNaphtha",
+          "RubberProductionNaphthaAlt",
+          "RubberProductionEthanol",
+          "RubberProductionDiesel",
+          "RubberProductionDieselWithCoal"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Hydrogen": {
+      "id": "Product_Hydrogen",
+      "name": "Hydrogen",
+      "icon": "hydrogen.png",
+      "color": "#AAB7DE",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationHydrogen",
+          "CementProductionHydrogen",
+          "AluminaCalcificationHydrogen",
+          "SiliconTreatment",
+          "AmmoniaSynthesisT2",
+          "FuelGasSynthesis",
+          "CarbonToEthanolProduction",
+          "AmmoniaSynthesis",
+          "HeavyOilCracking",
+          "HeavyOilCrackingToNaphtha",
+          "NaphthaReforming",
+          "FlareHydrogen",
+          "IncinerationOfWasteHydrogen",
+          "IncinerationOfWastePressedHydrogen"
+        ],
+        "output": [
+          "WaterElectrolysisT2",
+          "AmmoniaElectrolysisT2",
+          "WaterElectrolysis",
+          "AmmoniaElectrolysis",
+          "NaphthaReformingToGas",
+          "HydrogenReforming",
+          "HydrogenProductionFromSteamSp"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Nitrogen": {
+      "id": "Product_Nitrogen",
+      "name": "Nitrogen",
+      "icon": "nitrogen.png",
+      "color": "#576F93",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "AmmoniaSynthesisT2",
+          "AmmoniaSynthesis",
+          "SmokeStackLargeNitrogen",
+          "SmokeStackNitrogen"
+        ],
+        "output": [
+          "AmmoniaElectrolysisT2",
+          "AmmoniaElectrolysis",
+          "AirSeparation"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CarbonDioxide": {
+      "id": "Product_CarbonDioxide",
+      "name": "Carbon dioxide",
+      "icon": "carbondioxide.png",
+      "color": "#555555",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CarbonDioxideInjection",
+          "FuelGasSynthesis",
+          "GraphiteProductionCo2",
+          "CarbonToEthanolProduction",
+          "SmokeStackLargeCarbonDioxide",
+          "SmokeStackCarbonDioxide"
+        ],
+        "output": [
+          "SteamGenerationEthanol",
+          "SteamGenerationFuelGas",
+          "CementProductionGas",
+          "AluminaCalcificationGas",
+          "SugarToEthanolFermentation",
+          "CornToEthanolFermentation",
+          "AntibioticsFermentation",
+          "AluminumElectrolysis",
+          "TitaniumChlorination",
+          "HydrogenReforming",
+          "ExhaustFiltering",
+          "ExhaustFilteringLime"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Ethanol": {
+      "id": "Product_Ethanol",
+      "name": "Ethanol",
+      "icon": "ethanol.png",
+      "color": "#9D9D9D",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationEthanol",
+          "LensMaking",
+          "EthanolCookingOilReformingT2",
+          "DisinfectantProductionT2",
+          "EthanolCookingOilReforming",
+          "DisinfectantProduction",
+          "RubberProductionEthanol",
+          "PlasticMakingEthanol",
+          "FlareEthanol"
+        ],
+        "output": [
+          "SugarToEthanolFermentation",
+          "CornToEthanolFermentation",
+          "CarbonToEthanolProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Potato": {
+      "id": "Product_Potato",
+      "name": "Potato",
+      "icon": "potato.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SnackProductionPotato",
+          "AnimalFeedFromPotatoT2",
+          "AnimalFeedFromPotato",
+          "PotatoDigestion"
+        ],
+        "output": [
+          "Crop_Potato_Product_Fertilizer",
+          "Crop_Potato_Product_Fertilizer2",
+          "Crop_Potato_Product_FertilizerOrganic",
+          "Crop_Potato_Product_Fertilizer_1",
+          "Crop_Potato_Product_Fertilizer2_1",
+          "Crop_Potato_Product_FertilizerOrganic_1",
+          "Crop_Potato_Product_Fertilizer_1",
+          "Crop_Potato_Product_Fertilizer2_1",
+          "Crop_Potato_Product_FertilizerOrganic_1",
+          "Crop_Potato"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Corn": {
+      "id": "Product_Corn",
+      "name": "Corn",
+      "icon": "corn.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CornMilling",
+          "SnackProductionCorn",
+          "AnimalFeedFromCornT2",
+          "AnimalFeedFromCorn",
+          "CornDigestion"
+        ],
+        "output": [
+          "Crop_Corn_Product_Fertilizer",
+          "Crop_Corn_Product_Fertilizer2",
+          "Crop_Corn_Product_FertilizerOrganic",
+          "Crop_Corn_Product_Fertilizer_1",
+          "Crop_Corn_Product_Fertilizer2_1",
+          "Crop_Corn_Product_FertilizerOrganic_1",
+          "Crop_Corn_Product_Fertilizer_1",
+          "Crop_Corn_Product_Fertilizer2_1",
+          "Crop_Corn_Product_FertilizerOrganic_1",
+          "Crop_Corn"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Wheat": {
+      "id": "Product_Wheat",
+      "name": "Wheat",
+      "icon": "wheat.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "WheatMilling",
+          "AnimalFeedFromWheatT2",
+          "AnimalFeedFromWheat",
+          "WheatDigestion"
+        ],
+        "output": [
+          "Crop_Wheat_Product_Fertilizer",
+          "Crop_Wheat_Product_Fertilizer2",
+          "Crop_Wheat_Product_FertilizerOrganic",
+          "Crop_Wheat_Product_Fertilizer_1",
+          "Crop_Wheat_Product_Fertilizer2_1",
+          "Crop_Wheat_Product_FertilizerOrganic_1",
+          "Crop_Wheat_Product_Fertilizer_1",
+          "Crop_Wheat_Product_Fertilizer2_1",
+          "Crop_Wheat_Product_FertilizerOrganic_1",
+          "Crop_Wheat"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Soybean": {
+      "id": "Product_Soybean",
+      "name": "Soybean",
+      "icon": "soybean.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SoybeanMilling",
+          "TofuProduction",
+          "AnimalFeedFromSoybeanT2",
+          "AnimalFeedFromSoybean",
+          "SoybeanDigestion"
+        ],
+        "output": [
+          "Crop_Soybeans_Product_Fertilizer",
+          "Crop_Soybeans_Product_Fertilizer2",
+          "Crop_Soybeans_Product_FertilizerOrganic",
+          "Crop_Soybeans_Product_Fertilizer_1",
+          "Crop_Soybeans_Product_Fertilizer2_1",
+          "Crop_Soybeans_Product_FertilizerOrganic_1",
+          "Crop_Soybeans_Product_Fertilizer_1",
+          "Crop_Soybeans_Product_Fertilizer2_1",
+          "Crop_Soybeans_Product_FertilizerOrganic_1",
+          "Crop_Soybeans"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SugarCane": {
+      "id": "Product_SugarCane",
+      "name": "Sugar cane",
+      "icon": "sugarcane.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SugarRefiningCane",
+          "SugarCaneDigestion"
+        ],
+        "output": [
+          "Crop_SugarCane_Product_Fertilizer",
+          "Crop_SugarCane_Product_Fertilizer2",
+          "Crop_SugarCane_Product_FertilizerOrganic",
+          "Crop_SugarCane_Product_Fertilizer_1",
+          "Crop_SugarCane_Product_Fertilizer2_1",
+          "Crop_SugarCane_Product_FertilizerOrganic_1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Canola": {
+      "id": "Product_Canola",
+      "name": "Canola",
+      "icon": "canola.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CanolaMilling",
+          "CanolaBurning"
+        ],
+        "output": [
+          "Crop_Canola_Product_Fertilizer",
+          "Crop_Canola_Product_Fertilizer2",
+          "Crop_Canola_Product_FertilizerOrganic",
+          "Crop_Canola_Product_Fertilizer_1",
+          "Crop_Canola_Product_Fertilizer2_1",
+          "Crop_Canola_Product_FertilizerOrganic_1",
+          "Crop_Canola_Product_Fertilizer_1",
+          "Crop_Canola_Product_Fertilizer2_1",
+          "Crop_Canola_Product_FertilizerOrganic_1",
+          "Crop_Canola"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Vegetables": {
+      "id": "Product_Vegetables",
+      "name": "Vegetables",
+      "icon": "vegetables.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FoodPackAssemblyTofuT3",
+          "FoodPackAssemblyTofuT2",
+          "FoodPackAssemblyTofu",
+          "VegetablesDigestion"
+        ],
+        "output": [
+          "Crop_Vegetables_Product_Fertilizer",
+          "Crop_Vegetables_Product_Fertilizer2",
+          "Crop_Vegetables_Product_FertilizerOrganic",
+          "Crop_Vegetables_Product_Fertilizer_1",
+          "Crop_Vegetables_Product_Fertilizer2_1",
+          "Crop_Vegetables_Product_FertilizerOrganic_1",
+          "Crop_Vegetables_Product_Fertilizer_1",
+          "Crop_Vegetables_Product_Fertilizer2_1",
+          "Crop_Vegetables_Product_FertilizerOrganic_1",
+          "Crop_Vegetables"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Fruit": {
+      "id": "Product_Fruit",
+      "name": "Fruit",
+      "icon": "fruit.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CakeProduction",
+          "FruitDigestion"
+        ],
+        "output": [
+          "Crop_Fruits_Product_Fertilizer",
+          "Crop_Fruits_Product_Fertilizer2",
+          "Crop_Fruits_Product_FertilizerOrganic",
+          "Crop_Fruits_Product_Fertilizer_1",
+          "Crop_Fruits_Product_Fertilizer2_1",
+          "Crop_Fruits_Product_FertilizerOrganic_1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Poppy": {
+      "id": "Product_Poppy",
+      "name": "Poppy",
+      "icon": "poppy.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MorphineProduction",
+          "PoppyDigestion"
+        ],
+        "output": [
+          "Crop_Poppy_Product_Fertilizer",
+          "Crop_Poppy_Product_Fertilizer2",
+          "Crop_Poppy_Product_FertilizerOrganic",
+          "Crop_Poppy_Product_Fertilizer_1",
+          "Crop_Poppy_Product_Fertilizer2_1",
+          "Crop_Poppy_Product_FertilizerOrganic_1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Bread": {
+      "id": "Product_Bread",
+      "name": "Bread",
+      "icon": "bread.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FoodPackAssemblyMeatT3",
+          "FoodPackAssemblyEggsT3",
+          "FoodPackAssemblyMeatT2",
+          "FoodPackAssemblyEggsT2",
+          "FoodPackAssemblyMeat",
+          "FoodPackAssemblyEggs"
+        ],
+        "output": [
+          "BreadProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Flour": {
+      "id": "Product_Flour",
+      "name": "Flour",
+      "icon": "flour.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SausageProduction",
+          "BreadProduction",
+          "CakeProduction"
+        ],
+        "output": [
+          "WheatMilling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_AnimalFeed": {
+      "id": "Product_AnimalFeed",
+      "name": "Animal feed",
+      "icon": "animalfeed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationAnimalFeed",
+          "AnimalFeedCompostT2",
+          "AnimalFeedCompost",
+          "AnimalFeedBurning",
+          "ChickenFarm"
+        ],
+        "output": [
+          "WheatMilling",
+          "SoybeanMilling",
+          "CanolaMilling",
+          "CornMilling",
+          "TofuProduction",
+          "AnimalFeedFromPotatoT2",
+          "AnimalFeedFromWheatT2",
+          "AnimalFeedFromCornT2",
+          "AnimalFeedFromSoybeanT2",
+          "AnimalFeedFromPotato",
+          "AnimalFeedFromWheat",
+          "AnimalFeedFromCorn",
+          "AnimalFeedFromSoybean"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Biomass": {
+      "id": "Product_Biomass",
+      "name": "Biomass",
+      "icon": "biomass.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SteamGenerationBiomass",
+          "BiomassCompostT2",
+          "BiomassCompost",
+          "BiomassBurning"
+        ],
+        "output": [
+          "SnackProductionPotato",
+          "SnackProductionCorn",
+          "SugarRefiningCane",
+          "ShreddingSaplings"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Eggs": {
+      "id": "Product_Eggs",
+      "name": "Eggs",
+      "icon": "eggs.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CakeProduction",
+          "FoodPackAssemblyEggsT3",
+          "FoodPackAssemblyEggsT2",
+          "FoodPackAssemblyEggs",
+          "EggsDigestion"
+        ],
+        "output": [
+          "ChickenFarm"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Tofu": {
+      "id": "Product_Tofu",
+      "name": "Tofu",
+      "icon": "tofu.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FoodPackAssemblyTofuT3",
+          "FoodPackAssemblyTofuT2",
+          "FoodPackAssemblyTofu"
+        ],
+        "output": [
+          "TofuProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CookingOil": {
+      "id": "Product_CookingOil",
+      "name": "Cooking oil",
+      "icon": "cookingoil.png",
+      "color": "#A49442",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SnackProductionPotato",
+          "SnackProductionCorn",
+          "CakeProduction",
+          "EthanolCookingOilReformingT2",
+          "DiamondPasteFromCookingOil",
+          "EthanolCookingOilReforming"
+        ],
+        "output": [
+          "SoybeanMilling",
+          "CanolaMilling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Meat": {
+      "id": "Product_Meat",
+      "name": "Meat",
+      "icon": "meat.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "FoodPackAssemblyMeatT3",
+          "FoodPackAssemblyMeatT2",
+          "FoodPackAssemblyMeat"
+        ],
+        "output": [
+          "MeatProcessing"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Sausage": {
+      "id": "Product_Sausage",
+      "name": "Sausage",
+      "icon": "sausage.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "SausageProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Snack": {
+      "id": "Product_Snack",
+      "name": "Snack",
+      "icon": "snack.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "SnackProductionPotato",
+          "SnackProductionCorn"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Cake": {
+      "id": "Product_Cake",
+      "name": "Cake",
+      "icon": "cake.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "CakeProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_FoodPack": {
+      "id": "Product_FoodPack",
+      "name": "Food pack",
+      "icon": "foodpack.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CrewSuppliesAssemblyT3",
+          "CrewSuppliesAssemblyT2",
+          "CrewSuppliesAssemblyT1"
+        ],
+        "output": [
+          "FoodPackAssemblyMeatT3",
+          "FoodPackAssemblyEggsT3",
+          "FoodPackAssemblyTofuT3",
+          "FoodPackAssemblyMeatT2",
+          "FoodPackAssemblyEggsT2",
+          "FoodPackAssemblyTofuT2",
+          "FoodPackAssemblyMeat",
+          "FoodPackAssemblyEggs",
+          "FoodPackAssemblyTofu"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Chicken": {
+      "id": "Product_Chicken",
+      "name": "Chicken",
+      "icon": "chicken.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CargoShip": {
+      "id": "Product_CargoShip",
+      "name": "Cargo ship",
+      "icon": "cargoship.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ChickenCarcass": {
+      "id": "Product_ChickenCarcass",
+      "name": "Chicken carcass",
+      "icon": "chickencarcass.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MeatProcessing",
+          "MeatProcessingTrimmings",
+          "ChickenCarcassBurning"
+        ],
+        "output": [
+          "ChickenFarm"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MeatTrimmings": {
+      "id": "Product_MeatTrimmings",
+      "name": "Meat trimmings",
+      "icon": "meattrimmings.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SausageProduction",
+          "MeatTrimmingsCompostT2",
+          "MeatTrimmingsCompost",
+          "MeatTrimmingsBurning",
+          "MeatTrimmingsDigestion"
+        ],
+        "output": [
+          "MeatProcessing",
+          "MeatProcessingTrimmings"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Sugar": {
+      "id": "Product_Sugar",
+      "name": "Sugar",
+      "icon": "sugar.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CakeProduction",
+          "SugarToEthanolFermentation",
+          "AntibioticsFermentation"
+        ],
+        "output": [
+          "SugarRefiningCane"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CornMash": {
+      "id": "Product_CornMash",
+      "name": "Corn mash",
+      "icon": "cornmash.png",
+      "color": "#988140",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CornToEthanolFermentation"
+        ],
+        "output": [
+          "CornMilling"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_HouseholdGoods": {
+      "id": "Product_HouseholdGoods",
+      "name": "Household goods",
+      "icon": "householdgoods.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "OfficeSuppliesAssemblyT3",
+          "OfficeSuppliesAssemblyT2",
+          "OfficeSuppliesAssemblyT1"
+        ],
+        "output": [
+          "HouseholdGoodsAssemblyT4",
+          "HouseholdGoodsAssemblyT3",
+          "HouseholdGoodsAssemblyT2",
+          "HouseholdGoodsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_HouseholdAppliances": {
+      "id": "Product_HouseholdAppliances",
+      "name": "Household appliances",
+      "icon": "householdappliances.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "HouseholdAppliancesAssemblyT3",
+          "HouseholdAppliancesAssemblyT2",
+          "HouseholdAppliancesAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ConsumerElectronics": {
+      "id": "Product_ConsumerElectronics",
+      "name": "Consumer electronics",
+      "icon": "consumerelectronics.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "ConsumerElectronicsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_LuxuryGoods": {
+      "id": "Product_LuxuryGoods",
+      "name": "Luxury goods",
+      "icon": "luxurygoods.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "LuxuryGoodsAssemblyT3",
+          "LuxuryGoodsAssemblyT2",
+          "LuxuryGoodsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ImportedGoods": {
+      "id": "Product_ImportedGoods",
+      "name": "Imported goods",
+      "icon": "importedgoods.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LuxuryGoodsAssemblyT3",
+          "LuxuryGoodsAssemblyT2",
+          "LuxuryGoodsAssemblyT1"
+        ],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Antibiotics": {
+      "id": "Product_Antibiotics",
+      "name": "Antibiotics",
+      "icon": "antibiotics.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MedicalSupplies2AssemblyT3",
+          "MedicalSupplies2AssemblyT2",
+          "MedicalSupplies2AssemblyT1"
+        ],
+        "output": [
+          "AntibioticsFermentation"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Disinfectant": {
+      "id": "Product_Disinfectant",
+      "name": "Disinfectant",
+      "icon": "disinfectant.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MedicalSuppliesAssemblyT3",
+          "MedicalSuppliesAssemblyT2",
+          "MedicalSuppliesAssemblyT1"
+        ],
+        "output": [
+          "DisinfectantProductionT2",
+          "DisinfectantProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Anesthetics": {
+      "id": "Product_Anesthetics",
+      "name": "Anesthetics",
+      "icon": "anesthetics.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MedicalSupplies3AssemblyT3",
+          "MedicalSupplies3AssemblyT2",
+          "MedicalSupplies3AssemblyT1"
+        ],
+        "output": [
+          "AnestheticsProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Morphine": {
+      "id": "Product_Morphine",
+      "name": "Morphine",
+      "icon": "morphine.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MedicalSupplies3AssemblyT3",
+          "MedicalSupplies3AssemblyT2",
+          "MedicalSupplies3AssemblyT1"
+        ],
+        "output": [
+          "MorphineProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MedicalEquipment": {
+      "id": "Product_MedicalEquipment",
+      "name": "Medical equipment",
+      "icon": "medicalequipment.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MedicalSuppliesAssemblyT3",
+          "MedicalSuppliesAssemblyT2",
+          "MedicalSuppliesAssemblyT1"
+        ],
+        "output": [
+          "MedicalEquipmentAssemblyT3",
+          "MedicalEquipmentAssemblyT2",
+          "MedicalEquipmentAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MedicalSupplies": {
+      "id": "Product_MedicalSupplies",
+      "name": "Medical Supplies",
+      "icon": "medicalsupplies.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MedicalSupplies2AssemblyT3",
+          "MedicalSupplies2AssemblyT2",
+          "MedicalSupplies2AssemblyT1"
+        ],
+        "output": [
+          "MedicalSuppliesAssemblyT3",
+          "MedicalSuppliesAssemblyT2",
+          "MedicalSuppliesAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MedicalSupplies2": {
+      "id": "Product_MedicalSupplies2",
+      "name": "Medical Supplies II",
+      "icon": "medicalsupplies2.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MedicalSupplies3AssemblyT3",
+          "CrewSuppliesAssemblyT3",
+          "MedicalSupplies3AssemblyT2",
+          "CrewSuppliesAssemblyT2",
+          "MedicalSupplies3AssemblyT1",
+          "CrewSuppliesAssemblyT1"
+        ],
+        "output": [
+          "MedicalSupplies2AssemblyT3",
+          "MedicalSupplies2AssemblyT2",
+          "MedicalSupplies2AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MedicalSupplies3": {
+      "id": "Product_MedicalSupplies3",
+      "name": "Medical Supplies III",
+      "icon": "medicalsupplies3.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "MedicalSupplies3AssemblyT3",
+          "MedicalSupplies3AssemblyT2",
+          "MedicalSupplies3AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Cement": {
+      "id": "Product_Cement",
+      "name": "Cement",
+      "icon": "cement.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ConcreteMixingSlagT3",
+          "ConcreteMixingGravelT3",
+          "ConcreteMixingSlagMT3",
+          "ConcreteMixingGravelMT3",
+          "ConcreteMixingSlagT2",
+          "ConcreteMixingGravelT2",
+          "ConcreteMixingSlagMT2",
+          "ConcreteMixingGravelMT2",
+          "ConcreteMixingSlag",
+          "ConcreteMixingGravel",
+          "ConcreteMixingGravelM",
+          "ConcreteMixingSlagM"
+        ],
+        "output": [
+          "CementProductionGas",
+          "CementProductionHydrogen",
+          "CementProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ConcreteSlab": {
+      "id": "Product_ConcreteSlab",
+      "name": "Concrete slab",
+      "icon": "concreteslab.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CpAssemblyT5",
+          "CpAssemblySteelT5",
+          "RailPartsAssemblyT3",
+          "CpAssemblyT4",
+          "CpAssemblySteelT4",
+          "RailPartsAssemblyT2",
+          "CpAssemblyT3",
+          "CpAssemblySteelT3",
+          "RailPartsAssemblyT1",
+          "CpAssemblyT2",
+          "CpAssemblyT1"
+        ],
+        "output": [
+          "SimpleConcreteMaking",
+          "ConcreteMixingSlagT3",
+          "ConcreteMixingGravelT3",
+          "ConcreteMixingSlagMT3",
+          "ConcreteMixingGravelMT3",
+          "ConcreteMixingSlagT2",
+          "ConcreteMixingGravelT2",
+          "ConcreteMixingSlagMT2",
+          "ConcreteMixingGravelMT2",
+          "ConcreteMixingSlag",
+          "ConcreteMixingGravel",
+          "ConcreteMixingGravelM",
+          "ConcreteMixingSlagM"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Bricks": {
+      "id": "Product_Bricks",
+      "name": "Bricks",
+      "icon": "bricks.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ConstructionParts": {
+      "id": "Product_ConstructionParts",
+      "name": "Construction Parts",
+      "icon": "constructionparts.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Cp2AssemblyT5",
+          "Cp2AssemblyT4",
+          "Cp2AssemblyT3",
+          "Cp2AssemblyT2",
+          "Cp2AssemblyT1",
+          "CargoShipRecipe"
+        ],
+        "output": [
+          "CpAssemblyT5",
+          "CpAssemblySteelT5",
+          "CpAssemblyT4",
+          "CpAssemblySteelT4",
+          "CpAssemblyT3",
+          "CpAssemblySteelT3",
+          "CpAssemblyT2",
+          "CpAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ConstructionParts2": {
+      "id": "Product_ConstructionParts2",
+      "name": "Construction Parts II",
+      "icon": "constructionparts2.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Cp3AssemblyT4",
+          "Cp3AssemblyT3",
+          "Cp3AssemblyT2",
+          "Cp3AssemblyT1",
+          "CargoShipRecipeT2"
+        ],
+        "output": [
+          "Cp2AssemblyT5",
+          "Cp2AssemblyT4",
+          "Cp2AssemblyT3",
+          "Cp2AssemblyT2",
+          "Cp2AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ConstructionParts3": {
+      "id": "Product_ConstructionParts3",
+      "name": "Construction Parts III",
+      "icon": "constructionparts3.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Cp4AssemblyRoboticT2",
+          "Cp4AssemblyRoboticT1",
+          "Cp4AssemblyElectrifiedT2"
+        ],
+        "output": [
+          "Cp3AssemblyT4",
+          "Cp3AssemblyT3",
+          "Cp3AssemblyT2",
+          "Cp3AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ConstructionParts4": {
+      "id": "Product_ConstructionParts4",
+      "name": "Construction Parts IV",
+      "icon": "constructionparts4.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "Cp4AssemblyRoboticT2",
+          "Cp4AssemblyRoboticT1",
+          "Cp4AssemblyElectrifiedT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MechanicalParts": {
+      "id": "Product_MechanicalParts",
+      "name": "Mechanical Parts",
+      "icon": "mechanicalparts.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "VehicleParts1AssemblyT5",
+          "LabEquipment1AssemblyT4",
+          "VehicleParts1AssemblyT4",
+          "LabEquipment1AssemblyT3",
+          "VehicleParts1AssemblyT3",
+          "LabEquipment1AssemblyT2",
+          "VehicleParts1AssemblyT2",
+          "LabEquipment1AssemblyT1",
+          "VehicleParts1AssemblyT1",
+          "MaintenanceT1Recipe",
+          "MaintenanceT1Recycling",
+          "MaintenanceT0Recipe",
+          "MaintenanceT2Recipe",
+          "MaintenanceT2Recycling",
+          "MaintenanceT3Recipe",
+          "MaintenanceT3Recycling",
+          "CargoShipRecipe",
+          "CargoShipRecipeT2"
+        ],
+        "output": [
+          "MechPartsAssemblyT5Iron",
+          "MechPartsAssemblyT5",
+          "MechPartsAssemblyT4Iron",
+          "MechPartsAssemblyT4",
+          "MechPartsAssemblyT3Iron",
+          "MechPartsAssemblyT3",
+          "MechPartsAssemblyT2",
+          "MechPartsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_VehicleParts": {
+      "id": "Product_VehicleParts",
+      "name": "Vehicle Parts",
+      "icon": "vehicleparts.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "VehicleParts2AssemblyT3",
+          "VehicleParts2AssemblyT2",
+          "VehicleParts2AssemblyT1"
+        ],
+        "output": [
+          "VehicleParts1AssemblyT5",
+          "VehicleParts1AssemblyT4",
+          "VehicleParts1AssemblyT3",
+          "VehicleParts1AssemblyT2",
+          "VehicleParts1AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_VehicleParts2": {
+      "id": "Product_VehicleParts2",
+      "name": "Vehicle Parts II",
+      "icon": "vehicleparts2.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "VehicleParts3AssemblyT3",
+          "VehicleParts3AssemblyT2",
+          "VehicleParts3AssemblyT1"
+        ],
+        "output": [
+          "VehicleParts2AssemblyT3",
+          "VehicleParts2AssemblyT2",
+          "VehicleParts2AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_VehicleParts3": {
+      "id": "Product_VehicleParts3",
+      "name": "Vehicle Parts III",
+      "icon": "vehicleparts3.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "VehicleParts3AssemblyT3",
+          "VehicleParts3AssemblyT2",
+          "VehicleParts3AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_LabEquipment": {
+      "id": "Product_LabEquipment",
+      "name": "Lab Equipment",
+      "icon": "labequipment.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LabEquipment2AssemblyT4",
+          "LabEquipment2AssemblyT3",
+          "LabEquipment2AssemblyT2",
+          "ResearchLab2",
+          "ResearchLab21"
+        ],
+        "output": [
+          "LabEquipment1AssemblyT4",
+          "LabEquipment1AssemblyT3",
+          "LabEquipment1AssemblyT2",
+          "LabEquipment1AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_LabEquipment2": {
+      "id": "Product_LabEquipment2",
+      "name": "Lab Equipment II",
+      "icon": "labequipment2.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LabEquipment3AssemblyT3",
+          "LabEquipment3AssemblyT2",
+          "LabEquipment3AssemblyT1",
+          "ResearchLab3",
+          "ResearchLab31"
+        ],
+        "output": [
+          "LabEquipment2AssemblyT4",
+          "LabEquipment2AssemblyT3",
+          "LabEquipment2AssemblyT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_LabEquipment3": {
+      "id": "Product_LabEquipment3",
+      "name": "Lab Equipment III",
+      "icon": "labequipment3.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LabEquipment4AssemblyT3",
+          "LabEquipment4AssemblyT2",
+          "ResearchLab4",
+          "ResearchLab41"
+        ],
+        "output": [
+          "LabEquipment3AssemblyT3",
+          "LabEquipment3AssemblyT2",
+          "LabEquipment3AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_LabEquipment4": {
+      "id": "Product_LabEquipment4",
+      "name": "Lab Equipment IV",
+      "icon": "labequipment4.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ResearchLab5",
+          "ResearchLab51"
+        ],
+        "output": [
+          "LabEquipment4AssemblyT3",
+          "LabEquipment4AssemblyT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_RailParts": {
+      "id": "Product_RailParts",
+      "name": "Rail Parts",
+      "icon": "railparts.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "RailPartsAssemblyT3",
+          "RailPartsAssemblyT2",
+          "RailPartsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_OfficeSupplies": {
+      "id": "Product_OfficeSupplies",
+      "name": "Office Supplies",
+      "icon": "officesupplies.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "OfficeSuppliesAssemblyT3",
+          "OfficeSuppliesAssemblyT2",
+          "OfficeSuppliesAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Electronics": {
+      "id": "Product_Electronics",
+      "name": "Electronics",
+      "icon": "electronics.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Cp2AssemblyT5",
+          "VehicleParts1AssemblyT5",
+          "LabEquipment1AssemblyT4",
+          "HouseholdAppliancesAssemblyT3",
+          "Electronics2AssemblyT3",
+          "Cp2AssemblyT4",
+          "VehicleParts1AssemblyT4",
+          "LabEquipment1AssemblyT3",
+          "HouseholdAppliancesAssemblyT2",
+          "Electronics2AssemblyT2",
+          "Cp2AssemblyT3",
+          "VehicleParts1AssemblyT3",
+          "LabEquipment1AssemblyT2",
+          "HouseholdAppliancesAssemblyT1",
+          "Electronics2AssemblyT1",
+          "Cp2AssemblyT2",
+          "VehicleParts1AssemblyT2",
+          "LabEquipment1AssemblyT1",
+          "Cp2AssemblyT1",
+          "VehicleParts1AssemblyT1",
+          "MaintenanceT1Recipe",
+          "MaintenanceT1Recycling",
+          "MaintenanceT0Recipe",
+          "CargoShipRecipe"
+        ],
+        "output": [
+          "ElectronicsAssemblyT5",
+          "ElectronicsAssemblyT4",
+          "ElectronicsAssemblyT3",
+          "ElectronicsAssemblyT2",
+          "ElectronicsAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_PCB": {
+      "id": "Product_PCB",
+      "name": "PCB",
+      "icon": "pcb.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Electronics2AssemblyT3",
+          "Electronics2AssemblyT2",
+          "Electronics2AssemblyT1"
+        ],
+        "output": [
+          "PCBAssemblyT3",
+          "PCBAssemblyT2",
+          "PCBAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Electronics2": {
+      "id": "Product_Electronics2",
+      "name": "Electronics II",
+      "icon": "electronics2.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Cp4AssemblyRoboticT2",
+          "VehicleParts3AssemblyT3",
+          "LabEquipment3AssemblyT3",
+          "HouseholdAppliancesAssemblyT3",
+          "Electronics3AssemblyRoboticT2",
+          "OfficeSuppliesAssemblyT3",
+          "CompositeCoreBasicAssemblyT3",
+          "Cp4AssemblyRoboticT1",
+          "VehicleParts3AssemblyT2",
+          "LabEquipment3AssemblyT2",
+          "HouseholdAppliancesAssemblyT2",
+          "Electronics3AssemblyRoboticT1",
+          "OfficeSuppliesAssemblyT2",
+          "CompositeCoreBasicAssemblyT2",
+          "Cp4AssemblyElectrifiedT2",
+          "VehicleParts3AssemblyT1",
+          "LabEquipment3AssemblyT1",
+          "HouseholdAppliancesAssemblyT1",
+          "OfficeSuppliesAssemblyT1",
+          "CompositeCoreBasicAssemblyT1",
+          "MaintenanceT2Recipe",
+          "MaintenanceT2Recycling"
+        ],
+        "output": [
+          "Electronics2AssemblyT3",
+          "Electronics2AssemblyT2",
+          "Electronics2AssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Electronics3": {
+      "id": "Product_Electronics3",
+      "name": "Electronics III",
+      "icon": "electronics3.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LabEquipment4AssemblyT3",
+          "Electronics4Assembly",
+          "ServerAssemblyT2",
+          "ConsumerElectronicsAssemblyT1",
+          "CompositeCoreAssembly",
+          "LabEquipment4AssemblyT2",
+          "ServerAssemblyT1",
+          "MaintenanceT3Recipe",
+          "MaintenanceT3Recycling"
+        ],
+        "output": [
+          "Electronics3AssemblyRoboticT2",
+          "Electronics3AssemblyRoboticT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Electronics4": {
+      "id": "Product_Electronics4",
+      "name": "Electronics IV",
+      "icon": "electronics4.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "ProbePartsAssembly",
+          "CompactReactorAssembly"
+        ],
+        "output": [
+          "Electronics4Assembly"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Server": {
+      "id": "Product_Server",
+      "name": "Server",
+      "icon": "server.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "ServerAssemblyT2",
+          "ServerAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Microchips": {
+      "id": "Product_Microchips",
+      "name": "Microchips",
+      "icon": "microchips.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Electronics3AssemblyRoboticT2",
+          "Electronics3AssemblyRoboticT1"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdFinalStage",
+          "MicrochipMachine_MicrochipProdFinalStage"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage1A": {
+      "id": "Product_MicrochipsStage1A",
+      "name": "Microchips stage 1 a",
+      "icon": "microchipsstage1a.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage2A",
+          "MicrochipMachine_MicrochipProdStage2A"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage1A",
+          "MicrochipMachine_MicrochipProdStage1A"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage1B": {
+      "id": "Product_MicrochipsStage1B",
+      "name": "Microchips stage 1 b",
+      "icon": "microchipsstage1b.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage3A",
+          "MicrochipMachine_MicrochipProdStage3A"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage2A",
+          "MicrochipMachine_MicrochipProdStage2A"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage1C": {
+      "id": "Product_MicrochipsStage1C",
+      "name": "Microchips stage 1 c",
+      "icon": "microchipsstage1c.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage1B",
+          "MicrochipMachine_MicrochipProdStage1B"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage3A",
+          "MicrochipMachine_MicrochipProdStage3A"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage2A": {
+      "id": "Product_MicrochipsStage2A",
+      "name": "Microchips stage 2 a",
+      "icon": "microchipsstage2a.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage2B",
+          "MicrochipMachine_MicrochipProdStage2B"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage1B",
+          "MicrochipMachine_MicrochipProdStage1B"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage2B": {
+      "id": "Product_MicrochipsStage2B",
+      "name": "Microchips stage 2 b",
+      "icon": "microchipsstage2b.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage3B",
+          "MicrochipMachine_MicrochipProdStage3B"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage2B",
+          "MicrochipMachine_MicrochipProdStage2B"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage2C": {
+      "id": "Product_MicrochipsStage2C",
+      "name": "Microchips stage 2 c",
+      "icon": "microchipsstage2c.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage1C",
+          "MicrochipMachine_MicrochipProdStage1C"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage3B",
+          "MicrochipMachine_MicrochipProdStage3B"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage3A": {
+      "id": "Product_MicrochipsStage3A",
+      "name": "Microchips stage 3 a",
+      "icon": "microchipsstage3a.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage2C",
+          "MicrochipMachine_MicrochipProdStage2C"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage1C",
+          "MicrochipMachine_MicrochipProdStage1C"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage3B": {
+      "id": "Product_MicrochipsStage3B",
+      "name": "Microchips stage 3 b",
+      "icon": "microchipsstage3b.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage3C",
+          "MicrochipMachine_MicrochipProdStage3C"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage2C",
+          "MicrochipMachine_MicrochipProdStage2C"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage3C": {
+      "id": "Product_MicrochipsStage3C",
+      "name": "Microchips stage 3 c",
+      "icon": "microchipsstage3c.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage1D",
+          "MicrochipMachine_MicrochipProdStage1D"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage3C",
+          "MicrochipMachine_MicrochipProdStage3C"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage4A": {
+      "id": "Product_MicrochipsStage4A",
+      "name": "Microchips stage 4 a",
+      "icon": "microchipsstage4a.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdStage2D",
+          "MicrochipMachine_MicrochipProdStage2D"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage1D",
+          "MicrochipMachine_MicrochipProdStage1D"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_MicrochipsStage4B": {
+      "id": "Product_MicrochipsStage4B",
+      "name": "Microchips stage 4 b",
+      "icon": "microchipsstage4b.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "MicrochipMachineT2_MicrochipProdFinalStage",
+          "MicrochipMachine_MicrochipProdFinalStage"
+        ],
+        "output": [
+          "MicrochipMachineT2_MicrochipProdStage2D",
+          "MicrochipMachine_MicrochipProdStage2D"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Diamond": {
+      "id": "Product_Diamond",
+      "name": "Diamond",
+      "icon": "diamond.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Electronics4Assembly",
+          "AsteroidBoosterPartsAssembly",
+          "DiamondPasteFromCookingOil",
+          "DiamondPasteFromHeavyOil"
+        ],
+        "output": [
+          "DiamondSynthesis"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_DiamondPaste": {
+      "id": "Product_DiamondPaste",
+      "name": "Diamond paste",
+      "icon": "diamondpaste.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LensMaking"
+        ],
+        "output": [
+          "DiamondPasteFromCookingOil",
+          "DiamondPasteFromHeavyOil"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SapphireWafer": {
+      "id": "Product_SapphireWafer",
+      "name": "Sapphire wafer",
+      "icon": "sapphirewafer.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LensMaking"
+        ],
+        "output": [
+          "AluminaCrystallization"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Lens": {
+      "id": "Product_Lens",
+      "name": "Lens",
+      "icon": "lens.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Electronics4Assembly"
+        ],
+        "output": [
+          "LensMaking"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SolarCell": {
+      "id": "Product_SolarCell",
+      "name": "Solar cell",
+      "icon": "solarcell.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "StationPartsBasicAssemblyT3",
+          "StationPartsBasicAssemblyT2",
+          "StationPartsBasicAssemblyT1",
+          "ShreddingPolyCells"
+        ],
+        "output": [
+          "SolarCellAssemblyT3",
+          "SolarCellAssemblyT2",
+          "SolarCellAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SolarCellMono": {
+      "id": "Product_SolarCellMono",
+      "name": "Solar cell mono",
+      "icon": "solarcellmono.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "StationPartsAssembly"
+        ],
+        "output": [
+          "SolarCellMonoAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CompositePanel": {
+      "id": "Product_CompositePanel",
+      "name": "Composite panel",
+      "icon": "compositepanel.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "CompositeCoreBasicAssemblyT3",
+          "CompositeCoreAssembly",
+          "CompositeCoreBasicAssemblyT2",
+          "CompositeCoreBasicAssemblyT1"
+        ],
+        "output": [
+          "CompositePanelAssemblyT3",
+          "CompositePanelAssemblyT2",
+          "CompositePanelAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CompositeBodyBasic": {
+      "id": "Product_CompositeBodyBasic",
+      "name": "Composite core basic",
+      "icon": "compositecorebasic.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "StationPartsBasicAssemblyT3",
+          "StationPartsBasicAssemblyT2",
+          "StationPartsBasicAssemblyT1"
+        ],
+        "output": [
+          "CompositeCoreBasicAssemblyT3",
+          "CompositeCoreBasicAssemblyT2",
+          "CompositeCoreBasicAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CompositeCore": {
+      "id": "Product_CompositeCore",
+      "name": "Composite core",
+      "icon": "compositecore.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "StationPartsAssembly",
+          "ProbePartsAssembly",
+          "AsteroidBoosterPartsAssembly"
+        ],
+        "output": [
+          "CompositeCoreAssembly"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_ChemicalFuel": {
+      "id": "Product_ChemicalFuel",
+      "name": "Chemical fuel",
+      "icon": "chemicalfuel.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "StationPartsBasicAssemblyT3",
+          "StationPartsAssembly",
+          "StationPartsBasicAssemblyT2",
+          "StationPartsBasicAssemblyT1"
+        ],
+        "output": [
+          "ChemicalFuelProduction"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SpaceStationParts1": {
+      "id": "Product_SpaceStationParts1",
+      "name": "Station parts (basic)",
+      "icon": "stationpartsbasic.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "StationPartsBasicAssemblyT3",
+          "StationPartsBasicAssemblyT2",
+          "StationPartsBasicAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SpaceStationParts2": {
+      "id": "Product_SpaceStationParts2",
+      "name": "Station parts",
+      "icon": "stationparts.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "StationPartsAssembly"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CrewSupplies": {
+      "id": "Product_CrewSupplies",
+      "name": "Crew supplies",
+      "icon": "crewsupplies.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "CrewSuppliesAssemblyT3",
+          "CrewSuppliesAssemblyT2",
+          "CrewSuppliesAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_SpaceProbeParts": {
+      "id": "Product_SpaceProbeParts",
+      "name": "Space probe parts",
+      "icon": "spaceprobeparts.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "ProbePartsAssembly"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_AsteroidBoosterParts": {
+      "id": "Product_AsteroidBoosterParts",
+      "name": "Asteroid booster parts",
+      "icon": "asteroidboosterparts.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "AsteroidBoosterPartsAssembly"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_CompactReactor": {
+      "id": "Product_CompactReactor",
+      "name": "Compact reactor",
+      "icon": "compactreactor.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "AsteroidBoosterPartsAssembly"
+        ],
+        "output": [
+          "CompactReactorAssembly"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Oxygen": {
+      "id": "Product_Oxygen",
+      "name": "Oxygen",
+      "icon": "oxygen.png",
+      "color": "#7B504B",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "SugarToEthanolFermentation",
+          "CornToEthanolFermentation",
+          "AntibioticsFermentation",
+          "SteelSmeltingT2",
+          "SteelSmelting",
+          "FertilizerProductionT2",
+          "FertilizerProductionFromOrganicT2",
+          "FertilizerProduction",
+          "FertilizerProductionFromOrganic",
+          "FuelGasReforming",
+          "SmokeStackLargeOxygen",
+          "SmokeStackOxygen"
+        ],
+        "output": [
+          "WaterElectrolysisT2",
+          "WaterElectrolysis",
+          "HydrogenProductionFromSteamSp",
+          "AirSeparation"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_HydrogenFluoride": {
+      "id": "Product_HydrogenFluoride",
+      "name": "Hydrogen fluoride",
+      "icon": "hydrogenfluoride.png",
+      "color": "#969451",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "UraniumEnrichment",
+          "ReprocessedUraniumEnrichment",
+          "UraniumEnrichment20",
+          "AnestheticsProduction"
+        ],
+        "output": [
+          "FluorideLeaching"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Waste": {
+      "id": "Product_Waste",
+      "name": "Waste",
+      "icon": "waste.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "LandfillBurning",
+          "IncinerationOfWaste",
+          "IncinerationOfWasteHydrogen",
+          "PressingOfWaste"
+        ],
+        "output": [
+          "ShreddingWaste"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_WastePressed": {
+      "id": "Product_WastePressed",
+      "name": "Waste pressed",
+      "icon": "wastepressed.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "IncinerationOfWastePressed",
+          "IncinerationOfWastePressedHydrogen",
+          "ShreddingWaste"
+        ],
+        "output": [
+          "PressingOfWaste"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Flowers": {
+      "id": "Product_Flowers",
+      "name": "Flowers",
+      "icon": "flowers.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "Crop_Flowers_Product_Fertilizer",
+          "Crop_Flowers_Product_Fertilizer2",
+          "Crop_Flowers_Product_FertilizerOrganic",
+          "Crop_Flowers_Product_Fertilizer_1",
+          "Crop_Flowers_Product_Fertilizer2_1",
+          "Crop_Flowers_Product_FertilizerOrganic_1"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    },
+    "Product_Virtual_CargoShip": {
+      "id": "Product_Virtual_CargoShip",
+      "name": "Cargo Ships Built",
+      "icon": "cargoshipsbuilt.png",
+      "color": "#000000",
+      "unit": "",
+      "recipes": {
+        "input": [],
+        "output": [
+          "CargoShipRecipe",
+          "CargoShipRecipeT2"
+        ]
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
+    }
+  },
+  "machines": {
+    "TurbineSuperPress": {
+      "id": "TurbineSuperPress",
+      "name": "Super-pressure turbine",
+      "category_id": "General",
+      "workers": 1,
+      "recipes": [
+        "TurbineSuperPress"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 3
+      }
+    },
+    "TurbineHighPressT2": {
+      "id": "TurbineHighPressT2",
+      "name": "High-pressure turbine II",
+      "category_id": "General",
+      "workers": 2,
+      "recipes": [
+        "TurbineHighPressT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 2
+      }
+    },
+    "TurbineHighPress": {
+      "id": "TurbineHighPress",
+      "name": "High-pressure turbine",
+      "category_id": "General",
+      "workers": 2,
+      "recipes": [
+        "TurbineHighPress"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "TurbineLowPressT2": {
+      "id": "TurbineLowPressT2",
+      "name": "Low-pressure turbine II",
+      "category_id": "General",
+      "workers": 2,
+      "recipes": [
+        "TurbineLowPressT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 2
+      }
+    },
+    "TurbineLowPress": {
+      "id": "TurbineLowPress",
+      "name": "Low-pressure turbine",
+      "category_id": "General",
+      "workers": 2,
+      "recipes": [
+        "TurbineLowPress"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "PowerGeneratorT1": {
+      "id": "PowerGeneratorT1",
+      "name": "Power generator",
+      "category_id": "General",
+      "workers": 0,
+      "recipes": [
+        "PowerGeneratorT1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 20
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 2000,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 1
+      }
+    },
+    "PowerGeneratorT2": {
+      "id": "PowerGeneratorT2",
+      "name": "Power generator (large)",
+      "category_id": "General",
+      "workers": 0,
+      "recipes": [
+        "PowerGeneratorT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 180
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 15000,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "SolarPanel": {
+      "id": "SolarPanel",
+      "name": "Solar panel",
+      "category_id": "General",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 10
+        },
+        {
+          "id": "Product_SolarCell",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 150,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 0.2001953
+      }
+    },
+    "SolarPanelMono": {
+      "id": "SolarPanelMono",
+      "name": "Solar panel (mono)",
+      "category_id": "General",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 10
+        },
+        {
+          "id": "Product_SolarCellMono",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 200,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 0.2001953
+      }
+    },
+    "SolarPanelQuarter": {
+      "id": "SolarPanelQuarter",
+      "name": "Solar Panel Quarter",
+      "category_id": "General",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 3
+        },
+        {
+          "id": "Product_SolarCell",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 40,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 0.0546875
+      }
+    },
+    "SolarPanelMonoQuarter": {
+      "id": "SolarPanelMonoQuarter",
+      "name": "Solar Panel (Mono) Quarter",
+      "category_id": "General",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 3
+        },
+        {
+          "id": "Product_SolarCellMono",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 60,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 0.05957031
+      }
+    },
+    "DieselGenerator": {
+      "id": "DieselGenerator",
+      "name": "Diesel generator",
+      "category_id": "General",
+      "workers": 2,
+      "recipes": [
+        "DieselGenerator"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 20
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 800,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "DieselGeneratorT2": {
+      "id": "DieselGeneratorT2",
+      "name": "Diesel generator II",
+      "category_id": "General",
+      "workers": 2,
+      "recipes": [
+        "DieselGeneratorT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 5000,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 8
+      }
+    },
+    "FoodMill": {
+      "id": "FoodMill",
+      "name": "Mill",
+      "category_id": "Food production",
+      "workers": 5,
+      "recipes": [
+        "WheatMilling",
+        "SoybeanMilling",
+        "CanolaMilling",
+        "CornMilling"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 120,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "FoodProcessor": {
+      "id": "FoodProcessor",
+      "name": "Food processor",
+      "category_id": "Food production",
+      "workers": 8,
+      "recipes": [
+        "TofuProduction",
+        "MeatProcessing",
+        "MeatProcessingTrimmings",
+        "SausageProduction",
+        "SnackProductionPotato",
+        "SnackProductionCorn",
+        "SugarRefiningCane"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "BakingUnit": {
+      "id": "BakingUnit",
+      "name": "Baking unit",
+      "category_id": "Food production",
+      "workers": 8,
+      "recipes": [
+        "BreadProduction",
+        "CakeProduction"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "BasicDieselDistiller": {
+      "id": "BasicDieselDistiller",
+      "name": "Basic distiller",
+      "category_id": "Basic",
+      "workers": 6,
+      "recipes": [
+        "DieselDistillationBasic",
+        "WaterDesalinationBasic"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "OilPump": {
+      "id": "OilPump",
+      "name": "Oil pump",
+      "category_id": "Basic",
+      "workers": 1,
+      "recipes": [
+        "OilGroundPumping"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 80,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "LandWaterPump": {
+      "id": "LandWaterPump",
+      "name": "Groundwater pump",
+      "category_id": "Water extraction & processing",
+      "workers": 2,
+      "recipes": [
+        "LandWaterPumping"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 120,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "GasInjectionPump": {
+      "id": "GasInjectionPump",
+      "name": "Gas injection pump",
+      "category_id": "Fluid",
+      "workers": 4,
+      "recipes": [
+        "CarbonDioxideInjection"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "OceanWaterPumpT1": {
+      "id": "OceanWaterPumpT1",
+      "name": "Seawater pump",
+      "category_id": "Water extraction & processing",
+      "workers": 1,
+      "recipes": [
+        "OceanWaterPumping"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "OceanWaterPumpLarge": {
+      "id": "OceanWaterPumpLarge",
+      "name": "Seawater pump (tall)",
+      "category_id": "Water extraction & processing",
+      "workers": 1,
+      "recipes": [
+        "OceanWaterPumpingT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 300,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "BoilerCoal": {
+      "id": "BoilerCoal",
+      "name": "Boiler",
+      "category_id": "Distillation",
+      "workers": 4,
+      "recipes": [
+        "SteamGenerationCoal",
+        "SteamGenerationWood",
+        "SteamGenerationBiomass",
+        "SteamGenerationAnimalFeed"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "BoilerGas": {
+      "id": "BoilerGas",
+      "name": "Boiler (gas)",
+      "category_id": "Distillation",
+      "workers": 4,
+      "recipes": [
+        "SteamGenerationHeavyOil",
+        "SteamGenerationMediumOil",
+        "SteamGenerationLightOil",
+        "SteamGenerationNaphtha",
+        "SteamGenerationEthanol",
+        "SteamGenerationFuelGas",
+        "SteamGenerationHydrogen"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "BoilerElectric": {
+      "id": "BoilerElectric",
+      "name": "Boiler (electric)",
+      "category_id": "Distillation",
+      "workers": 4,
+      "recipes": [
+        "SteamGenerationElectric",
+        "SteamGenerationElectricHalf",
+        "SteamGenerationSpElectric"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 4500,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "EvaporationPondHeated": {
+      "id": "EvaporationPondHeated",
+      "name": "Evaporation pond (heated)",
+      "category_id": "Water extraction & processing",
+      "workers": 6,
+      "recipes": [
+        "BrineMakingHeated",
+        "SaltMakingHeated",
+        "SaltMakingFromBrineHeated"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 250,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "EvaporationPond": {
+      "id": "EvaporationPond",
+      "name": "Evaporation pond",
+      "category_id": "Water extraction & processing",
+      "workers": 4,
+      "recipes": [
+        "BrineMaking",
+        "SaltMaking",
+        "SaltMakingFromBrine"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 1
+      }
+    },
+    "ThermalDesalinator": {
+      "id": "ThermalDesalinator",
+      "name": "Thermal desalinator",
+      "category_id": "Water extraction & processing",
+      "workers": 4,
+      "recipes": [
+        "DesalinationFromSP",
+        "DesalinationFromHP",
+        "DesalinationFromLP",
+        "DesalinationFromDepleted"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "WaterChiller": {
+      "id": "WaterChiller",
+      "name": "Water chiller",
+      "category_id": "Water extraction & processing",
+      "workers": 3,
+      "recipes": [
+        "WaterChilling"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 1000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "BricksMaker": {
+      "id": "BricksMaker",
+      "name": "Kiln",
+      "category_id": "General",
+      "workers": 6,
+      "recipes": [
+        "SimpleConcreteMaking"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "AssemblyRoboticT2": {
+      "id": "AssemblyRoboticT2",
+      "name": "Assembly V",
+      "category_id": "General",
+      "workers": 0,
+      "recipes": [
+        "CpAssemblyT5",
+        "CpAssemblySteelT5",
+        "Cp2AssemblyT5",
+        "Cp3AssemblyT4",
+        "Cp4AssemblyRoboticT2",
+        "MechPartsAssemblyT5Iron",
+        "MechPartsAssemblyT5",
+        "VehicleParts1AssemblyT5",
+        "VehicleParts2AssemblyT3",
+        "VehicleParts3AssemblyT3",
+        "LabEquipment1AssemblyT4",
+        "LabEquipment2AssemblyT4",
+        "LabEquipment3AssemblyT3",
+        "LabEquipment4AssemblyT3",
+        "RailPartsAssemblyT3",
+        "HouseholdGoodsAssemblyT4",
+        "HouseholdAppliancesAssemblyT3",
+        "LuxuryGoodsAssemblyT3",
+        "PCBAssemblyT3",
+        "ElectronicsAssemblyT5",
+        "Electronics2AssemblyT3",
+        "UraniumRodsAssemblyT3",
+        "SolarCellAssemblyT3",
+        "SolarCellMonoAssemblyT1",
+        "Electronics3AssemblyRoboticT2",
+        "Electronics4Assembly",
+        "ServerAssemblyT2",
+        "ConsumerElectronicsAssemblyT1",
+        "MedicalEquipmentAssemblyT3",
+        "MedicalSuppliesAssemblyT3",
+        "MedicalSupplies2AssemblyT3",
+        "MedicalSupplies3AssemblyT3",
+        "FoodPackAssemblyMeatT3",
+        "FoodPackAssemblyEggsT3",
+        "FoodPackAssemblyTofuT3",
+        "OfficeSuppliesAssemblyT3",
+        "CompositePanelAssemblyT3",
+        "CompositeCoreBasicAssemblyT3",
+        "CompositeCoreAssembly",
+        "StationPartsBasicAssemblyT3",
+        "StationPartsAssembly",
+        "CrewSuppliesAssemblyT3",
+        "ProbePartsAssembly",
+        "CompactReactorAssembly",
+        "AsteroidBoosterPartsAssembly"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 80
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 6,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 4
+      }
+    },
+    "AssemblyRoboticT1": {
+      "id": "AssemblyRoboticT1",
+      "name": "Assembly IV",
+      "category_id": "General",
+      "workers": 2,
+      "recipes": [
+        "CpAssemblyT4",
+        "CpAssemblySteelT4",
+        "Cp2AssemblyT4",
+        "Cp3AssemblyT3",
+        "Cp4AssemblyRoboticT1",
+        "MechPartsAssemblyT4Iron",
+        "MechPartsAssemblyT4",
+        "VehicleParts1AssemblyT4",
+        "VehicleParts2AssemblyT2",
+        "VehicleParts3AssemblyT2",
+        "LabEquipment1AssemblyT3",
+        "LabEquipment2AssemblyT3",
+        "LabEquipment3AssemblyT2",
+        "LabEquipment4AssemblyT2",
+        "RailPartsAssemblyT2",
+        "HouseholdGoodsAssemblyT3",
+        "HouseholdAppliancesAssemblyT2",
+        "LuxuryGoodsAssemblyT2",
+        "PCBAssemblyT2",
+        "ElectronicsAssemblyT4",
+        "Electronics2AssemblyT2",
+        "UraniumRodsAssemblyT2",
+        "UraniumEnrichedAssemblyT1",
+        "SolarCellAssemblyT2",
+        "Electronics3AssemblyRoboticT1",
+        "ServerAssemblyT1",
+        "MedicalEquipmentAssemblyT2",
+        "MedicalSuppliesAssemblyT2",
+        "MedicalSupplies2AssemblyT2",
+        "MedicalSupplies3AssemblyT2",
+        "FoodPackAssemblyMeatT2",
+        "FoodPackAssemblyEggsT2",
+        "FoodPackAssemblyTofuT2",
+        "OfficeSuppliesAssemblyT2",
+        "CompositePanelAssemblyT2",
+        "CompositeCoreBasicAssemblyT2",
+        "StationPartsBasicAssemblyT2",
+        "CrewSuppliesAssemblyT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 250,
+      "electricity_generated": 0,
+      "computing_consumed": 3,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 4
+      }
+    },
+    "AssemblyElectrifiedT2": {
+      "id": "AssemblyElectrifiedT2",
+      "name": "Assembly III",
+      "category_id": "General",
+      "workers": 8,
+      "recipes": [
+        "CpAssemblyT3",
+        "CpAssemblySteelT3",
+        "Cp2AssemblyT3",
+        "Cp3AssemblyT2",
+        "Cp4AssemblyElectrifiedT2",
+        "MechPartsAssemblyT3Iron",
+        "MechPartsAssemblyT3",
+        "VehicleParts1AssemblyT3",
+        "VehicleParts2AssemblyT1",
+        "VehicleParts3AssemblyT1",
+        "LabEquipment1AssemblyT2",
+        "LabEquipment2AssemblyT2",
+        "LabEquipment3AssemblyT1",
+        "RailPartsAssemblyT1",
+        "HouseholdGoodsAssemblyT2",
+        "HouseholdAppliancesAssemblyT1",
+        "LuxuryGoodsAssemblyT1",
+        "PCBAssemblyT1",
+        "ElectronicsAssemblyT3",
+        "Electronics2AssemblyT1",
+        "UraniumRodsAssemblyT1",
+        "SolarCellAssemblyT1",
+        "MedicalEquipmentAssemblyT1",
+        "MedicalSuppliesAssemblyT1",
+        "MedicalSupplies2AssemblyT1",
+        "MedicalSupplies3AssemblyT1",
+        "FoodPackAssemblyMeat",
+        "FoodPackAssemblyEggs",
+        "FoodPackAssemblyTofu",
+        "OfficeSuppliesAssemblyT1",
+        "CompositePanelAssemblyT1",
+        "CompositeCoreBasicAssemblyT1",
+        "StationPartsBasicAssemblyT1",
+        "CrewSuppliesAssemblyT1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 150,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "AssemblyElectrified": {
+      "id": "AssemblyElectrified",
+      "name": "Assembly II",
+      "category_id": "General",
+      "workers": 6,
+      "recipes": [
+        "CpAssemblyT2",
+        "Cp2AssemblyT2",
+        "Cp3AssemblyT1",
+        "MechPartsAssemblyT2",
+        "VehicleParts1AssemblyT2",
+        "LabEquipment1AssemblyT1",
+        "HouseholdGoodsAssemblyT1",
+        "ElectronicsAssemblyT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 80,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "AssemblyManual": {
+      "id": "AssemblyManual",
+      "name": "Assembly I",
+      "category_id": "General",
+      "workers": 4,
+      "recipes": [
+        "CpAssemblyT1",
+        "Cp2AssemblyT1",
+        "MechPartsAssemblyT1",
+        "VehicleParts1AssemblyT1",
+        "ElectronicsAssemblyT1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 25
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 40,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "ConcreteMixerT3": {
+      "id": "ConcreteMixerT3",
+      "name": "Concrete Mixer III",
+      "category_id": "General",
+      "workers": 10,
+      "recipes": [
+        "ConcreteMixingSlagT3",
+        "ConcreteMixingGravelT3",
+        "ConcreteMixingSlagMT3",
+        "ConcreteMixingGravelMT3"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "ConcreteMixerT2": {
+      "id": "ConcreteMixerT2",
+      "name": "Concrete Mixer II",
+      "category_id": "General",
+      "workers": 7,
+      "recipes": [
+        "ConcreteMixingSlagT2",
+        "ConcreteMixingGravelT2",
+        "ConcreteMixingSlagMT2",
+        "ConcreteMixingGravelMT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "ConcreteMixer": {
+      "id": "ConcreteMixer",
+      "name": "Concrete Mixer",
+      "category_id": "General",
+      "workers": 4,
+      "recipes": [
+        "ConcreteMixingSlag",
+        "ConcreteMixingGravel",
+        "ConcreteMixingGravelM",
+        "ConcreteMixingSlagM"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "RotaryKilnGas": {
+      "id": "RotaryKilnGas",
+      "name": "Rotary Kiln (gas)",
+      "category_id": "Aluminum",
+      "workers": 10,
+      "recipes": [
+        "CementProductionGas",
+        "CementProductionHydrogen",
+        "AluminaCalcificationGas",
+        "AluminaCalcificationHydrogen"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 3
+      }
+    },
+    "RotaryKiln": {
+      "id": "RotaryKiln",
+      "name": "Rotary Kiln",
+      "category_id": "General",
+      "workers": 6,
+      "recipes": [
+        "CementProduction"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "DiamondReactor": {
+      "id": "DiamondReactor",
+      "name": "Diamond reactor",
+      "category_id": "General",
+      "workers": 8,
+      "recipes": [
+        "DiamondSynthesis"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 100
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 2000,
+      "electricity_generated": 0,
+      "computing_consumed": 2,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 8
+      }
+    },
+    "LensMaker": {
+      "id": "LensMaker",
+      "name": "Lens polisher",
+      "category_id": "General",
+      "workers": 6,
+      "recipes": [
+        "LensMaking"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 4,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 2
+      }
+    },
+    "MicrochipMachineT2": {
+      "id": "MicrochipMachineT2",
+      "name": "Microchip machine II",
+      "category_id": "General",
+      "workers": 6,
+      "recipes": [
+        "MicrochipMachineT2_MicrochipProdStage1A",
+        "MicrochipMachineT2_MicrochipProdStage2A",
+        "MicrochipMachineT2_MicrochipProdStage3A",
+        "MicrochipMachineT2_MicrochipProdStage1B",
+        "MicrochipMachineT2_MicrochipProdStage2B",
+        "MicrochipMachineT2_MicrochipProdStage3B",
+        "MicrochipMachineT2_MicrochipProdStage1C",
+        "MicrochipMachineT2_MicrochipProdStage2C",
+        "MicrochipMachineT2_MicrochipProdStage3C",
+        "MicrochipMachineT2_MicrochipProdStage1D",
+        "MicrochipMachineT2_MicrochipProdStage2D",
+        "MicrochipMachineT2_MicrochipProdFinalStage"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 180
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 500,
+      "electricity_generated": 0,
+      "computing_consumed": 12,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 8
+      }
+    },
+    "MicrochipMachine": {
+      "id": "MicrochipMachine",
+      "name": "Microchip machine",
+      "category_id": "General",
+      "workers": 4,
+      "recipes": [
+        "MicrochipMachine_MicrochipProdStage1A",
+        "MicrochipMachine_MicrochipProdStage2A",
+        "MicrochipMachine_MicrochipProdStage3A",
+        "MicrochipMachine_MicrochipProdStage1B",
+        "MicrochipMachine_MicrochipProdStage2B",
+        "MicrochipMachine_MicrochipProdStage3B",
+        "MicrochipMachine_MicrochipProdStage1C",
+        "MicrochipMachine_MicrochipProdStage2C",
+        "MicrochipMachine_MicrochipProdStage3C",
+        "MicrochipMachine_MicrochipProdStage1D",
+        "MicrochipMachine_MicrochipProdStage2D",
+        "MicrochipMachine_MicrochipProdFinalStage"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 4,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 6
+      }
+    },
+    "ElectrolyzerT2": {
+      "id": "ElectrolyzerT2",
+      "name": "Electrolyzer II",
+      "category_id": "Water extraction & processing",
+      "workers": 3,
+      "recipes": [
+        "BrineElectrolysisT2",
+        "WaterElectrolysisT2",
+        "AmmoniaElectrolysisT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 1100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 2
+      }
+    },
+    "Electrolyzer": {
+      "id": "Electrolyzer",
+      "name": "Electrolyzer",
+      "category_id": "Water extraction & processing",
+      "workers": 3,
+      "recipes": [
+        "BrineElectrolysis",
+        "WaterElectrolysis",
+        "AmmoniaElectrolysis"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 300,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "FermentationTank": {
+      "id": "FermentationTank",
+      "name": "Fermentation tank",
+      "category_id": "Food production",
+      "workers": 4,
+      "recipes": [
+        "SugarToEthanolFermentation",
+        "CornToEthanolFermentation",
+        "AntibioticsFermentation"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 20,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "SettlingTank": {
+      "id": "SettlingTank",
+      "name": "Settling tank",
+      "category_id": "Nuclear",
+      "workers": 6,
+      "recipes": [
+        "GoldSettling",
+        "UraniumLeaching",
+        "FluorideLeaching",
+        "RedMudSettling",
+        "RedMudSettlingAcid"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 80
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 120,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "CoolingTowerT1": {
+      "id": "CoolingTowerT1",
+      "name": "Cooling tower",
+      "category_id": "Water extraction & processing",
+      "workers": 0,
+      "recipes": [
+        "SteamHpCondensation",
+        "SteamLpCondensation",
+        "SteamDepletedCondensation"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 30
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CoolingTowerT2": {
+      "id": "CoolingTowerT2",
+      "name": "Cooling tower (large)",
+      "category_id": "Water extraction & processing",
+      "workers": 0,
+      "recipes": [
+        "SteamSpCondensationT2",
+        "SteamHpCondensationT2",
+        "SteamLpCondensationT2",
+        "SteamDepletedCondensationT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 80
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 200
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "UraniumEnrichmentPlant": {
+      "id": "UraniumEnrichmentPlant",
+      "name": "Enrichment plant",
+      "category_id": "Nuclear",
+      "workers": 14,
+      "recipes": [
+        "UraniumEnrichment",
+        "ReprocessedUraniumEnrichment",
+        "UraniumEnrichment20",
+        "BlanketFuelReprocessing",
+        "BlanketFuelReprocessingToPu",
+        "BlanketFuelReprocessingToU30"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 80
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 4000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 8
+      }
+    },
+    "NuclearReprocessingPlant": {
+      "id": "NuclearReprocessingPlant",
+      "name": "Nuclear reprocessing plant",
+      "category_id": "Nuclear",
+      "workers": 30,
+      "recipes": [
+        "SpentFuelReprocessing",
+        "SpentFuelToBlanket",
+        "SpentMoxToBlanket",
+        "CoreFuelReprocessing"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 300
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 2000,
+      "electricity_generated": 0,
+      "computing_consumed": 24,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 20
+      }
+    },
+    "CharcoalMaker": {
+      "id": "CharcoalMaker",
+      "name": "Coal maker",
+      "category_id": "Forestry",
+      "workers": 2,
+      "recipes": [
+        "CharcoalBurning"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "Crusher": {
+      "id": "Crusher",
+      "name": "Crusher",
+      "category_id": "Nuclear",
+      "workers": 2,
+      "recipes": [
+        "IronOreCrushing",
+        "CopperOreCrushing",
+        "SlagCrushing",
+        "RockCrushing",
+        "GravelCrushing",
+        "QuartzCrushing",
+        "QuartzMilling",
+        "UraniumCrushing",
+        "GoldOreCrushing",
+        "GoldMilling",
+        "BauxiteMilling",
+        "IlmeniteMilling"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 250,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "CrusherLarge": {
+      "id": "CrusherLarge",
+      "name": "Crusher (large)",
+      "category_id": "Nuclear",
+      "workers": 6,
+      "recipes": [
+        "IronOreCrushingT2",
+        "CopperOreCrushingT2",
+        "SlagCrushingT2",
+        "RockCrushingT2",
+        "GravelCrushingT2",
+        "QuartzCrushingT2",
+        "QuartzMillingT2",
+        "UraniumCrushingT2",
+        "GoldOreCrushingT2",
+        "GoldOreMillingT2",
+        "BauxiteMillingT2",
+        "IlmeniteMillingT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 1000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 8
+      }
+    },
+    "ArcFurnace2": {
+      "id": "ArcFurnace2",
+      "name": "Arc furnace II",
+      "category_id": "Titanium",
+      "workers": 14,
+      "recipes": [
+        "IronSmeltingArcScrap",
+        "IronSmeltingArc",
+        "CopperSmeltingArcScrap",
+        "CopperSmeltingArc",
+        "GlassSmeltingArc",
+        "GlassSmeltingArcWithBroken",
+        "SiliconSmeltingArc2",
+        "AluminumSmeltingScrapArcT2",
+        "IlmeniteSmeltingArc2",
+        "TitaniumSmeltingArc2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 140
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 6000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 8
+      }
+    },
+    "ArcFurnace": {
+      "id": "ArcFurnace",
+      "name": "Arc furnace",
+      "category_id": "Silicon",
+      "workers": 12,
+      "recipes": [
+        "IronSmeltingArcScrapT1",
+        "IronSmeltingArcT1",
+        "CopperSmeltingArcScrapT1",
+        "CopperSmeltingArcT1",
+        "GlassSmeltingArcT1",
+        "GlassSmeltingArcT1WithBroken",
+        "SiliconSmeltingArc",
+        "AluminumSmeltingScrapArcT1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 160
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 4000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 8
+      }
+    },
+    "SmeltingFurnaceT2": {
+      "id": "SmeltingFurnaceT2",
+      "name": "Blast furnace II",
+      "category_id": "Glass",
+      "workers": 18,
+      "recipes": [
+        "IronSmeltingT2Scrap",
+        "IronSmeltingT2",
+        "CopperSmeltingT2Scrap",
+        "CopperSmeltingT2",
+        "GlassSmeltingT2",
+        "GlassSmeltingT2WithBroken"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 180
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "SmeltingFurnaceT1": {
+      "id": "SmeltingFurnaceT1",
+      "name": "Blast furnace",
+      "category_id": "Glass",
+      "workers": 8,
+      "recipes": [
+        "IronSmeltingT1Scrap",
+        "IronSmeltingT1Coal",
+        "CopperSmeltingT1Scrap",
+        "CopperSmeltingT1",
+        "GlassSmelting",
+        "GlassSmeltingWithBroken"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "AluminumCell": {
+      "id": "AluminumCell",
+      "name": "Aluminum cell",
+      "category_id": "Aluminum",
+      "workers": 14,
+      "recipes": [
+        "AluminumElectrolysis"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 300
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 8000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 12
+      }
+    },
+    "CasterCooledT2": {
+      "id": "CasterCooledT2",
+      "name": "Cooled caster II",
+      "category_id": "Titanium",
+      "workers": 2,
+      "recipes": [
+        "SteelCastingCooledT2",
+        "TitaniumAlloyCastingT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CasterCooled": {
+      "id": "CasterCooled",
+      "name": "Cooled caster",
+      "category_id": "Iron",
+      "workers": 2,
+      "recipes": [
+        "SteelCastingCooled"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CasterT2": {
+      "id": "CasterT2",
+      "name": "Metal caster II",
+      "category_id": "Aluminum",
+      "workers": 2,
+      "recipes": [
+        "IronCastingCooled",
+        "CopperCastingCooled",
+        "AluminumCastingT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "Caster": {
+      "id": "Caster",
+      "name": "Metal caster",
+      "category_id": "Aluminum",
+      "workers": 2,
+      "recipes": [
+        "IronCasting",
+        "CopperCasting",
+        "AluminumCasting"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "AlloyMixer": {
+      "id": "AlloyMixer",
+      "name": "Alloy mixer",
+      "category_id": "Titanium",
+      "workers": 12,
+      "recipes": [
+        "TitaniumAlloyMixing"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 100
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 1000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 8
+      }
+    },
+    "CopperElectrolysis": {
+      "id": "CopperElectrolysis",
+      "name": "Copper electrolysis",
+      "category_id": "Copper",
+      "workers": 5,
+      "recipes": [
+        "CopperElectrolysisProcess",
+        "CopperElectrolysisWithWater"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "OxygenFurnaceT2": {
+      "id": "OxygenFurnaceT2",
+      "name": "Oxygen furnace II",
+      "category_id": "Iron",
+      "workers": 6,
+      "recipes": [
+        "SteelSmeltingT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "OxygenFurnace": {
+      "id": "OxygenFurnace",
+      "name": "Oxygen furnace",
+      "category_id": "Iron",
+      "workers": 4,
+      "recipes": [
+        "SteelSmelting"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 120,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "GlassMakerT2": {
+      "id": "GlassMakerT2",
+      "name": "Glass maker II",
+      "category_id": "Glass",
+      "workers": 8,
+      "recipes": [
+        "GlassCastingT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 100
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 500,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 4
+      }
+    },
+    "GlassMakerT1": {
+      "id": "GlassMakerT1",
+      "name": "Glass maker",
+      "category_id": "Glass",
+      "workers": 6,
+      "recipes": [
+        "GlassCastingT1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 300,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "SiliconCrystallizer": {
+      "id": "SiliconCrystallizer",
+      "name": "Crystallizer",
+      "category_id": "Aluminum",
+      "workers": 8,
+      "recipes": [
+        "SiliconCrystallization",
+        "AluminaCrystallization"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 500,
+      "electricity_generated": 0,
+      "computing_consumed": 4,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 6
+      }
+    },
+    "SiliconReactor": {
+      "id": "SiliconReactor",
+      "name": "Silicon reactor",
+      "category_id": "Silicon",
+      "workers": 2,
+      "recipes": [
+        "SiliconTreatment"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 80,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 1
+      }
+    },
+    "GoldFurnace": {
+      "id": "GoldFurnace",
+      "name": "Gold furnace",
+      "category_id": "Gold",
+      "workers": 6,
+      "recipes": [
+        "GoldSmelting",
+        "GoldScrapSmelting"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 70
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 800,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "IndustrialMixerT2": {
+      "id": "IndustrialMixerT2",
+      "name": "Mixer II",
+      "category_id": "Food production",
+      "workers": 4,
+      "recipes": [
+        "GlassMixMixingT2",
+        "GlassMixMixingWithAcidT2",
+        "AcidMixMixingT2",
+        "SulfurNeutralizationT2",
+        "BrineProductionT2",
+        "FilterMediaMixingT2",
+        "FilterMediaMixingMT2",
+        "OrganicFertilizerProductionT2",
+        "OrganicFertilizerProductionDirtT2",
+        "Fertilizer2ProductionT2",
+        "DirtMixingT2",
+        "AnimalFeedFromPotatoT2",
+        "AnimalFeedFromWheatT2",
+        "AnimalFeedFromCornT2",
+        "AnimalFeedFromSoybeanT2",
+        "AnimalFeedCompostT2",
+        "BiomassCompostT2",
+        "MeatTrimmingsCompostT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "IndustrialMixer": {
+      "id": "IndustrialMixer",
+      "name": "Mixer",
+      "category_id": "Food production",
+      "workers": 4,
+      "recipes": [
+        "GlassMixMixing",
+        "GlassMixMixingWithAcid",
+        "AcidMixMixing",
+        "SulfurNeutralization",
+        "BrineProduction",
+        "FilterMediaMixing",
+        "FilterMediaMixingM",
+        "OrganicFertilizerProduction",
+        "OrganicFertilizerProductionDirt",
+        "Fertilizer2Production",
+        "DirtMixing",
+        "AnimalFeedFromPotato",
+        "AnimalFeedFromWheat",
+        "AnimalFeedFromCorn",
+        "AnimalFeedFromSoybean",
+        "AnimalFeedCompost",
+        "BiomassCompost",
+        "MeatTrimmingsCompost"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "ChemicalPlant2": {
+      "id": "ChemicalPlant2",
+      "name": "Chemical plant II",
+      "category_id": "Titanium",
+      "workers": 14,
+      "recipes": [
+        "FertilizerProductionT2",
+        "FertilizerProductionFromOrganicT2",
+        "AmmoniaSynthesisT2",
+        "PaperProductionT2",
+        "EthanolCookingOilReformingT2",
+        "FuelGasSynthesis",
+        "GraphiteProductionT2",
+        "GraphiteProductionCo2",
+        "CarbonToEthanolProduction",
+        "DisinfectantProductionT2",
+        "AnestheticsProduction",
+        "MorphineProduction",
+        "BauxiteDigestion",
+        "TitaniumChlorination",
+        "TitaniumChlorideReduction",
+        "ChemicalFuelProduction",
+        "MoxRodsAssemblyT1",
+        "BlanketFuelFromDepleted",
+        "BlanketFuelFromYellowcake",
+        "CoreFuelFromEnriched",
+        "CoreFuelFromPu",
+        "DiamondPasteFromCookingOil",
+        "DiamondPasteFromHeavyOil"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 4
+      }
+    },
+    "ChemicalPlant": {
+      "id": "ChemicalPlant",
+      "name": "Chemical plant",
+      "category_id": "Derivatives",
+      "workers": 8,
+      "recipes": [
+        "FertilizerProduction",
+        "FertilizerProductionFromOrganic",
+        "AmmoniaSynthesis",
+        "PaperProduction",
+        "EthanolCookingOilReforming",
+        "GraphiteProductionT1",
+        "DisinfectantProduction"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 250,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "DistillationTowerT1": {
+      "id": "DistillationTowerT1",
+      "name": "Distillation (stage I)",
+      "category_id": "Distillation",
+      "workers": 6,
+      "recipes": [
+        "CrudeOilRefiningT1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 3
+      }
+    },
+    "DistillationTowerT2": {
+      "id": "DistillationTowerT2",
+      "name": "Distillation (stage II)",
+      "category_id": "Distillation",
+      "workers": 8,
+      "recipes": [
+        "CrudeOilRefiningT2"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 70
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "DistillationTowerT3": {
+      "id": "DistillationTowerT3",
+      "name": "Distillation (stage III)",
+      "category_id": "Titanium",
+      "workers": 8,
+      "recipes": [
+        "HeavyDistillateRefining",
+        "TitaniumPurification"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 70
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "VacuumDistillationTower": {
+      "id": "VacuumDistillationTower",
+      "name": "Rubber maker",
+      "category_id": "Derivatives",
+      "workers": 6,
+      "recipes": [
+        "RubberProductionNaphtha",
+        "RubberProductionNaphthaAlt",
+        "RubberProductionEthanol",
+        "RubberProductionDiesel",
+        "RubberProductionDieselWithCoal"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 300,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "HydroCrackerT1": {
+      "id": "HydroCrackerT1",
+      "name": "Cracking unit",
+      "category_id": "Distillation",
+      "workers": 12,
+      "recipes": [
+        "HeavyOilCracking",
+        "HeavyOilCrackingToNaphtha",
+        "NaphthaReforming",
+        "DieselReforming",
+        "NaphthaReformingToGas",
+        "FuelGasReforming"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 100
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 160,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "HydrogenReformer": {
+      "id": "HydrogenReformer",
+      "name": "Hydrogen reformer",
+      "category_id": "Distillation",
+      "workers": 8,
+      "recipes": [
+        "HydrogenReforming",
+        "HydrogenProductionFromSteamSp"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "SourWaterStripper": {
+      "id": "SourWaterStripper",
+      "name": "Sour water stripper",
+      "category_id": "Distillation",
+      "workers": 8,
+      "recipes": [
+        "SourWaterStripping"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 160,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "PolymerizationPlant": {
+      "id": "PolymerizationPlant",
+      "name": "Polymerization plant",
+      "category_id": "Derivatives",
+      "workers": 12,
+      "recipes": [
+        "PlasticMaking",
+        "PlasticMakingEthanol"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 100
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "SmokeStackLarge": {
+      "id": "SmokeStackLarge",
+      "name": "Smoke stack (large)",
+      "category_id": "Titanium",
+      "workers": 0,
+      "recipes": [
+        "SmokeStackLargeDepletedSteam",
+        "SmokeStackLargeLpSteam",
+        "SmokeStackLargeHpSteam",
+        "SmokeStackLargeSpSteam",
+        "SmokeStackLargeOxygen",
+        "SmokeStackLargeNitrogen",
+        "SmokeStackLargeExhaust",
+        "SmokeStackLargeCarbonDioxide"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 10
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "SmokeStack": {
+      "id": "SmokeStack",
+      "name": "Smoke stack",
+      "category_id": "Titanium",
+      "workers": 0,
+      "recipes": [
+        "SmokeStackDepletedSteam",
+        "SmokeStackLpSteam",
+        "SmokeStackHpSteam",
+        "SmokeStackSpSteam",
+        "SmokeStackOxygen",
+        "SmokeStackNitrogen",
+        "SmokeStackExhaust",
+        "SmokeStackCarbonDioxide"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 10
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "WasteDump": {
+      "id": "WasteDump",
+      "name": "Liquid dump",
+      "category_id": "Fluid",
+      "workers": 1,
+      "recipes": [
+        "OceanWaterDumping",
+        "BrineDumping",
+        "OceanWasteWaterPumping",
+        "SourWaterDumping",
+        "WasteAcidDumping",
+        "ToxicSlurryDumping",
+        "SeaWaterDumping",
+        "FertilizerOrganicDumping",
+        "FertilizerChem1Dumping",
+        "FertilizerChem2Dumping",
+        "RedMudDumping"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "Flare": {
+      "id": "Flare",
+      "name": "Flare",
+      "category_id": "Derivatives",
+      "workers": 1,
+      "recipes": [
+        "FlareDiesel",
+        "FlareHeavyOil",
+        "FlareLightOil",
+        "FlareNaphtha",
+        "FlareEthanol",
+        "FlareFuelGas",
+        "FlareAmmonia",
+        "FlareHydrogen"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 10
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "ExhaustScrubber": {
+      "id": "ExhaustScrubber",
+      "name": "Exhaust scrubber",
+      "category_id": "Fluid",
+      "workers": 8,
+      "recipes": [
+        "ExhaustFiltering",
+        "ExhaustFilteringLime"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 80
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "WaterTreatmentPlant": {
+      "id": "WaterTreatmentPlant",
+      "name": "Wastewater treatment",
+      "category_id": "Fluid",
+      "workers": 26,
+      "recipes": [
+        "WaterTreatment",
+        "WaterTreatmentT2",
+        "ToxicSlurryTreatment"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 140
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 600,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 10
+      }
+    },
+    "Burner": {
+      "id": "Burner",
+      "name": "Burner (solid)",
+      "category_id": "Solid",
+      "workers": 1,
+      "recipes": [
+        "LandfillBurning",
+        "BiomassBurning",
+        "AnimalFeedBurning",
+        "CanolaBurning",
+        "MeatTrimmingsBurning",
+        "ChickenCarcassBurning",
+        "SulfurBurning",
+        "SludgeBurning"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 15
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "IncinerationPlant": {
+      "id": "IncinerationPlant",
+      "name": "Incineration plant",
+      "category_id": "Solid",
+      "workers": 16,
+      "recipes": [
+        "IncinerationOfWaste",
+        "IncinerationOfWastePressed",
+        "IncinerationOfWasteHydrogen",
+        "IncinerationOfWastePressedHydrogen"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 180
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 500,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 8
+      }
+    },
+    "Shredder": {
+      "id": "Shredder",
+      "name": "Shredder",
+      "category_id": "Forestry",
+      "workers": 1,
+      "recipes": [
+        "ShreddingWood",
+        "ShreddingSaplings",
+        "ShreddingIronScrap",
+        "ShreddingAluminumScrap",
+        "ShreddingCopperScrap",
+        "ShreddingGoldScrap",
+        "ShreddingWaste",
+        "ShreddingRetiredWaste",
+        "ShreddingPolyCells"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 25
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 1
+      }
+    },
+    "Compactor": {
+      "id": "Compactor",
+      "name": "Compactor",
+      "category_id": "Solid",
+      "workers": 1,
+      "recipes": [
+        "PressingOfRecyclables",
+        "PressingOfCopperScrap",
+        "PressingOfIronScrap",
+        "PressingOfAluminumScrap",
+        "PressingOfGoldScrap",
+        "PressingOfWaste"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 25
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 1
+      }
+    },
+    "AnaerobicDigester": {
+      "id": "AnaerobicDigester",
+      "name": "Anaerobic digester",
+      "category_id": "Solid",
+      "workers": 4,
+      "recipes": [
+        "SludgeDigestion",
+        "PotatoDigestion",
+        "VegetablesDigestion",
+        "FruitDigestion",
+        "PoppyDigestion",
+        "WheatDigestion",
+        "CornDigestion",
+        "SoybeanDigestion",
+        "SugarCaneDigestion",
+        "MeatTrimmingsDigestion",
+        "EggsDigestion"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 50,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 1
+      }
+    },
+    "AirSeparator": {
+      "id": "AirSeparator",
+      "name": "Air separator",
+      "category_id": "Iron",
+      "workers": 6,
+      "recipes": [
+        "AirSeparation"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 100
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "MaintenanceDepotT1": {
+      "id": "MaintenanceDepotT1",
+      "name": "Maintenance depot",
+      "category_id": "Maintenance",
+      "workers": 12,
+      "recipes": [
+        "MaintenanceT1Recipe",
+        "MaintenanceT1Recycling"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "MaintenanceDepotT0": {
+      "id": "MaintenanceDepotT0",
+      "name": "Maintenance depot (basic)",
+      "category_id": "Maintenance",
+      "workers": 6,
+      "recipes": [
+        "MaintenanceT0Recipe"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "MaintenanceDepotT2": {
+      "id": "MaintenanceDepotT2",
+      "name": "Maintenance II depot",
+      "category_id": "Maintenance",
+      "workers": 16,
+      "recipes": [
+        "MaintenanceT2Recipe",
+        "MaintenanceT2Recycling"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        },
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 10
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "MaintenanceDepotT3": {
+      "id": "MaintenanceDepotT3",
+      "name": "Maintenance III depot",
+      "category_id": "Maintenance",
+      "workers": 20,
+      "recipes": [
+        "MaintenanceT3Recipe",
+        "MaintenanceT3Recycling"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 600,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CargoShipDrydock": {
+      "id": "CargoShipDrydock",
+      "name": "Cargo Ship Drydock",
+      "category_id": "Cargo docks",
+      "workers": 0,
+      "recipes": [
+        "CargoShipRecipe",
+        "CargoShipRecipeT2"
+      ],
+      "buildCosts": [],
+      "isFarm": false,
+      "electricity_consumed": 1000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CargoShipDryDock": {
+      "id": "CargoShipDryDock",
+      "name": "Cargo Ship Drydock",
+      "category_id": "Cargo docks",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [],
+      "isFarm": false,
+      "electricity_consumed": 1000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "FarmT4": {
+      "id": "FarmT4",
+      "name": "Greenhouse II",
+      "category_id": "Food production",
+      "workers": 20,
+      "recipes": [
+        "Crop_Potato_Product_Fertilizer",
+        "Crop_Potato_Product_Fertilizer2",
+        "Crop_Potato_Product_FertilizerOrganic",
+        "Crop_Corn_Product_Fertilizer",
+        "Crop_Corn_Product_Fertilizer2",
+        "Crop_Corn_Product_FertilizerOrganic",
+        "Crop_Wheat_Product_Fertilizer",
+        "Crop_Wheat_Product_Fertilizer2",
+        "Crop_Wheat_Product_FertilizerOrganic",
+        "Crop_TreeSapling_Product_Fertilizer",
+        "Crop_TreeSapling_Product_Fertilizer2",
+        "Crop_TreeSapling_Product_FertilizerOrganic",
+        "Crop_Soybeans_Product_Fertilizer",
+        "Crop_Soybeans_Product_Fertilizer2",
+        "Crop_Soybeans_Product_FertilizerOrganic",
+        "Crop_SugarCane_Product_Fertilizer",
+        "Crop_SugarCane_Product_Fertilizer2",
+        "Crop_SugarCane_Product_FertilizerOrganic",
+        "Crop_Vegetables_Product_Fertilizer",
+        "Crop_Vegetables_Product_Fertilizer2",
+        "Crop_Vegetables_Product_FertilizerOrganic",
+        "Crop_Fruits_Product_Fertilizer",
+        "Crop_Fruits_Product_Fertilizer2",
+        "Crop_Fruits_Product_FertilizerOrganic",
+        "Crop_Canola_Product_Fertilizer",
+        "Crop_Canola_Product_Fertilizer2",
+        "Crop_Canola_Product_FertilizerOrganic",
+        "Crop_Poppy_Product_Fertilizer",
+        "Crop_Poppy_Product_Fertilizer2",
+        "Crop_Poppy_Product_FertilizerOrganic",
+        "Crop_Flowers_Product_Fertilizer",
+        "Crop_Flowers_Product_Fertilizer2",
+        "Crop_Flowers_Product_FertilizerOrganic"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 200
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 320
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 8
+      }
+    },
+    "FarmT3": {
+      "id": "FarmT3",
+      "name": "Greenhouse",
+      "category_id": "Food production",
+      "workers": 16,
+      "recipes": [
+        "Crop_Potato_Product_Fertilizer_1",
+        "Crop_Potato_Product_Fertilizer2_1",
+        "Crop_Potato_Product_FertilizerOrganic_1",
+        "Crop_Corn_Product_Fertilizer_1",
+        "Crop_Corn_Product_Fertilizer2_1",
+        "Crop_Corn_Product_FertilizerOrganic_1",
+        "Crop_Wheat_Product_Fertilizer_1",
+        "Crop_Wheat_Product_Fertilizer2_1",
+        "Crop_Wheat_Product_FertilizerOrganic_1",
+        "Crop_TreeSapling_Product_Fertilizer_1",
+        "Crop_TreeSapling_Product_Fertilizer2_1",
+        "Crop_TreeSapling_Product_FertilizerOrganic_1",
+        "Crop_Soybeans_Product_Fertilizer_1",
+        "Crop_Soybeans_Product_Fertilizer2_1",
+        "Crop_Soybeans_Product_FertilizerOrganic_1",
+        "Crop_SugarCane_Product_Fertilizer_1",
+        "Crop_SugarCane_Product_Fertilizer2_1",
+        "Crop_SugarCane_Product_FertilizerOrganic_1",
+        "Crop_Vegetables_Product_Fertilizer_1",
+        "Crop_Vegetables_Product_Fertilizer2_1",
+        "Crop_Vegetables_Product_FertilizerOrganic_1",
+        "Crop_Fruits_Product_Fertilizer_1",
+        "Crop_Fruits_Product_Fertilizer2_1",
+        "Crop_Fruits_Product_FertilizerOrganic_1",
+        "Crop_Canola_Product_Fertilizer_1",
+        "Crop_Canola_Product_Fertilizer2_1",
+        "Crop_Canola_Product_FertilizerOrganic_1",
+        "Crop_Poppy_Product_Fertilizer_1",
+        "Crop_Poppy_Product_Fertilizer2_1",
+        "Crop_Poppy_Product_FertilizerOrganic_1",
+        "Crop_Flowers_Product_Fertilizer_1",
+        "Crop_Flowers_Product_Fertilizer2_1",
+        "Crop_Flowers_Product_FertilizerOrganic_1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 100
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 160
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "FarmT2": {
+      "id": "FarmT2",
+      "name": "Irrigated Farm",
+      "category_id": "Food production",
+      "workers": 10,
+      "recipes": [
+        "Crop_Potato_Product_Fertilizer_1",
+        "Crop_Potato_Product_Fertilizer2_1",
+        "Crop_Potato_Product_FertilizerOrganic_1",
+        "Crop_Corn_Product_Fertilizer_1",
+        "Crop_Corn_Product_Fertilizer2_1",
+        "Crop_Corn_Product_FertilizerOrganic_1",
+        "Crop_Wheat_Product_Fertilizer_1",
+        "Crop_Wheat_Product_Fertilizer2_1",
+        "Crop_Wheat_Product_FertilizerOrganic_1",
+        "Crop_TreeSapling_Product_Fertilizer_1",
+        "Crop_TreeSapling_Product_Fertilizer2_1",
+        "Crop_TreeSapling_Product_FertilizerOrganic_1",
+        "Crop_Soybeans_Product_Fertilizer_1",
+        "Crop_Soybeans_Product_Fertilizer2_1",
+        "Crop_Soybeans_Product_FertilizerOrganic_1",
+        "Crop_Vegetables_Product_Fertilizer_1",
+        "Crop_Vegetables_Product_Fertilizer2_1",
+        "Crop_Vegetables_Product_FertilizerOrganic_1",
+        "Crop_Canola_Product_Fertilizer_1",
+        "Crop_Canola_Product_Fertilizer2_1",
+        "Crop_Canola_Product_FertilizerOrganic_1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "FarmT1": {
+      "id": "FarmT1",
+      "name": "Farm",
+      "category_id": "Food production",
+      "workers": 8,
+      "recipes": [
+        "Crop_Potato",
+        "Crop_Corn",
+        "Crop_Wheat",
+        "Crop_TreeSapling",
+        "Crop_Soybeans",
+        "Crop_Vegetables",
+        "Crop_Canola"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "ChickenFarm": {
+      "id": "ChickenFarm",
+      "name": "Chicken farm",
+      "category_id": "Food production",
+      "workers": 12,
+      "recipes": [
+        "ChickenFarm"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 50
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CargoDepotT4": {
+      "id": "CargoDepotT4",
+      "name": "Cargo depot (8)",
+      "category_id": "Cargo docks",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 300
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 600
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CargoDepotT3": {
+      "id": "CargoDepotT3",
+      "name": "Cargo depot (6)",
+      "category_id": "Cargo docks",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 200
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 400
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CargoDepotT2": {
+      "id": "CargoDepotT2",
+      "name": "Cargo depot (4)",
+      "category_id": "Cargo docks",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 120
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 240
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CargoDepotT1": {
+      "id": "CargoDepotT1",
+      "name": "Cargo depot (2)",
+      "category_id": "Cargo docks",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 100
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CargoDepotModuleUnitT3": {
+      "id": "CargoDepotModuleUnitT3",
+      "name": "Unit module (L)",
+      "category_id": "Cargo docks",
+      "workers": 5,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 1000,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "CargoDepotModuleUnitT2": {
+      "id": "CargoDepotModuleUnitT2",
+      "name": "Unit module (M)",
+      "category_id": "Cargo docks",
+      "workers": 4,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 500,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 3
+      }
+    },
+    "CargoDepotModuleUnitT1": {
+      "id": "CargoDepotModuleUnitT1",
+      "name": "Unit module (S)",
+      "category_id": "Cargo docks",
+      "workers": 3,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 250,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "CargoDepotModuleLooseT3": {
+      "id": "CargoDepotModuleLooseT3",
+      "name": "Loose module (L)",
+      "category_id": "Cargo docks",
+      "workers": 5,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 1000,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "CargoDepotModuleLooseT2": {
+      "id": "CargoDepotModuleLooseT2",
+      "name": "Loose module (M)",
+      "category_id": "Cargo docks",
+      "workers": 4,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 500,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 3
+      }
+    },
+    "CargoDepotModuleLooseT1": {
+      "id": "CargoDepotModuleLooseT1",
+      "name": "Loose module (S)",
+      "category_id": "Cargo docks",
+      "workers": 3,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 250,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "CargoDepotModuleFluidT3": {
+      "id": "CargoDepotModuleFluidT3",
+      "name": "Fluid module (L)",
+      "category_id": "Cargo docks",
+      "workers": 5,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 1000,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 4
+      }
+    },
+    "CargoDepotModuleFluidT2": {
+      "id": "CargoDepotModuleFluidT2",
+      "name": "Fluid module (M)",
+      "category_id": "Cargo docks",
+      "workers": 4,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 500,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 3
+      }
+    },
+    "CargoDepotModuleFluidT1": {
+      "id": "CargoDepotModuleFluidT1",
+      "name": "Fluid module (S)",
+      "category_id": "Cargo docks",
+      "workers": 3,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 250,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 2
+      }
+    },
+    "ResearchLab1": {
+      "id": "ResearchLab1",
+      "name": "Research lab (basic)",
+      "category_id": "Buildings",
+      "workers": 6,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 40,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0.25,
+      "research_speed": 3
+    },
+    "ResearchLab2": {
+      "id": "ResearchLab2",
+      "name": "Research lab I",
+      "category_id": "Buildings",
+      "workers": 12,
+      "recipes": [
+        "ResearchLab2",
+        "ResearchLab21"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 60
+        },
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 12
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0.25,
+      "research_speed": 6,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 8
+      }
+    },
+    "ResearchLab3": {
+      "id": "ResearchLab3",
+      "name": "Research lab II",
+      "category_id": "Buildings",
+      "workers": 20,
+      "recipes": [
+        "ResearchLab3",
+        "ResearchLab31"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        },
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 24
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 400,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0.2998047,
+      "research_speed": 12,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 12
+      }
+    },
+    "ResearchLab4": {
+      "id": "ResearchLab4",
+      "name": "Research lab III",
+      "category_id": "Buildings",
+      "workers": 46,
+      "recipes": [
+        "ResearchLab4",
+        "ResearchLab41"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 120
+        },
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 48
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 600,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0.4003906,
+      "research_speed": 24,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 12
+      }
+    },
+    "ResearchLab5": {
+      "id": "ResearchLab5",
+      "name": "Research lab IV",
+      "category_id": "Buildings",
+      "workers": 80,
+      "recipes": [
+        "ResearchLab5",
+        "ResearchLab51"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 300
+        },
+        {
+          "id": "Product_LabEquipment4",
+          "quantity": 96
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 1000,
+      "electricity_generated": 0,
+      "computing_consumed": 12,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0.5,
+      "research_speed": 48,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 12
+      }
+    },
+    "VehiclesDepotT3": {
+      "id": "VehiclesDepotT3",
+      "name": "Vehicles depot III",
+      "category_id": "Vehicles",
+      "workers": 16,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 180
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 640,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "VehiclesDepotT2": {
+      "id": "VehiclesDepotT2",
+      "name": "Vehicles depot II",
+      "category_id": "Vehicles",
+      "workers": 10,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 320,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "VehiclesDepot": {
+      "id": "VehiclesDepot",
+      "name": "Vehicles depot",
+      "category_id": "Vehicles",
+      "workers": 6,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "FuelStationHydrogenT1": {
+      "id": "FuelStationHydrogenT1",
+      "name": "Hydrogen fuel station",
+      "category_id": "Vehicles",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 70
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 240,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "FuelStationT3": {
+      "id": "FuelStationT3",
+      "name": "Fuel station III",
+      "category_id": "Vehicles",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 70
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 360,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "FuelStationT2": {
+      "id": "FuelStationT2",
+      "name": "Fuel station II",
+      "category_id": "Vehicles",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 120,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "FuelStationT1": {
+      "id": "FuelStationT1",
+      "name": "Fuel station",
+      "category_id": "Vehicles",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 40,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageUnitT4": {
+      "id": "StorageUnitT4",
+      "name": "Unit storage IV",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 5000,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageUnitT3": {
+      "id": "StorageUnitT3",
+      "name": "Unit storage III",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 2500,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageUnitT2": {
+      "id": "StorageUnitT2",
+      "name": "Unit storage II",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 400,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageUnit": {
+      "id": "StorageUnit",
+      "name": "Unit storage",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 200,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageLooseT4": {
+      "id": "StorageLooseT4",
+      "name": "Loose storage IV",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 5000,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageLooseT3": {
+      "id": "StorageLooseT3",
+      "name": "Loose storage III",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 2500,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageLooseT2": {
+      "id": "StorageLooseT2",
+      "name": "Loose storage II",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 400,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageLoose": {
+      "id": "StorageLoose",
+      "name": "Loose storage",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 200,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageFluidT4": {
+      "id": "StorageFluidT4",
+      "name": "Fluid storage IV",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 5000,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageFluidT3": {
+      "id": "StorageFluidT3",
+      "name": "Fluid storage III",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 2500,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageFluidT2": {
+      "id": "StorageFluidT2",
+      "name": "Fluid storage II",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 400,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "StorageFluid": {
+      "id": "StorageFluid",
+      "name": "Fluid storage",
+      "category_id": "Storage",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 200,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "NuclearWasteStorage": {
+      "id": "NuclearWasteStorage",
+      "name": "Radioactive waste storage",
+      "category_id": "Nuclear",
+      "workers": 10,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 150
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 500
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 2400,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "HousingT4": {
+      "id": "HousingT4",
+      "name": "Housing IV",
+      "category_id": "Housing & services",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 200
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 240
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 200
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 400,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "HousingT3": {
+      "id": "HousingT3",
+      "name": "Housing III",
+      "category_id": "Housing & services",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 200
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 120
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 240,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "HousingT2": {
+      "id": "HousingT2",
+      "name": "Housing II",
+      "category_id": "Housing & services",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 140
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 140,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "Housing": {
+      "id": "Housing",
+      "name": "Housing",
+      "category_id": "Housing & services",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 80
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 80,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "MineTower": {
+      "id": "MineTower",
+      "name": "Mine control tower",
+      "category_id": "Terraforming",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 20
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "SettlementLandfillModule": {
+      "id": "SettlementLandfillModule",
+      "name": "Waste collection",
+      "category_id": "Settlement",
+      "workers": 4,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 25
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 200,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "SettlementRecyclablesModule": {
+      "id": "SettlementRecyclablesModule",
+      "name": "Recyclables collection",
+      "category_id": "Settlement",
+      "workers": 12,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 200,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "SettlementBiomassModule": {
+      "id": "SettlementBiomassModule",
+      "name": "Biomass collection",
+      "category_id": "Settlement",
+      "workers": 6,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 200,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "SettlementFoodModuleT2": {
+      "id": "SettlementFoodModuleT2",
+      "name": "Food market II",
+      "category_id": "Housing & services",
+      "workers": 6,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 800,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "SettlementFoodModule": {
+      "id": "SettlementFoodModule",
+      "name": "Food market",
+      "category_id": "Housing & services",
+      "workers": 3,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 25
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 400,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "SettlementHouseholdGoodsModule": {
+      "id": "SettlementHouseholdGoodsModule",
+      "name": "Household goods module",
+      "category_id": "Housing & services",
+      "workers": 16,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 150,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "SettlementHouseholdAppliancesModule": {
+      "id": "SettlementHouseholdAppliancesModule",
+      "name": "Household appliances module",
+      "category_id": "Housing & services",
+      "workers": 20,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 200,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 8
+      }
+    },
+    "SettlementConsumerElectronicsModule": {
+      "id": "SettlementConsumerElectronicsModule",
+      "name": "Consumer electronics module",
+      "category_id": "Housing & services",
+      "workers": 24,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 100
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 80
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 350,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 10
+      }
+    },
+    "SettlementLuxuryGoodsModule": {
+      "id": "SettlementLuxuryGoodsModule",
+      "name": "Luxury goods module",
+      "category_id": "Housing & services",
+      "workers": 16,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 80
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 150,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 8
+      }
+    },
+    "SettlementWaterModule": {
+      "id": "SettlementWaterModule",
+      "name": "Water facility",
+      "category_id": "Housing & services",
+      "workers": 6,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 100,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 6
+      }
+    },
+    "NuclearReactorT2": {
+      "id": "NuclearReactorT2",
+      "name": "Nuclear reactor II",
+      "category_id": "Nuclear",
+      "workers": 110,
+      "recipes": [
+        "NuclearReactorT2",
+        "NuclearReactorT21",
+        "NuclearReactorT22",
+        "NuclearReactorT23"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 700
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 12,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 90
+      }
+    },
+    "NuclearReactor": {
+      "id": "NuclearReactor",
+      "name": "Nuclear reactor",
+      "category_id": "Nuclear",
+      "workers": 80,
+      "recipes": [
+        "NuclearReactor",
+        "NuclearReactor1"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 400
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT2",
+        "quantity": 60
+      }
+    },
+    "FastBreederReactor": {
+      "id": "FastBreederReactor",
+      "name": "Fast breeder reactor",
+      "category_id": "Nuclear",
+      "workers": 200,
+      "recipes": [
+        "FastBreederReactor",
+        "FastBreederReactor1",
+        "FastBreederReactor2",
+        "FastBreederReactor3"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 1500
+        },
+        {
+          "id": "Product_TitaniumAlloy",
+          "quantity": 200
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 200
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 18,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 60
+      }
+    },
+    "RocketAssemblyDepot": {
+      "id": "RocketAssemblyDepot",
+      "name": "Rocket assembly depot",
+      "category_id": "Rockets",
+      "workers": 160,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 1200
+        },
+        {
+          "id": "Product_VehicleParts3",
+          "quantity": 160
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 2000,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "RocketLaunchPad": {
+      "id": "RocketLaunchPad",
+      "name": "Rocket launch pad",
+      "category_id": "Rockets",
+      "workers": 30,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 300
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 1000
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 800
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "RainwaterHarvester": {
+      "id": "RainwaterHarvester",
+      "name": "Rainwater harvester",
+      "category_id": "Water extraction & processing",
+      "workers": 0,
+      "recipes": [
+        "RainwaterHarvester"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 20
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 30
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 1
+      }
+    },
+    "DataCenter": {
+      "id": "DataCenter",
+      "name": "Data center",
+      "category_id": "General",
+      "workers": 6,
+      "recipes": [
+        "BasicServerRack"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 120
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 40
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "BasicServerRack": {
+      "id": "BasicServerRack",
+      "name": "Basic rack",
+      "category_id": "Data center",
+      "workers": 0,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_Server",
+          "quantity": 12
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 85,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 4,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 0.7998047
+      }
+    }
+  },
+  "recipes": {
+    "TurbineSuperPress": {
+      "id": "TurbineSuperPress",
+      "name": "TurbineSuperPress",
+      "machine": "TurbineSuperPress",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MechPower",
+          "quantity": 18000
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        }
+      ]
+    },
+    "TurbineHighPressT2": {
+      "id": "TurbineHighPressT2",
+      "name": "TurbineHighPressT2",
+      "machine": "TurbineHighPressT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MechPower",
+          "quantity": 12000
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 48
+        }
+      ]
+    },
+    "TurbineHighPress": {
+      "id": "TurbineHighPress",
+      "name": "TurbineHighPress",
+      "linkId": "9db40c7b537580e83807c6c0b01a5c6735d2291bade13eaa8ce01dd13fcae5d7",
+      "machine": "TurbineHighPress",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MechPower",
+          "quantity": 6000
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 24
+        }
+      ]
+    },
+    "TurbineLowPressT2": {
+      "id": "TurbineLowPressT2",
+      "name": "TurbineLowPressT2",
+      "machine": "TurbineLowPressT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MechPower",
+          "quantity": 6000
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 48
+        }
+      ]
+    },
+    "TurbineLowPress": {
+      "id": "TurbineLowPress",
+      "name": "TurbineLowPress",
+      "linkId": "29666db2a45b168c09a03008ee9d6e2c40f87f6357651d3b84c1fdf54f2a80f7",
+      "machine": "TurbineLowPress",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MechPower",
+          "quantity": 3000
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 24
+        }
+      ]
+    },
+    "PowerGeneratorT1": {
+      "id": "PowerGeneratorT1",
+      "name": "PowerGeneratorT1",
+      "machine": "PowerGeneratorT1",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Virtual_MechPower",
+          "quantity": 3000
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Electricity",
+          "quantity": 2000
+        }
+      ]
+    },
+    "PowerGeneratorT2": {
+      "id": "PowerGeneratorT2",
+      "name": "PowerGeneratorT2",
+      "machine": "PowerGeneratorT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Virtual_MechPower",
+          "quantity": 18000
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Electricity",
+          "quantity": 15000
+        }
+      ]
+    },
+    "DieselGenerator": {
+      "id": "DieselGenerator",
+      "name": "DieselGenerator",
+      "machine": "DieselGenerator",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Electricity",
+          "quantity": 2400
+        },
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 3
+        }
+      ]
+    },
+    "DieselGeneratorT2": {
+      "id": "DieselGeneratorT2",
+      "name": "DieselGeneratorT2",
+      "machine": "DieselGeneratorT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Electricity",
+          "quantity": 15000
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "WheatMilling": {
+      "id": "WheatMilling",
+      "name": "Wheat milling",
+      "machine": "FoodMill",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Flour",
+          "quantity": 16
+        },
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 2
+        }
+      ]
+    },
+    "SoybeanMilling": {
+      "id": "SoybeanMilling",
+      "name": "Soybean milling",
+      "machine": "FoodMill",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CookingOil",
+          "quantity": 6
+        },
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 8
+        }
+      ]
+    },
+    "CanolaMilling": {
+      "id": "CanolaMilling",
+      "name": "Canola milling",
+      "machine": "FoodMill",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CookingOil",
+          "quantity": 12
+        },
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 4
+        }
+      ]
+    },
+    "CornMilling": {
+      "id": "CornMilling",
+      "name": "Corn milling (wet)",
+      "machine": "FoodMill",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CornMash",
+          "quantity": 9
+        },
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 3
+        }
+      ]
+    },
+    "TofuProduction": {
+      "id": "TofuProduction",
+      "name": "Tofu making",
+      "machine": "FoodProcessor",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Sulfur",
+          "quantity": 1.5
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 1.5
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Tofu",
+          "quantity": 12
+        },
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 4.5
+        }
+      ]
+    },
+    "MeatProcessing": {
+      "id": "MeatProcessing",
+      "name": "Meat processing",
+      "machine": "FoodProcessor",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ChickenCarcass",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Meat",
+          "quantity": 15
+        },
+        {
+          "id": "Product_MeatTrimmings",
+          "quantity": 6
+        }
+      ]
+    },
+    "MeatProcessingTrimmings": {
+      "id": "MeatProcessingTrimmings",
+      "name": "Meat processing",
+      "machine": "FoodProcessor",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ChickenCarcass",
+          "quantity": 30
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MeatTrimmings",
+          "quantity": 27
+        }
+      ]
+    },
+    "SausageProduction": {
+      "id": "SausageProduction",
+      "name": "Sausage processing",
+      "machine": "FoodProcessor",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MeatTrimmings",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Flour",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Sausage",
+          "quantity": 24
+        }
+      ]
+    },
+    "SnackProductionPotato": {
+      "id": "SnackProductionPotato",
+      "name": "Snack production",
+      "machine": "FoodProcessor",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 6
+        },
+        {
+          "id": "Product_CookingOil",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Snack",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Biomass",
+          "quantity": 3
+        }
+      ]
+    },
+    "SnackProductionCorn": {
+      "id": "SnackProductionCorn",
+      "name": "Snack production",
+      "machine": "FoodProcessor",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 6
+        },
+        {
+          "id": "Product_CookingOil",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Snack",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Biomass",
+          "quantity": 3
+        }
+      ]
+    },
+    "SugarRefiningCane": {
+      "id": "SugarRefiningCane",
+      "name": "Sugar refining (cane)",
+      "machine": "FoodProcessor",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 15
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Sugar",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Biomass",
+          "quantity": 6
+        }
+      ]
+    },
+    "BreadProduction": {
+      "id": "BreadProduction",
+      "name": "Bread making",
+      "machine": "BakingUnit",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Flour",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Bread",
+          "quantity": 24
+        }
+      ]
+    },
+    "CakeProduction": {
+      "id": "CakeProduction",
+      "name": "Cake production",
+      "machine": "BakingUnit",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Flour",
+          "quantity": 10
+        },
+        {
+          "id": "Product_Sugar",
+          "quantity": 4
+        },
+        {
+          "id": "Product_CookingOil",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Eggs",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Fruit",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Cake",
+          "quantity": 14
+        }
+      ]
+    },
+    "DieselDistillationBasic": {
+      "id": "DieselDistillationBasic",
+      "name": "Diesel distillation (basic)",
+      "machine": "BasicDieselDistiller",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CrudeOil",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 27
+        },
+        {
+          "id": "Product_WasteWater",
+          "quantity": 15
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "WaterDesalinationBasic": {
+      "id": "WaterDesalinationBasic",
+      "name": "Water desalination (basic)",
+      "machine": "BasicDieselDistiller",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Brine",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 12
+        }
+      ]
+    },
+    "OilGroundPumping": {
+      "id": "OilGroundPumping",
+      "name": "Oil pumping",
+      "machine": "OilPump",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_CrudeOil",
+          "quantity": 20
+        }
+      ]
+    },
+    "LandWaterPumping": {
+      "id": "LandWaterPumping",
+      "name": "Water pumping",
+      "machine": "LandWaterPump",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        }
+      ]
+    },
+    "CarbonDioxideInjection": {
+      "id": "CarbonDioxideInjection",
+      "name": "Co2 injection",
+      "machine": "GasInjectionPump",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Seawater",
+          "quantity": 24
+        }
+      ],
+      "outputs": []
+    },
+    "OceanWaterPumping": {
+      "id": "OceanWaterPumping",
+      "name": "Ocean water pumping",
+      "machine": "OceanWaterPumpT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 108
+        }
+      ]
+    },
+    "OceanWaterPumpingT2": {
+      "id": "OceanWaterPumpingT2",
+      "name": "Ocean water pumping II",
+      "linkId": "d54fbe384ec5f3c7d4da12902a869ef460a0a1f2f1b2a082501949b998d17cb4",
+      "machine": "OceanWaterPumpLarge",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 108
+        }
+      ]
+    },
+    "SteamGenerationCoal": {
+      "id": "SteamGenerationCoal",
+      "name": "Steam generation",
+      "machine": "BoilerCoal",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 30
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 60
+        }
+      ]
+    },
+    "SteamGenerationWood": {
+      "id": "SteamGenerationWood",
+      "name": "Steam generation",
+      "machine": "BoilerCoal",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Woodchips",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "SteamGenerationBiomass": {
+      "id": "SteamGenerationBiomass",
+      "name": "Steam generation",
+      "machine": "BoilerCoal",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Biomass",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "SteamGenerationAnimalFeed": {
+      "id": "SteamGenerationAnimalFeed",
+      "name": "Steam generation",
+      "machine": "BoilerCoal",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "SteamGenerationHeavyOil": {
+      "id": "SteamGenerationHeavyOil",
+      "name": "Steam generation",
+      "machine": "BoilerGas",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_HeavyOil",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 90
+        }
+      ]
+    },
+    "SteamGenerationMediumOil": {
+      "id": "SteamGenerationMediumOil",
+      "name": "Steam generation",
+      "machine": "BoilerGas",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_MediumOil",
+          "quantity": 42
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 90
+        }
+      ]
+    },
+    "SteamGenerationLightOil": {
+      "id": "SteamGenerationLightOil",
+      "name": "Steam generation",
+      "machine": "BoilerGas",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_LightOil",
+          "quantity": 54
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 72
+        }
+      ]
+    },
+    "SteamGenerationNaphtha": {
+      "id": "SteamGenerationNaphtha",
+      "name": "Steam generation",
+      "machine": "BoilerGas",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Naphtha",
+          "quantity": 54
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 72
+        }
+      ]
+    },
+    "SteamGenerationEthanol": {
+      "id": "SteamGenerationEthanol",
+      "name": "Steam generation",
+      "machine": "BoilerGas",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Ethanol",
+          "quantity": 54
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 72
+        }
+      ]
+    },
+    "SteamGenerationFuelGas": {
+      "id": "SteamGenerationFuelGas",
+      "name": "Steam generation",
+      "machine": "BoilerGas",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 72
+        }
+      ]
+    },
+    "SteamGenerationHydrogen": {
+      "id": "SteamGenerationHydrogen",
+      "name": "Steam generation",
+      "machine": "BoilerGas",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 48
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 36
+        }
+      ]
+    },
+    "SteamGenerationElectric": {
+      "id": "SteamGenerationElectric",
+      "name": "Steam generation",
+      "machine": "BoilerElectric",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 24
+        }
+      ]
+    },
+    "SteamGenerationElectricHalf": {
+      "id": "SteamGenerationElectricHalf",
+      "name": "Steam generation",
+      "linkId": "67d58fd2442d6efc82d9f016a552e6b7c2c91317e4b6f0a8235645dd2c5343de",
+      "machine": "BoilerElectric",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 12
+        }
+      ]
+    },
+    "SteamGenerationSpElectric": {
+      "id": "SteamGenerationSpElectric",
+      "name": "Steam generation",
+      "machine": "BoilerElectric",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 12
+        }
+      ]
+    },
+    "BrineMakingHeated": {
+      "id": "BrineMakingHeated",
+      "name": "Brine making",
+      "machine": "EvaporationPondHeated",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 48
+        }
+      ]
+    },
+    "SaltMakingHeated": {
+      "id": "SaltMakingHeated",
+      "name": "Salt making",
+      "machine": "EvaporationPondHeated",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Salt",
+          "quantity": 6
+        }
+      ]
+    },
+    "SaltMakingFromBrineHeated": {
+      "id": "SaltMakingFromBrineHeated",
+      "name": "Salt making",
+      "machine": "EvaporationPondHeated",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Salt",
+          "quantity": 12
+        }
+      ]
+    },
+    "BrineMaking": {
+      "id": "BrineMaking",
+      "name": "Brine making",
+      "linkId": "da9eba5af485f71215fc78c438a58e03ca291d8b85288286bd7cb41926f31d8b",
+      "machine": "EvaporationPond",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 24
+        }
+      ]
+    },
+    "SaltMaking": {
+      "id": "SaltMaking",
+      "name": "Salt making",
+      "linkId": "97f9f034c23fb42be6c95f477fa31ef9a50d09fa84134858afacbd6004f3b507",
+      "machine": "EvaporationPond",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Salt",
+          "quantity": 3
+        }
+      ]
+    },
+    "SaltMakingFromBrine": {
+      "id": "SaltMakingFromBrine",
+      "name": "Salt making",
+      "linkId": "408e1475074290b7a93f94946e4d74fb6a1d8c213c0309fa851cbb600da506ae",
+      "machine": "EvaporationPond",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Salt",
+          "quantity": 6
+        }
+      ]
+    },
+    "DesalinationFromSP": {
+      "id": "DesalinationFromSP",
+      "name": "Thermal desalination",
+      "machine": "ThermalDesalinator",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 108
+        },
+        {
+          "id": "Product_SteamSp",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Brine",
+          "quantity": 42
+        }
+      ]
+    },
+    "DesalinationFromHP": {
+      "id": "DesalinationFromHP",
+      "name": "Thermal desalination",
+      "machine": "ThermalDesalinator",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 108
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 78
+        },
+        {
+          "id": "Product_Brine",
+          "quantity": 42
+        }
+      ]
+    },
+    "DesalinationFromLP": {
+      "id": "DesalinationFromLP",
+      "name": "Thermal desalination",
+      "machine": "ThermalDesalinator",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 72
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Brine",
+          "quantity": 24
+        }
+      ]
+    },
+    "DesalinationFromDepleted": {
+      "id": "DesalinationFromDepleted",
+      "name": "Thermal desalination",
+      "machine": "ThermalDesalinator",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 15
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 33
+        },
+        {
+          "id": "Product_Brine",
+          "quantity": 6
+        }
+      ]
+    },
+    "WaterChilling": {
+      "id": "WaterChilling",
+      "name": "Water cooling",
+      "machine": "WaterChiller",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 30
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ChilledWater",
+          "quantity": 24
+        }
+      ]
+    },
+    "SimpleConcreteMaking": {
+      "id": "SimpleConcreteMaking",
+      "name": "Simple concrete making",
+      "machine": "BricksMaker",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Limestone",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 12
+        }
+      ]
+    },
+    "CpAssemblyT5": {
+      "id": "CpAssemblyT5",
+      "name": "CP assembly (T5)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 72
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 96
+        }
+      ]
+    },
+    "CpAssemblySteelT5": {
+      "id": "CpAssemblySteelT5",
+      "name": "CP assembly steel (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 48
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 96
+        }
+      ]
+    },
+    "Cp2AssemblyT5": {
+      "id": "Cp2AssemblyT5",
+      "name": "CP2 assembly (T4)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 96
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 48
+        }
+      ]
+    },
+    "Cp3AssemblyT4": {
+      "id": "Cp3AssemblyT4",
+      "name": "CP3 assembly (T4)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 24
+        }
+      ]
+    },
+    "Cp4AssemblyRoboticT2": {
+      "id": "Cp4AssemblyRoboticT2",
+      "name": "CP4 assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 12
+        }
+      ]
+    },
+    "MechPartsAssemblyT5Iron": {
+      "id": "MechPartsAssemblyT5Iron",
+      "name": "Mech. parts assembly (T3-1)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 96
+        }
+      ]
+    },
+    "MechPartsAssemblyT5": {
+      "id": "MechPartsAssemblyT5",
+      "name": "Mech. parts assembly (T5)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 96
+        }
+      ]
+    },
+    "VehicleParts1AssemblyT5": {
+      "id": "VehicleParts1AssemblyT5",
+      "name": "Vehicle parts assembly (T5)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 102.85714285714286
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 34.285714285714285
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 68.57142857142857
+        }
+      ]
+    },
+    "VehicleParts2AssemblyT3": {
+      "id": "VehicleParts2AssemblyT3",
+      "name": "Vehicle parts 2 assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 34.285714285714285
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 17.142857142857142
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 8.571428571428571
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts2",
+          "quantity": 17.142857142857142
+        }
+      ]
+    },
+    "VehicleParts3AssemblyT3": {
+      "id": "VehicleParts3AssemblyT3",
+      "name": "Vehicle parts 3 assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_VehicleParts2",
+          "quantity": 34.285714285714285
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 8.571428571428571
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts3",
+          "quantity": 17.142857142857142
+        }
+      ]
+    },
+    "LabEquipment1AssemblyT4": {
+      "id": "LabEquipment1AssemblyT4",
+      "name": "Lab equipment 1 assembly (T4)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 68.57142857142857
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 34.285714285714285
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 102.85714285714286
+        }
+      ]
+    },
+    "LabEquipment2AssemblyT4": {
+      "id": "LabEquipment2AssemblyT4",
+      "name": "Lab equipment 2 assembly (T2)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 51.42857142857143
+        },
+        {
+          "id": "Product_Paper",
+          "quantity": 17.142857142857142
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 17.142857142857142
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 51.42857142857143
+        }
+      ]
+    },
+    "LabEquipment3AssemblyT3": {
+      "id": "LabEquipment3AssemblyT3",
+      "name": "Lab equipment 3 assembly (T2)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 51.42857142857143
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 8.571428571428571
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 51.42857142857143
+        }
+      ]
+    },
+    "LabEquipment4AssemblyT3": {
+      "id": "LabEquipment4AssemblyT3",
+      "name": "Lab equipment 4 assembly (T2)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 32
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment4",
+          "quantity": 32
+        }
+      ]
+    },
+    "RailPartsAssemblyT3": {
+      "id": "RailPartsAssemblyT3",
+      "name": "Rail parts assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 32
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RailParts",
+          "quantity": 64
+        }
+      ]
+    },
+    "HouseholdGoodsAssemblyT4": {
+      "id": "HouseholdGoodsAssemblyT4",
+      "name": "Household goods assembly (T4)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 34.285714285714285
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 17.142857142857142
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 34.285714285714285
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 68.57142857142857
+        }
+      ]
+    },
+    "HouseholdAppliancesAssemblyT3": {
+      "id": "HouseholdAppliancesAssemblyT3",
+      "name": "Household appliances assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 32
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HouseholdAppliances",
+          "quantity": 48
+        }
+      ]
+    },
+    "LuxuryGoodsAssemblyT3": {
+      "id": "LuxuryGoodsAssemblyT3",
+      "name": "Luxury goods assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gold",
+          "quantity": 8
+        },
+        {
+          "id": "Product_ImportedGoods",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LuxuryGoods",
+          "quantity": 32
+        }
+      ]
+    },
+    "PCBAssemblyT3": {
+      "id": "PCBAssemblyT3",
+      "name": "PCB assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_PCB",
+          "quantity": 48
+        }
+      ]
+    },
+    "ElectronicsAssemblyT5": {
+      "id": "ElectronicsAssemblyT5",
+      "name": "Electronics assembly (T5)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 96
+        }
+      ]
+    },
+    "Electronics2AssemblyT3": {
+      "id": "Electronics2AssemblyT3",
+      "name": "Electronics 2 assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_PCB",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 48
+        },
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics2",
+          "quantity": 24
+        }
+      ]
+    },
+    "UraniumRodsAssemblyT3": {
+      "id": "UraniumRodsAssemblyT3",
+      "name": "Uranium rods (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumEnriched",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumRod",
+          "quantity": 8
+        }
+      ]
+    },
+    "SolarCellAssemblyT3": {
+      "id": "SolarCellAssemblyT3",
+      "name": "Solar cell assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 1.5
+        },
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SolarCell",
+          "quantity": 12
+        }
+      ]
+    },
+    "SolarCellMonoAssemblyT1": {
+      "id": "SolarCellMonoAssemblyT1",
+      "name": "Solar cell assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Aluminum",
+          "quantity": 1
+        },
+        {
+          "id": "Product_SiliconWafer",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SolarCellMono",
+          "quantity": 8
+        }
+      ]
+    },
+    "Electronics3AssemblyRoboticT2": {
+      "id": "Electronics3AssemblyRoboticT2",
+      "name": "Electronics 3 assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Microchips",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics3",
+          "quantity": 6
+        }
+      ]
+    },
+    "Electronics4Assembly": {
+      "id": "Electronics4Assembly",
+      "name": "Electronics 4 assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Electronics3",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Lens",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Diamond",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics4",
+          "quantity": 6
+        }
+      ]
+    },
+    "ServerAssemblyT2": {
+      "id": "ServerAssemblyT2",
+      "name": "Server assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Server",
+          "quantity": 4
+        }
+      ]
+    },
+    "ConsumerElectronicsAssemblyT1": {
+      "id": "ConsumerElectronicsAssemblyT1",
+      "name": "Consumer electronics assembly (T1)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Electronics3",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Aluminum",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConsumerElectronics",
+          "quantity": 6
+        }
+      ]
+    },
+    "MedicalEquipmentAssemblyT3": {
+      "id": "MedicalEquipmentAssemblyT3",
+      "name": "Medical equipment assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalEquipment",
+          "quantity": 24
+        }
+      ]
+    },
+    "MedicalSuppliesAssemblyT3": {
+      "id": "MedicalSuppliesAssemblyT3",
+      "name": "Medical supplies assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalEquipment",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Disinfectant",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies",
+          "quantity": 96
+        }
+      ]
+    },
+    "MedicalSupplies2AssemblyT3": {
+      "id": "MedicalSupplies2AssemblyT3",
+      "name": "Medical supplies assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalSupplies",
+          "quantity": 96
+        },
+        {
+          "id": "Product_Antibiotics",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 96
+        }
+      ]
+    },
+    "MedicalSupplies3AssemblyT3": {
+      "id": "MedicalSupplies3AssemblyT3",
+      "name": "Medical supplies III assembly (T3)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 96
+        },
+        {
+          "id": "Product_Anesthetics",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Morphine",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies3",
+          "quantity": 96
+        }
+      ]
+    },
+    "FoodPackAssemblyMeatT3": {
+      "id": "FoodPackAssemblyMeatT3",
+      "name": "Food pack assembly (meat)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Meat",
+          "quantity": 25.714285714285715
+        },
+        {
+          "id": "Product_Bread",
+          "quantity": 51.42857142857143
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 34.285714285714285
+        }
+      ]
+    },
+    "FoodPackAssemblyEggsT3": {
+      "id": "FoodPackAssemblyEggsT3",
+      "name": "Food pack assembly (eggs)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Eggs",
+          "quantity": 25.714285714285715
+        },
+        {
+          "id": "Product_Bread",
+          "quantity": 51.42857142857143
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 34.285714285714285
+        }
+      ]
+    },
+    "FoodPackAssemblyTofuT3": {
+      "id": "FoodPackAssemblyTofuT3",
+      "name": "Food pack assembly (tofu)",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Tofu",
+          "quantity": 51.42857142857143
+        },
+        {
+          "id": "Product_Vegetables",
+          "quantity": 68.57142857142857
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 34.285714285714285
+        }
+      ]
+    },
+    "OfficeSuppliesAssemblyT3": {
+      "id": "OfficeSuppliesAssemblyT3",
+      "name": "Office supplies assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Paper",
+          "quantity": 25.714285714285715
+        },
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 17.142857142857142
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 8.571428571428571
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_OfficeSupplies",
+          "quantity": 51.42857142857143
+        }
+      ]
+    },
+    "CompositePanelAssemblyT3": {
+      "id": "CompositePanelAssemblyT3",
+      "name": "Composite panel assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Aluminum",
+          "quantity": 32
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 32
+        }
+      ]
+    },
+    "CompositeCoreBasicAssemblyT3": {
+      "id": "CompositeCoreBasicAssemblyT3",
+      "name": "Composite core (basic) assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 32
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompositeBodyBasic",
+          "quantity": 16
+        }
+      ]
+    },
+    "CompositeCoreAssembly": {
+      "id": "CompositeCoreAssembly",
+      "name": "Composite core assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 16
+        },
+        {
+          "id": "Product_TitaniumAlloy",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompositeCore",
+          "quantity": 8
+        }
+      ]
+    },
+    "StationPartsBasicAssemblyT3": {
+      "id": "StationPartsBasicAssemblyT3",
+      "name": "Station parts (basic) assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositeBodyBasic",
+          "quantity": 16
+        },
+        {
+          "id": "Product_SolarCell",
+          "quantity": 8
+        },
+        {
+          "id": "Product_ChemicalFuel",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SpaceStationParts1",
+          "quantity": 8
+        }
+      ]
+    },
+    "StationPartsAssembly": {
+      "id": "StationPartsAssembly",
+      "name": "Station parts assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositeCore",
+          "quantity": 8
+        },
+        {
+          "id": "Product_SolarCellMono",
+          "quantity": 4
+        },
+        {
+          "id": "Product_ChemicalFuel",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SpaceStationParts2",
+          "quantity": 4
+        }
+      ]
+    },
+    "CrewSuppliesAssemblyT3": {
+      "id": "CrewSuppliesAssemblyT3",
+      "name": "Crew supplies assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 8
+        },
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CrewSupplies",
+          "quantity": 16
+        }
+      ]
+    },
+    "ProbePartsAssembly": {
+      "id": "ProbePartsAssembly",
+      "name": "Probe parts assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositeCore",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Electronics4",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Plutonium",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SpaceProbeParts",
+          "quantity": 8
+        }
+      ]
+    },
+    "CompactReactorAssembly": {
+      "id": "CompactReactorAssembly",
+      "name": "Compact reactor assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumAlloy",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Electronics4",
+          "quantity": 6
+        },
+        {
+          "id": "Product_UraniumEnriched20",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompactReactor",
+          "quantity": 4
+        }
+      ]
+    },
+    "AsteroidBoosterPartsAssembly": {
+      "id": "AsteroidBoosterPartsAssembly",
+      "name": "Asteroid booster parts assembly",
+      "machine": "AssemblyRoboticT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositeCore",
+          "quantity": 16
+        },
+        {
+          "id": "Product_CompactReactor",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Diamond",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AsteroidBoosterParts",
+          "quantity": 8
+        }
+      ]
+    },
+    "CpAssemblyT4": {
+      "id": "CpAssemblyT4",
+      "name": "CP assembly (T4)",
+      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 36
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 48
+        }
+      ]
+    },
+    "CpAssemblySteelT4": {
+      "id": "CpAssemblySteelT4",
+      "name": "CP assembly steel (T2)",
+      "linkId": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 24
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 48
+        }
+      ]
+    },
+    "Cp2AssemblyT4": {
+      "id": "Cp2AssemblyT4",
+      "name": "CP2 assembly (T3)",
+      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 24
+        }
+      ]
+    },
+    "Cp3AssemblyT3": {
+      "id": "Cp3AssemblyT3",
+      "name": "CP3 assembly (T3)",
+      "linkId": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 12
+        }
+      ]
+    },
+    "Cp4AssemblyRoboticT1": {
+      "id": "Cp4AssemblyRoboticT1",
+      "name": "CP4 assembly (T2)",
+      "linkId": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 6
+        }
+      ]
+    },
+    "MechPartsAssemblyT4Iron": {
+      "id": "MechPartsAssemblyT4Iron",
+      "name": "Mech. parts assembly (T3-1)",
+      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 48
+        }
+      ]
+    },
+    "MechPartsAssemblyT4": {
+      "id": "MechPartsAssemblyT4",
+      "name": "Mech. parts assembly (T4)",
+      "linkId": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 48
+        }
+      ]
+    },
+    "VehicleParts1AssemblyT4": {
+      "id": "VehicleParts1AssemblyT4",
+      "name": "Vehicle parts assembly (T4)",
+      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 51.42857142857143
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 17.142857142857142
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 34.285714285714285
+        }
+      ]
+    },
+    "VehicleParts2AssemblyT2": {
+      "id": "VehicleParts2AssemblyT2",
+      "name": "Vehicle parts 2 assembly (T2)",
+      "linkId": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts2",
+          "quantity": 8
+        }
+      ]
+    },
+    "VehicleParts3AssemblyT2": {
+      "id": "VehicleParts3AssemblyT2",
+      "name": "Vehicle parts 3 assembly (T2)",
+      "linkId": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_VehicleParts2",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts3",
+          "quantity": 8
+        }
+      ]
+    },
+    "LabEquipment1AssemblyT3": {
+      "id": "LabEquipment1AssemblyT3",
+      "name": "Lab equipment 1 assembly (T3)",
+      "linkId": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 34.285714285714285
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 17.142857142857142
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 51.42857142857143
+        }
+      ]
+    },
+    "LabEquipment2AssemblyT3": {
+      "id": "LabEquipment2AssemblyT3",
+      "name": "Lab equipment 2 assembly (T2)",
+      "linkId": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Paper",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 24
+        }
+      ]
+    },
+    "LabEquipment3AssemblyT2": {
+      "id": "LabEquipment3AssemblyT2",
+      "name": "Lab equipment 3 assembly (T2)",
+      "linkId": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 24
+        }
+      ]
+    },
+    "LabEquipment4AssemblyT2": {
+      "id": "LabEquipment4AssemblyT2",
+      "name": "Lab equipment 4 assembly (T1)",
+      "linkId": "64870ec3ca95b40ca05d3303350551179ff02fab12fdcc87ca06824bca0652b6",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment4",
+          "quantity": 16
+        }
+      ]
+    },
+    "RailPartsAssemblyT2": {
+      "id": "RailPartsAssemblyT2",
+      "name": "Rail parts assembly",
+      "linkId": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RailParts",
+          "quantity": 32
+        }
+      ]
+    },
+    "HouseholdGoodsAssemblyT3": {
+      "id": "HouseholdGoodsAssemblyT3",
+      "name": "Household goods assembly (T3)",
+      "linkId": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 32
+        }
+      ]
+    },
+    "HouseholdAppliancesAssemblyT2": {
+      "id": "HouseholdAppliancesAssemblyT2",
+      "name": "Household appliances assembly (T2)",
+      "linkId": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HouseholdAppliances",
+          "quantity": 24
+        }
+      ]
+    },
+    "LuxuryGoodsAssemblyT2": {
+      "id": "LuxuryGoodsAssemblyT2",
+      "name": "Luxury goods assembly (T2)",
+      "linkId": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gold",
+          "quantity": 4
+        },
+        {
+          "id": "Product_ImportedGoods",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LuxuryGoods",
+          "quantity": 16
+        }
+      ]
+    },
+    "PCBAssemblyT2": {
+      "id": "PCBAssemblyT2",
+      "name": "PCB assembly (T2)",
+      "linkId": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_PCB",
+          "quantity": 24
+        }
+      ]
+    },
+    "ElectronicsAssemblyT4": {
+      "id": "ElectronicsAssemblyT4",
+      "name": "Electronics assembly (T4)",
+      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 48
+        }
+      ]
+    },
+    "Electronics2AssemblyT2": {
+      "id": "Electronics2AssemblyT2",
+      "name": "Electronics 2 assembly (T2)",
+      "linkId": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_PCB",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 24
+        },
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics2",
+          "quantity": 12
+        }
+      ]
+    },
+    "UraniumRodsAssemblyT2": {
+      "id": "UraniumRodsAssemblyT2",
+      "name": "Uranium rods (T2)",
+      "linkId": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumEnriched",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumRod",
+          "quantity": 4
+        }
+      ]
+    },
+    "UraniumEnrichedAssemblyT1": {
+      "id": "UraniumEnrichedAssemblyT1",
+      "name": "Uranium enriched (T1)",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Plutonium",
+          "quantity": 3
+        },
+        {
+          "id": "Product_UraniumEnriched",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumEnriched20",
+          "quantity": 3
+        }
+      ]
+    },
+    "SolarCellAssemblyT2": {
+      "id": "SolarCellAssemblyT2",
+      "name": "Solar cell assembly",
+      "linkId": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 1
+        },
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SolarCell",
+          "quantity": 8
+        }
+      ]
+    },
+    "Electronics3AssemblyRoboticT1": {
+      "id": "Electronics3AssemblyRoboticT1",
+      "name": "Electronics 3 assembly (T2)",
+      "linkId": "f8d0f30f3e0f4341cf4c4fc8eab24a27b7aa6e2d827f7bdd355a08998027ef8f",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Microchips",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics3",
+          "quantity": 3
+        }
+      ]
+    },
+    "ServerAssemblyT1": {
+      "id": "ServerAssemblyT1",
+      "name": "Server assembly (T2)",
+      "linkId": "a9a95e9d88038677eb58061438c82de10aaaf2711f9141d1e5a0872235880077",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Server",
+          "quantity": 2
+        }
+      ]
+    },
+    "MedicalEquipmentAssemblyT2": {
+      "id": "MedicalEquipmentAssemblyT2",
+      "name": "Medical equipment assembly (T2)",
+      "linkId": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalEquipment",
+          "quantity": 12
+        }
+      ]
+    },
+    "MedicalSuppliesAssemblyT2": {
+      "id": "MedicalSuppliesAssemblyT2",
+      "name": "Medical supplies assembly (T2)",
+      "linkId": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalEquipment",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Disinfectant",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies",
+          "quantity": 48
+        }
+      ]
+    },
+    "MedicalSupplies2AssemblyT2": {
+      "id": "MedicalSupplies2AssemblyT2",
+      "name": "Medical supplies assembly (T2)",
+      "linkId": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalSupplies",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Antibiotics",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 48
+        }
+      ]
+    },
+    "MedicalSupplies3AssemblyT2": {
+      "id": "MedicalSupplies3AssemblyT2",
+      "name": "Medical supplies III assembly (T2)",
+      "linkId": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Anesthetics",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Morphine",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies3",
+          "quantity": 48
+        }
+      ]
+    },
+    "FoodPackAssemblyMeatT2": {
+      "id": "FoodPackAssemblyMeatT2",
+      "name": "Food pack assembly (meat)",
+      "linkId": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Meat",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Bread",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 16
+        }
+      ]
+    },
+    "FoodPackAssemblyEggsT2": {
+      "id": "FoodPackAssemblyEggsT2",
+      "name": "Food pack assembly (eggs)",
+      "linkId": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Eggs",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Bread",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 16
+        }
+      ]
+    },
+    "FoodPackAssemblyTofuT2": {
+      "id": "FoodPackAssemblyTofuT2",
+      "name": "Food pack assembly (tofu)",
+      "linkId": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Tofu",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Vegetables",
+          "quantity": 32
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 16
+        }
+      ]
+    },
+    "OfficeSuppliesAssemblyT2": {
+      "id": "OfficeSuppliesAssemblyT2",
+      "name": "Office supplies assembly",
+      "linkId": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Paper",
+          "quantity": 12
+        },
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_OfficeSupplies",
+          "quantity": 24
+        }
+      ]
+    },
+    "CompositePanelAssemblyT2": {
+      "id": "CompositePanelAssemblyT2",
+      "name": "Composite panel assembly",
+      "linkId": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Aluminum",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 16
+        }
+      ]
+    },
+    "CompositeCoreBasicAssemblyT2": {
+      "id": "CompositeCoreBasicAssemblyT2",
+      "name": "Composite core (basic) assembly",
+      "linkId": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompositeBodyBasic",
+          "quantity": 8
+        }
+      ]
+    },
+    "StationPartsBasicAssemblyT2": {
+      "id": "StationPartsBasicAssemblyT2",
+      "name": "Station parts (basic) assembly",
+      "linkId": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositeBodyBasic",
+          "quantity": 8
+        },
+        {
+          "id": "Product_SolarCell",
+          "quantity": 4
+        },
+        {
+          "id": "Product_ChemicalFuel",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SpaceStationParts1",
+          "quantity": 4
+        }
+      ]
+    },
+    "CrewSuppliesAssemblyT2": {
+      "id": "CrewSuppliesAssemblyT2",
+      "name": "Crew supplies assembly",
+      "linkId": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
+      "machine": "AssemblyRoboticT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 4
+        },
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CrewSupplies",
+          "quantity": 8
+        }
+      ]
+    },
+    "CpAssemblyT3": {
+      "id": "CpAssemblyT3",
+      "name": "CP assembly (T3)",
+      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 18
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 24
+        }
+      ]
+    },
+    "CpAssemblySteelT3": {
+      "id": "CpAssemblySteelT3",
+      "name": "CP assembly steel (T1)",
+      "linkId": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 12
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 24
+        }
+      ]
+    },
+    "Cp2AssemblyT3": {
+      "id": "Cp2AssemblyT3",
+      "name": "CP2 assembly (T2)",
+      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 12
+        }
+      ]
+    },
+    "Cp3AssemblyT2": {
+      "id": "Cp3AssemblyT2",
+      "name": "CP3 assembly (T2)",
+      "linkId": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 6
+        }
+      ]
+    },
+    "Cp4AssemblyElectrifiedT2": {
+      "id": "Cp4AssemblyElectrifiedT2",
+      "name": "CP4 assembly (T1)",
+      "linkId": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 80,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts4",
+          "quantity": 3
+        }
+      ]
+    },
+    "MechPartsAssemblyT3Iron": {
+      "id": "MechPartsAssemblyT3Iron",
+      "name": "Mech. parts assembly (T3-1)",
+      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 30
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 24
+        }
+      ]
+    },
+    "MechPartsAssemblyT3": {
+      "id": "MechPartsAssemblyT3",
+      "name": "Mech. parts assembly (T3-2)",
+      "linkId": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 24
+        }
+      ]
+    },
+    "VehicleParts1AssemblyT3": {
+      "id": "VehicleParts1AssemblyT3",
+      "name": "Vehicle parts assembly (T3)",
+      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 25.714285714285715
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 8.571428571428571
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 17.142857142857142
+        }
+      ]
+    },
+    "VehicleParts2AssemblyT1": {
+      "id": "VehicleParts2AssemblyT1",
+      "name": "Vehicle parts 2 assembly (T1)",
+      "linkId": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts2",
+          "quantity": 4
+        }
+      ]
+    },
+    "VehicleParts3AssemblyT1": {
+      "id": "VehicleParts3AssemblyT1",
+      "name": "Vehicle parts 3 assembly (T1)",
+      "linkId": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_VehicleParts2",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts3",
+          "quantity": 4
+        }
+      ]
+    },
+    "LabEquipment1AssemblyT2": {
+      "id": "LabEquipment1AssemblyT2",
+      "name": "Lab equipment 1 assembly (T2)",
+      "linkId": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 24
+        }
+      ]
+    },
+    "LabEquipment2AssemblyT2": {
+      "id": "LabEquipment2AssemblyT2",
+      "name": "Lab equipment 2 assembly (T1)",
+      "linkId": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Paper",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 12
+        }
+      ]
+    },
+    "LabEquipment3AssemblyT1": {
+      "id": "LabEquipment3AssemblyT1",
+      "name": "Lab equipment 3 assembly (T1)",
+      "linkId": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 12
+        }
+      ]
+    },
+    "RailPartsAssemblyT1": {
+      "id": "RailPartsAssemblyT1",
+      "name": "Rail parts assembly",
+      "linkId": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RailParts",
+          "quantity": 16
+        }
+      ]
+    },
+    "HouseholdGoodsAssemblyT2": {
+      "id": "HouseholdGoodsAssemblyT2",
+      "name": "Household goods assembly (T2)",
+      "linkId": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 16
+        }
+      ]
+    },
+    "HouseholdAppliancesAssemblyT1": {
+      "id": "HouseholdAppliancesAssemblyT1",
+      "name": "Household appliances assembly (T1)",
+      "linkId": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HouseholdAppliances",
+          "quantity": 12
+        }
+      ]
+    },
+    "LuxuryGoodsAssemblyT1": {
+      "id": "LuxuryGoodsAssemblyT1",
+      "name": "Luxury goods assembly (T1)",
+      "linkId": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gold",
+          "quantity": 2
+        },
+        {
+          "id": "Product_ImportedGoods",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LuxuryGoods",
+          "quantity": 8
+        }
+      ]
+    },
+    "PCBAssemblyT1": {
+      "id": "PCBAssemblyT1",
+      "name": "PCB assembly (T1)",
+      "linkId": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_PCB",
+          "quantity": 12
+        }
+      ]
+    },
+    "ElectronicsAssemblyT3": {
+      "id": "ElectronicsAssemblyT3",
+      "name": "Electronics assembly (T3)",
+      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 24
+        }
+      ]
+    },
+    "Electronics2AssemblyT1": {
+      "id": "Electronics2AssemblyT1",
+      "name": "Electronics 2 assembly (T1)",
+      "linkId": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_PCB",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 12
+        },
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics2",
+          "quantity": 6
+        }
+      ]
+    },
+    "UraniumRodsAssemblyT1": {
+      "id": "UraniumRodsAssemblyT1",
+      "name": "Uranium rods (T1)",
+      "linkId": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumEnriched",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumRod",
+          "quantity": 2
+        }
+      ]
+    },
+    "SolarCellAssemblyT1": {
+      "id": "SolarCellAssemblyT1",
+      "name": "Solar cell assembly",
+      "linkId": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 120,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 0.5
+        },
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SolarCell",
+          "quantity": 4
+        }
+      ]
+    },
+    "MedicalEquipmentAssemblyT1": {
+      "id": "MedicalEquipmentAssemblyT1",
+      "name": "Medical equipment assembly (T1)",
+      "linkId": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalEquipment",
+          "quantity": 6
+        }
+      ]
+    },
+    "MedicalSuppliesAssemblyT1": {
+      "id": "MedicalSuppliesAssemblyT1",
+      "name": "Medical supplies assembly (T1)",
+      "linkId": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalEquipment",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Disinfectant",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies",
+          "quantity": 24
+        }
+      ]
+    },
+    "MedicalSupplies2AssemblyT1": {
+      "id": "MedicalSupplies2AssemblyT1",
+      "name": "Medical supplies assembly (T1)",
+      "linkId": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalSupplies",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Antibiotics",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 24
+        }
+      ]
+    },
+    "MedicalSupplies3AssemblyT1": {
+      "id": "MedicalSupplies3AssemblyT1",
+      "name": "Medical supplies III assembly (T1)",
+      "linkId": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Anesthetics",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Morphine",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MedicalSupplies3",
+          "quantity": 24
+        }
+      ]
+    },
+    "FoodPackAssemblyMeat": {
+      "id": "FoodPackAssemblyMeat",
+      "name": "Food pack assembly (meat)",
+      "linkId": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Meat",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Bread",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 8
+        }
+      ]
+    },
+    "FoodPackAssemblyEggs": {
+      "id": "FoodPackAssemblyEggs",
+      "name": "Food pack assembly (eggs)",
+      "linkId": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Eggs",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Bread",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 8
+        }
+      ]
+    },
+    "FoodPackAssemblyTofu": {
+      "id": "FoodPackAssemblyTofu",
+      "name": "Food pack assembly (tofu)",
+      "linkId": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Tofu",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Vegetables",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 8
+        }
+      ]
+    },
+    "OfficeSuppliesAssemblyT1": {
+      "id": "OfficeSuppliesAssemblyT1",
+      "name": "Office supplies assembly",
+      "linkId": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Paper",
+          "quantity": 6
+        },
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_OfficeSupplies",
+          "quantity": 12
+        }
+      ]
+    },
+    "CompositePanelAssemblyT1": {
+      "id": "CompositePanelAssemblyT1",
+      "name": "Composite panel assembly",
+      "linkId": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Aluminum",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 8
+        }
+      ]
+    },
+    "CompositeCoreBasicAssemblyT1": {
+      "id": "CompositeCoreBasicAssemblyT1",
+      "name": "Composite core (basic) assembly",
+      "linkId": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CompositeBodyBasic",
+          "quantity": 4
+        }
+      ]
+    },
+    "StationPartsBasicAssemblyT1": {
+      "id": "StationPartsBasicAssemblyT1",
+      "name": "Station parts (basic) assembly",
+      "linkId": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CompositeBodyBasic",
+          "quantity": 4
+        },
+        {
+          "id": "Product_SolarCell",
+          "quantity": 2
+        },
+        {
+          "id": "Product_ChemicalFuel",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SpaceStationParts1",
+          "quantity": 2
+        }
+      ]
+    },
+    "CrewSuppliesAssemblyT1": {
+      "id": "CrewSuppliesAssemblyT1",
+      "name": "Crew supplies assembly",
+      "linkId": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
+      "machine": "AssemblyElectrifiedT2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FoodPack",
+          "quantity": 2
+        },
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CrewSupplies",
+          "quantity": 4
+        }
+      ]
+    },
+    "CpAssemblyT2": {
+      "id": "CpAssemblyT2",
+      "name": "CP assembly (T2)",
+      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "machine": "AssemblyElectrified",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 9
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 12
+        }
+      ]
+    },
+    "Cp2AssemblyT2": {
+      "id": "Cp2AssemblyT2",
+      "name": "CP2 assembly (T1)",
+      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "machine": "AssemblyElectrified",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 6
+        }
+      ]
+    },
+    "Cp3AssemblyT1": {
+      "id": "Cp3AssemblyT1",
+      "name": "CP3 assembly (T1)",
+      "linkId": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
+      "machine": "AssemblyElectrified",
+      "origDuration": 80,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 3
+        }
+      ]
+    },
+    "MechPartsAssemblyT2": {
+      "id": "MechPartsAssemblyT2",
+      "name": "Mech. parts assembly (T2)",
+      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "machine": "AssemblyElectrified",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 15
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 12
+        }
+      ]
+    },
+    "VehicleParts1AssemblyT2": {
+      "id": "VehicleParts1AssemblyT2",
+      "name": "Vehicle parts assembly (T2)",
+      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "machine": "AssemblyElectrified",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 8
+        }
+      ]
+    },
+    "LabEquipment1AssemblyT1": {
+      "id": "LabEquipment1AssemblyT1",
+      "name": "Lab equipment 1 assembly (T1)",
+      "linkId": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
+      "machine": "AssemblyElectrified",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 12
+        }
+      ]
+    },
+    "HouseholdGoodsAssemblyT1": {
+      "id": "HouseholdGoodsAssemblyT1",
+      "name": "Household goods assembly (T1)",
+      "linkId": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
+      "machine": "AssemblyElectrified",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 8
+        }
+      ]
+    },
+    "ElectronicsAssemblyT2": {
+      "id": "ElectronicsAssemblyT2",
+      "name": "Electronics assembly (T2)",
+      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "machine": "AssemblyElectrified",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 12
+        }
+      ]
+    },
+    "CpAssemblyT1": {
+      "id": "CpAssemblyT1",
+      "name": "CP assembly (T1)",
+      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "machine": "AssemblyManual",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 4.5
+        },
+        {
+          "id": "Product_Wood",
+          "quantity": 4.5
+        },
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 6
+        }
+      ]
+    },
+    "Cp2AssemblyT1": {
+      "id": "Cp2AssemblyT1",
+      "name": "CP2 assembly (T1)",
+      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "machine": "AssemblyManual",
+      "origDuration": 80,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 3
+        }
+      ]
+    },
+    "MechPartsAssemblyT1": {
+      "id": "MechPartsAssemblyT1",
+      "name": "Mech. parts assembly (T1)",
+      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "machine": "AssemblyManual",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 7.5
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 6
+        }
+      ]
+    },
+    "VehicleParts1AssemblyT1": {
+      "id": "VehicleParts1AssemblyT1",
+      "name": "Vehicle parts assembly (T1)",
+      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "machine": "AssemblyManual",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_VehicleParts",
+          "quantity": 4
+        }
+      ]
+    },
+    "ElectronicsAssemblyT1": {
+      "id": "ElectronicsAssemblyT1",
+      "name": "Electronics assembly (T1)",
+      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "machine": "AssemblyManual",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Electronics",
+          "quantity": 4
+        }
+      ]
+    },
+    "ConcreteMixingSlagT3": {
+      "id": "ConcreteMixingSlagT3",
+      "name": "Concrete mixing",
+      "machine": "ConcreteMixerT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 12
+        },
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 48
+        }
+      ]
+    },
+    "ConcreteMixingGravelT3": {
+      "id": "ConcreteMixingGravelT3",
+      "name": "Concrete mixing",
+      "machine": "ConcreteMixerT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Gravel",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 48
+        }
+      ]
+    },
+    "ConcreteMixingSlagMT3": {
+      "id": "ConcreteMixingSlagMT3",
+      "name": "Concrete mixing",
+      "machine": "ConcreteMixerT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 6
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 12
+        },
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 48
+        }
+      ]
+    },
+    "ConcreteMixingGravelMT3": {
+      "id": "ConcreteMixingGravelMT3",
+      "name": "Concrete mixing",
+      "machine": "ConcreteMixerT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 6
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Gravel",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 48
+        }
+      ]
+    },
+    "ConcreteMixingSlagT2": {
+      "id": "ConcreteMixingSlagT2",
+      "name": "Concrete mixing",
+      "linkId": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
+      "machine": "ConcreteMixerT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 6
+        },
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 24
+        }
+      ]
+    },
+    "ConcreteMixingGravelT2": {
+      "id": "ConcreteMixingGravelT2",
+      "name": "Concrete mixing",
+      "linkId": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
+      "machine": "ConcreteMixerT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Gravel",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 24
+        }
+      ]
+    },
+    "ConcreteMixingSlagMT2": {
+      "id": "ConcreteMixingSlagMT2",
+      "name": "Concrete mixing",
+      "linkId": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
+      "machine": "ConcreteMixerT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 3
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 6
+        },
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 24
+        }
+      ]
+    },
+    "ConcreteMixingGravelMT2": {
+      "id": "ConcreteMixingGravelMT2",
+      "name": "Concrete mixing",
+      "linkId": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
+      "machine": "ConcreteMixerT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 3
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Gravel",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 24
+        }
+      ]
+    },
+    "ConcreteMixingSlag": {
+      "id": "ConcreteMixingSlag",
+      "name": "Concrete mixing",
+      "linkId": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
+      "machine": "ConcreteMixer",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 1.5
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 3
+        },
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 12
+        }
+      ]
+    },
+    "ConcreteMixingGravel": {
+      "id": "ConcreteMixingGravel",
+      "name": "Concrete mixing",
+      "linkId": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
+      "machine": "ConcreteMixer",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 1.5
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Gravel",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 12
+        }
+      ]
+    },
+    "ConcreteMixingGravelM": {
+      "id": "ConcreteMixingGravelM",
+      "name": "Concrete mixing",
+      "linkId": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
+      "machine": "ConcreteMixer",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 1.5
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Gravel",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 12
+        }
+      ]
+    },
+    "ConcreteMixingSlagM": {
+      "id": "ConcreteMixingSlagM",
+      "name": "Concrete mixing",
+      "linkId": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
+      "machine": "ConcreteMixer",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 1.5
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 3
+        },
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ConcreteSlab",
+          "quantity": 12
+        }
+      ]
+    },
+    "CementProductionGas": {
+      "id": "CementProductionGas",
+      "name": "Cement production",
+      "machine": "RotaryKilnGas",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Limestone",
+          "quantity": 18
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 6
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 18
+        }
+      ]
+    },
+    "CementProductionHydrogen": {
+      "id": "CementProductionHydrogen",
+      "name": "Cement production",
+      "machine": "RotaryKilnGas",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Limestone",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 6
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 4.5
+        }
+      ]
+    },
+    "AluminaCalcificationGas": {
+      "id": "AluminaCalcificationGas",
+      "name": "Alumina calcification",
+      "machine": "RotaryKilnGas",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_HydratedAlumina",
+          "quantity": 36
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Alumina",
+          "quantity": 24
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 6
+        }
+      ]
+    },
+    "AluminaCalcificationHydrogen": {
+      "id": "AluminaCalcificationHydrogen",
+      "name": "Alumina calcification",
+      "machine": "RotaryKilnGas",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_HydratedAlumina",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Alumina",
+          "quantity": 24
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 12
+        }
+      ]
+    },
+    "CementProduction": {
+      "id": "CementProduction",
+      "name": "Cement production",
+      "machine": "RotaryKiln",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Limestone",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 1.5
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Cement",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 9
+        }
+      ]
+    },
+    "DiamondSynthesis": {
+      "id": "DiamondSynthesis",
+      "name": "Diamond synthesis",
+      "machine": "DiamondReactor",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Graphite",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diamond",
+          "quantity": 2
+        }
+      ]
+    },
+    "LensMaking": {
+      "id": "LensMaking",
+      "name": "Lens making",
+      "machine": "LensMaker",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SapphireWafer",
+          "quantity": 2
+        },
+        {
+          "id": "Product_DiamondPaste",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Ethanol",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Lens",
+          "quantity": 2
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage1A": {
+      "id": "MicrochipMachineT2_MicrochipProdStage1A",
+      "name": "Microchip manufacturing stage 1A",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SiliconWafer",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage1A",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage2A": {
+      "id": "MicrochipMachineT2_MicrochipProdStage2A",
+      "name": "Microchip manufacturing stage 2A",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage1A",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage1B",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage3A": {
+      "id": "MicrochipMachineT2_MicrochipProdStage3A",
+      "name": "Microchip manufacturing stage 3A",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage1B",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage1C",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage1B": {
+      "id": "MicrochipMachineT2_MicrochipProdStage1B",
+      "name": "Microchip manufacturing stage 1B",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage1C",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage2A",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage2B": {
+      "id": "MicrochipMachineT2_MicrochipProdStage2B",
+      "name": "Microchip manufacturing stage 2B",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage2A",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage2B",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage3B": {
+      "id": "MicrochipMachineT2_MicrochipProdStage3B",
+      "name": "Microchip manufacturing stage 3B",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage2B",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage2C",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage1C": {
+      "id": "MicrochipMachineT2_MicrochipProdStage1C",
+      "name": "Microchip manufacturing stage 1C",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage2C",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage3A",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage2C": {
+      "id": "MicrochipMachineT2_MicrochipProdStage2C",
+      "name": "Microchip manufacturing stage 2C",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage3A",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage3B",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage3C": {
+      "id": "MicrochipMachineT2_MicrochipProdStage3C",
+      "name": "Microchip manufacturing stage 3C",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage3B",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage3C",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage1D": {
+      "id": "MicrochipMachineT2_MicrochipProdStage1D",
+      "name": "Microchip manufacturing stage 1D",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage3C",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage4A",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdStage2D": {
+      "id": "MicrochipMachineT2_MicrochipProdStage2D",
+      "name": "Microchip manufacturing stage 2D",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage4A",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage4B",
+          "quantity": 18
+        }
+      ]
+    },
+    "MicrochipMachineT2_MicrochipProdFinalStage": {
+      "id": "MicrochipMachineT2_MicrochipProdFinalStage",
+      "name": "Microchip manufacturing final stage",
+      "machine": "MicrochipMachineT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage4B",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Microchips",
+          "quantity": 36
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage1A": {
+      "id": "MicrochipMachine_MicrochipProdStage1A",
+      "name": "Microchip manufacturing stage 1A",
+      "linkId": "602c3aa3553b64080a16f9b5fdecbee83f710f63a618d11573f7f3eff2ccf8fb",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SiliconWafer",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage1A",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage2A": {
+      "id": "MicrochipMachine_MicrochipProdStage2A",
+      "name": "Microchip manufacturing stage 2A",
+      "linkId": "77836ad865f13b554001b811e9794c48a9c67d4b101550522265429dcaa1c6c3",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage1A",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage1B",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage3A": {
+      "id": "MicrochipMachine_MicrochipProdStage3A",
+      "name": "Microchip manufacturing stage 3A",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage1B",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage1C",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage1B": {
+      "id": "MicrochipMachine_MicrochipProdStage1B",
+      "name": "Microchip manufacturing stage 1B",
+      "linkId": "9855a0d77e8813e530fed183ca429c7042f19ca6d8d1f69479c65071365683d0",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage1C",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage2A",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage2B": {
+      "id": "MicrochipMachine_MicrochipProdStage2B",
+      "name": "Microchip manufacturing stage 2B",
+      "linkId": "38f05198de249595593afbb3bf1c6ad36337cfd55315a643886cbcdf6db51673",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage2A",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage2B",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage3B": {
+      "id": "MicrochipMachine_MicrochipProdStage3B",
+      "name": "Microchip manufacturing stage 3B",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage2B",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage2C",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage1C": {
+      "id": "MicrochipMachine_MicrochipProdStage1C",
+      "name": "Microchip manufacturing stage 1C",
+      "linkId": "0f3dbbf2a4dca80bc498b151d12a2b034b96fced8464783614d89e2f5774d0fd",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage2C",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage3A",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage2C": {
+      "id": "MicrochipMachine_MicrochipProdStage2C",
+      "name": "Microchip manufacturing stage 2C",
+      "linkId": "be03e21c9d3a7e3ba2e90d9450e577a1313a5e1055710486e2a270d85aaba56b",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage3A",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage3B",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage3C": {
+      "id": "MicrochipMachine_MicrochipProdStage3C",
+      "name": "Microchip manufacturing stage 3C",
+      "linkId": "711dae2449c07b775555c4ff375f88fa66d690e6259c83d06799512fe8754cca",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage3B",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage3C",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage1D": {
+      "id": "MicrochipMachine_MicrochipProdStage1D",
+      "name": "Microchip manufacturing stage 1D",
+      "linkId": "c2c3eedad26587edbce8e5bcb57edb3ba3f069b59e5a0e9535c20f3781a981cd",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage3C",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage4A",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdStage2D": {
+      "id": "MicrochipMachine_MicrochipProdStage2D",
+      "name": "Microchip manufacturing stage 2D",
+      "linkId": "fad0a5d9b8377d105ce54599da38541af927af2147751a5c575ec4cdd812681c",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage4A",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Copper",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MicrochipsStage4B",
+          "quantity": 6
+        }
+      ]
+    },
+    "MicrochipMachine_MicrochipProdFinalStage": {
+      "id": "MicrochipMachine_MicrochipProdFinalStage",
+      "name": "Microchip manufacturing final stage",
+      "linkId": "a31750c8408d2b4dcb3be51eb8d293767596cd4a7fd0532439716719678c4d0d",
+      "machine": "MicrochipMachine",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MicrochipsStage4B",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Gold",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Microchips",
+          "quantity": 12
+        }
+      ]
+    },
+    "BrineElectrolysisT2": {
+      "id": "BrineElectrolysisT2",
+      "name": "Brine electrolysis",
+      "machine": "ElectrolyzerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Chlorine",
+          "quantity": 48
+        }
+      ]
+    },
+    "WaterElectrolysisT2": {
+      "id": "WaterElectrolysisT2",
+      "name": "Water electrolysis",
+      "machine": "ElectrolyzerT2",
+      "origDuration": 7,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 8.571428571428571
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Oxygen",
+          "quantity": 34.285714285714285
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 17.142857142857142
+        }
+      ]
+    },
+    "AmmoniaElectrolysisT2": {
+      "id": "AmmoniaElectrolysisT2",
+      "name": "Ammonia electrolysis",
+      "machine": "ElectrolyzerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Nitrogen",
+          "quantity": 96
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 48
+        }
+      ]
+    },
+    "BrineElectrolysis": {
+      "id": "BrineElectrolysis",
+      "name": "Brine electrolysis",
+      "linkId": "49cf55c5b42c28fccc746d6b786ff962a2cd8d626338881c71d0237bae6b5115",
+      "machine": "Electrolyzer",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Chlorine",
+          "quantity": 12
+        }
+      ]
+    },
+    "WaterElectrolysis": {
+      "id": "WaterElectrolysis",
+      "name": "Water electrolysis",
+      "linkId": "7d939d18d8d8fdcf84860e285271f3ae2892eeaa438b987418d143e44efe0704",
+      "machine": "Electrolyzer",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Oxygen",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 4
+        }
+      ]
+    },
+    "AmmoniaElectrolysis": {
+      "id": "AmmoniaElectrolysis",
+      "name": "Ammonia electrolysis",
+      "linkId": "d001302f2d7308a4bc35b45cd5707e8c6b8691ddd8cda0872b7658c340c124d7",
+      "machine": "Electrolyzer",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Nitrogen",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 12
+        }
+      ]
+    },
+    "SugarToEthanolFermentation": {
+      "id": "SugarToEthanolFermentation",
+      "name": "Ethanol making (sugar)",
+      "machine": "FermentationTank",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sugar",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 12
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 16
+        }
+      ]
+    },
+    "CornToEthanolFermentation": {
+      "id": "CornToEthanolFermentation",
+      "name": "Ethanol making (corn)",
+      "machine": "FermentationTank",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CornMash",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 8
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 12
+        }
+      ]
+    },
+    "AntibioticsFermentation": {
+      "id": "AntibioticsFermentation",
+      "name": "Antibiotics",
+      "machine": "FermentationTank",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sugar",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Ammonia",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Antibiotics",
+          "quantity": 8
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 4
+        }
+      ]
+    },
+    "GoldSettling": {
+      "id": "GoldSettling",
+      "name": "Gold settling",
+      "machine": "SettlingTank",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldOrePowder",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GoldOreConcentrate",
+          "quantity": 9
+        },
+        {
+          "id": "Product_ToxicSlurry",
+          "quantity": 27
+        }
+      ]
+    },
+    "UraniumLeaching": {
+      "id": "UraniumLeaching",
+      "name": "Uranium leaching",
+      "machine": "SettlingTank",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumOreCrushed",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Yellowcake",
+          "quantity": 6
+        },
+        {
+          "id": "Product_ToxicSlurry",
+          "quantity": 36
+        }
+      ]
+    },
+    "FluorideLeaching": {
+      "id": "FluorideLeaching",
+      "name": "Fluoride leaching",
+      "machine": "SettlingTank",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rock",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HydrogenFluoride",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 3
+        }
+      ]
+    },
+    "RedMudSettling": {
+      "id": "RedMudSettling",
+      "name": "Red mud settling",
+      "machine": "SettlingTank",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_RedMud",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Seawater",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Slag",
+          "quantity": 12
+        }
+      ]
+    },
+    "RedMudSettlingAcid": {
+      "id": "RedMudSettlingAcid",
+      "name": "Red mud settling (acid)",
+      "machine": "SettlingTank",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_RedMud",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Slag",
+          "quantity": 8
+        },
+        {
+          "id": "Product_IronOreCrushed",
+          "quantity": 4
+        }
+      ]
+    },
+    "SteamHpCondensation": {
+      "id": "SteamHpCondensation",
+      "name": "Hi-press steam condensation",
+      "machine": "CoolingTowerT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ]
+    },
+    "SteamLpCondensation": {
+      "id": "SteamLpCondensation",
+      "name": "Lo-press steam condensation",
+      "machine": "CoolingTowerT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ]
+    },
+    "SteamDepletedCondensation": {
+      "id": "SteamDepletedCondensation",
+      "name": "Depleted steam condensation",
+      "machine": "CoolingTowerT1",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ]
+    },
+    "SteamSpCondensationT2": {
+      "id": "SteamSpCondensationT2",
+      "name": "Super-press steam condensation",
+      "machine": "CoolingTowerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        }
+      ]
+    },
+    "SteamHpCondensationT2": {
+      "id": "SteamHpCondensationT2",
+      "name": "Hi-press steam condensation",
+      "machine": "CoolingTowerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 60
+        }
+      ]
+    },
+    "SteamLpCondensationT2": {
+      "id": "SteamLpCondensationT2",
+      "name": "Lo-press steam condensation",
+      "machine": "CoolingTowerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 72
+        }
+      ]
+    },
+    "SteamDepletedCondensationT2": {
+      "id": "SteamDepletedCondensationT2",
+      "name": "Depleted steam condensation",
+      "machine": "CoolingTowerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 72
+        }
+      ]
+    },
+    "UraniumEnrichment": {
+      "id": "UraniumEnrichment",
+      "name": "Uranium enrichment",
+      "machine": "UraniumEnrichmentPlant",
+      "origDuration": 120,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Yellowcake",
+          "quantity": 3
+        },
+        {
+          "id": "Product_HydrogenFluoride",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumEnriched",
+          "quantity": 0.5
+        },
+        {
+          "id": "Product_UraniumDepleted",
+          "quantity": 2.5
+        }
+      ]
+    },
+    "ReprocessedUraniumEnrichment": {
+      "id": "ReprocessedUraniumEnrichment",
+      "name": "Uranium enrichment",
+      "machine": "UraniumEnrichmentPlant",
+      "origDuration": 120,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumReprocessed",
+          "quantity": 2
+        },
+        {
+          "id": "Product_HydrogenFluoride",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumEnriched",
+          "quantity": 0.5
+        },
+        {
+          "id": "Product_UraniumDepleted",
+          "quantity": 1.5
+        }
+      ]
+    },
+    "UraniumEnrichment20": {
+      "id": "UraniumEnrichment20",
+      "name": "Uranium enrichment",
+      "machine": "UraniumEnrichmentPlant",
+      "origDuration": 120,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumEnriched",
+          "quantity": 2.5
+        },
+        {
+          "id": "Product_HydrogenFluoride",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumEnriched20",
+          "quantity": 0.5
+        },
+        {
+          "id": "Product_UraniumDepleted",
+          "quantity": 2
+        }
+      ]
+    },
+    "BlanketFuelReprocessing": {
+      "id": "BlanketFuelReprocessing",
+      "name": "Blanket fuel reprocessing",
+      "machine": "UraniumEnrichmentPlant",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BlanketFuelEnriched",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 6
+        },
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 2
+        }
+      ]
+    },
+    "BlanketFuelReprocessingToPu": {
+      "id": "BlanketFuelReprocessingToPu",
+      "name": "Blanket fuel reprocessing into Pu",
+      "machine": "UraniumEnrichmentPlant",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BlanketFuelEnriched",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Plutonium",
+          "quantity": 1
+        }
+      ]
+    },
+    "BlanketFuelReprocessingToU30": {
+      "id": "BlanketFuelReprocessingToU30",
+      "name": "Blanket fuel reprocessing into U20",
+      "machine": "UraniumEnrichmentPlant",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BlanketFuelEnriched",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_UraniumEnriched20",
+          "quantity": 2
+        }
+      ]
+    },
+    "SpentFuelReprocessing": {
+      "id": "SpentFuelReprocessing",
+      "name": "Spent fuel reprocessing",
+      "machine": "NuclearReprocessingPlant",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SpentFuel",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        },
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumReprocessed",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Plutonium",
+          "quantity": 1
+        },
+        {
+          "id": "Product_FissionProduct",
+          "quantity": 2
+        }
+      ]
+    },
+    "SpentFuelToBlanket": {
+      "id": "SpentFuelToBlanket",
+      "name": "Spent fuel to blanket",
+      "machine": "NuclearReprocessingPlant",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SpentFuel",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 2
+        },
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 2
+        },
+        {
+          "id": "Product_FissionProduct",
+          "quantity": 2
+        }
+      ]
+    },
+    "SpentMoxToBlanket": {
+      "id": "SpentMoxToBlanket",
+      "name": "Spent mox to blanket",
+      "machine": "NuclearReprocessingPlant",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SpentMox",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 2
+        },
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 2
+        },
+        {
+          "id": "Product_FissionProduct",
+          "quantity": 2
+        }
+      ]
+    },
+    "CoreFuelReprocessing": {
+      "id": "CoreFuelReprocessing",
+      "name": "Core fuel reprocessing",
+      "machine": "NuclearReprocessingPlant",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CoreFuelDirty",
+          "quantity": 16
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 2
+        },
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_FissionProduct",
+          "quantity": 2
+        }
+      ]
+    },
+    "CharcoalBurning": {
+      "id": "CharcoalBurning",
+      "name": "Charcoal making",
+      "machine": "CharcoalMaker",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Wood",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Coal",
+          "quantity": 7.5
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "IronOreCrushing": {
+      "id": "IronOreCrushing",
+      "name": "Iron ore crushing",
+      "machine": "Crusher",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronOre",
+          "quantity": 32
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_IronOreCrushed",
+          "quantity": 32
+        }
+      ]
+    },
+    "CopperOreCrushing": {
+      "id": "CopperOreCrushing",
+      "name": "Copper ore crushing",
+      "machine": "Crusher",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperOre",
+          "quantity": 32
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CopperOreCrushed",
+          "quantity": 32
+        }
+      ]
+    },
+    "SlagCrushing": {
+      "id": "SlagCrushing",
+      "name": "Slag crushing",
+      "machine": "Crusher",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Slag",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 24
+        }
+      ]
+    },
+    "RockCrushing": {
+      "id": "RockCrushing",
+      "name": "Rock crushing",
+      "machine": "Crusher",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rock",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 24
+        }
+      ]
+    },
+    "GravelCrushing": {
+      "id": "GravelCrushing",
+      "name": "Gravel milling",
+      "machine": "Crusher",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 8
+        }
+      ]
+    },
+    "QuartzCrushing": {
+      "id": "QuartzCrushing",
+      "name": "Quartz crushing",
+      "machine": "Crusher",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Quartz",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_QuartzCrushed",
+          "quantity": 48
+        }
+      ]
+    },
+    "QuartzMilling": {
+      "id": "QuartzMilling",
+      "name": "Quartz milling",
+      "machine": "Crusher",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_QuartzCrushed",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 16
+        }
+      ]
+    },
+    "UraniumCrushing": {
+      "id": "UraniumCrushing",
+      "name": "Uranium crushing",
+      "machine": "Crusher",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumOre",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumOreCrushed",
+          "quantity": 12
+        }
+      ]
+    },
+    "GoldOreCrushing": {
+      "id": "GoldOreCrushing",
+      "name": "Gold ore crushing",
+      "machine": "Crusher",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldOre",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GoldOreCrushed",
+          "quantity": 24
+        }
+      ]
+    },
+    "GoldMilling": {
+      "id": "GoldMilling",
+      "name": "Gold ore milling",
+      "machine": "Crusher",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldOreCrushed",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GoldOrePowder",
+          "quantity": 12
+        }
+      ]
+    },
+    "BauxiteMilling": {
+      "id": "BauxiteMilling",
+      "name": "Bauxite milling",
+      "machine": "Crusher",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Bauxite",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BauxitePowder",
+          "quantity": 12
+        }
+      ]
+    },
+    "IlmeniteMilling": {
+      "id": "IlmeniteMilling",
+      "name": "Titanium ore crushing",
+      "machine": "Crusher",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumOre",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TitaniumOreCrushed",
+          "quantity": 16
+        }
+      ]
+    },
+    "IronOreCrushingT2": {
+      "id": "IronOreCrushingT2",
+      "name": "Iron ore crushing",
+      "linkId": "6afe2a85405298af9cdbfc6c488cc5737379221f41d51224bee838240b3d15dc",
+      "machine": "CrusherLarge",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronOre",
+          "quantity": 192
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_IronOreCrushed",
+          "quantity": 192
+        }
+      ]
+    },
+    "CopperOreCrushingT2": {
+      "id": "CopperOreCrushingT2",
+      "name": "Copper ore crushing",
+      "linkId": "87b666b7aa058b333678081d1f34f0b7f8725517aa831e57fc9b4cceb8b14f86",
+      "machine": "CrusherLarge",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperOre",
+          "quantity": 192
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CopperOreCrushed",
+          "quantity": 192
+        }
+      ]
+    },
+    "SlagCrushingT2": {
+      "id": "SlagCrushingT2",
+      "name": "Slag crushing",
+      "linkId": "5aab0d371d81ea4a6519ae30ecc01546659a76dce8f447be019773416466a4e8",
+      "machine": "CrusherLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Slag",
+          "quantity": 144
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SlagCrushed",
+          "quantity": 144
+        }
+      ]
+    },
+    "RockCrushingT2": {
+      "id": "RockCrushingT2",
+      "name": "Rock crushing",
+      "linkId": "bdec09729bd5bf2702bc1fa7dc4169c154ee903cf41b009c0fec19a52cd6ab0f",
+      "machine": "CrusherLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Rock",
+          "quantity": 144
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 144
+        }
+      ]
+    },
+    "GravelCrushingT2": {
+      "id": "GravelCrushingT2",
+      "name": "Gravel milling",
+      "linkId": "fafd2386259eaa9db726e7068025abbbfdd4b2c9160fdd144019e1342f40d419",
+      "machine": "CrusherLarge",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 48
+        }
+      ]
+    },
+    "QuartzCrushingT2": {
+      "id": "QuartzCrushingT2",
+      "name": "Quartz crushing",
+      "linkId": "5ca9a29b789e1812f5751e1556631da2ea7ca56a1ae562598a9114b2b2ea8639",
+      "machine": "CrusherLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Quartz",
+          "quantity": 288
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_QuartzCrushed",
+          "quantity": 288
+        }
+      ]
+    },
+    "QuartzMillingT2": {
+      "id": "QuartzMillingT2",
+      "name": "Quartz milling",
+      "linkId": "aab9a915580887fb1704382e929d53f92efb7c672829f996e88fbe3a51f13dab",
+      "machine": "CrusherLarge",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_QuartzCrushed",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 96
+        }
+      ]
+    },
+    "UraniumCrushingT2": {
+      "id": "UraniumCrushingT2",
+      "name": "Uranium crushing",
+      "linkId": "2b5bcdaff16c840507bdc924f18a0c6a834c88adf9393114000a43565788d4d9",
+      "machine": "CrusherLarge",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumOre",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_UraniumOreCrushed",
+          "quantity": 72
+        }
+      ]
+    },
+    "GoldOreCrushingT2": {
+      "id": "GoldOreCrushingT2",
+      "name": "Gold ore crushing",
+      "linkId": "e9d2f28f9ab1fdb62eced73b4c3e667f62e3c7e38fd5d31a31d29a9183305072",
+      "machine": "CrusherLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldOre",
+          "quantity": 144
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GoldOreCrushed",
+          "quantity": 144
+        }
+      ]
+    },
+    "GoldOreMillingT2": {
+      "id": "GoldOreMillingT2",
+      "name": "Gold ore milling",
+      "linkId": "d414a41573fc16e87a8876667c02853daba400da2369202353fa359816c7f2d0",
+      "machine": "CrusherLarge",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldOreCrushed",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GoldOrePowder",
+          "quantity": 72
+        }
+      ]
+    },
+    "BauxiteMillingT2": {
+      "id": "BauxiteMillingT2",
+      "name": "Bauxite milling",
+      "linkId": "840ef5869bd6b41845dddc187b9b5e260f84010ad94c3868b5bae68fd0701d53",
+      "machine": "CrusherLarge",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Bauxite",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BauxitePowder",
+          "quantity": 72
+        }
+      ]
+    },
+    "IlmeniteMillingT2": {
+      "id": "IlmeniteMillingT2",
+      "name": "Titanium ore crushing",
+      "linkId": "1c13f6012ecde1569eacc3c7c3cf740263dab005968f268f17a8662cafb3db93",
+      "machine": "CrusherLarge",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumOre",
+          "quantity": 96
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TitaniumOreCrushed",
+          "quantity": 96
+        }
+      ]
+    },
+    "IronSmeltingArcScrap": {
+      "id": "IronSmeltingArcScrap",
+      "name": "Iron scrap smelting (arc II)",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronScrap",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 48
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "IronSmeltingArc": {
+      "id": "IronSmeltingArc",
+      "name": "Iron smelting (arc II)",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronOreCrushed",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 18
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 12
+        }
+      ]
+    },
+    "CopperSmeltingArcScrap": {
+      "id": "CopperSmeltingArcScrap",
+      "name": "Copper scrap smelting (arc II)",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperScrap",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 48
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "CopperSmeltingArc": {
+      "id": "CopperSmeltingArc",
+      "name": "Copper smelting (arc II)",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperOreCrushed",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 18
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 12
+        }
+      ]
+    },
+    "GlassSmeltingArc": {
+      "id": "GlassSmeltingArc",
+      "name": "Glass smelting",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 24
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 12
+        }
+      ]
+    },
+    "GlassSmeltingArcWithBroken": {
+      "id": "GlassSmeltingArcWithBroken",
+      "name": "Glass smelting",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BrokenGlass",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 48
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "SiliconSmeltingArc2": {
+      "id": "SiliconSmeltingArc2",
+      "name": "Silicon smelting (Arc II)",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 96
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenSilicon",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 36
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 48
+        }
+      ]
+    },
+    "AluminumSmeltingScrapArcT2": {
+      "id": "AluminumSmeltingScrapArcT2",
+      "name": "Aluminum scrap smelting II",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AluminumScrap",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenAluminum",
+          "quantity": 48
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "IlmeniteSmeltingArc2": {
+      "id": "IlmeniteSmeltingArc2",
+      "name": "Ilmenite smelting (Arc II)",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumOreCrushed",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 12
+        },
+        {
+          "id": "Product_TitaniumSlag",
+          "quantity": 36
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "TitaniumSmeltingArc2": {
+      "id": "TitaniumSmeltingArc2",
+      "name": "Titanium smelting (Arc II)",
+      "machine": "ArcFurnace2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumSponge",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenTitanium",
+          "quantity": 48
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "IronSmeltingArcScrapT1": {
+      "id": "IronSmeltingArcScrapT1",
+      "name": "Iron scrap smelting (arc)",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronScrap",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 3
+        }
+      ]
+    },
+    "IronSmeltingArcT1": {
+      "id": "IronSmeltingArcT1",
+      "name": "Iron smelting (arc)",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronOreCrushed",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "CopperSmeltingArcScrapT1": {
+      "id": "CopperSmeltingArcScrapT1",
+      "name": "Copper scrap smelting (arc)",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperScrap",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 3
+        }
+      ]
+    },
+    "CopperSmeltingArcT1": {
+      "id": "CopperSmeltingArcT1",
+      "name": "Copper smelting (arc)",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperOreCrushed",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "GlassSmeltingArcT1": {
+      "id": "GlassSmeltingArcT1",
+      "name": "Glass smelting",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 6
+        }
+      ]
+    },
+    "GlassSmeltingArcT1WithBroken": {
+      "id": "GlassSmeltingArcT1WithBroken",
+      "name": "Glass smelting (arc)",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BrokenGlass",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 3
+        }
+      ]
+    },
+    "SiliconSmeltingArc": {
+      "id": "SiliconSmeltingArc",
+      "name": "Silicon smelting (Arc)",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenSilicon",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "AluminumSmeltingScrapArcT1": {
+      "id": "AluminumSmeltingScrapArcT1",
+      "name": "Aluminum scrap smelting I",
+      "machine": "ArcFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AluminumScrap",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenAluminum",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 3
+        }
+      ]
+    },
+    "IronSmeltingT2Scrap": {
+      "id": "IronSmeltingT2Scrap",
+      "name": "Iron scrap smelting",
+      "machine": "SmeltingFurnaceT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronScrap",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 27
+        }
+      ]
+    },
+    "IronSmeltingT2": {
+      "id": "IronSmeltingT2",
+      "name": "Iron smelting (lime)",
+      "machine": "SmeltingFurnaceT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronOreCrushed",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 15
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "CopperSmeltingT2Scrap": {
+      "id": "CopperSmeltingT2Scrap",
+      "name": "Copper scrap smelting",
+      "machine": "SmeltingFurnaceT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperScrap",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 27
+        }
+      ]
+    },
+    "CopperSmeltingT2": {
+      "id": "CopperSmeltingT2",
+      "name": "Copper smelting (sand)",
+      "machine": "SmeltingFurnaceT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperOreCrushed",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 15
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "GlassSmeltingT2": {
+      "id": "GlassSmeltingT2",
+      "name": "Glass smelting",
+      "machine": "SmeltingFurnaceT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 15
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "GlassSmeltingT2WithBroken": {
+      "id": "GlassSmeltingT2WithBroken",
+      "name": "Glass broken smelting",
+      "machine": "SmeltingFurnaceT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BrokenGlass",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 27
+        }
+      ]
+    },
+    "IronSmeltingT1Scrap": {
+      "id": "IronSmeltingT1Scrap",
+      "name": "Iron scrap smelting",
+      "machine": "SmeltingFurnaceT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronScrap",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 18
+        }
+      ]
+    },
+    "IronSmeltingT1Coal": {
+      "id": "IronSmeltingT1Coal",
+      "name": "Iron smelting",
+      "machine": "SmeltingFurnaceT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronOre",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "CopperSmeltingT1Scrap": {
+      "id": "CopperSmeltingT1Scrap",
+      "name": "Copper scrap smelting",
+      "machine": "SmeltingFurnaceT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperScrap",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 18
+        }
+      ]
+    },
+    "CopperSmeltingT1": {
+      "id": "CopperSmeltingT1",
+      "name": "Copper smelting",
+      "machine": "SmeltingFurnaceT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperOre",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "GlassSmelting": {
+      "id": "GlassSmelting",
+      "name": "Glass smelting",
+      "machine": "SmeltingFurnaceT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "GlassSmeltingWithBroken": {
+      "id": "GlassSmeltingWithBroken",
+      "name": "Glass broken smelting",
+      "machine": "SmeltingFurnaceT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BrokenGlass",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 18
+        }
+      ]
+    },
+    "AluminumElectrolysis": {
+      "id": "AluminumElectrolysis",
+      "name": "Aluminum electrolysis",
+      "machine": "AluminumCell",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Alumina",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenAluminum",
+          "quantity": 24
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 18
+        }
+      ]
+    },
+    "SteelCastingCooledT2": {
+      "id": "SteelCastingCooledT2",
+      "name": "Steel casting (cooled)",
+      "machine": "CasterCooledT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenSteel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 24
+        }
+      ]
+    },
+    "TitaniumAlloyCastingT2": {
+      "id": "TitaniumAlloyCastingT2",
+      "name": "Titanium casting (cooled)",
+      "machine": "CasterCooledT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenTitaniumAlloy",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TitaniumAlloy",
+          "quantity": 24
+        }
+      ]
+    },
+    "SteelCastingCooled": {
+      "id": "SteelCastingCooled",
+      "name": "Steel casting (cooled)",
+      "linkId": "7b915c6ea06c2eb9c4d8ae421873185bc40a3d112a7ca78cadaa698ab40a81a4",
+      "machine": "CasterCooled",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenSteel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 12
+        }
+      ]
+    },
+    "IronCastingCooled": {
+      "id": "IronCastingCooled",
+      "name": "Iron casting",
+      "machine": "CasterT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 24
+        }
+      ]
+    },
+    "CopperCastingCooled": {
+      "id": "CopperCastingCooled",
+      "name": "Copper casting",
+      "machine": "CasterT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ImpureCopper",
+          "quantity": 24
+        }
+      ]
+    },
+    "AluminumCastingT2": {
+      "id": "AluminumCastingT2",
+      "name": "Aluminum casting",
+      "machine": "CasterT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenAluminum",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Aluminum",
+          "quantity": 24
+        }
+      ]
+    },
+    "IronCasting": {
+      "id": "IronCasting",
+      "name": "Iron casting",
+      "linkId": "d3e707cee750dcb9a7965c048358318c9f4d89acf40d5e823ed7f5be7a12abaa",
+      "machine": "Caster",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 12
+        }
+      ]
+    },
+    "CopperCasting": {
+      "id": "CopperCasting",
+      "name": "Copper casting",
+      "linkId": "5d2f2cf5950b64273aeef799e133ba8a65146b809d4fd6335defc1f19c42f945",
+      "machine": "Caster",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenCopper",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ImpureCopper",
+          "quantity": 12
+        }
+      ]
+    },
+    "AluminumCasting": {
+      "id": "AluminumCasting",
+      "name": "Aluminum casting",
+      "linkId": "7c493b16cccafd356b96cf86a8f6c616be27b895e981a17b527bda35d44eaa20",
+      "machine": "Caster",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenAluminum",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Aluminum",
+          "quantity": 12
+        }
+      ]
+    },
+    "TitaniumAlloyMixing": {
+      "id": "TitaniumAlloyMixing",
+      "name": "Titanium alloy mixing",
+      "machine": "AlloyMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenTitanium",
+          "quantity": 96
+        },
+        {
+          "id": "Product_MoltenAluminum",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenTitaniumAlloy",
+          "quantity": 108
+        }
+      ]
+    },
+    "CopperElectrolysisProcess": {
+      "id": "CopperElectrolysisProcess",
+      "name": "Copper purification (acid)",
+      "machine": "CopperElectrolysis",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ImpureCopper",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Copper",
+          "quantity": 24
+        }
+      ]
+    },
+    "CopperElectrolysisWithWater": {
+      "id": "CopperElectrolysisWithWater",
+      "name": "Copper purification (water)",
+      "machine": "CopperElectrolysis",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ImpureCopper",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Copper",
+          "quantity": 19.5
+        }
+      ]
+    },
+    "SteelSmeltingT2": {
+      "id": "SteelSmeltingT2",
+      "name": "Steel smelting",
+      "machine": "OxygenFurnaceT2",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenSteel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 36
+        }
+      ]
+    },
+    "SteelSmelting": {
+      "id": "SteelSmelting",
+      "name": "Steel smelting",
+      "machine": "OxygenFurnace",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenIron",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoltenSteel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "GlassCastingT2": {
+      "id": "GlassCastingT2",
+      "name": "Glass casting",
+      "machine": "GlassMakerT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 24
+        }
+      ]
+    },
+    "GlassCastingT1": {
+      "id": "GlassCastingT1",
+      "name": "Glass casting",
+      "machine": "GlassMakerT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenGlass",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Glass",
+          "quantity": 12
+        },
+        {
+          "id": "Product_BrokenGlass",
+          "quantity": 12
+        }
+      ]
+    },
+    "SiliconCrystallization": {
+      "id": "SiliconCrystallization",
+      "name": "Silicon crystallization",
+      "machine": "SiliconCrystallizer",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SiliconWafer",
+          "quantity": 12
+        }
+      ]
+    },
+    "AluminaCrystallization": {
+      "id": "AluminaCrystallization",
+      "name": "Alumina crystallization",
+      "machine": "SiliconCrystallizer",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Alumina",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SapphireWafer",
+          "quantity": 8
+        }
+      ]
+    },
+    "SiliconTreatment": {
+      "id": "SiliconTreatment",
+      "name": "Silicon treatment",
+      "machine": "SiliconReactor",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MoltenSilicon",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_PolySilicon",
+          "quantity": 18
+        }
+      ]
+    },
+    "GoldSmelting": {
+      "id": "GoldSmelting",
+      "name": "Gold smelting",
+      "machine": "GoldFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldOreConcentrate",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Gold",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 12
+        }
+      ]
+    },
+    "GoldScrapSmelting": {
+      "id": "GoldScrapSmelting",
+      "name": "Gold smelting",
+      "machine": "GoldFurnace",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldScrap",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Gold",
+          "quantity": 9
+        }
+      ]
+    },
+    "GlassMixMixingT2": {
+      "id": "GlassMixMixingT2",
+      "name": "Glass mix mixing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 120
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 120
+        }
+      ]
+    },
+    "GlassMixMixingWithAcidT2": {
+      "id": "GlassMixMixingWithAcidT2",
+      "name": "Glass mix mixing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 96
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 120
+        }
+      ]
+    },
+    "AcidMixMixingT2": {
+      "id": "AcidMixMixingT2",
+      "name": "Acid mixing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Acid",
+          "quantity": 72
+        }
+      ]
+    },
+    "SulfurNeutralizationT2": {
+      "id": "SulfurNeutralizationT2",
+      "name": "Sulfur neutralization",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Slag",
+          "quantity": 30
+        }
+      ]
+    },
+    "BrineProductionT2": {
+      "id": "BrineProductionT2",
+      "name": "Brine production",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Salt",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 84
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 96
+        }
+      ]
+    },
+    "FilterMediaMixingT2": {
+      "id": "FilterMediaMixingT2",
+      "name": "Filter media mixing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FilterMedia",
+          "quantity": 72
+        }
+      ]
+    },
+    "FilterMediaMixingMT2": {
+      "id": "FilterMediaMixingMT2",
+      "name": "Filter media mixing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 48
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FilterMedia",
+          "quantity": 72
+        }
+      ]
+    },
+    "OrganicFertilizerProductionT2": {
+      "id": "OrganicFertilizerProductionT2",
+      "name": "Fertilizer mixing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 96
+        }
+      ]
+    },
+    "OrganicFertilizerProductionDirtT2": {
+      "id": "OrganicFertilizerProductionDirtT2",
+      "name": "Fertilizer mixing (dirt)",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Dirt",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 96
+        }
+      ]
+    },
+    "Fertilizer2ProductionT2": {
+      "id": "Fertilizer2ProductionT2",
+      "name": "Fertilizer II synthesis",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Sulfur",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 72
+        }
+      ]
+    },
+    "DirtMixingT2": {
+      "id": "DirtMixingT2",
+      "name": "Dirt mixing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Dirt",
+          "quantity": 96
+        }
+      ]
+    },
+    "AnimalFeedFromPotatoT2": {
+      "id": "AnimalFeedFromPotatoT2",
+      "name": "Animal feed production",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 96
+        }
+      ]
+    },
+    "AnimalFeedFromWheatT2": {
+      "id": "AnimalFeedFromWheatT2",
+      "name": "Animal feed production",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 192
+        }
+      ]
+    },
+    "AnimalFeedFromCornT2": {
+      "id": "AnimalFeedFromCornT2",
+      "name": "Animal feed production",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 144
+        }
+      ]
+    },
+    "AnimalFeedFromSoybeanT2": {
+      "id": "AnimalFeedFromSoybeanT2",
+      "name": "Animal feed production",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 216
+        }
+      ]
+    },
+    "AnimalFeedCompostT2": {
+      "id": "AnimalFeedCompostT2",
+      "name": "Composing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 12
+        }
+      ]
+    },
+    "BiomassCompostT2": {
+      "id": "BiomassCompostT2",
+      "name": "Composing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Biomass",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 16
+        }
+      ]
+    },
+    "MeatTrimmingsCompostT2": {
+      "id": "MeatTrimmingsCompostT2",
+      "name": "Composing",
+      "machine": "IndustrialMixerT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MeatTrimmings",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 8
+        }
+      ]
+    },
+    "GlassMixMixing": {
+      "id": "GlassMixMixing",
+      "name": "Glass mix mixing",
+      "linkId": "fa9b1fd7b38d6c97794f2bc16573dee9917cf62af3c6f01cfb755311cc2a616a",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 15
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 60
+        }
+      ]
+    },
+    "GlassMixMixingWithAcid": {
+      "id": "GlassMixMixingWithAcid",
+      "name": "Glass mix mixing",
+      "linkId": "066d85fed4c9fa9bf1e95cdd22277177787968aba7c44e51edc9aec01336758a",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sand",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GlassMix",
+          "quantity": 60
+        }
+      ]
+    },
+    "AcidMixMixing": {
+      "id": "AcidMixMixing",
+      "name": "Acid mixing",
+      "linkId": "e77a484aebeb728ad18ac2cce823132ad065357838cc8d8402cf65c56fc0e677",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 30
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Acid",
+          "quantity": 36
+        }
+      ]
+    },
+    "SulfurNeutralization": {
+      "id": "SulfurNeutralization",
+      "name": "Sulfur neutralization",
+      "linkId": "8119db4b01b1d1bb5b899cc6922aa90317ce7a8dfa549cf783d2ba40d9421dbf",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Slag",
+          "quantity": 15
+        }
+      ]
+    },
+    "BrineProduction": {
+      "id": "BrineProduction",
+      "name": "Brine production",
+      "linkId": "2b1df9622da57fd7a5d50b52d6967e5aea674268642b485ba894c16ffa57ed91",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Salt",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 42
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 48
+        }
+      ]
+    },
+    "FilterMediaMixing": {
+      "id": "FilterMediaMixing",
+      "name": "Filter media mixing",
+      "linkId": "3eb24554fd905bee2d9d852a553292d94c05492a3221ff6190461d63e66774f0",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FilterMedia",
+          "quantity": 36
+        }
+      ]
+    },
+    "FilterMediaMixingM": {
+      "id": "FilterMediaMixingM",
+      "name": "Filter media mixing",
+      "linkId": "89c8bac0c69b18920d86839262e6778f815fc437ed32faf2f7ca12f22a2d7193",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_ManufacturedSand",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FilterMedia",
+          "quantity": 36
+        }
+      ]
+    },
+    "OrganicFertilizerProduction": {
+      "id": "OrganicFertilizerProduction",
+      "name": "Fertilizer mixing",
+      "linkId": "b3a0645698c815491f77d1a0b544923f811a890a0e0d21bbd0aa73294a1cb030",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 48
+        }
+      ]
+    },
+    "OrganicFertilizerProductionDirt": {
+      "id": "OrganicFertilizerProductionDirt",
+      "name": "Fertilizer mixing (dirt)",
+      "linkId": "3917503769019d4d485197e1fbb76ec437ecd1a709a683146cb0c33575c6bdd4",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Dirt",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 48
+        }
+      ]
+    },
+    "Fertilizer2Production": {
+      "id": "Fertilizer2Production",
+      "name": "Fertilizer II synthesis",
+      "linkId": "d2bc3558df980a0cc8cd0530602dbf8e3cd6d16a93ce8411d213ab859880efba",
+      "machine": "IndustrialMixer",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Sulfur",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 36
+        }
+      ]
+    },
+    "DirtMixing": {
+      "id": "DirtMixing",
+      "name": "Dirt mixing",
+      "linkId": "bf3be54a690b480e239ce292e273223dee1becd6c5068d7ac16395ee5e31c91c",
+      "machine": "IndustrialMixer",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Gravel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Dirt",
+          "quantity": 48
+        }
+      ]
+    },
+    "AnimalFeedFromPotato": {
+      "id": "AnimalFeedFromPotato",
+      "name": "Animal feed production",
+      "linkId": "4f98ad3afa0fb4c5ce36d929a9a0c88dd775c998d0e20131174e8e3d18f05e0a",
+      "machine": "IndustrialMixer",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 48
+        }
+      ]
+    },
+    "AnimalFeedFromWheat": {
+      "id": "AnimalFeedFromWheat",
+      "name": "Animal feed production",
+      "linkId": "92964dbeccba3bd89d637ecea6e23d3cf13290af104b932741fc30661075a8c8",
+      "machine": "IndustrialMixer",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 96
+        }
+      ]
+    },
+    "AnimalFeedFromCorn": {
+      "id": "AnimalFeedFromCorn",
+      "name": "Animal feed production",
+      "linkId": "051003d185bb857e8c4baad6f99e5fe52aab4211d289b370b35e3f5a24f63d07",
+      "machine": "IndustrialMixer",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 72
+        }
+      ]
+    },
+    "AnimalFeedFromSoybean": {
+      "id": "AnimalFeedFromSoybean",
+      "name": "Animal feed production",
+      "linkId": "0eb9a5a05f8d3982b17cebb06d756f91461dbdb46287a33afda284763c0f3a0c",
+      "machine": "IndustrialMixer",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 108
+        }
+      ]
+    },
+    "AnimalFeedCompost": {
+      "id": "AnimalFeedCompost",
+      "name": "Composing",
+      "linkId": "e050b4dc979000579005b8a4f2d7a93dbd86af12bd471c2410b3537aefd4874b",
+      "machine": "IndustrialMixer",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 6
+        }
+      ]
+    },
+    "BiomassCompost": {
+      "id": "BiomassCompost",
+      "name": "Composing",
+      "linkId": "9903005d7ac49c31ff359e1c9127c11595e51ea1e2f5fa6ec9f2b886ca8404f8",
+      "machine": "IndustrialMixer",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Biomass",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 8
+        }
+      ]
+    },
+    "MeatTrimmingsCompost": {
+      "id": "MeatTrimmingsCompost",
+      "name": "Composing",
+      "linkId": "1c45a128bc47cdf273d13c4bccd288893348fe839a63c15f3da4e2ceb06ce8b2",
+      "machine": "IndustrialMixer",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MeatTrimmings",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Compost",
+          "quantity": 4
+        }
+      ]
+    },
+    "FertilizerProductionT2": {
+      "id": "FertilizerProductionT2",
+      "name": "Fertilizer synthesis",
+      "machine": "ChemicalPlant2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 60
+        }
+      ]
+    },
+    "FertilizerProductionFromOrganicT2": {
+      "id": "FertilizerProductionFromOrganicT2",
+      "name": "Fertilizer synthesis",
+      "machine": "ChemicalPlant2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Ammonia",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 90
+        }
+      ]
+    },
+    "AmmoniaSynthesisT2": {
+      "id": "AmmoniaSynthesisT2",
+      "name": "Ammonia synthesis",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Nitrogen",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 12
+        }
+      ]
+    },
+    "PaperProductionT2": {
+      "id": "PaperProductionT2",
+      "name": "Paper production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Woodchips",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 3
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Paper",
+          "quantity": 24
+        }
+      ]
+    },
+    "EthanolCookingOilReformingT2": {
+      "id": "EthanolCookingOilReformingT2",
+      "name": "Fuel transesterification",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 15
+        },
+        {
+          "id": "Product_CookingOil",
+          "quantity": 30
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 54
+        }
+      ]
+    },
+    "FuelGasSynthesis": {
+      "id": "FuelGasSynthesis",
+      "name": "FuelGas synthesis",
+      "machine": "ChemicalPlant2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 28
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 2
+        }
+      ]
+    },
+    "GraphiteProductionT2": {
+      "id": "GraphiteProductionT2",
+      "name": "Graphite production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Coal",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Graphite",
+          "quantity": 24
+        },
+        {
+          "id": "Product_SourWater",
+          "quantity": 8
+        }
+      ]
+    },
+    "GraphiteProductionCo2": {
+      "id": "GraphiteProductionCo2",
+      "name": "Graphite production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 144
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Graphite",
+          "quantity": 6
+        }
+      ]
+    },
+    "CarbonToEthanolProduction": {
+      "id": "CarbonToEthanolProduction",
+      "name": "Ethanol production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 36
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 27
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 9
+        }
+      ]
+    },
+    "DisinfectantProductionT2": {
+      "id": "DisinfectantProductionT2",
+      "name": "Disinfectant production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Disinfectant",
+          "quantity": 24
+        }
+      ]
+    },
+    "AnestheticsProduction": {
+      "id": "AnestheticsProduction",
+      "name": "Anesthetics production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 6
+        },
+        {
+          "id": "Product_HydrogenFluoride",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Anesthetics",
+          "quantity": 24
+        }
+      ]
+    },
+    "MorphineProduction": {
+      "id": "MorphineProduction",
+      "name": "Morphine production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Acid",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Glass",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Morphine",
+          "quantity": 24
+        }
+      ]
+    },
+    "BauxiteDigestion": {
+      "id": "BauxiteDigestion",
+      "name": "Bauxite digestion",
+      "machine": "ChemicalPlant2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BauxitePowder",
+          "quantity": 72
+        },
+        {
+          "id": "Product_Brine",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_HydratedAlumina",
+          "quantity": 36
+        },
+        {
+          "id": "Product_RedMud",
+          "quantity": 36
+        }
+      ]
+    },
+    "TitaniumChlorination": {
+      "id": "TitaniumChlorination",
+      "name": "Titanium chlorination",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumSlag",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Graphite",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TitaniumChloride",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 12
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 12
+        }
+      ]
+    },
+    "TitaniumChlorideReduction": {
+      "id": "TitaniumChlorideReduction",
+      "name": "Titanium chloride reduction",
+      "machine": "ChemicalPlant2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumChloridePure",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TitaniumSponge",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 12
+        }
+      ]
+    },
+    "ChemicalFuelProduction": {
+      "id": "ChemicalFuelProduction",
+      "name": "Chemical fuel production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 12
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Aluminum",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_ChemicalFuel",
+          "quantity": 8
+        }
+      ]
+    },
+    "MoxRodsAssemblyT1": {
+      "id": "MoxRodsAssemblyT1",
+      "name": "Mox rods",
+      "machine": "ChemicalPlant2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Plutonium",
+          "quantity": 1
+        },
+        {
+          "id": "Product_UraniumDepleted",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MoxRod",
+          "quantity": 2
+        }
+      ]
+    },
+    "BlanketFuelFromDepleted": {
+      "id": "BlanketFuelFromDepleted",
+      "name": "Blanket fuel production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_BlanketFuelEnriched",
+          "quantity": 2
+        },
+        {
+          "id": "Product_UraniumDepleted",
+          "quantity": 10
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 4
+        }
+      ]
+    },
+    "BlanketFuelFromYellowcake": {
+      "id": "BlanketFuelFromYellowcake",
+      "name": "Blanket fuel production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Yellowcake",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 4
+        }
+      ]
+    },
+    "CoreFuelFromEnriched": {
+      "id": "CoreFuelFromEnriched",
+      "name": "Core fuel production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_UraniumEnriched20",
+          "quantity": 2
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 4
+        }
+      ]
+    },
+    "CoreFuelFromPu": {
+      "id": "CoreFuelFromPu",
+      "name": "Core fuel production (Pu)",
+      "machine": "ChemicalPlant2",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Plutonium",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Salt",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 4
+        }
+      ]
+    },
+    "DiamondPasteFromCookingOil": {
+      "id": "DiamondPasteFromCookingOil",
+      "name": "Diamond paste production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diamond",
+          "quantity": 4
+        },
+        {
+          "id": "Product_CookingOil",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_DiamondPaste",
+          "quantity": 16
+        }
+      ]
+    },
+    "DiamondPasteFromHeavyOil": {
+      "id": "DiamondPasteFromHeavyOil",
+      "name": "Diamond paste production",
+      "machine": "ChemicalPlant2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diamond",
+          "quantity": 4
+        },
+        {
+          "id": "Product_HeavyOil",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_DiamondPaste",
+          "quantity": 16
+        }
+      ]
+    },
+    "FertilizerProduction": {
+      "id": "FertilizerProduction",
+      "name": "Fertilizer synthesis",
+      "linkId": "245d809feb4d45fc428c4a0717131a40e3d1ec6d66e0f10b4b9d4c285c173b72",
+      "machine": "ChemicalPlant",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 30
+        }
+      ]
+    },
+    "FertilizerProductionFromOrganic": {
+      "id": "FertilizerProductionFromOrganic",
+      "name": "Fertilizer synthesis",
+      "linkId": "30efc661b3df42b2911137e1b4b2c78d5c15bbc7553abc0539c4adc1c719bc8b",
+      "machine": "ChemicalPlant",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 30
+        },
+        {
+          "id": "Product_Ammonia",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 45
+        }
+      ]
+    },
+    "AmmoniaSynthesis": {
+      "id": "AmmoniaSynthesis",
+      "name": "Ammonia synthesis",
+      "linkId": "01219f320f13dbebecb61c6c58f61a16bddf99fd5ec0b79a9289fb29a415900f",
+      "machine": "ChemicalPlant",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Nitrogen",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 6
+        }
+      ]
+    },
+    "PaperProduction": {
+      "id": "PaperProduction",
+      "name": "Paper production",
+      "linkId": "c9756ca7d0ecc4b717a675f37e0b805720324dd1e0868d45638462f15da9b1f6",
+      "machine": "ChemicalPlant",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Woodchips",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 1.5
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 1.5
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Paper",
+          "quantity": 12
+        }
+      ]
+    },
+    "EthanolCookingOilReforming": {
+      "id": "EthanolCookingOilReforming",
+      "name": "Fuel transesterification",
+      "linkId": "bad31880210d357d8d95afd7cac41353af5ea9c3a6130f802f7cc86b39e2adb8",
+      "machine": "ChemicalPlant",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 7.5
+        },
+        {
+          "id": "Product_CookingOil",
+          "quantity": 15
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 27
+        }
+      ]
+    },
+    "GraphiteProductionT1": {
+      "id": "GraphiteProductionT1",
+      "name": "Graphite production",
+      "linkId": "e8443480ca9246b89549005de0c9ec32654a316960a60c9bbb5cc012772da153",
+      "machine": "ChemicalPlant",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Coal",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Graphite",
+          "quantity": 12
+        },
+        {
+          "id": "Product_SourWater",
+          "quantity": 4
+        }
+      ]
+    },
+    "DisinfectantProduction": {
+      "id": "DisinfectantProduction",
+      "name": "Disinfectant production",
+      "linkId": "139eeb5c489dd3e29cd348f862f7e706eb1ca0357416fe4002013ba7139ca920",
+      "machine": "ChemicalPlant",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 4.5
+        },
+        {
+          "id": "Product_Plastic",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Disinfectant",
+          "quantity": 12
+        }
+      ]
+    },
+    "CrudeOilRefiningT1": {
+      "id": "CrudeOilRefiningT1",
+      "name": "Crude oil refining",
+      "machine": "DistillationTowerT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CrudeOil",
+          "quantity": 60
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_MediumOil",
+          "quantity": 48
+        },
+        {
+          "id": "Product_HeavyOil",
+          "quantity": 12
+        },
+        {
+          "id": "Product_SourWater",
+          "quantity": 18
+        }
+      ]
+    },
+    "CrudeOilRefiningT2": {
+      "id": "CrudeOilRefiningT2",
+      "name": "Crude oil refining",
+      "machine": "DistillationTowerT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MediumOil",
+          "quantity": 48
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 36
+        },
+        {
+          "id": "Product_LightOil",
+          "quantity": 30
+        }
+      ]
+    },
+    "HeavyDistillateRefining": {
+      "id": "HeavyDistillateRefining",
+      "name": "Heavy distillate refining",
+      "machine": "DistillationTowerT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LightOil",
+          "quantity": 30
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 24
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 12
+        }
+      ]
+    },
+    "TitaniumPurification": {
+      "id": "TitaniumPurification",
+      "name": "Titanium purification",
+      "machine": "DistillationTowerT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TitaniumChloride",
+          "quantity": 12
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TitaniumChloridePure",
+          "quantity": 12
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 3
+        }
+      ]
+    },
+    "RubberProductionNaphtha": {
+      "id": "RubberProductionNaphtha",
+      "name": "Rubber production",
+      "machine": "VacuumDistillationTower",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Sulfur",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 24
+        }
+      ]
+    },
+    "RubberProductionNaphthaAlt": {
+      "id": "RubberProductionNaphthaAlt",
+      "name": "Rubber production (coal)",
+      "machine": "VacuumDistillationTower",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 16
+        },
+        {
+          "id": "Product_WasteWater",
+          "quantity": 2
+        }
+      ]
+    },
+    "RubberProductionEthanol": {
+      "id": "RubberProductionEthanol",
+      "name": "Rubber production (ethanol)",
+      "machine": "VacuumDistillationTower",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Sulfur",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 24
+        }
+      ]
+    },
+    "RubberProductionDiesel": {
+      "id": "RubberProductionDiesel",
+      "name": "Rubber production (alt)",
+      "machine": "VacuumDistillationTower",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Sulfur",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 24
+        }
+      ]
+    },
+    "RubberProductionDieselWithCoal": {
+      "id": "RubberProductionDieselWithCoal",
+      "name": "Rubber production (coal) (alt)",
+      "machine": "VacuumDistillationTower",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Coal",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Rubber",
+          "quantity": 16
+        },
+        {
+          "id": "Product_WasteWater",
+          "quantity": 4
+        }
+      ]
+    },
+    "HeavyOilCracking": {
+      "id": "HeavyOilCracking",
+      "name": "HeavyOil cracking",
+      "machine": "HydroCrackerT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_HeavyOil",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 36
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        }
+      ]
+    },
+    "HeavyOilCrackingToNaphtha": {
+      "id": "HeavyOilCrackingToNaphtha",
+      "name": "HeavyOil cracking",
+      "machine": "HydroCrackerT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_HeavyOil",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 36
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        }
+      ]
+    },
+    "NaphthaReforming": {
+      "id": "NaphthaReforming",
+      "name": "Naphtha reforming",
+      "machine": "HydroCrackerT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        }
+      ]
+    },
+    "DieselReforming": {
+      "id": "DieselReforming",
+      "name": "Diesel reforming",
+      "machine": "HydroCrackerT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 18
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        }
+      ]
+    },
+    "NaphthaReformingToGas": {
+      "id": "NaphthaReformingToGas",
+      "name": "Naphtha reforming",
+      "machine": "HydroCrackerT1",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 24
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 8
+        }
+      ]
+    },
+    "FuelGasReforming": {
+      "id": "FuelGasReforming",
+      "name": "FuelGas reforming",
+      "machine": "HydroCrackerT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 6
+        }
+      ]
+    },
+    "HydrogenReforming": {
+      "id": "HydrogenReforming",
+      "name": "Hydrogen reforming",
+      "machine": "HydrogenReformer",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 24
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 28
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 24
+        }
+      ]
+    },
+    "HydrogenProductionFromSteamSp": {
+      "id": "HydrogenProductionFromSteamSp",
+      "name": "Hydrogen from SP steam",
+      "machine": "HydrogenReformer",
+      "origDuration": 15,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 16
+        },
+        {
+          "id": "Product_SteamSp",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 32
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 32
+        },
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 12
+        }
+      ]
+    },
+    "SourWaterStripping": {
+      "id": "SourWaterStripping",
+      "name": "Sour water stripping (recovery)",
+      "machine": "SourWaterStripper",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SourWater",
+          "quantity": 36
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 3
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Ammonia",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 21
+        }
+      ]
+    },
+    "PlasticMaking": {
+      "id": "PlasticMaking",
+      "name": "Plastic making",
+      "machine": "PolymerizationPlant",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Plastic",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "PlasticMakingEthanol": {
+      "id": "PlasticMakingEthanol",
+      "name": "Plastic making",
+      "machine": "PolymerizationPlant",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Plastic",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Exhaust",
+          "quantity": 24
+        }
+      ]
+    },
+    "SmokeStackLargeDepletedSteam": {
+      "id": "SmokeStackLargeDepletedSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 900
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackLargeLpSteam": {
+      "id": "SmokeStackLargeLpSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 900
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackLargeHpSteam": {
+      "id": "SmokeStackLargeHpSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 900
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackLargeSpSteam": {
+      "id": "SmokeStackLargeSpSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 900
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackLargeOxygen": {
+      "id": "SmokeStackLargeOxygen",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Oxygen",
+          "quantity": 900
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackLargeNitrogen": {
+      "id": "SmokeStackLargeNitrogen",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Nitrogen",
+          "quantity": 900
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackLargeExhaust": {
+      "id": "SmokeStackLargeExhaust",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 900
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 450
+        }
+      ]
+    },
+    "SmokeStackLargeCarbonDioxide": {
+      "id": "SmokeStackLargeCarbonDioxide",
+      "name": "Product disposal",
+      "machine": "SmokeStackLarge",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 900
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 225
+        }
+      ]
+    },
+    "SmokeStackDepletedSteam": {
+      "id": "SmokeStackDepletedSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamDepleted",
+          "quantity": 60
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackLpSteam": {
+      "id": "SmokeStackLpSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 60
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackHpSteam": {
+      "id": "SmokeStackHpSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 60
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackSpSteam": {
+      "id": "SmokeStackSpSteam",
+      "name": "Product disposal",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 60
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackOxygen": {
+      "id": "SmokeStackOxygen",
+      "name": "Product disposal",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Oxygen",
+          "quantity": 60
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackNitrogen": {
+      "id": "SmokeStackNitrogen",
+      "name": "Product disposal",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Nitrogen",
+          "quantity": 60
+        }
+      ],
+      "outputs": []
+    },
+    "SmokeStackExhaust": {
+      "id": "SmokeStackExhaust",
+      "name": "Product disposal",
+      "linkId": "d14f7d098c7f0f69c89646d64dfda3ee6606e768b46909db8700ccee8cccf6e2",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 30
+        }
+      ]
+    },
+    "SmokeStackCarbonDioxide": {
+      "id": "SmokeStackCarbonDioxide",
+      "name": "Product disposal",
+      "linkId": "aa820fd9391010b24746dc51cabc2b76d9ff099eb965780e96e665ce32754655",
+      "machine": "SmokeStack",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 60
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 15
+        }
+      ]
+    },
+    "OceanWaterDumping": {
+      "id": "OceanWaterDumping",
+      "name": "Water dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 240
+        }
+      ],
+      "outputs": []
+    },
+    "BrineDumping": {
+      "id": "BrineDumping",
+      "name": "Brine dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Brine",
+          "quantity": 240
+        }
+      ],
+      "outputs": []
+    },
+    "OceanWasteWaterPumping": {
+      "id": "OceanWasteWaterPumping",
+      "name": "Waste water dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_WasteWater",
+          "quantity": 240
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 240
+        }
+      ]
+    },
+    "SourWaterDumping": {
+      "id": "SourWaterDumping",
+      "name": "Sour water dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SourWater",
+          "quantity": 240
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 480
+        }
+      ]
+    },
+    "WasteAcidDumping": {
+      "id": "WasteAcidDumping",
+      "name": "Acid dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Acid",
+          "quantity": 240
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 480
+        }
+      ]
+    },
+    "ToxicSlurryDumping": {
+      "id": "ToxicSlurryDumping",
+      "name": "Toxic slurry dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ToxicSlurry",
+          "quantity": 240
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 600
+        }
+      ]
+    },
+    "SeaWaterDumping": {
+      "id": "SeaWaterDumping",
+      "name": "Seawater dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 240
+        }
+      ],
+      "outputs": []
+    },
+    "FertilizerOrganicDumping": {
+      "id": "FertilizerOrganicDumping",
+      "name": "Fertilizer dumping",
+      "machine": "WasteDump",
+      "origDuration": 4,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 240
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 60
+        }
+      ]
+    },
+    "FertilizerChem1Dumping": {
+      "id": "FertilizerChem1Dumping",
+      "name": "Fertilizer dumping",
+      "machine": "WasteDump",
+      "origDuration": 4,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 60
+        }
+      ]
+    },
+    "FertilizerChem2Dumping": {
+      "id": "FertilizerChem2Dumping",
+      "name": "Fertilizer dumping",
+      "machine": "WasteDump",
+      "origDuration": 4,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 120
+        }
+      ]
+    },
+    "RedMudDumping": {
+      "id": "RedMudDumping",
+      "name": "Red mud dumping",
+      "machine": "WasteDump",
+      "origDuration": 2,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_RedMud",
+          "quantity": 240
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedWater",
+          "quantity": 240
+        }
+      ]
+    },
+    "FlareDiesel": {
+      "id": "FlareDiesel",
+      "name": "Diesel disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Diesel",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 30
+        }
+      ]
+    },
+    "FlareHeavyOil": {
+      "id": "FlareHeavyOil",
+      "name": "Heavy oil disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_HeavyOil",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 30
+        }
+      ]
+    },
+    "FlareLightOil": {
+      "id": "FlareLightOil",
+      "name": "Light oil disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LightOil",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 24
+        }
+      ]
+    },
+    "FlareNaphtha": {
+      "id": "FlareNaphtha",
+      "name": "Naphtha disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Naphtha",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 24
+        }
+      ]
+    },
+    "FlareEthanol": {
+      "id": "FlareEthanol",
+      "name": "Ethanol disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ethanol",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 12
+        }
+      ]
+    },
+    "FlareFuelGas": {
+      "id": "FlareFuelGas",
+      "name": "Fuel gas disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 12
+        }
+      ]
+    },
+    "FlareAmmonia": {
+      "id": "FlareAmmonia",
+      "name": "Ammonia disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Ammonia",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 24
+        }
+      ]
+    },
+    "FlareHydrogen": {
+      "id": "FlareHydrogen",
+      "name": "Hydrogen disposal",
+      "machine": "Flare",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 48
+        }
+      ],
+      "outputs": []
+    },
+    "ExhaustFiltering": {
+      "id": "ExhaustFiltering",
+      "name": "Exhaust filtering",
+      "machine": "ExhaustScrubber",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 240
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 6
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 96
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 24
+        }
+      ]
+    },
+    "ExhaustFilteringLime": {
+      "id": "ExhaustFilteringLime",
+      "name": "Exhaust filtering",
+      "machine": "ExhaustScrubber",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 480
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Limestone",
+          "quantity": 9
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 12
+        },
+        {
+          "id": "Product_CarbonDioxide",
+          "quantity": 192
+        },
+        {
+          "id": "Product_SteamLP",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 9
+        }
+      ]
+    },
+    "WaterTreatment": {
+      "id": "WaterTreatment",
+      "name": "Water treatment",
+      "machine": "WaterTreatmentPlant",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_WasteWater",
+          "quantity": 160
+        },
+        {
+          "id": "Product_Sand",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 80
+        },
+        {
+          "id": "Product_Sludge",
+          "quantity": 24
+        }
+      ]
+    },
+    "WaterTreatmentT2": {
+      "id": "WaterTreatmentT2",
+      "name": "Water treatment (advanced)",
+      "machine": "WaterTreatmentPlant",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_WasteWater",
+          "quantity": 160
+        },
+        {
+          "id": "Product_FilterMedia",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Chlorine",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 120
+        },
+        {
+          "id": "Product_Sludge",
+          "quantity": 36
+        }
+      ]
+    },
+    "ToxicSlurryTreatment": {
+      "id": "ToxicSlurryTreatment",
+      "name": "Toxic slurry treatment",
+      "machine": "WaterTreatmentPlant",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ToxicSlurry",
+          "quantity": 108
+        },
+        {
+          "id": "Product_FilterMedia",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Brine",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Slag",
+          "quantity": 60
+        }
+      ]
+    },
+    "LandfillBurning": {
+      "id": "LandfillBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Waste",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 9
+        }
+      ]
+    },
+    "BiomassBurning": {
+      "id": "BiomassBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Biomass",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 12
+        }
+      ]
+    },
+    "AnimalFeedBurning": {
+      "id": "AnimalFeedBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 12
+        }
+      ]
+    },
+    "CanolaBurning": {
+      "id": "CanolaBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 36
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 12
+        }
+      ]
+    },
+    "MeatTrimmingsBurning": {
+      "id": "MeatTrimmingsBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MeatTrimmings",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 9
+        }
+      ]
+    },
+    "ChickenCarcassBurning": {
+      "id": "ChickenCarcassBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ChickenCarcass",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 9
+        }
+      ]
+    },
+    "SulfurBurning": {
+      "id": "SulfurBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sulfur",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 48
+        }
+      ]
+    },
+    "SludgeBurning": {
+      "id": "SludgeBurning",
+      "name": "Burning",
+      "machine": "Burner",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sludge",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_PollutedAir",
+          "quantity": 18
+        }
+      ]
+    },
+    "IncinerationOfWaste": {
+      "id": "IncinerationOfWaste",
+      "name": "Waste incineration",
+      "machine": "IncinerationPlant",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Waste",
+          "quantity": 144
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 72
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 18
+        }
+      ]
+    },
+    "IncinerationOfWastePressed": {
+      "id": "IncinerationOfWastePressed",
+      "name": "Waste incineration",
+      "machine": "IncinerationPlant",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_WastePressed",
+          "quantity": 48
+        },
+        {
+          "id": "Product_FuelGas",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 72
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 18
+        }
+      ]
+    },
+    "IncinerationOfWasteHydrogen": {
+      "id": "IncinerationOfWasteHydrogen",
+      "name": "Waste incineration",
+      "machine": "IncinerationPlant",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Waste",
+          "quantity": 144
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 72
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 18
+        }
+      ]
+    },
+    "IncinerationOfWastePressedHydrogen": {
+      "id": "IncinerationOfWastePressedHydrogen",
+      "name": "Waste incineration",
+      "machine": "IncinerationPlant",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_WastePressed",
+          "quantity": 48
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 6
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Exhaust",
+          "quantity": 72
+        },
+        {
+          "id": "Product_SteamHi",
+          "quantity": 18
+        }
+      ]
+    },
+    "ShreddingWood": {
+      "id": "ShreddingWood",
+      "name": "Shredding wood",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Wood",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Woodchips",
+          "quantity": 24
+        }
+      ]
+    },
+    "ShreddingSaplings": {
+      "id": "ShreddingSaplings",
+      "name": "Shredding saplings",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Biomass",
+          "quantity": 24
+        }
+      ]
+    },
+    "ShreddingIronScrap": {
+      "id": "ShreddingIronScrap",
+      "name": "Shredding iron scrap",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronScrapPressed",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_IronScrap",
+          "quantity": 72
+        }
+      ]
+    },
+    "ShreddingAluminumScrap": {
+      "id": "ShreddingAluminumScrap",
+      "name": "Shredding aluminum scrap",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AluminumScrapPressed",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AluminumScrap",
+          "quantity": 72
+        }
+      ]
+    },
+    "ShreddingCopperScrap": {
+      "id": "ShreddingCopperScrap",
+      "name": "Shredding copper scrap",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperScrapPressed",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CopperScrap",
+          "quantity": 72
+        }
+      ]
+    },
+    "ShreddingGoldScrap": {
+      "id": "ShreddingGoldScrap",
+      "name": "Shredding gold scrap",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldScrapPressed",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GoldScrap",
+          "quantity": 72
+        }
+      ]
+    },
+    "ShreddingWaste": {
+      "id": "ShreddingWaste",
+      "name": "Shredding waste",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_WastePressed",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Waste",
+          "quantity": 72
+        }
+      ]
+    },
+    "ShreddingRetiredWaste": {
+      "id": "ShreddingRetiredWaste",
+      "name": "Shredding waste",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_RetiredWaste",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Recyclables",
+          "quantity": 6
+        }
+      ]
+    },
+    "ShreddingPolyCells": {
+      "id": "ShreddingPolyCells",
+      "name": "Shredding poly cells",
+      "machine": "Shredder",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SolarCell",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Recyclables",
+          "quantity": 6
+        }
+      ]
+    },
+    "PressingOfRecyclables": {
+      "id": "PressingOfRecyclables",
+      "name": "Recyclables pressing",
+      "machine": "Compactor",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Recyclables",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RecyclablesPressed",
+          "quantity": 24
+        }
+      ]
+    },
+    "PressingOfCopperScrap": {
+      "id": "PressingOfCopperScrap",
+      "name": "Copper scrap pressing",
+      "machine": "Compactor",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_CopperScrap",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_CopperScrapPressed",
+          "quantity": 24
+        }
+      ]
+    },
+    "PressingOfIronScrap": {
+      "id": "PressingOfIronScrap",
+      "name": "Iron scrap pressing",
+      "machine": "Compactor",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_IronScrap",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_IronScrapPressed",
+          "quantity": 24
+        }
+      ]
+    },
+    "PressingOfAluminumScrap": {
+      "id": "PressingOfAluminumScrap",
+      "name": "Aluminum scrap pressing",
+      "machine": "Compactor",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AluminumScrap",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_AluminumScrapPressed",
+          "quantity": 24
+        }
+      ]
+    },
+    "PressingOfGoldScrap": {
+      "id": "PressingOfGoldScrap",
+      "name": "Gold scrap pressing",
+      "machine": "Compactor",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_GoldScrap",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_GoldScrapPressed",
+          "quantity": 24
+        }
+      ]
+    },
+    "PressingOfWaste": {
+      "id": "PressingOfWaste",
+      "name": "Waste pressing",
+      "machine": "Compactor",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Waste",
+          "quantity": 72
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_WastePressed",
+          "quantity": 24
+        }
+      ]
+    },
+    "SludgeDigestion": {
+      "id": "SludgeDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Sludge",
+          "quantity": 18
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 3
+        }
+      ]
+    },
+    "PotatoDigestion": {
+      "id": "PotatoDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 14
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "VegetablesDigestion": {
+      "id": "VegetablesDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 14
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "FruitDigestion": {
+      "id": "FruitDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Fruit",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "PoppyDigestion": {
+      "id": "PoppyDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 14
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "WheatDigestion": {
+      "id": "WheatDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "CornDigestion": {
+      "id": "CornDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 14
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 14
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "SoybeanDigestion": {
+      "id": "SoybeanDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 14
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "SugarCaneDigestion": {
+      "id": "SugarCaneDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 8
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "MeatTrimmingsDigestion": {
+      "id": "MeatTrimmingsDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MeatTrimmings",
+          "quantity": 8
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 4
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 2
+        }
+      ]
+    },
+    "EggsDigestion": {
+      "id": "EggsDigestion",
+      "name": "Digestion",
+      "machine": "AnaerobicDigester",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Eggs",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_FuelGas",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Compost",
+          "quantity": 1
+        }
+      ]
+    },
+    "AirSeparation": {
+      "id": "AirSeparation",
+      "name": "Air separation",
+      "machine": "AirSeparator",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Oxygen",
+          "quantity": 36
+        },
+        {
+          "id": "Product_Nitrogen",
+          "quantity": 36
+        }
+      ]
+    },
+    "MaintenanceT1Recipe": {
+      "id": "MaintenanceT1Recipe",
+      "name": "Maintenance I",
+      "machine": "MaintenanceDepotT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MaintenanceT1",
+          "quantity": 480
+        }
+      ]
+    },
+    "MaintenanceT1Recycling": {
+      "id": "MaintenanceT1Recycling",
+      "name": "Maintenance I",
+      "machine": "MaintenanceDepotT1",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MaintenanceT1",
+          "quantity": 480
+        },
+        {
+          "id": "Product_Recyclables",
+          "quantity": 18
+        }
+      ]
+    },
+    "MaintenanceT0Recipe": {
+      "id": "MaintenanceT0Recipe",
+      "name": "Maintenance I",
+      "machine": "MaintenanceDepotT0",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 12
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MaintenanceT1",
+          "quantity": 220
+        }
+      ]
+    },
+    "MaintenanceT2Recipe": {
+      "id": "MaintenanceT2Recipe",
+      "name": "Maintenance II",
+      "machine": "MaintenanceDepotT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MaintenanceT2",
+          "quantity": 480
+        }
+      ]
+    },
+    "MaintenanceT2Recycling": {
+      "id": "MaintenanceT2Recycling",
+      "name": "Maintenance II",
+      "machine": "MaintenanceDepotT2",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 18
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MaintenanceT2",
+          "quantity": 480
+        },
+        {
+          "id": "Product_Recyclables",
+          "quantity": 24
+        }
+      ]
+    },
+    "MaintenanceT3Recipe": {
+      "id": "MaintenanceT3Recipe",
+      "name": "Maintenance III",
+      "machine": "MaintenanceDepotT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MaintenanceT3",
+          "quantity": 240
+        }
+      ]
+    },
+    "MaintenanceT3Recycling": {
+      "id": "MaintenanceT3Recycling",
+      "name": "Maintenance III",
+      "machine": "MaintenanceDepotT3",
+      "origDuration": 20,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 9
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_MaintenanceT3",
+          "quantity": 240
+        },
+        {
+          "id": "Product_Recyclables",
+          "quantity": 24
+        }
+      ]
+    },
+    "CargoShipRecipe": {
+      "id": "CargoShipRecipe",
+      "name": "Build Cargo Ship",
+      "machine": "CargoShipDrydock",
+      "origDuration": 1800,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Iron",
+          "quantity": 10
+        },
+        {
+          "id": "Product_ConstructionParts",
+          "quantity": 3.3333333333333335
+        },
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 5
+        },
+        {
+          "id": "Product_Electronics",
+          "quantity": 1.6666666666666667
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_CargoShip",
+          "quantity": 0.03333333333333333
+        }
+      ]
+    },
+    "CargoShipRecipeT2": {
+      "id": "CargoShipRecipeT2",
+      "name": "Build Cargo Ship T2",
+      "machine": "CargoShipDrydock",
+      "origDuration": 900,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Steel",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Aluminum",
+          "quantity": 10
+        },
+        {
+          "id": "Product_MechanicalParts",
+          "quantity": 16.666666666666668
+        },
+        {
+          "id": "Product_ConstructionParts2",
+          "quantity": 6.666666666666667
+        },
+        {
+          "id": "Product_Diesel",
+          "quantity": 16.666666666666668
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_CargoShip",
+          "quantity": 0.06666666666666667
+        }
+      ]
+    },
+    "Crop_Potato_Product_Fertilizer": {
+      "id": "Crop_Potato_Product_Fertilizer",
+      "name": "Potato Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 45
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 6.5625
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 29
+        }
+      ]
+    },
+    "Crop_Potato_Product_Fertilizer2": {
+      "id": "Crop_Potato_Product_Fertilizer2",
+      "name": "Potato Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 45
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 5.25
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 29
+        }
+      ]
+    },
+    "Crop_Potato_Product_FertilizerOrganic": {
+      "id": "Crop_Potato_Product_FertilizerOrganic",
+      "name": "Potato Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 45
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 13.125976666666666
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 29
+        }
+      ]
+    },
+    "Crop_Corn_Product_Fertilizer": {
+      "id": "Crop_Corn_Product_Fertilizer",
+      "name": "Corn Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 49.892575
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 7.499755000000001
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 24.75
+        }
+      ]
+    },
+    "Crop_Corn_Product_Fertilizer2": {
+      "id": "Crop_Corn_Product_Fertilizer2",
+      "name": "Corn Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 49.892575
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 5.999755000000001
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 24.75
+        }
+      ]
+    },
+    "Crop_Corn_Product_FertilizerOrganic": {
+      "id": "Crop_Corn_Product_FertilizerOrganic",
+      "name": "Corn Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 49.892575
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 15
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 24.75
+        }
+      ]
+    },
+    "Crop_Wheat_Product_Fertilizer": {
+      "id": "Crop_Wheat_Product_Fertilizer",
+      "name": "Wheat Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 360,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 39.72656666666667
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 6.562663333333333
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 14.5
+        }
+      ]
+    },
+    "Crop_Wheat_Product_Fertilizer2": {
+      "id": "Crop_Wheat_Product_Fertilizer2",
+      "name": "Wheat Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 360,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 39.72656666666667
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 5.25
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 14.5
+        }
+      ]
+    },
+    "Crop_Wheat_Product_FertilizerOrganic": {
+      "id": "Crop_Wheat_Product_FertilizerOrganic",
+      "name": "Wheat Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 360,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 39.72656666666667
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 13.125813333333333
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 14.5
+        }
+      ]
+    },
+    "Crop_TreeSapling_Product_Fertilizer": {
+      "id": "Crop_TreeSapling_Product_Fertilizer",
+      "name": "Tree sapling Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 33.7793
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 3.7498375
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 7.5
+        }
+      ]
+    },
+    "Crop_TreeSapling_Product_Fertilizer2": {
+      "id": "Crop_TreeSapling_Product_Fertilizer2",
+      "name": "Tree sapling Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 33.7793
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 2.9998375
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 7.5
+        }
+      ]
+    },
+    "Crop_TreeSapling_Product_FertilizerOrganic": {
+      "id": "Crop_TreeSapling_Product_FertilizerOrganic",
+      "name": "Tree sapling Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 33.7793
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 7.5
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 7.5
+        }
+      ]
+    },
+    "Crop_Soybeans_Product_Fertilizer": {
+      "id": "Crop_Soybeans_Product_Fertilizer",
+      "name": "Soybeans Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 45
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 9.37378
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 8.25
+        }
+      ]
+    },
+    "Crop_Soybeans_Product_Fertilizer2": {
+      "id": "Crop_Soybeans_Product_Fertilizer2",
+      "name": "Soybeans Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 45
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 7.49878
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 8.25
+        }
+      ]
+    },
+    "Crop_Soybeans_Product_FertilizerOrganic": {
+      "id": "Crop_Soybeans_Product_FertilizerOrganic",
+      "name": "Soybeans Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 45
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 18.74829
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 8.25
+        }
+      ]
+    },
+    "Crop_SugarCane_Product_Fertilizer": {
+      "id": "Crop_SugarCane_Product_Fertilizer",
+      "name": "Sugar cane Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 540,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 9.373697777777778
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 33
+        }
+      ]
+    },
+    "Crop_SugarCane_Product_Fertilizer2": {
+      "id": "Crop_SugarCane_Product_Fertilizer2",
+      "name": "Sugar cane Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 540,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 60
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 7.498806666666667
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 33
+        }
+      ]
+    },
+    "Crop_SugarCane_Product_FertilizerOrganic": {
+      "id": "Crop_SugarCane_Product_FertilizerOrganic",
+      "name": "Sugar cane Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 540,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 60
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 18.748266666666666
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 33
+        }
+      ]
+    },
+    "Crop_Vegetables_Product_Fertilizer": {
+      "id": "Crop_Vegetables_Product_Fertilizer",
+      "name": "Vegetables Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 40.136725
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 6.562744999999999
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 22.5
+        }
+      ]
+    },
+    "Crop_Vegetables_Product_Fertilizer2": {
+      "id": "Crop_Vegetables_Product_Fertilizer2",
+      "name": "Vegetables Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 40.136725
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 5.25
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 22.5
+        }
+      ]
+    },
+    "Crop_Vegetables_Product_FertilizerOrganic": {
+      "id": "Crop_Vegetables_Product_FertilizerOrganic",
+      "name": "Vegetables Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 40.136725
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 13.1259775
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 22.5
+        }
+      ]
+    },
+    "Crop_Fruits_Product_Fertilizer": {
+      "id": "Crop_Fruits_Product_Fertilizer",
+      "name": "Fruits Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 480,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 49.892575
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.62377875
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fruit",
+          "quantity": 15
+        }
+      ]
+    },
+    "Crop_Fruits_Product_Fertilizer2": {
+      "id": "Crop_Fruits_Product_Fertilizer2",
+      "name": "Fruits Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 480,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 49.892575
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.49902375
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fruit",
+          "quantity": 15
+        }
+      ]
+    },
+    "Crop_Fruits_Product_FertilizerOrganic": {
+      "id": "Crop_Fruits_Product_FertilizerOrganic",
+      "name": "Fruits Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 480,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 49.892575
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 11.24816875
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fruit",
+          "quantity": 15
+        }
+      ]
+    },
+    "Crop_Canola_Product_Fertilizer": {
+      "id": "Crop_Canola_Product_Fertilizer",
+      "name": "Canola Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 34.86326666666667
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.623696666666666
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 18
+        }
+      ]
+    },
+    "Crop_Canola_Product_Fertilizer2": {
+      "id": "Crop_Canola_Product_Fertilizer2",
+      "name": "Canola Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 34.86326666666667
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.499023333333334
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 18
+        }
+      ]
+    },
+    "Crop_Canola_Product_FertilizerOrganic": {
+      "id": "Crop_Canola_Product_FertilizerOrganic",
+      "name": "Canola Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 34.86326666666667
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 11.248373333333333
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 18
+        }
+      ]
+    },
+    "Crop_Poppy_Product_Fertilizer": {
+      "id": "Crop_Poppy_Product_Fertilizer",
+      "name": "Poppy Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 33.7793
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.62378
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 9.5
+        }
+      ]
+    },
+    "Crop_Poppy_Product_Fertilizer2": {
+      "id": "Crop_Poppy_Product_Fertilizer2",
+      "name": "Poppy Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 33.7793
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.4990225
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 9.5
+        }
+      ]
+    },
+    "Crop_Poppy_Product_FertilizerOrganic": {
+      "id": "Crop_Poppy_Product_FertilizerOrganic",
+      "name": "Poppy Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 33.7793
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 11.24829
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 9.5
+        }
+      ]
+    },
+    "Crop_Flowers_Product_Fertilizer": {
+      "id": "Crop_Flowers_Product_Fertilizer",
+      "name": "Flowers Fertilizer I",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 56.25
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 9.37378
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Flowers",
+          "quantity": 9
+        }
+      ]
+    },
+    "Crop_Flowers_Product_Fertilizer2": {
+      "id": "Crop_Flowers_Product_Fertilizer2",
+      "name": "Flowers Fertilizer II",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 56.25
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 7.49878
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Flowers",
+          "quantity": 9
+        }
+      ]
+    },
+    "Crop_Flowers_Product_FertilizerOrganic": {
+      "id": "Crop_Flowers_Product_FertilizerOrganic",
+      "name": "Flowers Fertilizer (organic)",
+      "machine": "FarmT4",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 56.25
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 18.74829
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Flowers",
+          "quantity": 9
+        }
+      ]
+    },
+    "Crop_Potato_Product_Fertilizer_1": {
+      "id": "Crop_Potato_Product_Fertilizer_1",
+      "name": "Potato Fertilizer I",
+      "machine": "FarmT2",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36.00586666666667
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.25
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 19.333333333333332
+        }
+      ]
+    },
+    "Crop_Potato_Product_Fertilizer2_1": {
+      "id": "Crop_Potato_Product_Fertilizer2_1",
+      "name": "Potato Fertilizer II",
+      "machine": "FarmT2",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36.00586666666667
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.200196666666667
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 19.333333333333332
+        }
+      ]
+    },
+    "Crop_Potato_Product_FertilizerOrganic_1": {
+      "id": "Crop_Potato_Product_FertilizerOrganic_1",
+      "name": "Potato Fertilizer (organic)",
+      "machine": "FarmT2",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36.00586666666667
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 10.50065
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 19.333333333333332
+        }
+      ]
+    },
+    "Crop_Corn_Product_Fertilizer_1": {
+      "id": "Crop_Corn_Product_Fertilizer_1",
+      "name": "Corn Fertilizer I",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 39.90235
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.999755000000001
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 16.5
+        }
+      ]
+    },
+    "Crop_Corn_Product_Fertilizer2_1": {
+      "id": "Crop_Corn_Product_Fertilizer2_1",
+      "name": "Corn Fertilizer II",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 39.90235
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.799805
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 16.5
+        }
+      ]
+    },
+    "Crop_Corn_Product_FertilizerOrganic_1": {
+      "id": "Crop_Corn_Product_FertilizerOrganic_1",
+      "name": "Corn Fertilizer (organic)",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 39.90235
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 16.5
+        }
+      ]
+    },
+    "Crop_Wheat_Product_Fertilizer_1": {
+      "id": "Crop_Wheat_Product_Fertilizer_1",
+      "name": "Wheat Fertilizer I",
+      "machine": "FarmT2",
+      "origDuration": 360,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 31.78711666666667
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.250163333333333
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 9.666666666666666
+        }
+      ]
+    },
+    "Crop_Wheat_Product_Fertilizer2_1": {
+      "id": "Crop_Wheat_Product_Fertilizer2_1",
+      "name": "Wheat Fertilizer II",
+      "machine": "FarmT2",
+      "origDuration": 360,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 31.78711666666667
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.200033333333333
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 9.666666666666666
+        }
+      ]
+    },
+    "Crop_Wheat_Product_FertilizerOrganic_1": {
+      "id": "Crop_Wheat_Product_FertilizerOrganic_1",
+      "name": "Wheat Fertilizer (organic)",
+      "machine": "FarmT2",
+      "origDuration": 360,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 31.78711666666667
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 10.500651666666666
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 9.666666666666666
+        }
+      ]
+    },
+    "Crop_TreeSapling_Product_Fertilizer_1": {
+      "id": "Crop_TreeSapling_Product_Fertilizer_1",
+      "name": "Tree sapling Fertilizer I",
+      "machine": "FarmT2",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 27.01171666666667
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 2.9998375
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 5
+        }
+      ]
+    },
+    "Crop_TreeSapling_Product_Fertilizer2_1": {
+      "id": "Crop_TreeSapling_Product_Fertilizer2_1",
+      "name": "Tree sapling Fertilizer II",
+      "machine": "FarmT2",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 27.01171666666667
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 2.3999025
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 5
+        }
+      ]
+    },
+    "Crop_TreeSapling_Product_FertilizerOrganic_1": {
+      "id": "Crop_TreeSapling_Product_FertilizerOrganic_1",
+      "name": "Tree sapling Fertilizer (organic)",
+      "machine": "FarmT2",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 27.01171666666667
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 5
+        }
+      ]
+    },
+    "Crop_Soybeans_Product_Fertilizer_1": {
+      "id": "Crop_Soybeans_Product_Fertilizer_1",
+      "name": "Soybeans Fertilizer I",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36.00585
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 7.4990225
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 5.5
+        }
+      ]
+    },
+    "Crop_Soybeans_Product_Fertilizer2_1": {
+      "id": "Crop_Soybeans_Product_Fertilizer2_1",
+      "name": "Soybeans Fertilizer II",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36.00585
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 5.9990225
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 5.5
+        }
+      ]
+    },
+    "Crop_Soybeans_Product_FertilizerOrganic_1": {
+      "id": "Crop_Soybeans_Product_FertilizerOrganic_1",
+      "name": "Soybeans Fertilizer (organic)",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 36.00585
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 14.998535
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 5.5
+        }
+      ]
+    },
+    "Crop_SugarCane_Product_Fertilizer_1": {
+      "id": "Crop_SugarCane_Product_Fertilizer_1",
+      "name": "Sugar cane Fertilizer I",
+      "machine": "FarmT3",
+      "origDuration": 540,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 53.994144444444444
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 8.436306666666667
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 27.555555555555557
+        }
+      ]
+    },
+    "Crop_SugarCane_Product_Fertilizer2_1": {
+      "id": "Crop_SugarCane_Product_Fertilizer2_1",
+      "name": "Sugar cane Fertilizer II",
+      "machine": "FarmT3",
+      "origDuration": 540,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 53.994144444444444
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 6.749023333333334
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 27.555555555555557
+        }
+      ]
+    },
+    "Crop_SugarCane_Product_FertilizerOrganic_1": {
+      "id": "Crop_SugarCane_Product_FertilizerOrganic_1",
+      "name": "Sugar cane Fertilizer (organic)",
+      "machine": "FarmT3",
+      "origDuration": 540,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 53.994144444444444
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 16.873377777777776
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SugarCane",
+          "quantity": 27.555555555555557
+        }
+      ]
+    },
+    "Crop_Vegetables_Product_Fertilizer_1": {
+      "id": "Crop_Vegetables_Product_Fertilizer_1",
+      "name": "Vegetables Fertilizer I",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 32.109375
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.25
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 15
+        }
+      ]
+    },
+    "Crop_Vegetables_Product_Fertilizer2_1": {
+      "id": "Crop_Vegetables_Product_Fertilizer2_1",
+      "name": "Vegetables Fertilizer II",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 32.109375
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.19995
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 15
+        }
+      ]
+    },
+    "Crop_Vegetables_Product_FertilizerOrganic_1": {
+      "id": "Crop_Vegetables_Product_FertilizerOrganic_1",
+      "name": "Vegetables Fertilizer (organic)",
+      "machine": "FarmT2",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 32.109375
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 10.5007325
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 15
+        }
+      ]
+    },
+    "Crop_Fruits_Product_Fertilizer_1": {
+      "id": "Crop_Fruits_Product_Fertilizer_1",
+      "name": "Fruits Fertilizer I",
+      "machine": "FarmT3",
+      "origDuration": 480,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 44.8828125
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.06140125
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fruit",
+          "quantity": 12.5
+        }
+      ]
+    },
+    "Crop_Fruits_Product_Fertilizer2_1": {
+      "id": "Crop_Fruits_Product_Fertilizer2_1",
+      "name": "Fruits Fertilizer II",
+      "machine": "FarmT3",
+      "origDuration": 480,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 44.8828125
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.0490725
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fruit",
+          "quantity": 12.5
+        }
+      ]
+    },
+    "Crop_Fruits_Product_FertilizerOrganic_1": {
+      "id": "Crop_Fruits_Product_FertilizerOrganic_1",
+      "name": "Fruits Fertilizer (organic)",
+      "machine": "FarmT3",
+      "origDuration": 480,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 44.8828125
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 10.1234125
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Fruit",
+          "quantity": 12.5
+        }
+      ]
+    },
+    "Crop_Canola_Product_Fertilizer_1": {
+      "id": "Crop_Canola_Product_Fertilizer_1",
+      "name": "Canola Fertilizer I",
+      "machine": "FarmT2",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 27.890626666666666
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 4.499023333333334
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 12
+        }
+      ]
+    },
+    "Crop_Canola_Product_Fertilizer2_1": {
+      "id": "Crop_Canola_Product_Fertilizer2_1",
+      "name": "Canola Fertilizer II",
+      "machine": "FarmT2",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 27.890626666666666
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 3.599283333333333
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 12
+        }
+      ]
+    },
+    "Crop_Canola_Product_FertilizerOrganic_1": {
+      "id": "Crop_Canola_Product_FertilizerOrganic_1",
+      "name": "Canola Fertilizer (organic)",
+      "machine": "FarmT2",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 27.890626666666666
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 8.998696666666667
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 12
+        }
+      ]
+    },
+    "Crop_Poppy_Product_Fertilizer_1": {
+      "id": "Crop_Poppy_Product_Fertilizer_1",
+      "name": "Poppy Fertilizer I",
+      "machine": "FarmT3",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 30.38085
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 5.0615225
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 7.75
+        }
+      ]
+    },
+    "Crop_Poppy_Product_Fertilizer2_1": {
+      "id": "Crop_Poppy_Product_Fertilizer2_1",
+      "name": "Poppy Fertilizer II",
+      "machine": "FarmT3",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 30.38085
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 4.0490725
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 7.75
+        }
+      ]
+    },
+    "Crop_Poppy_Product_FertilizerOrganic_1": {
+      "id": "Crop_Poppy_Product_FertilizerOrganic_1",
+      "name": "Poppy Fertilizer (organic)",
+      "machine": "FarmT3",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 30.38085
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 10.12329
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Poppy",
+          "quantity": 7.75
+        }
+      ]
+    },
+    "Crop_Flowers_Product_Fertilizer_1": {
+      "id": "Crop_Flowers_Product_Fertilizer_1",
+      "name": "Flowers Fertilizer I",
+      "machine": "FarmT3",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 50.625
+        },
+        {
+          "id": "Product_Fertilizer",
+          "quantity": 8.43628
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Flowers",
+          "quantity": 7.5
+        }
+      ]
+    },
+    "Crop_Flowers_Product_Fertilizer2_1": {
+      "id": "Crop_Flowers_Product_Fertilizer2_1",
+      "name": "Flowers Fertilizer II",
+      "machine": "FarmT3",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 50.625
+        },
+        {
+          "id": "Product_Fertilizer2",
+          "quantity": 6.7490225
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Flowers",
+          "quantity": 7.5
+        }
+      ]
+    },
+    "Crop_Flowers_Product_FertilizerOrganic_1": {
+      "id": "Crop_Flowers_Product_FertilizerOrganic_1",
+      "name": "Flowers Fertilizer (organic)",
+      "machine": "FarmT3",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 50.625
+        },
+        {
+          "id": "Product_FertilizerOrganic",
+          "quantity": 16.87329
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Flowers",
+          "quantity": 7.5
+        }
+      ]
+    },
+    "Crop_Potato": {
+      "id": "Crop_Potato",
+      "name": "Potato",
+      "machine": "FarmT1",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Potato",
+          "quantity": 19.333333333333332
+        }
+      ]
+    },
+    "Crop_Corn": {
+      "id": "Crop_Corn",
+      "name": "Corn",
+      "machine": "FarmT1",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Corn",
+          "quantity": 16.5
+        }
+      ]
+    },
+    "Crop_Wheat": {
+      "id": "Crop_Wheat",
+      "name": "Wheat",
+      "machine": "FarmT1",
+      "origDuration": 360,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Wheat",
+          "quantity": 9.666666666666666
+        }
+      ]
+    },
+    "Crop_TreeSapling": {
+      "id": "Crop_TreeSapling",
+      "name": "Tree sapling",
+      "machine": "FarmT1",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_TreeSapling",
+          "quantity": 5
+        }
+      ]
+    },
+    "Crop_Soybeans": {
+      "id": "Crop_Soybeans",
+      "name": "Soybeans",
+      "machine": "FarmT1",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Soybean",
+          "quantity": 5.5
+        }
+      ]
+    },
+    "Crop_Vegetables": {
+      "id": "Crop_Vegetables",
+      "name": "Vegetables",
+      "machine": "FarmT1",
+      "origDuration": 240,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Vegetables",
+          "quantity": 15
+        }
+      ]
+    },
+    "Crop_Canola": {
+      "id": "Crop_Canola",
+      "name": "Canola",
+      "machine": "FarmT1",
+      "origDuration": 180,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Canola",
+          "quantity": 12
+        }
+      ]
+    },
+    "ChickenFarm": {
+      "id": "ChickenFarm",
+      "name": "Chicken farm",
+      "machine": "ChickenFarm",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_AnimalFeed",
+          "quantity": 15.13672
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 18.06641
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Eggs",
+          "quantity": 7.324219
+        },
+        {
+          "id": "Product_ChickenCarcass",
+          "quantity": 10
+        }
+      ]
+    },
+    "ResearchLab2": {
+      "id": "ResearchLab2",
+      "name": "Research lab I",
+      "machine": "ResearchLab2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 6
+        }
+      ],
+      "outputs": []
+    },
+    "ResearchLab21": {
+      "id": "ResearchLab21",
+      "name": "Research lab I 1",
+      "machine": "ResearchLab2",
+      "origDuration": 10,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment",
+          "quantity": 6
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Recyclables",
+          "quantity": 6
+        }
+      ]
+    },
+    "ResearchLab3": {
+      "id": "ResearchLab3",
+      "name": "Research lab II",
+      "machine": "ResearchLab3",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 12
+        }
+      ],
+      "outputs": []
+    },
+    "ResearchLab31": {
+      "id": "ResearchLab31",
+      "name": "Research lab II 1",
+      "machine": "ResearchLab3",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment2",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Recyclables",
+          "quantity": 12
+        }
+      ]
+    },
+    "ResearchLab4": {
+      "id": "ResearchLab4",
+      "name": "Research lab III",
+      "machine": "ResearchLab4",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 24
+        }
+      ],
+      "outputs": []
+    },
+    "ResearchLab41": {
+      "id": "ResearchLab41",
+      "name": "Research lab III 1",
+      "machine": "ResearchLab4",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment3",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Recyclables",
+          "quantity": 24
+        }
+      ]
+    },
+    "ResearchLab5": {
+      "id": "ResearchLab5",
+      "name": "Research lab IV",
+      "machine": "ResearchLab5",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment4",
+          "quantity": 48
+        }
+      ],
+      "outputs": []
+    },
+    "ResearchLab51": {
+      "id": "ResearchLab51",
+      "name": "Research lab IV 1",
+      "machine": "ResearchLab5",
+      "origDuration": 5,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_LabEquipment4",
+          "quantity": 48
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Recyclables",
+          "quantity": 48
+        }
+      ]
+    },
+    "NuclearReactorT2": {
+      "id": "NuclearReactorT2",
+      "name": "Nuclear reactor II",
+      "machine": "NuclearReactorT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_MoxRod",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 384
+        },
+        {
+          "id": "Product_SpentMox",
+          "quantity": 2
+        }
+      ]
+    },
+    "NuclearReactorT21": {
+      "id": "NuclearReactorT21",
+      "name": "Nuclear reactor II 1",
+      "machine": "NuclearReactorT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_UraniumRod",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 384
+        },
+        {
+          "id": "Product_SpentFuel",
+          "quantity": 2
+        }
+      ]
+    },
+    "NuclearReactorT22": {
+      "id": "NuclearReactorT22",
+      "name": "Nuclear reactor II 2",
+      "linkId": "ae76e719c6bdb4e511aef1e90c1e3f41b5c2fe3abd6dacc1dfe04ee73c2c4fbc",
+      "machine": "NuclearReactorT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_MoxRod",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 384
+        },
+        {
+          "id": "Product_SpentMox",
+          "quantity": 2
+        }
+      ]
+    },
+    "NuclearReactorT23": {
+      "id": "NuclearReactorT23",
+      "name": "Nuclear reactor II 3",
+      "linkId": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
+      "machine": "NuclearReactorT2",
+      "origDuration": 30,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_UraniumRod",
+          "quantity": 2
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 384
+        },
+        {
+          "id": "Product_SpentFuel",
+          "quantity": 2
+        }
+      ]
+    },
+    "NuclearReactor": {
+      "id": "NuclearReactor",
+      "name": "Nuclear reactor",
+      "linkId": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
+      "machine": "NuclearReactor",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 288
+        },
+        {
+          "id": "Product_UraniumRod",
+          "quantity": 1.5
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 288
+        },
+        {
+          "id": "Product_SpentFuel",
+          "quantity": 1.5
+        }
+      ]
+    },
+    "NuclearReactor1": {
+      "id": "NuclearReactor1",
+      "name": "Nuclear reactor 1",
+      "linkId": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
+      "machine": "NuclearReactor",
+      "origDuration": 40,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 288
+        },
+        {
+          "id": "Product_UraniumRod",
+          "quantity": 1.5
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 288
+        },
+        {
+          "id": "Product_SpentFuel",
+          "quantity": 1.5
+        }
+      ]
+    },
+    "FastBreederReactor": {
+      "id": "FastBreederReactor",
+      "name": "Fast breeder reactor",
+      "machine": "FastBreederReactor",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuelDirty",
+          "quantity": 16
+        }
+      ]
+    },
+    "FastBreederReactor1": {
+      "id": "FastBreederReactor1",
+      "name": "Fast breeder reactor 1",
+      "machine": "FastBreederReactor",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 16
+        },
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 16,
+          "optional": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuelDirty",
+          "quantity": 16
+        },
+        {
+          "id": "Product_BlanketFuelEnriched",
+          "quantity": 16,
+          "optional": true
+        }
+      ]
+    },
+    "FastBreederReactor2": {
+      "id": "FastBreederReactor2",
+      "name": "Fast breeder reactor 2",
+      "linkId": "9602ac96f193b40bd47b9f39e8a37c59d9a38efd09c6f5fce8fdbc1c851d4aa3",
+      "machine": "FastBreederReactor",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuelDirty",
+          "quantity": 16
+        }
+      ]
+    },
+    "FastBreederReactor3": {
+      "id": "FastBreederReactor3",
+      "name": "Fast breeder reactor 3",
+      "linkId": "ad9901c5ee9ebdcc9c595b70fb22d4362f41ae704fb7af1158566305b51152a6",
+      "machine": "FastBreederReactor",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuel",
+          "quantity": 16
+        },
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 1,
+          "optional": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 384
+        },
+        {
+          "id": "Product_CoreFuelDirty",
+          "quantity": 16
+        },
+        {
+          "id": "Product_BlanketFuelEnriched",
+          "quantity": 1,
+          "optional": true
+        }
+      ]
+    },
+    "RainwaterHarvester": {
+      "id": "RainwaterHarvester",
+      "name": "Rainwater harvester",
+      "machine": "RainwaterHarvester",
+      "origDuration": 720,
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 3.0833333333333335
+        }
+      ]
+    },
+    "BasicServerRack": {
+      "id": "BasicServerRack",
+      "name": "Basic rack",
+      "machine": "DataCenter",
+      "origDuration": 60,
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_ChilledWater",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Virtual_MaintenanceT3",
+          "quantity": 42.39063
+        },
+        {
+          "id": "Product_Virtual_Electricity",
+          "quantity": 4080
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 24
+        },
+        {
+          "id": "Product_Virtual_Computing",
+          "quantity": 192
+        }
+      ]
+    }
+  }
+}

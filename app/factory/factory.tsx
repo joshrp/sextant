@@ -5,8 +5,7 @@ import Graph from "app/factory/graph/graph";
 import Sidebar from "app/factory/graph/sidebar";
 
 import {
-  loadProductData,
-  loadRecipeData,
+  loadData,
   type ProductId,
   type RecipeId
 } from "./graph/loadJsonData";
@@ -16,8 +15,7 @@ import useFactory, { useFactoryStore } from "./FactoryContext";
 import RecipePicker from "./RecipePicker";
 import { FactorySwitches } from "./switches";
 
-const recipeData = loadRecipeData();
-const productData = loadProductData();
+const { products } = loadData();
 
 export function Factory() {
   const store = useFactory().store
@@ -27,7 +25,7 @@ export function Factory() {
 
   const [ recipeSelectorProductIsOutput, setRecipeSelectorProductIsOutput ] = useState<boolean>(true);
   const [recipeSelectorProductId, setRecipeSelectorProduct] = useState<ProductId | null>(null);
-  const recipeSelectorProduct = recipeSelectorProductId ? productData[recipeSelectorProductId] : null
+  const recipeSelectorProduct = recipeSelectorProductId ? products.get(recipeSelectorProductId) : null
   const newNodeFor = useFactoryStore(state => state.newNodeFor);
   
   useEffect(() => {
@@ -77,7 +75,7 @@ export function Factory() {
       
       store.setState({ newNodeFor: undefined });
     }
-  }, [recipeData, newNodeFor, addNode, onConnect, store]);
+  }, [newNodeFor, addNode, onConnect, store]);
 
   const blankRecipeSelectorProduct = () => {
     setRecipeSelectorProduct(null);
