@@ -30,9 +30,9 @@ export default function Home() {
     setImages(newImg);
   }, [products, machines]); 
   return <>
-    <main className="flex items-center justify-center">
+    <main className="h-[100vh]">
       <FactoryProvider id={selected?.id}>
-        <div className="flex-1 flex flex-col items-center h-full">
+        <div className="flex flex-col justify-stretch h-full">
           <Header selected={selected?.id} />
 
           <Factory />

@@ -5,7 +5,7 @@ export function SelectorDialog({ isOpen, setIsOpen, title, children }: { isOpen:
   return <Dialog open={isOpen} onClose={setIsOpen} className="">
     <DialogBackdrop className="fixed z-10 inset-0 bg-gray-500/75 transition-opacity data-open:opacity-60 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in" />
     <div className="fixed flex inset-0 z-10">
-      <DialogPanel className="m-auto max-h-[80vh] grid grid-rows-[min-content_1fr] min-w-20 w-[60vw] bg-gray-100 dark:bg-gray-800 transition-opacity data-open:opacity-100 data-closed:opacity-0 data-enter:duration-2000 data-enter:ease-out data-leave:duration-200 data-leave:ease-in text-center sm:items-center sm:p-0">
+      <DialogPanel className="m-auto max-h-[80vh] grid grid-rows-[min-content_1fr] min-w-20 w-[80vw] bg-gray-100 dark:bg-gray-800 transition-opacity data-open:opacity-100 data-closed:opacity-0 data-enter:duration-2000 data-enter:ease-out data-leave:duration-200 data-leave:ease-in text-center sm:items-center sm:p-0">
         <div className="w-full flex items-center justify-between mb-2 p-2 border-b-2 border-gray-300 dark:border-gray-700 relative">
           <div className="flex-1" />
           <DialogTitle className="flex-6">

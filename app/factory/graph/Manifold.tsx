@@ -138,8 +138,8 @@ export default function Manifold(props: ManifoldProps) {
       className="
         allItems 
         grid grid-rows-[1fr] data-isopen:grid-rows-[0fr] 
-        border-t-1 border-gray-700 data-isOpen:border-t-0
-        data-isOpen:-mt-4 pt-2
+        border-t-1 border-gray-700 data-isopen:border-t-0
+        data-isopen:-mt-4 pt-2
         transition-[grid-template-rows_margin-top] duration-300 ease-in-out
 
       "
@@ -169,10 +169,10 @@ export default function Manifold(props: ManifoldProps) {
       </div>
     </div>
     {children.length > 0 ? (<>
-      <div data-isOpen={childrenOpen || null} className="
-        children invisible data-isOpen:visible 
-        grid grid-rows-[0fr] data-isOpen:grid-rows-[1fr] 
-        -mt-2 data-isOpen:mt-0
+      <div data-isopen={childrenOpen || null} className="
+        children invisible data-isopen:visible 
+        grid grid-rows-[0fr] data-isopen:grid-rows-[1fr] 
+        -mt-2 data-isopen:mt-0
         transition-[grid-template-rows] duration-300 ease-in-out">
         <div className="flex flex-col gap-2 overflow-hidden">
           {mani.children.map(c => {

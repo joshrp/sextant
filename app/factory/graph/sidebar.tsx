@@ -10,11 +10,12 @@ import { loadData, type Product, type ProductId } from './loadJsonData';
 import Manifold from './Manifold';
 import { useShallow } from 'zustand/shallow';
 import { formatNumber, productIcon } from '~/uiUtils';
+import type { AddRecipeNode } from '../factory';
 
 const productData = loadData()?.products;
 
 type props = {
-  addNewRecipe: (productId: ProductId) => void
+  addNewRecipe: (addRecipeNode: AddRecipeNode) => void
 };
 
 const icons = {
@@ -37,10 +38,9 @@ function SideBar({ addNewRecipe }: props) {
   const [editGoal, setEditGoal] = useState<FactoryGoal | null>(null);
 
   const addGoal = useCallback((goal: FactoryGoal): void => {
-    console.log("Adding goal", goal, "to goals", goals);
     const exists = goals.findIndex(g => goal.productId == g.productId);
     if (exists >= 0)
-      store.setState(state => ({ goals: state.goals.filter(g => g.productId != goal.productId) }), false, "Remove existing goal before adding new one");
+      store.setState(state => ({ goals: [...state.goals.filter(g => g.productId != goal.productId), goal] }), false, "Remove existing goal before adding new one");
     else
       store.setState(state => ({ goals: [...state.goals, goal] }), false, "Add new goal");
     solutionUpdateAction();
@@ -80,13 +80,22 @@ function SideBar({ addNewRecipe }: props) {
     }
   }, {
     label: "Add Producer",
-    onClick: (goal: FactoryGoal) => () => addNewRecipe(goal.productId),
+    onClick: (goal: FactoryGoal) => () => addNewRecipe({
+      productId: goal.productId,
+      produce: goal.dir == "output",
+      position: { x: 0, y: 0 }, // TODO: Get a better position
+      otherNode: "",
+    }),
   }]
   const inputsMenuOptions = [{
     label: "Add Producer",
-    onClick: <T extends { productId: ProductId }>(input: T) => () => addNewRecipe(input.productId),
+    onClick: <T extends { productId: ProductId }>(input: T) => () => addNewRecipe({
+      productId: input.productId,
+      produce: true,
+      position: { x: 0, y: 0 }, // TODO: Get a better position
+      otherNode: "",
+    }),
   }];
-
 
   return (<>
     <div className='sidebar flex flex-col h-full p-2'>
@@ -234,7 +243,7 @@ function SideBar({ addNewRecipe }: props) {
               ><img src={'/assets/products/' + item.icon} title={item.name} className="inline-block" />
               </button>
             </div>)
-          })}
+          }).toArray()}
         </div>
       </SelectorDialog>
 
@@ -266,7 +275,7 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
         {[["Minimum of", "gt"], ["Exactly", "eq"], ["Maximum of", "lt"]].map(r => (
           <Field className="flex-1 justify-around gap-2" key={"goal-type-" + r[1]}>
             <Radio key={r[1]} value={r[1]} className="group block rounded border-1 data-checked:border-2 border-gray-700 data-checked:bg-teal-900 w-full h-full">
-              <Label >{r[0] + " " + goalData.qty}</Label>
+              <Label >{r[0] + " " + formatNumber(goalData.qty ?? 0, productData.get(goalData.productId)!.unit)}</Label>
             </Radio>
           </Field>
         ))}

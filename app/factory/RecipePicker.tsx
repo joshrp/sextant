@@ -58,10 +58,10 @@ export default function RecipePicker({
       // prefix the inputs with empty divs to fill the grid
       const inputs = prefixInputCells.concat(recipe.inputs.map((input, index) => {
         return (<>
-          {index !== 0 && <td className="w-12"><PlusIcon /></td>}
+          {index !== 0 && <td className="w-8"><PlusIcon /></td>}
           <td key={input.product.id} className="has-tooltip">
             <span className='tooltip rounded shadow-lg p-1 border-1 bg-gray-900 -mt-8 -ml-8 text-nowrap'>{input.product.name}</span>
-            <img src={'/assets/products/' + input.product.icon} alt={input.product.name} className="block mb-2 mx-auto max-w-[60px]" />
+            <img src={'/assets/products/' + input.product.icon} alt={input.product.name} className="block mb-2 mx-auto max-w-14" />
             {input.quantity}
           </td>
         </>);
@@ -94,7 +94,7 @@ export default function RecipePicker({
         </td>
         {/* Inputs, Duration, Outputs */}
         {inputs}
-        <td className="recipe-duration min-w-10">
+        <td className="recipe-duration min-w-16">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-6 inline" viewBox="0 0 10 20" fill="currentColor">
             <path fillRule="evenodd" d="m -8 5 L 11 5 L 11 3 L 14 6 L 11 9 V 7 H -8 Z" clipRule="evenodd" />
           </svg><br />

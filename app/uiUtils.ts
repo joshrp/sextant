@@ -6,8 +6,14 @@ if (typeof window !== "undefined")
 
 export function formatNumber(value: number, unit: string = ''): string {
   if (unit === "kW") {
-    value /= 1000;
-    unit = "MW";
+    if (value >= 1000) {
+      value /= 1000;
+      unit = "MW";
+    }
+    if (value >= 1000) {
+      value /= 1000;
+      unit = "GW";
+    }
   }
   if (unit === "TFlops") {
     if (value > 1000) {

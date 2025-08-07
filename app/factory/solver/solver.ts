@@ -406,6 +406,12 @@ export default class Solver {
       } else {
         // There's no surrounding group, this is the whole manifold
         groupConstraintId = myConstraint.id;
+        if (childConstraintId) {
+          // One of the children of this group kicked it off, so add it to the group
+          myConstraint.children.push(childConstraintId);
+          debug("Adding child constraint to my group", childConstraintId);
+          this.constraints[childConstraintId].parent = myConstraint.id;
+        }
         debug("No group constraint, using my own to pass to children", myConstraint.id);
       }
     }
@@ -525,7 +531,7 @@ const inputMatcher = /^i_(.+)$/;
 const outputMatcher = /^o_(.+)$/;
 
 // Instead of exporting a variable, export a setter function
-let DEBUG_SOLVER = true;
+let DEBUG_SOLVER = false;
 export function setDebugSolver(val: boolean) {
   DEBUG_SOLVER = val;
 }

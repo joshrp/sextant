@@ -1,7 +1,6 @@
 import {
   Background,
   Controls,
-  MiniMap,
   ReactFlow,
   useReactFlow,
   type FinalConnectionState
@@ -12,11 +11,12 @@ import "@xyflow/react/dist/style.css";
 import { useCallback, useEffect } from "react";
 import { useStore } from "zustand";
 import { useShallow } from "zustand/shallow";
+import type { AddRecipeNode } from "../factory";
 import useFactory from "../FactoryContext";
 import { type GraphStore } from "../store";
 import { edgeTypes, type CustomEdgeType } from "./edges";
-import { nodeTypes, type CustomNodeType } from "./nodes";
 import type { ProductId } from "./loadJsonData";
+import { nodeTypes, type CustomNodeType } from "./nodes";
 
 const selector = (state: GraphStore) => ({
   nodes: state.nodes,
@@ -28,7 +28,12 @@ const selector = (state: GraphStore) => ({
   addNode: state.addNode,
 });
 
-export default function Graph() {
+
+type props = {
+  addNewRecipe: (addRecipeNode: AddRecipeNode) => void
+};
+
+export default function Graph({ addNewRecipe }: props) {
   const store = useFactory().store;
 
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore(
@@ -53,20 +58,23 @@ export default function Graph() {
     if (!connectionState.isValid && connectionState.fromHandle && productId) {
       // we need to remove the wrapper bounds, in order to get the correct position
       const { clientX, clientY } =
-      'changedTouches' in event ? event.changedTouches[0] : event;
-      
-      const position = screenToFlowPosition({
+        'changedTouches' in event ? event.changedTouches[0] : event;
+
+      const dropPosition = screenToFlowPosition({
         x: clientX,
         y: clientY,
       });
 
-      console.log("onConnectEnd", connectionState, productId, position);
-      store.setState({ newNodeFor: { 
-        position, 
-        productId, 
-        produce: connectionState.fromHandle.type == "target",
+      const addingSource = connectionState.fromHandle.type == "target";
+      addNewRecipe({
+        productId,
+        position: {
+          x: dropPosition.x + 200 * (addingSource ? -1 : 1),
+          y: dropPosition.y - 100
+        },
+        produce: addingSource,
         otherNode: connectionState.fromHandle.nodeId
-      } });
+      });
     }
   },
     [screenToFlowPosition],
@@ -88,7 +96,7 @@ export default function Graph() {
     // snapToGrid={true}
     >
       <Background />
-      <MiniMap />
+      {/* <MiniMap /> */}
       <Controls />
     </ReactFlow>
   );

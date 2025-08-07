@@ -57,6 +57,7 @@ export default function ButtonEdge({
     targetX,
     targetY,
     targetPosition,
+    curvature: 1
   });
 
   const onEdgeClick = () => {
@@ -78,8 +79,6 @@ export default function ButtonEdge({
       style.stroke = "#004400";
       style.strokeWidth = 4;
     }
-
-
   }
 
   return (
