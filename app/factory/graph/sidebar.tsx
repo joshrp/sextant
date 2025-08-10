@@ -9,7 +9,7 @@ import type { FactoryGoal } from '../solver/types';
 import { loadData, type Product, type ProductId } from './loadJsonData';
 import Manifold from './Manifold';
 import { useShallow } from 'zustand/shallow';
-import { formatNumber, productIcon } from '~/uiUtils';
+import { formatNumber, productBackground, productIcon } from '~/uiUtils';
 import type { AddRecipeNode } from '../factory';
 
 const productData = loadData()?.products;
@@ -177,12 +177,14 @@ function SideBar({ addNewRecipe }: props) {
           }
           if (amount <= 0) return;
 
-          return <div key={"output-" + i} className={`"output-goal w-full p-1 flex h-8
-                                bg-gray-800 hover:bg-gray-900
+          return <div key={"output-" + i} 
+                      style={{ backgroundColor: productBackground(product) }}
+                      className={`"output-goal w-full p-1 flex h-8
+                                hover:brightness-110
                                 rounded cursor-pointer 
                                 ${isSurplus ? "bg-green-900" : ""}`}>
             <img className="h-full justify-self-start" src={productIcon(product.icon)} />
-            <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{amount} {isSurplus ? "extra" : ""}</span>
+            <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{formatNumber(amount, product.unit)} {isSurplus ? "extra" : ""}</span>
           </div>
         })}
       </div>
@@ -197,12 +199,14 @@ function SideBar({ addNewRecipe }: props) {
           const amount = input.amount * -1;
           if (amount <= 0) return;
           return <Menu key={"input-" + i}>
-            <MenuButton as="div" className={`"input-goal w-full p-1 flex h-8
-                                bg-gray-800 hover:bg-gray-900
-                                rounded cursor-pointer`}
+            <MenuButton as="div" 
+                        style={{ backgroundColor: productBackground(product) }}
+                        className={`"input-goal w-full p-1 flex h-8
+                        hover:brightness-110
+                        rounded cursor-pointer`}
             >
-              <img className="h-full justify-self-start" src={productIcon(product.icon)} />
-              <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{amount}</span>
+              <img className="h-full justify-self-start drop-shadow-md/30 " src={productIcon(product.icon)} />
+              <span className="flex-8 justify-self-end-safe text-right text-sm text-shadow-lg content-center-safe">{formatNumber(amount, product.unit)}</span>
             </MenuButton>
             <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded-sm shadow-xl">
               {inputsMenuOptions.map(m =>

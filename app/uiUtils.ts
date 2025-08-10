@@ -1,4 +1,4 @@
-import type { Machine } from "./factory/graph/loadJsonData";
+import type { Machine, Product } from "./factory/graph/loadJsonData";
 
 let LANG = "en-GB";
 if (typeof window !== "undefined")
@@ -31,3 +31,7 @@ export function formatNumber(value: number, unit: string = ''): string {
 export const productIcon = (icon: string) => `/assets/products/${icon}`;
 
 export const machineIcon = (machine: Machine) => `/assets/buildings/${machine.id}.png`;
+
+export const productBackground = (product: Product) => {
+  return "hsl(from " + product.color + " h s calc(l*0.75))";
+}

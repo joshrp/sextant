@@ -2,7 +2,7 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
 import { Handle, Position, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react';
 import { memo, useLayoutEffect } from 'react';
-import { formatNumber, machineIcon, productIcon } from '~/uiUtils';
+import { formatNumber, machineIcon, productBackground, productIcon } from '~/uiUtils';
 import { useFactoryStore } from '../FactoryContext';
 import { loadData, type Recipe, type RecipeId, type RecipeProduct } from './loadJsonData';
 import equal from 'fast-deep-equal';
@@ -34,7 +34,7 @@ const getQuantityDisplay = (recipeProd: RecipeProduct, runCount: number) => {
 function RecipeNode(props: NodeProps<RecipeNode>) {
   const updateNodeInternals = useUpdateNodeInternals();
   if (props.data.ltr === undefined) props.data.ltr = true; // Default to left-to-right layout
-  
+
   // whenever we toggle collapsed, re‐measure _after_ layout
   useLayoutEffect(() => {
     updateNodeInternals(props.id);
@@ -105,7 +105,7 @@ function HandleList({ data, products, pos, inputs }: { data: RecipeNodeData, pro
 
       {products.map(prod => {
 
-        const productColor = "hsl(from " + prod.product.color + " h s calc(l*0.75))";
+        const productColor = productBackground(prod.product);
         const clipPath = inOrOut(
           "polygon(0 0, 100% 0, 100% 100%, 0 100%, 70% 50%)",
           "polygon(0 0, 40% 0, 100% 50%, 40% 100%, 0 100%)"
@@ -116,7 +116,7 @@ function HandleList({ data, products, pos, inputs }: { data: RecipeNodeData, pro
           style={handleStyle}
           className="py-2 text-center">
           <img src={productIcon(prod.product.icon)} alt={prod.product.name}
-            className="drop-shadow-lg/30 pointer-events-none block max-w-8" />
+            className="drop-shadow-md/30 pointer-events-none block max-w-8" />
           <div
             style={{
               backgroundColor: productColor,
