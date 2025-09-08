@@ -30,7 +30,6 @@ function SideBar({ addNewRecipe }: props) {
   const store = useFactory().store;
 
   const solution = useFactoryStore(useShallow(state => state.solution));
-  const solutionStatus = useFactoryStore(useShallow(state => state.solutionStatus));
   const goals = useFactoryStore(useShallow(state => state.goals));
   const model = useFactoryStore(useShallow(state => state.graph));
   const graphUpdateAction = useFactoryStore(useShallow(state => state.graphUpdateAction));
@@ -100,15 +99,6 @@ function SideBar({ addNewRecipe }: props) {
 
   return (<>
     <div className='sidebar flex flex-col h-full p-2'>
-      <div
-        data-solved={solutionStatus == "Solved" || null}
-        data-blocked={solutionStatus != "Solved" || null}
-        className="w-full p-1 text-bold text-xl text-center 
-        border-zinc-400 border-2 rounded  content-center-safe
-        data-solved:bg-green-600 data-blocked:bg-red-600
-        ">
-        {solutionStatus}
-      </div>
       <div className="title">Goals</div>
       <div className="flex-1">
         {goals.map((goal, i) => {
@@ -144,9 +134,11 @@ function SideBar({ addNewRecipe }: props) {
                 {resultCount ? formatNumber(resultCount, product.unit) : ''}
               </div>
             </MenuButton>
-            <MenuItems anchor="bottom" className="bg-gray-800 border-2 border- border-gray-500 rounded-sm shadow-lg -mt-2">
+            <MenuItems anchor="bottom" className="bg-gray-800 border-2 border-gray-500 rounded-sm shadow-lg -mt-2">
               {goalsMenuOptions.map(m =>
-                <MenuItem key={"goal-item-" + m.label} onClick={m.onClick(goal)} as="button" className="p-2 px-4 w-full block text-left border-b-1 border-gray-500 border-dotted cursor-pointer data-focus:bg-blue-900">
+                <MenuItem key={"goal-item-" + m.label} onClick={m.onClick(goal)} as="button"
+                  className="p-2 px-4 w-full block text-left border-b-1 border-gray-500 border-dotted cursor-pointer data-focus:bg-blue-900"
+                >
                   {m.label}
                 </MenuItem>
               )}
@@ -185,7 +177,7 @@ function SideBar({ addNewRecipe }: props) {
                                 rounded cursor-pointer 
                                 ${isSurplus ? "bg-green-900" : ""}`}>
             <img className="h-full justify-self-start" src={productIcon(product.icon)} />
-            <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{formatNumber(amount, product.unit)} {isSurplus ? "extra" : ""}</span>
+            <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{formatNumber(amount, product.unit)}</span>
           </div>
         })}
       </div>
@@ -237,12 +229,12 @@ function SideBar({ addNewRecipe }: props) {
       onSelect={editGoalFor}
     />
     {editGoal ? (
-      <SelectorDialog 
-        title={"Change " + productData.get(editGoal.productId)?.name + " Goal"} 
-        isOpen={editGoal !== null} 
+      <SelectorDialog
+        title={"Change " + productData.get(editGoal.productId)?.name + " Goal"}
+        isOpen={editGoal !== null}
         setIsOpen={() => setEditGoal(null)}
         widthClassName='min-w-140 max-w-[90vw]'
-        >
+      >
         <NewProductOptions addGoal={addGoal} goal={editGoal} />
       </SelectorDialog>
     ) : ("")}
@@ -259,7 +251,7 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
   const updateState = (e: ChangeEvent<HTMLInputElement>) => {
     const prop = e.target.name;
     if (!prop) return;
-    let newVal: number|string = e.target.value;
+    let newVal: number | string = e.target.value;
     if (e.target.type == "number") {
       newVal = parseFloat(newVal);
       if (isNaN(newVal as number)) newVal = 0;

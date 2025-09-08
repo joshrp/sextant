@@ -21,6 +21,8 @@ export interface GraphStore {
   manifoldOptions: ManifoldOptions[],
   solution?: Solution;
   solutionStatus?: "Solved" | "Error" | "Infeasible";
+  scoringMethod: "infra" | "inputs" | "outputs";
+  
   // Actions
   graphUpdateAction: () => void;
   solutionUpdateAction: (autoSolve?: boolean) => void;
@@ -35,6 +37,7 @@ export interface GraphStore {
   forceSetNodesEdges: () => void,
   validateManifolds: () => void,
   setManifold: (constraints: Constraint[], on: boolean) => void;
+  setScoreMethod: (method: "infra" | "inputs" | "outputs") => void;
 }
 
 // export type FactoryStore = UseBoundStore<StoreApi<GraphStore>>;
@@ -57,7 +60,7 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => createStore<Grap
         graph: undefined,
         solution: undefined,
         solutionStatus: undefined,
-        newNodeFor: undefined,
+        scoringMethod: "infra",
         addNode: (node) => {
           console.log("Add node", node, get().nodes.concat(node));
           set({ nodes: [...get().nodes.concat(node)] }, false, "addNode");
@@ -129,7 +132,7 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => createStore<Grap
           const graph = get().graph
           if (!graph) return
 
-          const result = await solve(graph, get().goals, get().manifoldOptions, autoSolve);
+          const result = await solve(graph, get().goals, get().manifoldOptions, get().scoringMethod, autoSolve);
           if (result === "Error") {
             console.error("Solver Error");
             set({ solutionStatus: "Error" }, false, "solutionUpdateAction");
@@ -194,6 +197,10 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => createStore<Grap
             });
           }
           get().solutionUpdateAction();
+        },
+        setScoreMethod: (method: "infra" | "inputs" | "outputs") => {
+          set({ scoringMethod: method }, false, "setScoreMethod");
+          get().solutionUpdateAction(false);
         },
         setNodeData: (nodeId: string, data: Partial<RecipeNodeData>) => {
           set({

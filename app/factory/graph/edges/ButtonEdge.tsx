@@ -79,6 +79,8 @@ export default function ButtonEdge({
       style.stroke = "#004400";
       style.strokeWidth = 4;
     }
+  } else {
+    style.strokeWidth = 2;
   }
 
   return (

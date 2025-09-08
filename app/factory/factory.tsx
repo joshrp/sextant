@@ -13,6 +13,7 @@ import {
 import { ReactFlowProvider } from "@xyflow/react";
 import useFactory, { useFactoryStore } from "./FactoryContext";
 import RecipePicker from "./RecipePicker";
+import FactoryControls from "./FactoryControls";
 
 const { products, machines, recipes } = loadData();
 console.log("Loaded products", products);
@@ -78,7 +79,7 @@ export function Factory() {
   return (
     <>
       <div className="factoryActions flex flex-row w-full h-10 bg-black">
-
+        <FactoryControls/>
       </div>
       <div className="flex-1 justify-self-stretch flex flex-row w-full">
         <div className="w-[25vw] resize-x overflow-x-hidden w-max-[50vw] overflow-y-scroll">

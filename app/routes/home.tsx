@@ -6,7 +6,7 @@ import { Factory } from "../factory/factory";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
 import { loadData } from "~/factory/graph/loadJsonData";
-import { machineIcon, productIcon } from "~/uiUtils";
+import { machineIcon, productIcon, uiIcon } from "~/uiUtils";
 
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -27,6 +27,11 @@ export default function Home() {
   useEffect(() => {
     const newImg = Array.from(products.values().map(p => productIcon(p.icon)));
     newImg.push(...Array.from(machines.values().map(m => machineIcon(m))));
+    newImg.push(uiIcon("Worker"));
+    newImg.push(uiIcon("Electricity"));
+    newImg.push(uiIcon("Workers"));
+    newImg.push(uiIcon("Computing"));
+    newImg.push(uiIcon("Maintenance"));
     setImages(newImg);
   }, [products, machines]); 
   return <>

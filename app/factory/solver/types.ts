@@ -54,7 +54,15 @@ export interface Solution {
     outputs: { productId: ProductId, amount: number }[]
   },
   nodeCounts: { nodeId: string, count: number }[]
-  manifolds: {[constraintId: string]: number}
+  manifolds: {[constraintId: string]: number},
+  infrastructure: {
+    workers: number,
+    electricity: number,
+    computing: number,
+    maintenance_1: number,
+    maintenance_2: number,
+    maintenance_3: number,
+  },
   ObjectiveValue: number,
 }
 

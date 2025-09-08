@@ -4,6 +4,7 @@ import { loadData, type ProductId, type Recipe } from "../graph/loadJsonData";
 import type { CustomEdgeType } from '../graph/edges';
 import type { CustomNodeType } from '../graph/nodes';
 import { type Constraint, type EqualityTypes, type FactoryGoal, type GraphModel, type ManifoldOptions, type NodeConnection, type NodeConnections, type OpenConnections, type Solution } from "./types";
+import { maintenanceKey } from "~/uiUtils";
 
 const recipeData = loadData().recipes;
 let highsProm: Promise<Highs>;
@@ -49,12 +50,36 @@ export function createGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): G
   return solver.toGraphModel()
 }
 
-export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraints: Set<string | null>): string {
-  const objectives = Object.values(graph.nodeIdToLabels);
+export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraints: Set<string | null>, scoreMethod: string): string {
+  let objectives: string[] = [];
+  debug("Building LPP with score method '", scoreMethod, "'", graph.nodeIdToLabels);
+  switch (scoreMethod) {
+    case "inputs":
+      objectives = graph.itemConstraints.values().map(c => {
+        return c.match(inputMatcher) !== null ? c : null;
+      }).toArray().filter(x => x !== null);
+      break;
+    case "infra":
+      // I would use infra_ here, but nothing can start with "inf" without causing Highs to error...
+      objectives = ["in_workers", "in_electricity", "in_computing", "in_maintenance"];
+
+      break;
+    case "outputs":
+      objectives = graph.itemConstraints.values().map(c => {
+        return c.match(outputMatcher) !== null ? c : null;
+      }).toArray().filter(x => x !== null);
+      break;
+    default:
+      throw new Error("Unknown score method " + scoreMethod);
+  }
+
+  // const objectives = Object.values(graph.nodeIdToLabels);
   const boundsList = [];
   const constraintsList = [];
   for (const con of Object.values(graph.constraints)) {
     constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} ${getEquality(con.equality)} 0`);
+
+    if (goals.find(g => g.productId == con.productId)) continue;
 
     if (con.unconnected || freeConstraints.has(con.id))
       boundsList.push(`${con.id} free`);
@@ -70,17 +95,35 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
       missedGoals.push(g.productId);
       return
     }
-    return `${graph.itemConstraints.get(g.productId)} ${getEquality(g.type)} ${g.qty}`
+    let prefix = '';
+    if (g.type == "lt")
+      prefix = "-inf <=";
+
+    return `${prefix} ${graph.itemConstraints.get(g.productId)} ${getEquality(g.type)} ${g.qty}`
   }))
 
+  // Calculating workers needs a rounded up integer value of each node
+  const integerNodes = Object.values(graph.nodeIdToLabels).map(n => {
+    return [
+      n + "_int",
+      `${n}_lower: ${n}_int - ${n} >= 0
+  ${n}_upper: ${n}_int - ${n} <= 0.99999`
+    ]
+  });
+
+  // Inputs and outpus should maximize (the input constraints we're using are negative, higher number = using less)
   return `
-min
+${scoreMethod == "infra" ? "Minimize" : "Maximize"}
   obj: ${objectives.join('+')}
-subject to 
-  ${constraintsList.join("\n")}
+Subject To 
+  ${constraintsList.join("\n  ")}
+  ${integerNodes.map(n => n[1]).join("\n  ")}
 Bounds 
-  ${boundsList.join("\n")}
-end`;
+  ${boundsList.join("\n  ")}
+  ${integerNodes.map(n => n[0] + " free").join("\n  ")}
+General
+  ${integerNodes.map(n => n[0]).join("\n  ")}
+End`;
 
 }
 
@@ -89,15 +132,15 @@ end`;
  * Use those to figure out which group actually helps solve an infeasible siolution
  * Loop through, disable whole group, then individuals along with it. Start wide, then shrink. Use objective value to order them
  *  */
-async function getHighsSolution(graph: GraphModel, goals: FactoryGoal[], freeConstraints: Set<string | null>): Promise<HighsSolution | null> {
+async function getHighsSolution(graph: GraphModel, goals: FactoryGoal[], freeConstraints: Set<string | null>, scoreMethod: string): Promise<HighsSolution | null> {
   const t0 = performance.now();
-  const lpp = buildLpp(graph, goals, freeConstraints);
+  const lpp = buildLpp(graph, goals, freeConstraints, scoreMethod);
   debug(lpp);
-  
+
   const highs = await highsProm;
   let res: ReturnType<typeof highs.solve> | null = null;
   try {
-    res = highs.solve(lpp);
+    res = highs.solve(lpp, { time_limit: 2 });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     console.error('Error solving LPP');
@@ -108,25 +151,30 @@ async function getHighsSolution(graph: GraphModel, goals: FactoryGoal[], freeCon
   return res;
 }
 
-export async function solve(graph: GraphModel, goals: FactoryGoal[], manifolds: ManifoldOptions[] = [], autoSolve: boolean): 
-  Promise<{solution: Solution, manifolds?: ManifoldOptions[]} | "Error" | "Infeasible"> {
+export async function solve(graph: GraphModel, goals: FactoryGoal[], manifolds: ManifoldOptions[] = [], scoreMethod: string, autoSolve: boolean):
+  Promise<{ solution: Solution, manifolds?: ManifoldOptions[] } | "Error" | "Infeasible"> {
   const freeConstraints = new Set(manifolds.map(m => m.free ? m.constraintId : null).filter(x => x !== null));
-  const res = await getHighsSolution(graph, goals, freeConstraints);
+  const res = await getHighsSolution(graph, goals, freeConstraints, scoreMethod);
 
   if (!res) return "Error";
   if (res.Status == "Optimal")
     return {
       solution: parseHighsSolution(res, graph, goals)
     }
+  if (res.Status == "Time limit reached") {
+    console.warn("Highs time limit reached, returning error");
+    // TODO:: Let them know it's likely Unbounded
+    return "Error";
+  }
 
   else if (autoSolve) {
-    const solutions:{
+    const solutions: {
       constraintId: string,
       freeConstraints: Set<string>,
       solution: HighsSolution | null,
     }[] = [];
     // Try freeing all major manifolds and their children to see if anything works
-    await Promise.all(Object.keys(graph.constraints).map(async c => {    
+    await Promise.all(Object.keys(graph.constraints).map(async c => {
       // Start with the original free constraints, then add the rest
       const newFreeConstraints = new Set(freeConstraints);
       const constraint = graph.constraints[c];
@@ -141,13 +189,13 @@ export async function solve(graph: GraphModel, goals: FactoryGoal[], manifolds: 
 
       newFreeConstraints.add(constraint.id);
       constraint.children?.forEach(childId => {
-        debug("Adding child constraint", childId, "to free constraints"); 
+        debug("Adding child constraint", childId, "to free constraints");
         newFreeConstraints.add(childId);
       });
       solutions.push({
         constraintId: c,
         freeConstraints: newFreeConstraints,
-        solution: await getHighsSolution(graph, goals, newFreeConstraints)
+        solution: await getHighsSolution(graph, goals, newFreeConstraints, scoreMethod)
       });
     }));
     const working = solutions.filter(x => x.solution?.Status == "Optimal" && x.solution?.ObjectiveValue > 0).sort((a, b) => {
@@ -184,6 +232,10 @@ function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: Factor
   const productResults: Solution["products"] = { inputs: [], outputs: [] };
   const manifoldResults: Solution["manifolds"] = {};
   const manifoldsSet = new Set(Object.keys(graph.constraints));
+  const infraResults: Solution["infrastructure"] = {
+    workers: 0, electricity: 0, computing: 0, maintenance_1: 0, maintenance_2: 0, maintenance_3: 0
+  };
+
   Object.keys(res.Columns).forEach(k => {
     const nodeLabel = k.match(nodeLabelMatcher)?.[0]
     if (nodeLabel) {
@@ -207,6 +259,11 @@ function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: Factor
         productId: inputLabel as ProductId,
         amount: res.Columns[k].Primal
       });
+
+    const infraLabel = k.match(infraMatcher)?.[1]
+    if (infraLabel)
+      infraResults[infraLabel as keyof Solution["infrastructure"]] = res.Columns[k].Primal;
+
     if (manifoldsSet.has(k)) {
       manifoldResults[k] = res.Columns[k].Primal;
     }
@@ -223,6 +280,7 @@ function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: Factor
     products: productResults,
     nodeCounts: nodeResults,
     manifolds: manifoldResults,
+    infrastructure: infraResults,
     ObjectiveValue: res.ObjectiveValue,
   }
 }
@@ -328,6 +386,7 @@ export default class Solver {
     // We've seen this before
     if (this.visitedVertices.has(vertextId)) { debug('Skipping vertex', vertextId); return; }
     this.visitedVertices.add(vertextId);
+
     debug('Processing vertex', vertextId);
 
     const connections = this.graph?.[nodeId]?.[ioString][productId];
@@ -338,7 +397,7 @@ export default class Solver {
     // These are collated across all graphs for matching goals and reporting by-products and input needs
     if (!connections || connections?.length == 0) {
       debug('Open Item', vertextId);
-      const itemConstraintId = ioString.slice(0, 1) + "_" + productId;
+      const itemConstraintId = (isInput ? 'i' : 'o') + "_" + productId;
       const constraint = this.getOrCreateConstraint(itemConstraintId, productId); this.itemConstraints.set(productId, itemConstraintId);
 
       constraint.terms.push(myTerm);
@@ -446,6 +505,7 @@ export default class Solver {
   fillConstraints(): void {
     // Loop all the inputs and outputs found in nodeConnections 
     for (const nodeId of Object.keys(this.graph)) {
+      this.addInfraConstraints(nodeId);
       for (const productId of Object.keys(this.graph[nodeId].inputs) as ProductId[]) {
         this.gatherNodeConstraints(nodeId, productId, true);
       }
@@ -453,6 +513,57 @@ export default class Solver {
       for (const productId of Object.keys(this.graph[nodeId].outputs) as ProductId[]) {
         this.gatherNodeConstraints(nodeId, productId, false);
       }
+    }
+  }
+
+  addInfraConstraints(nodeId: string): void {
+    const recipe = recipeData.get(this.graph[nodeId].recipeId)!;
+    const label = this.getNodeLabel(nodeId);
+
+    // Workers
+    if (recipe.machine.workers && recipe.machine.workers > 0) {
+      const constraint = this.getOrCreateConstraint("in_workers", "Product_Virtual_Workers" as ProductId);
+      constraint.unconnected = true;
+
+      constraint.terms.push({
+        id: label + "_int",
+        nodeId: nodeId,
+        term: "+" + recipe.machine.workers
+      });
+    }
+    // Electricity
+    if (recipe.machine.electricity_consumed && recipe.machine.electricity_consumed > 0) {
+      const constraint = this.getOrCreateConstraint("in_electricity", "Product_Virtual_Electricity" as ProductId);
+      constraint.unconnected = true;
+      constraint.terms.push({
+        id: label,
+        nodeId: nodeId,
+        term: "+" + recipe.machine.electricity_consumed
+      });
+
+    }
+    // Computing
+    if (recipe.machine.computing_consumed && recipe.machine.computing_consumed > 0) {
+      const constraint = this.getOrCreateConstraint("in_computing", "Product_Virtual_Computing" as ProductId);
+      constraint.unconnected = true;
+
+      constraint.terms.push({
+        id: label,
+        nodeId: nodeId,
+        term: "+" + recipe.machine.computing_consumed
+      });
+    }
+    // Maintenance
+    if (recipe.machine.maintenance_cost && recipe.machine.maintenance_cost.quantity > 0) {
+
+      const constraint = this.getOrCreateConstraint("in_" + maintenanceKey(recipe.machine), recipe.machine.maintenance_cost.id as ProductId);
+      constraint.unconnected = true;
+
+      constraint.terms.push({
+        id: label,
+        nodeId: nodeId,
+        term: "+" + recipe.machine.maintenance_cost.quantity
+      });
     }
   }
 }
@@ -529,9 +640,10 @@ function buildGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): NodeConne
 const nodeLabelMatcher = /^n_\d+/;
 const inputMatcher = /^i_(.+)$/;
 const outputMatcher = /^o_(.+)$/;
+const infraMatcher = /^in_(.+)$/;
 
 // Instead of exporting a variable, export a setter function
-let DEBUG_SOLVER = false;
+let DEBUG_SOLVER = true;
 export function setDebugSolver(val: boolean) {
   DEBUG_SOLVER = val;
 }

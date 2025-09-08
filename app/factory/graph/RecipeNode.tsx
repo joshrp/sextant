@@ -1,11 +1,11 @@
 import { TrashIcon } from '@heroicons/react/24/outline';
 import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
 import { Handle, Position, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react';
-import { memo, useLayoutEffect } from 'react';
-import { formatNumber, machineIcon, productBackground, productIcon } from '~/uiUtils';
-import { useFactoryStore } from '../FactoryContext';
-import { loadData, type Recipe, type RecipeId, type RecipeProduct } from './loadJsonData';
 import equal from 'fast-deep-equal';
+import { memo, useLayoutEffect } from 'react';
+import { formatNumber, machineIcon, maintenanceIcon, maintenanceName, productBackground, productIcon, uiIcon } from '~/uiUtils';
+import { useFactoryStore } from '../FactoryContext';
+import { loadData, type Recipe, type RecipeId } from './loadJsonData';
 
 const { recipes } = loadData();
 
@@ -21,14 +21,14 @@ export type RecipeNodeData = {
   ltr?: boolean; // Left to right layout
 };
 
-const handleStyle: React.CSSProperties = { width: "auto", height: "auto", position: "initial",  transform: "initial", border: 'none', backgroundColor: 'transparent' }
+const handleStyle: React.CSSProperties = { width: "auto", height: "auto", position: "initial", transform: "initial", border: 'none', backgroundColor: 'transparent' }
 
 export type RecipeNode = Node<RecipeNodeData>;
 
-const getQuantityDisplay = (recipeProd: RecipeProduct, runCount: number) => {
-  const amount = recipeProd.quantity * runCount;
+const getQuantityDisplay = (quantity: number, runCount: number, unit: string) => {
+  const amount = quantity * runCount;
 
-  return formatNumber(amount, recipeProd.product.unit);
+  return formatNumber(amount, unit);
 }
 
 function RecipeNode(props: NodeProps<RecipeNode>) {
@@ -82,14 +82,34 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
             className="inline-block w-20 min-w-8 p-1 pointer-events-none
           bg-gray-400/10 shadow-md/20 rounded-lg
           " />
-          <div className="w-full mt-1"><span className="text-sm">x</span> {formatNumber(runCount)}</div>
+          <div className="w-full my-1 text-2xl">{formatNumber(runCount, "", 3)}</div>
 
         </div>
         <HandleList data={props.data} products={props.data.ltr ? recipe.outputs : recipe.inputs} pos={Position.Right} inputs={!props.data.ltr} />
 
       </div>
+      <div className="recipe-node-infra-bar flex justify-start align-start gap-2 border-white/20 pt-4 mb-1 pb-0 border-t-2">
+        <InfrastructureIcon name="Electricity Used" icon={uiIcon("Electricity")} 
+          amount={getQuantityDisplay(recipe.machine.electricity_consumed, runCount, "kW") /*TODO:: Modify by recipe?*/} />
+        <InfrastructureIcon name="Workers" icon={uiIcon("Worker")} 
+          amount={getQuantityDisplay(recipe.machine.workers, Math.ceil(runCount) /* TODO:: Is this correct? Do workers get consumed even when the building is idle */, "")} />
+        <InfrastructureIcon name={maintenanceName(recipe.machine)} icon={maintenanceIcon(recipe.machine)} 
+          amount={getQuantityDisplay(recipe.machine.maintenance_cost?.quantity || 0, runCount, "")} />
+        <InfrastructureIcon name="Computing Used" icon={uiIcon("Computing")} 
+          amount={getQuantityDisplay(recipe.machine.computing_consumed, runCount, "TFlops")} />
+      </div>
     </div>
+  );
+}
 
+function InfrastructureIcon({ name, icon, amount }: { name: string, icon: string, amount: string }) {
+  return (
+    <div data-zero={amount.startsWith("0 ") ? true : null} className="flex-1 text-center text-xl text-gray-400 data-zero:opacity-20 data-zero:grayscale">
+      <div className="h-8">
+        <img src={icon} className="h-full mx-auto" title={name} />
+      </div>
+      <div className="">{amount}</div>
+    </div>
   );
 }
 
@@ -123,17 +143,17 @@ function HandleList({ data, products, pos, inputs }: { data: RecipeNodeData, pro
               borderColor: productColor,
               clipPath
             }}
-            className={"pointer-events-none w-6 top-0 h-[101%] absolute border-1 " + ltr("-left-5", "-right-5") + " " + inOrOut(ltr("", "scale-x-[-1]"), ltr("scale-x-[-1]", "")) }
+            className={"pointer-events-none w-6 top-0 h-[101%] absolute border-1 " + ltr("-left-5", "-right-5") + " " + inOrOut(ltr("", "scale-x-[-1]"), ltr("scale-x-[-1]", ""))}
           ></div>
         </Handle>
 
         return (<div style={{ backgroundColor: productColor }}
-          className={`recipe-${inOrOut("input", "output")} text-nowrap relative ${ltr("pl-2","pr-2")} flex mb-4 items-center-safe`}
+          className={`recipe-${inOrOut("input", "output")} text-nowrap relative ${ltr("pl-2", "pr-2")} flex mb-4 items-center-safe`}
           key={prod.product.id}
         >
           {pos === Position.Left ? handle : null}
           <div className="flex-1 min-w-4 p-2 text-shadow-md/50">
-            {getQuantityDisplay(prod, data.solution?.solved ? data.solution.runCount : 1)}
+            {getQuantityDisplay(prod.quantity, data.solution?.solved ? data.solution.runCount : 1, prod.product.unit)}
           </div>
           {pos === Position.Left ? null : handle}
         </div>);
