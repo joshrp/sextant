@@ -1,8 +1,7 @@
-import { parseData, type GameData, type ProductId } from "~/factory/graph/loadJsonData";
+import { parseData, type GameData, type ProductId, type RecipeId } from "~/factory/graph/loadJsonData";
 import { getDataFromRaw, writeRawData } from "./reformat";
 
 import { beforeAll, describe, expect, test } from 'vitest';
-import { assert } from "console";
 
 describe("Check refomatted data", () => {
   let allData: Awaited<ReturnType<typeof getDataFromRaw>>;
@@ -84,10 +83,16 @@ describe("Check refomatted data", () => {
   test("All recipe inputs and outputs should have valid number quantities", async () => {
     const { recipes } = allData;
     for (const recipe of recipes.values()) {
+      const isBreeder0x = recipe.id === "FastBreederReactorEnrichment1" as RecipeId;
       for (const input of recipe.inputs) {
-        expect(input.quantity, `Input ${input.id} in recipe ${recipe.id} has invalid quantity`).toBeGreaterThan(0);
+        const isBlanketOrEnriched = ["Product_BlanketFuel", "Product_BlanketFuelEnriched"].includes(input.id);
+        if (isBreeder0x && isBlanketOrEnriched) continue; // There's always an exception to the rule...
+          expect(input.quantity, `Input ${input.id} in recipe ${recipe.id} has invalid quantity`).toBeGreaterThan(0);
       }
       for (const output of recipe.outputs) {
+        const isBlanketOrEnriched = ["Product_BlanketFuel", "Product_BlanketFuelEnriched"].includes(output.id);
+
+        if (isBreeder0x && isBlanketOrEnriched) continue; // There's always an exception to the rule...
         expect(output.quantity, `Output ${output.id} in recipe ${recipe.id} has invalid quantity`).toBeGreaterThan(0);
       }
     }

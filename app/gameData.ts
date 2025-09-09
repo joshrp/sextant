@@ -2120,9 +2120,7 @@
       "unit": "",
       "recipes": {
         "input": [
-          "NuclearReactorT21",
-          "NuclearReactorT23",
-          "NuclearReactor",
+          "NuclearReactorT22",
           "NuclearReactor1"
         ],
         "output": [
@@ -2145,8 +2143,7 @@
       "unit": "",
       "recipes": {
         "input": [
-          "NuclearReactorT2",
-          "NuclearReactorT22"
+          "NuclearReactorT21"
         ],
         "output": [
           "MoxRodsAssemblyT1"
@@ -2170,9 +2167,7 @@
           "SpentFuelToBlanket"
         ],
         "output": [
-          "NuclearReactorT21",
-          "NuclearReactorT23",
-          "NuclearReactor",
+          "NuclearReactorT22",
           "NuclearReactor1"
         ]
       },
@@ -2193,8 +2188,7 @@
           "SpentMoxToBlanket"
         ],
         "output": [
-          "NuclearReactorT2",
-          "NuclearReactorT22"
+          "NuclearReactorT21"
         ]
       },
       "machines": {
@@ -2250,10 +2244,9 @@
       "unit": "",
       "recipes": {
         "input": [
-          "FastBreederReactor",
-          "FastBreederReactor1",
-          "FastBreederReactor2",
-          "FastBreederReactor3"
+          "FastBreederReactorEnrichment1",
+          "FastBreederReactorEnrichment2",
+          "FastBreederReactorEnrichment3"
         ],
         "output": [
           "BlanketFuelReprocessing",
@@ -2279,10 +2272,9 @@
           "CoreFuelReprocessing"
         ],
         "output": [
-          "FastBreederReactor",
-          "FastBreederReactor1",
-          "FastBreederReactor2",
-          "FastBreederReactor3"
+          "FastBreederReactorEnrichment1",
+          "FastBreederReactorEnrichment2",
+          "FastBreederReactorEnrichment3"
         ]
       },
       "machines": {
@@ -2299,8 +2291,9 @@
       "unit": "",
       "recipes": {
         "input": [
-          "FastBreederReactor1",
-          "FastBreederReactor3"
+          "FastBreederReactorEnrichment1",
+          "FastBreederReactorEnrichment2",
+          "FastBreederReactorEnrichment3"
         ],
         "output": [
           "BlanketFuelReprocessing",
@@ -2332,8 +2325,9 @@
           "BlanketFuelFromDepleted"
         ],
         "output": [
-          "FastBreederReactor1",
-          "FastBreederReactor3"
+          "FastBreederReactorEnrichment1",
+          "FastBreederReactorEnrichment2",
+          "FastBreederReactorEnrichment3"
         ]
       },
       "machines": {
@@ -2622,16 +2616,12 @@
           "Crop_Canola_Product_Fertilizer2_1",
           "Crop_Canola_Product_FertilizerOrganic_1",
           "ChickenFarm",
-          "NuclearReactorT2",
           "NuclearReactorT21",
           "NuclearReactorT22",
-          "NuclearReactorT23",
-          "NuclearReactor",
           "NuclearReactor1",
-          "FastBreederReactor",
-          "FastBreederReactor1",
-          "FastBreederReactor2",
-          "FastBreederReactor3"
+          "FastBreederReactorEnrichment1",
+          "FastBreederReactorEnrichment2",
+          "FastBreederReactorEnrichment3"
         ],
         "output": [
           "WaterDesalinationBasic",
@@ -2904,10 +2894,9 @@
         ],
         "output": [
           "SteamGenerationSpElectric",
-          "FastBreederReactor",
-          "FastBreederReactor1",
-          "FastBreederReactor2",
-          "FastBreederReactor3"
+          "FastBreederReactorEnrichment1",
+          "FastBreederReactorEnrichment2",
+          "FastBreederReactorEnrichment3"
         ]
       },
       "machines": {
@@ -2961,11 +2950,8 @@
           "IncinerationOfWastePressed",
           "IncinerationOfWasteHydrogen",
           "IncinerationOfWastePressedHydrogen",
-          "NuclearReactorT2",
           "NuclearReactorT21",
           "NuclearReactorT22",
-          "NuclearReactorT23",
-          "NuclearReactor",
           "NuclearReactor1"
         ]
       },
@@ -10571,10 +10557,8 @@
       "category_id": "Nuclear",
       "workers": 110,
       "recipes": [
-        "NuclearReactorT2",
         "NuclearReactorT21",
-        "NuclearReactorT22",
-        "NuclearReactorT23"
+        "NuclearReactorT22"
       ],
       "buildCosts": [
         {
@@ -10601,7 +10585,6 @@
       "category_id": "Nuclear",
       "workers": 80,
       "recipes": [
-        "NuclearReactor",
         "NuclearReactor1"
       ],
       "buildCosts": [
@@ -10629,10 +10612,9 @@
       "category_id": "Nuclear",
       "workers": 200,
       "recipes": [
-        "FastBreederReactor",
-        "FastBreederReactor1",
-        "FastBreederReactor2",
-        "FastBreederReactor3"
+        "FastBreederReactorEnrichment1",
+        "FastBreederReactorEnrichment2",
+        "FastBreederReactorEnrichment3"
       ],
       "buildCosts": [
         {
@@ -10714,6 +10696,31 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0
+    },
+    "WasteSortingPlant": {
+      "id": "WasteSortingPlant",
+      "name": "Waste sorting plant",
+      "category_id": "Solid",
+      "workers": 32,
+      "recipes": [],
+      "buildCosts": [
+        {
+          "id": "Product_ConstructionParts3",
+          "quantity": 360
+        }
+      ],
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0,
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT1",
+        "quantity": 20
+      }
     },
     "RainwaterHarvester": {
       "id": "RainwaterHarvester",
@@ -24894,33 +24901,6 @@
         }
       ]
     },
-    "NuclearReactorT2": {
-      "id": "NuclearReactorT2",
-      "name": "Nuclear reactor II",
-      "machine": "NuclearReactorT2",
-      "origDuration": 30,
-      "duration": 60,
-      "inputs": [
-        {
-          "id": "Product_Water",
-          "quantity": 384
-        },
-        {
-          "id": "Product_MoxRod",
-          "quantity": 2
-        }
-      ],
-      "outputs": [
-        {
-          "id": "Product_SteamHi",
-          "quantity": 384
-        },
-        {
-          "id": "Product_SpentMox",
-          "quantity": 2
-        }
-      ]
-    },
     "NuclearReactorT21": {
       "id": "NuclearReactorT21",
       "name": "Nuclear reactor II 1",
@@ -24933,34 +24913,6 @@
           "quantity": 384
         },
         {
-          "id": "Product_UraniumRod",
-          "quantity": 2
-        }
-      ],
-      "outputs": [
-        {
-          "id": "Product_SteamHi",
-          "quantity": 384
-        },
-        {
-          "id": "Product_SpentFuel",
-          "quantity": 2
-        }
-      ]
-    },
-    "NuclearReactorT22": {
-      "id": "NuclearReactorT22",
-      "name": "Nuclear reactor II 2",
-      "linkId": "ae76e719c6bdb4e511aef1e90c1e3f41b5c2fe3abd6dacc1dfe04ee73c2c4fbc",
-      "machine": "NuclearReactorT2",
-      "origDuration": 30,
-      "duration": 60,
-      "inputs": [
-        {
-          "id": "Product_Water",
-          "quantity": 384
-        },
-        {
           "id": "Product_MoxRod",
           "quantity": 2
         }
@@ -24976,10 +24928,9 @@
         }
       ]
     },
-    "NuclearReactorT23": {
-      "id": "NuclearReactorT23",
-      "name": "Nuclear reactor II 3",
-      "linkId": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
+    "NuclearReactorT22": {
+      "id": "NuclearReactorT22",
+      "name": "Nuclear reactor II 2",
       "machine": "NuclearReactorT2",
       "origDuration": 30,
       "duration": 60,
@@ -25001,34 +24952,6 @@
         {
           "id": "Product_SpentFuel",
           "quantity": 2
-        }
-      ]
-    },
-    "NuclearReactor": {
-      "id": "NuclearReactor",
-      "name": "Nuclear reactor",
-      "linkId": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
-      "machine": "NuclearReactor",
-      "origDuration": 40,
-      "duration": 60,
-      "inputs": [
-        {
-          "id": "Product_Water",
-          "quantity": 288
-        },
-        {
-          "id": "Product_UraniumRod",
-          "quantity": 1.5
-        }
-      ],
-      "outputs": [
-        {
-          "id": "Product_SteamHi",
-          "quantity": 288
-        },
-        {
-          "id": "Product_SpentFuel",
-          "quantity": 1.5
         }
       ]
     },
@@ -25060,9 +24983,9 @@
         }
       ]
     },
-    "FastBreederReactor": {
-      "id": "FastBreederReactor",
-      "name": "Fast breeder reactor",
+    "FastBreederReactorEnrichment1": {
+      "id": "FastBreederReactorEnrichment1",
+      "name": "Fast breeder reactor Enrichment 0",
       "machine": "FastBreederReactor",
       "origDuration": 60,
       "duration": 60,
@@ -25073,7 +24996,11 @@
         },
         {
           "id": "Product_CoreFuel",
-          "quantity": 16
+          "quantity": 8
+        },
+        {
+          "id": "Product_BlanketFuel",
+          "quantity": 0
         }
       ],
       "outputs": [
@@ -25083,13 +25010,18 @@
         },
         {
           "id": "Product_CoreFuelDirty",
-          "quantity": 16
+          "quantity": 8
+        },
+        {
+          "id": "Product_BlanketFuelEnriched",
+          "quantity": 0,
+          "optional": true
         }
       ]
     },
-    "FastBreederReactor1": {
-      "id": "FastBreederReactor1",
-      "name": "Fast breeder reactor 1",
+    "FastBreederReactorEnrichment2": {
+      "id": "FastBreederReactorEnrichment2",
+      "name": "Fast breeder reactor Enrichment 1",
       "machine": "FastBreederReactor",
       "origDuration": 60,
       "duration": 60,
@@ -25104,8 +25036,7 @@
         },
         {
           "id": "Product_BlanketFuel",
-          "quantity": 1,
-          "optional": true
+          "quantity": 16
         }
       ],
       "outputs": [
@@ -25119,50 +25050,21 @@
         },
         {
           "id": "Product_BlanketFuelEnriched",
-          "quantity": 1,
+          "quantity": 16,
           "optional": true
         }
       ]
     },
-    "FastBreederReactor2": {
-      "id": "FastBreederReactor2",
-      "name": "Fast breeder reactor 2",
-      "linkId": "9602ac96f193b40bd47b9f39e8a37c59d9a38efd09c6f5fce8fdbc1c851d4aa3",
+    "FastBreederReactorEnrichment3": {
+      "id": "FastBreederReactorEnrichment3",
+      "name": "Fast breeder reactor Enrichment 3",
       "machine": "FastBreederReactor",
       "origDuration": 60,
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Water",
-          "quantity": 384
-        },
-        {
-          "id": "Product_CoreFuel",
-          "quantity": 16
-        }
-      ],
-      "outputs": [
-        {
-          "id": "Product_SteamSp",
-          "quantity": 384
-        },
-        {
-          "id": "Product_CoreFuelDirty",
-          "quantity": 16
-        }
-      ]
-    },
-    "FastBreederReactor3": {
-      "id": "FastBreederReactor3",
-      "name": "Fast breeder reactor 3",
-      "linkId": "ad9901c5ee9ebdcc9c595b70fb22d4362f41ae704fb7af1158566305b51152a6",
-      "machine": "FastBreederReactor",
-      "origDuration": 60,
-      "duration": 60,
-      "inputs": [
-        {
-          "id": "Product_Water",
-          "quantity": 384
+          "quantity": 96
         },
         {
           "id": "Product_CoreFuel",
@@ -25170,14 +25072,13 @@
         },
         {
           "id": "Product_BlanketFuel",
-          "quantity": 1,
-          "optional": true
+          "quantity": 48
         }
       ],
       "outputs": [
         {
           "id": "Product_SteamSp",
-          "quantity": 384
+          "quantity": 96
         },
         {
           "id": "Product_CoreFuelDirty",
@@ -25185,7 +25086,7 @@
         },
         {
           "id": "Product_BlanketFuelEnriched",
-          "quantity": 1,
+          "quantity": 48,
           "optional": true
         }
       ]

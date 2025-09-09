@@ -73,11 +73,11 @@ export default function ButtonEdge({
     style.strokeWidth = 8;
   } else if (man?.free === true) {
     if (constraint?.parent !== undefined) {
-      style.strokeWidth = 6;
-      style.stroke = "#55dd55";
+      style.strokeWidth = 10;
+      style.stroke = "#f33";
     } else {
-      style.stroke = "#004400";
-      style.strokeWidth = 4;
+      style.stroke = "#f33";
+      style.strokeWidth = 8;
     }
   } else {
     style.strokeWidth = 2;

@@ -80,9 +80,9 @@ export function Factory() {
     <>
       <div className="factoryActions flex flex-row w-full h-10 bg-black">
         <FactoryControls/>
-      </div>
-      <div className="flex-1 justify-self-stretch flex flex-row w-full">
-        <div className="w-[25vw] resize-x overflow-x-hidden w-max-[50vw] overflow-y-scroll">
+      </div> 
+      <div className="flex-1 justify-self-stretch flex flex-row w-full max-h-[90vh] min-h-[80vh]">
+        <div className="w-[25vw] resize-x overflow-x-hidden w-max-[50vw] overflow-y-scroll flex flex-col">
           <Sidebar addNewRecipe={addNewRecipe} />
         </div>
         <div className="flex-1">

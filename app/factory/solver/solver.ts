@@ -61,7 +61,8 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
       break;
     case "infra":
       // I would use infra_ here, but nothing can start with "inf" without causing Highs to error...
-      objectives = ["in_workers", "in_electricity", "in_computing", "in_maintenance"];
+      // TODO:: Figure out how to weight these properly
+      objectives = ["in_workers", "0.01 in_electricity", "0.01 in_computing", "in_maintenance_1", "10 in_maintenance_2", "50 in_maintenance_3"];
 
       break;
     case "outputs":
