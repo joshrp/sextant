@@ -65,6 +65,9 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
       objectives = ["in_workers", "0.01 in_electricity", "0.01 in_computing", "in_maintenance_1", "10 in_maintenance_2", "50 in_maintenance_3"];
 
       break;
+    case "footprint":
+      objectives = ["in_footprint"];
+      break;
     case "outputs":
       objectives = graph.itemConstraints.values().map(c => {
         return c.match(outputMatcher) !== null ? c : null;
@@ -132,7 +135,7 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
 
   // Inputs and outpus should maximize (the input constraints we're using are negative, higher number = using less)
   return `
-${scoreMethod == "infra" ? "Minimize" : "Maximize"}
+${["infra", "footprint"].includes(scoreMethod) ? "Minimize" : "Maximize"}
   obj: ${objectives.join('+')}
 Subject To 
   ${constraintsList.join("\n  ")}
@@ -252,7 +255,7 @@ function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: Factor
   const manifoldResults: Solution["manifolds"] = {};
   const manifoldsSet = new Set(Object.keys(graph.constraints));
   const infraResults: Solution["infrastructure"] = {
-    workers: 0, electricity: 0, computing: 0, maintenance_1: 0, maintenance_2: 0, maintenance_3: 0
+    workers: 0, electricity: 0, computing: 0, maintenance_1: 0, maintenance_2: 0, maintenance_3: 0, footprint: 0,
   };
 
   Object.keys(res.Columns).forEach(k => {
@@ -591,6 +594,22 @@ export default class Solver {
         isInput: true,
       });
     }
+
+    // Footprint
+    if (recipe.machine.footprint && recipe.machine.footprint.length == 2) {
+      const area = recipe.machine.footprint[0] * recipe.machine.footprint[1];
+      if (area > 0) {
+        const constraint = this.getOrCreateConstraint("in_footprint", "Product_Virtual_Footprint" as ProductId);
+        constraint.unconnected = true;
+        
+        constraint.terms.push({
+          id: label,
+          nodeId: nodeId,
+          term: "+" + area,
+          isInput: true,
+        });
+      }
+    }      
   }
 }
 

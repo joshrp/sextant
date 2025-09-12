@@ -27,6 +27,7 @@ describe("Check refomatted data", () => {
     expect(assembler2?.workers).toBe(2);
     expect(assembler2?.maintenance_cost?.id).toBe("Product_Virtual_MaintenanceT2");
     expect(assembler2?.maintenance_cost?.quantity).toBe(4);
+    
   });
   //   [ 134, 134, 134 ],
   // [ 58, 123, 58 ],
@@ -155,6 +156,17 @@ describe("Check parsed data", () => {
         recyclables.push(recipe);
       }
     });
+  });
 
+  test("All machines with a footprint should have valid footprint dimensions", () => {
+    const { machines } = loadedData;
+    for (const machine of machines.values()) {
+      if (machine.footprint) {
+        expect(machine.footprint[0], `Machine ${machine.id} has invalid footprint width`).toBeGreaterThan(0);
+        expect(machine.footprint[1], `Machine ${machine.id} has invalid footprint height`).toBeGreaterThan(0);
+        expect(machine.footprint[0], `Machine ${machine.id} has invalid footprint width`).toBeLessThanOrEqual(80);
+        expect(machine.footprint[1], `Machine ${machine.id} has invalid footprint height`).toBeLessThanOrEqual(80);
+      }
+    } 
   });
 });

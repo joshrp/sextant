@@ -62,7 +62,8 @@ type RawMachine = {
     quantityIn: number;
     quantityOut: number;
     optional: boolean; // Whether the coolant is optional
-  }
+  },
+  footprint?: [number, number]; // [width, height] in game tiles
 };
 
 type SerializedData = {
@@ -192,6 +193,18 @@ export async function formatProductData(rawProducts: RawProduct[]) {
       machines: { input: [], output: [] },
     });
   }
+
+  productData.set("Product_Virtual_Footprint", {
+    id: "Product_Virtual_Footprint" as Product["id"],
+    name: "Footprint",
+    icon: "footprint.png",
+    color: "#808080",
+    transport: "Virtual",
+    unit: "tiles",
+    recipes: { input: [], output: [] },
+    machines: { input: [], output: [] },
+  });
+
   return productData;
 }
 
@@ -230,6 +243,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       storage_capacity: rawMachine.storage_capacity,
       unity_cost: rawMachine.unity_cost,
       research_speed: rawMachine.research_speed,
+      footprint: rawMachine.footprint,
       // icon_path: rawMachine.icon_path,
     }
 

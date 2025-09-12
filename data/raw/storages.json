@@ -983,7 +983,7 @@
 }
 ]
 }
-]
+],"footprint":[10,10]
 }
 ,{
 "id":"StorageUnitT3","name":"Unit storage III","category":"Storage","next_tier":"StorageUnitT4","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":2500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageUnitT3.png","build_costs":[{
@@ -1970,7 +1970,7 @@
 }
 ]
 }
-]
+],"footprint":[10,10]
 }
 ,{
 "id":"StorageUnitT2","name":"Unit storage II","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageUnitT2.png","build_costs":[{
@@ -2957,7 +2957,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"StorageUnit","name":"Unit storage","category":"Storage","next_tier":"StorageUnitT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageUnit.png","build_costs":[{
@@ -3944,7 +3944,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"StorageLooseT4","name":"Loose storage IV","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":5000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLooseT4.png","build_costs":[{
@@ -4454,7 +4454,7 @@
 }
 ]
 }
-]
+],"footprint":[10,10]
 }
 ,{
 "id":"StorageLooseT3","name":"Loose storage III","category":"Storage","next_tier":"StorageLooseT4","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":2500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLooseT3.png","build_costs":[{
@@ -4964,7 +4964,7 @@
 }
 ]
 }
-]
+],"footprint":[10,10]
 }
 ,{
 "id":"StorageLooseT2","name":"Loose storage II","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLooseT2.png","build_costs":[{
@@ -5474,7 +5474,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"StorageLoose","name":"Loose storage","category":"Storage","next_tier":"StorageLooseT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLoose.png","build_costs":[{
@@ -5984,7 +5984,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"StorageFluidT4","name":"Fluid storage IV","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":5000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluidT4.png","build_costs":[{
@@ -6350,7 +6350,7 @@
 }
 ]
 }
-]
+],"footprint":[10,10]
 }
 ,{
 "id":"StorageFluidT3","name":"Fluid storage III","category":"Storage","next_tier":"StorageFluidT4","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":2500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluidT3.png","build_costs":[{
@@ -6716,7 +6716,7 @@
 }
 ]
 }
-]
+],"footprint":[10,10]
 }
 ,{
 "id":"StorageFluidT2","name":"Fluid storage II","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluidT2.png","build_costs":[{
@@ -7082,7 +7082,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"StorageFluid","name":"Fluid storage","category":"Storage","next_tier":"StorageFluidT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluid.png","build_costs":[{
@@ -7448,7 +7448,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"NuclearWasteStorage","name":"Radioactive waste storage","category":"Nuclear","next_tier":"","workers":10,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":2400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/NuclearWasteStorage.png","build_costs":[{
@@ -8438,6 +8438,6 @@
 }
 ]
 }
-]
+],"footprint":[16,16]
 }
 ]}

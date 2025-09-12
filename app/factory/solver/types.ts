@@ -64,6 +64,7 @@ export interface Solution {
     maintenance_1: number,
     maintenance_2: number,
     maintenance_3: number,
+    footprint: number,
   },
   ObjectiveValue: number,
 }

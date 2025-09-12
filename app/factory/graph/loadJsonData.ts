@@ -35,7 +35,7 @@ type MachineBase = {
   unity_cost: number;
   research_speed: number;
   isFarm: boolean;
-
+  footprint?: [number, number]; // [width, height] in game tiles
 }
 
 

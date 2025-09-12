@@ -14,7 +14,7 @@
 }
 ]
 }
-]
+],"footprint":[6,3]
 }
 ,{
 "id":"TurbineHighPressT2","name":"High-pressure turbine II","category":"General","next_tier":"","workers":2,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/TurbineHighPressT2.png","build_costs":[{
@@ -32,7 +32,7 @@
 }
 ]
 }
-]
+],"footprint":[6,3]
 }
 ,{
 "id":"TurbineHighPress","name":"High-pressure turbine","category":"General","next_tier":"TurbineHighPressT2","workers":2,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/TurbineHighPress.png","build_costs":[{
@@ -50,7 +50,7 @@
 }
 ]
 }
-]
+],"footprint":[6,3]
 }
 ,{
 "id":"TurbineLowPressT2","name":"Low-pressure turbine II","category":"General","next_tier":"","workers":2,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/TurbineLowPressT2.png","build_costs":[{
@@ -68,7 +68,7 @@
 }
 ]
 }
-]
+],"footprint":[7,5]
 }
 ,{
 "id":"TurbineLowPress","name":"Low-pressure turbine","category":"General","next_tier":"TurbineLowPressT2","workers":2,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/TurbineLowPress.png","build_costs":[{
@@ -86,7 +86,7 @@
 }
 ]
 }
-]
+],"footprint":[7,5]
 }
 ,{
 "id":"PowerGeneratorT1","name":"Power generator","category":"General","next_tier":"","workers":0,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":1,"electricity_consumed":0,"electricity_generated":2000,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/PowerGeneratorT1.png","build_costs":[{
@@ -104,7 +104,7 @@
 }
 ]
 }
-]
+],"footprint":[2,5]
 }
 ,{
 "id":"PowerGeneratorT2","name":"Power generator (large)","category":"General","next_tier":"","workers":0,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":0,"electricity_generated":15000,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/PowerGeneratorT2.png","build_costs":[{
@@ -122,7 +122,7 @@
 }
 ]
 }
-]
+],"footprint":[7,5]
 }
 ,{
 "id":"SolarPanel","name":"Solar panel","category":"General","next_tier":"","workers":0,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":0.2001953,"electricity_consumed":0,"electricity_generated":150,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SolarPanel.png","build_costs":[{
@@ -131,7 +131,7 @@
 ,{
 "product":"Solar cell","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"SolarPanelMono","name":"Solar panel (mono)","category":"General","next_tier":"","workers":0,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":0.2001953,"electricity_consumed":0,"electricity_generated":200,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SolarPanelMono.png","build_costs":[{
@@ -140,7 +140,7 @@
 ,{
 "product":"Solar cell mono","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"DieselGenerator","name":"Diesel generator","category":"General","next_tier":"","workers":2,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":0,"electricity_generated":800,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/DieselGenerator.png","build_costs":[{
@@ -161,7 +161,7 @@
 }
 ]
 }
-]
+],"footprint":[4,3]
 }
 ,{
 "id":"DieselGeneratorT2","name":"Diesel generator II","category":"General","next_tier":"","workers":2,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":8,"electricity_consumed":0,"electricity_generated":5000,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/DieselGeneratorT2.png","build_costs":[{
@@ -182,7 +182,7 @@
 }
 ]
 }
-]
+],"footprint":[8,3]
 }
 ,{
 "id":"FoodMill","name":"Mill","category":"Food production","next_tier":"","workers":5,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":120,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FoodMill.png","build_costs":[{
@@ -239,7 +239,7 @@
 }
 ]
 }
-]
+],"footprint":[8,5]
 }
 ,{
 "id":"FoodProcessor","name":"Food processor","category":"Food production","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FoodProcessor.png","build_costs":[{
@@ -365,7 +365,7 @@
 }
 ]
 }
-]
+],"footprint":[7,7]
 }
 ,{
 "id":"BakingUnit","name":"Baking unit","category":"Food production","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/BakingUnit.png","build_costs":[{
@@ -404,7 +404,7 @@
 }
 ]
 }
-]
+],"footprint":[7,5]
 }
 ,{
 "id":"BasicDieselDistiller","name":"Basic distiller","category":"Basic","next_tier":"","workers":6,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/BasicDieselDistiller.png","build_costs":[{
@@ -446,7 +446,7 @@
 }
 ]
 }
-]
+],"footprint":[5,6]
 }
 ,{
 "id":"OilPump","name":"Oil pump","category":"Basic","next_tier":"","workers":1,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":80,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/OilPump.png","build_costs":[{
@@ -458,7 +458,7 @@
 }
 ]
 }
-]
+],"footprint":[5,3]
 }
 ,{
 "id":"LandWaterPump","name":"Groundwater pump","category":"Water extraction & processing","next_tier":"","workers":2,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":120,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/LandWaterPump.png","build_costs":[{
@@ -470,7 +470,7 @@
 }
 ]
 }
-]
+],"footprint":[4,6]
 }
 ,{
 "id":"GasInjectionPump","name":"Gas injection pump","category":"Fluid","next_tier":"","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/GasInjectionPump.png","build_costs":[{
@@ -485,7 +485,7 @@
 }
 ],"outputs":[]
 }
-]
+],"footprint":[4,6]
 }
 ,{
 "id":"OceanWaterPumpT1","name":"Seawater pump","category":"Water extraction & processing","next_tier":"","workers":1,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/OceanWaterPumpT1.png","build_costs":[{
@@ -497,7 +497,7 @@
 }
 ]
 }
-]
+],"footprint":[16,4]
 }
 ,{
 "id":"OceanWaterPumpLarge","name":"Seawater pump (tall)","category":"Water extraction & processing","next_tier":"","workers":1,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":300,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/OceanWaterPumpLarge.png","build_costs":[{
@@ -509,7 +509,7 @@
 }
 ]
 }
-]
+],"footprint":[24,4]
 }
 ,{
 "id":"BoilerCoal","name":"Boiler","category":"Distillation","next_tier":"","workers":4,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/BoilerCoal.png","build_costs":[{
@@ -575,7 +575,7 @@
 }
 ]
 }
-]
+],"footprint":[5,4]
 }
 ,{
 "id":"BoilerGas","name":"Boiler (gas)","category":"Distillation","next_tier":"","workers":4,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/BoilerGas.png","build_costs":[{
@@ -686,7 +686,7 @@
 }
 ]
 }
-]
+],"footprint":[5,4]
 }
 ,{
 "id":"BoilerElectric","name":"Boiler (electric)","category":"Distillation","next_tier":"","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":4500,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/BoilerElectric.png","build_costs":[{
@@ -719,7 +719,7 @@
 }
 ]
 }
-]
+],"footprint":[5,4]
 }
 ,{
 "id":"EvaporationPondHeated","name":"Evaporation pond (heated)","category":"Water extraction & processing","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":250,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/EvaporationPondHeated.png","build_costs":[{
@@ -752,7 +752,7 @@
 }
 ]
 }
-]
+],"footprint":[15,9]
 }
 ,{
 "id":"EvaporationPond","name":"Evaporation pond","category":"Water extraction & processing","next_tier":"EvaporationPondHeated","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":1,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/EvaporationPond.png","build_costs":[{
@@ -785,7 +785,7 @@
 }
 ]
 }
-]
+],"footprint":[15,9]
 }
 ,{
 "id":"ThermalDesalinator","name":"Thermal desalinator","category":"Water extraction & processing","next_tier":"","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ThermalDesalinator.png","build_costs":[{
@@ -854,7 +854,7 @@
 }
 ]
 }
-]
+],"footprint":[11,4]
 }
 ,{
 "id":"WaterChiller","name":"Water chiller","category":"Water extraction & processing","next_tier":"","workers":3,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":1000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/WaterChiller.png","build_costs":[{
@@ -869,7 +869,7 @@
 }
 ]
 }
-]
+],"footprint":[4,4]
 }
 ,{
 "id":"BricksMaker","name":"Kiln","category":"General","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/BricksMaker.png","build_costs":[{
@@ -893,7 +893,7 @@
 }
 ]
 }
-]
+],"footprint":[6,6]
 }
 ,{
 "id":"AssemblyRoboticT2","name":"Assembly V","category":"General","next_tier":"","workers":0,"maintenance_cost_units":"Maintenance III","maintenance_cost_quantity":4,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":6,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AssemblyRoboticT2.png","build_costs":[{
@@ -1502,7 +1502,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"AssemblyRoboticT1","name":"Assembly IV","category":"General","next_tier":"AssemblyRoboticT2","workers":2,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":4,"electricity_consumed":250,"electricity_generated":0,"computing_consumed":3,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AssemblyRoboticT1.png","build_costs":[{
@@ -2003,7 +2003,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"AssemblyElectrifiedT2","name":"Assembly III","category":"General","next_tier":"AssemblyRoboticT1","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":150,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AssemblyElectrifiedT2.png","build_costs":[{
@@ -2456,7 +2456,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"AssemblyElectrified","name":"Assembly II","category":"General","next_tier":"AssemblyElectrifiedT2","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":80,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AssemblyElectrified.png","build_costs":[{
@@ -2561,7 +2561,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"AssemblyManual","name":"Assembly I","category":"General","next_tier":"AssemblyElectrified","workers":4,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":40,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AssemblyManual.png","build_costs":[{
@@ -2627,7 +2627,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"ConcreteMixerT3","name":"Concrete Mixer III","category":"General","next_tier":"","workers":10,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ConcreteMixerT3.png","build_costs":[{
@@ -2705,7 +2705,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"ConcreteMixerT2","name":"Concrete Mixer II","category":"General","next_tier":"ConcreteMixerT3","workers":7,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ConcreteMixerT2.png","build_costs":[{
@@ -2783,7 +2783,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"ConcreteMixer","name":"Concrete Mixer","category":"General","next_tier":"ConcreteMixerT2","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ConcreteMixer.png","build_costs":[{
@@ -2861,7 +2861,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"RotaryKilnGas","name":"Rotary Kiln (gas)","category":"Aluminum","next_tier":"","workers":10,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":3,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/RotaryKilnGas.png","build_costs":[{
@@ -2927,7 +2927,7 @@
 }
 ]
 }
-]
+],"footprint":[14,4]
 }
 ,{
 "id":"RotaryKiln","name":"Rotary Kiln","category":"General","next_tier":"RotaryKilnGas","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/RotaryKiln.png","build_costs":[{
@@ -2948,7 +2948,7 @@
 }
 ]
 }
-]
+],"footprint":[14,4]
 }
 ,{
 "id":"DiamondReactor","name":"Diamond reactor","category":"General","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance III","maintenance_cost_quantity":8,"electricity_consumed":2000,"electricity_generated":0,"computing_consumed":2,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/DiamondReactor.png","build_costs":[{
@@ -2966,7 +2966,7 @@
 }
 ]
 }
-]
+],"footprint":[7,7]
 }
 ,{
 "id":"LensMaker","name":"Lens polisher","category":"General","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance III","maintenance_cost_quantity":2,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":4,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/LensMaker.png","build_costs":[{
@@ -2987,7 +2987,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"MicrochipMachineT2","name":"Microchip machine II","category":"General","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance III","maintenance_cost_quantity":8,"electricity_consumed":500,"electricity_generated":0,"computing_consumed":12,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/MicrochipMachineT2.png","build_costs":[{
@@ -3161,7 +3161,7 @@
 }
 ]
 }
-]
+],"footprint":[7,4]
 }
 ,{
 "id":"MicrochipMachine","name":"Microchip machine","category":"General","next_tier":"MicrochipMachineT2","workers":4,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":6,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":4,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/MicrochipMachine.png","build_costs":[{
@@ -3335,7 +3335,7 @@
 }
 ]
 }
-]
+],"footprint":[7,4]
 }
 ,{
 "id":"ElectrolyzerT2","name":"Electrolyzer II","category":"Water extraction & processing","next_tier":"","workers":3,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":2,"electricity_consumed":1100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ElectrolyzerT2.png","build_costs":[{
@@ -3374,7 +3374,7 @@
 }
 ]
 }
-]
+],"footprint":[8,5]
 }
 ,{
 "id":"Electrolyzer","name":"Electrolyzer","category":"Water extraction & processing","next_tier":"ElectrolyzerT2","workers":3,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":300,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Electrolyzer.png","build_costs":[{
@@ -3413,7 +3413,7 @@
 }
 ]
 }
-]
+],"footprint":[8,5]
 }
 ,{
 "id":"FermentationTank","name":"Fermentation tank","category":"Food production","next_tier":"","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":20,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FermentationTank.png","build_costs":[{
@@ -3467,7 +3467,7 @@
 }
 ]
 }
-]
+],"footprint":[8,6]
 }
 ,{
 "id":"SettlingTank","name":"Settling tank","category":"Nuclear","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":120,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlingTank.png","build_costs":[{
@@ -3551,7 +3551,7 @@
 }
 ]
 }
-]
+],"footprint":[9,5]
 }
 ,{
 "id":"CoolingTowerT1","name":"Cooling tower","category":"Water extraction & processing","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CoolingTowerT1.png","build_costs":[{
@@ -3587,7 +3587,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"CoolingTowerT2","name":"Cooling tower (large)","category":"Water extraction & processing","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CoolingTowerT2.png","build_costs":[{
@@ -3632,7 +3632,7 @@
 }
 ]
 }
-]
+],"footprint":[9,9]
 }
 ,{
 "id":"UraniumEnrichmentPlant","name":"Enrichment plant","category":"Nuclear","next_tier":"","workers":14,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":8,"electricity_consumed":4000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/UraniumEnrichmentPlant.png","build_costs":[{
@@ -3719,7 +3719,7 @@
 }
 ]
 }
-]
+],"footprint":[14,8]
 }
 ,{
 "id":"NuclearReprocessingPlant","name":"Nuclear reprocessing plant","category":"Nuclear","next_tier":"","workers":30,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":20,"electricity_consumed":2000,"electricity_generated":0,"computing_consumed":24,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/NuclearReprocessingPlant.png","build_costs":[{
@@ -3809,7 +3809,7 @@
 }
 ]
 }
-]
+],"footprint":[21,10]
 }
 ,{
 "id":"CharcoalMaker","name":"Coal maker","category":"Forestry","next_tier":"","workers":2,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CharcoalMaker.png","build_costs":[{
@@ -3827,7 +3827,7 @@
 }
 ]
 }
-]
+],"footprint":[5,3]
 }
 ,{
 "id":"Crusher","name":"Crusher","category":"Nuclear","next_tier":"","workers":2,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":250,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Crusher.png","build_costs":[{
@@ -3941,7 +3941,7 @@
 }
 ]
 }
-]
+],"footprint":[6,4]
 }
 ,{
 "id":"CrusherLarge","name":"Crusher (large)","category":"Nuclear","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":8,"electricity_consumed":1000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CrusherLarge.png","build_costs":[{
@@ -4055,7 +4055,7 @@
 }
 ]
 }
-]
+],"footprint":[15,8]
 }
 ,{
 "id":"ArcFurnace2","name":"Arc furnace II","category":"Titanium","next_tier":"","workers":14,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":8,"electricity_consumed":6000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ArcFurnace2.png","build_costs":[{
@@ -4295,7 +4295,7 @@
 }
 ]
 }
-]
+],"footprint":[9,6]
 }
 ,{
 "id":"ArcFurnace","name":"Arc furnace","category":"Silicon","next_tier":"ArcFurnace2","workers":12,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":8,"electricity_consumed":4000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ArcFurnace.png","build_costs":[{
@@ -4442,7 +4442,7 @@
 }
 ]
 }
-]
+],"footprint":[9,6]
 }
 ,{
 "id":"SmeltingFurnaceT2","name":"Blast furnace II","category":"Glass","next_tier":"ArcFurnace","workers":18,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SmeltingFurnaceT2.png","build_costs":[{
@@ -4553,7 +4553,7 @@
 }
 ]
 }
-]
+],"footprint":[9,6]
 }
 ,{
 "id":"SmeltingFurnaceT1","name":"Blast furnace","category":"Glass","next_tier":"SmeltingFurnaceT2","workers":8,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SmeltingFurnaceT1.png","build_costs":[{
@@ -4658,7 +4658,7 @@
 }
 ]
 }
-]
+],"footprint":[9,6]
 }
 ,{
 "id":"AluminumCell","name":"Aluminum cell","category":"Aluminum","next_tier":"","workers":14,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":12,"electricity_consumed":8000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AluminumCell.png","build_costs":[{
@@ -4679,7 +4679,7 @@
 }
 ]
 }
-]
+],"footprint":[23,10]
 }
 ,{
 "id":"CasterCooledT2","name":"Cooled caster II","category":"Titanium","next_tier":"","workers":2,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CasterCooledT2.png","build_costs":[{
@@ -4709,7 +4709,7 @@
 }
 ]
 }
-]
+],"footprint":[5,7]
 }
 ,{
 "id":"CasterCooled","name":"Cooled caster","category":"Iron","next_tier":"CasterCooledT2","workers":2,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CasterCooled.png","build_costs":[{
@@ -4727,7 +4727,7 @@
 }
 ]
 }
-]
+],"footprint":[5,7]
 }
 ,{
 "id":"CasterT2","name":"Metal caster II","category":"Aluminum","next_tier":"","workers":2,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CasterT2.png","build_costs":[{
@@ -4763,7 +4763,7 @@
 }
 ]
 }
-]
+],"footprint":[5,7]
 }
 ,{
 "id":"Caster","name":"Metal caster","category":"Aluminum","next_tier":"CasterT2","workers":2,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Caster.png","build_costs":[{
@@ -4796,7 +4796,7 @@
 }
 ]
 }
-]
+],"footprint":[5,7]
 }
 ,{
 "id":"AlloyMixer","name":"Alloy mixer","category":"Titanium","next_tier":"","workers":12,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":8,"electricity_consumed":1000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AlloyMixer.png","build_costs":[{
@@ -4814,7 +4814,7 @@
 }
 ]
 }
-]
+],"footprint":[6,9]
 }
 ,{
 "id":"CopperElectrolysis","name":"Copper electrolysis","category":"Copper","next_tier":"","workers":5,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CopperElectrolysis.png","build_costs":[{
@@ -4844,7 +4844,7 @@
 }
 ]
 }
-]
+],"footprint":[7,5]
 }
 ,{
 "id":"OxygenFurnaceT2","name":"Oxygen furnace II","category":"Iron","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/OxygenFurnaceT2.png","build_costs":[{
@@ -4865,7 +4865,7 @@
 }
 ]
 }
-]
+],"footprint":[7,5]
 }
 ,{
 "id":"OxygenFurnace","name":"Oxygen furnace","category":"Iron","next_tier":"OxygenFurnaceT2","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":120,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/OxygenFurnace.png","build_costs":[{
@@ -4886,7 +4886,7 @@
 }
 ]
 }
-]
+],"footprint":[7,5]
 }
 ,{
 "id":"GlassMakerT2","name":"Glass maker II","category":"Glass","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":4,"electricity_consumed":500,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/GlassMakerT2.png","build_costs":[{
@@ -4901,7 +4901,7 @@
 }
 ]
 }
-]
+],"footprint":[28,5]
 }
 ,{
 "id":"GlassMakerT1","name":"Glass maker","category":"Glass","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":300,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/GlassMakerT1.png","build_costs":[{
@@ -4919,7 +4919,7 @@
 }
 ]
 }
-]
+],"footprint":[12,5]
 }
 ,{
 "id":"SiliconCrystallizer","name":"Crystallizer","category":"Aluminum","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":6,"electricity_consumed":500,"electricity_generated":0,"computing_consumed":4,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SiliconCrystallizer.png","build_costs":[{
@@ -4946,7 +4946,7 @@
 }
 ]
 }
-]
+],"footprint":[6,5]
 }
 ,{
 "id":"SiliconReactor","name":"Silicon reactor","category":"Silicon","next_tier":"","workers":2,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":1,"electricity_consumed":80,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SiliconReactor.png","build_costs":[{
@@ -4964,7 +4964,7 @@
 }
 ]
 }
-]
+],"footprint":[4,3]
 }
 ,{
 "id":"GoldFurnace","name":"Gold furnace","category":"Gold","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":800,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/GoldFurnace.png","build_costs":[{
@@ -4994,7 +4994,7 @@
 }
 ]
 }
-]
+],"footprint":[6,4]
 }
 ,{
 "id":"IndustrialMixerT2","name":"Mixer II","category":"Food production","next_tier":"","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/IndustrialMixerT2.png","build_costs":[{
@@ -5216,7 +5216,7 @@
 }
 ]
 }
-]
+],"footprint":[7,6]
 }
 ,{
 "id":"IndustrialMixer","name":"Mixer","category":"Food production","next_tier":"IndustrialMixerT2","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/IndustrialMixer.png","build_costs":[{
@@ -5438,7 +5438,7 @@
 }
 ]
 }
-]
+],"footprint":[7,6]
 }
 ,{
 "id":"ChemicalPlant2","name":"Chemical plant II","category":"Titanium","next_tier":"","workers":14,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":4,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ChemicalPlant2.png","build_costs":[{
@@ -5759,7 +5759,7 @@
 }
 ]
 }
-]
+],"footprint":[7,7]
 }
 ,{
 "id":"ChemicalPlant","name":"Chemical plant","category":"Derivatives","next_tier":"ChemicalPlant2","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":250,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ChemicalPlant.png","build_costs":[{
@@ -5858,7 +5858,7 @@
 }
 ]
 }
-]
+],"footprint":[7,7]
 }
 ,{
 "id":"DistillationTowerT1","name":"Distillation (stage I)","category":"Distillation","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":3,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/DistillationTowerT1.png","build_costs":[{
@@ -5882,7 +5882,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"DistillationTowerT2","name":"Distillation (stage II)","category":"Distillation","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/DistillationTowerT2.png","build_costs":[{
@@ -5903,7 +5903,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"DistillationTowerT3","name":"Distillation (stage III)","category":"Titanium","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/DistillationTowerT3.png","build_costs":[{
@@ -5939,7 +5939,7 @@
 }
 ]
 }
-]
+],"footprint":[5,5]
 }
 ,{
 "id":"VacuumDistillationTower","name":"Rubber maker","category":"Derivatives","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":300,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/VacuumDistillationTower.png","build_costs":[{
@@ -6011,7 +6011,7 @@
 }
 ]
 }
-]
+],"footprint":[7,8]
 }
 ,{
 "id":"HydroCrackerT1","name":"Cracking unit","category":"Distillation","next_tier":"","workers":12,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":160,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/HydroCrackerT1.png","build_costs":[{
@@ -6107,7 +6107,7 @@
 }
 ]
 }
-]
+],"footprint":[9,6]
 }
 ,{
 "id":"HydrogenReformer","name":"Hydrogen reformer","category":"Distillation","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/HydrogenReformer.png","build_costs":[{
@@ -6146,7 +6146,7 @@
 }
 ]
 }
-]
+],"footprint":[9,5]
 }
 ,{
 "id":"SourWaterStripper","name":"Sour water stripper","category":"Distillation","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":160,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SourWaterStripper.png","build_costs":[{
@@ -6170,7 +6170,7 @@
 }
 ]
 }
-]
+],"footprint":[9,5]
 }
 ,{
 "id":"PolymerizationPlant","name":"Polymerization plant","category":"Derivatives","next_tier":"","workers":12,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/PolymerizationPlant.png","build_costs":[{
@@ -6206,7 +6206,7 @@
 }
 ]
 }
-]
+],"footprint":[8,7]
 }
 ,{
 "id":"SmokeStackLarge","name":"Smoke stack (large)","category":"Titanium","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SmokeStackLarge.png","build_costs":[{
@@ -6269,7 +6269,7 @@
 }
 ]
 }
-]
+],"footprint":[2,2]
 }
 ,{
 "id":"SmokeStack","name":"Smoke stack","category":"Titanium","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SmokeStack.png","build_costs":[{
@@ -6329,7 +6329,7 @@
 }
 ]
 }
-]
+],"footprint":[1,1]
 }
 ,{
 "id":"WasteDump","name":"Liquid dump","category":"Fluid","next_tier":"","workers":1,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/WasteDump.png","build_costs":[{
@@ -6425,7 +6425,7 @@
 }
 ]
 }
-]
+],"footprint":[21,3]
 }
 ,{
 "id":"Flare","name":"Flare","category":"Derivatives","next_tier":"","workers":1,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Flare.png","build_costs":[{
@@ -6500,7 +6500,7 @@
 }
 ],"outputs":[]
 }
-]
+],"footprint":[1,1]
 }
 ,{
 "id":"ExhaustScrubber","name":"Exhaust scrubber","category":"Fluid","next_tier":"","workers":8,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ExhaustScrubber.png","build_costs":[{
@@ -6551,7 +6551,7 @@
 }
 ]
 }
-]
+],"footprint":[9,6]
 }
 ,{
 "id":"WaterTreatmentPlant","name":"Wastewater treatment","category":"Fluid","next_tier":"","workers":26,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":10,"electricity_consumed":600,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/WaterTreatmentPlant.png","build_costs":[{
@@ -6611,7 +6611,7 @@
 }
 ]
 }
-]
+],"footprint":[17,12]
 }
 ,{
 "id":"Burner","name":"Burner (solid)","category":"Solid","next_tier":"","workers":1,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Burner.png","build_costs":[{
@@ -6689,7 +6689,7 @@
 }
 ]
 }
-]
+],"footprint":[3,2]
 }
 ,{
 "id":"IncinerationPlant","name":"Incineration plant","category":"Solid","next_tier":"","workers":16,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":8,"electricity_consumed":500,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/IncinerationPlant.png","build_costs":[{
@@ -6767,7 +6767,7 @@
 }
 ]
 }
-]
+],"footprint":[14,8]
 }
 ,{
 "id":"Shredder","name":"Shredder","category":"Forestry","next_tier":"","workers":1,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":1,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Shredder.png","build_costs":[{
@@ -6854,7 +6854,7 @@
 }
 ]
 }
-]
+],"footprint":[3,6]
 }
 ,{
 "id":"Compactor","name":"Compactor","category":"Solid","next_tier":"","workers":1,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":1,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Compactor.png","build_costs":[{
@@ -6914,7 +6914,7 @@
 }
 ]
 }
-]
+],"footprint":[5,3]
 }
 ,{
 "id":"AnaerobicDigester","name":"Anaerobic digester","category":"Solid","next_tier":"","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":1,"electricity_consumed":50,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AnaerobicDigester.png","build_costs":[{
@@ -7052,7 +7052,7 @@
 }
 ]
 }
-]
+],"footprint":[8,6]
 }
 ,{
 "id":"AirSeparator","name":"Air separator","category":"Iron","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/AirSeparator.png","build_costs":[{
@@ -7067,7 +7067,7 @@
 }
 ]
 }
-]
+],"footprint":[9,6]
 }
 ,{
 "id":"MaintenanceDepotT1","name":"Maintenance depot","category":"Maintenance","next_tier":"","workers":12,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/MaintenanceDepotT1.png","build_costs":[{
@@ -7100,7 +7100,7 @@
 }
 ]
 }
-]
+],"footprint":[6,7]
 }
 ,{
 "id":"MaintenanceDepotT0","name":"Maintenance depot (basic)","category":"Maintenance","next_tier":"MaintenanceDepotT1","workers":6,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/MaintenanceDepotT0.png","build_costs":[{
@@ -7118,7 +7118,7 @@
 }
 ]
 }
-]
+],"footprint":[6,7]
 }
 ,{
 "id":"MaintenanceDepotT2","name":"Maintenance II depot","category":"Maintenance","next_tier":"","workers":16,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/MaintenanceDepotT2.png","build_costs":[{
@@ -7154,7 +7154,7 @@
 }
 ]
 }
-]
+],"footprint":[6,7]
 }
 ,{
 "id":"MaintenanceDepotT3","name":"Maintenance III depot","category":"Maintenance","next_tier":"","workers":20,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":600,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/MaintenanceDepotT3.png","build_costs":[{
@@ -7190,7 +7190,7 @@
 }
 ]
 }
-]
+],"footprint":[6,7]
 }
 ,{
 "id":"FarmT4","name":"Greenhouse II","category":"Food production","next_tier":"","workers":20,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":8,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FarmT4.png","build_costs":[{
@@ -7595,7 +7595,7 @@
 }
 ]
 }
-]
+],"footprint":[61,41]
 }
 ,{
 "id":"FarmT3","name":"Greenhouse","category":"Food production","next_tier":"FarmT4","workers":16,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FarmT3.png","build_costs":[{
@@ -8000,7 +8000,7 @@
 }
 ]
 }
-]
+],"footprint":[61,41]
 }
 ,{
 "id":"FarmT2","name":"Irrigated Farm","category":"Food production","next_tier":"FarmT3","workers":10,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FarmT2.png","build_costs":[{
@@ -8258,7 +8258,7 @@
 }
 ]
 }
-]
+],"footprint":[61,41]
 }
 ,{
 "id":"FarmT1","name":"Farm","category":"Food production","next_tier":"FarmT2","workers":8,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FarmT1.png","build_costs":[{
@@ -8306,7 +8306,7 @@
 }
 ]
 }
-]
+],"footprint":[61,41]
 }
 ,{
 "id":"ChickenFarm","name":"Chicken farm","category":"Food production","next_tier":"","workers":12,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ChickenFarm.png","build_costs":[{
@@ -8327,7 +8327,7 @@
 }
 ]
 }
-]
+],"footprint":[16,11]
 }
 ,{
 "id":"CargoDepotT4","name":"Cargo depot (8)","category":"Cargo docks","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotT4.png","build_costs":[{
@@ -8336,7 +8336,7 @@
 ,{
 "product":"Concrete slab","quantity":600
 }
-],"recipes":[]
+],"recipes":[],"footprint":[32,71]
 }
 ,{
 "id":"CargoDepotT3","name":"Cargo depot (6)","category":"Cargo docks","next_tier":"CargoDepotT4","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotT3.png","build_costs":[{
@@ -8345,7 +8345,7 @@
 ,{
 "product":"Concrete slab","quantity":400
 }
-],"recipes":[]
+],"recipes":[],"footprint":[32,71]
 }
 ,{
 "id":"CargoDepotT2","name":"Cargo depot (4)","category":"Cargo docks","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotT2.png","build_costs":[{
@@ -8354,7 +8354,7 @@
 ,{
 "product":"Concrete slab","quantity":240
 }
-],"recipes":[]
+],"recipes":[],"footprint":[32,51]
 }
 ,{
 "id":"CargoDepotT1","name":"Cargo depot (2)","category":"Cargo docks","next_tier":"CargoDepotT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotT1.png","build_costs":[{
@@ -8363,67 +8363,67 @@
 ,{
 "product":"Concrete slab","quantity":100
 }
-],"recipes":[]
+],"recipes":[],"footprint":[32,51]
 }
 ,{
 "id":"CargoDepotModuleUnitT3","name":"Unit module (L)","category":"Cargo docks","next_tier":"","workers":5,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":1000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleUnitT3.png","build_costs":[{
 "product":"Construction Parts III","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleUnitT2","name":"Unit module (M)","category":"Cargo docks","next_tier":"CargoDepotModuleUnitT3","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":3,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleUnitT2.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleUnitT1","name":"Unit module (S)","category":"Cargo docks","next_tier":"CargoDepotModuleUnitT2","workers":3,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":250,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleUnitT1.png","build_costs":[{
 "product":"Construction Parts II","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleLooseT3","name":"Loose module (L)","category":"Cargo docks","next_tier":"","workers":5,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":1000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleLooseT3.png","build_costs":[{
 "product":"Construction Parts III","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleLooseT2","name":"Loose module (M)","category":"Cargo docks","next_tier":"CargoDepotModuleLooseT3","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":3,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleLooseT2.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleLooseT1","name":"Loose module (S)","category":"Cargo docks","next_tier":"CargoDepotModuleLooseT2","workers":3,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":250,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleLooseT1.png","build_costs":[{
 "product":"Construction Parts II","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleFluidT3","name":"Fluid module (L)","category":"Cargo docks","next_tier":"","workers":5,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":4,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":1000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleFluidT3.png","build_costs":[{
 "product":"Construction Parts III","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleFluidT2","name":"Fluid module (M)","category":"Cargo docks","next_tier":"CargoDepotModuleFluidT3","workers":4,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":3,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleFluidT2.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"CargoDepotModuleFluidT1","name":"Fluid module (S)","category":"Cargo docks","next_tier":"CargoDepotModuleFluidT2","workers":3,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":2,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":250,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/CargoDepotModuleFluidT1.png","build_costs":[{
 "product":"Construction Parts II","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,5]
 }
 ,{
 "id":"ResearchLab1","name":"Research lab (basic)","category":"Buildings","next_tier":"ResearchLab2","workers":6,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":40,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0.25,"research_speed":3,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ResearchLab1.png","build_costs":[{
 "product":"Construction Parts","quantity":30
 }
-],"recipes":[]
+],"recipes":[],"footprint":[15,15]
 }
 ,{
 "id":"ResearchLab2","name":"Research lab I","category":"Buildings","next_tier":"ResearchLab3","workers":12,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":8,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0.25,"research_speed":6,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ResearchLab2.png","build_costs":[{
@@ -8447,7 +8447,7 @@
 }
 ]
 }
-]
+],"footprint":[15,15]
 }
 ,{
 "id":"ResearchLab3","name":"Research lab II","category":"Buildings","next_tier":"ResearchLab4","workers":20,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":12,"electricity_consumed":400,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0.2998047,"research_speed":12,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ResearchLab3.png","build_costs":[{
@@ -8471,7 +8471,7 @@
 }
 ]
 }
-]
+],"footprint":[15,15]
 }
 ,{
 "id":"ResearchLab4","name":"Research lab III","category":"Buildings","next_tier":"ResearchLab5","workers":46,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":12,"electricity_consumed":600,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0.4003906,"research_speed":24,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ResearchLab4.png","build_costs":[{
@@ -8495,7 +8495,7 @@
 }
 ]
 }
-]
+],"footprint":[15,15]
 }
 ,{
 "id":"ResearchLab5","name":"Research lab IV","category":"Buildings","next_tier":"","workers":80,"maintenance_cost_units":"Maintenance III","maintenance_cost_quantity":12,"electricity_consumed":1000,"electricity_generated":0,"computing_consumed":12,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0.5,"research_speed":48,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/ResearchLab5.png","build_costs":[{
@@ -8519,121 +8519,121 @@
 }
 ]
 }
-]
+],"footprint":[15,15]
 }
 ,{
 "id":"VehiclesDepotT3","name":"Vehicles depot III","category":"Vehicles","next_tier":"","workers":16,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":640,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/VehiclesDepotT3.png","build_costs":[{
 "product":"Construction Parts IV","quantity":180
 }
-],"recipes":[]
+],"recipes":[],"footprint":[29,20]
 }
 ,{
 "id":"VehiclesDepotT2","name":"Vehicles depot II","category":"Vehicles","next_tier":"","workers":10,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":320,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/VehiclesDepotT2.png","build_costs":[{
 "product":"Construction Parts II","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[16,12]
 }
 ,{
 "id":"VehiclesDepot","name":"Vehicles depot","category":"Vehicles","next_tier":"VehiclesDepotT2","workers":6,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/VehiclesDepot.png","build_costs":[{
 "product":"Construction Parts","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[16,12]
 }
 ,{
 "id":"FuelStationHydrogenT1","name":"Hydrogen fuel station","category":"Vehicles","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":240,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FuelStationHydrogenT1.png","build_costs":[{
 "product":"Construction Parts III","quantity":70
 }
-],"recipes":[]
+],"recipes":[],"footprint":[6,7]
 }
 ,{
 "id":"FuelStationT3","name":"Fuel station III","category":"Vehicles","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":360,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FuelStationT3.png","build_costs":[{
 "product":"Construction Parts III","quantity":70
 }
-],"recipes":[]
+],"recipes":[],"footprint":[6,7]
 }
 ,{
 "id":"FuelStationT2","name":"Fuel station II","category":"Vehicles","next_tier":"FuelStationT3","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":120,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FuelStationT2.png","build_costs":[{
 "product":"Construction Parts III","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[6,7]
 }
 ,{
 "id":"FuelStationT1","name":"Fuel station","category":"Vehicles","next_tier":"FuelStationT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":40,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FuelStationT1.png","build_costs":[{
 "product":"Construction Parts II","quantity":20
 }
-],"recipes":[]
+],"recipes":[],"footprint":[6,7]
 }
 ,{
 "id":"StorageUnitT4","name":"Unit storage IV","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":5000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageUnitT4.png","build_costs":[{
 "product":"Construction Parts III","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"StorageUnitT3","name":"Unit storage III","category":"Storage","next_tier":"StorageUnitT4","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":2500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageUnitT3.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"StorageUnitT2","name":"Unit storage II","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageUnitT2.png","build_costs":[{
 "product":"Construction Parts II","quantity":30
 }
-],"recipes":[]
+],"recipes":[],"footprint":[5,5]
 }
 ,{
 "id":"StorageUnit","name":"Unit storage","category":"Storage","next_tier":"StorageUnitT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageUnit.png","build_costs":[{
 "product":"Construction Parts","quantity":30
 }
-],"recipes":[]
+],"recipes":[],"footprint":[5,5]
 }
 ,{
 "id":"StorageLooseT4","name":"Loose storage IV","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":5000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLooseT4.png","build_costs":[{
 "product":"Construction Parts III","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"StorageLooseT3","name":"Loose storage III","category":"Storage","next_tier":"StorageLooseT4","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":2500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLooseT3.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"StorageLooseT2","name":"Loose storage II","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLooseT2.png","build_costs":[{
 "product":"Construction Parts II","quantity":30
 }
-],"recipes":[]
+],"recipes":[],"footprint":[5,5]
 }
 ,{
 "id":"StorageLoose","name":"Loose storage","category":"Storage","next_tier":"StorageLooseT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"LooseProductProto","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageLoose.png","build_costs":[{
 "product":"Construction Parts","quantity":30
 }
-],"recipes":[]
+],"recipes":[],"footprint":[5,5]
 }
 ,{
 "id":"StorageFluidT4","name":"Fluid storage IV","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":5000,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluidT4.png","build_costs":[{
 "product":"Construction Parts III","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"StorageFluidT3","name":"Fluid storage III","category":"Storage","next_tier":"StorageFluidT4","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":2500,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluidT3.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[10,10]
 }
 ,{
 "id":"StorageFluidT2","name":"Fluid storage II","category":"Storage","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluidT2.png","build_costs":[{
 "product":"Construction Parts II","quantity":30
 }
-],"recipes":[]
+],"recipes":[],"footprint":[5,5]
 }
 ,{
 "id":"StorageFluid","name":"Fluid storage","category":"Storage","next_tier":"StorageFluidT2","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"FluidProductProto","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/StorageFluid.png","build_costs":[{
 "product":"Construction Parts","quantity":30
 }
-],"recipes":[]
+],"recipes":[],"footprint":[5,5]
 }
 ,{
 "id":"NuclearWasteStorage","name":"Radioactive waste storage","category":"Nuclear","next_tier":"","workers":10,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"CountableProductProto","storage_capacity":2400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/NuclearWasteStorage.png","build_costs":[{
@@ -8642,7 +8642,7 @@
 ,{
 "product":"Concrete slab","quantity":500
 }
-],"recipes":[]
+],"recipes":[],"footprint":[16,16]
 }
 ,{
 "id":"HousingT4","name":"Housing IV","category":"Housing & services","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/HousingT4.png","build_costs":[{
@@ -8654,7 +8654,7 @@
 ,{
 "product":"Steel","quantity":200
 }
-],"recipes":[]
+],"recipes":[],"footprint":[28,28]
 }
 ,{
 "id":"HousingT3","name":"Housing III","category":"Housing & services","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":240,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/HousingT3.png","build_costs":[{
@@ -8663,55 +8663,55 @@
 ,{
 "product":"Glass","quantity":120
 }
-],"recipes":[]
+],"recipes":[],"footprint":[28,28]
 }
 ,{
 "id":"HousingT2","name":"Housing II","category":"Housing & services","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":140,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/HousingT2.png","build_costs":[{
 "product":"Construction Parts II","quantity":140
 }
-],"recipes":[]
+],"recipes":[],"footprint":[28,28]
 }
 ,{
 "id":"Housing","name":"Housing","category":"Housing & services","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":80,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/Housing.png","build_costs":[{
 "product":"Construction Parts","quantity":80
 }
-],"recipes":[]
+],"recipes":[],"footprint":[28,28]
 }
 ,{
 "id":"MineTower","name":"Mine control tower","category":"Terraforming","next_tier":"","workers":0,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/MineTower.png","build_costs":[{
 "product":"Construction Parts","quantity":20
 }
-],"recipes":[]
+],"recipes":[],"footprint":[4,4]
 }
 ,{
 "id":"SettlementLandfillModule","name":"Waste collection","category":"Settlement","next_tier":"","workers":4,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementLandfillModule.png","build_costs":[{
 "product":"Construction Parts","quantity":25
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementRecyclablesModule","name":"Recyclables collection","category":"Settlement","next_tier":"","workers":12,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementRecyclablesModule.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementBiomassModule","name":"Biomass collection","category":"Settlement","next_tier":"","workers":6,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":200,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementBiomassModule.png","build_costs":[{
 "product":"Construction Parts III","quantity":60
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementFoodModuleT2","name":"Food market II","category":"Housing & services","next_tier":"","workers":6,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementFoodModuleT2.png","build_costs":[{
 "product":"Construction Parts II","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementFoodModule","name":"Food market","category":"Housing & services","next_tier":"","workers":3,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":400,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementFoodModule.png","build_costs":[{
 "product":"Construction Parts","quantity":25
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementHouseholdGoodsModule","name":"Household goods module","category":"Housing & services","next_tier":"","workers":16,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":150,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementHouseholdGoodsModule.png","build_costs":[{
@@ -8720,7 +8720,7 @@
 ,{
 "product":"Glass","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementHouseholdAppliancesModule","name":"Household appliances module","category":"Housing & services","next_tier":"","workers":20,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":8,"electricity_consumed":200,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementHouseholdAppliancesModule.png","build_costs":[{
@@ -8729,7 +8729,7 @@
 ,{
 "product":"Glass","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementConsumerElectronicsModule","name":"Consumer electronics module","category":"Housing & services","next_tier":"","workers":24,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":10,"electricity_consumed":350,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementConsumerElectronicsModule.png","build_costs":[{
@@ -8738,7 +8738,7 @@
 ,{
 "product":"Glass","quantity":80
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementLuxuryGoodsModule","name":"Luxury goods module","category":"Housing & services","next_tier":"","workers":16,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":8,"electricity_consumed":150,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementLuxuryGoodsModule.png","build_costs":[{
@@ -8747,20 +8747,20 @@
 ,{
 "product":"Glass","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"SettlementWaterModule","name":"Water facility","category":"Housing & services","next_tier":"","workers":6,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":6,"electricity_consumed":100,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/SettlementWaterModule.png","build_costs":[{
 "product":"Construction Parts II","quantity":40
 }
-],"recipes":[]
+],"recipes":[],"footprint":[11,7]
 }
 ,{
 "id":"NuclearReactorT2","name":"Nuclear reactor II","category":"Nuclear","next_tier":"","workers":110,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":90,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":12,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/NuclearReactorT2.png","build_costs":[{
 "product":"Construction Parts IV","quantity":700
 }
 ],"recipes":[{
-"id":"NuclearReactorT2","name":"Nuclear reactor II","duration":30,"power_multiplier":1.00,"inputs":[{
+"id":"NuclearReactorT21","name":"Nuclear reactor II 1","duration":30,"power_multiplier":1.00,"inputs":[{
 "name":"Water","quantity":192
 }
 ,{
@@ -8771,21 +8771,6 @@
 }
 ,{
 "name":"Spent MOX","quantity":1
-}
-]
-}
-,{
-"id":"NuclearReactorT21","name":"Nuclear reactor II 1","duration":30,"power_multiplier":1.00,"inputs":[{
-"name":"Water","quantity":192
-}
-,{
-"name":"Uranium rod","quantity":1
-}
-],"outputs":[{
-"name":"Steam (high)","quantity":192
-}
-,{
-"name":"Spent fuel","quantity":1
 }
 ]
 }
@@ -8794,21 +8779,6 @@
 "name":"Water","quantity":192
 }
 ,{
-"name":"MOX rod","quantity":1
-}
-],"outputs":[{
-"name":"Steam (high)","quantity":192
-}
-,{
-"name":"Spent MOX","quantity":1
-}
-]
-}
-,{
-"id":"NuclearReactorT23","name":"Nuclear reactor II 3","duration":30,"power_multiplier":1.00,"inputs":[{
-"name":"Water","quantity":192
-}
-,{
 "name":"Uranium rod","quantity":1
 }
 ],"outputs":[{
@@ -8819,28 +8789,13 @@
 }
 ]
 }
-],"coolant":{"product_in":"Water","product_out":"Steam (depleted)","quantity_in":30,"quantity_out":30,"optional":true }
+],"coolant":{"product_in":"Water","product_out":"Steam (depleted)","quantity_in":30,"quantity_out":30,"optional":true },"footprint":[16,32]
 }
 ,{
 "id":"NuclearReactor","name":"Nuclear reactor","category":"Nuclear","next_tier":"NuclearReactorT2","workers":80,"maintenance_cost_units":"Maintenance II","maintenance_cost_quantity":60,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/NuclearReactor.png","build_costs":[{
 "product":"Construction Parts IV","quantity":400
 }
 ],"recipes":[{
-"id":"NuclearReactor","name":"Nuclear reactor","duration":40,"power_multiplier":1.00,"inputs":[{
-"name":"Water","quantity":192
-}
-,{
-"name":"Uranium rod","quantity":1
-}
-],"outputs":[{
-"name":"Steam (high)","quantity":192
-}
-,{
-"name":"Spent fuel","quantity":1
-}
-]
-}
-,{
 "id":"NuclearReactor1","name":"Nuclear reactor 1","duration":40,"power_multiplier":1.00,"inputs":[{
 "name":"Water","quantity":192
 }
@@ -8855,7 +8810,7 @@
 }
 ]
 }
-],"coolant":{"product_in":"Water","product_out":"Steam (depleted)","quantity_in":30,"quantity_out":30,"optional":true }
+],"coolant":{"product_in":"Water","product_out":"Steam (depleted)","quantity_in":30,"quantity_out":30,"optional":true },"footprint":[16,32]
 }
 ,{
 "id":"FastBreederReactor","name":"Fast breeder reactor","category":"Nuclear","next_tier":"","workers":200,"maintenance_cost_units":"Maintenance III","maintenance_cost_quantity":60,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":18,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/FastBreederReactor.png","build_costs":[{
@@ -8868,65 +8823,35 @@
 "product":"Electronics III","quantity":200
 }
 ],"recipes":[{
-"id":"FastBreederReactor","name":"Fast breeder reactor","duration":60,"power_multiplier":1.00,"inputs":[{
+"id":"FastBreederReactorEnrichment1","name":"Fast breeder reactor Enrichment 0","duration":60,"power_multiplier":1.00,"inputs":[{
 "name":"Water","quantity":384
 }
 ,{
-"name":"Core fuel","quantity":16
+"name":"Core fuel","quantity":8
+}
+,{
+"name":"Blanket fuel","quantity":0.00
 }
 ],"outputs":[{
 "name":"Steam (super)","quantity":384
 }
 ,{
-"name":"Core fuel (spent)","quantity":16
+"name":"Core fuel (spent)","quantity":8
+}
+,{
+"name":"Blanket fuel (enriched)","quantity":0.00,"optional":true
 }
 ]
 }
 ,{
-"id":"FastBreederReactor1","name":"Fast breeder reactor 1","duration":60,"power_multiplier":1.00,"inputs":[{
+"id":"FastBreederReactorEnrichment2","name":"Fast breeder reactor Enrichment 1","duration":60,"power_multiplier":1.00,"inputs":[{
 "name":"Water","quantity":384
 }
 ,{
 "name":"Core fuel","quantity":16
 }
 ,{
-"name":"Blanket fuel","quantity":1,"optional":true
-}
-],"outputs":[{
-"name":"Steam (super)","quantity":384
-}
-,{
-"name":"Core fuel (spent)","quantity":16
-}
-,{
-"name":"Blanket fuel (enriched)","quantity":1,"optional":true
-}
-]
-}
-,{
-"id":"FastBreederReactor2","name":"Fast breeder reactor 2","duration":60,"power_multiplier":1.00,"inputs":[{
-"name":"Water","quantity":384
-}
-,{
-"name":"Core fuel","quantity":16
-}
-],"outputs":[{
-"name":"Steam (super)","quantity":384
-}
-,{
-"name":"Core fuel (spent)","quantity":16
-}
-]
-}
-,{
-"id":"FastBreederReactor3","name":"Fast breeder reactor 3","duration":60,"power_multiplier":1.00,"inputs":[{
-"name":"Water","quantity":384
-}
-,{
-"name":"Core fuel","quantity":16
-}
-,{
-"name":"Blanket fuel","quantity":1,"optional":true
+"name":"Blanket fuel","quantity":16.00
 }
 ],"outputs":[{
 "name":"Steam (super)","quantity":384
@@ -8935,11 +8860,32 @@
 "name":"Core fuel (spent)","quantity":16
 }
 ,{
-"name":"Blanket fuel (enriched)","quantity":1,"optional":true
+"name":"Blanket fuel (enriched)","quantity":16.00,"optional":true
 }
 ]
 }
-],"coolant":{"product_in":"Water","product_out":"Steam (depleted)","quantity_in":30,"quantity_out":30,"optional":true }
+,{
+"id":"FastBreederReactorEnrichment3","name":"Fast breeder reactor Enrichment 3","duration":60,"power_multiplier":1.00,"inputs":[{
+"name":"Water","quantity":96
+}
+,{
+"name":"Core fuel","quantity":16
+}
+,{
+"name":"Blanket fuel","quantity":48.00
+}
+],"outputs":[{
+"name":"Steam (super)","quantity":96
+}
+,{
+"name":"Core fuel (spent)","quantity":16
+}
+,{
+"name":"Blanket fuel (enriched)","quantity":48.00,"optional":true
+}
+]
+}
+],"coolant":{"product_in":"Water","product_out":"Steam (depleted)","quantity_in":30,"quantity_out":30,"optional":true },"footprint":[21,45]
 }
 ,{
 "id":"RocketAssemblyDepot","name":"Rocket assembly depot","category":"Rockets","next_tier":"","workers":160,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":2000,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/RocketAssemblyDepot.png","build_costs":[{
@@ -8948,7 +8894,7 @@
 ,{
 "product":"Vehicle Parts III","quantity":160
 }
-],"recipes":[]
+],"recipes":[],"footprint":[41,21]
 }
 ,{
 "id":"RocketLaunchPad","name":"Rocket launch pad","category":"Rockets","next_tier":"","workers":30,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/RocketLaunchPad.png","build_costs":[{
@@ -8960,7 +8906,13 @@
 ,{
 "product":"Steel","quantity":800
 }
-],"recipes":[]
+],"recipes":[],"footprint":[32,38]
+}
+,{
+"id":"WasteSortingPlant","name":"Waste sorting plant","category":"Solid","next_tier":"","workers":32,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":20,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/WasteSortingPlant.png","build_costs":[{
+"product":"Construction Parts III","quantity":360
+}
+],"recipes":[],"footprint":[9,25]
 }
 ,{
 "id":"RainwaterHarvester","name":"Rainwater harvester","category":"Water extraction & processing","next_tier":"","workers":0,"maintenance_cost_units":"Maintenance I","maintenance_cost_quantity":1,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/RainwaterHarvester.png","build_costs":[{
@@ -8975,7 +8927,7 @@
 }
 ]
 }
-]
+],"footprint":[19,19]
 }
 ,{
 "id":"DataCenter","name":"Data center","category":"General","next_tier":"","workers":6,"maintenance_cost_units":"","maintenance_cost_quantity":0,"electricity_consumed":0,"electricity_generated":0,"computing_consumed":0,"computing_generated":0,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"Assets/Unity/Generated/Icons/LayoutEntity/DataCenter.png","build_costs":[{
@@ -9002,7 +8954,7 @@
 }
 ]
 }
-]
+],"footprint":[18,11]
 }
 ,{
 "id":"BasicServerRack","name":"Basic rack","category":"Data center","next_tier":"","workers":0,"maintenance_cost_units":"Maintenance III","maintenance_cost_quantity":0.7998047,"electricity_consumed":85,"electricity_generated":0,"computing_consumed":0,"computing_generated":4,"product_type":"","storage_capacity":0,"unity_cost":0,"research_speed":0,"icon_path":"","build_costs":[{

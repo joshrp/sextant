@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ExclamationTriangleIcon, InformationCircleIcon, MinusCircleIcon } from "@heroicons/react/24/outline";
-import { CheckCircleIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import { ArrowsPointingOutIcon, CheckCircleIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { useShallow } from "zustand/shallow";
 import { formatNumber, maintenanceIcon, productIcon, uiIcon } from "~/uiUtils";
@@ -123,6 +123,30 @@ export default function FactoryControls() {
             </div>
           </div>
         </MenuItem>
+        <MenuItem key="footprint" as="div"
+          onClick={() => (scoringMethod != "footprint" ? setScoreMethod("footprint") : null)}
+          className="flex flex-row p-1 pb-2  pr-2 gap-2 w-full text-left border-b-1 border-gray-500 border-dotted cursor-pointer data-focus:bg-blue-900">
+          <div className="w-6 content-center">
+            <span className="font-bold">
+              {scoringMethod == "footprint" ? <CheckCircleIcon className="fill-green-600 w-5 inline-block" /> : <MinusCircleIcon className="w-5 inline-block" />}
+            </span>
+          </div>
+
+          <div className="flex-1">
+            <div className="text-center text-gray-4">
+              <span>Lowest Machine Footprint</span>
+            </div>
+            <div className="flex gap-1 mt-1">
+              {solution?.infrastructure['footprint'] != undefined ? (<>
+                <div className="flex-1 text-center text-xs text-gray-400 data-zero:opacity-20 data-zero:grayscale">
+                  <div className="h-6"><ArrowsPointingOutIcon className="inline-block h-full mx-auto" /></div>
+                  <div className="mt-0.5 text-nowrap" title={solution?.infrastructure['footprint']?.toString() + " tiles"}>{formatNumber(solution?.infrastructure['footprint'] || 0, " tiles", 0)}</div>
+                </div>
+              </>) : (<span className="flex-1 text-center text-xs text-gray-600 italic">No machines used</span>)}
+            </div>
+          </div>
+        </MenuItem>
+        <MenuItem key="divider" as="div" className="border-b-2 border-gray-500 my-1" />
         <MenuItem key="outputs" as="div"
           onClick={() => (scoringMethod != "outputs" ? setScoreMethod("outputs") : null)}
           data-disabled={hasInputGoal == false || null} data-enabled={hasInputGoal == true || null}

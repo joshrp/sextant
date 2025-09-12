@@ -6021,6 +6021,22 @@
         "input": [],
         "output": []
       }
+    },
+    "Product_Virtual_Footprint": {
+      "id": "Product_Virtual_Footprint",
+      "name": "Footprint",
+      "icon": "footprint.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "tiles",
+      "recipes": {
+        "input": [],
+        "output": []
+      },
+      "machines": {
+        "input": [],
+        "output": []
+      }
     }
   },
   "machines": {
@@ -6046,6 +6062,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 3
@@ -6073,6 +6093,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 2
@@ -6100,6 +6124,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6127,6 +6155,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 2
@@ -6154,6 +6186,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6185,6 +6221,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        2,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 1
@@ -6216,6 +6256,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -6245,6 +6289,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 0.2001953
@@ -6274,6 +6322,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 0.2001953
@@ -6305,6 +6357,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        4,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6336,6 +6392,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        8,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 8
@@ -6366,6 +6426,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        8,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6399,6 +6463,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6427,6 +6495,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6454,7 +6526,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        6
+      ]
     },
     "OilPump": {
       "id": "OilPump",
@@ -6478,6 +6554,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        5,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6505,6 +6585,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        4,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6532,6 +6616,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        4,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6559,6 +6647,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        16,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6586,6 +6678,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        24,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6615,7 +6711,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        4
+      ]
     },
     "BoilerGas": {
       "id": "BoilerGas",
@@ -6644,7 +6744,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        4
+      ]
     },
     "BoilerElectric": {
       "id": "BoilerElectric",
@@ -6670,6 +6774,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        5,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6699,6 +6807,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        15,
+        9
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6728,6 +6840,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        15,
+        9
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 1
@@ -6762,6 +6878,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        11,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6789,6 +6909,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        4,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -6816,6 +6940,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -6887,6 +7015,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT3",
         "quantity": 4
@@ -6951,6 +7083,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 4
@@ -7011,6 +7147,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -7045,6 +7185,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -7075,7 +7219,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ]
     },
     "ConcreteMixerT3": {
       "id": "ConcreteMixerT3",
@@ -7102,6 +7250,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -7132,6 +7284,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -7162,6 +7318,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -7192,6 +7352,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        14,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 3
@@ -7219,6 +7383,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        14,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -7246,6 +7414,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT3",
         "quantity": 8
@@ -7273,6 +7445,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT3",
         "quantity": 2
@@ -7311,6 +7487,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT3",
         "quantity": 8
@@ -7349,6 +7529,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 6
@@ -7378,6 +7562,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        8,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 2
@@ -7407,6 +7595,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        8,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -7436,6 +7628,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        8,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -7467,6 +7663,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -7499,7 +7699,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ]
     },
     "CoolingTowerT2": {
       "id": "CoolingTowerT2",
@@ -7529,7 +7733,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        9,
+        9
+      ]
     },
     "UraniumEnrichmentPlant": {
       "id": "UraniumEnrichmentPlant",
@@ -7558,6 +7766,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        14,
+        8
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 8
@@ -7588,6 +7800,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        21,
+        10
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 20
@@ -7614,7 +7830,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        3
+      ]
     },
     "Crusher": {
       "id": "Crusher",
@@ -7649,6 +7869,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -7687,6 +7911,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        15,
+        8
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 8
@@ -7723,6 +7951,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 8
@@ -7757,6 +7989,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 8
@@ -7789,6 +8025,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -7820,7 +8060,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        9,
+        6
+      ]
     },
     "AluminumCell": {
       "id": "AluminumCell",
@@ -7844,6 +8088,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        23,
+        10
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 12
@@ -7871,7 +8119,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        7
+      ]
     },
     "CasterCooled": {
       "id": "CasterCooled",
@@ -7894,7 +8146,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        7
+      ]
     },
     "CasterT2": {
       "id": "CasterT2",
@@ -7923,7 +8179,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        7
+      ]
     },
     "Caster": {
       "id": "Caster",
@@ -7948,7 +8208,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        7
+      ]
     },
     "AlloyMixer": {
       "id": "AlloyMixer",
@@ -7972,6 +8236,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        9
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 8
@@ -8000,6 +8268,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8027,6 +8299,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -8054,6 +8330,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8081,6 +8361,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        28,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 4
@@ -8108,6 +8392,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        12,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8136,6 +8424,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 6
@@ -8163,6 +8455,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        4,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 1
@@ -8191,6 +8487,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        6,
+        4
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -8235,6 +8535,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8279,6 +8583,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -8328,6 +8636,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 4
@@ -8361,6 +8673,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8388,6 +8704,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 3
@@ -8415,6 +8735,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8443,6 +8767,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -8474,6 +8802,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        7,
+        8
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -8506,6 +8838,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -8534,6 +8870,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8561,6 +8901,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8589,6 +8933,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        8,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -8626,7 +8974,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        2,
+        2
+      ]
     },
     "SmokeStack": {
       "id": "SmokeStack",
@@ -8656,7 +9008,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        1,
+        1
+      ]
     },
     "WasteDump": {
       "id": "WasteDump",
@@ -8689,7 +9045,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        21,
+        3
+      ]
     },
     "Flare": {
       "id": "Flare",
@@ -8719,7 +9079,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        1,
+        1
+      ]
     },
     "ExhaustScrubber": {
       "id": "ExhaustScrubber",
@@ -8744,6 +9108,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -8773,6 +9141,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        17,
+        12
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 10
@@ -8806,7 +9178,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        3,
+        2
+      ]
     },
     "IncinerationPlant": {
       "id": "IncinerationPlant",
@@ -8833,6 +9209,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        14,
+        8
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 8
@@ -8868,6 +9248,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        3,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 1
@@ -8900,6 +9284,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        5,
+        3
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 1
@@ -8937,6 +9325,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        8,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 1
@@ -8964,6 +9356,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        6
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -8990,7 +9386,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "MaintenanceDepotT0": {
       "id": "MaintenanceDepotT0",
@@ -9013,7 +9413,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "MaintenanceDepotT2": {
       "id": "MaintenanceDepotT2",
@@ -9040,7 +9444,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "MaintenanceDepotT3": {
       "id": "MaintenanceDepotT3",
@@ -9067,7 +9475,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "FarmT4": {
       "id": "FarmT4",
@@ -9127,6 +9539,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        61,
+        41
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 8
@@ -9190,6 +9606,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        61,
+        41
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -9237,6 +9657,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        61,
+        41
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -9269,7 +9693,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        61,
+        41
+      ]
     },
     "ChickenFarm": {
       "id": "ChickenFarm",
@@ -9292,7 +9720,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        16,
+        11
+      ]
     },
     "CargoDepotT4": {
       "id": "CargoDepotT4",
@@ -9317,7 +9749,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        32,
+        71
+      ]
     },
     "CargoDepotT3": {
       "id": "CargoDepotT3",
@@ -9342,7 +9778,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        32,
+        71
+      ]
     },
     "CargoDepotT2": {
       "id": "CargoDepotT2",
@@ -9367,7 +9807,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        32,
+        51
+      ]
     },
     "CargoDepotT1": {
       "id": "CargoDepotT1",
@@ -9392,7 +9836,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        32,
+        51
+      ]
     },
     "CargoDepotModuleUnitT3": {
       "id": "CargoDepotModuleUnitT3",
@@ -9414,6 +9862,10 @@
       "storage_capacity": 1000,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -9439,6 +9891,10 @@
       "storage_capacity": 500,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 3
@@ -9464,6 +9920,10 @@
       "storage_capacity": 250,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -9489,6 +9949,10 @@
       "storage_capacity": 1000,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -9514,6 +9978,10 @@
       "storage_capacity": 500,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 3
@@ -9539,6 +10007,10 @@
       "storage_capacity": 250,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -9564,6 +10036,10 @@
       "storage_capacity": 1000,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 4
@@ -9589,6 +10065,10 @@
       "storage_capacity": 500,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 3
@@ -9614,6 +10094,10 @@
       "storage_capacity": 250,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        10,
+        5
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 2
@@ -9638,7 +10122,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0.25,
-      "research_speed": 3
+      "research_speed": 3,
+      "footprint": [
+        15,
+        15
+      ]
     },
     "ResearchLab2": {
       "id": "ResearchLab2",
@@ -9666,6 +10154,10 @@
       "storage_capacity": 0,
       "unity_cost": 0.25,
       "research_speed": 6,
+      "footprint": [
+        15,
+        15
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 8
@@ -9697,6 +10189,10 @@
       "storage_capacity": 0,
       "unity_cost": 0.2998047,
       "research_speed": 12,
+      "footprint": [
+        15,
+        15
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 12
@@ -9728,6 +10224,10 @@
       "storage_capacity": 0,
       "unity_cost": 0.4003906,
       "research_speed": 24,
+      "footprint": [
+        15,
+        15
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 12
@@ -9759,6 +10259,10 @@
       "storage_capacity": 0,
       "unity_cost": 0.5,
       "research_speed": 48,
+      "footprint": [
+        15,
+        15
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT3",
         "quantity": 12
@@ -9783,7 +10287,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        29,
+        20
+      ]
     },
     "VehiclesDepotT2": {
       "id": "VehiclesDepotT2",
@@ -9804,7 +10312,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        16,
+        12
+      ]
     },
     "VehiclesDepot": {
       "id": "VehiclesDepot",
@@ -9825,7 +10337,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        16,
+        12
+      ]
     },
     "FuelStationHydrogenT1": {
       "id": "FuelStationHydrogenT1",
@@ -9846,7 +10362,11 @@
       "computing_generated": 0,
       "storage_capacity": 240,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "FuelStationT3": {
       "id": "FuelStationT3",
@@ -9867,7 +10387,11 @@
       "computing_generated": 0,
       "storage_capacity": 360,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "FuelStationT2": {
       "id": "FuelStationT2",
@@ -9888,7 +10412,11 @@
       "computing_generated": 0,
       "storage_capacity": 120,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "FuelStationT1": {
       "id": "FuelStationT1",
@@ -9909,7 +10437,11 @@
       "computing_generated": 0,
       "storage_capacity": 40,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        6,
+        7
+      ]
     },
     "StorageUnitT4": {
       "id": "StorageUnitT4",
@@ -9930,7 +10462,11 @@
       "computing_generated": 0,
       "storage_capacity": 5000,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ]
     },
     "StorageUnitT3": {
       "id": "StorageUnitT3",
@@ -9951,7 +10487,11 @@
       "computing_generated": 0,
       "storage_capacity": 2500,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ]
     },
     "StorageUnitT2": {
       "id": "StorageUnitT2",
@@ -9972,7 +10512,11 @@
       "computing_generated": 0,
       "storage_capacity": 400,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ]
     },
     "StorageUnit": {
       "id": "StorageUnit",
@@ -9993,7 +10537,11 @@
       "computing_generated": 0,
       "storage_capacity": 200,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ]
     },
     "StorageLooseT4": {
       "id": "StorageLooseT4",
@@ -10014,7 +10562,11 @@
       "computing_generated": 0,
       "storage_capacity": 5000,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ]
     },
     "StorageLooseT3": {
       "id": "StorageLooseT3",
@@ -10035,7 +10587,11 @@
       "computing_generated": 0,
       "storage_capacity": 2500,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ]
     },
     "StorageLooseT2": {
       "id": "StorageLooseT2",
@@ -10056,7 +10612,11 @@
       "computing_generated": 0,
       "storage_capacity": 400,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ]
     },
     "StorageLoose": {
       "id": "StorageLoose",
@@ -10077,7 +10637,11 @@
       "computing_generated": 0,
       "storage_capacity": 200,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ]
     },
     "StorageFluidT4": {
       "id": "StorageFluidT4",
@@ -10098,7 +10662,11 @@
       "computing_generated": 0,
       "storage_capacity": 5000,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ]
     },
     "StorageFluidT3": {
       "id": "StorageFluidT3",
@@ -10119,7 +10687,11 @@
       "computing_generated": 0,
       "storage_capacity": 2500,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        10,
+        10
+      ]
     },
     "StorageFluidT2": {
       "id": "StorageFluidT2",
@@ -10140,7 +10712,11 @@
       "computing_generated": 0,
       "storage_capacity": 400,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ]
     },
     "StorageFluid": {
       "id": "StorageFluid",
@@ -10161,7 +10737,11 @@
       "computing_generated": 0,
       "storage_capacity": 200,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        5,
+        5
+      ]
     },
     "NuclearWasteStorage": {
       "id": "NuclearWasteStorage",
@@ -10186,7 +10766,11 @@
       "computing_generated": 0,
       "storage_capacity": 2400,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        16,
+        16
+      ]
     },
     "HousingT4": {
       "id": "HousingT4",
@@ -10215,7 +10799,11 @@
       "computing_generated": 0,
       "storage_capacity": 400,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        28,
+        28
+      ]
     },
     "HousingT3": {
       "id": "HousingT3",
@@ -10240,7 +10828,11 @@
       "computing_generated": 0,
       "storage_capacity": 240,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        28,
+        28
+      ]
     },
     "HousingT2": {
       "id": "HousingT2",
@@ -10261,7 +10853,11 @@
       "computing_generated": 0,
       "storage_capacity": 140,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        28,
+        28
+      ]
     },
     "Housing": {
       "id": "Housing",
@@ -10282,7 +10878,11 @@
       "computing_generated": 0,
       "storage_capacity": 80,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        28,
+        28
+      ]
     },
     "MineTower": {
       "id": "MineTower",
@@ -10303,7 +10903,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        4,
+        4
+      ]
     },
     "SettlementLandfillModule": {
       "id": "SettlementLandfillModule",
@@ -10324,7 +10928,11 @@
       "computing_generated": 0,
       "storage_capacity": 200,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ]
     },
     "SettlementRecyclablesModule": {
       "id": "SettlementRecyclablesModule",
@@ -10345,7 +10953,11 @@
       "computing_generated": 0,
       "storage_capacity": 200,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ]
     },
     "SettlementBiomassModule": {
       "id": "SettlementBiomassModule",
@@ -10366,7 +10978,11 @@
       "computing_generated": 0,
       "storage_capacity": 200,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ]
     },
     "SettlementFoodModuleT2": {
       "id": "SettlementFoodModuleT2",
@@ -10387,7 +11003,11 @@
       "computing_generated": 0,
       "storage_capacity": 400,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ]
     },
     "SettlementFoodModule": {
       "id": "SettlementFoodModule",
@@ -10408,7 +11028,11 @@
       "computing_generated": 0,
       "storage_capacity": 400,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ]
     },
     "SettlementHouseholdGoodsModule": {
       "id": "SettlementHouseholdGoodsModule",
@@ -10434,6 +11058,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -10463,6 +11091,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 8
@@ -10492,6 +11124,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 10
@@ -10521,6 +11157,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 8
@@ -10546,6 +11186,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        11,
+        7
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 6
@@ -10574,6 +11218,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        16,
+        32
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 90
@@ -10601,6 +11249,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        16,
+        32
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT2",
         "quantity": 60
@@ -10638,6 +11290,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        21,
+        45
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT3",
         "quantity": 60
@@ -10666,7 +11322,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        41,
+        21
+      ]
     },
     "RocketLaunchPad": {
       "id": "RocketLaunchPad",
@@ -10695,7 +11355,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        32,
+        38
+      ]
     },
     "WasteSortingPlant": {
       "id": "WasteSortingPlant",
@@ -10717,6 +11381,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        9,
+        25
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 20
@@ -10748,6 +11416,10 @@
       "storage_capacity": 0,
       "unity_cost": 0,
       "research_speed": 0,
+      "footprint": [
+        19,
+        19
+      ],
       "maintenance_cost": {
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 1
@@ -10778,7 +11450,11 @@
       "computing_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
-      "research_speed": 0
+      "research_speed": 0,
+      "footprint": [
+        18,
+        11
+      ]
     },
     "BasicServerRack": {
       "id": "BasicServerRack",

@@ -21,7 +21,7 @@ export interface GraphStore {
   manifoldOptions: ManifoldOptions[],
   solution?: Solution;
   solutionStatus?: "Solved" | "Error" | "Infeasible";
-  scoringMethod: "infra" | "inputs" | "outputs";
+  scoringMethod: "infra" | "inputs" | "footprint" | "outputs";
   
   // Actions
   graphUpdateAction: () => void;
@@ -37,7 +37,7 @@ export interface GraphStore {
   forceSetNodesEdges: () => void,
   validateManifolds: () => void,
   setManifold: (constraints: Constraint[], on: boolean) => void;
-  setScoreMethod: (method: "infra" | "inputs" | "outputs") => void;
+  setScoreMethod: (method: GraphStore["scoringMethod"]) => void;
 }
 
 // export type FactoryStore = UseBoundStore<StoreApi<GraphStore>>;
