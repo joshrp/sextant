@@ -117,7 +117,7 @@ function SideBar({ addNewRecipe }: props) {
             else if (goal.type == "gt")
               fulfilled = goal.qty <= resultCount;
           }
-          return <Menu key={"goal-" + i}>
+          return <Menu  key={"goal-" + i}>
             <MenuButton key={"goal-" + i} as="div" className={`output-goal w-full gap-2 p-2 flex my-1
                                   hover:bg-gray-900
                                     rounded cursor-pointer 

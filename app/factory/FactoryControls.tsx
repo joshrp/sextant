@@ -174,11 +174,37 @@ export default function FactoryControls() {
                 </React.Fragment>)
               })}
             </div>
-            <div className="block text-center text-red-400"><ExclamationTriangleIcon className="w-4 inline-block stroke-red-400 "/> Unavailable without an Input based goal</div>
+            <div className="block text-center text-red-400"><ExclamationTriangleIcon className="w-4 inline-block stroke-red-400 " /> Unavailable without an Input based goal</div>
           </div>
         </MenuItem>
       </MenuItems>
     </Menu >
+
+    <div className="costs ml-4 mt-0.5 align-middle flex-1 h-full grid auto-cols-fr grid-flow-col grid-rows-1 py-0.5 gap-1 justify-around">
+      {solutionStatus == "Solved" && solution ? (<>
+        {infraScores.map((i) => {
+          return (<div key={i.name} 
+            className="grid gap-0.5 grid-rows-[minmax(0,2fr)_min-content]
+            text-center text-xs text-gray-400 data-zero:opacity-20 data-zero:grayscale" 
+            title={i.name + (i.unit ? (" (" + i.unit + ")") : "")}>
+            <div className="">
+              <img src={i.icon} alt={i.name} className="mx-auto h-full inline-block" />
+            </div>
+            <div className="text-nowrap ">{formatNumber(i.amount || 0, i.unit, 0)}</div>
+          </div>)
+        })}
+
+        {solution?.infrastructure['footprint'] != undefined ? (<>
+          <div key="footprint"  
+            className="grid gap-0.5 grid-rows-[minmax(0,2fr)_min-content]
+            text-center text-xs text-gray-400 data-zero:opacity-20 data-zero:grayscale" title={"Machine Footprint (tiles)"}>
+            <div className=""><ArrowsPointingOutIcon className="inline-block h-full mx-auto" /></div>
+            <div className="text-nowrap">{formatNumber(solution?.infrastructure['footprint'] || 0, "t", 0)}</div>
+          </div>
+        </>) : null}
+
+      </>) : null}
+    </div>
   </div >
   );
 }

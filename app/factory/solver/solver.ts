@@ -13,7 +13,7 @@ if (typeof window === "undefined")
 else
   highsProm = highsLoader({ locateFile: (file: string) => "https://lovasoa.github.io/highs-js/" + file });
 
-const highsOptions: HighsOptions = { time_limit: 2, small_matrix_value: 1e-3 };
+const highsOptions: HighsOptions = { time_limit: 2, small_matrix_value: 1e-4 };
 /** 
  * Some terms:
  * Node - A box on the graph, almost always a Recipe Node (others planned)
@@ -51,6 +51,17 @@ export function createGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): G
   return solver.toGraphModel()
 }
 
+const infraConstraintId = "in_frastructure_total";
+
+const infrastructureProducts: { [key in keyof Partial<Solution["infrastructure"]>]: string } = {
+  workers: "Product_Virtual_Worker",
+  electricity: "Product_Virtual_Electricity",
+  computing: "Product_Virtual_Computing",
+  maintenance_1: "Product_Virtual_MaintenanceT1",
+  maintenance_2: "Product_Virtual_MaintenanceT2",
+  maintenance_3: "Product_Virtual_MaintenanceT3",
+};
+
 export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraints: Set<string | null>, scoreMethod: string): string {
   let objectives: string[] = [];
   debug("Building LPP with score method '", scoreMethod, "'", graph.nodeIdToLabels);
@@ -59,11 +70,13 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
       objectives = graph.itemConstraints.values().map(c => {
         return c.match(inputMatcher) !== null ? c : null;
       }).toArray().filter(x => x !== null);
+      objectives.push("-0.01 " + infraConstraintId); // Slightly prefer solutions with less infrastructure and footprint
+      objectives.push("-0.01 in_footprint"); 
       break;
     case "infra":
       // I would use "infra_" here, but nothing can start with "inf" without causing Highs to error...
       // TODO:: Figure out how to weight these properly
-      objectives = ["in_workers", "0.01 in_electricity", "0.01 in_computing", "in_maintenance_1", "10 in_maintenance_2", "50 in_maintenance_3"];
+      objectives = [infraConstraintId, "0.01 in_footprint"];
 
       break;
     case "footprint":
@@ -78,11 +91,10 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
       throw new Error("Unknown score method " + scoreMethod);
   }
 
-  // const objectives = Object.values(graph.nodeIdToLabels);
   const boundsList = [];
   const constraintsList = [];
   for (const con of Object.values(graph.constraints)) {
-    constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.term} ${t.id}`).join(' ')} ${getEquality(con.equality)} 0`);
+    constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.sign} ${t.weight * (t.value || 1)} ${t.id}`).join(' ')} ${getEquality(con.equality)} 0`);
 
     if (goals.find(g => g.productId == con.productId)) continue;
 
@@ -102,10 +114,10 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
     con.terms.filter(t => t.optional);
     if (con.unconnected || freeConstraints.has(con.id))
       boundsList.push(`${con.id} free`);
-    else if (optionals.output) 
+    else if (optionals.output)
       boundsList.push(`0 <= ${con.id} <= inf`);
     else if (optionals.input)
-      boundsList.push(`-inf <= ${con.id} <= 0`);    
+      boundsList.push(`-inf <= ${con.id} <= 0`);
     else
       boundsList.push(`${con.id} = 0`);
   };
@@ -143,6 +155,7 @@ Subject To
   ${integerNodes.map(n => n[1]).join("\n  ")}
 Bounds 
   ${boundsList.join("\n  ")}
+  ${Object.values(graph.nodeIdToLabels).map(n => `${n} >= 0`).join("\n  ")}
   ${integerNodes.map(n => n[0] + " free").join("\n  ")}
 General
   ${integerNodes.map(n => n[0]).join("\n  ")}
@@ -170,7 +183,7 @@ async function getHighsSolution(graph: GraphModel, goals: FactoryGoal[], freeCon
     console.error(e);
     res = null;
   }
-  
+
   console.log("Highs solve time", performance.now() - t0, "ms", freeConstraints, res);
   return res;
 }
@@ -249,6 +262,11 @@ export async function solve(graph: GraphModel, goals: FactoryGoal[], manifolds: 
   return "Infeasible";
 }
 
+function parseHighsNumberResult(num: number): number {
+  if (isNaN(num) || !isFinite(num)) return 0;
+  return Math.round(num * 1e9) / 1e9;
+}
+
 function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: FactoryGoal[]): Solution {
   if (res.Status !== "Optimal") throw new Error("Cannot parse solution, not optimal");
 
@@ -266,7 +284,7 @@ function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: Factor
       const node = Object.keys(graph.nodeIdToLabels).find(l => graph.nodeIdToLabels[l] == nodeLabel);
       if (node) nodeResults.push({
         nodeId: node,
-        count: res.Columns[nodeLabel].Primal,
+        count: parseHighsNumberResult(res.Columns[nodeLabel].Primal),
       });
     }
 
@@ -274,22 +292,22 @@ function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: Factor
     if (outputLabel)
       productResults?.outputs.push({
         productId: outputLabel as ProductId,
-        amount: res.Columns[k].Primal
+        amount: parseHighsNumberResult(res.Columns[k].Primal)
       });
 
     const inputLabel = k.match(inputMatcher)?.[1]
     if (inputLabel)
       productResults?.inputs.push({
         productId: inputLabel as ProductId,
-        amount: res.Columns[k].Primal
+        amount: parseHighsNumberResult(res.Columns[k].Primal)
       });
 
     const infraLabel = k.match(infraMatcher)?.[1]
     if (infraLabel)
-      infraResults[infraLabel as keyof Solution["infrastructure"]] = res.Columns[k].Primal;
+      infraResults[infraLabel as keyof Solution["infrastructure"]] = parseHighsNumberResult(res.Columns[k].Primal);
 
     if (manifoldsSet.has(k)) {
-      manifoldResults[k] = res.Columns[k].Primal;
+      manifoldResults[k] = parseHighsNumberResult(res.Columns[k].Primal);
     }
   });
 
@@ -349,7 +367,7 @@ export default class Solver {
   /**
    * Figure out the product amount for a node's recipe
    */
-  getTerm(nodeId: string, productId: ProductId, isInput: boolean): Constraint["terms"][0] | null {
+  getTermOfNode(nodeId: string, productId: ProductId, isInput: boolean): Constraint["terms"][0] | null {
     const ioString = isInput ? "inputs" : "outputs";
     const recipe = recipeData.get(this.graph?.[nodeId].recipeId);
     if (!recipe) {
@@ -360,12 +378,14 @@ export default class Solver {
       console.error('Could not find recipe quantity for', productId, 'as', ioString, 'on', nodeId);
       return null;
     }
-    
+
     return {
       id: this.getNodeLabel(nodeId),
       nodeId: nodeId,
       isInput,
-      term: (isInput ? "-" : "+") + recipeItem.quantity,
+      value: recipeItem.quantity,
+      weight: 1,
+      sign: isInput ? "-" : "+",
       optional: recipeItem.optional || false,
     };
   }
@@ -394,8 +414,10 @@ export default class Solver {
       //   is signed and indicates whether it's a deficit or surplus
       constraint.terms.push({
         id: id,
-        term: "-",
         isInput: true,
+        value: 1,
+        sign: "-",
+        weight: 1,
       });
 
       this.constraints[id] = constraint;
@@ -417,7 +439,7 @@ export default class Solver {
     debug('Processing vertex', vertextId);
 
     const connections = this.graph?.[nodeId]?.[ioString][productId];
-    const myTerm = this.getTerm(nodeId, productId, isInput);
+    const myTerm = this.getTermOfNode(nodeId, productId, isInput);
     if (!myTerm) return;
 
     // No connections means it's an open input/output
@@ -448,7 +470,7 @@ export default class Solver {
       const constraint = this.getOrCreateConstraint(`c${this.constraintIdInc++}`, productId);
       constraint.terms.push(myTerm);
 
-      const otherTerm = this.getTerm(connections[0].nodeId, productId, !isInput);
+      const otherTerm = this.getTermOfNode(connections[0].nodeId, productId, !isInput);
       if (otherTerm) constraint.terms.push(otherTerm);
       constraint.edges[connections[0].edgeId] = true;
 
@@ -510,7 +532,7 @@ export default class Solver {
     }
 
     connections.forEach(conn => {
-      const term = this.getTerm(conn.nodeId, productId, !isInput);
+      const term = this.getTermOfNode(conn.nodeId, productId, !isInput);
       if (term) {
         myConstraint.edges[conn.edgeId] = true;
 
@@ -530,6 +552,36 @@ export default class Solver {
   }
 
   fillConstraints(): void {
+    // Add a constraint that sums all infrastructure products
+    const infraConstraint = this.getOrCreateConstraint(infraConstraintId, "Score_Infrastructure" as ProductId);
+    infraConstraint.unconnected = true;
+
+    for (const key of Object.keys(infrastructureProducts) as (keyof Solution["infrastructure"])[]) {
+      const infraId = "in_" + key;
+      // TODO:: Add weights to these based on user settings
+      let weight = 1;
+      switch (key) {
+        case "electricity":
+        case "computing":
+          weight = 0.01;
+          break;
+        case "maintenance_2":
+          weight = 10;
+          break;
+        case "maintenance_3":
+          weight = 50;
+          break;
+      }
+
+      infraConstraint.terms.push({
+        id: infraId,
+        isInput: true,
+        sign: "+",
+        weight,
+      });
+    }
+
+    this.constraints[infraConstraintId] = infraConstraint;
     // Loop all the inputs and outputs found in nodeConnections 
     for (const nodeId of Object.keys(this.graph)) {
       this.addInfraConstraints(nodeId);
@@ -555,7 +607,9 @@ export default class Solver {
       constraint.terms.push({
         id: label + "_int",
         nodeId: nodeId,
-        term: "+" + recipe.machine.workers,
+        value: recipe.machine.workers,
+        sign: "+",
+        weight: 1,
         isInput: true,
       });
     }
@@ -566,7 +620,9 @@ export default class Solver {
       constraint.terms.push({
         id: label,
         nodeId: nodeId,
-        term: "+" + recipe.machine.electricity_consumed,
+        value: recipe.machine.electricity_consumed,
+        sign: "+",
+        weight: 1,
         isInput: true,
       });
 
@@ -579,7 +635,9 @@ export default class Solver {
       constraint.terms.push({
         id: label,
         nodeId: nodeId,
-        term: "+" + recipe.machine.computing_consumed,
+        value: recipe.machine.computing_consumed,
+        sign: "+",
+        weight: 1,
         isInput: true,
       });
     }
@@ -592,7 +650,9 @@ export default class Solver {
       constraint.terms.push({
         id: label,
         nodeId: nodeId,
-        term: "+" + recipe.machine.maintenance_cost.quantity,
+        value: recipe.machine.maintenance_cost.quantity,
+        sign: "+",
+        weight: 1,
         isInput: true,
       });
     }
@@ -603,15 +663,17 @@ export default class Solver {
       if (area > 0) {
         const constraint = this.getOrCreateConstraint("in_footprint", "Product_Virtual_Footprint" as ProductId);
         constraint.unconnected = true;
-        
+
         constraint.terms.push({
           id: label + "_int",
           nodeId: nodeId,
-          term: "+" + area,
+          value: area,
+          sign: "+",
+          weight: 1,
           isInput: true,
         });
       }
-    }      
+    }
   }
 }
 

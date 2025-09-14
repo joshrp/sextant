@@ -32,15 +32,17 @@ export type FactoryGoal = {
 export type Constraint = {
   id: string,
   productId: ProductId,
-  edges: {[k: string]: boolean},
+  edges: { [k: string]: boolean },
   equality: EqualityTypes,
   unconnected: boolean,
   terms: ({
     nodeId?: string,
     id: string,
     isInput: boolean,
-    term: string,
+    weight: number,
     optional?: boolean
+    value?: number,
+    sign: "+" | "-"
   })[],
   parent?: string,
   children: string[]
@@ -56,7 +58,7 @@ export interface Solution {
     outputs: { productId: ProductId, amount: number }[]
   },
   nodeCounts: { nodeId: string, count: number }[]
-  manifolds: {[constraintId: string]: number},
+  manifolds: { [constraintId: string]: number },
   infrastructure: {
     workers: number,
     electricity: number,

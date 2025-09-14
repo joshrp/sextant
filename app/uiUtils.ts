@@ -31,7 +31,7 @@ export function formatNumber(value: number, unit: string = '', maximumFractionDi
       unit = "Ef";
     }
   }
-  return value.toLocaleString(LANG, { maximumFractionDigits: 8 }) + " " + unit;
+  return value.toLocaleString(LANG, { maximumFractionDigits }) + " " + unit;
 }
 
 export const productIcon = (icon: string) => `/assets/products/${icon}`;
