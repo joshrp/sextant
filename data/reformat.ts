@@ -361,17 +361,19 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       let tierId = undefined as string | undefined;
       const dedupKey = makeRecipeDeduplicationKey(inputs, outputs);
 
-      // TODO:: Don't store as a set, need a map of involved recipes to backfill the link ID to
       if (dupedRecipes.has(dedupKey)) {
         tierId = dedupKey;
         dupedRecipes.get(dedupKey)!.push(newRecipeId);
+        const first = dupedRecipes.get(dedupKey)![0];
+        recipeData.get(first)!.tiersLink = tierId as Recipe["id"];
+        
       } else
         dupedRecipes.set(dedupKey, [newRecipeId]);
 
       const recipe: RecipeSerialized = {
         id: newRecipeId as Recipe["id"],
         name: rawRecipe.name,
-        linkId: tierId,
+        tiersLink: tierId,
         machine: rawMachine.id as Machine["id"],
         origDuration: duration,
         duration: 60, // This is the default with no exceptions... yet

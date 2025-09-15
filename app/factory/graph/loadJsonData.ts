@@ -116,7 +116,7 @@ export type RecipeProductSerialized = {
 export type RecipeBase = {
   id: RecipeId;
   name: string;
-  linkId?: string;
+  tiersLink?: string;
   duration: number;
   origDuration: number;
 }
