@@ -1,7 +1,7 @@
 import { CheckIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { use, useState } from "react";
 import { FactoryProvider } from "~/factory/FactoryProvider";
-import useProductionMatrix from "~/factory/MatrixContext";
+import useProductionMatrix, { useProductionMatrixStore } from "~/factory/MatrixContext";
 import { Factory } from "../factory/factory";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
@@ -20,9 +20,8 @@ export function meta() {
 const { products, machines } = loadData();
 
 export default function Home() {
-  const prodMatrix = useProductionMatrix();
-  let selected = prodMatrix.settings.factories.find(f => f.id === prodMatrix.settings.selected);
-  if (!selected) selected = prodMatrix.settings.factories[0];
+  const selectedId = useProductionMatrixStore(state => state.selected);
+
   const [images, setImages] = useState<string[]>([]); 
   useEffect(() => {
     const newImg = Array.from(products.values().map(p => productIcon(p.icon)));
@@ -36,9 +35,9 @@ export default function Home() {
   }, [products, machines]); 
   return <>
     <main className="h-[100vh]">
-      <FactoryProvider id={selected?.id}>
+      <FactoryProvider id={selectedId}>
         <div className="flex flex-col justify-stretch h-full">
-          <Header selected={selected?.id} />
+          <Header/>
 
           <Factory />
         </div>
@@ -50,26 +49,18 @@ export default function Home() {
   </>
 }
 
-function Header({ selected }: { selected?: string }) {
-  const prodMatrix = useProductionMatrix();
+function Header() {
+  const factories = useProductionMatrixStore(state => state.factories);
+  const selectedId = useProductionMatrixStore(state => state.selected);
+  
+  const changeTab = useProductionMatrixStore(state => state.changeTab);
+  const addNewFactory = useProductionMatrixStore(state => state.newFactory);
+
   const [inputNewName, setInputNewName] = useState<boolean>(false);
 
   const [newName, setNewName] = useState<string>("");
   const newFactory = () => {
-    if (newName.trim() === "") return;
-    const newId = newName.trim().toLowerCase().replace(/\s+/g, "-");
-    if (prodMatrix.settings.factories.some(f => f.id === newId)) {
-      alert("Factory with this name already exists.");
-      return;
-    }
-    prodMatrix.updateSettings({
-      ...prodMatrix.settings,
-      factories: [...prodMatrix.settings.factories, {
-        id: newName.trim().toLowerCase().replace(/\s+/g, "-"),
-        name: newName.trim(),
-        order: prodMatrix.settings.factories.length
-      }]
-    });
+    addNewFactory(newName || "New Factory");
     setNewName("");
     setInputNewName(false);
   };
@@ -80,16 +71,10 @@ function Header({ selected }: { selected?: string }) {
     </div>
     <div className="factoryTabs relative w-full h-15 overflow-hidden ">
       <ul className="flex flex-row gap-2 min-h-10 bottom-0 left-2 absolute w-[100vw] max-h-18 overflow-x-auto">
-        {prodMatrix.settings.factories.map(f => (
+        {factories.map(f => (
           <li key={f.id}
-            onClick={() => {
-              if (f.id == selected) return;
-              prodMatrix.updateSettings({
-                ...prodMatrix.settings,
-                selected: f.id
-              });
-            }}
-            data-is-selected={f.id == selected || null}
+            onClick={() => changeTab(f.id)}
+            data-is-selected={f.id == selectedId || null}
             className="p-2 bg-black rounded-t text-white 
             border-0 border-double border-amber-500 hover:bg-gray-600 cursor-pointer 
             data-is-selected:border-2 data-is-selected:border-b-0

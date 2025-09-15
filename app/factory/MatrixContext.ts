@@ -1,17 +1,9 @@
 import { createContext, useContext } from "react";
-import { LocalStorageProvider } from "./LocalStorageProvider";
+import { useStore } from "zustand";
+import type { MatrixStoreData, MatrixStore } from "./MatrixProvider";
 
-export type ProductionMatrixSettings = {
-  factories: {
-    id: string,
-    order: number,
-    name: string
-  }[],
-  selected: string
-};
-
-type ProductionMatrixContextType = LocalStorageProvider<ProductionMatrixSettings> & {
-
+type ProductionMatrixContextType = {
+  store: MatrixStore;
 };
 
 export const ProductionMatrixContext = createContext<ProductionMatrixContextType | undefined>(undefined);
@@ -23,3 +15,7 @@ export default function useProductionMatrix() {
   }
   return context;
 };
+
+export function useProductionMatrixStore<U>(selector: (state: MatrixStoreData) => U): U {
+  return useStore(useProductionMatrix().store, selector);
+}
