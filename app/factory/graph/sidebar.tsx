@@ -96,7 +96,7 @@ function SideBar({ addNewRecipe }: props) {
   }];
 
   return (<>
-    <div className='sidebar flex flex-col h-full p-2'>
+    <div className='sidebar flex flex-col h-full p-2 bg-black'>
       <div className="title">Goals</div>
       <div className="flex-1">
         {goals.map((goal, i) => {

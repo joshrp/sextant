@@ -12,7 +12,6 @@ import {
 
 import { ReactFlowProvider } from "@xyflow/react";
 import useFactory, { useFactoryStore } from "./FactoryContext";
-import FactoryControls from "../context/FactoryControls";
 import RecipePicker from "./RecipePicker";
 
 const { products, machines, recipes } = loadData();
@@ -77,23 +76,15 @@ export function Factory() {
   }
 
   return (
-    <>
-      <div className="factoryActions flex flex-row w-full h-10 bg-black">
-        <FactoryControls/>
-      </div> 
-      <div className="flex-1 justify-self-stretch flex flex-row w-full max-h-[90vh] min-h-[80vh]">
-        <div className="w-[25vw] resize-x overflow-x-hidden w-max-[50vw] overflow-y-scroll flex flex-col">
-          <Sidebar addNewRecipe={addNewRecipe} />
-        </div>
-        <div className="flex-1">
-          <div className="w-full h-full">
-            <ReactFlowProvider >
-              <Graph addNewRecipe={addNewRecipe} />
-            </ReactFlowProvider>
-          </div>
-          {/* <div className="min-h-20 w-full overflow-auto">
-          <FactorySwitches />
-        </div> */}
+    <div className="flex-1 justify-self-stretch flex flex-row w-full max-h-[90vh] min-h-[80vh]">
+      <div className="w-[25vw] resize-x overflow-x-hidden w-max-[50vw] overflow-y-scroll flex flex-col">
+        <Sidebar addNewRecipe={addNewRecipe} />
+      </div>
+      <div className="flex-1">
+        <div className="w-full h-full">
+          <ReactFlowProvider >
+            <Graph addNewRecipe={addNewRecipe} />
+          </ReactFlowProvider>
         </div>
       </div>
       {addRecipeNode ? (
@@ -106,5 +97,6 @@ export function Factory() {
             productIs={addRecipeNode.produce ? "output" : "input"} />
         </SelectorDialog>
       ) : ("")}
-    </>);
+    </div>
+  );
 }
