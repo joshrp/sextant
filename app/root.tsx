@@ -9,7 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { ProductionMatrixProvider } from "./factory/MatrixProvider";
+import { ProductionZoneProvider } from "./context/ZoneProvider";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const links: Route.LinksFunction = () => [
@@ -27,7 +27,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <ProductionMatrixProvider>
+    <ProductionZoneProvider>
       <html lang="en">
         <head>
           <meta charSet="utf-8" />
@@ -41,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Scripts />
         </body>
       </html>
-    </ProductionMatrixProvider>
+    </ProductionZoneProvider>
   );
 }
 

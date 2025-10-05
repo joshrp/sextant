@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useShallow } from "zustand/shallow";
 
 import { ClipboardIcon, FolderArrowDownIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
@@ -7,11 +7,11 @@ import { ClipboardIcon, FolderArrowDownIcon, InformationCircleIcon } from "@hero
 import useFactory, { useFactoryStore } from "~/factory/FactoryContext";
 import { loadData, type ProductId } from "~/factory/graph/loadJsonData";
 import { compress, minify } from "~/factory/importexport/importexport";
-import useProductionMatrix from "~/factory/MatrixContext";
-import type { MatrixStoreData } from "~/factory/MatrixProvider";
+import useProductionMatrix from "~/context/ZoneContext";
+import type { MatrixStoreData } from "~/context/ZoneProvider";
+import { useStableParam } from "~/routes";
 import { productIcon } from "~/uiUtils";
 import { SelectorDialog } from "../Dialog";
-import { useStableParam } from "~/routes";
 
 const { products } = loadData();
 

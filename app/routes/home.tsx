@@ -1,13 +1,13 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useState } from "react";
-import { Outlet, useNavigate, useParams } from "react-router";
-import { FactoryProvider } from "~/factory/FactoryProvider";
+import { Outlet, useNavigate } from "react-router";
+import { FactoryProvider } from "~/context/FactoryProvider";
 import { loadData } from "~/factory/graph/loadJsonData";
-import { useProductionMatrixStore } from "~/factory/MatrixContext";
+import { useProductionZoneStore } from "~/context/ZoneContext";
+import { useStableParam } from "~/routes";
 import { machineIcon, productIcon, uiIcon } from "~/uiUtils";
 import { Factory } from "../factory/factory";
-import { useStableParam } from "~/routes";
 
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -25,8 +25,8 @@ export default function Home() {
 
   console.log('Home render', { selectedFactoryId });
   if (!selectedFactoryId) throw new Error("No factory selected");
-  const baseWeights = useProductionMatrixStore(state => state.weights);
-  const factories = useProductionMatrixStore(state => state.factories);
+  const baseWeights = useProductionZoneStore(state => state.weights);
+  const factories = useProductionZoneStore(state => state.factories);
   const selectedFactory = factories.find(f => f.id === selectedFactoryId);
 
   const [images, setImages] = useState<string[]>([]);
@@ -63,14 +63,14 @@ function Header() {
   const nav = useNavigate();
   const selectedFactory = useStableParam("selectedFactory");
 
-  const factories = useProductionMatrixStore(state => state.factories);
-  // const selectedId = useProductionMatrixStore(state => state.selected);
+  const factories = useProductionZoneStore(state => state.factories);
+  // const selectedId = useProductionZoneStore(state => state.selected);
   console.log('Header render', { selectedFactory, factories });
   const changeTab = (e: React.MouseEvent<unknown, MouseEvent>, id: string) => {
     nav(`/factories/${id}`);
     e.preventDefault();
   }
-  const addNewFactory = useProductionMatrixStore(state => state.newFactory);
+  const addNewFactory = useProductionZoneStore(state => state.newFactory);
 
   const [inputNewName, setInputNewName] = useState<boolean>(false);
 

@@ -11,7 +11,7 @@ import type { ButtonEdge, ButtonEdgeData } from "./graph/edges/ButtonEdge";
 import type { ProductId, RecipeId } from "./graph/loadJsonData";
 import type { CustomNodeType, } from "./graph/nodes";
 import type { RecipeNodeData } from "./graph/RecipeNode";
-import type { MatrixStoreData } from "./MatrixProvider";
+import type { MatrixStoreData } from "../context/ZoneProvider";
 import { createGraphModel, solve } from "./solver/solver";
 import type { Constraint, FactoryGoal, GraphModel, ManifoldOptions, Solution, SolutionStatus } from "./solver/types";
 

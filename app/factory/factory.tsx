@@ -12,7 +12,7 @@ import {
 
 import { ReactFlowProvider } from "@xyflow/react";
 import useFactory, { useFactoryStore } from "./FactoryContext";
-import FactoryControls from "./FactoryControls";
+import FactoryControls from "../context/FactoryControls";
 import RecipePicker from "./RecipePicker";
 
 const { products, machines, recipes } = loadData();

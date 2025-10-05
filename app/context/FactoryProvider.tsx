@@ -1,7 +1,7 @@
 import { useRef, type ReactNode } from "react";
-import { FactoryContext } from "./FactoryContext";
-import type { MatrixStoreData } from "./MatrixProvider";
-import Store, { type FactoryStore } from "./store";
+import { FactoryContext } from "../factory/FactoryContext";
+import type { MatrixStoreData } from "./ZoneProvider";
+import Store, { type FactoryStore } from "../factory/store";
 
 interface FactoryProviderProps {
   children: ReactNode;

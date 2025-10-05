@@ -5,8 +5,8 @@ import React from "react";
 import { Link } from "react-router";
 import { useShallow } from "zustand/shallow";
 import { formatNumber, maintenanceIcon, productIcon, uiIcon } from "~/uiUtils";
-import { useFactoryStore } from "./FactoryContext";
-import { loadData, type ProductId } from "./graph/loadJsonData";
+import { useFactoryStore } from "../factory/FactoryContext";
+import { loadData, type ProductId } from "../factory/graph/loadJsonData";
 
 const productData = loadData()?.products;
 

@@ -1,12 +1,12 @@
 import { useRef, type ReactNode } from "react";
-import { ProductionMatrixContext } from "./MatrixContext";
+import { ProductionZoneContext } from "./ZoneContext";
 import { createStore } from "zustand";
 import { devtools, persist, type StorageValue } from "zustand/middleware";
 import hydration from "~/hydration";
 import { openDB } from "idb";
-import type { ProductId } from "./graph/loadJsonData";
+import type { ProductId } from "../factory/graph/loadJsonData";
 
-export const ProductionMatrixProvider = ({ children }: { children: ReactNode }) => {
+export const ProductionZoneProvider = ({ children }: { children: ReactNode }) => {
   const storeRef = useRef<MatrixStore | null>(null);
 
   if (!storeRef.current) {
@@ -14,9 +14,9 @@ export const ProductionMatrixProvider = ({ children }: { children: ReactNode }) 
     storeRef.current = Store();
   }
   return (
-    <ProductionMatrixContext.Provider value={{ store: storeRef.current }}>
+    <ProductionZoneContext.Provider value={{ store: storeRef.current }}>
       {children}
-    </ProductionMatrixContext.Provider>
+    </ProductionZoneContext.Provider>
   );
 };
 
@@ -83,10 +83,10 @@ const Store = () => {
         })
       ),
       {
-        name: "ProductionMatrix_settings",
+        name: "ProductionZone_settings",
         storage: {
           getItem: async (name) => {
-            // const str = localStorage.getItem('ProductionMatrix_settings');
+            // const str = localStorage.getItem('ProductionZone_settings');
             if (!idb) return null;
             const str = await (await idb).get('current-state', name);
 
@@ -116,7 +116,7 @@ const Store = () => {
               products: new Map<ProductId, number>(),
               base: "early",
             };
-            console.log("Migrated ProductionMatrix_settings from version 1 to include weights", newState); 
+            console.log("Migrated ProductionZone_settings from version 1 to include weights", newState); 
           }
 
           return newState;
@@ -129,7 +129,7 @@ const Store = () => {
 const isClient = typeof window !== "undefined";
 const indexedDBVersion = 2;
 const getIdb = () => {
-  return isClient ? openDB("ProductionMatrixStore", indexedDBVersion, {
+  return isClient ? openDB("ProductionZoneStore", indexedDBVersion, {
     async upgrade(db, oldVersion) {
       if (oldVersion < 1) 
         return db.createObjectStore('current-state');
