@@ -8,28 +8,28 @@ import type { StorageValue } from "zustand/middleware";
 import hydration from "~/hydration";
 import type { CustomEdgeType } from "./graph/edges";
 import type { ButtonEdge, ButtonEdgeData } from "./graph/edges/ButtonEdge";
-import type { ProductId } from "./graph/loadJsonData";
+import type { ProductId, RecipeId } from "./graph/loadJsonData";
 import type { CustomNodeType, } from "./graph/nodes";
 import type { RecipeNodeData } from "./graph/RecipeNode";
 import type { MatrixStoreData } from "./MatrixProvider";
-import { createGraph, solve } from "./solver/solver";
-import type { Constraint, FactoryGoal, GraphModel, ManifoldOptions, Solution } from "./solver/types";
+import { createGraphModel, solve } from "./solver/solver";
+import type { Constraint, FactoryGoal, GraphModel, ManifoldOptions, Solution, SolutionStatus } from "./solver/types";
 
-export interface GraphStore {
-  id: string,
+export interface GraphCoreData {
   name: string,
   nodes: CustomNodeType[];
   edges: CustomEdgeType[];
-  graph?: GraphModel,
   goals: FactoryGoal[];
-  baseWeights: MatrixStoreData["weights"];
-  weights: Pick<MatrixStoreData["weights"], "infrastructure" | "products">;
-  manifoldOptions: ManifoldOptions[],
-  solution?: Solution;
-  solutionStatus?: "Solved" | "Error" | "Infeasible";
-  scoringMethod: "infra" | "inputs" | "footprint" | "outputs";
+}
 
-  // Actions
+export interface GraphSolutionState extends GraphCoreData {
+  graph?: GraphModel,
+  solution?: Solution;
+  solutionStatus?: SolutionStatus;
+  scoringMethod: "infra" | "inputs" | "footprint" | "outputs";
+}
+
+export interface GraphStoreActions {
   graphUpdateAction: () => void;
   solutionUpdateAction: (autoSolve?: boolean) => void;
   addNode: (node: CustomNodeType) => void;
@@ -47,24 +47,66 @@ export interface GraphStore {
   setBaseWeights: (weights: MatrixStoreData["weights"]) => void;
 }
 
+export interface GraphStore extends GraphSolutionState, GraphStoreActions {
+  id: string,
+
+  baseWeights: MatrixStoreData["weights"];
+  weights: Pick<MatrixStoreData["weights"], "infrastructure" | "products">;
+  manifoldOptions: ManifoldOptions[];
+}
+
 // export type FactoryStore = UseBoundStore<StoreApi<GraphStore>>;
 export type FactoryStore = ReturnType<typeof Store>;
 
-export type GraphStoreProps = Pick<GraphStore, "nodes" | "edges" | "goals"> & { id: string };
+export type GraphStoreProps = { id: string, name: string };
 
-const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => {
+const Store = ({ id, name }: GraphStoreProps) => {
 
   const idb = getIdb(id);
 
-  return createStore<GraphStore>()(
-    persist(
-      devtools(
+  const Historical = createStore<{ lastUpdated: number | null }>()(
+    devtools(
+      persist(
+        (set) => ({
+          lastUpdated: null,
+          setLastUpdated: (time: number) => set({ lastUpdated: time }, false, "setLastUpdated")
+        }),
+        {
+          name: id + "_historical",
+          version: 1,
+          storage: {
+            getItem: async (name) => {
+              const str = await (await idb).get('current-state', name);
+
+              if (!str) return null;
+              const data = JSON.parse(str, hydration.reviver);
+              return data;
+            },
+            setItem: async (name, newValue: StorageValue<{ lastUpdated: number | null }>) => {
+              const str = JSON.stringify(newValue, hydration.replacer);
+
+              return (await idb).put('current-state', str, name)
+            },
+            removeItem: (name) => localStorage.removeItem(name),
+          },
+        }
+      )
+    )
+  );
+  const Graph = createStore<GraphStore>()(
+    devtools(
+      persist(
         (set, get) => ({
-          id: id,
-          name: 'Default Factory',
-          nodes,
-          edges,
-          goals,
+          id,
+          name,
+          nodes: [],
+          edges: [],
+          goals: [],
+          graph: undefined,
+          solution: undefined,
+          solutionStatus: undefined,
+          scoringMethod: "infra",
+
           baseWeights: {
             infrastructure: new Map<string, number>(),
             products: new Map<ProductId, number>(),
@@ -75,10 +117,6 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => {
             products: new Map<ProductId, number>(),
           },
           manifoldOptions: [],
-          graph: undefined,
-          solution: undefined,
-          solutionStatus: undefined,
-          scoringMethod: "infra",
           addNode: (node) => {
             console.log("Add node", node, get().nodes.concat(node));
             set({ nodes: [...get().nodes.concat(node)] }, false, "addNode");
@@ -135,7 +173,7 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => {
             try {
               console.log('graph update', get().nodes);
               set({
-                graph: createGraph(get().nodes, get().edges),
+                graph: createGraphModel(get().nodes, get().edges),
               }, false, "graphUpdateAction");
               console.log("Graph created", get().graph);
               get().validateManifolds();
@@ -147,10 +185,12 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => {
             get().solutionUpdateAction(true);
           },
           solutionUpdateAction: async (autoSolve: boolean = false) => {
+            set({ solutionStatus: "Running" }, false, "solutionRunning");
             const graph = get().graph
             if (!graph) return
 
-            const result = await solve(graph, get().goals, get().manifoldOptions, get().scoringMethod, autoSolve);
+            const manifoldOptions = get().manifoldOptions;
+            const result = await solve(graph, get().goals, manifoldOptions, get().scoringMethod, autoSolve);
             if (result === "Error") {
               console.error("Solver Error");
               set({ solutionStatus: "Error" }, false, "solutionUpdateAction");
@@ -159,8 +199,11 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => {
               set({ solutionStatus: "Infeasible" }, false, "solutionUpdateAction");
               return;
             }
+            let status: GraphSolutionState["solutionStatus"] = "Solved";
+            if (manifoldOptions.length > 0)
+              status = "Partial";
 
-            set({ solution: result.solution, solutionStatus: "Solved" }, false, "solutionUpdateAction");
+            set({ solution: result.solution, solutionStatus: status }, false, "solutionUpdateAction");
             const setNode = get().setNodeData;
             result.solution.nodeCounts?.forEach(res => setNode(res.nodeId, {
               solution: {
@@ -216,7 +259,7 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => {
             }
             get().solutionUpdateAction();
           },
-          setScoreMethod: (method: "infra" | "inputs" | "outputs") => {
+          setScoreMethod: (method: "infra" | "inputs" | "outputs" | "footprint") => {
             set({ scoringMethod: method }, false, "setScoreMethod");
             get().solutionUpdateAction(false);
           },
@@ -250,49 +293,52 @@ const Store = ({ id, nodes, edges, goals }: GraphStoreProps) => {
             console.log("Setting base weights to", weights, get().goals[0]);
             set({ baseWeights: weights }, false, "setWeights");
             get().solutionUpdateAction(false);
-          }
-        })
-      ),
-      { // Persisted state options
-        name: id + "_zustand",
-        version: 2,
-        storage: {
-          getItem: async (name) => {
-            const str = await (await idb).get('current-state', name);
-
-            if (!str) return null;
-            const data = JSON.parse(str, hydration.reviver);
-            return data;
           },
-          setItem: async (name, newValue: StorageValue<GraphStore>) => {
-            const str = JSON.stringify(newValue, hydration.replacer);
+        }),
+        { // Persisted state options
+          name: id + "_zustand",
+          version: 2,
+          storage: {
+            getItem: async (name) => {
+              const str = await (await idb).get('current-state', name);
 
-            return (await idb).put('current-state', str, name)
+              if (!str) return null;
+              const data = JSON.parse(str, hydration.reviver);
+              return data;
+            },
+            setItem: async (name, newValue: StorageValue<GraphStore>) => {
+              const str = JSON.stringify(newValue, hydration.replacer);
+              return (await idb).put('current-state', str, name)
+            },
+            removeItem: (name) => localStorage.removeItem(name),
           },
-          removeItem: (name) => localStorage.removeItem(name),
-        },
-        migrate: (persistedState: unknown, currentVersion: number) => {
-          if (!persistedState || !('id' in (persistedState as GraphStore))) {
-            console.log("No persisted state found, or invalid, something is weird in migrate.");
-            return persistedState as GraphStore;
-          }
-          const newState = persistedState as GraphStore;
+          migrate: (persistedState: unknown, currentVersion: number) => {
+            if (!persistedState || !('id' in (persistedState as GraphStore))) {
+              console.log("No persisted state found, or invalid, something is weird in migrate.");
+              return persistedState as GraphStore;
+            }
+            const newState = persistedState as GraphStore;
 
-          if (currentVersion === 1) {
-            newState.weights = {
-              infrastructure: new Map<string, number>(),
-              products: new Map<ProductId, number>(),
-            };
-            console.log("Migrated FactoryStore from version 1 to include weights");
+            if (currentVersion === 1) {
+              newState.weights = {
+                infrastructure: new Map<string, number>(),
+                products: new Map<ProductId, number>(),
+              };
+              console.log("Migrated FactoryStore from version 1 to include weights");
+            }
+            console.log("Migrated FactoryStore to new version from", currentVersion, newState);
+            return newState;
           }
-          console.log("Migrated FactoryStore to new version from", currentVersion, newState);
-          return newState;
         }
-      }
+      )
     )
   );
-}
 
+  return {
+    Graph,
+    Historical
+  }
+}
 
 const indexedDBVersion = 1;
 const getIdb = (id: string) => openDB(id, indexedDBVersion, {
@@ -305,3 +351,25 @@ const getIdb = (id: string) => openDB(id, indexedDBVersion, {
 });
 
 export default Store;
+
+export type GraphImportData = {
+  name: string;
+  nodes: {
+    id: string;
+    type: string;
+    position: { x: number; y: number; };
+    data: { recipeId: RecipeId, ltr?: boolean };
+  }[],
+  edges: {
+    type: string;
+    source: string;
+    target: string;
+    product: string;
+  }[],
+  goals: {
+    productId: string;
+    qty: number;
+    type: "eq" | "lt" | "gt";
+    dir: "input" | "output";
+  }[]
+};

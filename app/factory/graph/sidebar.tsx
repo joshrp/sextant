@@ -2,7 +2,6 @@ import { Button, Field, Fieldset, Input, Label, Menu, MenuButton, MenuItem, Menu
 import { ClockIcon, PlusIcon } from '@heroicons/react/24/solid';
 import { useCallback, useState, type ChangeEvent } from 'react';
 
-import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { SelectorDialog } from 'app/components/Dialog';
 import { useShallow } from 'zustand/shallow';
 import ProductSelector from '~/components/ProductSelector';
@@ -32,7 +31,6 @@ function SideBar({ addNewRecipe }: props) {
   const solution = useFactoryStore(useShallow(state => state.solution));
   const goals = useFactoryStore(useShallow(state => state.goals));
   const model = useFactoryStore(useShallow(state => state.graph));
-  const graphUpdateAction = useFactoryStore(useShallow(state => state.graphUpdateAction));
   const solutionUpdateAction = useFactoryStore(useShallow(state => state.solutionUpdateAction));
 
   const [editGoal, setEditGoal] = useState<FactoryGoal | null>(null);
@@ -49,14 +47,14 @@ function SideBar({ addNewRecipe }: props) {
     setSelectProductDialog(false);
   }, [goals, store]);
 
-  const editGoalFor = (product: Product) => {
+  const editGoalFor = useCallback((product: Product) => {
     setEditGoal({
       dir: "output",
       type: "eq",
       productId: product.id,
       qty: 10
     });
-  }
+  }, [setEditGoal]);
 
   // Any constrain that doesn't have a parent and isn't unconnected is a manifold in the UI
   const manifolds = model?.constraints
@@ -117,7 +115,7 @@ function SideBar({ addNewRecipe }: props) {
             else if (goal.type == "gt")
               fulfilled = goal.qty <= resultCount;
           }
-          return <Menu  key={"goal-" + i}>
+          return <Menu key={"goal-" + i}>
             <MenuButton key={"goal-" + i} as="div" className={`output-goal w-full gap-2 p-2 flex my-1
                                   hover:bg-gray-900
                                     rounded cursor-pointer 
@@ -220,7 +218,6 @@ function SideBar({ addNewRecipe }: props) {
         })}
 
       </div>
-      <button className="h-8 py-1 w-20 mx-auto my-4 block bg-blue-500 cursor-pointer" onClick={graphUpdateAction}><ArrowPathIcon className="mx-auto h-full" /></button>
     </div>
     <ProductSelector
       products={productData}

@@ -2,7 +2,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { ExclamationTriangleIcon, LockClosedIcon, LockOpenIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useShallow } from "zustand/shallow";
-import { useFactoryStore } from "../FactoryContext";
+import useFactory, { useFactoryStore } from "../FactoryContext";
 import type { Constraint } from "../solver/types";
 import { loadData, type Product } from "./loadJsonData";
 import { formatNumber } from "~/uiUtils";
@@ -33,6 +33,8 @@ export default function Manifold(props: ManifoldProps) {
   const m = props.manifoldId;
 
   const model = useFactoryStore(useShallow(state => state.graph));
+  // This isn't reactive, but it doesn't need to be, the manifolds will be recalculated whenever edges change
+  const allEdges = useFactory().store.getState().edges;
   const solution = useFactoryStore(useShallow(state => state.solution));
   const manifoldOptions = useFactoryStore(useShallow(state => state.manifoldOptions));
   const setManifoldFree = useFactoryStore(useShallow(state => state.setManifold));
@@ -51,7 +53,7 @@ export default function Manifold(props: ManifoldProps) {
     const inputs: Set<Product> = new Set();
     const outputs: Set<Product> = new Set();
     edges.forEach(e => {
-      const edge = model.edges.find(x => x.id == e);
+      const edge = allEdges.find(x => x.id == e);
       if (!edge) return
       const sourceRecipe = recipes.get(model.graph[edge.source].recipeId);
       const targetRecipe = recipes.get(model.graph[edge.target].recipeId);

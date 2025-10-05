@@ -33,6 +33,7 @@ export interface MatrixStoreData {
     products: Map<ProductId, number>,
     infrastructure: Map<string, number>,
   },
+  lastSettingsTab: string,
   changeTab(id: string): void;
   newFactory(name: string): void;
 };
@@ -55,6 +56,7 @@ const Store = () => {
             products: new Map<ProductId, number>(),
             infrastructure: new Map<string, number>(),
           },
+          lastSettingsTab: "weights",
 
           changeTab: (id: string) => {
             const settings = get();

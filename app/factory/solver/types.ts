@@ -1,6 +1,4 @@
-import type { CustomEdgeType } from "../graph/edges";
 import type { ProductId, RecipeId } from "../graph/loadJsonData";
-import type { CustomNodeType } from "../graph/nodes";
 
 export type NodeConnection = {
   recipeId: RecipeId,
@@ -48,6 +46,8 @@ export type Constraint = {
   children: string[]
 };
 
+export type SolutionStatus = "Solved" | "Running" | "Partial" | "Error" | "Infeasible";
+
 export interface Solution {
   goals: {
     goal: FactoryGoal,
@@ -82,6 +82,4 @@ export type GraphModel = {
   graph: NodeConnections;
   itemConstraints: Map<ProductId, string>;
   nodeIdToLabels: Record<string, string>;
-  nodes: CustomNodeType[],
-  edges: CustomEdgeType[],
 }

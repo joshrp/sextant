@@ -13288,6 +13288,7 @@
     "TurbineHighPressT2": {
       "id": "TurbineHighPressT2",
       "name": "TurbineHighPressT2",
+      "tiersLink": "9db40c7b537580e83807c6c0b01a5c6735d2291bade13eaa8ce01dd13fcae5d7",
       "machine": "TurbineHighPressT2",
       "origDuration": 10,
       "duration": 60,
@@ -13311,7 +13312,7 @@
     "TurbineHighPress": {
       "id": "TurbineHighPress",
       "name": "TurbineHighPress",
-      "linkId": "9db40c7b537580e83807c6c0b01a5c6735d2291bade13eaa8ce01dd13fcae5d7",
+      "tiersLink": "9db40c7b537580e83807c6c0b01a5c6735d2291bade13eaa8ce01dd13fcae5d7",
       "machine": "TurbineHighPress",
       "origDuration": 10,
       "duration": 60,
@@ -13335,6 +13336,7 @@
     "TurbineLowPressT2": {
       "id": "TurbineLowPressT2",
       "name": "TurbineLowPressT2",
+      "tiersLink": "29666db2a45b168c09a03008ee9d6e2c40f87f6357651d3b84c1fdf54f2a80f7",
       "machine": "TurbineLowPressT2",
       "origDuration": 10,
       "duration": 60,
@@ -13358,7 +13360,7 @@
     "TurbineLowPress": {
       "id": "TurbineLowPress",
       "name": "TurbineLowPress",
-      "linkId": "29666db2a45b168c09a03008ee9d6e2c40f87f6357651d3b84c1fdf54f2a80f7",
+      "tiersLink": "29666db2a45b168c09a03008ee9d6e2c40f87f6357651d3b84c1fdf54f2a80f7",
       "machine": "TurbineLowPress",
       "origDuration": 10,
       "duration": 60,
@@ -13937,6 +13939,7 @@
     "OceanWaterPumping": {
       "id": "OceanWaterPumping",
       "name": "Ocean water pumping",
+      "tiersLink": "d54fbe384ec5f3c7d4da12902a869ef460a0a1f2f1b2a082501949b998d17cb4",
       "machine": "OceanWaterPumpT1",
       "origDuration": 10,
       "duration": 60,
@@ -13951,7 +13954,7 @@
     "OceanWaterPumpingT2": {
       "id": "OceanWaterPumpingT2",
       "name": "Ocean water pumping II",
-      "linkId": "d54fbe384ec5f3c7d4da12902a869ef460a0a1f2f1b2a082501949b998d17cb4",
+      "tiersLink": "d54fbe384ec5f3c7d4da12902a869ef460a0a1f2f1b2a082501949b998d17cb4",
       "machine": "OceanWaterPumpLarge",
       "origDuration": 10,
       "duration": 60,
@@ -14263,6 +14266,7 @@
     "SteamGenerationElectric": {
       "id": "SteamGenerationElectric",
       "name": "Steam generation",
+      "tiersLink": "67d58fd2442d6efc82d9f016a552e6b7c2c91317e4b6f0a8235645dd2c5343de",
       "machine": "BoilerElectric",
       "origDuration": 10,
       "duration": 60,
@@ -14282,7 +14286,7 @@
     "SteamGenerationElectricHalf": {
       "id": "SteamGenerationElectricHalf",
       "name": "Steam generation",
-      "linkId": "67d58fd2442d6efc82d9f016a552e6b7c2c91317e4b6f0a8235645dd2c5343de",
+      "tiersLink": "67d58fd2442d6efc82d9f016a552e6b7c2c91317e4b6f0a8235645dd2c5343de",
       "machine": "BoilerElectric",
       "origDuration": 10,
       "duration": 60,
@@ -14321,6 +14325,7 @@
     "BrineMakingHeated": {
       "id": "BrineMakingHeated",
       "name": "Brine making",
+      "tiersLink": "da9eba5af485f71215fc78c438a58e03ca291d8b85288286bd7cb41926f31d8b",
       "machine": "EvaporationPondHeated",
       "origDuration": 20,
       "duration": 60,
@@ -14340,6 +14345,7 @@
     "SaltMakingHeated": {
       "id": "SaltMakingHeated",
       "name": "Salt making",
+      "tiersLink": "97f9f034c23fb42be6c95f477fa31ef9a50d09fa84134858afacbd6004f3b507",
       "machine": "EvaporationPondHeated",
       "origDuration": 20,
       "duration": 60,
@@ -14359,6 +14365,7 @@
     "SaltMakingFromBrineHeated": {
       "id": "SaltMakingFromBrineHeated",
       "name": "Salt making",
+      "tiersLink": "408e1475074290b7a93f94946e4d74fb6a1d8c213c0309fa851cbb600da506ae",
       "machine": "EvaporationPondHeated",
       "origDuration": 20,
       "duration": 60,
@@ -14378,7 +14385,7 @@
     "BrineMaking": {
       "id": "BrineMaking",
       "name": "Brine making",
-      "linkId": "da9eba5af485f71215fc78c438a58e03ca291d8b85288286bd7cb41926f31d8b",
+      "tiersLink": "da9eba5af485f71215fc78c438a58e03ca291d8b85288286bd7cb41926f31d8b",
       "machine": "EvaporationPond",
       "origDuration": 40,
       "duration": 60,
@@ -14398,7 +14405,7 @@
     "SaltMaking": {
       "id": "SaltMaking",
       "name": "Salt making",
-      "linkId": "97f9f034c23fb42be6c95f477fa31ef9a50d09fa84134858afacbd6004f3b507",
+      "tiersLink": "97f9f034c23fb42be6c95f477fa31ef9a50d09fa84134858afacbd6004f3b507",
       "machine": "EvaporationPond",
       "origDuration": 40,
       "duration": 60,
@@ -14418,7 +14425,7 @@
     "SaltMakingFromBrine": {
       "id": "SaltMakingFromBrine",
       "name": "Salt making",
-      "linkId": "408e1475074290b7a93f94946e4d74fb6a1d8c213c0309fa851cbb600da506ae",
+      "tiersLink": "408e1475074290b7a93f94946e4d74fb6a1d8c213c0309fa851cbb600da506ae",
       "machine": "EvaporationPond",
       "origDuration": 40,
       "duration": 60,
@@ -14596,6 +14603,7 @@
     "CpAssemblyT5": {
       "id": "CpAssemblyT5",
       "name": "CP assembly (T5)",
+      "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -14623,6 +14631,7 @@
     "CpAssemblySteelT5": {
       "id": "CpAssemblySteelT5",
       "name": "CP assembly steel (T3)",
+      "tiersLink": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -14650,6 +14659,7 @@
     "Cp2AssemblyT5": {
       "id": "Cp2AssemblyT5",
       "name": "CP2 assembly (T4)",
+      "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -14673,6 +14683,7 @@
     "Cp3AssemblyT4": {
       "id": "Cp3AssemblyT4",
       "name": "CP3 assembly (T4)",
+      "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -14696,6 +14707,7 @@
     "Cp4AssemblyRoboticT2": {
       "id": "Cp4AssemblyRoboticT2",
       "name": "CP4 assembly (T3)",
+      "tiersLink": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
       "machine": "AssemblyRoboticT2",
       "origDuration": 20,
       "duration": 60,
@@ -14719,6 +14731,7 @@
     "MechPartsAssemblyT5Iron": {
       "id": "MechPartsAssemblyT5Iron",
       "name": "Mech. parts assembly (T3-1)",
+      "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -14738,6 +14751,7 @@
     "MechPartsAssemblyT5": {
       "id": "MechPartsAssemblyT5",
       "name": "Mech. parts assembly (T5)",
+      "tiersLink": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -14757,6 +14771,7 @@
     "VehicleParts1AssemblyT5": {
       "id": "VehicleParts1AssemblyT5",
       "name": "Vehicle parts assembly (T5)",
+      "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -14780,6 +14795,7 @@
     "VehicleParts2AssemblyT3": {
       "id": "VehicleParts2AssemblyT3",
       "name": "Vehicle parts 2 assembly (T3)",
+      "tiersLink": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -14807,6 +14823,7 @@
     "VehicleParts3AssemblyT3": {
       "id": "VehicleParts3AssemblyT3",
       "name": "Vehicle parts 3 assembly (T3)",
+      "tiersLink": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -14830,6 +14847,7 @@
     "LabEquipment1AssemblyT4": {
       "id": "LabEquipment1AssemblyT4",
       "name": "Lab equipment 1 assembly (T4)",
+      "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -14853,6 +14871,7 @@
     "LabEquipment2AssemblyT4": {
       "id": "LabEquipment2AssemblyT4",
       "name": "Lab equipment 2 assembly (T2)",
+      "tiersLink": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -14880,6 +14899,7 @@
     "LabEquipment3AssemblyT3": {
       "id": "LabEquipment3AssemblyT3",
       "name": "Lab equipment 3 assembly (T2)",
+      "tiersLink": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -14903,6 +14923,7 @@
     "LabEquipment4AssemblyT3": {
       "id": "LabEquipment4AssemblyT3",
       "name": "Lab equipment 4 assembly (T2)",
+      "tiersLink": "64870ec3ca95b40ca05d3303350551179ff02fab12fdcc87ca06824bca0652b6",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -14926,6 +14947,7 @@
     "RailPartsAssemblyT3": {
       "id": "RailPartsAssemblyT3",
       "name": "Rail parts assembly",
+      "tiersLink": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -14949,6 +14971,7 @@
     "HouseholdGoodsAssemblyT4": {
       "id": "HouseholdGoodsAssemblyT4",
       "name": "Household goods assembly (T4)",
+      "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -14976,6 +14999,7 @@
     "HouseholdAppliancesAssemblyT3": {
       "id": "HouseholdAppliancesAssemblyT3",
       "name": "Household appliances assembly (T3)",
+      "tiersLink": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -15003,6 +15027,7 @@
     "LuxuryGoodsAssemblyT3": {
       "id": "LuxuryGoodsAssemblyT3",
       "name": "Luxury goods assembly (T3)",
+      "tiersLink": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -15026,6 +15051,7 @@
     "PCBAssemblyT3": {
       "id": "PCBAssemblyT3",
       "name": "PCB assembly (T3)",
+      "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -15053,6 +15079,7 @@
     "ElectronicsAssemblyT5": {
       "id": "ElectronicsAssemblyT5",
       "name": "Electronics assembly (T5)",
+      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -15076,6 +15103,7 @@
     "Electronics2AssemblyT3": {
       "id": "Electronics2AssemblyT3",
       "name": "Electronics 2 assembly (T3)",
+      "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -15103,6 +15131,7 @@
     "UraniumRodsAssemblyT3": {
       "id": "UraniumRodsAssemblyT3",
       "name": "Uranium rods (T3)",
+      "tiersLink": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -15126,6 +15155,7 @@
     "SolarCellAssemblyT3": {
       "id": "SolarCellAssemblyT3",
       "name": "Solar cell assembly",
+      "tiersLink": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
       "machine": "AssemblyRoboticT2",
       "origDuration": 40,
       "duration": 60,
@@ -15180,6 +15210,7 @@
     "Electronics3AssemblyRoboticT2": {
       "id": "Electronics3AssemblyRoboticT2",
       "name": "Electronics 3 assembly (T3)",
+      "tiersLink": "f8d0f30f3e0f4341cf4c4fc8eab24a27b7aa6e2d827f7bdd355a08998027ef8f",
       "machine": "AssemblyRoboticT2",
       "origDuration": 20,
       "duration": 60,
@@ -15230,6 +15261,7 @@
     "ServerAssemblyT2": {
       "id": "ServerAssemblyT2",
       "name": "Server assembly (T3)",
+      "tiersLink": "a9a95e9d88038677eb58061438c82de10aaaf2711f9141d1e5a0872235880077",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
       "duration": 60,
@@ -15280,6 +15312,7 @@
     "MedicalEquipmentAssemblyT3": {
       "id": "MedicalEquipmentAssemblyT3",
       "name": "Medical equipment assembly (T3)",
+      "tiersLink": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -15303,6 +15336,7 @@
     "MedicalSuppliesAssemblyT3": {
       "id": "MedicalSuppliesAssemblyT3",
       "name": "Medical supplies assembly (T3)",
+      "tiersLink": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -15326,6 +15360,7 @@
     "MedicalSupplies2AssemblyT3": {
       "id": "MedicalSupplies2AssemblyT3",
       "name": "Medical supplies assembly (T3)",
+      "tiersLink": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -15349,6 +15384,7 @@
     "MedicalSupplies3AssemblyT3": {
       "id": "MedicalSupplies3AssemblyT3",
       "name": "Medical supplies III assembly (T3)",
+      "tiersLink": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "duration": 60,
@@ -15376,6 +15412,7 @@
     "FoodPackAssemblyMeatT3": {
       "id": "FoodPackAssemblyMeatT3",
       "name": "Food pack assembly (meat)",
+      "tiersLink": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -15399,6 +15436,7 @@
     "FoodPackAssemblyEggsT3": {
       "id": "FoodPackAssemblyEggsT3",
       "name": "Food pack assembly (eggs)",
+      "tiersLink": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -15422,6 +15460,7 @@
     "FoodPackAssemblyTofuT3": {
       "id": "FoodPackAssemblyTofuT3",
       "name": "Food pack assembly (tofu)",
+      "tiersLink": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -15445,6 +15484,7 @@
     "OfficeSuppliesAssemblyT3": {
       "id": "OfficeSuppliesAssemblyT3",
       "name": "Office supplies assembly",
+      "tiersLink": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
       "duration": 60,
@@ -15472,6 +15512,7 @@
     "CompositePanelAssemblyT3": {
       "id": "CompositePanelAssemblyT3",
       "name": "Composite panel assembly",
+      "tiersLink": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -15499,6 +15540,7 @@
     "CompositeCoreBasicAssemblyT3": {
       "id": "CompositeCoreBasicAssemblyT3",
       "name": "Composite core (basic) assembly",
+      "tiersLink": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -15553,6 +15595,7 @@
     "StationPartsBasicAssemblyT3": {
       "id": "StationPartsBasicAssemblyT3",
       "name": "Station parts (basic) assembly",
+      "tiersLink": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -15607,6 +15650,7 @@
     "CrewSuppliesAssemblyT3": {
       "id": "CrewSuppliesAssemblyT3",
       "name": "Crew supplies assembly",
+      "tiersLink": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
       "duration": 60,
@@ -15715,7 +15759,7 @@
     "CpAssemblyT4": {
       "id": "CpAssemblyT4",
       "name": "CP assembly (T4)",
-      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -15743,7 +15787,7 @@
     "CpAssemblySteelT4": {
       "id": "CpAssemblySteelT4",
       "name": "CP assembly steel (T2)",
-      "linkId": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
+      "tiersLink": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -15771,7 +15815,7 @@
     "Cp2AssemblyT4": {
       "id": "Cp2AssemblyT4",
       "name": "CP2 assembly (T3)",
-      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -15795,7 +15839,7 @@
     "Cp3AssemblyT3": {
       "id": "Cp3AssemblyT3",
       "name": "CP3 assembly (T3)",
-      "linkId": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
+      "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
       "duration": 60,
@@ -15819,7 +15863,7 @@
     "Cp4AssemblyRoboticT1": {
       "id": "Cp4AssemblyRoboticT1",
       "name": "CP4 assembly (T2)",
-      "linkId": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
+      "tiersLink": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
       "machine": "AssemblyRoboticT1",
       "origDuration": 40,
       "duration": 60,
@@ -15843,7 +15887,7 @@
     "MechPartsAssemblyT4Iron": {
       "id": "MechPartsAssemblyT4Iron",
       "name": "Mech. parts assembly (T3-1)",
-      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -15863,7 +15907,7 @@
     "MechPartsAssemblyT4": {
       "id": "MechPartsAssemblyT4",
       "name": "Mech. parts assembly (T4)",
-      "linkId": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
+      "tiersLink": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -15883,7 +15927,7 @@
     "VehicleParts1AssemblyT4": {
       "id": "VehicleParts1AssemblyT4",
       "name": "Vehicle parts assembly (T4)",
-      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyRoboticT1",
       "origDuration": 7,
       "duration": 60,
@@ -15907,7 +15951,7 @@
     "VehicleParts2AssemblyT2": {
       "id": "VehicleParts2AssemblyT2",
       "name": "Vehicle parts 2 assembly (T2)",
-      "linkId": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
+      "tiersLink": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -15935,7 +15979,7 @@
     "VehicleParts3AssemblyT2": {
       "id": "VehicleParts3AssemblyT2",
       "name": "Vehicle parts 3 assembly (T2)",
-      "linkId": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
+      "tiersLink": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -15959,7 +16003,7 @@
     "LabEquipment1AssemblyT3": {
       "id": "LabEquipment1AssemblyT3",
       "name": "Lab equipment 1 assembly (T3)",
-      "linkId": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
+      "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyRoboticT1",
       "origDuration": 7,
       "duration": 60,
@@ -15983,7 +16027,7 @@
     "LabEquipment2AssemblyT3": {
       "id": "LabEquipment2AssemblyT3",
       "name": "Lab equipment 2 assembly (T2)",
-      "linkId": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
+      "tiersLink": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16011,7 +16055,7 @@
     "LabEquipment3AssemblyT2": {
       "id": "LabEquipment3AssemblyT2",
       "name": "Lab equipment 3 assembly (T2)",
-      "linkId": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
+      "tiersLink": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16035,7 +16079,7 @@
     "LabEquipment4AssemblyT2": {
       "id": "LabEquipment4AssemblyT2",
       "name": "Lab equipment 4 assembly (T1)",
-      "linkId": "64870ec3ca95b40ca05d3303350551179ff02fab12fdcc87ca06824bca0652b6",
+      "tiersLink": "64870ec3ca95b40ca05d3303350551179ff02fab12fdcc87ca06824bca0652b6",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16059,7 +16103,7 @@
     "RailPartsAssemblyT2": {
       "id": "RailPartsAssemblyT2",
       "name": "Rail parts assembly",
-      "linkId": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
+      "tiersLink": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16083,7 +16127,7 @@
     "HouseholdGoodsAssemblyT3": {
       "id": "HouseholdGoodsAssemblyT3",
       "name": "Household goods assembly (T3)",
-      "linkId": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
+      "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16111,7 +16155,7 @@
     "HouseholdAppliancesAssemblyT2": {
       "id": "HouseholdAppliancesAssemblyT2",
       "name": "Household appliances assembly (T2)",
-      "linkId": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
+      "tiersLink": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16139,7 +16183,7 @@
     "LuxuryGoodsAssemblyT2": {
       "id": "LuxuryGoodsAssemblyT2",
       "name": "Luxury goods assembly (T2)",
-      "linkId": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
+      "tiersLink": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16163,7 +16207,7 @@
     "PCBAssemblyT2": {
       "id": "PCBAssemblyT2",
       "name": "PCB assembly (T2)",
-      "linkId": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
+      "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
       "duration": 60,
@@ -16191,7 +16235,7 @@
     "ElectronicsAssemblyT4": {
       "id": "ElectronicsAssemblyT4",
       "name": "Electronics assembly (T4)",
-      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -16215,7 +16259,7 @@
     "Electronics2AssemblyT2": {
       "id": "Electronics2AssemblyT2",
       "name": "Electronics 2 assembly (T2)",
-      "linkId": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
+      "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
       "duration": 60,
@@ -16243,7 +16287,7 @@
     "UraniumRodsAssemblyT2": {
       "id": "UraniumRodsAssemblyT2",
       "name": "Uranium rods (T2)",
-      "linkId": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
+      "tiersLink": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16290,7 +16334,7 @@
     "SolarCellAssemblyT2": {
       "id": "SolarCellAssemblyT2",
       "name": "Solar cell assembly",
-      "linkId": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
+      "tiersLink": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
       "machine": "AssemblyRoboticT1",
       "origDuration": 60,
       "duration": 60,
@@ -16318,7 +16362,7 @@
     "Electronics3AssemblyRoboticT1": {
       "id": "Electronics3AssemblyRoboticT1",
       "name": "Electronics 3 assembly (T2)",
-      "linkId": "f8d0f30f3e0f4341cf4c4fc8eab24a27b7aa6e2d827f7bdd355a08998027ef8f",
+      "tiersLink": "f8d0f30f3e0f4341cf4c4fc8eab24a27b7aa6e2d827f7bdd355a08998027ef8f",
       "machine": "AssemblyRoboticT1",
       "origDuration": 40,
       "duration": 60,
@@ -16342,7 +16386,7 @@
     "ServerAssemblyT1": {
       "id": "ServerAssemblyT1",
       "name": "Server assembly (T2)",
-      "linkId": "a9a95e9d88038677eb58061438c82de10aaaf2711f9141d1e5a0872235880077",
+      "tiersLink": "a9a95e9d88038677eb58061438c82de10aaaf2711f9141d1e5a0872235880077",
       "machine": "AssemblyRoboticT1",
       "origDuration": 60,
       "duration": 60,
@@ -16366,7 +16410,7 @@
     "MedicalEquipmentAssemblyT2": {
       "id": "MedicalEquipmentAssemblyT2",
       "name": "Medical equipment assembly (T2)",
-      "linkId": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
+      "tiersLink": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
       "duration": 60,
@@ -16390,7 +16434,7 @@
     "MedicalSuppliesAssemblyT2": {
       "id": "MedicalSuppliesAssemblyT2",
       "name": "Medical supplies assembly (T2)",
-      "linkId": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
+      "tiersLink": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -16414,7 +16458,7 @@
     "MedicalSupplies2AssemblyT2": {
       "id": "MedicalSupplies2AssemblyT2",
       "name": "Medical supplies assembly (T2)",
-      "linkId": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
+      "tiersLink": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -16438,7 +16482,7 @@
     "MedicalSupplies3AssemblyT2": {
       "id": "MedicalSupplies3AssemblyT2",
       "name": "Medical supplies III assembly (T2)",
-      "linkId": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
+      "tiersLink": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
       "duration": 60,
@@ -16466,7 +16510,7 @@
     "FoodPackAssemblyMeatT2": {
       "id": "FoodPackAssemblyMeatT2",
       "name": "Food pack assembly (meat)",
-      "linkId": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
+      "tiersLink": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16490,7 +16534,7 @@
     "FoodPackAssemblyEggsT2": {
       "id": "FoodPackAssemblyEggsT2",
       "name": "Food pack assembly (eggs)",
-      "linkId": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
+      "tiersLink": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16514,7 +16558,7 @@
     "FoodPackAssemblyTofuT2": {
       "id": "FoodPackAssemblyTofuT2",
       "name": "Food pack assembly (tofu)",
-      "linkId": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
+      "tiersLink": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16538,7 +16582,7 @@
     "OfficeSuppliesAssemblyT2": {
       "id": "OfficeSuppliesAssemblyT2",
       "name": "Office supplies assembly",
-      "linkId": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
+      "tiersLink": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
       "duration": 60,
@@ -16566,7 +16610,7 @@
     "CompositePanelAssemblyT2": {
       "id": "CompositePanelAssemblyT2",
       "name": "Composite panel assembly",
-      "linkId": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
+      "tiersLink": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16594,7 +16638,7 @@
     "CompositeCoreBasicAssemblyT2": {
       "id": "CompositeCoreBasicAssemblyT2",
       "name": "Composite core (basic) assembly",
-      "linkId": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
+      "tiersLink": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16622,7 +16666,7 @@
     "StationPartsBasicAssemblyT2": {
       "id": "StationPartsBasicAssemblyT2",
       "name": "Station parts (basic) assembly",
-      "linkId": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
+      "tiersLink": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16650,7 +16694,7 @@
     "CrewSuppliesAssemblyT2": {
       "id": "CrewSuppliesAssemblyT2",
       "name": "Crew supplies assembly",
-      "linkId": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
+      "tiersLink": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
       "duration": 60,
@@ -16678,7 +16722,7 @@
     "CpAssemblyT3": {
       "id": "CpAssemblyT3",
       "name": "CP assembly (T3)",
-      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
       "duration": 60,
@@ -16706,7 +16750,7 @@
     "CpAssemblySteelT3": {
       "id": "CpAssemblySteelT3",
       "name": "CP assembly steel (T1)",
-      "linkId": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
+      "tiersLink": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
       "duration": 60,
@@ -16734,7 +16778,7 @@
     "Cp2AssemblyT3": {
       "id": "Cp2AssemblyT3",
       "name": "CP2 assembly (T2)",
-      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
       "duration": 60,
@@ -16758,7 +16802,7 @@
     "Cp3AssemblyT2": {
       "id": "Cp3AssemblyT2",
       "name": "CP3 assembly (T2)",
-      "linkId": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
+      "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
       "duration": 60,
@@ -16782,7 +16826,7 @@
     "Cp4AssemblyElectrifiedT2": {
       "id": "Cp4AssemblyElectrifiedT2",
       "name": "CP4 assembly (T1)",
-      "linkId": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
+      "tiersLink": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 80,
       "duration": 60,
@@ -16806,7 +16850,7 @@
     "MechPartsAssemblyT3Iron": {
       "id": "MechPartsAssemblyT3Iron",
       "name": "Mech. parts assembly (T3-1)",
-      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
       "duration": 60,
@@ -16826,7 +16870,7 @@
     "MechPartsAssemblyT3": {
       "id": "MechPartsAssemblyT3",
       "name": "Mech. parts assembly (T3-2)",
-      "linkId": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
+      "tiersLink": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
       "duration": 60,
@@ -16846,7 +16890,7 @@
     "VehicleParts1AssemblyT3": {
       "id": "VehicleParts1AssemblyT3",
       "name": "Vehicle parts assembly (T3)",
-      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 7,
       "duration": 60,
@@ -16870,7 +16914,7 @@
     "VehicleParts2AssemblyT1": {
       "id": "VehicleParts2AssemblyT1",
       "name": "Vehicle parts 2 assembly (T1)",
-      "linkId": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
+      "tiersLink": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -16898,7 +16942,7 @@
     "VehicleParts3AssemblyT1": {
       "id": "VehicleParts3AssemblyT1",
       "name": "Vehicle parts 3 assembly (T1)",
-      "linkId": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
+      "tiersLink": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -16922,7 +16966,7 @@
     "LabEquipment1AssemblyT2": {
       "id": "LabEquipment1AssemblyT2",
       "name": "Lab equipment 1 assembly (T2)",
-      "linkId": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
+      "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 15,
       "duration": 60,
@@ -16946,7 +16990,7 @@
     "LabEquipment2AssemblyT2": {
       "id": "LabEquipment2AssemblyT2",
       "name": "Lab equipment 2 assembly (T1)",
-      "linkId": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
+      "tiersLink": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -16974,7 +17018,7 @@
     "LabEquipment3AssemblyT1": {
       "id": "LabEquipment3AssemblyT1",
       "name": "Lab equipment 3 assembly (T1)",
-      "linkId": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
+      "tiersLink": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -16998,7 +17042,7 @@
     "RailPartsAssemblyT1": {
       "id": "RailPartsAssemblyT1",
       "name": "Rail parts assembly",
-      "linkId": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
+      "tiersLink": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 15,
       "duration": 60,
@@ -17022,7 +17066,7 @@
     "HouseholdGoodsAssemblyT2": {
       "id": "HouseholdGoodsAssemblyT2",
       "name": "Household goods assembly (T2)",
-      "linkId": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
+      "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -17050,7 +17094,7 @@
     "HouseholdAppliancesAssemblyT1": {
       "id": "HouseholdAppliancesAssemblyT1",
       "name": "Household appliances assembly (T1)",
-      "linkId": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
+      "tiersLink": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
       "duration": 60,
@@ -17078,7 +17122,7 @@
     "LuxuryGoodsAssemblyT1": {
       "id": "LuxuryGoodsAssemblyT1",
       "name": "Luxury goods assembly (T1)",
-      "linkId": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
+      "tiersLink": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
       "duration": 60,
@@ -17102,7 +17146,7 @@
     "PCBAssemblyT1": {
       "id": "PCBAssemblyT1",
       "name": "PCB assembly (T1)",
-      "linkId": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
+      "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
       "duration": 60,
@@ -17130,7 +17174,7 @@
     "ElectronicsAssemblyT3": {
       "id": "ElectronicsAssemblyT3",
       "name": "Electronics assembly (T3)",
-      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
       "duration": 60,
@@ -17154,7 +17198,7 @@
     "Electronics2AssemblyT1": {
       "id": "Electronics2AssemblyT1",
       "name": "Electronics 2 assembly (T1)",
-      "linkId": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
+      "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
       "duration": 60,
@@ -17182,7 +17226,7 @@
     "UraniumRodsAssemblyT1": {
       "id": "UraniumRodsAssemblyT1",
       "name": "Uranium rods (T1)",
-      "linkId": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
+      "tiersLink": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
       "duration": 60,
@@ -17206,7 +17250,7 @@
     "SolarCellAssemblyT1": {
       "id": "SolarCellAssemblyT1",
       "name": "Solar cell assembly",
-      "linkId": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
+      "tiersLink": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 120,
       "duration": 60,
@@ -17234,7 +17278,7 @@
     "MedicalEquipmentAssemblyT1": {
       "id": "MedicalEquipmentAssemblyT1",
       "name": "Medical equipment assembly (T1)",
-      "linkId": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
+      "tiersLink": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
       "duration": 60,
@@ -17258,7 +17302,7 @@
     "MedicalSuppliesAssemblyT1": {
       "id": "MedicalSuppliesAssemblyT1",
       "name": "Medical supplies assembly (T1)",
-      "linkId": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
+      "tiersLink": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
       "duration": 60,
@@ -17282,7 +17326,7 @@
     "MedicalSupplies2AssemblyT1": {
       "id": "MedicalSupplies2AssemblyT1",
       "name": "Medical supplies assembly (T1)",
-      "linkId": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
+      "tiersLink": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
       "duration": 60,
@@ -17306,7 +17350,7 @@
     "MedicalSupplies3AssemblyT1": {
       "id": "MedicalSupplies3AssemblyT1",
       "name": "Medical supplies III assembly (T1)",
-      "linkId": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
+      "tiersLink": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
       "duration": 60,
@@ -17334,7 +17378,7 @@
     "FoodPackAssemblyMeat": {
       "id": "FoodPackAssemblyMeat",
       "name": "Food pack assembly (meat)",
-      "linkId": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
+      "tiersLink": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -17358,7 +17402,7 @@
     "FoodPackAssemblyEggs": {
       "id": "FoodPackAssemblyEggs",
       "name": "Food pack assembly (eggs)",
-      "linkId": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
+      "tiersLink": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -17382,7 +17426,7 @@
     "FoodPackAssemblyTofu": {
       "id": "FoodPackAssemblyTofu",
       "name": "Food pack assembly (tofu)",
-      "linkId": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
+      "tiersLink": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -17406,7 +17450,7 @@
     "OfficeSuppliesAssemblyT1": {
       "id": "OfficeSuppliesAssemblyT1",
       "name": "Office supplies assembly",
-      "linkId": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
+      "tiersLink": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
       "duration": 60,
@@ -17434,7 +17478,7 @@
     "CompositePanelAssemblyT1": {
       "id": "CompositePanelAssemblyT1",
       "name": "Composite panel assembly",
-      "linkId": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
+      "tiersLink": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
       "duration": 60,
@@ -17462,7 +17506,7 @@
     "CompositeCoreBasicAssemblyT1": {
       "id": "CompositeCoreBasicAssemblyT1",
       "name": "Composite core (basic) assembly",
-      "linkId": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
+      "tiersLink": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
       "duration": 60,
@@ -17490,7 +17534,7 @@
     "StationPartsBasicAssemblyT1": {
       "id": "StationPartsBasicAssemblyT1",
       "name": "Station parts (basic) assembly",
-      "linkId": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
+      "tiersLink": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
       "duration": 60,
@@ -17518,7 +17562,7 @@
     "CrewSuppliesAssemblyT1": {
       "id": "CrewSuppliesAssemblyT1",
       "name": "Crew supplies assembly",
-      "linkId": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
+      "tiersLink": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
       "duration": 60,
@@ -17546,7 +17590,7 @@
     "CpAssemblyT2": {
       "id": "CpAssemblyT2",
       "name": "CP assembly (T2)",
-      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyElectrified",
       "origDuration": 20,
       "duration": 60,
@@ -17574,7 +17618,7 @@
     "Cp2AssemblyT2": {
       "id": "Cp2AssemblyT2",
       "name": "CP2 assembly (T1)",
-      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyElectrified",
       "origDuration": 40,
       "duration": 60,
@@ -17598,7 +17642,7 @@
     "Cp3AssemblyT1": {
       "id": "Cp3AssemblyT1",
       "name": "CP3 assembly (T1)",
-      "linkId": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
+      "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyElectrified",
       "origDuration": 80,
       "duration": 60,
@@ -17622,7 +17666,7 @@
     "MechPartsAssemblyT2": {
       "id": "MechPartsAssemblyT2",
       "name": "Mech. parts assembly (T2)",
-      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyElectrified",
       "origDuration": 20,
       "duration": 60,
@@ -17642,7 +17686,7 @@
     "VehicleParts1AssemblyT2": {
       "id": "VehicleParts1AssemblyT2",
       "name": "Vehicle parts assembly (T2)",
-      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyElectrified",
       "origDuration": 15,
       "duration": 60,
@@ -17666,7 +17710,7 @@
     "LabEquipment1AssemblyT1": {
       "id": "LabEquipment1AssemblyT1",
       "name": "Lab equipment 1 assembly (T1)",
-      "linkId": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
+      "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyElectrified",
       "origDuration": 30,
       "duration": 60,
@@ -17690,7 +17734,7 @@
     "HouseholdGoodsAssemblyT1": {
       "id": "HouseholdGoodsAssemblyT1",
       "name": "Household goods assembly (T1)",
-      "linkId": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
+      "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyElectrified",
       "origDuration": 60,
       "duration": 60,
@@ -17718,7 +17762,7 @@
     "ElectronicsAssemblyT2": {
       "id": "ElectronicsAssemblyT2",
       "name": "Electronics assembly (T2)",
-      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyElectrified",
       "origDuration": 20,
       "duration": 60,
@@ -17742,7 +17786,7 @@
     "CpAssemblyT1": {
       "id": "CpAssemblyT1",
       "name": "CP assembly (T1)",
-      "linkId": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
+      "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyManual",
       "origDuration": 40,
       "duration": 60,
@@ -17770,7 +17814,7 @@
     "Cp2AssemblyT1": {
       "id": "Cp2AssemblyT1",
       "name": "CP2 assembly (T1)",
-      "linkId": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
+      "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyManual",
       "origDuration": 80,
       "duration": 60,
@@ -17794,7 +17838,7 @@
     "MechPartsAssemblyT1": {
       "id": "MechPartsAssemblyT1",
       "name": "Mech. parts assembly (T1)",
-      "linkId": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
+      "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyManual",
       "origDuration": 40,
       "duration": 60,
@@ -17814,7 +17858,7 @@
     "VehicleParts1AssemblyT1": {
       "id": "VehicleParts1AssemblyT1",
       "name": "Vehicle parts assembly (T1)",
-      "linkId": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
+      "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyManual",
       "origDuration": 30,
       "duration": 60,
@@ -17838,7 +17882,7 @@
     "ElectronicsAssemblyT1": {
       "id": "ElectronicsAssemblyT1",
       "name": "Electronics assembly (T1)",
-      "linkId": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyManual",
       "origDuration": 60,
       "duration": 60,
@@ -17862,6 +17906,7 @@
     "ConcreteMixingSlagT3": {
       "id": "ConcreteMixingSlagT3",
       "name": "Concrete mixing",
+      "tiersLink": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
       "duration": 60,
@@ -17893,6 +17938,7 @@
     "ConcreteMixingGravelT3": {
       "id": "ConcreteMixingGravelT3",
       "name": "Concrete mixing",
+      "tiersLink": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
       "duration": 60,
@@ -17924,6 +17970,7 @@
     "ConcreteMixingSlagMT3": {
       "id": "ConcreteMixingSlagMT3",
       "name": "Concrete mixing",
+      "tiersLink": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
       "duration": 60,
@@ -17955,6 +18002,7 @@
     "ConcreteMixingGravelMT3": {
       "id": "ConcreteMixingGravelMT3",
       "name": "Concrete mixing",
+      "tiersLink": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
       "duration": 60,
@@ -17986,7 +18034,7 @@
     "ConcreteMixingSlagT2": {
       "id": "ConcreteMixingSlagT2",
       "name": "Concrete mixing",
-      "linkId": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
+      "tiersLink": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
       "duration": 60,
@@ -18018,7 +18066,7 @@
     "ConcreteMixingGravelT2": {
       "id": "ConcreteMixingGravelT2",
       "name": "Concrete mixing",
-      "linkId": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
+      "tiersLink": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
       "duration": 60,
@@ -18050,7 +18098,7 @@
     "ConcreteMixingSlagMT2": {
       "id": "ConcreteMixingSlagMT2",
       "name": "Concrete mixing",
-      "linkId": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
+      "tiersLink": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
       "duration": 60,
@@ -18082,7 +18130,7 @@
     "ConcreteMixingGravelMT2": {
       "id": "ConcreteMixingGravelMT2",
       "name": "Concrete mixing",
-      "linkId": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
+      "tiersLink": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
       "duration": 60,
@@ -18114,7 +18162,7 @@
     "ConcreteMixingSlag": {
       "id": "ConcreteMixingSlag",
       "name": "Concrete mixing",
-      "linkId": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
+      "tiersLink": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
       "machine": "ConcreteMixer",
       "origDuration": 40,
       "duration": 60,
@@ -18146,7 +18194,7 @@
     "ConcreteMixingGravel": {
       "id": "ConcreteMixingGravel",
       "name": "Concrete mixing",
-      "linkId": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
+      "tiersLink": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
       "machine": "ConcreteMixer",
       "origDuration": 40,
       "duration": 60,
@@ -18178,7 +18226,7 @@
     "ConcreteMixingGravelM": {
       "id": "ConcreteMixingGravelM",
       "name": "Concrete mixing",
-      "linkId": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
+      "tiersLink": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
       "machine": "ConcreteMixer",
       "origDuration": 40,
       "duration": 60,
@@ -18210,7 +18258,7 @@
     "ConcreteMixingSlagM": {
       "id": "ConcreteMixingSlagM",
       "name": "Concrete mixing",
-      "linkId": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
+      "tiersLink": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
       "machine": "ConcreteMixer",
       "origDuration": 40,
       "duration": 60,
@@ -18427,6 +18475,7 @@
     "MicrochipMachineT2_MicrochipProdStage1A": {
       "id": "MicrochipMachineT2_MicrochipProdStage1A",
       "name": "Microchip manufacturing stage 1A",
+      "tiersLink": "602c3aa3553b64080a16f9b5fdecbee83f710f63a618d11573f7f3eff2ccf8fb",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18454,6 +18503,7 @@
     "MicrochipMachineT2_MicrochipProdStage2A": {
       "id": "MicrochipMachineT2_MicrochipProdStage2A",
       "name": "Microchip manufacturing stage 2A",
+      "tiersLink": "77836ad865f13b554001b811e9794c48a9c67d4b101550522265429dcaa1c6c3",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18504,6 +18554,7 @@
     "MicrochipMachineT2_MicrochipProdStage1B": {
       "id": "MicrochipMachineT2_MicrochipProdStage1B",
       "name": "Microchip manufacturing stage 1B",
+      "tiersLink": "9855a0d77e8813e530fed183ca429c7042f19ca6d8d1f69479c65071365683d0",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18531,6 +18582,7 @@
     "MicrochipMachineT2_MicrochipProdStage2B": {
       "id": "MicrochipMachineT2_MicrochipProdStage2B",
       "name": "Microchip manufacturing stage 2B",
+      "tiersLink": "38f05198de249595593afbb3bf1c6ad36337cfd55315a643886cbcdf6db51673",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18581,6 +18633,7 @@
     "MicrochipMachineT2_MicrochipProdStage1C": {
       "id": "MicrochipMachineT2_MicrochipProdStage1C",
       "name": "Microchip manufacturing stage 1C",
+      "tiersLink": "0f3dbbf2a4dca80bc498b151d12a2b034b96fced8464783614d89e2f5774d0fd",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18608,6 +18661,7 @@
     "MicrochipMachineT2_MicrochipProdStage2C": {
       "id": "MicrochipMachineT2_MicrochipProdStage2C",
       "name": "Microchip manufacturing stage 2C",
+      "tiersLink": "be03e21c9d3a7e3ba2e90d9450e577a1313a5e1055710486e2a270d85aaba56b",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18635,6 +18689,7 @@
     "MicrochipMachineT2_MicrochipProdStage3C": {
       "id": "MicrochipMachineT2_MicrochipProdStage3C",
       "name": "Microchip manufacturing stage 3C",
+      "tiersLink": "711dae2449c07b775555c4ff375f88fa66d690e6259c83d06799512fe8754cca",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18658,6 +18713,7 @@
     "MicrochipMachineT2_MicrochipProdStage1D": {
       "id": "MicrochipMachineT2_MicrochipProdStage1D",
       "name": "Microchip manufacturing stage 1D",
+      "tiersLink": "c2c3eedad26587edbce8e5bcb57edb3ba3f069b59e5a0e9535c20f3781a981cd",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18685,6 +18741,7 @@
     "MicrochipMachineT2_MicrochipProdStage2D": {
       "id": "MicrochipMachineT2_MicrochipProdStage2D",
       "name": "Microchip manufacturing stage 2D",
+      "tiersLink": "fad0a5d9b8377d105ce54599da38541af927af2147751a5c575ec4cdd812681c",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18712,6 +18769,7 @@
     "MicrochipMachineT2_MicrochipProdFinalStage": {
       "id": "MicrochipMachineT2_MicrochipProdFinalStage",
       "name": "Microchip manufacturing final stage",
+      "tiersLink": "a31750c8408d2b4dcb3be51eb8d293767596cd4a7fd0532439716719678c4d0d",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
       "duration": 60,
@@ -18735,7 +18793,7 @@
     "MicrochipMachine_MicrochipProdStage1A": {
       "id": "MicrochipMachine_MicrochipProdStage1A",
       "name": "Microchip manufacturing stage 1A",
-      "linkId": "602c3aa3553b64080a16f9b5fdecbee83f710f63a618d11573f7f3eff2ccf8fb",
+      "tiersLink": "602c3aa3553b64080a16f9b5fdecbee83f710f63a618d11573f7f3eff2ccf8fb",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -18763,7 +18821,7 @@
     "MicrochipMachine_MicrochipProdStage2A": {
       "id": "MicrochipMachine_MicrochipProdStage2A",
       "name": "Microchip manufacturing stage 2A",
-      "linkId": "77836ad865f13b554001b811e9794c48a9c67d4b101550522265429dcaa1c6c3",
+      "tiersLink": "77836ad865f13b554001b811e9794c48a9c67d4b101550522265429dcaa1c6c3",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -18814,7 +18872,7 @@
     "MicrochipMachine_MicrochipProdStage1B": {
       "id": "MicrochipMachine_MicrochipProdStage1B",
       "name": "Microchip manufacturing stage 1B",
-      "linkId": "9855a0d77e8813e530fed183ca429c7042f19ca6d8d1f69479c65071365683d0",
+      "tiersLink": "9855a0d77e8813e530fed183ca429c7042f19ca6d8d1f69479c65071365683d0",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -18842,7 +18900,7 @@
     "MicrochipMachine_MicrochipProdStage2B": {
       "id": "MicrochipMachine_MicrochipProdStage2B",
       "name": "Microchip manufacturing stage 2B",
-      "linkId": "38f05198de249595593afbb3bf1c6ad36337cfd55315a643886cbcdf6db51673",
+      "tiersLink": "38f05198de249595593afbb3bf1c6ad36337cfd55315a643886cbcdf6db51673",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -18893,7 +18951,7 @@
     "MicrochipMachine_MicrochipProdStage1C": {
       "id": "MicrochipMachine_MicrochipProdStage1C",
       "name": "Microchip manufacturing stage 1C",
-      "linkId": "0f3dbbf2a4dca80bc498b151d12a2b034b96fced8464783614d89e2f5774d0fd",
+      "tiersLink": "0f3dbbf2a4dca80bc498b151d12a2b034b96fced8464783614d89e2f5774d0fd",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -18921,7 +18979,7 @@
     "MicrochipMachine_MicrochipProdStage2C": {
       "id": "MicrochipMachine_MicrochipProdStage2C",
       "name": "Microchip manufacturing stage 2C",
-      "linkId": "be03e21c9d3a7e3ba2e90d9450e577a1313a5e1055710486e2a270d85aaba56b",
+      "tiersLink": "be03e21c9d3a7e3ba2e90d9450e577a1313a5e1055710486e2a270d85aaba56b",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -18949,7 +19007,7 @@
     "MicrochipMachine_MicrochipProdStage3C": {
       "id": "MicrochipMachine_MicrochipProdStage3C",
       "name": "Microchip manufacturing stage 3C",
-      "linkId": "711dae2449c07b775555c4ff375f88fa66d690e6259c83d06799512fe8754cca",
+      "tiersLink": "711dae2449c07b775555c4ff375f88fa66d690e6259c83d06799512fe8754cca",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -18973,7 +19031,7 @@
     "MicrochipMachine_MicrochipProdStage1D": {
       "id": "MicrochipMachine_MicrochipProdStage1D",
       "name": "Microchip manufacturing stage 1D",
-      "linkId": "c2c3eedad26587edbce8e5bcb57edb3ba3f069b59e5a0e9535c20f3781a981cd",
+      "tiersLink": "c2c3eedad26587edbce8e5bcb57edb3ba3f069b59e5a0e9535c20f3781a981cd",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -19001,7 +19059,7 @@
     "MicrochipMachine_MicrochipProdStage2D": {
       "id": "MicrochipMachine_MicrochipProdStage2D",
       "name": "Microchip manufacturing stage 2D",
-      "linkId": "fad0a5d9b8377d105ce54599da38541af927af2147751a5c575ec4cdd812681c",
+      "tiersLink": "fad0a5d9b8377d105ce54599da38541af927af2147751a5c575ec4cdd812681c",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -19029,7 +19087,7 @@
     "MicrochipMachine_MicrochipProdFinalStage": {
       "id": "MicrochipMachine_MicrochipProdFinalStage",
       "name": "Microchip manufacturing final stage",
-      "linkId": "a31750c8408d2b4dcb3be51eb8d293767596cd4a7fd0532439716719678c4d0d",
+      "tiersLink": "a31750c8408d2b4dcb3be51eb8d293767596cd4a7fd0532439716719678c4d0d",
       "machine": "MicrochipMachine",
       "origDuration": 30,
       "duration": 60,
@@ -19053,6 +19111,7 @@
     "BrineElectrolysisT2": {
       "id": "BrineElectrolysisT2",
       "name": "Brine electrolysis",
+      "tiersLink": "49cf55c5b42c28fccc746d6b786ff962a2cd8d626338881c71d0237bae6b5115",
       "machine": "ElectrolyzerT2",
       "origDuration": 10,
       "duration": 60,
@@ -19072,6 +19131,7 @@
     "WaterElectrolysisT2": {
       "id": "WaterElectrolysisT2",
       "name": "Water electrolysis",
+      "tiersLink": "7d939d18d8d8fdcf84860e285271f3ae2892eeaa438b987418d143e44efe0704",
       "machine": "ElectrolyzerT2",
       "origDuration": 7,
       "duration": 60,
@@ -19095,6 +19155,7 @@
     "AmmoniaElectrolysisT2": {
       "id": "AmmoniaElectrolysisT2",
       "name": "Ammonia electrolysis",
+      "tiersLink": "d001302f2d7308a4bc35b45cd5707e8c6b8691ddd8cda0872b7658c340c124d7",
       "machine": "ElectrolyzerT2",
       "origDuration": 10,
       "duration": 60,
@@ -19118,7 +19179,7 @@
     "BrineElectrolysis": {
       "id": "BrineElectrolysis",
       "name": "Brine electrolysis",
-      "linkId": "49cf55c5b42c28fccc746d6b786ff962a2cd8d626338881c71d0237bae6b5115",
+      "tiersLink": "49cf55c5b42c28fccc746d6b786ff962a2cd8d626338881c71d0237bae6b5115",
       "machine": "Electrolyzer",
       "origDuration": 10,
       "duration": 60,
@@ -19138,7 +19199,7 @@
     "WaterElectrolysis": {
       "id": "WaterElectrolysis",
       "name": "Water electrolysis",
-      "linkId": "7d939d18d8d8fdcf84860e285271f3ae2892eeaa438b987418d143e44efe0704",
+      "tiersLink": "7d939d18d8d8fdcf84860e285271f3ae2892eeaa438b987418d143e44efe0704",
       "machine": "Electrolyzer",
       "origDuration": 30,
       "duration": 60,
@@ -19162,7 +19223,7 @@
     "AmmoniaElectrolysis": {
       "id": "AmmoniaElectrolysis",
       "name": "Ammonia electrolysis",
-      "linkId": "d001302f2d7308a4bc35b45cd5707e8c6b8691ddd8cda0872b7658c340c124d7",
+      "tiersLink": "d001302f2d7308a4bc35b45cd5707e8c6b8691ddd8cda0872b7658c340c124d7",
       "machine": "Electrolyzer",
       "origDuration": 10,
       "duration": 60,
@@ -19856,6 +19917,7 @@
     "IronOreCrushing": {
       "id": "IronOreCrushing",
       "name": "Iron ore crushing",
+      "tiersLink": "6afe2a85405298af9cdbfc6c488cc5737379221f41d51224bee838240b3d15dc",
       "machine": "Crusher",
       "origDuration": 30,
       "duration": 60,
@@ -19875,6 +19937,7 @@
     "CopperOreCrushing": {
       "id": "CopperOreCrushing",
       "name": "Copper ore crushing",
+      "tiersLink": "87b666b7aa058b333678081d1f34f0b7f8725517aa831e57fc9b4cceb8b14f86",
       "machine": "Crusher",
       "origDuration": 30,
       "duration": 60,
@@ -19894,6 +19957,7 @@
     "SlagCrushing": {
       "id": "SlagCrushing",
       "name": "Slag crushing",
+      "tiersLink": "5aab0d371d81ea4a6519ae30ecc01546659a76dce8f447be019773416466a4e8",
       "machine": "Crusher",
       "origDuration": 20,
       "duration": 60,
@@ -19913,6 +19977,7 @@
     "RockCrushing": {
       "id": "RockCrushing",
       "name": "Rock crushing",
+      "tiersLink": "bdec09729bd5bf2702bc1fa7dc4169c154ee903cf41b009c0fec19a52cd6ab0f",
       "machine": "Crusher",
       "origDuration": 20,
       "duration": 60,
@@ -19932,6 +19997,7 @@
     "GravelCrushing": {
       "id": "GravelCrushing",
       "name": "Gravel milling",
+      "tiersLink": "fafd2386259eaa9db726e7068025abbbfdd4b2c9160fdd144019e1342f40d419",
       "machine": "Crusher",
       "origDuration": 60,
       "duration": 60,
@@ -19951,6 +20017,7 @@
     "QuartzCrushing": {
       "id": "QuartzCrushing",
       "name": "Quartz crushing",
+      "tiersLink": "5ca9a29b789e1812f5751e1556631da2ea7ca56a1ae562598a9114b2b2ea8639",
       "machine": "Crusher",
       "origDuration": 20,
       "duration": 60,
@@ -19970,6 +20037,7 @@
     "QuartzMilling": {
       "id": "QuartzMilling",
       "name": "Quartz milling",
+      "tiersLink": "aab9a915580887fb1704382e929d53f92efb7c672829f996e88fbe3a51f13dab",
       "machine": "Crusher",
       "origDuration": 60,
       "duration": 60,
@@ -19989,6 +20057,7 @@
     "UraniumCrushing": {
       "id": "UraniumCrushing",
       "name": "Uranium crushing",
+      "tiersLink": "2b5bcdaff16c840507bdc924f18a0c6a834c88adf9393114000a43565788d4d9",
       "machine": "Crusher",
       "origDuration": 60,
       "duration": 60,
@@ -20008,6 +20077,7 @@
     "GoldOreCrushing": {
       "id": "GoldOreCrushing",
       "name": "Gold ore crushing",
+      "tiersLink": "e9d2f28f9ab1fdb62eced73b4c3e667f62e3c7e38fd5d31a31d29a9183305072",
       "machine": "Crusher",
       "origDuration": 20,
       "duration": 60,
@@ -20027,6 +20097,7 @@
     "GoldMilling": {
       "id": "GoldMilling",
       "name": "Gold ore milling",
+      "tiersLink": "d414a41573fc16e87a8876667c02853daba400da2369202353fa359816c7f2d0",
       "machine": "Crusher",
       "origDuration": 40,
       "duration": 60,
@@ -20046,6 +20117,7 @@
     "BauxiteMilling": {
       "id": "BauxiteMilling",
       "name": "Bauxite milling",
+      "tiersLink": "840ef5869bd6b41845dddc187b9b5e260f84010ad94c3868b5bae68fd0701d53",
       "machine": "Crusher",
       "origDuration": 40,
       "duration": 60,
@@ -20065,6 +20137,7 @@
     "IlmeniteMilling": {
       "id": "IlmeniteMilling",
       "name": "Titanium ore crushing",
+      "tiersLink": "1c13f6012ecde1569eacc3c7c3cf740263dab005968f268f17a8662cafb3db93",
       "machine": "Crusher",
       "origDuration": 30,
       "duration": 60,
@@ -20084,7 +20157,7 @@
     "IronOreCrushingT2": {
       "id": "IronOreCrushingT2",
       "name": "Iron ore crushing",
-      "linkId": "6afe2a85405298af9cdbfc6c488cc5737379221f41d51224bee838240b3d15dc",
+      "tiersLink": "6afe2a85405298af9cdbfc6c488cc5737379221f41d51224bee838240b3d15dc",
       "machine": "CrusherLarge",
       "origDuration": 30,
       "duration": 60,
@@ -20104,7 +20177,7 @@
     "CopperOreCrushingT2": {
       "id": "CopperOreCrushingT2",
       "name": "Copper ore crushing",
-      "linkId": "87b666b7aa058b333678081d1f34f0b7f8725517aa831e57fc9b4cceb8b14f86",
+      "tiersLink": "87b666b7aa058b333678081d1f34f0b7f8725517aa831e57fc9b4cceb8b14f86",
       "machine": "CrusherLarge",
       "origDuration": 30,
       "duration": 60,
@@ -20124,7 +20197,7 @@
     "SlagCrushingT2": {
       "id": "SlagCrushingT2",
       "name": "Slag crushing",
-      "linkId": "5aab0d371d81ea4a6519ae30ecc01546659a76dce8f447be019773416466a4e8",
+      "tiersLink": "5aab0d371d81ea4a6519ae30ecc01546659a76dce8f447be019773416466a4e8",
       "machine": "CrusherLarge",
       "origDuration": 20,
       "duration": 60,
@@ -20144,7 +20217,7 @@
     "RockCrushingT2": {
       "id": "RockCrushingT2",
       "name": "Rock crushing",
-      "linkId": "bdec09729bd5bf2702bc1fa7dc4169c154ee903cf41b009c0fec19a52cd6ab0f",
+      "tiersLink": "bdec09729bd5bf2702bc1fa7dc4169c154ee903cf41b009c0fec19a52cd6ab0f",
       "machine": "CrusherLarge",
       "origDuration": 20,
       "duration": 60,
@@ -20164,7 +20237,7 @@
     "GravelCrushingT2": {
       "id": "GravelCrushingT2",
       "name": "Gravel milling",
-      "linkId": "fafd2386259eaa9db726e7068025abbbfdd4b2c9160fdd144019e1342f40d419",
+      "tiersLink": "fafd2386259eaa9db726e7068025abbbfdd4b2c9160fdd144019e1342f40d419",
       "machine": "CrusherLarge",
       "origDuration": 60,
       "duration": 60,
@@ -20184,7 +20257,7 @@
     "QuartzCrushingT2": {
       "id": "QuartzCrushingT2",
       "name": "Quartz crushing",
-      "linkId": "5ca9a29b789e1812f5751e1556631da2ea7ca56a1ae562598a9114b2b2ea8639",
+      "tiersLink": "5ca9a29b789e1812f5751e1556631da2ea7ca56a1ae562598a9114b2b2ea8639",
       "machine": "CrusherLarge",
       "origDuration": 20,
       "duration": 60,
@@ -20204,7 +20277,7 @@
     "QuartzMillingT2": {
       "id": "QuartzMillingT2",
       "name": "Quartz milling",
-      "linkId": "aab9a915580887fb1704382e929d53f92efb7c672829f996e88fbe3a51f13dab",
+      "tiersLink": "aab9a915580887fb1704382e929d53f92efb7c672829f996e88fbe3a51f13dab",
       "machine": "CrusherLarge",
       "origDuration": 60,
       "duration": 60,
@@ -20224,7 +20297,7 @@
     "UraniumCrushingT2": {
       "id": "UraniumCrushingT2",
       "name": "Uranium crushing",
-      "linkId": "2b5bcdaff16c840507bdc924f18a0c6a834c88adf9393114000a43565788d4d9",
+      "tiersLink": "2b5bcdaff16c840507bdc924f18a0c6a834c88adf9393114000a43565788d4d9",
       "machine": "CrusherLarge",
       "origDuration": 60,
       "duration": 60,
@@ -20244,7 +20317,7 @@
     "GoldOreCrushingT2": {
       "id": "GoldOreCrushingT2",
       "name": "Gold ore crushing",
-      "linkId": "e9d2f28f9ab1fdb62eced73b4c3e667f62e3c7e38fd5d31a31d29a9183305072",
+      "tiersLink": "e9d2f28f9ab1fdb62eced73b4c3e667f62e3c7e38fd5d31a31d29a9183305072",
       "machine": "CrusherLarge",
       "origDuration": 20,
       "duration": 60,
@@ -20264,7 +20337,7 @@
     "GoldOreMillingT2": {
       "id": "GoldOreMillingT2",
       "name": "Gold ore milling",
-      "linkId": "d414a41573fc16e87a8876667c02853daba400da2369202353fa359816c7f2d0",
+      "tiersLink": "d414a41573fc16e87a8876667c02853daba400da2369202353fa359816c7f2d0",
       "machine": "CrusherLarge",
       "origDuration": 40,
       "duration": 60,
@@ -20284,7 +20357,7 @@
     "BauxiteMillingT2": {
       "id": "BauxiteMillingT2",
       "name": "Bauxite milling",
-      "linkId": "840ef5869bd6b41845dddc187b9b5e260f84010ad94c3868b5bae68fd0701d53",
+      "tiersLink": "840ef5869bd6b41845dddc187b9b5e260f84010ad94c3868b5bae68fd0701d53",
       "machine": "CrusherLarge",
       "origDuration": 40,
       "duration": 60,
@@ -20304,7 +20377,7 @@
     "IlmeniteMillingT2": {
       "id": "IlmeniteMillingT2",
       "name": "Titanium ore crushing",
-      "linkId": "1c13f6012ecde1569eacc3c7c3cf740263dab005968f268f17a8662cafb3db93",
+      "tiersLink": "1c13f6012ecde1569eacc3c7c3cf740263dab005968f268f17a8662cafb3db93",
       "machine": "CrusherLarge",
       "origDuration": 30,
       "duration": 60,
@@ -21333,6 +21406,7 @@
     "SteelCastingCooledT2": {
       "id": "SteelCastingCooledT2",
       "name": "Steel casting (cooled)",
+      "tiersLink": "7b915c6ea06c2eb9c4d8ae421873185bc40a3d112a7ca78cadaa698ab40a81a4",
       "machine": "CasterCooledT2",
       "origDuration": 20,
       "duration": 60,
@@ -21379,7 +21453,7 @@
     "SteelCastingCooled": {
       "id": "SteelCastingCooled",
       "name": "Steel casting (cooled)",
-      "linkId": "7b915c6ea06c2eb9c4d8ae421873185bc40a3d112a7ca78cadaa698ab40a81a4",
+      "tiersLink": "7b915c6ea06c2eb9c4d8ae421873185bc40a3d112a7ca78cadaa698ab40a81a4",
       "machine": "CasterCooled",
       "origDuration": 40,
       "duration": 60,
@@ -21403,6 +21477,7 @@
     "IronCastingCooled": {
       "id": "IronCastingCooled",
       "name": "Iron casting",
+      "tiersLink": "d3e707cee750dcb9a7965c048358318c9f4d89acf40d5e823ed7f5be7a12abaa",
       "machine": "CasterT2",
       "origDuration": 20,
       "duration": 60,
@@ -21422,6 +21497,7 @@
     "CopperCastingCooled": {
       "id": "CopperCastingCooled",
       "name": "Copper casting",
+      "tiersLink": "5d2f2cf5950b64273aeef799e133ba8a65146b809d4fd6335defc1f19c42f945",
       "machine": "CasterT2",
       "origDuration": 20,
       "duration": 60,
@@ -21441,6 +21517,7 @@
     "AluminumCastingT2": {
       "id": "AluminumCastingT2",
       "name": "Aluminum casting",
+      "tiersLink": "7c493b16cccafd356b96cf86a8f6c616be27b895e981a17b527bda35d44eaa20",
       "machine": "CasterT2",
       "origDuration": 20,
       "duration": 60,
@@ -21460,7 +21537,7 @@
     "IronCasting": {
       "id": "IronCasting",
       "name": "Iron casting",
-      "linkId": "d3e707cee750dcb9a7965c048358318c9f4d89acf40d5e823ed7f5be7a12abaa",
+      "tiersLink": "d3e707cee750dcb9a7965c048358318c9f4d89acf40d5e823ed7f5be7a12abaa",
       "machine": "Caster",
       "origDuration": 40,
       "duration": 60,
@@ -21480,7 +21557,7 @@
     "CopperCasting": {
       "id": "CopperCasting",
       "name": "Copper casting",
-      "linkId": "5d2f2cf5950b64273aeef799e133ba8a65146b809d4fd6335defc1f19c42f945",
+      "tiersLink": "5d2f2cf5950b64273aeef799e133ba8a65146b809d4fd6335defc1f19c42f945",
       "machine": "Caster",
       "origDuration": 40,
       "duration": 60,
@@ -21500,7 +21577,7 @@
     "AluminumCasting": {
       "id": "AluminumCasting",
       "name": "Aluminum casting",
-      "linkId": "7c493b16cccafd356b96cf86a8f6c616be27b895e981a17b527bda35d44eaa20",
+      "tiersLink": "7c493b16cccafd356b96cf86a8f6c616be27b895e981a17b527bda35d44eaa20",
       "machine": "Caster",
       "origDuration": 40,
       "duration": 60,
@@ -21796,6 +21873,7 @@
     "GlassMixMixingT2": {
       "id": "GlassMixMixingT2",
       "name": "Glass mix mixing",
+      "tiersLink": "fa9b1fd7b38d6c97794f2bc16573dee9917cf62af3c6f01cfb755311cc2a616a",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -21823,6 +21901,7 @@
     "GlassMixMixingWithAcidT2": {
       "id": "GlassMixMixingWithAcidT2",
       "name": "Glass mix mixing",
+      "tiersLink": "066d85fed4c9fa9bf1e95cdd22277177787968aba7c44e51edc9aec01336758a",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -21854,6 +21933,7 @@
     "AcidMixMixingT2": {
       "id": "AcidMixMixingT2",
       "name": "Acid mixing",
+      "tiersLink": "e77a484aebeb728ad18ac2cce823132ad065357838cc8d8402cf65c56fc0e677",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -21877,6 +21957,7 @@
     "SulfurNeutralizationT2": {
       "id": "SulfurNeutralizationT2",
       "name": "Sulfur neutralization",
+      "tiersLink": "8119db4b01b1d1bb5b899cc6922aa90317ce7a8dfa549cf783d2ba40d9421dbf",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -21900,6 +21981,7 @@
     "BrineProductionT2": {
       "id": "BrineProductionT2",
       "name": "Brine production",
+      "tiersLink": "2b1df9622da57fd7a5d50b52d6967e5aea674268642b485ba894c16ffa57ed91",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -21923,6 +22005,7 @@
     "FilterMediaMixingT2": {
       "id": "FilterMediaMixingT2",
       "name": "Filter media mixing",
+      "tiersLink": "3eb24554fd905bee2d9d852a553292d94c05492a3221ff6190461d63e66774f0",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -21950,6 +22033,7 @@
     "FilterMediaMixingMT2": {
       "id": "FilterMediaMixingMT2",
       "name": "Filter media mixing",
+      "tiersLink": "89c8bac0c69b18920d86839262e6778f815fc437ed32faf2f7ca12f22a2d7193",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -21977,6 +22061,7 @@
     "OrganicFertilizerProductionT2": {
       "id": "OrganicFertilizerProductionT2",
       "name": "Fertilizer mixing",
+      "tiersLink": "b3a0645698c815491f77d1a0b544923f811a890a0e0d21bbd0aa73294a1cb030",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -22000,6 +22085,7 @@
     "OrganicFertilizerProductionDirtT2": {
       "id": "OrganicFertilizerProductionDirtT2",
       "name": "Fertilizer mixing (dirt)",
+      "tiersLink": "3917503769019d4d485197e1fbb76ec437ecd1a709a683146cb0c33575c6bdd4",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -22027,6 +22113,7 @@
     "Fertilizer2ProductionT2": {
       "id": "Fertilizer2ProductionT2",
       "name": "Fertilizer II synthesis",
+      "tiersLink": "d2bc3558df980a0cc8cd0530602dbf8e3cd6d16a93ce8411d213ab859880efba",
       "machine": "IndustrialMixerT2",
       "origDuration": 15,
       "duration": 60,
@@ -22054,6 +22141,7 @@
     "DirtMixingT2": {
       "id": "DirtMixingT2",
       "name": "Dirt mixing",
+      "tiersLink": "bf3be54a690b480e239ce292e273223dee1becd6c5068d7ac16395ee5e31c91c",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -22077,6 +22165,7 @@
     "AnimalFeedFromPotatoT2": {
       "id": "AnimalFeedFromPotatoT2",
       "name": "Animal feed production",
+      "tiersLink": "4f98ad3afa0fb4c5ce36d929a9a0c88dd775c998d0e20131174e8e3d18f05e0a",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -22096,6 +22185,7 @@
     "AnimalFeedFromWheatT2": {
       "id": "AnimalFeedFromWheatT2",
       "name": "Animal feed production",
+      "tiersLink": "92964dbeccba3bd89d637ecea6e23d3cf13290af104b932741fc30661075a8c8",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -22115,6 +22205,7 @@
     "AnimalFeedFromCornT2": {
       "id": "AnimalFeedFromCornT2",
       "name": "Animal feed production",
+      "tiersLink": "051003d185bb857e8c4baad6f99e5fe52aab4211d289b370b35e3f5a24f63d07",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -22134,6 +22225,7 @@
     "AnimalFeedFromSoybeanT2": {
       "id": "AnimalFeedFromSoybeanT2",
       "name": "Animal feed production",
+      "tiersLink": "0eb9a5a05f8d3982b17cebb06d756f91461dbdb46287a33afda284763c0f3a0c",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
       "duration": 60,
@@ -22153,6 +22245,7 @@
     "AnimalFeedCompostT2": {
       "id": "AnimalFeedCompostT2",
       "name": "Composing",
+      "tiersLink": "e050b4dc979000579005b8a4f2d7a93dbd86af12bd471c2410b3537aefd4874b",
       "machine": "IndustrialMixerT2",
       "origDuration": 30,
       "duration": 60,
@@ -22172,6 +22265,7 @@
     "BiomassCompostT2": {
       "id": "BiomassCompostT2",
       "name": "Composing",
+      "tiersLink": "9903005d7ac49c31ff359e1c9127c11595e51ea1e2f5fa6ec9f2b886ca8404f8",
       "machine": "IndustrialMixerT2",
       "origDuration": 30,
       "duration": 60,
@@ -22191,6 +22285,7 @@
     "MeatTrimmingsCompostT2": {
       "id": "MeatTrimmingsCompostT2",
       "name": "Composing",
+      "tiersLink": "1c45a128bc47cdf273d13c4bccd288893348fe839a63c15f3da4e2ceb06ce8b2",
       "machine": "IndustrialMixerT2",
       "origDuration": 30,
       "duration": 60,
@@ -22210,7 +22305,7 @@
     "GlassMixMixing": {
       "id": "GlassMixMixing",
       "name": "Glass mix mixing",
-      "linkId": "fa9b1fd7b38d6c97794f2bc16573dee9917cf62af3c6f01cfb755311cc2a616a",
+      "tiersLink": "fa9b1fd7b38d6c97794f2bc16573dee9917cf62af3c6f01cfb755311cc2a616a",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22238,7 +22333,7 @@
     "GlassMixMixingWithAcid": {
       "id": "GlassMixMixingWithAcid",
       "name": "Glass mix mixing",
-      "linkId": "066d85fed4c9fa9bf1e95cdd22277177787968aba7c44e51edc9aec01336758a",
+      "tiersLink": "066d85fed4c9fa9bf1e95cdd22277177787968aba7c44e51edc9aec01336758a",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22270,7 +22365,7 @@
     "AcidMixMixing": {
       "id": "AcidMixMixing",
       "name": "Acid mixing",
-      "linkId": "e77a484aebeb728ad18ac2cce823132ad065357838cc8d8402cf65c56fc0e677",
+      "tiersLink": "e77a484aebeb728ad18ac2cce823132ad065357838cc8d8402cf65c56fc0e677",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22294,7 +22389,7 @@
     "SulfurNeutralization": {
       "id": "SulfurNeutralization",
       "name": "Sulfur neutralization",
-      "linkId": "8119db4b01b1d1bb5b899cc6922aa90317ce7a8dfa549cf783d2ba40d9421dbf",
+      "tiersLink": "8119db4b01b1d1bb5b899cc6922aa90317ce7a8dfa549cf783d2ba40d9421dbf",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22318,7 +22413,7 @@
     "BrineProduction": {
       "id": "BrineProduction",
       "name": "Brine production",
-      "linkId": "2b1df9622da57fd7a5d50b52d6967e5aea674268642b485ba894c16ffa57ed91",
+      "tiersLink": "2b1df9622da57fd7a5d50b52d6967e5aea674268642b485ba894c16ffa57ed91",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22342,7 +22437,7 @@
     "FilterMediaMixing": {
       "id": "FilterMediaMixing",
       "name": "Filter media mixing",
-      "linkId": "3eb24554fd905bee2d9d852a553292d94c05492a3221ff6190461d63e66774f0",
+      "tiersLink": "3eb24554fd905bee2d9d852a553292d94c05492a3221ff6190461d63e66774f0",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22370,7 +22465,7 @@
     "FilterMediaMixingM": {
       "id": "FilterMediaMixingM",
       "name": "Filter media mixing",
-      "linkId": "89c8bac0c69b18920d86839262e6778f815fc437ed32faf2f7ca12f22a2d7193",
+      "tiersLink": "89c8bac0c69b18920d86839262e6778f815fc437ed32faf2f7ca12f22a2d7193",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22398,7 +22493,7 @@
     "OrganicFertilizerProduction": {
       "id": "OrganicFertilizerProduction",
       "name": "Fertilizer mixing",
-      "linkId": "b3a0645698c815491f77d1a0b544923f811a890a0e0d21bbd0aa73294a1cb030",
+      "tiersLink": "b3a0645698c815491f77d1a0b544923f811a890a0e0d21bbd0aa73294a1cb030",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22422,7 +22517,7 @@
     "OrganicFertilizerProductionDirt": {
       "id": "OrganicFertilizerProductionDirt",
       "name": "Fertilizer mixing (dirt)",
-      "linkId": "3917503769019d4d485197e1fbb76ec437ecd1a709a683146cb0c33575c6bdd4",
+      "tiersLink": "3917503769019d4d485197e1fbb76ec437ecd1a709a683146cb0c33575c6bdd4",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22450,7 +22545,7 @@
     "Fertilizer2Production": {
       "id": "Fertilizer2Production",
       "name": "Fertilizer II synthesis",
-      "linkId": "d2bc3558df980a0cc8cd0530602dbf8e3cd6d16a93ce8411d213ab859880efba",
+      "tiersLink": "d2bc3558df980a0cc8cd0530602dbf8e3cd6d16a93ce8411d213ab859880efba",
       "machine": "IndustrialMixer",
       "origDuration": 30,
       "duration": 60,
@@ -22478,7 +22573,7 @@
     "DirtMixing": {
       "id": "DirtMixing",
       "name": "Dirt mixing",
-      "linkId": "bf3be54a690b480e239ce292e273223dee1becd6c5068d7ac16395ee5e31c91c",
+      "tiersLink": "bf3be54a690b480e239ce292e273223dee1becd6c5068d7ac16395ee5e31c91c",
       "machine": "IndustrialMixer",
       "origDuration": 20,
       "duration": 60,
@@ -22502,7 +22597,7 @@
     "AnimalFeedFromPotato": {
       "id": "AnimalFeedFromPotato",
       "name": "Animal feed production",
-      "linkId": "4f98ad3afa0fb4c5ce36d929a9a0c88dd775c998d0e20131174e8e3d18f05e0a",
+      "tiersLink": "4f98ad3afa0fb4c5ce36d929a9a0c88dd775c998d0e20131174e8e3d18f05e0a",
       "machine": "IndustrialMixer",
       "origDuration": 10,
       "duration": 60,
@@ -22522,7 +22617,7 @@
     "AnimalFeedFromWheat": {
       "id": "AnimalFeedFromWheat",
       "name": "Animal feed production",
-      "linkId": "92964dbeccba3bd89d637ecea6e23d3cf13290af104b932741fc30661075a8c8",
+      "tiersLink": "92964dbeccba3bd89d637ecea6e23d3cf13290af104b932741fc30661075a8c8",
       "machine": "IndustrialMixer",
       "origDuration": 10,
       "duration": 60,
@@ -22542,7 +22637,7 @@
     "AnimalFeedFromCorn": {
       "id": "AnimalFeedFromCorn",
       "name": "Animal feed production",
-      "linkId": "051003d185bb857e8c4baad6f99e5fe52aab4211d289b370b35e3f5a24f63d07",
+      "tiersLink": "051003d185bb857e8c4baad6f99e5fe52aab4211d289b370b35e3f5a24f63d07",
       "machine": "IndustrialMixer",
       "origDuration": 10,
       "duration": 60,
@@ -22562,7 +22657,7 @@
     "AnimalFeedFromSoybean": {
       "id": "AnimalFeedFromSoybean",
       "name": "Animal feed production",
-      "linkId": "0eb9a5a05f8d3982b17cebb06d756f91461dbdb46287a33afda284763c0f3a0c",
+      "tiersLink": "0eb9a5a05f8d3982b17cebb06d756f91461dbdb46287a33afda284763c0f3a0c",
       "machine": "IndustrialMixer",
       "origDuration": 10,
       "duration": 60,
@@ -22582,7 +22677,7 @@
     "AnimalFeedCompost": {
       "id": "AnimalFeedCompost",
       "name": "Composing",
-      "linkId": "e050b4dc979000579005b8a4f2d7a93dbd86af12bd471c2410b3537aefd4874b",
+      "tiersLink": "e050b4dc979000579005b8a4f2d7a93dbd86af12bd471c2410b3537aefd4874b",
       "machine": "IndustrialMixer",
       "origDuration": 60,
       "duration": 60,
@@ -22602,7 +22697,7 @@
     "BiomassCompost": {
       "id": "BiomassCompost",
       "name": "Composing",
-      "linkId": "9903005d7ac49c31ff359e1c9127c11595e51ea1e2f5fa6ec9f2b886ca8404f8",
+      "tiersLink": "9903005d7ac49c31ff359e1c9127c11595e51ea1e2f5fa6ec9f2b886ca8404f8",
       "machine": "IndustrialMixer",
       "origDuration": 60,
       "duration": 60,
@@ -22622,7 +22717,7 @@
     "MeatTrimmingsCompost": {
       "id": "MeatTrimmingsCompost",
       "name": "Composing",
-      "linkId": "1c45a128bc47cdf273d13c4bccd288893348fe839a63c15f3da4e2ceb06ce8b2",
+      "tiersLink": "1c45a128bc47cdf273d13c4bccd288893348fe839a63c15f3da4e2ceb06ce8b2",
       "machine": "IndustrialMixer",
       "origDuration": 60,
       "duration": 60,
@@ -22642,6 +22737,7 @@
     "FertilizerProductionT2": {
       "id": "FertilizerProductionT2",
       "name": "Fertilizer synthesis",
+      "tiersLink": "245d809feb4d45fc428c4a0717131a40e3d1ec6d66e0f10b4b9d4c285c173b72",
       "machine": "ChemicalPlant2",
       "origDuration": 10,
       "duration": 60,
@@ -22665,6 +22761,7 @@
     "FertilizerProductionFromOrganicT2": {
       "id": "FertilizerProductionFromOrganicT2",
       "name": "Fertilizer synthesis",
+      "tiersLink": "30efc661b3df42b2911137e1b4b2c78d5c15bbc7553abc0539c4adc1c719bc8b",
       "machine": "ChemicalPlant2",
       "origDuration": 10,
       "duration": 60,
@@ -22692,6 +22789,7 @@
     "AmmoniaSynthesisT2": {
       "id": "AmmoniaSynthesisT2",
       "name": "Ammonia synthesis",
+      "tiersLink": "01219f320f13dbebecb61c6c58f61a16bddf99fd5ec0b79a9289fb29a415900f",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
       "duration": 60,
@@ -22715,6 +22813,7 @@
     "PaperProductionT2": {
       "id": "PaperProductionT2",
       "name": "Paper production",
+      "tiersLink": "c9756ca7d0ecc4b717a675f37e0b805720324dd1e0868d45638462f15da9b1f6",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
       "duration": 60,
@@ -22742,6 +22841,7 @@
     "EthanolCookingOilReformingT2": {
       "id": "EthanolCookingOilReformingT2",
       "name": "Fuel transesterification",
+      "tiersLink": "bad31880210d357d8d95afd7cac41353af5ea9c3a6130f802f7cc86b39e2adb8",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
       "duration": 60,
@@ -22792,6 +22892,7 @@
     "GraphiteProductionT2": {
       "id": "GraphiteProductionT2",
       "name": "Graphite production",
+      "tiersLink": "e8443480ca9246b89549005de0c9ec32654a316960a60c9bbb5cc012772da153",
       "machine": "ChemicalPlant2",
       "origDuration": 30,
       "duration": 60,
@@ -22865,6 +22966,7 @@
     "DisinfectantProductionT2": {
       "id": "DisinfectantProductionT2",
       "name": "Disinfectant production",
+      "tiersLink": "139eeb5c489dd3e29cd348f862f7e706eb1ca0357416fe4002013ba7139ca920",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
       "duration": 60,
@@ -23223,7 +23325,7 @@
     "FertilizerProduction": {
       "id": "FertilizerProduction",
       "name": "Fertilizer synthesis",
-      "linkId": "245d809feb4d45fc428c4a0717131a40e3d1ec6d66e0f10b4b9d4c285c173b72",
+      "tiersLink": "245d809feb4d45fc428c4a0717131a40e3d1ec6d66e0f10b4b9d4c285c173b72",
       "machine": "ChemicalPlant",
       "origDuration": 20,
       "duration": 60,
@@ -23247,7 +23349,7 @@
     "FertilizerProductionFromOrganic": {
       "id": "FertilizerProductionFromOrganic",
       "name": "Fertilizer synthesis",
-      "linkId": "30efc661b3df42b2911137e1b4b2c78d5c15bbc7553abc0539c4adc1c719bc8b",
+      "tiersLink": "30efc661b3df42b2911137e1b4b2c78d5c15bbc7553abc0539c4adc1c719bc8b",
       "machine": "ChemicalPlant",
       "origDuration": 20,
       "duration": 60,
@@ -23275,7 +23377,7 @@
     "AmmoniaSynthesis": {
       "id": "AmmoniaSynthesis",
       "name": "Ammonia synthesis",
-      "linkId": "01219f320f13dbebecb61c6c58f61a16bddf99fd5ec0b79a9289fb29a415900f",
+      "tiersLink": "01219f320f13dbebecb61c6c58f61a16bddf99fd5ec0b79a9289fb29a415900f",
       "machine": "ChemicalPlant",
       "origDuration": 40,
       "duration": 60,
@@ -23299,7 +23401,7 @@
     "PaperProduction": {
       "id": "PaperProduction",
       "name": "Paper production",
-      "linkId": "c9756ca7d0ecc4b717a675f37e0b805720324dd1e0868d45638462f15da9b1f6",
+      "tiersLink": "c9756ca7d0ecc4b717a675f37e0b805720324dd1e0868d45638462f15da9b1f6",
       "machine": "ChemicalPlant",
       "origDuration": 40,
       "duration": 60,
@@ -23327,7 +23429,7 @@
     "EthanolCookingOilReforming": {
       "id": "EthanolCookingOilReforming",
       "name": "Fuel transesterification",
-      "linkId": "bad31880210d357d8d95afd7cac41353af5ea9c3a6130f802f7cc86b39e2adb8",
+      "tiersLink": "bad31880210d357d8d95afd7cac41353af5ea9c3a6130f802f7cc86b39e2adb8",
       "machine": "ChemicalPlant",
       "origDuration": 40,
       "duration": 60,
@@ -23351,7 +23453,7 @@
     "GraphiteProductionT1": {
       "id": "GraphiteProductionT1",
       "name": "Graphite production",
-      "linkId": "e8443480ca9246b89549005de0c9ec32654a316960a60c9bbb5cc012772da153",
+      "tiersLink": "e8443480ca9246b89549005de0c9ec32654a316960a60c9bbb5cc012772da153",
       "machine": "ChemicalPlant",
       "origDuration": 60,
       "duration": 60,
@@ -23379,7 +23481,7 @@
     "DisinfectantProduction": {
       "id": "DisinfectantProduction",
       "name": "Disinfectant production",
-      "linkId": "139eeb5c489dd3e29cd348f862f7e706eb1ca0357416fe4002013ba7139ca920",
+      "tiersLink": "139eeb5c489dd3e29cd348f862f7e706eb1ca0357416fe4002013ba7139ca920",
       "machine": "ChemicalPlant",
       "origDuration": 40,
       "duration": 60,
@@ -24027,6 +24129,7 @@
     "SmokeStackLargeExhaust": {
       "id": "SmokeStackLargeExhaust",
       "name": "Product disposal",
+      "tiersLink": "d14f7d098c7f0f69c89646d64dfda3ee6606e768b46909db8700ccee8cccf6e2",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
       "duration": 60,
@@ -24046,6 +24149,7 @@
     "SmokeStackLargeCarbonDioxide": {
       "id": "SmokeStackLargeCarbonDioxide",
       "name": "Product disposal",
+      "tiersLink": "aa820fd9391010b24746dc51cabc2b76d9ff099eb965780e96e665ce32754655",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
       "duration": 60,
@@ -24149,7 +24253,7 @@
     "SmokeStackExhaust": {
       "id": "SmokeStackExhaust",
       "name": "Product disposal",
-      "linkId": "d14f7d098c7f0f69c89646d64dfda3ee6606e768b46909db8700ccee8cccf6e2",
+      "tiersLink": "d14f7d098c7f0f69c89646d64dfda3ee6606e768b46909db8700ccee8cccf6e2",
       "machine": "SmokeStack",
       "origDuration": 20,
       "duration": 60,
@@ -24169,7 +24273,7 @@
     "SmokeStackCarbonDioxide": {
       "id": "SmokeStackCarbonDioxide",
       "name": "Product disposal",
-      "linkId": "aa820fd9391010b24746dc51cabc2b76d9ff099eb965780e96e665ce32754655",
+      "tiersLink": "aa820fd9391010b24746dc51cabc2b76d9ff099eb965780e96e665ce32754655",
       "machine": "SmokeStack",
       "origDuration": 20,
       "duration": 60,
@@ -27386,6 +27490,7 @@
     "NuclearReactorT22": {
       "id": "NuclearReactorT22",
       "name": "Nuclear reactor II 2",
+      "tiersLink": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
       "machine": "NuclearReactorT2",
       "origDuration": 30,
       "duration": 60,
@@ -27413,7 +27518,7 @@
     "NuclearReactor1": {
       "id": "NuclearReactor1",
       "name": "Nuclear reactor 1",
-      "linkId": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
+      "tiersLink": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
       "machine": "NuclearReactor",
       "origDuration": 40,
       "duration": 60,

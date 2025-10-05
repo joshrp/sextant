@@ -10,7 +10,8 @@ export type FactorySettings = {
 }
 
 type FactoryContextType = {
-  store: FactoryStore;
+  store: FactoryStore["Graph"];
+  historical: FactoryStore["Historical"];
 };
 
 export const FactoryContext = createContext<FactoryContextType | undefined>(undefined);

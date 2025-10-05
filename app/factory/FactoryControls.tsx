@@ -1,5 +1,5 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { ExclamationTriangleIcon, InformationCircleIcon, MinusCircleIcon } from "@heroicons/react/24/outline";
+import { ArrowPathRoundedSquareIcon, ExclamationTriangleIcon, InformationCircleIcon, MinusCircleIcon } from "@heroicons/react/24/outline";
 import { ArrowsPointingOutIcon, CheckCircleIcon, ChevronDownIcon, Cog8ToothIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { Link } from "react-router";
@@ -15,6 +15,8 @@ export default function FactoryControls() {
   const solutionStatus = useFactoryStore(useShallow(state => state.solutionStatus));
   const solution = useFactoryStore(useShallow(state => state.solution));
   const scoringMethod = useFactoryStore(useShallow(state => state.scoringMethod));
+  const graphUpdateAction = useFactoryStore(useShallow(state => state.graphUpdateAction));
+
   // if (solution?.infrastructure == undefined) useFactory().store.getState().solutionUpdateAction(false);
   const setScoreMethod = useFactoryStore(state => state.setScoreMethod);
   const infraScores = [{
@@ -44,8 +46,13 @@ export default function FactoryControls() {
     amount: solution?.infrastructure['computing'],
     unit: 'TFlops'
   }];
+
+  const showScore = (solutionStatus == "Solved" || solutionStatus == "Partial") && solution;
+
   const hasInputGoal = useFactoryStore(state => state.goals.some(g => g.qty < 0 && g.type != "gt"));
   return (<div className="factoryControls px-2 flex justify-stretch w-full">
+    <button className="p-1 block cursor-pointer" onClick={graphUpdateAction}><ArrowPathRoundedSquareIcon className="mx-auto h-full" /></button>
+
     <Menu key="factory-menu" as="div" className="relative">
       <MenuButton className="cursor-pointer h-full">
         <div
@@ -56,12 +63,18 @@ export default function FactoryControls() {
         
         data-solved:border-green-700 data-blocked:bg-red-700
         ">
-          {solutionStatus == "Solved" && solution ? (<>
+          {(solutionStatus == "Infeasible") ? (<>
+            <span className="font-bold">Unsolvable</span>
+          </>) : (solutionStatus == "Running") ? (<>
+            <span className="font-bold">Solving...</span>
+          </>) : (solutionStatus == "Error") ? (<>
+            <span className="font-bold">Solver Error</span>
+          </>) : showScore ? (<>
             <span className="font-bold">Score: </span>
             <span className="">{formatNumber(solution.ObjectiveValue, "")}</span>
-          </>) : (
-            <span className="font-bold">Unsolvable</span>
-          )}
+          </>) : (<>
+            <span className="font-bold">No Solution</span>
+          </>)}
 
 
           <ChevronDownIcon className="w-5 ml-5 mr-2 inline text-right" />

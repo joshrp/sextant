@@ -48,7 +48,6 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
 
   const recipe = recipes.get(props.data.recipeId);
   if (!recipe) {
-    console.error("Recipe not found for id:", props.data.recipeId);
     return  <div className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
       <div className="recipe-node-title-bar flex justify-between border-white/20 mb-8 pb-2 border-b-2 items-center-safe ">
         <div className="flex-1 text-left p-1">
@@ -95,8 +94,8 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         <div className="recipe-machine flex-2 flex-col items-center text-center min-w-30">
           <img src={machineIcon(recipe.machine)} alt={recipe.machine.name}
             className="inline-block w-20 min-w-8 p-1 pointer-events-none
-          bg-gray-400/10 shadow-md/20 rounded-lg
-          " />
+          bg-gray-400/10 shadow-md/20 rounded-lg data-flipped:scale-x-[-1]
+          " data-flipped={props.data.ltr == false || null}/>
           <div className="w-full my-1 text-2xl">{formatNumber(runCount, "", 3)}</div>
 
         </div>

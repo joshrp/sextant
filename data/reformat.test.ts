@@ -37,14 +37,14 @@ describe("Check refomatted data", () => {
     const linkIdMap = new Map<string, { inputs: Set<string>, outputs: Set<string> }>();
 
     for (const recipe of recipes.values()) {
-      if (recipe.linkId) {
-        if (!linkIdMap.has(recipe.linkId)) {
-          linkIdMap.set(recipe.linkId, {
+      if (recipe.tiersLink) {
+        if (!linkIdMap.has(recipe.tiersLink)) {
+          linkIdMap.set(recipe.tiersLink, {
             inputs: new Set(recipe.inputs.map(i => i.id)),
             outputs: new Set(recipe.outputs.map(o => o.id)),
           });
         } else {
-          const { inputs, outputs } = linkIdMap.get(recipe.linkId)!;
+          const { inputs, outputs } = linkIdMap.get(recipe.tiersLink)!;
           expect(new Set(recipe.inputs.map(i => i.id)), `checking inputs for ${recipe.id}`).toEqual(inputs);
           expect(new Set(recipe.outputs.map(o => o.id)), `checking outputs for ${recipe.id}`).toEqual(outputs);
         }

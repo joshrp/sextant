@@ -46,7 +46,7 @@ const highsOptions: HighsOptions = { time_limit: 2, small_matrix_value: 1e-4 };
  *       !! add = 0 constraint
 */
 
-export function createGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): GraphModel {
+export function createGraphModel(nodes: CustomNodeType[], edges: CustomEdgeType[]): GraphModel {
   const solver = new Solver(nodes, edges);
   return solver.toGraphModel()
 }
@@ -96,7 +96,7 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
   for (const con of Object.values(graph.constraints)) {
     constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.sign} ${t.weight * (t.value || 1)} ${t.id}`).join(' ')} ${getEquality(con.equality)} 0`);
 
-    if (goals.find(g => g.productId == con.productId)) continue;
+    if (con.unconnected && goals.find(g => g.productId == con.productId)) continue;
 
     // Find any optional terms, they need appropriate sinks
     const optionals = con.terms.reduce((acc, t) => {
@@ -204,7 +204,7 @@ export async function solve(graph: GraphModel, goals: FactoryGoal[], manifolds: 
     return "Error";
   }
 
-  else if (autoSolve) {
+  else if (false && autoSolve) {
     const solutions: {
       constraintId: string,
       freeConstraints: Set<string>,
@@ -344,7 +344,7 @@ export default class Solver {
   constructor(nodes: CustomNodeType[], edges: CustomEdgeType[]) {
     this.nodes = nodes;
     this.edges = edges;
-    this.graph = buildGraph(nodes, edges);
+    this.graph = buildNodeConnections(nodes, edges);
     this.fillConstraints();
   }
 
@@ -354,8 +354,6 @@ export default class Solver {
       nodeIdToLabels: this.nodeIdToLabels,
       graph: this.graph,
       itemConstraints: this.itemConstraints,
-      nodes: this.nodes,
-      edges: this.edges,
     }
   }
 
@@ -677,7 +675,7 @@ export default class Solver {
   }
 }
 
-function buildGraph(nodes: CustomNodeType[], edges: CustomEdgeType[]): NodeConnections {
+function buildNodeConnections(nodes: CustomNodeType[], edges: CustomEdgeType[]): NodeConnections {
   const nodesById: Record<string, CustomNodeType> = {};
 
   const nodeRecipe = {} as Record<string, Recipe>;

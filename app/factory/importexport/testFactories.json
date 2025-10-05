@@ -1,0 +1,1484 @@
+{
+  "basicNodes": {
+    "name": "Default Factory",
+    "nodes": [
+      {
+        "id": "HydrogenProductionFromSteamSp_1754551017576",
+        "position": {
+          "x": -69.90815981817366,
+          "y": -257.6408480620111
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "HydrogenProductionFromSteamSp",
+          "solution": {
+            "solved": true,
+            "runCount": 33.3333
+          },
+          "ltr": false
+        },
+        "measured": {
+          "width": 382,
+          "height": 374
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "DesalinationFromDepleted_1754551026096",
+        "position": {
+          "x": -46.91259395779389,
+          "y": -638.1999047409181
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "DesalinationFromDepleted",
+          "solution": {
+            "solved": true,
+            "runCount": 16.1616
+          },
+          "ltr": true
+        },
+        "measured": {
+          "width": 371,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "FertilizerProductionT2_1754551122729",
+        "position": {
+          "x": -755.8123457742604,
+          "y": -203.62087305440966
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "FertilizerProductionT2",
+          "solution": {
+            "solved": true,
+            "runCount": 29.6296
+          },
+          "ltr": false
+        },
+        "measured": {
+          "width": 390,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "SmokeStackDepletedSteam_1754551247562",
+        "position": {
+          "x": -45.85073406256879,
+          "y": 182.85276030852856
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "SmokeStackDepletedSteam",
+          "solution": {
+            "solved": true,
+            "runCount": 0.20202
+          },
+          "ltr": true
+        },
+        "measured": {
+          "width": 273,
+          "height": 302
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "source": "DesalinationFromDepleted_1754551026096",
+        "target": "HydrogenProductionFromSteamSp_1754551017576",
+        "sourceHandle": "Product_Water",
+        "targetHandle": "Product_Water",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__DesalinationFromDepleted_1754551026096Product_Water-HydrogenProductionFromSteamSp_1754551017576Product_Water",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "HydrogenProductionFromSteamSp_1754551017576",
+        "sourceHandle": "Product_SteamDepleted",
+        "target": "DesalinationFromDepleted_1754551026096",
+        "targetHandle": "Product_SteamDepleted",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__HydrogenProductionFromSteamSp_1754551017576Product_SteamDepleted-DesalinationFromDepleted_1754551026096Product_SteamDepleted",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "HydrogenProductionFromSteamSp_1754551017576",
+        "target": "FertilizerProductionT2_1754551122729",
+        "sourceHandle": "Product_Oxygen",
+        "targetHandle": "Product_Oxygen",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__HydrogenProductionFromSteamSp_1754551017576Product_Oxygen-FertilizerProductionT2_1754551122729Product_Oxygen",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "HydrogenProductionFromSteamSp_1754551017576",
+        "target": "SmokeStackDepletedSteam_1754551247562",
+        "sourceHandle": "Product_SteamDepleted",
+        "targetHandle": "Product_SteamDepleted",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__HydrogenProductionFromSteamSp_1754551017576Product_SteamDepleted-SmokeStackDepletedSteam_1754551247562Product_SteamDepleted",
+        "data": {
+          "highlight": false
+        }
+      }
+    ],
+    "goals": [
+      {
+        "dir": "output",
+        "type": "eq",
+        "productId": "Product_Water",
+        "qty": 10
+      },
+      {
+        "dir": "output",
+        "type": "gt",
+        "productId": "Product_SteamSp",
+        "qty": -400
+      },
+      {
+        "dir": "output",
+        "type": "gt",
+        "productId": "Product_Hydrogen",
+        "qty": 1010
+      }
+    ]
+  },
+  "steam-large": {
+    "name": "Default Factory",
+    "nodes": [
+      {
+        "id": "PowerGeneratorT2_1757424537696",
+        "position": {
+          "x": 37.61233938537532,
+          "y": 210.5568273274174
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "PowerGeneratorT2",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 12.1212
+          }
+        },
+        "measured": {
+          "width": 443,
+          "height": 302
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "TurbineSuperPress_1757424544626",
+        "position": {
+          "x": -625.2643229161465,
+          "y": -93.90158215457853
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "TurbineSuperPress",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 6.06061
+          }
+        },
+        "measured": {
+          "width": 403,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "FastBreederReactorEnrichment2_1757424625834",
+        "position": {
+          "x": -1216.145245282436,
+          "y": -79.14733000995898
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "FastBreederReactorEnrichment2",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 0.695277
+          }
+        },
+        "measured": {
+          "width": 334,
+          "height": 380
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "DesalinationFromSP_1757424754126",
+        "position": {
+          "x": -1229.0165592153896,
+          "y": 1371.5269380188986
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "DesalinationFromSP",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 4.40771
+          }
+        },
+        "measured": {
+          "width": 352,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "CoreFuelReprocessing_1757424770265",
+        "position": {
+          "x": -1238.1197205296119,
+          "y": -582.8272694528875
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "CoreFuelReprocessing",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 0.695277
+          }
+        },
+        "measured": {
+          "width": 336,
+          "height": 438
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "BlanketFuelReprocessing_1757424783458",
+        "position": {
+          "x": -1223.78834354134,
+          "y": -985.7727754274323
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "BlanketFuelReprocessing",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 1.39055
+          }
+        },
+        "measured": {
+          "width": 320,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "FastBreederReactorEnrichment3_1757424941075",
+        "position": {
+          "x": -1215.817966313362,
+          "y": 351.7038771619598
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "FastBreederReactorEnrichment3",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 0.524675
+          }
+        },
+        "measured": {
+          "width": 352,
+          "height": 380
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "CoreFuelReprocessing_1757424949167",
+        "position": {
+          "x": -1217.0549037899268,
+          "y": 862.2352187926383
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "CoreFuelReprocessing",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 0.524675
+          }
+        },
+        "measured": {
+          "width": 336,
+          "height": 438
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "BlanketFuelFromDepleted_1757425164682",
+        "position": {
+          "x": -2039.5560632861832,
+          "y": 685.9708259629965
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "BlanketFuelFromDepleted",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 4.70455
+          }
+        },
+        "measured": {
+          "width": 337,
+          "height": 374
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "BlanketFuelReprocessing_1757425168169",
+        "position": {
+          "x": -2016.7321875108448,
+          "y": 217.9474757454135
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "BlanketFuelReprocessing",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 1.04935
+          }
+        },
+        "measured": {
+          "width": 322,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "BlanketFuelFromYellowcake_1757425202623",
+        "position": {
+          "x": -2022.306700833867,
+          "y": -538.4354631397129
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "BlanketFuelFromYellowcake",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 0
+          }
+        },
+        "measured": {
+          "width": 289,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "UraniumEnrichment_1757425236553",
+        "position": {
+          "x": -2564.8188651078917,
+          "y": 698.8504053186102
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "UraniumEnrichment",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 18.5331
+          }
+        },
+        "measured": {
+          "width": 345,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "UraniumRodsAssemblyT3_1757425254935",
+        "position": {
+          "x": -2537,
+          "y": 289.0000000000001
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "UraniumRodsAssemblyT3",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 1.42562
+          }
+        },
+        "measured": {
+          "width": 331,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "SpentMoxToBlanket_1757425897242",
+        "position": {
+          "x": -2046.9416519259926,
+          "y": 1203.4685411751723
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "SpentMoxToBlanket",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 1.42562
+          }
+        },
+        "measured": {
+          "width": 336,
+          "height": 438
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "NuclearReactorT21_1757426016107",
+        "position": {
+          "x": -2531.2488576060878,
+          "y": 1139.0246044613555
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "NuclearReactorT21",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 1.42562
+          }
+        },
+        "measured": {
+          "width": 366,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "MoxRodsAssemblyT1_1757426025189",
+        "position": {
+          "x": -2542.1241451407577,
+          "y": 1527.110243191166
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "MoxRodsAssemblyT1",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 1.42562
+          }
+        },
+        "measured": {
+          "width": 320,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "SpentFuelReprocessing_1757426030432",
+        "position": {
+          "x": -2539.7402466595013,
+          "y": 1948.2042182590253
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "SpentFuelReprocessing",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 1.42562
+          }
+        },
+        "measured": {
+          "width": 336,
+          "height": 374
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "NuclearReactorT22_1757426035382",
+        "position": {
+          "x": -2584.1659050707253,
+          "y": -184.74112956271674
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "NuclearReactorT22",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 5.70248
+          }
+        },
+        "measured": {
+          "width": 392,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "TurbineHighPressT2_1757426136547",
+        "position": {
+          "x": -3413.1998177474916,
+          "y": 723.7601970131514
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "TurbineHighPressT2",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 54.5455
+          }
+        },
+        "measured": {
+          "width": 425,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "PowerGeneratorT2_1757426144805",
+        "position": {
+          "x": -4469.785956062636,
+          "y": 468.70495481374473
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "PowerGeneratorT2",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 54.5455
+          }
+        },
+        "measured": {
+          "width": 447,
+          "height": 302
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "TurbineHighPress_1757426476593",
+        "position": {
+          "x": -600.0611120791299,
+          "y": 397.1990060036933
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "TurbineHighPress",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 12.1212
+          }
+        },
+        "measured": {
+          "width": 399,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "TurbineLowPressT2_1757426480716",
+        "position": {
+          "x": -603.7648511208563,
+          "y": 796.3901582154579
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "TurbineLowPressT2",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 6.06061
+          }
+        },
+        "measured": {
+          "width": 402,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "DesalinationFromDepleted_1757426493008",
+        "position": {
+          "x": -575.296309945684,
+          "y": 1177.7757468552675
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "DesalinationFromDepleted",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 12.1212
+          }
+        },
+        "measured": {
+          "width": 356,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "UraniumLeaching_1757426553382",
+        "position": {
+          "x": -3123.769420696505,
+          "y": -487.7711772796192
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "UraniumLeaching",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 9.26653
+          }
+        },
+        "measured": {
+          "width": 370,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "UraniumCrushingT2_1757426559547",
+        "position": {
+          "x": -3640.975395538645,
+          "y": -498.88787342763374
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "UraniumCrushingT2",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 4.63326
+          }
+        },
+        "measured": {
+          "width": 370,
+          "height": 302
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "ReprocessedUraniumEnrichment_1757426573714",
+        "position": {
+          "x": -2059.735677083853,
+          "y": 1946.1121265723664
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "ReprocessedUraniumEnrichment",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 4.27686
+          }
+        },
+        "measured": {
+          "width": 323,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "DesalinationFromHP_1757427248881",
+        "position": {
+          "x": -3418.9166338121704,
+          "y": 211.29363693407743
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "DesalinationFromHP",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 9.91736
+          }
+        },
+        "measured": {
+          "width": 370,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "TurbineLowPressT2_1757427414912",
+        "position": {
+          "x": -3963.3697777495704,
+          "y": 1160.0000000000002
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "TurbineLowPressT2",
+          "ltr": false,
+          "solution": {
+            "solved": true,
+            "runCount": 54.5455
+          }
+        },
+        "measured": {
+          "width": 422,
+          "height": 310
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "SteamDepletedCondensationT2_1757427423762",
+        "position": {
+          "x": -3296.564505760717,
+          "y": 1187.033009237733
+        },
+        "type": "recipe-node",
+        "data": {
+          "recipeId": "SteamDepletedCondensationT2",
+          "ltr": true,
+          "solution": {
+            "solved": true,
+            "runCount": 27.2727
+          }
+        },
+        "measured": {
+          "width": 396,
+          "height": 302
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "source": "TurbineSuperPress_1757424544626",
+        "target": "PowerGeneratorT2_1757424537696",
+        "sourceHandle": "Product_Virtual_MechPower",
+        "targetHandle": "Product_Virtual_MechPower",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineSuperPress_1757424544626Product_Virtual_MechPower-PowerGeneratorT2_1757424537696Product_Virtual_MechPower",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_SteamSp",
+        "target": "TurbineSuperPress_1757424544626",
+        "targetHandle": "Product_SteamSp",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment2_1757424625834Product_SteamSp-TurbineSuperPress_1757424544626Product_SteamSp",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "DesalinationFromSP_1757424754126",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_Water",
+        "targetHandle": "Product_Water",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__DesalinationFromSP_1757424754126Product_Water-FastBreederReactorEnrichment2_1757424625834Product_Water",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_SteamSp",
+        "target": "DesalinationFromSP_1757424754126",
+        "targetHandle": "Product_SteamSp",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment2_1757424625834Product_SteamSp-DesalinationFromSP_1757424754126Product_SteamSp",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "CoreFuelReprocessing_1757424770265",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_CoreFuel",
+        "targetHandle": "Product_CoreFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__CoreFuelReprocessing_1757424770265Product_CoreFuel-FastBreederReactorEnrichment2_1757424625834Product_CoreFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_CoreFuelDirty",
+        "target": "CoreFuelReprocessing_1757424770265",
+        "targetHandle": "Product_CoreFuelDirty",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment2_1757424625834Product_CoreFuelDirty-CoreFuelReprocessing_1757424770265Product_CoreFuelDirty",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelReprocessing_1757424783458",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_CoreFuel",
+        "targetHandle": "Product_CoreFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelReprocessing_1757424783458Product_CoreFuel-FastBreederReactorEnrichment2_1757424625834Product_CoreFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_BlanketFuelEnriched",
+        "target": "BlanketFuelReprocessing_1757424783458",
+        "targetHandle": "Product_BlanketFuelEnriched",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment2_1757424625834Product_BlanketFuelEnriched-BlanketFuelReprocessing_1757424783458Product_BlanketFuelEnriched",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelReprocessing_1757424783458",
+        "sourceHandle": "Product_BlanketFuel",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelReprocessing_1757424783458Product_BlanketFuel-FastBreederReactorEnrichment2_1757424625834Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment3_1757424941075",
+        "target": "CoreFuelReprocessing_1757424949167",
+        "sourceHandle": "Product_CoreFuelDirty",
+        "targetHandle": "Product_CoreFuelDirty",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment3_1757424941075Product_CoreFuelDirty-CoreFuelReprocessing_1757424949167Product_CoreFuelDirty",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "CoreFuelReprocessing_1757424949167",
+        "sourceHandle": "Product_CoreFuel",
+        "target": "FastBreederReactorEnrichment3_1757424941075",
+        "targetHandle": "Product_CoreFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__CoreFuelReprocessing_1757424949167Product_CoreFuel-FastBreederReactorEnrichment3_1757424941075Product_CoreFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment3_1757424941075",
+        "sourceHandle": "Product_SteamSp",
+        "target": "TurbineSuperPress_1757424544626",
+        "targetHandle": "Product_SteamSp",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment3_1757424941075Product_SteamSp-TurbineSuperPress_1757424544626Product_SteamSp",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "DesalinationFromSP_1757424754126",
+        "sourceHandle": "Product_Water",
+        "target": "FastBreederReactorEnrichment3_1757424941075",
+        "targetHandle": "Product_Water",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__DesalinationFromSP_1757424754126Product_Water-FastBreederReactorEnrichment3_1757424941075Product_Water",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment3_1757424941075",
+        "sourceHandle": "Product_SteamSp",
+        "target": "DesalinationFromSP_1757424754126",
+        "targetHandle": "Product_SteamSp",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment3_1757424941075Product_SteamSp-DesalinationFromSP_1757424754126Product_SteamSp",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelFromDepleted_1757425164682",
+        "target": "FastBreederReactorEnrichment3_1757424941075",
+        "sourceHandle": "Product_BlanketFuel",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelFromDepleted_1757425164682Product_BlanketFuel-FastBreederReactorEnrichment3_1757424941075Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelReprocessing_1757425168169",
+        "target": "FastBreederReactorEnrichment3_1757424941075",
+        "sourceHandle": "Product_BlanketFuel",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelReprocessing_1757425168169Product_BlanketFuel-FastBreederReactorEnrichment3_1757424941075Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelReprocessing_1757425168169",
+        "sourceHandle": "Product_CoreFuel",
+        "target": "FastBreederReactorEnrichment3_1757424941075",
+        "targetHandle": "Product_CoreFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelReprocessing_1757425168169Product_CoreFuel-FastBreederReactorEnrichment3_1757424941075Product_CoreFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment3_1757424941075",
+        "sourceHandle": "Product_BlanketFuelEnriched",
+        "target": "BlanketFuelReprocessing_1757425168169",
+        "targetHandle": "Product_BlanketFuelEnriched",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment3_1757424941075Product_BlanketFuelEnriched-BlanketFuelReprocessing_1757425168169Product_BlanketFuelEnriched",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "FastBreederReactorEnrichment3_1757424941075",
+        "sourceHandle": "Product_BlanketFuelEnriched",
+        "target": "BlanketFuelFromDepleted_1757425164682",
+        "targetHandle": "Product_BlanketFuelEnriched",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__FastBreederReactorEnrichment3_1757424941075Product_BlanketFuelEnriched-BlanketFuelFromDepleted_1757425164682Product_BlanketFuelEnriched",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelFromYellowcake_1757425202623",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "sourceHandle": "Product_BlanketFuel",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelFromYellowcake_1757425202623Product_BlanketFuel-FastBreederReactorEnrichment2_1757424625834Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "UraniumEnrichment_1757425236553",
+        "target": "BlanketFuelFromDepleted_1757425164682",
+        "sourceHandle": "Product_UraniumDepleted",
+        "targetHandle": "Product_UraniumDepleted",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__UraniumEnrichment_1757425236553Product_UraniumDepleted-BlanketFuelFromDepleted_1757425164682Product_UraniumDepleted",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "UraniumEnrichment_1757425236553",
+        "target": "UraniumRodsAssemblyT3_1757425254935",
+        "sourceHandle": "Product_UraniumEnriched",
+        "targetHandle": "Product_UraniumEnriched",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__UraniumEnrichment_1757425236553Product_UraniumEnriched-UraniumRodsAssemblyT3_1757425254935Product_UraniumEnriched",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelFromDepleted_1757425164682",
+        "sourceHandle": "Product_BlanketFuel",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelFromDepleted_1757425164682Product_BlanketFuel-FastBreederReactorEnrichment2_1757424625834Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "SpentMoxToBlanket_1757425897242",
+        "target": "FastBreederReactorEnrichment3_1757424941075",
+        "sourceHandle": "Product_BlanketFuel",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__SpentMoxToBlanket_1757425897242Product_BlanketFuel-FastBreederReactorEnrichment3_1757424941075Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "NuclearReactorT21_1757426016107",
+        "target": "SpentMoxToBlanket_1757425897242",
+        "sourceHandle": "Product_SpentMox",
+        "targetHandle": "Product_SpentMox",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__NuclearReactorT21_1757426016107Product_SpentMox-SpentMoxToBlanket_1757425897242Product_SpentMox",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "MoxRodsAssemblyT1_1757426025189",
+        "target": "NuclearReactorT21_1757426016107",
+        "sourceHandle": "Product_MoxRod",
+        "targetHandle": "Product_MoxRod",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__MoxRodsAssemblyT1_1757426025189Product_MoxRod-NuclearReactorT21_1757426016107Product_MoxRod",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "SpentFuelReprocessing_1757426030432",
+        "target": "MoxRodsAssemblyT1_1757426025189",
+        "sourceHandle": "Product_Plutonium",
+        "targetHandle": "Product_Plutonium",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__SpentFuelReprocessing_1757426030432Product_Plutonium-MoxRodsAssemblyT1_1757426025189Product_Plutonium",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "NuclearReactorT22_1757426035382",
+        "target": "SpentFuelReprocessing_1757426030432",
+        "sourceHandle": "Product_SpentFuel",
+        "targetHandle": "Product_SpentFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__NuclearReactorT22_1757426035382Product_SpentFuel-SpentFuelReprocessing_1757426030432Product_SpentFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "UraniumRodsAssemblyT3_1757425254935",
+        "sourceHandle": "Product_UraniumRod",
+        "target": "NuclearReactorT22_1757426035382",
+        "targetHandle": "Product_UraniumRod",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__UraniumRodsAssemblyT3_1757425254935Product_UraniumRod-NuclearReactorT22_1757426035382Product_UraniumRod",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "SpentMoxToBlanket_1757425897242",
+        "sourceHandle": "Product_BlanketFuel",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__SpentMoxToBlanket_1757425897242Product_BlanketFuel-FastBreederReactorEnrichment2_1757424625834Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "NuclearReactorT21_1757426016107",
+        "target": "TurbineHighPressT2_1757426136547",
+        "sourceHandle": "Product_SteamHi",
+        "targetHandle": "Product_SteamHi",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__NuclearReactorT21_1757426016107Product_SteamHi-TurbineHighPressT2_1757426136547Product_SteamHi",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "NuclearReactorT22_1757426035382",
+        "sourceHandle": "Product_SteamHi",
+        "target": "TurbineHighPressT2_1757426136547",
+        "targetHandle": "Product_SteamHi",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__NuclearReactorT22_1757426035382Product_SteamHi-TurbineHighPressT2_1757426136547Product_SteamHi",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineHighPressT2_1757426136547",
+        "target": "PowerGeneratorT2_1757426144805",
+        "sourceHandle": "Product_Virtual_MechPower",
+        "targetHandle": "Product_Virtual_MechPower",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineHighPressT2_1757426136547Product_Virtual_MechPower-PowerGeneratorT2_1757426144805Product_Virtual_MechPower",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineSuperPress_1757424544626",
+        "target": "TurbineHighPress_1757426476593",
+        "sourceHandle": "Product_SteamHi",
+        "targetHandle": "Product_SteamHi",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineSuperPress_1757424544626Product_SteamHi-TurbineHighPress_1757426476593Product_SteamHi",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineHighPress_1757426476593",
+        "target": "TurbineLowPressT2_1757426480716",
+        "sourceHandle": "Product_SteamLP",
+        "targetHandle": "Product_SteamLP",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineHighPress_1757426476593Product_SteamLP-TurbineLowPressT2_1757426480716Product_SteamLP",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineHighPress_1757426476593",
+        "sourceHandle": "Product_Virtual_MechPower",
+        "target": "PowerGeneratorT2_1757424537696",
+        "targetHandle": "Product_Virtual_MechPower",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineHighPress_1757426476593Product_Virtual_MechPower-PowerGeneratorT2_1757424537696Product_Virtual_MechPower",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineLowPressT2_1757426480716",
+        "target": "DesalinationFromDepleted_1757426493008",
+        "sourceHandle": "Product_SteamDepleted",
+        "targetHandle": "Product_SteamDepleted",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineLowPressT2_1757426480716Product_SteamDepleted-DesalinationFromDepleted_1757426493008Product_SteamDepleted",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineLowPressT2_1757426480716",
+        "sourceHandle": "Product_Virtual_MechPower",
+        "target": "PowerGeneratorT2_1757424537696",
+        "targetHandle": "Product_Virtual_MechPower",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineLowPressT2_1757426480716Product_Virtual_MechPower-PowerGeneratorT2_1757424537696Product_Virtual_MechPower",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "UraniumLeaching_1757426553382",
+        "target": "BlanketFuelFromYellowcake_1757425202623",
+        "sourceHandle": "Product_Yellowcake",
+        "targetHandle": "Product_Yellowcake",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__UraniumLeaching_1757426553382Product_Yellowcake-BlanketFuelFromYellowcake_1757425202623Product_Yellowcake",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "UraniumLeaching_1757426553382",
+        "sourceHandle": "Product_Yellowcake",
+        "target": "UraniumEnrichment_1757425236553",
+        "targetHandle": "Product_Yellowcake",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__UraniumLeaching_1757426553382Product_Yellowcake-UraniumEnrichment_1757425236553Product_Yellowcake",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "UraniumCrushingT2_1757426559547",
+        "target": "UraniumLeaching_1757426553382",
+        "sourceHandle": "Product_UraniumOreCrushed",
+        "targetHandle": "Product_UraniumOreCrushed",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__UraniumCrushingT2_1757426559547Product_UraniumOreCrushed-UraniumLeaching_1757426553382Product_UraniumOreCrushed",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "SpentFuelReprocessing_1757426030432",
+        "target": "ReprocessedUraniumEnrichment_1757426573714",
+        "sourceHandle": "Product_UraniumReprocessed",
+        "targetHandle": "Product_UraniumReprocessed",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__SpentFuelReprocessing_1757426030432Product_UraniumReprocessed-ReprocessedUraniumEnrichment_1757426573714Product_UraniumReprocessed",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "ReprocessedUraniumEnrichment_1757426573714",
+        "sourceHandle": "Product_UraniumDepleted",
+        "target": "MoxRodsAssemblyT1_1757426025189",
+        "targetHandle": "Product_UraniumDepleted",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__ReprocessedUraniumEnrichment_1757426573714Product_UraniumDepleted-MoxRodsAssemblyT1_1757426025189Product_UraniumDepleted",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "ReprocessedUraniumEnrichment_1757426573714",
+        "sourceHandle": "Product_UraniumDepleted",
+        "target": "BlanketFuelFromDepleted_1757425164682",
+        "targetHandle": "Product_UraniumDepleted",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__ReprocessedUraniumEnrichment_1757426573714Product_UraniumDepleted-BlanketFuelFromDepleted_1757425164682Product_UraniumDepleted",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "ReprocessedUraniumEnrichment_1757426573714",
+        "sourceHandle": "Product_UraniumEnriched",
+        "target": "UraniumRodsAssemblyT3_1757425254935",
+        "targetHandle": "Product_UraniumEnriched",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__ReprocessedUraniumEnrichment_1757426573714Product_UraniumEnriched-UraniumRodsAssemblyT3_1757425254935Product_UraniumEnriched",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "DesalinationFromHP_1757427248881",
+        "target": "NuclearReactorT22_1757426035382",
+        "sourceHandle": "Product_Water",
+        "targetHandle": "Product_Water",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__DesalinationFromHP_1757427248881Product_Water-NuclearReactorT22_1757426035382Product_Water",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "NuclearReactorT22_1757426035382",
+        "sourceHandle": "Product_SteamHi",
+        "target": "DesalinationFromHP_1757427248881",
+        "targetHandle": "Product_SteamHi",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__NuclearReactorT22_1757426035382Product_SteamHi-DesalinationFromHP_1757427248881Product_SteamHi",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "DesalinationFromHP_1757427248881",
+        "sourceHandle": "Product_Water",
+        "target": "NuclearReactorT21_1757426016107",
+        "targetHandle": "Product_Water",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__DesalinationFromHP_1757427248881Product_Water-NuclearReactorT21_1757426016107Product_Water",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "NuclearReactorT21_1757426016107",
+        "sourceHandle": "Product_SteamHi",
+        "target": "DesalinationFromHP_1757427248881",
+        "targetHandle": "Product_SteamHi",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__NuclearReactorT21_1757426016107Product_SteamHi-DesalinationFromHP_1757427248881Product_SteamHi",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineHighPressT2_1757426136547",
+        "target": "TurbineLowPressT2_1757427414912",
+        "sourceHandle": "Product_SteamLP",
+        "targetHandle": "Product_SteamLP",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineHighPressT2_1757426136547Product_SteamLP-TurbineLowPressT2_1757427414912Product_SteamLP",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineLowPressT2_1757427414912",
+        "sourceHandle": "Product_Virtual_MechPower",
+        "target": "PowerGeneratorT2_1757426144805",
+        "targetHandle": "Product_Virtual_MechPower",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineLowPressT2_1757427414912Product_Virtual_MechPower-PowerGeneratorT2_1757426144805Product_Virtual_MechPower",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "TurbineLowPressT2_1757427414912",
+        "target": "SteamDepletedCondensationT2_1757427423762",
+        "sourceHandle": "Product_SteamDepleted",
+        "targetHandle": "Product_SteamDepleted",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__TurbineLowPressT2_1757427414912Product_SteamDepleted-SteamDepletedCondensationT2_1757427423762Product_SteamDepleted",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "SteamDepletedCondensationT2_1757427423762",
+        "sourceHandle": "Product_Water",
+        "target": "NuclearReactorT21_1757426016107",
+        "targetHandle": "Product_Water",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__SteamDepletedCondensationT2_1757427423762Product_Water-NuclearReactorT21_1757426016107Product_Water",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "SteamDepletedCondensationT2_1757427423762",
+        "sourceHandle": "Product_Water",
+        "target": "NuclearReactorT22_1757426035382",
+        "targetHandle": "Product_Water",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__SteamDepletedCondensationT2_1757427423762Product_Water-NuclearReactorT22_1757426035382Product_Water",
+        "data": {
+          "highlight": false
+        }
+      },
+      {
+        "source": "BlanketFuelReprocessing_1757425168169",
+        "sourceHandle": "Product_BlanketFuel",
+        "target": "FastBreederReactorEnrichment2_1757424625834",
+        "targetHandle": "Product_BlanketFuel",
+        "animated": true,
+        "type": "button-edge",
+        "id": "xy-edge__BlanketFuelReprocessing_1757425168169Product_BlanketFuel-FastBreederReactorEnrichment2_1757424625834Product_BlanketFuel",
+        "data": {
+          "highlight": false
+        }
+      }
+    ],
+    "goals": [
+      {
+        "dir": "output",
+        "type": "eq",
+        "productId": "Product_Water",
+        "qty": 400
+      },
+      {
+        "dir": "output",
+        "type": "gt",
+        "productId": "Product_Virtual_Electricity",
+        "qty": 1000000
+      }
+    ]
+  }
+}
