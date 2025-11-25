@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useShallow } from "zustand/shallow";
 
-import { ClipboardIcon, FolderArrowDownIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, ClipboardIcon, FolderArrowDownIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
 
 import usePlanner from "~/context/PlannerContext";
 import useProductionMatrix, { useProductionZoneStore } from "~/context/ZoneContext";
@@ -17,12 +17,15 @@ import type { GraphImportData } from "~/factory/store";
 import { ProductGoal } from "~/factory/graph/sidebar";
 import type { FactoryGoal } from "~/factory/solver/types";
 import useProductionZone from "~/context/ZoneContext";
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
+import hydration from "~/hydration";
 
 const { products } = loadData();
 
 const settingsTabs = [
   { id: "weights", name: "Weights" },
   { id: "importexport", name: "Import/Export" },
+  { id: "debug", name: "Debug" },
   { id: "advanced", name: "Advanced" },
 ];
 const tabIds = settingsTabs.map(t => t.id);
@@ -65,6 +68,9 @@ export default function FactorySettings() {
         <hr className="my-4 border-t border-gray-300" />
         <FactoryImport />
       </>;
+      break;
+    case "debug":
+      content = <FactoryDebug />;
       break;
     case "advanced":
       content = <div>
@@ -208,25 +214,7 @@ function FactoryExport() {
       <FolderArrowDownIcon className="inline-block w-5" /> Download File
     </button>
     {/* Copy to clipboard */}
-    <button className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded duration-500 transition-all data-done:bg-black mb-4 ml-4 cursor-pointer"
-      onClick={e => {
-        navigator.clipboard.writeText(exportedStr)
-          .then(() => {
-            const btn = e.target as HTMLButtonElement;
-            if (btn) {
-              btn.setAttribute("data-done", "true");
-              setTimeout(() => {
-                btn.removeAttribute("data-done");
-              }, 500);
-            }
-          })
-          .catch(e => {
-            alert("Error copying to clipboard: " + e);
-          });
-      }}
-    >
-      <ClipboardIcon className="inline-block w-5" /> Copy to Clipboard
-    </button>
+    <ClipboardCopyButton text={exportedStr} />
     <textarea key="factoryExportStr" value={exportedStr} readOnly onClick={e => (e.target as HTMLTextAreaElement).select()}
       className="w-full max-h-[80vh] p-4 overflow-ellipsis field-sizing-content bg-gray-700 rounded text-xs font-mono" />
 
@@ -298,4 +286,119 @@ function FactoryWeights() {
     </table>
   </div>
 
+}
+
+const recipes = loadData().recipes;
+function FactoryDebug() {
+  const factoryStore = useFactory().store.getState();
+
+  const graphData = {
+    id: "root",
+    layoutOptions: {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "200",
+      "elk.layered.spacing.nodeNode": "50",
+      "elk.spacing.nodeNode": "50",
+      "elk.spacing.edgeEdge": "50",
+      "elk.spacing.edgeNode": "50",
+      "elk.edgeRouting": "SPLINES",
+      "elk.layered.crossingMinimization.strategy": "LAYER_SWEEP",
+      "elk.layered.crossingMinimization.semiInteractive": "true",
+      "elk.debug.enable": "false",
+      "elk.nodeLabels.placement": "INSIDE V_TOP H_CENTER",
+      "elk.portConstraints": "FIXED_SIDE",
+      "elk.stress.spacing.nodeNodeBetweenLayers": "100",
+      "elk.stress.spacing.nodeNode": "50",
+      "elk.spacing.portPort": "100",
+      "elk.layered.nodePlacement.favorStraightEdges": "true"
+    },
+    children: factoryStore.nodes.map(n => {
+      const ports = recipes.get(n.data.recipeId)?.inputs.map(i => ({
+        id: `${n.id}-in-${i.product.id}`,
+        product: i.product.id,
+        properties: {
+          "port.side": n.data.ltr ? "WEST" : "EAST",
+        }
+      }));
+      ports?.push(...recipes.get(n.data.recipeId)?.outputs.map(o => ({
+        id: `${n.id}-out-${o.product.id}`,
+        product: o.product.id,
+        properties: {
+          "port.side": n.data.ltr ? "EAST" : "WEST",
+        }
+      })) ?? []);
+
+      return {
+        id: n.id,
+        width: n.measured?.width,
+        height: n.measured?.height,
+        x: n.position.x,
+        y: n.position.y,
+        labels: [{ text: n.data.recipeId }],
+        ports,
+        layoutOptions: {
+          'elk.portAlignment.default': 'END',
+          "elk.portConstraints": "FIXED_SIDE",
+        }
+      }
+    }),
+    edges: factoryStore.edges.map(e => ({
+      id: e.id,
+      sources: [`${e.source}-out-${e.sourceHandle}`],
+      targets: [`${e.target}-in-${e.targetHandle}`],
+      labels: [{ text: e.sourceHandle }],
+    })),
+  };
+  return <div className="factory-debug">
+    <Disclosure defaultOpen={true}>
+      <DisclosureButton className="group cursor-pointer flex w-full gap-4 justify-center-safe px-4 py-2">
+        Factory Store Data <ChevronDownIcon className="w-5 justify-self-end-safe group-data-open:rotate-180" />
+      </DisclosureButton>
+      <DisclosurePanel>
+        <ClipboardCopyButton text={JSON.stringify(factoryStore, hydration.replacer, 2)} />
+        <div className="p-4 mt-2 bg-gray-900 rounded-lg max-h-80 overflow-auto">
+          <pre className="text-xs text-left" onClick={e => (e.target as HTMLTextAreaElement).select()}>
+            {JSON.stringify(factoryStore, hydration.replacer, 2)}
+          </pre>
+        </div>
+      </DisclosurePanel>
+      <DisclosureButton className="group cursor-pointer flex w-full gap-4 justify-center-safe px-4 py-2">
+        ELK Format <ChevronDownIcon className="w-5 justify-self-end-safe group-data-open:rotate-180" />
+      </DisclosureButton>
+      <DisclosurePanel>
+        <ClipboardCopyButton text={JSON.stringify(graphData, hydration.replacer, 2)} />
+        <div className="p-4 mt-2 bg-gray-900 rounded-lg max-h-80 overflow-auto">
+          <pre className="text-xs text-left" onClick={e => (e.target as HTMLTextAreaElement).select()}>
+            {JSON.stringify(graphData, hydration.replacer, 2)}
+          </pre>
+        </div>
+      </DisclosurePanel>
+    </Disclosure>
+
+  </div>;
+}
+
+
+function ClipboardCopyButton({ text }: { text: string }) {
+
+  return <button className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded duration-500 transition-all data-done:bg-black mb-4 ml-4 cursor-pointer"
+    onClick={e => {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          const btn = e.target as HTMLButtonElement;
+          if (btn) {
+            btn.setAttribute("data-done", "true");
+            setTimeout(() => {
+              btn.removeAttribute("data-done");
+            }, 500);
+          }
+        })
+        .catch(e => {
+          alert("Error copying to clipboard: " + e);
+        });
+    }}
+  >
+    <ClipboardIcon className="inline-block w-5" /> Copy to Clipboard
+  </button>
 }

@@ -96,9 +96,9 @@ function SideBar({ addNewRecipe }: props) {
   }];
 
   return (<>
-    <div className='sidebar flex flex-col h-full p-2 bg-black'>
+    <div className='sidebar flex flex-col p-2 h-full justify-start'>
       <div className="title">Goals</div>
-      <div className="flex-1">
+      <div className="">
         {goals.map((goal, i) => {
           const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
           const product = productData.get(goal.productId);
@@ -143,9 +143,9 @@ function SideBar({ addNewRecipe }: props) {
         </button>
 
       </div>
-      <div className="subtitle">By Products</div>
+      <div className="subtitle mt-4">By Products</div>
 
-      <div className="byproducts flex-1 grid grid-cols-2 gap-1 content-start">
+      <div className="byproducts grid grid-cols-2 gap-2">
         {solution?.products?.outputs.map((output, i) => {
           const goal = goals.find(g => g.productId === output.productId && g.dir == "output");
           const product = productData.get(output.productId);
@@ -163,17 +163,17 @@ function SideBar({ addNewRecipe }: props) {
 
           return <div key={"output-" + i}
             style={{ backgroundColor: productBackground(product) }}
-            className={`"output-goal w-full p-1 flex h-8
-                                hover:brightness-110
-                                rounded cursor-pointer 
-                                ${isSurplus ? "bg-green-900" : ""}`}>
-            <img className="h-full justify-self-start" src={productIcon(product.icon)} />
-            <span className="flex-8 justify-self-end-safe text-right text-sm content-center-safe">{formatNumber(amount, product.unit)}</span>
+            className={`"output-goal flex justify-between items-center-safe w-full px-2 py-1 
+                        h-8 rounded cursor-pointer
+                        hover:brightness-110  
+                        ${isSurplus ? "bg-green-900" : ""}`}>
+            <img className="h-full " src={productIcon(product.icon)} />
+            <span className="flex-8 text-right text-sm ">{formatNumber(amount, product.unit)}</span>
           </div>
         })}
       </div>
-      <div className="subtitle">Inputs</div>
-      <div className="flex-1 grid grid-cols-2 gap-1 content-start">
+      <div className="subtitle mt-4">Inputs</div>
+      <div className="inputs-list grid grid-cols-2 gap-2 bg-gray-800 rounded">
         {solution?.products?.inputs.map((input, i) => {
           const product = productData.get(input.productId);
           if (!product) {
@@ -185,12 +185,12 @@ function SideBar({ addNewRecipe }: props) {
           return <Menu key={"input-" + i}>
             <MenuButton as="div"
               style={{ backgroundColor: productBackground(product) }}
-              className={`"input-goal w-full p-1 flex h-8
-                        hover:brightness-110
-                        rounded cursor-pointer`}
+              className={`"input-goal flex justify-between items-center-safe w-full px-2 py-1  
+                        h-8 rounded cursor-pointer
+                        hover:brightness-110`}
             >
-              <img className="h-full justify-self-start drop-shadow-md/30 " src={productIcon(product.icon)} />
-              <span className="flex-8 justify-self-end-safe text-right text-sm text-shadow-lg content-center-safe">{formatNumber(amount, product.unit)}</span>
+              <img className="h-full drop-shadow-md/30 " src={productIcon(product.icon)} />
+              <span className="flex-8 text-right text-sm text-shadow-lg">{formatNumber(amount, product.unit)}</span>
             </MenuButton>
             <MenuItems anchor="bottom start" className="bg-gray-800 border-1 border-gray-600 rounded-sm shadow-xl">
               {inputsMenuOptions.map(m =>
@@ -202,8 +202,8 @@ function SideBar({ addNewRecipe }: props) {
           </Menu>
         })}
       </div>
-      <div className="subtitle justify-self-end-safe">Manifolds</div>
-      <div className="flex-1 items-end-safe justify-self-end-safe justify-end-safe">
+      <div className="subtitle justify-self-end-safe mt-auto">Manifolds</div>
+      <div className="justify-self-end-safe">
         {manifolds?.map((m, i) => {
           if (!m) return;
 

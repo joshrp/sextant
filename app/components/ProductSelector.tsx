@@ -4,6 +4,7 @@ import { ListBulletIcon, TableCellsIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import type { GameDataParsed, Product } from "~/factory/graph/loadJsonData";
 import { SelectorDialog } from "./Dialog";
+import { useProductionZoneStore } from '~/context/ZoneContext';
 
 type ProductSelectorProps = {
   isOpen: boolean,
@@ -13,7 +14,9 @@ type ProductSelectorProps = {
 };
 
 export default function ProductSelector({ isOpen, setIsOpen, products, onSelect }: ProductSelectorProps) {
-  const [newProductDisplayMode, setNewProductDisplayMode] = useState<"grid" | "list">("grid"); // TODO:: Move to Matrix Settings
+  const newProductDisplayMode = useProductionZoneStore(state => state.productDisplayMode);
+  const setNewProductDisplayMode = useProductionZoneStore(state => state.setProductDisplayMode);
+  
   const [searchTerm, setSearchTerm] = useState<string>("");
   const productList = products.values().toArray()
     .filter(p => p.recipes.input.length + p.recipes.output.length > 0)
@@ -41,20 +44,20 @@ export default function ProductSelector({ isOpen, setIsOpen, products, onSelect 
       </div>
       <div className="shrink-1 flex-1 justify-self-end-safe content-end align-middle text-right">
         <button
-          onClick={() => setNewProductDisplayMode("grid")}
-          data-active={newProductDisplayMode == "grid" || null}
+          onClick={() => setNewProductDisplayMode("icons")}
+          data-active={newProductDisplayMode == "icons" || null}
           className="p-2 border-1 rounded-sm cursor-pointer hover:brightness-125 bg-gray-800 border-gray-500 data-active:brightness-120 mr-1">
-          <TableCellsIcon className="w-4 inline" /> Grid
+          <TableCellsIcon className="w-4 inline" /> Icons
         </button>
         <button
-          data-active={newProductDisplayMode == "list" || null}
-          onClick={() => setNewProductDisplayMode("list")}
+          data-active={newProductDisplayMode == "names" || null}
+          onClick={() => setNewProductDisplayMode("names")}
           className="p-2 border-1 rounded-sm cursor-pointer hover:brightness-125 bg-gray-800 border-gray-500 data-active:brightness-120">
           <ListBulletIcon className="w-4 inline" /> List
         </button>
       </div>
     </div>
-    {newProductDisplayMode == "grid" &&
+    {newProductDisplayMode == "icons" &&
       <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,4fr))] gap-2 overflow-y-auto">
         {resultsMapped.map((item) => {
           return (<div key={item.id} className="">
@@ -72,7 +75,7 @@ export default function ProductSelector({ isOpen, setIsOpen, products, onSelect 
           </div>)
         })}
       </div>
-    } {newProductDisplayMode == "list" &&
+    } {newProductDisplayMode == "names" &&
       <div className="grid grid-cols-3 gap-2 gap-x-4 overflow-y-auto">
         {resultsMapped.map((item) => {
           return (<div key={item.id} className="">

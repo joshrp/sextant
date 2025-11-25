@@ -90,6 +90,7 @@ export default function Graph({ addNewRecipe }: props) {
       onConnectEnd={onConnectEnd}
       onConnect={onConnect}
       minZoom={0.1}
+      elevateEdgesOnSelect={true}
       colorMode="dark"
     // snapGrid={[20,20]}
     // snapToGrid={true}

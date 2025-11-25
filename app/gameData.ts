@@ -7500,6 +7500,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7531,6 +7532,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7562,6 +7564,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7593,6 +7596,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7624,6 +7628,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7659,6 +7664,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 2000,
       "computing_consumed": 0,
@@ -7694,6 +7700,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 15000,
       "computing_consumed": 0,
@@ -7727,6 +7734,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 150,
       "computing_consumed": 0,
@@ -7760,6 +7768,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 200,
       "computing_consumed": 0,
@@ -7795,6 +7804,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 800,
       "computing_consumed": 0,
@@ -7830,6 +7840,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 5000,
       "computing_consumed": 0,
@@ -7864,6 +7875,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 120,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7901,6 +7913,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7933,6 +7946,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7965,6 +7979,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -7992,6 +8007,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 80,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8023,6 +8039,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 120,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8054,6 +8071,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8085,6 +8103,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8116,6 +8135,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 300,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8150,6 +8170,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8183,6 +8204,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8212,6 +8234,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 4500,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8245,6 +8268,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 250,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8278,6 +8302,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8316,6 +8341,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8347,6 +8373,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 1000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8378,6 +8405,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8453,6 +8481,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 6,
@@ -8521,6 +8550,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 250,
       "electricity_generated": 0,
       "computing_consumed": 3,
@@ -8585,6 +8615,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 150,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8623,6 +8654,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 80,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8658,6 +8690,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 40,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8688,6 +8721,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8722,6 +8756,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8756,6 +8791,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8790,6 +8826,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8821,6 +8858,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -8852,6 +8890,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 2000,
       "electricity_generated": 0,
       "computing_consumed": 2,
@@ -8883,6 +8922,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 4,
@@ -8925,6 +8965,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 500,
       "electricity_generated": 0,
       "computing_consumed": 12,
@@ -8967,6 +9008,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 4,
@@ -9000,6 +9042,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 1100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9033,6 +9076,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 300,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9066,6 +9110,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 20,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9101,6 +9146,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 120,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9138,6 +9184,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9172,6 +9219,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9204,6 +9252,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 4000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9238,6 +9287,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 2000,
       "electricity_generated": 0,
       "computing_consumed": 24,
@@ -9269,6 +9319,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9307,6 +9358,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 250,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9349,6 +9401,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 1000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9389,6 +9442,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 6000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9427,6 +9481,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 4000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9463,6 +9518,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9499,6 +9555,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9526,6 +9583,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 8000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9558,6 +9616,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9585,6 +9644,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9618,6 +9678,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9647,6 +9708,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9674,6 +9736,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 1000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9706,6 +9769,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9737,6 +9801,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9768,6 +9833,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 120,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9799,6 +9865,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 500,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9830,6 +9897,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 300,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9862,6 +9930,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 500,
       "electricity_generated": 0,
       "computing_consumed": 4,
@@ -9893,6 +9962,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 80,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9925,6 +9995,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 800,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -9973,6 +10044,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10021,6 +10093,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10074,6 +10147,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10111,6 +10185,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 250,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10142,6 +10217,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10173,6 +10249,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10205,6 +10282,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10240,6 +10318,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 300,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10276,6 +10355,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 160,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10308,6 +10388,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10339,6 +10420,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 160,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10371,6 +10453,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10413,6 +10496,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10447,6 +10531,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10484,6 +10569,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10518,6 +10604,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10546,6 +10633,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10579,6 +10667,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 600,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10617,6 +10706,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10647,6 +10737,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 500,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10686,6 +10777,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10722,6 +10814,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10763,6 +10856,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 50,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10794,6 +10888,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10825,6 +10920,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10852,6 +10948,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10883,6 +10980,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10914,6 +11012,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 600,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -10977,6 +11076,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11044,6 +11144,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11095,6 +11196,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11132,6 +11234,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11159,6 +11262,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11188,6 +11292,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11217,6 +11322,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11246,6 +11352,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11275,6 +11382,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11300,6 +11408,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11329,6 +11438,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11358,6 +11468,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11387,6 +11498,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11416,6 +11528,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11445,6 +11558,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11474,6 +11588,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11503,6 +11618,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11532,6 +11648,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11561,6 +11678,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 40,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11592,6 +11710,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11627,6 +11746,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 400,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11662,6 +11782,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 600,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11697,6 +11818,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 1000,
       "electricity_generated": 0,
       "computing_consumed": 12,
@@ -11726,6 +11848,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 640,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11751,6 +11874,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 320,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11776,6 +11900,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11801,6 +11926,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11826,6 +11952,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11851,6 +11978,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11876,6 +12004,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11901,6 +12030,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11926,6 +12056,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11951,6 +12082,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -11976,6 +12108,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12001,6 +12134,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12026,6 +12160,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12051,6 +12186,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12076,6 +12212,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12101,6 +12238,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12126,6 +12264,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12151,6 +12290,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12176,6 +12316,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12205,6 +12346,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12238,6 +12380,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12267,6 +12410,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12292,6 +12436,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12317,6 +12462,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12342,6 +12488,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12367,6 +12514,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12392,6 +12540,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12417,6 +12566,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12442,6 +12592,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12467,6 +12618,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12496,6 +12648,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 150,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12529,6 +12682,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12562,6 +12716,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 350,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12595,6 +12750,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 150,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12624,6 +12780,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 100,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12656,6 +12813,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 12,
@@ -12687,6 +12845,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12728,6 +12887,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 18,
@@ -12761,6 +12921,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 2000,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12794,6 +12955,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12819,6 +12981,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12854,6 +13017,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12889,6 +13053,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -12914,6 +13079,7 @@
         }
       ],
       "isFarm": false,
+      "isBalancer": false,
       "electricity_consumed": 85,
       "electricity_generated": 0,
       "computing_consumed": 0,
@@ -13043,6 +13209,7 @@
         "Balancer_Product_Flowers"
       ],
       "buildCosts": [],
+      "isBalancer": true,
       "isFarm": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
@@ -13120,6 +13287,7 @@
         "Balancer_Product_Waste"
       ],
       "buildCosts": [],
+      "isBalancer": true,
       "isFarm": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
@@ -13181,6 +13349,7 @@
         "Balancer_Product_HydrogenFluoride"
       ],
       "buildCosts": [],
+      "isBalancer": true,
       "isFarm": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
@@ -13210,6 +13379,7 @@
         "Balancer_Product_MoltenSilicon"
       ],
       "buildCosts": [],
+      "isBalancer": true,
       "isFarm": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,
@@ -13247,6 +13417,7 @@
         "Balancer_Product_Virtual_Wildcard"
       ],
       "buildCosts": [],
+      "isBalancer": true,
       "isFarm": false,
       "electricity_consumed": 0,
       "electricity_generated": 0,

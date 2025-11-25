@@ -159,7 +159,6 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
             set({
               edges: addEdge({
                 ...connection,
-                animated: true,
                 type: "button-edge",
               } as ButtonEdge, get().edges),
             });
@@ -308,7 +307,6 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
               sourceHandle: e.product,
               targetHandle: e.product,
               type: "button-edge",
-              animated: true,
             }))
 
             const newGoals: GraphCoreData["goals"] = data.goals.map(g => ({

@@ -59,24 +59,7 @@ export function InlineStringEditor({
 export default function Home() {
   const selectedZone = useStableParam("zone");
   const zones = usePlannerStore(state => state.zones);
-  const plannerStore = usePlanner().store;
   const zone = zones.find(z => z.id === selectedZone);
-
-  const newZoneAction = usePlannerStore(state => state.newZone);
-  const nameSubmit = (name: string) => {
-    if (name.trim() === "") return;
-    if (renameZone) {
-      plannerStore.getState().renameZone(renameZoneId, name.trim());
-      setRenameZoneId("");
-    } else { // New zone
-      newZoneAction(name.trim());
-    }
-  }
-
-  const [renameZoneId, setRenameZoneId] = useState<string>("");
-  const [inputNewName, setInputNewName] = useState<boolean>(false);
-  const renameZone = zones.find(z => z.id === renameZoneId);
-  const checkName = (newName: string) => zones.some(z => z.name.toLowerCase() === newName.toLowerCase() && z.id !== renameZoneId);
 
   const [images, setImages] = useState<string[]>([]);
   useEffect(() => {
@@ -91,58 +74,13 @@ export default function Home() {
   }, [products, machines]);
 
   return <>
-    <main className="h-[100vh] flex flex-col w-[100vw] overflow-hidden bg-gray-500">
-      <div className="max-w-[100vw] p-2 ml-10 flex flex-row gap-4 items-center text-gray-300">
-        <h1 className="shrink-1 border-r-2 border-gray-400 pr-8">Factory Planner</h1>
-        <h2 className="shrink-1">Zone:</h2>
-        {inputNewName || renameZone
-          ? <div className="inline-block">
-            <InlineStringEditor initialValue={renameZone?.name}
-              placeholder={renameZoneId ? "" : "Zone Name"}
-              checkValue={checkName}
-              onSubmit={nameSubmit}
-              onCancel={() => {
-                setInputNewName(false);
-                setRenameZoneId("");
-              }
-              } />
-          </div> : <>
-            <Menu>
-              <MenuButton className="text-white items-middle h-full px-2 shrink-1 rounded-sm bg-gray-600 cursor-pointer">
-                <span>{zone?.name}</span>
-                <ChevronDownIcon className="w-6 h-full inline-block ml-2 mb-1" />
-              </MenuButton>
-              <MenuItems anchor={"bottom"}
-                className="border-2 border-gray-400 shadow-2xl absolute rounded z-10 bg-gray-500  text-white">
-                {zones.map(z => (
-                  <MenuItem key={z.id}>
-                    <div className="flex flex-row items-center-safe justify-between not-last:border-b-2  border-gray-400">
-                      <Link className="flex-6 border-0 block px-2 py-1 hover:bg-gray-600" to={`/zones/${z.id}`}>
-                        {z.name}
-                      </Link>
-                      <div className="actions p-2 inline-block shrink-1 border-l-2 border-gray-400">
-                        <Button className="h-full cursor-pointer hover:text-gray-400 block" title="Edit Name"
-                          onClick={() => setRenameZoneId(z.id)}>
-                          <PencilIcon className="w-4 h-full" />
-                        </Button>
-                      </div>
-                    </div>
-                  </MenuItem>
-                ))}
-              </MenuItems>
-            </Menu>
-            <Button className="shrink-1 -mt-1 cursor-pointer hover:text-gray-700 text-white"
-              title="Create New Zone"
-              onClick={() => setInputNewName(true)} >
-              <PencilSquareIcon className="w-5 h-full inline-block" />
-            </Button>
-          </>
-        }
+    <main className="h-[100vh] w-[100vw] overflow-hidden bg-gray-500">
+      <div className="max-w-[100vw] h-10 p-2 ml-10 flex flex-row gap-4 items-center text-gray-300">
+        <ZoneHeader selectedZone={selectedZone} />
       </div>
-
       {zone && (
         <ProductionZoneProvider zoneId={selectedZone} zoneName={zone.name}>
-          <div className="flex-1 flex flex-row h-full">
+          <div className="h-[calc(100vh-calc(10*var(--spacing)))] flex flex-row">
             <Zone />
           </div>
         </ProductionZoneProvider>
@@ -164,6 +102,78 @@ export default function Home() {
       ))}
     </main >
   </>
+}
+
+function ZoneHeader({ selectedZone }: { selectedZone?: string }) {
+  const plannerStore = usePlanner().store;
+  const zones = usePlannerStore(state => state.zones);
+  const zone = zones.find(z => z.id === selectedZone);
+
+  const newZoneAction = usePlannerStore(state => state.newZone);
+
+  const [renameZoneId, setRenameZoneId] = useState<string>("");
+  const [inputNewName, setInputNewName] = useState<boolean>(false);
+
+  const checkName = (newName: string) => zones.some(z => z.name.toLowerCase() === newName.toLowerCase() && z.id !== renameZoneId);
+
+  const nameSubmit = (name: string) => {
+    if (name.trim() === "") return;
+    if (renameZone) {
+      plannerStore.getState().renameZone(renameZoneId, name.trim());
+      setRenameZoneId("");
+    } else { // New zone
+      newZoneAction(name.trim());
+    }
+  }
+  const renameZone = zones.find(z => z.id === renameZoneId);
+
+  return (<>
+    <h1 className="shrink-1 border-r-2 border-gray-400 pr-8">Factory Planner</h1>
+    <h2 className="shrink-1">Zone:</h2>
+    {inputNewName || renameZone
+      ? <div className="inline-block">
+        <InlineStringEditor initialValue={renameZone?.name}
+          placeholder={renameZoneId ? "" : "Zone Name"}
+          checkValue={checkName}
+          onSubmit={nameSubmit}
+          onCancel={() => {
+            setInputNewName(false);
+            setRenameZoneId("");
+          }
+          } />
+      </div> : <>
+        <Menu>
+          <MenuButton className="text-white items-middle h-full px-2 shrink-1 rounded-sm bg-gray-600 cursor-pointer">
+            <span>{zone?.name}</span>
+            <ChevronDownIcon className="w-6 h-full inline-block ml-2 mb-1" />
+          </MenuButton>
+          <MenuItems anchor={"bottom"}
+            className="border-2 border-gray-400 shadow-2xl absolute rounded z-10 bg-gray-500  text-white">
+            {zones.map(z => (
+              <MenuItem key={z.id}>
+                <div className="flex flex-row items-center-safe justify-between not-last:border-b-2  border-gray-400">
+                  <Link className="flex-6 border-0 block px-2 py-1 hover:bg-gray-600" to={`/zones/${z.id}`}>
+                    {z.name}
+                  </Link>
+                  <div className="actions p-2 inline-block shrink-1 border-l-2 border-gray-400">
+                    <Button className="h-full cursor-pointer hover:text-gray-400 block" title="Edit Name"
+                      onClick={() => setRenameZoneId(z.id)}>
+                      <PencilIcon className="w-4 h-full" />
+                    </Button>
+                  </div>
+                </div>
+              </MenuItem>
+            ))}
+          </MenuItems>
+        </Menu>
+        <Button className="shrink-1 -mt-1 cursor-pointer hover:text-gray-700 text-white"
+          title="Create New Zone"
+          onClick={() => setInputNewName(true)} >
+          <PencilSquareIcon className="w-5 h-full inline-block" />
+        </Button>
+      </>
+    }
+  </>);
 }
 
 function Zone() {
@@ -192,18 +202,19 @@ function Zone() {
     </div>
     {selectedFactory &&
       <FactoryProvider idb={idb} zoneId={zoneId} id={selectedFactoryId} name={selectedFactory?.name || "Default Factory"} weights={baseWeights}>
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col h-full">
           <div className="factoryActions flex flex-row w-full h-10 bg-black">
             <FactoryControls />
           </div>
-
-          <Factory />
+          <div className="justify-self-stretch flex flex-row w-full h-[calc(100%-calc(10*var(--spacing)))]">
+            <Factory />
+          </div>
         </div>
 
         <Outlet />
       </FactoryProvider >
     } {!selectedFactory &&
-      <div className="flex-1 flex flex-col justify-center-safe items-center-safe bg-black">
+      <div className="h-full flex flex-col justify-center-safe items-center-safe bg-black">
         <h2 className="text-2xl mb-4">No Factory Selected</h2>
         <p>Please select a factory from the sidebar.</p>
       </div>

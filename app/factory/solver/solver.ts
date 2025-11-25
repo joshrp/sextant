@@ -65,6 +65,9 @@ const infrastructureProducts: { [key in keyof Partial<Solution["infrastructure"]
 export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraints: Set<string | null>, scoreMethod: string): string {
   let objectives: string[] = [];
   debug("Building LPP with score method '", scoreMethod, "'", graph.nodeIdToLabels);
+  // TODO:: All objectives should always be added, and always as negative values to maximize
+  // Infra and Footprint currently aren't negated
+  // If not it results in different scores for the same calaculation depending on what the goals are
   switch (scoreMethod) {
     case "inputs":
       objectives = graph.itemConstraints.values().map(c => {

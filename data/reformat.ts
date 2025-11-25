@@ -267,6 +267,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
         }
       }),
       isFarm: false, // TODO: Maybe don't need this?
+      isBalancer: false,
       electricity_consumed: rawMachine.electricity_consumed,
       electricity_generated: rawMachine.electricity_generated,
       computing_consumed: rawMachine.computing_consumed,
@@ -398,7 +399,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       workers: 0,
       recipes: [],
       buildCosts: [],
-
+      isBalancer: true,
       isFarm: false,
       electricity_consumed: 0,
       electricity_generated: 0,

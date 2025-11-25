@@ -30,7 +30,7 @@ export const ProductionZoneProvider = ({ zoneId, zoneName, children }: { zoneId:
       idb: idbRef.current!,
       store: storeRef.current,
       id: zoneId,
-      name: zoneName, // TODO:: Allow changing this?
+      name: zoneName,
       // Import a factory by creating a new Zuhstand store for it, and running the import there.
       // If that works, add it to the list of factories in this zone.
       importFactory: (data: GraphImportData) => {
@@ -68,12 +68,13 @@ export interface ProductionZoneStoreData {
     name: string
   }[],
   weights: {
-    base: "early" | "mid" | "late" | "end",
-    products: Map<ProductId, number>,
-    infrastructure: Map<string, number>,
+    base: "early" | "mid" | "late" | "end";
+    products: Map<ProductId, number>;
+    infrastructure: Map<string, number>;
   },
-  lastFactory: string | undefined,
-
+  lastFactory: string | undefined;
+  productDisplayMode: "icons" | "names";
+  setProductDisplayMode: (mode: "icons" | "names") => void;
   newFactory(name: string, id?: string): string;
   setLastFactory(id: string): void;
   renameFactory(id: string, newName: string): void;
@@ -97,7 +98,10 @@ const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
               infrastructure: new Map<string, number>(),
             },
             lastFactory: undefined,
-
+            productDisplayMode: "icons",
+            setProductDisplayMode: (mode: "icons" | "names") => {
+              set({ productDisplayMode: mode });
+            },
             newFactory: (name: string, id?: string) => {
               const settings = get();
               if (!id) id = factoryIdFromName(name);

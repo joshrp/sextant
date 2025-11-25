@@ -75,9 +75,9 @@ export function Factory() {
     setAddRecipeNode(null);
   }
 
-  return (
-    <div className="flex-1 justify-self-stretch flex flex-row w-full max-h-[90vh] min-h-[80vh]">
-      <div className="w-[25vw] resize-x overflow-x-hidden w-max-[50vw] overflow-y-scroll flex flex-col">
+  return (<>
+      <div className="min-w-30 w-[15vw] resize-x overflow-x-hidden w-max-[50vw] overflow-y-scroll 
+                      flex flex-col bg-black">
         <Sidebar addNewRecipe={addNewRecipe} />
       </div>
       <div className="flex-1">
@@ -88,7 +88,7 @@ export function Factory() {
         </div>
       </div>
       {addRecipeNode ? (
-        <SelectorDialog widthClassName="min-w-[90vw]" title={recipeSelectorProduct?.name} isOpen={addRecipeNode !== null} setIsOpen={blankRecipeSelectorProduct}>
+        <SelectorDialog widthClassName="" title={recipeSelectorProduct?.name} isOpen={addRecipeNode !== null} setIsOpen={blankRecipeSelectorProduct}>
           <RecipePicker
             productId={addRecipeNode.productId}
             selectRecipe={(recipeId) => {
@@ -97,6 +97,6 @@ export function Factory() {
             productIs={addRecipeNode.produce ? "output" : "input"} />
         </SelectorDialog>
       ) : ("")}
-    </div>
+      </>
   );
 }
