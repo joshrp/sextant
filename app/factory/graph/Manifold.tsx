@@ -6,6 +6,7 @@ import useFactory, { useFactoryStore } from "../FactoryContext";
 import type { Constraint } from "../solver/types";
 import { loadData, type Product } from "./loadJsonData";
 import { formatNumber } from "~/uiUtils";
+import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 
 type ManifoldProps = {
   manifoldId: string
@@ -27,7 +28,7 @@ type ManifoldRender = Product & {
   constraintId: string;
 }
 
-const {products, recipes} = loadData();
+const {products} = loadData();
 
 export default function Manifold(props: ManifoldProps) {
   const m = props.manifoldId;
@@ -55,11 +56,12 @@ export default function Manifold(props: ManifoldProps) {
     edges.forEach(e => {
       const edge = allEdges.find(x => x.id == e);
       if (!edge) return
-      const sourceRecipe = recipes.get(model.graph[edge.source].recipeId);
-      const targetRecipe = recipes.get(model.graph[edge.target].recipeId);
       
-      sourceRecipe?.inputs.map(p => inputs.add(p.product));
-      targetRecipe?.outputs.map(p => outputs.add(p.product));
+      const sourceInputs = getRecipeInputs(model.graph[edge.source].recipeId);
+      const targetOutputs = getRecipeOutputs(model.graph[edge.target].recipeId);
+      
+      sourceInputs.forEach(p => inputs.add(p));
+      targetOutputs.forEach(p => outputs.add(p));
     });
     return { inputs, outputs }
   }

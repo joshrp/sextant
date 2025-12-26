@@ -19,6 +19,7 @@ import type { FactoryGoal } from "~/factory/solver/types";
 import useProductionZone from "~/context/ZoneContext";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import hydration from "~/hydration";
+import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 
 const { products } = loadData();
 
@@ -314,20 +315,24 @@ function FactoryDebug() {
       "elk.layered.nodePlacement.favorStraightEdges": "true"
     },
     children: factoryStore.nodes.map(n => {
-      const ports = recipes.get(n.data.recipeId)?.inputs.map(i => ({
-        id: `${n.id}-in-${i.product.id}`,
-        product: i.product.id,
+      const inputs = getRecipeInputs(n.data.recipeId);
+      const outputs = getRecipeOutputs(n.data.recipeId);
+
+      const ports = inputs.map(product => ({
+        id: `${n.id}-in-${product.id}`,
+        product: product.id,
         properties: {
           "port.side": n.data.ltr ? "WEST" : "EAST",
         }
       }));
-      ports?.push(...recipes.get(n.data.recipeId)?.outputs.map(o => ({
-        id: `${n.id}-out-${o.product.id}`,
-        product: o.product.id,
+
+      ports.push(...outputs.map(product => ({
+        id: `${n.id}-out-${product.id}`,
+        product: product.id,
         properties: {
           "port.side": n.data.ltr ? "EAST" : "WEST",
         }
-      })) ?? []);
+      })));
 
       return {
         id: n.id,

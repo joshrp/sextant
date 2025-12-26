@@ -2,6 +2,7 @@ import { ChevronDownIcon, ClockIcon, PlusIcon } from "@heroicons/react/24/solid"
 import { useState } from "react";
 import { formatNumber, machineIcon } from "~/uiUtils";
 import { loadData, type ProductId, type Recipe, type RecipeId } from "./graph/loadJsonData";
+import { getRecipesByProduct } from "~/gameData/utils";
 
 const { products } = loadData();
 
@@ -22,17 +23,8 @@ export default function RecipePicker({
     return <div className="text-red-500">Product not found</div>;
   }
 
-  let recipesList: Recipe[] = [];
-  if (productIs === "input" || productIs === "any") {
-    recipesList = recipesList.concat(product.recipes.input);
-  }
-  if (productIs === "output" || productIs === "any") {
-    recipesList = recipesList.concat(product.recipes.output);
-  }
-
-  if (!product) {
-    return <div className="text-red-500">Product not found</div>;
-  }
+  const direction = productIs === "any" ? "both" : productIs;
+  const recipesList = getRecipesByProduct(productId, direction);
 
   if (recipesList.length === 0) {
     return <div className="text-gray-500">No recipes available for {product.name} {productIs !== "any" ? `as an ${productIs}` : ""}</div>;

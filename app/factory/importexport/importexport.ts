@@ -1,5 +1,6 @@
 import { loadData, type ProductId, type RecipeId } from "../graph/loadJsonData";
 import type { GraphCoreData, GraphImportData } from "../store";
+import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 
 import hydration from "~/hydration";
 
@@ -138,10 +139,14 @@ class Unminify {
         if (nodes.has(e[3]) === false) {
           throw new Error("Unknown target node in edge: " + e[3]);
         }
-        if (recipes.get(nodes.get(e[2])!)?.outputs.find(i => i.product.id === e[1]) === undefined) {
+        
+        const sourceOutputs = getRecipeOutputs(nodes.get(e[2])!);
+        const targetInputs = getRecipeInputs(nodes.get(e[3])!);
+        
+        if (!sourceOutputs.some(p => p.id === e[1])) {
           throw new Error("Product " + e[1] + " for edge not found in source recipe outputs in " + nodes.get(e[2]));
         }
-        if (recipes.get(nodes.get(e[3])!)?.inputs.find(o => o.product.id === e[1]) === undefined) {
+        if (!targetInputs.some(p => p.id === e[1])) {
           throw new Error("Product " + e[1] + " for edge not found in target recipe inputs in " + nodes.get(e[3]));
         }
         return {
