@@ -28,8 +28,10 @@ export interface PlannerStoreData {
     name: string
   }[],
   lastSettingsTab: string,
+  lastZone: string | undefined,
   newZone(name: string): void;
   renameZone(id: string, newName: string): void;
+  setLastZone(zoneId: string): void;
 };
 
 const Store = () => {
@@ -45,6 +47,7 @@ const Store = () => {
             order: 0,
           }],
           lastSettingsTab: "weights",
+          lastZone: undefined,
 
           newZone: (name: string) => {
             const settings = get();
@@ -69,6 +72,9 @@ const Store = () => {
             set({
               zones: [...settings.zones]
             });
+          },
+          setLastZone: (zoneId: string) => {
+            set({ lastZone: zoneId });
           }
         })
       ),

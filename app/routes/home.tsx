@@ -60,6 +60,7 @@ export default function Home() {
   const selectedZone = useStableParam("zone");
   const zones = usePlannerStore(state => state.zones);
   const zone = zones.find(z => z.id === selectedZone);
+  const setLastZone = usePlannerStore(state => state.setLastZone);
 
   const [images, setImages] = useState<string[]>([]);
   useEffect(() => {
@@ -72,6 +73,13 @@ export default function Home() {
     newImg.push(uiIcon("Maintenance"));
     setImages(newImg);
   }, [products, machines]);
+
+  // Update last used zone whenever zone changes
+  useEffect(() => {
+    if (zone) {
+      setLastZone(selectedZone);
+    }
+  }, [selectedZone, zone, setLastZone]);
 
   return <>
     <main className="h-[100vh] w-[100vw] overflow-hidden bg-gray-500">
