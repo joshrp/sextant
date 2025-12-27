@@ -1,10 +1,11 @@
 import highsLoader, { type Highs, type HighsOptions, type HighsSolution } from "highs";
-import { loadData, type ProductId, type Recipe } from "../graph/loadJsonData";
+import { loadData, type ProductId } from "../graph/loadJsonData";
 
 import { maintenanceKey } from "~/uiUtils";
 import type { CustomEdgeType } from '../graph/edges';
 import type { CustomNodeType } from '../graph/nodes';
-import { type Constraint, type EqualityTypes, type FactoryGoal, type GraphModel, type GraphScoringMethod, type ManifoldOptions, type NodeConnection, type NodeConnections, type OpenConnections, type Solution } from "./types";
+import { type Constraint, type FactoryGoal, type GraphModel, type GraphScoringMethod, type ManifoldOptions, type NodeConnections, type Solution } from "./types";
+import { buildNodeConnections, filterAndSortSolutions, findOptionalTerms, getEquality, getInfrastructureWeight, inputMatcher, makeVertexId, outputMatcher, parseHighsSolution, shouldSkipConstraint } from "./solverUtils";
 
 const recipeData = loadData().recipes;
 let highsProm: Promise<Highs>;
@@ -70,9 +71,9 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
   // If not it results in different scores for the same calaculation depending on what the goals are
   switch (scoreMethod) {
     case "inputs":
-      objectives = graph.itemConstraints.values().map(c => {
+      objectives = Array.from(graph.itemConstraints.values()).map(c => {
         return c.match(inputMatcher) !== null ? c : null;
-      }).toArray().filter(x => x !== null);
+      }).filter(x => x !== null);
       objectives.push("-0.01 " + infraConstraintId); // Slightly prefer solutions with less infrastructure and footprint
       objectives.push("-0.01 in_footprint");
       break;
@@ -86,9 +87,9 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
       objectives = ["in_footprint"];
       break;
     case "outputs":
-      objectives = graph.itemConstraints.values().map(c => {
+      objectives = Array.from(graph.itemConstraints.values()).map(c => {
         return c.match(outputMatcher) !== null ? c : null;
-      }).toArray().filter(x => x !== null);
+      }).filter(x => x !== null);
       break;
     default:
       throw new Error("Unknown score method " + scoreMethod);
@@ -102,13 +103,7 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
     if (con.unconnected && goals.find(g => g.productId == con.productId)) continue;
 
     // Find any optional terms, they need appropriate sinks
-    const optionals = con.terms.reduce((acc, t) => {
-      if (t.optional) {
-        if (t.isInput) acc.input = true;
-        else acc.output = true;
-      }
-      return acc;
-    }, { input: false, output: false, });
+    const optionals = findOptionalTerms(con.terms);
 
     // If there's optional inputs and outputs, it can be free
     if (optionals.input && optionals.output)
@@ -224,9 +219,8 @@ export async function solve(
       // Start with the original free constraints, then add the rest
       const newFreeConstraints = new Set(freeConstraints);
       const constraint = graph.constraints[c];
-      const parentFree = constraint.parent && newFreeConstraints.has(constraint.parent);
-      const childFree = (constraint.children || []).some(c => newFreeConstraints.has(c));
-      if (constraint.unconnected || newFreeConstraints.has(constraint.id) || parentFree || childFree) {
+      
+      if (shouldSkipConstraint(constraint, newFreeConstraints)) {
         debug("Skipping constraint", constraint.id, "as it or it's parent is already free");
         return;
       }
@@ -246,11 +240,7 @@ export async function solve(
     }));
     // Order working solutions by their distance from the previous solution result. Closer is better
     const targetValue = previousSolution || 0;
-    const working = solutions.filter(x => x.solution?.Status == "Optimal" && x.solution?.ObjectiveValue > 0).sort((a, b) => {
-      const aObj = Math.abs(targetValue - (a.solution?.ObjectiveValue || 0));
-      const bObj = Math.abs(targetValue - (b.solution?.ObjectiveValue || 0));
-      return aObj - bObj;
-    });
+    const working = filterAndSortSolutions(solutions, targetValue);
 
     debug("Solutions found", working.length, "with optimal status");
     if (working.length > 0) {
@@ -273,72 +263,6 @@ export async function solve(
   return "Infeasible";
 }
 
-function parseHighsNumberResult(num: number): number {
-  if (isNaN(num) || !isFinite(num)) return 0;
-  return Math.round(num * 1e9) / 1e9;
-}
-
-function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: FactoryGoal[], scoreMethod: GraphScoringMethod): Solution {
-  if (res.Status !== "Optimal") throw new Error("Cannot parse solution, not optimal");
-
-  const nodeResults: Solution["nodeCounts"] = [];
-  const productResults: Solution["products"] = { inputs: [], outputs: [] };
-  const manifoldResults: Solution["manifolds"] = {};
-  const manifoldsSet = new Set(Object.keys(graph.constraints));
-  const infraResults: Solution["infrastructure"] = {
-    workers: 0, electricity: 0, computing: 0, maintenance_1: 0, maintenance_2: 0, maintenance_3: 0, footprint: 0,
-  };
-
-  Object.keys(res.Columns).forEach(k => {
-    const nodeLabel = k.match(nodeLabelMatcher)?.[0]
-    if (nodeLabel) {
-      const node = Object.keys(graph.nodeIdToLabels).find(l => graph.nodeIdToLabels[l] == nodeLabel);
-      if (node) nodeResults.push({
-        nodeId: node,
-        count: parseHighsNumberResult(res.Columns[nodeLabel].Primal),
-      });
-    }
-
-    const outputLabel = k.match(outputMatcher)?.[1]
-    if (outputLabel)
-      productResults?.outputs.push({
-        productId: outputLabel as ProductId,
-        amount: parseHighsNumberResult(res.Columns[k].Primal)
-      });
-
-    const inputLabel = k.match(inputMatcher)?.[1]
-    if (inputLabel)
-      productResults?.inputs.push({
-        productId: inputLabel as ProductId,
-        amount: parseHighsNumberResult(res.Columns[k].Primal)
-      });
-
-    const infraLabel = k.match(infraMatcher)?.[1]
-    if (infraLabel)
-      infraResults[infraLabel as keyof Solution["infrastructure"]] = parseHighsNumberResult(res.Columns[k].Primal);
-
-    if (manifoldsSet.has(k)) {
-      manifoldResults[k] = parseHighsNumberResult(res.Columns[k].Primal);
-    }
-  });
-
-  return {
-    goals: goals.map(goal => {
-      const columnPrefix = goal.dir == "input" ? "i" : "o";
-      return {
-        goal,
-        resultCount: res.Columns[columnPrefix + "_" + goal.productId]?.Primal
-      };
-    }),
-    scoringMethod: scoreMethod,
-    products: productResults,
-    nodeCounts: nodeResults,
-    manifolds: manifoldResults,
-    infrastructure: infraResults,
-    ObjectiveValue: res.ObjectiveValue,
-  }
-}
-
 export default class Solver {
   private nodeLabelInc: number = 0;
   private visitedVertices: Set<string> = new Set();
@@ -352,7 +276,7 @@ export default class Solver {
   public itemConstraints: Map<ProductId, string> = new Map();
 
   constructor(nodes: CustomNodeType[], edges: CustomEdgeType[]) {
-    this.graph = buildNodeConnections(nodes, edges);
+    this.graph = buildNodeConnections(nodes, edges, recipeData);
     this.fillConstraints();
   }
 
@@ -564,20 +488,7 @@ export default class Solver {
 
     for (const key of Object.keys(infrastructureProducts) as (keyof Solution["infrastructure"])[]) {
       const infraId = "in_" + key;
-      // TODO:: Add weights to these based on user settings
-      let weight = 1;
-      switch (key) {
-        case "electricity":
-        case "computing":
-          weight = 0.01;
-          break;
-        case "maintenance_2":
-          weight = 10;
-          break;
-        case "maintenance_3":
-          weight = 50;
-          break;
-      }
+      const weight = getInfrastructureWeight(key);
 
       infraConstraint.terms.push({
         id: infraId,
@@ -683,80 +594,6 @@ export default class Solver {
   }
 }
 
-function buildNodeConnections(nodes: CustomNodeType[], edges: CustomEdgeType[]): NodeConnections {
-  const nodesById: Record<string, CustomNodeType> = {};
-
-  const nodeRecipe = {} as Record<string, Recipe>;
-
-  const nodeConnections: NodeConnections = {};
-  const openConnections: OpenConnections = {
-    inputs: {},
-    outputs: {},
-  };
-
-  const nodeOrder = {} as Record<string, number>;
-  nodes.forEach((node, index) => {
-    nodesById[node.id] = node;
-    nodeOrder[node.id] = index;
-    nodeRecipe[node.id] = recipeData.get(node.data.recipeId)!;
-    const inputs: NodeConnection["inputs"] = {};
-    const outputs: NodeConnection["outputs"] = {};
-
-    nodeRecipe[node.id].inputs.forEach(input => {
-      inputs[input.product.id] = [];
-      (openConnections.inputs[input.product.id] ||= []).push(node.id)
-    });
-
-    nodeRecipe[node.id].outputs.forEach(output => {
-      outputs[output.product.id] = [];
-      (openConnections.outputs[output.product.id] ||= []).push(node.id)
-    });
-
-    nodeConnections[node.id] = {
-      recipeId: node.data.recipeId,
-      inputs: inputs,
-      outputs: outputs,
-    };
-  });
-
-  edges.forEach(edge => {
-    const productId = edge.targetHandle as ProductId;
-
-    // Some sanity checks first
-    if (!productId) {
-      console.error("Item error on node", edge.target);
-      throw new Error("No item found on node");
-    }
-
-    if (edge.targetHandle !== edge.sourceHandle) {
-      console.error("Error matching source", edge.sourceHandle, "and target", edge.targetHandle);
-      throw new Error("Source and Target type do not match, something is wrong");
-    }
-
-    (nodeConnections[edge.target].inputs[productId] ||= []).push({ nodeId: edge.source, edgeId: edge.id });
-    (nodeConnections[edge.source].outputs[productId] ||= []).push({ nodeId: edge.target, edgeId: edge.id });
-
-    // Update open connections list so we know this Product is connected to something
-    if (openConnections.inputs[productId] !== undefined) {
-      openConnections.inputs[productId] = openConnections.inputs[productId].filter(n => n != edge.target)
-      if (openConnections.inputs[productId].length === 0)
-        delete openConnections.inputs[productId];
-    }
-    if (openConnections.outputs[productId] !== undefined) {
-      openConnections.outputs[productId] = openConnections.outputs[productId]?.filter(n => n != edge.source)
-      if (openConnections.outputs[productId]?.length === 0)
-        delete openConnections.outputs[productId];
-    }
-  });
-
-  return nodeConnections;
-}
-
-const nodeLabelMatcher = /^n_\d+/;
-const inputMatcher = /^i_(.+)$/;
-const outputMatcher = /^o_(.+)$/;
-const infraMatcher = /^in_(.+)$/;
-
 // Instead of exporting a variable, export a setter function
 let DEBUG_SOLVER = true;
 export function setDebugSolver(val: boolean) {
@@ -766,19 +603,4 @@ export function setDebugSolver(val: boolean) {
 const debug = (...args: any[]) => {
   if (DEBUG_SOLVER)
     console.debug(...args);
-}
-
-const makeVertexId = (node: string, io: string, product: string) => {
-  return `${node}/${io}/${product}`
-}
-
-const getEquality = (type: EqualityTypes) => {
-  switch (type) {
-    case "eq":
-      return "=";
-    case "gt":
-      return ">=";
-    case "lt":
-      return "<=";
-  }
 }
