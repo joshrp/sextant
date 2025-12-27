@@ -1,0 +1,815 @@
+{
+  "factory": [
+    1,
+    "Nuclear 1",
+    [
+      [
+        "n",
+        "PowerGeneratorT2_1764163946538",
+        1265.4663285040879,
+        -7.382374176814494,
+        "PowerGeneratorT2",
+        true
+      ],
+      [
+        "n",
+        "TurbineHighPressT2_1764163951683",
+        -66.20746401816132,
+        129.2762713720221,
+        "TurbineHighPressT2",
+        true
+      ],
+      [
+        "n",
+        "TurbineLowPressT2_1764163961005",
+        520.0854573662557,
+        184.76416912281576,
+        "TurbineLowPressT2",
+        true
+      ],
+      [
+        "n",
+        "DesalinationFromDepleted_1764164008914",
+        -35.3329298824583,
+        505.45451493800954,
+        "DesalinationFromDepleted",
+        false
+      ],
+      [
+        "n",
+        "Balancer_Product_SteamDepleted_1764164015282",
+        548.777098848864,
+        562.8484167064004,
+        "Balancer_Product_SteamDepleted",
+        false
+      ],
+      [
+        "n",
+        "SteamDepletedCondensationT2_1764164025024",
+        -34.53036818659439,
+        854.0361537907484,
+        "SteamDepletedCondensationT2",
+        false
+      ],
+      [
+        "n",
+        "Balancer_Product_Water_1764164030778",
+        -621.511338207502,
+        634.7561366008805,
+        "Balancer_Product_Water",
+        false
+      ],
+      [
+        "n",
+        "UraniumEnrichment_1764164106892",
+        -2075.350071385312,
+        74.65970150894526,
+        "UraniumEnrichment",
+        true
+      ],
+      [
+        "n",
+        "UraniumLeaching_1764164111527",
+        -2589,
+        52.99999999999997,
+        "UraniumLeaching",
+        true
+      ],
+      [
+        "n",
+        "SpentFuelReprocessing_1764164147916",
+        -569.1885987981245,
+        -538.3143313302081,
+        "SpentFuelReprocessing",
+        true
+      ],
+      [
+        "n",
+        "GlassSmeltingArcT1_1764164160568",
+        -1079.497069871667,
+        -523.2514650641663,
+        "GlassSmeltingArcT1",
+        true
+      ],
+      [
+        "n",
+        "GlassMixMixingWithAcidT2_1764164171039",
+        -1578.4970698716672,
+        -500.9685668669792,
+        "GlassMixMixingWithAcidT2",
+        true
+      ],
+      [
+        "n",
+        "FluorideLeaching_1764164180039",
+        -2581,
+        453,
+        "FluorideLeaching",
+        true
+      ],
+      [
+        "n",
+        "NuclearReactorT22_1764164453401",
+        -1085.7330483811752,
+        23.15815370695543,
+        "NuclearReactorT22",
+        true
+      ],
+      [
+        "n",
+        "UraniumCrushingT2_1764164547240",
+        -3086.624504589828,
+        48.91822303004153,
+        "UraniumCrushingT2",
+        true
+      ],
+      [
+        "n",
+        "UraniumRodsAssemblyT1_1764164557027",
+        -1588.9108664904804,
+        83.51301645002968,
+        "UraniumRodsAssemblyT1",
+        true
+      ],
+      [
+        "n",
+        "MoxRodsAssemblyT1_1764164607171",
+        -44.98316659615989,
+        -803.0588106006576,
+        "MoxRodsAssemblyT1",
+        true
+      ],
+      [
+        "n",
+        "Balancer_Product_UraniumDepleted_1764164639098",
+        -1585.0000000000002,
+        -1199.0863072927036,
+        "Balancer_Product_UraniumDepleted",
+        true
+      ],
+      [
+        "n",
+        "Balancer_Product_UraniumDepleted_1764164657525",
+        -1574.0863072927036,
+        -823.6600957934368,
+        "Balancer_Product_UraniumDepleted",
+        true
+      ],
+      [
+        "n",
+        "NuclearReactorT21_1764164704145",
+        -66.42467566216442,
+        -215.5639562995584,
+        "NuclearReactorT21",
+        false
+      ],
+      [
+        "n",
+        "ReprocessedUraniumEnrichment_1764164852619",
+        -1598.6947220410154,
+        465.5300995619672,
+        "ReprocessedUraniumEnrichment",
+        false
+      ],
+      [
+        "n",
+        "Balancer_Product_Acid_1764573767785",
+        -2529.7602554491646,
+        -451.22003193114557,
+        "Balancer_Product_Acid",
+        true
+      ],
+      [
+        "n",
+        "AcidMixMixingT2_1764573792084",
+        -3088.1513054084385,
+        -489.68566866979205,
+        "AcidMixMixingT2",
+        true
+      ],
+      [
+        "n",
+        "ToxicSlurryTreatment_1766239099290",
+        -2594.620987126661,
+        840.9028974337411,
+        "ToxicSlurryTreatment",
+        false
+      ],
+      [
+        "n",
+        "FilterMediaMixingMT2_1766239106797",
+        -2588.918950834397,
+        1256.517619632605,
+        "FilterMediaMixingMT2",
+        true
+      ]
+    ],
+    [
+      [
+        "b",
+        "Product_Virtual_MechPower",
+        "TurbineHighPressT2_1764163951683",
+        "PowerGeneratorT2_1764163946538"
+      ],
+      [
+        "b",
+        "Product_SteamLP",
+        "TurbineHighPressT2_1764163951683",
+        "TurbineLowPressT2_1764163961005"
+      ],
+      [
+        "b",
+        "Product_Virtual_MechPower",
+        "TurbineLowPressT2_1764163961005",
+        "PowerGeneratorT2_1764163946538"
+      ],
+      [
+        "b",
+        "Product_SteamDepleted",
+        "TurbineLowPressT2_1764163961005",
+        "Balancer_Product_SteamDepleted_1764164015282"
+      ],
+      [
+        "b",
+        "Product_SteamDepleted",
+        "Balancer_Product_SteamDepleted_1764164015282",
+        "DesalinationFromDepleted_1764164008914"
+      ],
+      [
+        "b",
+        "Product_SteamDepleted",
+        "Balancer_Product_SteamDepleted_1764164015282",
+        "SteamDepletedCondensationT2_1764164025024"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "SteamDepletedCondensationT2_1764164025024",
+        "Balancer_Product_Water_1764164030778"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "DesalinationFromDepleted_1764164008914",
+        "Balancer_Product_Water_1764164030778"
+      ],
+      [
+        "b",
+        "Product_Yellowcake",
+        "UraniumLeaching_1764164111527",
+        "UraniumEnrichment_1764164106892"
+      ],
+      [
+        "b",
+        "Product_MoltenGlass",
+        "GlassSmeltingArcT1_1764164160568",
+        "SpentFuelReprocessing_1764164147916"
+      ],
+      [
+        "b",
+        "Product_GlassMix",
+        "GlassMixMixingWithAcidT2_1764164171039",
+        "GlassSmeltingArcT1_1764164160568"
+      ],
+      [
+        "b",
+        "Product_HydrogenFluoride",
+        "FluorideLeaching_1764164180039",
+        "UraniumEnrichment_1764164106892"
+      ],
+      [
+        "b",
+        "Product_SteamHi",
+        "NuclearReactorT22_1764164453401",
+        "TurbineHighPressT2_1764163951683"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1764164030778",
+        "NuclearReactorT22_1764164453401"
+      ],
+      [
+        "b",
+        "Product_UraniumOreCrushed",
+        "UraniumCrushingT2_1764164547240",
+        "UraniumLeaching_1764164111527"
+      ],
+      [
+        "b",
+        "Product_UraniumRod",
+        "UraniumRodsAssemblyT1_1764164557027",
+        "NuclearReactorT22_1764164453401"
+      ],
+      [
+        "b",
+        "Product_UraniumEnriched",
+        "UraniumEnrichment_1764164106892",
+        "UraniumRodsAssemblyT1_1764164557027"
+      ],
+      [
+        "b",
+        "Product_SpentFuel",
+        "NuclearReactorT22_1764164453401",
+        "SpentFuelReprocessing_1764164147916"
+      ],
+      [
+        "b",
+        "Product_Plutonium",
+        "SpentFuelReprocessing_1764164147916",
+        "MoxRodsAssemblyT1_1764164607171"
+      ],
+      [
+        "b",
+        "Product_UraniumDepleted",
+        "UraniumEnrichment_1764164106892",
+        "Balancer_Product_UraniumDepleted_1764164639098"
+      ],
+      [
+        "b",
+        "Product_UraniumDepleted",
+        "UraniumEnrichment_1764164106892",
+        "Balancer_Product_UraniumDepleted_1764164657525"
+      ],
+      [
+        "b",
+        "Product_UraniumDepleted",
+        "Balancer_Product_UraniumDepleted_1764164657525",
+        "MoxRodsAssemblyT1_1764164607171"
+      ],
+      [
+        "b",
+        "Product_MoxRod",
+        "MoxRodsAssemblyT1_1764164607171",
+        "NuclearReactorT21_1764164704145"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1764164030778",
+        "NuclearReactorT21_1764164704145"
+      ],
+      [
+        "b",
+        "Product_SteamHi",
+        "NuclearReactorT21_1764164704145",
+        "TurbineHighPressT2_1764163951683"
+      ],
+      [
+        "b",
+        "Product_UraniumReprocessed",
+        "SpentFuelReprocessing_1764164147916",
+        "ReprocessedUraniumEnrichment_1764164852619"
+      ],
+      [
+        "b",
+        "Product_UraniumEnriched",
+        "ReprocessedUraniumEnrichment_1764164852619",
+        "UraniumRodsAssemblyT1_1764164557027"
+      ],
+      [
+        "b",
+        "Product_HydrogenFluoride",
+        "FluorideLeaching_1764164180039",
+        "ReprocessedUraniumEnrichment_1764164852619"
+      ],
+      [
+        "b",
+        "Product_Acid",
+        "Balancer_Product_Acid_1764573767785",
+        "SpentFuelReprocessing_1764164147916"
+      ],
+      [
+        "b",
+        "Product_Acid",
+        "Balancer_Product_Acid_1764573767785",
+        "UraniumLeaching_1764164111527"
+      ],
+      [
+        "b",
+        "Product_Acid",
+        "Balancer_Product_Acid_1764573767785",
+        "FluorideLeaching_1764164180039"
+      ],
+      [
+        "b",
+        "Product_Acid",
+        "Balancer_Product_Acid_1764573767785",
+        "GlassMixMixingWithAcidT2_1764164171039"
+      ],
+      [
+        "b",
+        "Product_Acid",
+        "AcidMixMixingT2_1764573792084",
+        "Balancer_Product_Acid_1764573767785"
+      ],
+      [
+        "b",
+        "Product_ToxicSlurry",
+        "UraniumLeaching_1764164111527",
+        "ToxicSlurryTreatment_1766239099290"
+      ],
+      [
+        "b",
+        "Product_FilterMedia",
+        "FilterMediaMixingMT2_1766239106797",
+        "ToxicSlurryTreatment_1766239099290"
+      ]
+    ],
+    [
+      [
+        "Product_Virtual_Electricity",
+        300000,
+        "eq",
+        true
+      ]
+    ]
+  ],
+  "manifoldOptions": [],
+  "scoringMethod": "infra",
+  "previousSolutionObjectiveValue": 5283.738333333333,
+  "expected": {
+    "objectiveValue": 5283.738333333333,
+    "nodeCounts": [
+      {
+        "nodeId": "PowerGeneratorT2_1764163946538",
+        "count": 20
+      },
+      {
+        "nodeId": "DesalinationFromDepleted_1764164008914",
+        "count": 16
+      },
+      {
+        "nodeId": "UraniumLeaching_1764164111527",
+        "count": 3.25
+      },
+      {
+        "nodeId": "GlassSmeltingArcT1_1764164160568",
+        "count": 0.0833333
+      },
+      {
+        "nodeId": "GlassMixMixingWithAcidT2_1764164171039",
+        "count": 0.0208333
+      },
+      {
+        "nodeId": "FluorideLeaching_1764164180039",
+        "count": 0.666667
+      },
+      {
+        "nodeId": "UraniumCrushingT2_1764164547240",
+        "count": 1.625
+      },
+      {
+        "nodeId": "UraniumRodsAssemblyT1_1764164557027",
+        "count": 2
+      },
+      {
+        "nodeId": "AcidMixMixingT2_1764573792084",
+        "count": 0.645833
+      },
+      {
+        "nodeId": "ToxicSlurryTreatment_1766239099290",
+        "count": 1.08333
+      },
+      {
+        "nodeId": "FilterMediaMixingMT2_1766239106797",
+        "count": 0.0902778
+      },
+      {
+        "nodeId": "PowerGeneratorT2_1764163946538",
+        "count": 20
+      },
+      {
+        "nodeId": "TurbineHighPressT2_1764163951683",
+        "count": 20
+      },
+      {
+        "nodeId": "TurbineLowPressT2_1764163961005",
+        "count": 20
+      },
+      {
+        "nodeId": "DesalinationFromDepleted_1764164008914",
+        "count": 16
+      },
+      {
+        "nodeId": "SteamDepletedCondensationT2_1764164025024",
+        "count": 6
+      },
+      {
+        "nodeId": "UraniumEnrichment_1764164106892",
+        "count": 6.5
+      },
+      {
+        "nodeId": "UraniumLeaching_1764164111527",
+        "count": 3.25
+      },
+      {
+        "nodeId": "SpentFuelReprocessing_1764164147916",
+        "count": 0.5
+      },
+      {
+        "nodeId": "GlassSmeltingArcT1_1764164160568",
+        "count": 0.0833333
+      },
+      {
+        "nodeId": "GlassMixMixingWithAcidT2_1764164171039",
+        "count": 0.0208333
+      },
+      {
+        "nodeId": "FluorideLeaching_1764164180039",
+        "count": 0.666667
+      },
+      {
+        "nodeId": "NuclearReactorT22_1764164453401",
+        "count": 2
+      },
+      {
+        "nodeId": "UraniumCrushingT2_1764164547240",
+        "count": 1.625
+      },
+      {
+        "nodeId": "UraniumRodsAssemblyT1_1764164557027",
+        "count": 2
+      },
+      {
+        "nodeId": "MoxRodsAssemblyT1_1764164607171",
+        "count": 0.5
+      },
+      {
+        "nodeId": "NuclearReactorT21_1764164704145",
+        "count": 0.5
+      },
+      {
+        "nodeId": "ReprocessedUraniumEnrichment_1764164852619",
+        "count": 1.5
+      },
+      {
+        "nodeId": "AcidMixMixingT2_1764573792084",
+        "count": 0.645833
+      },
+      {
+        "nodeId": "ToxicSlurryTreatment_1766239099290",
+        "count": 1.08333
+      },
+      {
+        "nodeId": "FilterMediaMixingMT2_1766239106797",
+        "count": 0.0902778
+      },
+      {
+        "nodeId": "TurbineHighPressT2_1764163951683",
+        "count": 20
+      },
+      {
+        "nodeId": "TurbineLowPressT2_1764163961005",
+        "count": 20
+      },
+      {
+        "nodeId": "UraniumEnrichment_1764164106892",
+        "count": 6.5
+      },
+      {
+        "nodeId": "SpentFuelReprocessing_1764164147916",
+        "count": 0.5
+      },
+      {
+        "nodeId": "NuclearReactorT22_1764164453401",
+        "count": 2
+      },
+      {
+        "nodeId": "MoxRodsAssemblyT1_1764164607171",
+        "count": 0.5
+      },
+      {
+        "nodeId": "NuclearReactorT21_1764164704145",
+        "count": 0.5
+      },
+      {
+        "nodeId": "ReprocessedUraniumEnrichment_1764164852619",
+        "count": 1.5
+      },
+      {
+        "nodeId": "Balancer_Product_SteamDepleted_1764164015282",
+        "count": 960
+      },
+      {
+        "nodeId": "SteamDepletedCondensationT2_1764164025024",
+        "count": 6
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1764164030778",
+        "count": 960
+      },
+      {
+        "nodeId": "Balancer_Product_UraniumDepleted_1764164639098",
+        "count": 14.25
+      },
+      {
+        "nodeId": "Balancer_Product_UraniumDepleted_1764164657525",
+        "count": 2
+      },
+      {
+        "nodeId": "Balancer_Product_Acid_1764573767785",
+        "count": 46.5
+      },
+      {
+        "nodeId": "Balancer_Product_SteamDepleted_1764164015282",
+        "count": 960
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1764164030778",
+        "count": 960
+      },
+      {
+        "nodeId": "Balancer_Product_UraniumDepleted_1764164639098",
+        "count": 14.25
+      },
+      {
+        "nodeId": "Balancer_Product_UraniumDepleted_1764164657525",
+        "count": 2
+      },
+      {
+        "nodeId": "Balancer_Product_Acid_1764573767785",
+        "count": 46.5
+      }
+    ],
+    "infrastructure": {
+      "workers": 778,
+      "electricity": 43129.7,
+      "computing": 42,
+      "maintenance_1": 195.361,
+      "maintenance_2": 381,
+      "maintenance_3": 0,
+      "footprint": 6866,
+      "frastructure_total": 5215.08
+    },
+    "products": {
+      "inputs": [
+        {
+          "productId": "Product_Seawater",
+          "amount": -240
+        },
+        {
+          "productId": "Product_Graphite",
+          "amount": -0.25
+        },
+        {
+          "productId": "Product_Sand",
+          "amount": -2
+        },
+        {
+          "productId": "Product_Limestone",
+          "amount": -0.5
+        },
+        {
+          "productId": "Product_Salt",
+          "amount": -0.25
+        },
+        {
+          "productId": "Product_Rock",
+          "amount": -8
+        },
+        {
+          "productId": "Product_UraniumOre",
+          "amount": -117
+        },
+        {
+          "productId": "Product_Steel",
+          "amount": -2
+        },
+        {
+          "productId": "Product_Sulfur",
+          "amount": -7.75
+        },
+        {
+          "productId": "Product_Water",
+          "amount": -38.75
+        },
+        {
+          "productId": "Product_Brine",
+          "amount": -19.5
+        },
+        {
+          "productId": "Product_Gravel",
+          "amount": -4.33333
+        },
+        {
+          "productId": "Product_ManufacturedSand",
+          "amount": -2.16667
+        },
+        {
+          "productId": "Product_Coal",
+          "amount": -0.541667
+        }
+      ],
+      "outputs": [
+        {
+          "productId": "Product_Virtual_Electricity",
+          "amount": 300000
+        },
+        {
+          "productId": "Product_Brine",
+          "amount": 96
+        },
+        {
+          "productId": "Product_FissionProduct",
+          "amount": 1
+        },
+        {
+          "productId": "Product_Slag",
+          "amount": 68
+        },
+        {
+          "productId": "Product_Exhaust",
+          "amount": 0.5
+        },
+        {
+          "productId": "Product_UraniumDepleted",
+          "amount": 16.5
+        },
+        {
+          "productId": "Product_SpentMox",
+          "amount": 1
+        },
+        {
+          "productId": "Product_Water",
+          "amount": 39
+        }
+      ]
+    },
+    "manifolds": {
+      "in_frastructure_total": 5215.08,
+      "in_footprint": 6866,
+      "in_workers": 778,
+      "in_electricity": 43129.7,
+      "in_computing": 42,
+      "in_maintenance_1": 195.361,
+      "in_maintenance_2": 381,
+      "c0": 0,
+      "c1": 0,
+      "c2": 0,
+      "o_Product_Virtual_Electricity": 300000,
+      "c3": 0,
+      "c4": 0,
+      "c5": 0,
+      "c6": 0,
+      "c7": 0,
+      "i_Product_Seawater": -240,
+      "c8": 0,
+      "c9": 0,
+      "c10": 0,
+      "c11": 0,
+      "c12": 0,
+      "c13": 0,
+      "o_Product_Brine": 96,
+      "c14": 0,
+      "c15": 0,
+      "c16": 0,
+      "c17": 0,
+      "c18": 0,
+      "c19": 0,
+      "c20": 0,
+      "c21": 0,
+      "c22": 0,
+      "c23": 0,
+      "c24": 0,
+      "c25": 0,
+      "c26": 0,
+      "c27": 0,
+      "c28": 0,
+      "c29": 0,
+      "c30": 0,
+      "c31": 0,
+      "c32": 0,
+      "c33": 0,
+      "c34": 0,
+      "c35": 0,
+      "c36": 0,
+      "c37": 0,
+      "o_Product_FissionProduct": 1,
+      "c38": 0,
+      "i_Product_Graphite": -0.25,
+      "o_Product_Slag": 68,
+      "o_Product_Exhaust": 0.5,
+      "i_Product_Sand": -2,
+      "i_Product_Limestone": -0.5,
+      "i_Product_Salt": -0.25,
+      "i_Product_Rock": -8,
+      "c39": 0,
+      "i_Product_UraniumOre": -117,
+      "i_Product_Steel": -2,
+      "c40": 0,
+      "c41": 0,
+      "o_Product_UraniumDepleted": 16.5,
+      "o_Product_SpentMox": 1,
+      "c42": 0,
+      "i_Product_Sulfur": -7.75,
+      "i_Product_Water": -38.75,
+      "c43": 0,
+      "i_Product_Brine": -19.5,
+      "o_Product_Water": 39,
+      "i_Product_Gravel": -4.33333,
+      "i_Product_ManufacturedSand": -2.16667,
+      "i_Product_Coal": -0.541667
+    }
+  }
+}

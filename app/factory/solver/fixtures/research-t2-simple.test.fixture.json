@@ -1,0 +1,408 @@
+{
+  "factory": [
+    1,
+    "Vehicles",
+    [
+      [
+        "n",
+        "VehicleParts2AssemblyT1_1760348621464",
+        638.1321990048361,
+        9.37348914034689,
+        "VehicleParts2AssemblyT1",
+        true
+      ],
+      [
+        "n",
+        "VehicleParts1AssemblyT2_1760348626766",
+        -365,
+        5,
+        "VehicleParts1AssemblyT2",
+        true
+      ],
+      [
+        "n",
+        "MechPartsAssemblyT3_1760348633329",
+        -1071.1913150597186,
+        0.9601169704424706,
+        "MechPartsAssemblyT3",
+        true
+      ],
+      [
+        "n",
+        "GlassCastingT1_1760348648666",
+        -343.79369924763273,
+        645.2561441200894,
+        "GlassCastingT1",
+        true
+      ],
+      [
+        "n",
+        "GlassSmelting_1760348662594",
+        -911.7474690109868,
+        646.8114012018752,
+        "GlassSmelting",
+        true
+      ],
+      [
+        "n",
+        "GlassSmeltingWithBroken_1760348667858",
+        -340.8524229985337,
+        1029.1875328732779,
+        "GlassSmeltingWithBroken",
+        false
+      ],
+      [
+        "n",
+        "GlassMixMixingWithAcid_1760348715535",
+        -1416.257325320832,
+        643.7799680688544,
+        "GlassMixMixingWithAcid",
+        true
+      ],
+      [
+        "n",
+        "SaltMaking_1760352266450",
+        -1977.5130164500297,
+        242.42756121029043,
+        "SaltMaking",
+        true
+      ],
+      [
+        "n",
+        "LabEquipment2AssemblyT3_1760353465369",
+        633.8843258552354,
+        518.0220223245241,
+        "LabEquipment2AssemblyT3",
+        true
+      ],
+      [
+        "n",
+        "Balancer_Product_Glass_1760353516731",
+        637.7504221235267,
+        962.6686933709095,
+        "Balancer_Product_Glass",
+        true
+      ],
+      [
+        "n",
+        "ExhaustFilteringLime_1766845446562",
+        -350.2226437103535,
+        1522.3744231540215,
+        "ExhaustFilteringLime",
+        true
+      ]
+    ],
+    [
+      [
+        "b",
+        "Product_VehicleParts",
+        "VehicleParts1AssemblyT2_1760348626766",
+        "VehicleParts2AssemblyT1_1760348621464"
+      ],
+      [
+        "b",
+        "Product_MechanicalParts",
+        "MechPartsAssemblyT3_1760348633329",
+        "VehicleParts1AssemblyT2_1760348626766"
+      ],
+      [
+        "b",
+        "Product_Glass",
+        "GlassCastingT1_1760348648666",
+        "VehicleParts2AssemblyT1_1760348621464"
+      ],
+      [
+        "b",
+        "Product_MoltenGlass",
+        "GlassSmelting_1760348662594",
+        "GlassCastingT1_1760348648666"
+      ],
+      [
+        "b",
+        "Product_BrokenGlass",
+        "GlassCastingT1_1760348648666",
+        "GlassSmeltingWithBroken_1760348667858"
+      ],
+      [
+        "b",
+        "Product_MoltenGlass",
+        "GlassSmeltingWithBroken_1760348667858",
+        "GlassCastingT1_1760348648666"
+      ],
+      [
+        "b",
+        "Product_GlassMix",
+        "GlassMixMixingWithAcid_1760348715535",
+        "GlassSmelting_1760348662594"
+      ],
+      [
+        "b",
+        "Product_Salt",
+        "SaltMaking_1760352266450",
+        "GlassMixMixingWithAcid_1760348715535"
+      ],
+      [
+        "b",
+        "Product_Glass",
+        "GlassCastingT1_1760348648666",
+        "LabEquipment2AssemblyT3_1760353465369"
+      ],
+      [
+        "b",
+        "Product_Glass",
+        "GlassCastingT1_1760348648666",
+        "Balancer_Product_Glass_1760353516731"
+      ],
+      [
+        "b",
+        "Product_Exhaust",
+        "GlassSmelting_1760348662594",
+        "ExhaustFilteringLime_1766845446562"
+      ]
+    ],
+    [
+      [
+        "Product_VehicleParts2",
+        10,
+        "eq",
+        true
+      ],
+      [
+        "Product_LabEquipment2",
+        32,
+        "eq",
+        true
+      ],
+      [
+        "Product_Glass",
+        15,
+        "eq",
+        true
+      ]
+    ]
+  ],
+  "manifoldOptions": [],
+  "scoringMethod": "infra",
+  "previousSolutionObjectiveValue": 241.0709259259259,
+  "expected": {
+    "objectiveValue": 241.0709259259259,
+    "nodeCounts": [
+      {
+        "nodeId": "VehicleParts2AssemblyT1_1760348621464",
+        "count": 2.5
+      },
+      {
+        "nodeId": "VehicleParts1AssemblyT2_1760348626766",
+        "count": 2.5
+      },
+      {
+        "nodeId": "MechPartsAssemblyT3_1760348633329",
+        "count": 1.25
+      },
+      {
+        "nodeId": "GlassCastingT1_1760348648666",
+        "count": 2.55556
+      },
+      {
+        "nodeId": "GlassSmelting_1760348662594",
+        "count": 1.7037
+      },
+      {
+        "nodeId": "GlassSmeltingWithBroken_1760348667858",
+        "count": 0.851852
+      },
+      {
+        "nodeId": "GlassMixMixingWithAcid_1760348715535",
+        "count": 0.851852
+      },
+      {
+        "nodeId": "SaltMaking_1760352266450",
+        "count": 1.7037
+      },
+      {
+        "nodeId": "LabEquipment2AssemblyT3_1760353465369",
+        "count": 1.33333
+      },
+      {
+        "nodeId": "ExhaustFilteringLime_1766845446562",
+        "count": 0.0851852
+      },
+      {
+        "nodeId": "VehicleParts2AssemblyT1_1760348621464",
+        "count": 2.5
+      },
+      {
+        "nodeId": "VehicleParts1AssemblyT2_1760348626766",
+        "count": 2.5
+      },
+      {
+        "nodeId": "MechPartsAssemblyT3_1760348633329",
+        "count": 1.25
+      },
+      {
+        "nodeId": "GlassCastingT1_1760348648666",
+        "count": 2.55556
+      },
+      {
+        "nodeId": "GlassMixMixingWithAcid_1760348715535",
+        "count": 0.851852
+      },
+      {
+        "nodeId": "LabEquipment2AssemblyT3_1760353465369",
+        "count": 1.33333
+      },
+      {
+        "nodeId": "ExhaustFilteringLime_1766845446562",
+        "count": 0.0851852
+      },
+      {
+        "nodeId": "SaltMaking_1760352266450",
+        "count": 1.7037
+      },
+      {
+        "nodeId": "Balancer_Product_Glass_1760353516731",
+        "count": 15
+      },
+      {
+        "nodeId": "GlassSmelting_1760348662594",
+        "count": 1.7037
+      },
+      {
+        "nodeId": "GlassSmeltingWithBroken_1760348667858",
+        "count": 0.851852
+      },
+      {
+        "nodeId": "Balancer_Product_Glass_1760353516731",
+        "count": 15
+      }
+    ],
+    "infrastructure": {
+      "workers": 124,
+      "electricity": 1964.72,
+      "computing": 4,
+      "maintenance_1": 33.9704,
+      "maintenance_2": 5.33333,
+      "maintenance_3": 0,
+      "footprint": 1008,
+      "frastructure_total": 230.991
+    },
+    "products": {
+      "inputs": [
+        {
+          "productId": "Product_Steel",
+          "amount": -25
+        },
+        {
+          "productId": "Product_Electronics",
+          "amount": -10
+        },
+        {
+          "productId": "Product_Coal",
+          "amount": -25.5556
+        },
+        {
+          "productId": "Product_Sand",
+          "amount": -40.8889
+        },
+        {
+          "productId": "Product_Limestone",
+          "amount": -10.9889
+        },
+        {
+          "productId": "Product_Acid",
+          "amount": -10.2222
+        },
+        {
+          "productId": "Product_Seawater",
+          "amount": -81.7778
+        },
+        {
+          "productId": "Product_LabEquipment",
+          "amount": -32
+        },
+        {
+          "productId": "Product_Paper",
+          "amount": -10.6667
+        },
+        {
+          "productId": "Product_Water",
+          "amount": -4.08889
+        }
+      ],
+      "outputs": [
+        {
+          "productId": "Product_VehicleParts2",
+          "amount": 10
+        },
+        {
+          "productId": "Product_Slag",
+          "amount": 21.2111
+        },
+        {
+          "productId": "Product_Exhaust",
+          "amount": 15.3333
+        },
+        {
+          "productId": "Product_LabEquipment2",
+          "amount": 32
+        },
+        {
+          "productId": "Product_Glass",
+          "amount": 15
+        },
+        {
+          "productId": "Product_Sulfur",
+          "amount": 1.02222
+        },
+        {
+          "productId": "Product_CarbonDioxide",
+          "amount": 16.3556
+        },
+        {
+          "productId": "Product_SteamLP",
+          "amount": 4.08889
+        }
+      ]
+    },
+    "manifolds": {
+      "in_frastructure_total": 230.991,
+      "in_footprint": 1008,
+      "in_workers": 124,
+      "in_electricity": 1964.72,
+      "in_computing": 4,
+      "in_maintenance_1": 33.9704,
+      "in_maintenance_2": 5.33333,
+      "c0": 0,
+      "i_Product_Steel": -25,
+      "c1": 0,
+      "c2": 0,
+      "c3": 0,
+      "c4": 0,
+      "o_Product_VehicleParts2": 10,
+      "c5": 0,
+      "i_Product_Electronics": -10,
+      "c6": 0,
+      "c7": 0,
+      "c8": 0,
+      "c9": 0,
+      "c10": 0,
+      "i_Product_Coal": -25.5556,
+      "o_Product_Slag": 21.2111,
+      "c11": 0,
+      "o_Product_Exhaust": 15.3333,
+      "i_Product_Sand": -40.8889,
+      "i_Product_Limestone": -10.9889,
+      "c12": 0,
+      "i_Product_Acid": -10.2222,
+      "i_Product_Seawater": -81.7778,
+      "i_Product_LabEquipment": -32,
+      "i_Product_Paper": -10.6667,
+      "o_Product_LabEquipment2": 32,
+      "o_Product_Glass": 15,
+      "i_Product_Water": -4.08889,
+      "o_Product_Sulfur": 1.02222,
+      "o_Product_CarbonDioxide": 16.3556,
+      "o_Product_SteamLP": 4.08889
+    }
+  }
+}
