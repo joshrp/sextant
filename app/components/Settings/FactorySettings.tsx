@@ -4,22 +4,21 @@ import { useShallow } from "zustand/shallow";
 
 import { ChevronDownIcon, ClipboardIcon, FolderArrowDownIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
 
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import usePlanner from "~/context/PlannerContext";
-import useProductionMatrix, { useProductionZoneStore } from "~/context/ZoneContext";
+import { default as useProductionMatrix, default as useProductionZone, useProductionZoneStore } from "~/context/ZoneContext";
 import type { ProductionZoneStoreData } from "~/context/ZoneProvider";
 import useFactory, { useFactoryStore } from "~/factory/FactoryContext";
 import { loadData, type ProductId } from "~/factory/graph/loadJsonData";
+import { ProductGoal } from "~/factory/graph/sidebar";
 import { compress, decompress, minify, unminify } from "~/factory/importexport/importexport";
+import type { FactoryGoal } from "~/factory/solver/types";
+import type { GraphImportData } from "~/factory/store";
+import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
+import hydration from "~/hydration";
 import { useStableParam } from "~/routes";
 import { productIcon } from "~/uiUtils";
 import { SelectorDialog } from "../Dialog";
-import type { GraphImportData } from "~/factory/store";
-import { ProductGoal } from "~/factory/graph/sidebar";
-import type { FactoryGoal } from "~/factory/solver/types";
-import useProductionZone from "~/context/ZoneContext";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
-import hydration from "~/hydration";
-import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 
 const { products } = loadData();
 
@@ -289,7 +288,6 @@ function FactoryWeights() {
 
 }
 
-const recipes = loadData().recipes;
 function FactoryDebug() {
   const factoryStore = useFactory().store.getState();
 

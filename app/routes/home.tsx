@@ -4,6 +4,7 @@ import { CheckIcon, InboxArrowDownIcon, PencilIcon, PlusIcon } from "@heroicons/
 import { useEffect, useMemo, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router";
 
+import FactoryEditDialog from "~/components/FactoryEditDialog";
 import FactoryControls from "~/context/FactoryControls";
 import { FactoryProvider } from "~/context/FactoryProvider";
 import usePlanner, { usePlannerStore } from "~/context/PlannerContext";
@@ -235,28 +236,38 @@ function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }) {
   const zoneId = useProductionZone().id;
 
   const factories = useProductionZoneStore(state => state.factories);
+  const newFactory = useProductionZoneStore(state => state.newFactory);
+  const updateFactory = useProductionZoneStore(state => state.updateFactory);
 
   const changeTab = (e: React.MouseEvent<unknown, MouseEvent>, id: string) => {
     nav(`/zones/${zoneId}/${id}`);
     e.preventDefault();
   }
-  const addNewFactory = useProductionZoneStore(state => state.newFactory);
-  const renameFactoryAction = useProductionZoneStore(state => state.renameFactory);
 
   const [expanded, setExpanded] = useState<boolean>(false);
-  const [inputNewName, setInputNewName] = useState<boolean>(false);
-  const [renameFactoryId, setRenameFactoryId] = useState<string>("");
-  const renameFactory = factories.find(f => f.id === renameFactoryId);
+  const [editingFactoryId, setEditingFactoryId] = useState<string | null>(null);
+  const [isCreatingNew, setIsCreatingNew] = useState(false);
 
-  const factorySubmit = (name: string) => {
-    if (name.trim() === "") return;
-    if (renameFactory) {
-      renameFactoryAction(renameFactoryId, name.trim());
-      setRenameFactoryId("");
-    } else { // New factory
-      addNewFactory(name || "New Factory");
-      setInputNewName(false);
+  const editingFactory = editingFactoryId ? factories.find(f => f.id === editingFactoryId) : null;
+  const existingFactoryNames = useMemo(
+    () => factories.filter(f => f.id !== editingFactoryId).map(f => f.name),
+    [factories, editingFactoryId]
+  );
+
+  const handleSaveFactory = (data: { name: string; icon?: string; description?: string }) => {
+    if (isCreatingNew) {
+      const newId = newFactory(data.name, undefined, data.icon, data.description);
+      nav(`/zones/${zoneId}/${newId}`);
+      setIsCreatingNew(false);
+    } else if (editingFactoryId) {
+      updateFactory(editingFactoryId, data);
+      setEditingFactoryId(null);
     }
+  };
+
+  const handleCancelEdit = () => {
+    setIsCreatingNew(false);
+    setEditingFactoryId(null);
   };
 
   return useMemo(() => <aside
@@ -277,30 +288,19 @@ function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }) {
         <li className="p-1 bg-black flex flex-row justify-center-safe gap-4 text-white group-data-expanded:text-left
         border-2 border-black border-r-0 border-double rounded-l
         ">
-          {inputNewName || renameFactory
-            ? <div className="flex flex-row gap-1">
-              <InlineStringEditor
-                placeholder="Factory Name"
-                initialValue={renameFactory ? renameFactory.name : ""}
-                onSubmit={factorySubmit}
-                checkValue={(value) => factories.some(f => f.name.toLowerCase() === value.toLowerCase())}
-                onCancel={() => {
-                  setInputNewName(false);
-                  setRenameFactoryId("");
-                }}
-              />
-            </div>
-            : <span onClick={() => { setInputNewName(true); setExpanded(true) }}
-              className="h-full cursor-pointer text-gray-400 hover:text-white">
-              <PlusIcon className="w-6" />
-            </span>
-          }
+          <button
+            onClick={() => {
+              setIsCreatingNew(true);
+              setExpanded(true);
+            }}
+            className="h-full cursor-pointer text-gray-400 hover:text-white">
+            <PlusIcon className="w-6" />
+          </button>
           {expanded &&
             <Link className="text-xs text-gray-400 cursor-pointer"
               to={`./settings/importexport`}
               title="Import Factory"
             >
-
               <InboxArrowDownIcon className="w-6" />
             </Link>
           }
@@ -308,22 +308,40 @@ function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }) {
         {factories.map(f => (
 
           <li key={f.id} data-is-selected={f.id == selectedFactoryId || null}
-            className="flex flex-row gap-1 p-3 bg-black rounded-l text-gray-500 border-2 
+            className="flex flex-row gap-1 bg-black rounded-l text-gray-500 border-2 
                       border-black border-r-0 border-double hover:text-white
                       data-is-selected:border-amber-500 data-is-selected:text-white
                       data-is-selected:bg-black data-is-selected:cursor-default 
                       overflow-ellipsis whitespace-nowrap items-center-safe
+                      p-1 justify-center relative text-left 
           ">
-            <Link className="block flex-1 text-center"
-              onClick={(e) => changeTab(e, f.id)}
-              to={`/factories/${f.id}`}>
-              {expanded ? f.name : f.name.slice(0, 1)}</Link>
-            {expanded &&
-              <Button className="shrink-1 justify-self-end-safe -mt-1 cursor-pointer hover:text-gray-700 text-white"
-                title="Edit Name"
-                onClick={() => setRenameFactoryId(f.id)} >
+            {f.icon && (
+              <img src={f.icon} alt="" className="
+                inline-block w-8 h-8  
+                " />
+            )}
+            {(expanded || !f.icon) && (
+              <Link className="block flex-1 overflow-hidden w-full"
+                onClick={(e) => changeTab(e, f.id)}
+                to={`/factories/${f.id}`}>
+                {expanded ? f.name : f.name.slice(0, 10)}</Link>
+            )}
+            {!expanded && f.icon && (
+              <Link className="absolute inset-0 pl-2"
+                onClick={(e) => changeTab(e, f.id)}
+                to={`/factories/${f.id}`}
+                title={f.name}
+              />
+            )}
+            {expanded && <>
+              <button
+                onClick={() => setEditingFactoryId(f.id)}
+                className="shrink-1 justify-self-end-safe -mt-1 cursor-pointer hover:text-gray-700 text-white"
+                title="Edit Factory"
+              >
                 <PencilIcon className="w-4 h-full inline-block" />
-              </Button>
+              </button>
+            </>
             }
           </li>)
         )}
@@ -331,5 +349,19 @@ function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }) {
       </ul>
     </div>
 
-  </aside>, [factories, selectedFactoryId, inputNewName, renameFactoryId, expanded]);
+    {(isCreatingNew || editingFactoryId) && (
+      <FactoryEditDialog
+        isOpen={true}
+        factoryId={editingFactoryId || undefined}
+        initialName={editingFactory?.name || ""}
+        initialIcon={editingFactory?.icon}
+        initialDescription={editingFactory?.description}
+        existingFactoryNames={existingFactoryNames}
+        onSave={handleSaveFactory}
+        onCancel={handleCancelEdit}
+        title={isCreatingNew ? "Create Factory" : "Edit Factory"}
+      />
+    )}
+
+  </aside>, [factories, selectedFactoryId, expanded, zoneId, isCreatingNew, editingFactoryId, existingFactoryNames]);
 }

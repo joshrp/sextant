@@ -1,4 +1,5 @@
 import type { Machine, Product, ProductId } from "./factory/graph/loadJsonData";
+import type { IconInfo } from "./components/IconSelector";
 
 let LANG = "en-GB";
 if (typeof window !== "undefined")
@@ -83,4 +84,43 @@ export const maintenanceKey = (machine: Machine) => {
     default:
       return "Maintenance";
   }
+}
+
+export function getAllIcons(products: Map<string, Product>, machines: Map<string, Machine>): IconInfo[] {
+  const icons: IconInfo[] = [];
+  
+  // Add product icons
+  products.forEach(product => {
+    icons.push({
+      path: productIcon(product.icon),
+      name: product.name,
+      category: 'product'
+    });
+  });
+  
+  // Add machine icons
+  machines.forEach(machine => {
+    icons.push({
+      path: machineIcon(machine),
+      name: machine.name,
+      category: 'machine'
+    });
+  });
+  
+  // Add common UI icons
+  const uiIcons = [
+    'Worker', 'Workers', 'Electricity', 'Computing', 'Maintenance',
+    'Build', 'Buildings', 'Cancel', 'Clock', 'Dumping',
+    'Unity', 'Research', 'Settlement', 'Tree', 'Uranium'
+  ];
+  
+  uiIcons.forEach(iconName => {
+    icons.push({
+      path: uiIcon(iconName),
+      name: iconName,
+      category: 'ui'
+    });
+  });
+  
+  return icons;
 }

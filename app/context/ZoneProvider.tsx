@@ -65,7 +65,9 @@ export interface ProductionZoneStoreData {
   factories: {
     id: string,
     order: number,
-    name: string
+    name: string,
+    icon?: string,
+    description?: string
   }[],
   weights: {
     base: "early" | "mid" | "late" | "end";
@@ -75,9 +77,10 @@ export interface ProductionZoneStoreData {
   lastFactory: string | undefined;
   productDisplayMode: "icons" | "names";
   setProductDisplayMode: (mode: "icons" | "names") => void;
-  newFactory(name: string, id?: string): string;
+  newFactory(name: string, id?: string, icon?: string, description?: string): string;
   setLastFactory(id: string): void;
   renameFactory(id: string, newName: string): void;
+  updateFactory(id: string, updates: { name?: string; icon?: string; description?: string }): void;
 };
 
 const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
@@ -102,7 +105,7 @@ const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
             setProductDisplayMode: (mode: "icons" | "names") => {
               set({ productDisplayMode: mode });
             },
-            newFactory: (name: string, id?: string) => {
+            newFactory: (name: string, id?: string, icon?: string, description?: string) => {
               const settings = get();
               if (!id) id = factoryIdFromName(name);
 
@@ -113,7 +116,9 @@ const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
                 factories: [...settings.factories, {
                   id: id,
                   name: name.trim(),
-                  order: settings.factories.length
+                  order: settings.factories.length,
+                  icon,
+                  description
                 }]
               });
 
@@ -128,6 +133,23 @@ const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
                 return;
               }
               factory.name = newName;
+              set({
+                factories: [...settings.factories]
+              });
+            },
+            updateFactory: (id: string, updates: { name?: string; icon?: string; description?: string }) => {
+              const settings = get();
+              const factory = settings.factories.find(f => f.id === id);
+              if (!factory) throw new Error("Factory not found");
+              if (updates.name !== undefined && updates.name !== factory.name) {
+                if (settings.factories.some(f => f.name === updates.name && f.id !== id)) {
+                  alert("Factory with this name already exists.");
+                  return;
+                }
+                factory.name = updates.name;
+              }
+              factory.icon = updates.icon;
+              factory.description = updates.description;
               set({
                 factories: [...settings.factories]
               });

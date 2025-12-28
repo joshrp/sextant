@@ -11,7 +11,8 @@
     "test:component": "vitest --run --config vitest.component.config.ts",
     "test:all": "npm run test && npm run test:component",
     "lint": "eslint ./app",
-    "formatData": "npx tsx ./data/reformat.ts"
+    "formatData": "npx tsx ./data/reformat.ts",
+    "check": "npm run typecheck && npm run lint && npm run test:all"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",

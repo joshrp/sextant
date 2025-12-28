@@ -207,13 +207,14 @@ export function buildNodeConnections(
  * @returns Object indicating if constraint has optional inputs/outputs
  */
 export function findOptionalTerms(terms: { optional?: boolean; isInput?: boolean }[]): { input: boolean; output: boolean } {
+  const initial: { input: boolean; output: boolean } = { input: false, output: false };
   return terms.reduce((acc, t) => {
     if (t.optional) {
       if (t.isInput) acc.input = true;
       else acc.output = true;
     }
     return acc;
-  }, { input: false, output: false });
+  }, initial);
 }
 
 /**
