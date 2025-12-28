@@ -1,4 +1,4 @@
-import { getSmartEdge, pathfindingAStarDiagonal } from "@tisoap/react-flow-smart-edge";
+import { getSmartEdge, pathfindingAStarNoDiagonal } from "@joshrp/react-flow-smart-edge";
 import {
   BaseEdge,
   type Edge,
@@ -84,7 +84,7 @@ export default function ButtonEdge({
     options: {
       gridRatio: 20,
       nodePadding: 50,
-      generatePath: pathfindingAStarDiagonal,
+      generatePath: pathfindingAStarNoDiagonal,
     },
   });
 
