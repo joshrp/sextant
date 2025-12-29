@@ -1,40 +1,40 @@
-import { TrashIcon } from '@heroicons/react/24/outline';
-import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
-import { Handle, Position, useStore, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react';
+import { useStore, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react';
 import equal from 'fast-deep-equal';
 import { memo, useLayoutEffect } from 'react';
 import { useShallow } from 'zustand/shallow';
-import { formatNumber, machineIcon, maintenanceIcon, maintenanceName, productBackground, productIcon, uiIcon } from '~/uiUtils';
 import { useFactoryStore } from '../FactoryContext';
-import { loadData, type ProductId, type Recipe } from './loadJsonData';
+import { loadData, type ProductId } from './loadJsonData';
 import type { ButtonEdge } from './edges/ButtonEdge';
-import { getQuantityDisplay, getRunCount, type RecipeNodeData } from './recipeNodeLogic';
+import { getRunCount, type RecipeNodeData } from './recipeNodeLogic';
+import RecipeNodeView from './RecipeNodeView';
+import { TrashIcon } from '@heroicons/react/24/outline';
 
 const { recipes } = loadData();
 
 // Re-export RecipeNodeData for other files that need it
 export type { RecipeNodeData };
 
-const handleStyle: React.CSSProperties = { width: "auto", height: "auto", position: "initial", transform: "initial", border: 'none', backgroundColor: 'transparent' }
-
 export type RecipeNode = Node<RecipeNodeData>;
+
+type ProductEdges = Map<ProductId, ButtonEdge | null>;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const zoomSelector = (s: any) => s?.transform?.[2] <= 0.2;
 
-// TODO: Component Testing - Partially refactored for testability:
+// TODO: Component Testing - Refactored for testability:
 // ✅ DONE: Extracted pure logic functions to recipeNodeLogic.ts (getQuantityDisplay, getRunCount)
 // ✅ DONE: Added unit tests for extracted logic in recipeNodeLogic.test.ts
+// ✅ DONE: Extracted pure RecipeNodeView component to separate file for isolated testing
+// ✅ DONE: Created component tests for RecipeNodeView (RecipeNodeView.component.test.tsx)
+// ✅ DONE: Created Cosmos fixtures for RecipeNodeView (RecipeNodeView.fixture.tsx)
 // 
 // REMAINING WORK for full component testing:
-// 1. Extract HandleList sub-component to separate file for isolated testing
-// 2. Extract InfrastructureIcon sub-component to separate file
-// 3. Extract product edge connection logic into a testable function
-// 4. Create integration tests with mocked React Flow and Zustand context
-// 5. Test user interactions (flip button, remove button) with real store
-// 6. Add visual regression tests for different zoom levels and orientations
+// 1. Consider extracting HandleList sub-component if needed for additional reuse
+// 2. Consider extracting InfrastructureIcon sub-component if needed for additional reuse
+// 3. Add visual regression tests for different zoom levels and orientations if needed
 // 
-// Note: Full component testing blocked by React Flow context requirements.
-// Focus on testing extracted logic and integration testing via solver tests.
+// Note: RecipeNode wrapper handles React Flow and Zustand context integration.
+// RecipeNodeView is a pure component that can be tested in isolation.
 function RecipeNode(props: NodeProps<RecipeNode>) {
   const updateNodeInternals = useUpdateNodeInternals();
   if (props.data.ltr === undefined) props.data.ltr = true; // Default to left-to-right layout
@@ -87,125 +87,16 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   const runCount = getRunCount(props.data);
 
   return (
-    <div className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
-      <div className="recipe-node-title-bar flex justify-between border-white/20 mb-8 pb-2 border-b-2 items-center-safe ">
-        <div className="flex-1 text-left p-1">
-          <button
-            title="Flip Direction"
-            className="cursor-pointer text-white/50 hover:text-white/80 hover:bg-gray-500/50 p-1 rounded"
-            onClick={() => flipNode()}>
-            <ArrowsRightLeftIcon className={`transition-[scale] duration-200 inline-block w-6 ${props.data.ltr ? "" : "scale-x-[-1]"}`} />
-          </button>
-        </div>
-        <div className="flex-10 text-center text-xl">{recipe.machine.name}</div>
-        <div className="flex-1 justify-end-safe text-right ">
-          <button
-            className="cursor-pointer text-red-500/50 hover:text-white/80 hover:bg-red-500/50 p-1 rounded"
-            onClick={() => removeNode(props.id)}>
-            <TrashIcon className='w-6' />
-          </button>
-        </div>
-      </div>
-
-      <div className="products flex flex-row gap-2 text-xl justify-between mt-4">
-        <HandleList data={props.data} products={props.data.ltr ? recipe.inputs : recipe.outputs}
-          pos={Position.Left} inputs={props.data.ltr} productEdges={productEdges} />
-        {!isFarZoom &&
-          <div className="recipe-machine flex-2 flex-col items-center text-center min-w-30">
-            <img src={machineIcon(recipe.machine)} alt={recipe.machine.name}
-              className="inline-block w-20 min-w-8 p-1 pointer-events-none
-          bg-gray-400/10 shadow-md/20 rounded-lg data-flipped:scale-x-[-1]
-          " data-flipped={props.data.ltr == false || null} />
-            <div className="w-full my-1 text-2xl">{formatNumber(runCount, "", runCount < 10 ? 3 : 1)}</div>
-
-          </div>
-        }
-        <HandleList data={props.data} products={props.data.ltr ? recipe.outputs : recipe.inputs}
-          pos={Position.Right} inputs={!props.data.ltr} productEdges={productEdges} />
-
-      </div>
-      <div className="recipe-node-infra-bar flex justify-start align-start gap-2 border-white/20 pt-4 mb-1 pb-0 border-t-2">
-        <InfrastructureIcon name="Electricity Used" icon={uiIcon("Electricity")}
-          amount={getQuantityDisplay(recipe.machine.electricity_consumed, runCount, "kW") /*TODO:: Modify by recipe? */} />
-        <InfrastructureIcon name={`Workers (${recipe.machine.workers}) x ${Math.ceil(runCount)}`} icon={uiIcon("Worker")}
-          amount={getQuantityDisplay(recipe.machine.workers, Math.ceil(runCount) /* TODO:: Is this correct? Do workers get consumed even when the building is idle */, "")} />
-        <InfrastructureIcon name={maintenanceName(recipe.machine)} icon={maintenanceIcon(recipe.machine)}
-          amount={getQuantityDisplay(recipe.machine.maintenance_cost?.quantity || 0, runCount, "")} />
-        <InfrastructureIcon name="Computing Used" icon={uiIcon("Computing")}
-          amount={getQuantityDisplay(recipe.machine.computing_consumed, runCount, "TFlops")} />
-        <InfrastructureIcon name={`Tile Footprint (${recipe.machine.footprint?.[0]} x ${recipe.machine.footprint?.[1]}) x ${Math.ceil(runCount)}`} icon={uiIcon("Move128")} iconClassName="rotate-45 scale-120"
-          amount={getQuantityDisplay(recipe.machine.footprint?.reduce((a, i) => a *= i, 1) || 0, Math.ceil(runCount), "")} />
-      </div>
-    </div>
-  );
-}
-
-function InfrastructureIcon({ name, icon, amount, iconClassName }: { name: string, icon: string, amount: string, iconClassName?: string }) {
-  return (
-    <div data-zero={amount.startsWith("0 ") ? true : null} className="flex-1 text-center text-xl text-gray-400 data-zero:opacity-20 data-zero:grayscale">
-      <div className="h-8">
-        <img src={icon} className={"h-full mx-auto " + iconClassName} title={name} />
-      </div>
-      <div className="text-nowrap">{amount}</div>
-    </div>
-  );
-}
-
-type ProductEdges = Map<ProductId, ButtonEdge | null>;
-type HandleListProps = {
-  data: RecipeNodeData,
-  products: Recipe["inputs" | "outputs"],
-  pos: Position,
-  inputs: boolean
-  productEdges: ProductEdges
-}
-
-function HandleList({ data, products, pos, inputs, productEdges }: HandleListProps) {
-  const ltr = <T extends string, U extends string>(left: T, right: U) => pos === Position.Left ? left : right;
-  const inOrOut = <T extends string, U extends string>(input: T, output: U) => inputs ? input : output;
-
-  return (
-    <div className={
-      `recipe-${inOrOut("inputs", "outputs")} 
-        recipe-list
-        flex-2 relative 
-        ${ltr("items-start -left-2", "justify-end-safe -right-2")}`
-    }>
-      {products.map(prod => {
-        const isConnected = productEdges.get(prod.product.id) !== null;
-        const productColor = productBackground(prod.product);
-
-        const handle = <Handle type={inOrOut("target", "source")}
-          position={pos}
-          id={prod.product.id}
-          style={handleStyle}
-          className="handle py-2 text-center">
-          <img data-optional={prod.optional ? true : null} src={productIcon(prod.product.icon)} alt={prod.product.name}
-            className="drop-shadow-md/30 pointer-events-none block max-w-8 
-            data-optional:p-0.5 data-optional:box-content data-optional:border-1 border-dashed border-gray-400 border-0
-          " />
-          <div
-            style={{
-              backgroundColor: productColor,
-              borderColor: productColor,
-            }}
-            className={"clipped hidden pointer-events-none w-6 top-0 h-[101%] absolute border-1 " + ltr("-left-5", "-right-5") + " " + inOrOut(ltr("", "scale-x-[-1]"), ltr("scale-x-[-1]", ""))}
-          ></div>
-        </Handle>
-
-        return (<div style={{ backgroundColor: productColor }}
-          className={`recipe-${inOrOut("input", "output")} recipe-handle text-nowrap relative ${ltr("pl-2", "pr-2")} flex mb-4 items-center-safe`}
-          key={prod.product.id}
-          data-connected={isConnected}
-        >
-          {pos === Position.Left ? handle : null}
-          <div className="flex-1 min-w-4 p-2 text-shadow-md/50">
-            {getQuantityDisplay(prod.quantity, data.solution?.solved ? data.solution.runCount : 1, prod.product.unit)}
-          </div>
-          {pos === Position.Left ? null : handle}
-        </div>);
-      })}
-    </div>
+    <RecipeNodeView
+      recipe={recipe}
+      runCount={runCount}
+      productEdges={productEdges}
+      ltr={props.data.ltr}
+      isFarZoom={isFarZoom}
+      onFlip={flipNode}
+      onRemove={() => removeNode(props.id)}
+      solution={props.data.solution}
+    />
   );
 }
 
