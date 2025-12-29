@@ -41,9 +41,16 @@ Core constraint-based optimization in `app/factory/solver/solver.ts`:
 
 ### Testing
 - Vitest with snapshot testing for solver LPP generation
-- Run tests: `npm test`
+- Run unit tests: `npm test`
+- Run component tests: `npm run test:component`
+- Run linting: `npm run lint`
+- Type checking: `npm run typecheck`
 - Coverage reports in `coverage/` directory
 - Critical: `app/factory/solver/solver.test.tsx` validates constraint generation
+- Component tests in `app/test/` using React Testing Library and run with a custom Vitest config on `npm run test:component`
+- Visual component tests with React Cosmos (see below)
+  - If a file you change has a fixture associated with it, test your change in cosmos as well to verify visual correctness
+  - Also you may need to update the fixture to match any prop or behavior changes you made
 
 ### Import/Export System
 Factory states compressed via base85 encoding (`app/factory/importexport/importexport.ts`):
@@ -83,21 +90,114 @@ npm run dev          # Vite dev server on :5173
 npm run build        # Production build to build/
 npm start            # Serve production build
 npm test             # Run Vitest test suite
+npm run test:component   # Run component tests with Vitest
+npm run test:all     # Run all tests (unit + component)
 npm run formatData   # Regenerate gameData.ts from raw sources
 npm run typecheck    # React Router typegen + TypeScript check
 npm run lint         # ESLint
+npm run cosmos       # Run React Cosmos dev server for component development
+npm run cosmos-export # Export static Cosmos build
 ```
+
+## React Cosmos for Component Development
+
+React Cosmos is integrated into the project for isolated component development and visual testing. Use it to develop, test, and verify UI components in isolation without running the full application.
+
+### Running Cosmos
+
+Start the Cosmos development server:
+```bash
+npm run cosmos
+```
+
+This launches an interactive component explorer at `http://localhost:5000` (default port) where you can:
+- View and interact with components in isolation
+- Test different component states and props
+- Verify visual changes without navigating through the full app
+- Develop new components with hot reloading
+
+### Creating Fixtures
+
+Fixtures are files that define how components should be rendered in Cosmos. Create fixture files with the `.fixture.tsx` extension:
+
+**Location**: Place fixtures next to the components they test (e.g., `app/components/MyComponent.fixture.tsx`)
+
+When making fixtures, be conservative about states to include. Prop values can be changed in UI easily so include only key states that change large portions of the component, not details and small variations.
+
+**Basic Pattern**:
+```tsx
+import MyComponent from './MyComponent';
+
+export default {
+  'Default State': () => <MyComponent />,
+  'With Props': () => <MyComponent prop1="value" prop2={123} />,
+  'Error State': () => <MyComponent error="Something went wrong" />
+};
+```
+
+**Complex Example** (with store/context setup):
+```tsx
+import RecipeNode from './factory/graph/RecipeNode';
+import type { RecipeNodeData } from './factory/graph/recipeNodeLogic';
+import { createTestFactoryStore, getFactoryWrapper } from './test/helpers/renderHelpers';
+
+const factoryId = 'test-factory';
+const testStore = createTestFactoryStore(factoryId, 'Test Factory');
+
+export default {
+  'Power Generator': () => getFactoryWrapper(
+    <RecipeNode data={{ recipeId: 'PowerGeneratorT2', ltr: true }} />,
+    { withReactFlow: true, store: testStore, factoryId }
+  ),
+  'Another Variant': () => getFactoryWrapper(
+    <RecipeNode data={{ recipeId: 'FBR', ltr: false }} />,
+    { withReactFlow: true, store: testStore, factoryId }
+  )
+};
+```
+
+### Verifying UI Changes
+
+**When making UI component changes**:
+1. Run `npm run cosmos` to start the development server
+2. Navigate to the fixture for the component you're modifying
+3. Verify the visual changes work correctly across all fixture states
+4. Test interactions (clicks, hovers, etc.) in the Cosmos UI
+5. Check multiple viewport sizes if the component is responsive
+6. Take screenshots of the component states to document changes
+
+**Benefits**:
+- No need to navigate through the full app to reach the component
+- Test edge cases and different prop combinations easily
+- Fast feedback loop with hot reloading
+- Catch visual regressions early in development
+
+### Cosmos Configuration
+
+Configuration is in `cosmos.config.json`:
+- Uses the Vite plugin for fast builds
+- Shares config with component tests (`vitest.component.config.ts`)
+- Watches `./app` directory for changes
+- Includes global styles from `app/app.css`
+- Static assets served from `public/` directory
+
+### Existing Fixtures
+
+Current fixture files in the repository:
+- `app/components/ProductSelector.fixture.tsx` - Basic component fixture example
+- `app/RecipeNode.fixture.tsx` - Complex fixture with store and React Flow integration
+
+Reference these files when creating new fixtures.
 
 ## Important Gotchas
 
 1. **Node IDs must be stable** - React Flow depends on consistent node IDs for state
-2. **Solution is cached** - `solutionUpdateAction()` reuses previous solution if scoring method unchanged
 3. **IndexedDB is async** - All store persistence operations return promises
 4. **Client-side only — NO SSR** - This project is a client-side-only app. Do not enable or add server-side rendering (SSR).
 
 - Rationale: the app relies on browser-only APIs, IndexedDB persistence, and runtime-only assets (e.g. HiGHS WASM via CDN) that expect a browser environment.
 - When editing or adding code, always guard browser APIs with `if (typeof window !== 'undefined')` and avoid adding server entry points or server-only React Router routes.
-5. **HiGHS loads differently** - Uses CDN locator in browser, direct in Node (see `solver.ts:11-14`)
+5. **HiGHS loads differently** - Uses CDN locator in browser, direct in Node and testing (see `solver.ts:11-14`)
 6. **Recycling is global** - COI game shares recycling across all waste sorters (see `app/Help.md`)
 
 ## File Organization Heuristics
