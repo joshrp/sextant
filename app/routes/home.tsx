@@ -231,7 +231,7 @@ function Zone() {
   </>, [baseWeights, selectedFactory, idb]);
 }
 
-function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }) {
+export function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }) {
   const nav = useNavigate();
   const zoneId = useProductionZone().id;
 

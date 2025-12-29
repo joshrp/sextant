@@ -1,13 +1,15 @@
 /**
  * Test helpers for rendering React components with proper context
  */
-import 'fake-indexeddb/auto';
 import { render, type RenderOptions } from '@testing-library/react';
+import { ReactFlowProvider } from '@xyflow/react';
+import 'fake-indexeddb/auto';
 import type { ReactElement, ReactNode } from 'react';
+import { createMemoryRouter, RouterProvider } from 'react-router';
+import { getIdb } from '~/context/idb';
+import { ProductionZoneProvider } from '~/context/ZoneProvider';
 import { FactoryContext } from '~/factory/FactoryContext';
 import Store, { type FactoryStore } from '~/factory/store';
-import { getIdb } from '~/context/idb';
-import { ReactFlowProvider } from '@xyflow/react';
 
 /**
  * Creates a test factory store with default values
@@ -90,4 +92,62 @@ export function getFactoryWrapper(
   }
 
   return content;
+}
+
+interface RouterWrapperOptions {
+  initialEntries?: string[];
+  initialIndex?: number;
+}
+
+/**
+ * Wraps a component with a MemoryRouter for testing components that use routing
+ * 
+ * @param children - The component to wrap
+ * @param options.initialEntries - Initial browser history stack (default: ['/'])
+ * @param options.initialIndex - Index of initial entry (default: 0)
+ * @returns Component wrapped with RouterProvider
+ */
+export function getRouterWrapper(
+  children: ReactElement,
+  {
+    initialEntries = ['/'],
+    initialIndex = 0,
+  }: RouterWrapperOptions = {}
+) {
+  const router = createMemoryRouter(
+    [
+      {
+        path: '*',
+        element: children,
+      },
+    ],
+    {
+      initialEntries,
+      initialIndex,
+    }
+  );
+
+  return <RouterProvider router={router} />;
+}
+
+/**
+ * Wraps a component with ProductionZoneProvider for testing components that use zone context
+ * 
+ * @param children - The component to wrap
+ * @param zoneId - Zone ID (default: 'test-zone')
+ * @param zoneName - Zone name (default: 'Test Zone')
+ * @returns Component wrapped with ProductionZoneProvider
+ */
+export function getZoneWrapper(
+  children: ReactElement,
+  {
+    zoneId = 'test-zone',
+    zoneName = 'Test Zone',
+  }: { zoneId?: string; zoneName?: string } = {}
+) {
+  return (
+    <ProductionZoneProvider zoneId={zoneId} zoneName={zoneName}>
+      {children}
+    </ProductionZoneProvider>
+  );
 }

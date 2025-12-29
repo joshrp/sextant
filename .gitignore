@@ -9,4 +9,6 @@ data/raw/assets/
 data/fetch-from-mod.sh
 /coverage/
 *.bkp.json
+
+# Cosmos generated file
 index.html
