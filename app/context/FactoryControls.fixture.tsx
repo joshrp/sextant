@@ -34,128 +34,63 @@ const mockSolution: Solution = {
   },
 };
 
+// Helper to create a fixture with a specific state
+const createFixture = (
+  id: string,
+  stateOverrides: {
+    solution?: Solution;
+    solutionStatus?: 'Solved' | 'Infeasible' | 'Running';
+    scoringMethod?: 'infra' | 'inputs' | 'footprint' | 'outputs';
+  }
+) => {
+  const store = createTestFactoryStore(factoryId + id, factoryName);
+  store.Graph.setState({
+    goals: [],
+    ...stateOverrides,
+  });
+
+  return getRouterWrapper(
+    getFactoryWrapper(
+      <div className='h-10 flex'>
+        <FactoryControls />
+      </div>,
+      {
+        store,
+        factoryId: factoryId + id,
+        factoryName,
+        withReactFlow: false,
+      }
+    ),
+    { initialEntries: ['/zones/test-zone/test-factory'] }
+  );
+};
+
 export default {
-  'Solved - Infrastructure Scoring': () => {
-    const store = createTestFactoryStore(factoryId, factoryName);
-    // Set the store to a solved state
-    store.Graph.setState({
-      solution: mockSolution,
-      solutionStatus: 'Solved',
-      scoringMethod: 'infra',
-      goals: [],
-    });
+  'Solved - Infrastructure Scoring': () => createFixture('', {
+    solution: mockSolution,
+    solutionStatus: 'Solved',
+    scoringMethod: 'infra',
+  }),
 
-    return getRouterWrapper(
-      getFactoryWrapper(
-        <div style={{ background: '#000', height: '40px', width: '100%' }}>
-          <FactoryControls />
-        </div>,
-        {
-          store,
-          factoryId,
-          factoryName,
-          withReactFlow: false,
-        }
-      ),
-      { initialEntries: ['/zones/test-zone/test-factory'] }
-    );
-  },
+  'Solved - Inputs Scoring': () => createFixture('-inputs', {
+    solution: mockSolution,
+    solutionStatus: 'Solved',
+    scoringMethod: 'inputs',
+  }),
 
-  'Solved - Inputs Scoring': () => {
-    const store = createTestFactoryStore(factoryId + '-inputs', factoryName);
-    store.Graph.setState({
-      solution: mockSolution,
-      solutionStatus: 'Solved',
-      scoringMethod: 'inputs',
-      goals: [],
-    });
+  'Solved - Footprint Scoring': () => createFixture('-footprint', {
+    solution: mockSolution,
+    solutionStatus: 'Solved',
+    scoringMethod: 'footprint',
+  }),
 
-    return getRouterWrapper(
-      getFactoryWrapper(
-        <div style={{ background: '#000', height: '40px', width: '100%' }}>
-          <FactoryControls />
-        </div>,
-        {
-          store,
-          factoryId: factoryId + '-inputs',
-          factoryName,
-          withReactFlow: false,
-        }
-      ),
-      { initialEntries: ['/zones/test-zone/test-factory'] }
-    );
-  },
+  'Infeasible State': () => createFixture('-infeasible', {
+    solutionStatus: 'Infeasible',
+    scoringMethod: 'infra',
+  }),
 
-  'Solved - Footprint Scoring': () => {
-    const store = createTestFactoryStore(factoryId + '-footprint', factoryName);
-    store.Graph.setState({
-      solution: mockSolution,
-      solutionStatus: 'Solved',
-      scoringMethod: 'footprint',
-      goals: [],
-    });
-
-    return getRouterWrapper(
-      getFactoryWrapper(
-        <div style={{ background: '#000', height: '40px', width: '100%' }}>
-          <FactoryControls />
-        </div>,
-        {
-          store,
-          factoryId: factoryId + '-footprint',
-          factoryName,
-          withReactFlow: false,
-        }
-      ),
-      { initialEntries: ['/zones/test-zone/test-factory'] }
-    );
-  },
-
-  'Infeasible State': () => {
-    const store = createTestFactoryStore(factoryId + '-infeasible', factoryName);
-    store.Graph.setState({
-      solutionStatus: 'Infeasible',
-      scoringMethod: 'infra',
-      goals: [],
-    });
-
-    return getRouterWrapper(
-      getFactoryWrapper(
-        <div style={{ background: '#000', height: '40px', width: '100%' }}>
-          <FactoryControls />
-        </div>,
-        {
-          store,
-          factoryId: factoryId + '-infeasible',
-          factoryName,
-          withReactFlow: false,
-        }
-      ),
-      { initialEntries: ['/zones/test-zone/test-factory'] }
-    );
-  },
-
-  'Running State': () => {
-    const store = createTestFactoryStore(factoryId + '-running', factoryName);
-    store.Graph.setState({
-      solutionStatus: 'Running',
-      scoringMethod: 'inputs',
-      goals: [],
-    });
-
-    return getRouterWrapper(
-      getFactoryWrapper(
-        <div style={{ background: '#000', height: '40px', width: '100%' }}>
-          <FactoryControls />
-        </div>,
-        {
-          store,
-          factoryId: factoryId + '-running',
-          factoryName,
-          withReactFlow: false,
-        }
-      ),
-      { initialEntries: ['/zones/test-zone/test-factory'] }
-    );
-  },
+  'Running State': () => createFixture('-running', {
+    solutionStatus: 'Running',
+    scoringMethod: 'inputs',
+  }),
 };
