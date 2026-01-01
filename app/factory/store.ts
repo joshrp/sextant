@@ -17,6 +17,7 @@ import * as reducers from "~/context/reducers/graphReducers";
 import { minify } from "./importexport/importexport";
 import type { IDB } from "~/context/idb";
 import type { FactoryFixture } from "./fixtures";
+import type { BalancerNodeData, SettlementNodeData } from "./graph/recipeNodeLogic";
 
 export interface GraphCoreData {
   name: string,
@@ -54,6 +55,7 @@ export interface GraphStoreActions {
   exportTestData: () => string;
   setHighlight: (highlight: DeepPartial<GraphStore['highlight']>) => void;
   getProductsInGraph: () => Set<ProductId> | undefined;
+  setSettlementOptions: (nodeId: string, options: SettlementNodeData["options"]) => void;
 }
 
 export type HighlightNone = {
@@ -295,8 +297,11 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
             set(state => reducers.updateScoringMethod(state, method), false, "setScoreMethod");
             get().solutionUpdateAction(false);
           },
-          setNodeData: (nodeId: string, data: Partial<RecipeNodeData>) => {
+          setNodeData: (nodeId: string, data: Partial<RecipeNodeData | BalancerNodeData | SettlementNodeData>) => {
             set(state => reducers.updateNodeData(state, nodeId, data), false, "setNodeData");
+          },
+          setSettlementOptions: (nodeId: string, options: SettlementNodeData["options"]) => {
+            set(state => reducers.updateSettlementOptions(state, nodeId, options), false, "setSettlementOptions");
           },
           setEdgeData: (edgeId: string, data: Partial<ButtonEdgeData>) => {
             set(state => reducers.updateEdgeData(state, edgeId, data), false, "setEdgeData");
@@ -326,18 +331,27 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
                 set({ highlight: highlight as HighlightModes }, false, "setHighlight");
               }
             } else {
-              set({                
+              set({
                 highlight: highlight as HighlightModes
               });
             }
           },
           importData: async (data: GraphImportData, options?: { skipSolver?: boolean }) => {
-            const newNodes: GraphCoreData["nodes"] = data.nodes.map(n => ({
-              id: n.id,
-              type: n.type,
-              position: n.position,
-              data: n.data,
-            }));
+
+            const newNodes: GraphCoreData["nodes"] = data.nodes.map(n => {
+              if (!('recipeId' in n.data)) {
+                throw new Error(`Node data for node ${n.id} is missing recipeId`);
+              }
+              if (n.type !== 'recipe-node') {
+                throw new Error(`Unsupported node type ${n.type} for node ${n.id}`);
+              }
+              return {
+                id: n.id,
+                type: 'recipe-node',
+                position: n.position,
+                data: n.data,
+              }
+            });
 
             const newEdges: GraphCoreData["edges"] = data.edges.map(e => ({
               id: `${e.source}-${e.target}-${e.product}`,
@@ -369,7 +383,7 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
           getProductsInGraph: () => {
             const productsSet = new Set<ProductId>();
             if (!get().graph?.graph) return undefined;
-            
+
             for (const node of Object.keys(get().graph!.graph)) {
               const nodeConnections = get().graph?.graph[node];
               if (!nodeConnections) continue;

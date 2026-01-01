@@ -7,6 +7,7 @@ import type { CustomNodeType } from '../graph/nodes';
 import { type Constraint, type FactoryGoal, type GraphModel, type GraphScoringMethod, type ManifoldOptions, type NodeConnections, type Solution } from "./types";
 import { buildNodeConnections, filterAndSortSolutions, findOptionalTerms, getEquality, getInfrastructureWeight, inputMatcher, makeVertexId, outputMatcher, parseHighsSolution, shouldSkipConstraint } from "./solverUtils";
 import { solveWithHighs } from "./solverClient";
+import { SettlementCalculator } from "../graph/recipeNodeLogic";
 
 const recipeData = loadData().recipes;
 
@@ -94,7 +95,7 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
   const boundsList = [];
   const constraintsList = [];
   for (const con of Object.values(graph.constraints)) {
-    constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.sign} ${t.weight * (t.value || 1)} ${t.id}`).join(' ')} ${getEquality(con.equality)} 0`);
+    constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.sign} ${t.weight * (t.value ?? 1)} ${t.id}`).join(' ')} ${getEquality(con.equality)} 0`);
 
     if (con.unconnected && goals.find(g => g.productId == con.productId)) continue;
 
@@ -300,9 +301,13 @@ export default class Solver {
    */
   getTermOfNode(nodeId: string, productId: ProductId, isInput: boolean): Constraint["terms"][0] | null {
     const ioString = isInput ? "inputs" : "outputs";
-    const recipe = recipeData.get(this.graph?.[nodeId].recipeId);
+    const node = this.graph?.[nodeId];
+    if (!node) {
+      throw new Error(`Node not found in graph: ${nodeId}`);
+    }
+    const recipe = recipeData.get(node.recipeId);
     if (!recipe) {
-      throw new Error(`Recipe not found for node ${nodeId} with recipeId ${this.graph?.[nodeId].recipeId}`);
+      throw new Error(`Recipe not found for node ${nodeId} with recipeId ${node.recipeId}`);
     }
     const recipeItem = recipe[ioString].find(p => productId == p.product.id);
     if (!recipeItem) {
@@ -310,11 +315,18 @@ export default class Solver {
       return null;
     }
 
+    let qty = recipeItem.quantity;
+    if (node.type === "settlement") {
+      console.log('Calculating settlement quantity for', productId, node);
+      const Calculator = SettlementCalculator(recipe, node.options, 1);
+      qty = isInput ? Calculator.productInput(productId) : Calculator.productOutput(productId);
+    }
+
     return {
       id: this.getNodeLabel(nodeId),
       nodeId: nodeId,
       isInput,
-      value: recipeItem.quantity,
+      value: qty,
       weight: 1,
       sign: isInput ? "-" : "+",
       optional: recipeItem.optional || false,

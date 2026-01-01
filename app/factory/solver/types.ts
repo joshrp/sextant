@@ -1,14 +1,30 @@
 import type { ProductId, RecipeId } from "../graph/loadJsonData";
+import type { SettlementNodeData } from "../graph/recipeNodeLogic";
 
-export type NodeConnection = {
+export type NodeConnectionBase = {
   recipeId: RecipeId,
   inputs: {
     [k in ProductId]?: { nodeId: string, edgeId: string }[]
   },
   outputs: {
     [k in ProductId]?: { nodeId: string, edgeId: string }[]
-  }
+  },
 };
+
+export type NodeConnectionRecipe = NodeConnectionBase & {
+  type: "recipe";
+};
+
+export type NodeConnectionBalancer = NodeConnectionBase & {
+  type: "balancer";
+};
+
+export type NodeConnectionSettlement = NodeConnectionBase & {
+  type: "settlement";
+  options: SettlementNodeData["options"];
+};
+
+export type NodeConnection = NodeConnectionRecipe | NodeConnectionBalancer | NodeConnectionSettlement;
 
 export type EqualityTypes = "eq" | "gt" | "lt";
 

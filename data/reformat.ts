@@ -1,11 +1,12 @@
 
 
 import * as ColorThief from "colorthief";
-import { assert } from "node:console";
+import assert from "node:assert";
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import type { Machine, MachineId, MachineSerialized, Product, ProductId, ProductSerialized, Recipe, RecipeId, RecipeSerialized } from "../app/factory/graph/loadJsonData";
 import path from "node:path";
+import Big from "big.js"
 
 type RawProduct = {
   id: string;
@@ -22,6 +23,7 @@ type RawRecipe = {
   name: string;
   duration: number;
   power_multiplier: number;
+  isSettlement: boolean;
   inputs: {
     name: string;
     quantity: number;
@@ -51,6 +53,7 @@ type RawMachine = {
   research_speed: number;
   icon_path: string;
   recipes: RawRecipe[];
+  isSettlement: boolean;
   build_costs: {
     /* Product Name */
     product: string;
@@ -236,6 +239,17 @@ export async function formatProductData(rawProducts: RawProduct[]) {
     machines: { input: [], output: [] },
   });
 
+  productData.set("Product_Virtual_Workers", {
+    id: "Product_Virtual_Workers" as Product["id"],
+    name: "Workers",
+    icon: "workers.png",
+    color: "#808080",
+    transport: "Virtual",
+    unit: "",
+    recipes: { input: [], output: [] },
+    machines: { input: [], output: ['Housing', 'HousingT2', 'HousingT3', 'HousingT4'] },
+  });
+
   return productData;
 }
 
@@ -245,13 +259,121 @@ function getRecipeQty60(io: RawRecipe["inputs" | "outputs"][0], duration: number
   return (io.quantity * 60) / duration;
 }
 
+function modifyMachineData(rawMachine: RawMachine): RawMachine {
+  // Fix any known issues with raw machine data here
+  switch(rawMachine.id) {
+    case "Housing": {
+      // The values below are per 1000 workers. 
+      // https://wiki.coigame.com/Settlement
+      // storage_capacity is the number of workers for this tier
+      const inputRatio = Big(rawMachine.storage_capacity).div(1000);
+      rawMachine.isSettlement = true;
+      rawMachine.recipes.push({
+        id: "Housing_Workers",
+        name: "Worker Settlement",
+        duration: 60,
+        isSettlement: true,
+        
+        power_multiplier: 1,
+        inputs: [{
+          name: "Water",
+          quantity: inputRatio.mul(48).toNumber(),
+        },{
+          name: "Household goods",
+          quantity: inputRatio.mul(10).toNumber(),
+        },{
+          name: "Household appliances",
+          quantity: inputRatio.mul(7).toNumber(),
+        },{
+          name: "Electricity",
+          quantity: inputRatio.mul(1100).toNumber(), // 1.1 MW per 80 workers
+        },{
+          name: "Computing",
+          quantity: inputRatio.mul(57.6).toNumber(), // 57.6 TFlops per 80 workers
+        },{
+          name: "Luxury goods",
+          quantity: inputRatio.mul(3.6).toNumber(),
+        },{
+          name: "Consumer electronics",
+          quantity: inputRatio.mul(3.6).toNumber(),
+        },{
+          name: "Medical Supplies",
+          quantity: inputRatio.mul(5).toNumber(), // Only 1 type of medical supplies is actually used
+        },{
+          name: "Medical Supplies II",
+          quantity: inputRatio.mul(5).toNumber(),
+        },{
+          name: "Medical Supplies III",
+          quantity: inputRatio.mul(5).toNumber(),
+        },
+        // Food inputs, default to 0 because it depends what else is provided
+        {
+          name: "Potato",
+          quantity: 0,
+        },{
+          name: "Corn",
+          quantity: 0,
+        },{
+          name: "Bread",
+          quantity: 0, 
+        },{
+          name: "Meat",
+          quantity: 0,
+        },{
+          name: "Eggs",
+          quantity: 0,
+        },{
+          name: "Tofu",
+          quantity: 0,
+        },{
+          name: "Sausage",
+          quantity: 0,
+        },{
+          name: "Vegetables",
+          quantity: 0,
+        },{
+          name: "Fruit",
+          quantity: 0,
+        },{
+          name: "Snack",
+          quantity: 0,
+        },{
+          name: "Cake",
+          quantity: 0,
+        }
+      ],
+        outputs: [{
+          name: "Product_Virtual_Workers",
+          quantity: 80,
+        },{
+          name: "Waste water",
+          quantity: inputRatio.mul(40).toNumber(),
+        },{
+          name: "Waste",
+          quantity: inputRatio.mul(29.3).toNumber(),
+        },{
+          name: "Biomass",
+          quantity: 0,
+        },{
+          name: "Recyclables",
+          quantity: 0,
+        }],
+      });
+      break;   
+    }
+  }
+  return rawMachine;
+}
+
 export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMachine[], products: Awaited<ReturnType<typeof formatProductData>>) {
   const machineData = new Map<MachineId, MachineSerialized>();
   const recipeData = new Map<RecipeId, RecipeSerialized>();
 
   const dupedRecipes = new Map<string, RecipeId[]>();
 
-  for (const rawMachine of rawMachinesAndBuildings) {
+  for (const rawMachineData of rawMachinesAndBuildings) {
+
+    const rawMachine = modifyMachineData(rawMachineData);
 
     const machine: Partial<MachineSerialized> = {
       id: rawMachine.id as Machine["id"],
@@ -371,12 +493,16 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       } else
         dupedRecipes.set(dedupKey, [newRecipeId]);
 
+      let recipeType: "recipe" | "settlement" = 'recipe';
+      if (rawRecipe.isSettlement) 
+        recipeType = 'settlement';
       const recipe: RecipeSerialized = {
         id: newRecipeId as Recipe["id"],
         name: rawRecipe.name,
         tiersLink: tierId,
         machine: rawMachine.id as Machine["id"],
         origDuration: duration,
+        type: recipeType,
         duration: 60, // This is the default with no exceptions... yet
         inputs,
         outputs,
@@ -431,6 +557,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       name: "Balancer Passthrough",
       duration: 60,
       origDuration: 60,
+      type: "balancer",
       machine: BalancerMachineId,
       inputs: [{ id: product.id, quantity: 1 }],
       outputs: [{ id: product.id, quantity: 1 }],
@@ -449,7 +576,6 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
     products: productsById,
   };
 }
-
 
 /**
  * Generate a deduplication key for recipes based on their inputs and outputs.

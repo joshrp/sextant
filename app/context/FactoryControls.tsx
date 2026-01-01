@@ -5,16 +5,20 @@ import { ArrowsPointingOutIcon, CheckCircleIcon, ChevronDownIcon, Cog8ToothIcon 
 import React from "react";
 import { Link } from "react-router";
 import { useShallow } from "zustand/shallow";
-import InfrastructurePopover from "~/components/InfrastructurePopover";
+import InfrastructurePopover, { type InfrastructurePopoverProps } from "~/components/InfrastructurePopover";
 import HelpLink from "~/components/HelpLink";
-import type { InfrastructureType } from "~/factory/infrastructure/calculations";
 import { formatNumber, maintenanceIcon, productIcon, uiIcon } from "~/uiUtils";
 import { useFactoryStore } from "../factory/FactoryContext";
 import { loadData, type ProductId } from "../factory/graph/loadJsonData";
+import type { AddRecipeNode } from "~/factory/factory";
 
 const productData = loadData()?.products;
 
-export default function FactoryControls() {
+export default function FactoryControls({
+  addNewRecipe,
+}: {
+  addNewRecipe: (recipe: AddRecipeNode) => void;
+}) {
   const solutionStatus = useFactoryStore(useShallow(state => state.solutionStatus));
   const solution = useFactoryStore(useShallow(state => state.solution));
   const scoringMethod = useFactoryStore(useShallow(state => state.scoringMethod));
@@ -22,43 +26,46 @@ export default function FactoryControls() {
 
   // if (solution?.infrastructure == undefined) useFactory().store.getState().solutionUpdateAction(false);
   const setScoreMethod = useFactoryStore(state => state.setScoreMethod);
-  const infraScores: Array<{
-    name: string;
-    type: InfrastructureType;
-    icon: string;
-    amount?: number;
-    unit?: string;
-  }> = [{
+  const infraScores: Array<InfrastructurePopoverProps> = [{
     name: 'Electricity',
     type: 'electricity',
     icon: uiIcon('Electricity'),
-    amount: solution?.infrastructure['electricity'],
+    totalAmount: solution?.infrastructure['electricity'],
     unit: 'kW'
   }, {
     name: 'Workers',
     type: 'workers',
     icon: uiIcon('Worker'),
-    amount: solution?.infrastructure['workers']
+    totalAmount: solution?.infrastructure['workers'],
+    producerText: "Add Settlement",    
+    addProducer: () => {
+      addNewRecipe({
+        productId: 'Product_Virtual_Workers' as ProductId,
+        position: { x: 100, y: 100 },
+        produce: true,
+        otherNode: "",
+      });
+    }
   }, {
     name: 'Maintenance 1',
     type: 'maintenance_1',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT1' as ProductId),
-    amount: solution?.infrastructure['maintenance_1']
+    totalAmount: solution?.infrastructure['maintenance_1']
   }, {
     name: 'Maintenance 2',
     type: 'maintenance_2',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT2' as ProductId),
-    amount: solution?.infrastructure['maintenance_2']
+    totalAmount: solution?.infrastructure['maintenance_2']
   }, {
     name: 'Maintenance 3',
     type: 'maintenance_3',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT3' as ProductId),
-    amount: solution?.infrastructure['maintenance_3']
+    totalAmount: solution?.infrastructure['maintenance_3']
   }, {
     name: 'Computing',
     type: 'computing',
     icon: uiIcon('Computing'),
-    amount: solution?.infrastructure['computing'],
+    totalAmount: solution?.infrastructure['computing'],
     unit: 'TFlops'
   }];
 
@@ -149,7 +156,7 @@ export default function FactoryControls() {
                   {(index > 0 ? <span key={"plus-" + index} className="inline-block">+</span> : null)}
                   <div key={i.name} className="flex-1 text-center text-xs text-gray-400 data-zero:opacity-20 data-zero:grayscale">
                     <div className="h-6"><img src={i.icon} alt={i.name} className="inline-block h-full mx-auto" /></div>
-                    <div className="mt-0.5 text-nowrap" title={i.amount?.toString() + " " + i.unit}>{formatNumber(i.amount || 0, i.unit, 0)}</div>
+                    <div className="mt-0.5 text-nowrap" title={i.totalAmount?.toString() + " " + i.unit}>{formatNumber(i.totalAmount || 0, i.unit, 0)}</div>
                   </div>
                 </React.Fragment>)
               })}
@@ -220,12 +227,14 @@ export default function FactoryControls() {
         {infraScores.map((i) => {
           return (
             <InfrastructurePopover
-              key={i.name}
+              key={i.type}
               type={i.type}
               icon={i.icon}
               name={i.name}
               unit={i.unit}
-              totalAmount={i.amount}
+              totalAmount={i.totalAmount}
+              addProducer={i.addProducer}
+              producerText={i.producerText}
             />
           );
         })}

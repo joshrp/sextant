@@ -2,6 +2,11 @@ export type MachineId = string // keyof typeof machineData;
 export type RecipeId = "A Recipe ID" | "Some other Recipe ID"; // keyof typeof recipeData;
 export type ProductId = "A Product String Example" | "Some other product"; // keyof typeof productData; // This was killing performance, it's used everywhere and is too large
 export type CategoryId = "A Machine Category ID" | "Some other category"; // keyof typeof categoryData;
+export const ProductId = (id: string) => id as ProductId;
+export const RecipeId = (id: string) => id as RecipeId;
+export const MachineId = (id: string) => id as MachineId;
+export const CategoryId = (id: string) => id as CategoryId;
+
 import untyped from "../../gameData";
 
 export type GameData = {
@@ -117,6 +122,7 @@ export type RecipeProductSerialized = {
 export type RecipeBase = {
   id: RecipeId;
   name: string;
+  type: "recipe" | "settlement" | "balancer";
   tiersLink?: string;
   duration: number;
   origDuration: number;

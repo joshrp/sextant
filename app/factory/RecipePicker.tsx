@@ -13,13 +13,14 @@ export default function RecipePicker({
 }: {
   productId: ProductId;
   productIs?: "input" | "output" | "any";
-  selectRecipe: (recipeId: RecipeId) => void;
+  selectRecipe: (recipeId: RecipeId, isBalancer: boolean) => void;
 }) {
   const [tiersOpen, setTiersOpen] = useState<{ [key: string]: boolean }>({});
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const product = products.get(productId);
   if (!product) {
+    console.error('Product not found:', productId);
     return <div className="text-red-500">Product not found</div>;
   }
 
@@ -67,7 +68,7 @@ export default function RecipePicker({
       </div>
       {balancerRecipe && <div>
         <button className="relative has-tooltip p-0.5 rounded-sm cursor-pointer hover:brightness-125 bg-gray-800 border-gray-500"
-          onClick={() => selectRecipe(balancerRecipe!.id)}>
+          onClick={() => selectRecipe(balancerRecipe!.id, true)}>
             <span className='tooltip z-50 rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-8 left-1/2 -translate-x-1/2 text-nowrap'>Use Import/Export/Balancer</span> 
           <img src={machineIcon(balancerRecipe?.machine)} alt={balancerRecipe?.machine.name || "Balancer"}
             className="inline-block max-w-10"
@@ -108,7 +109,7 @@ type RecipeRowProps = {
   isOpen?: boolean;
   groupCount: number,
   setOpen: (linkId: string, isOpen: boolean) => void;
-  selectRecipe: (recipeId: RecipeId) => void;
+  selectRecipe: (recipeId: RecipeId, isBalancer: boolean) => void;
 };
 
 function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupCount, isOpen, isParent, setOpen }: RecipeRowProps) {
@@ -152,7 +153,7 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
   return (<tr className="group/row recipe-row cursor-pointer"
     data-is-open={isOpen} data-isParent={isParent} data-hasGroup={groupCount > 1}
     onClick={() => {
-      selectRecipe(recipe.id);
+      selectRecipe(recipe.id, false);
     }} key={recipe.id}>
     <td className="recipe-machine max-w-20">
       <div className="flex flex-row gap-2 border-r-2 border-gray-600">

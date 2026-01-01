@@ -42,12 +42,7 @@ export default function Zone() {
     {selectedFactory &&
       <FactoryProvider idb={idb} zoneId={zoneId} id={selectedFactoryId} name={selectedFactory?.name || "Default Factory"} weights={baseWeights}>
         <div className="flex-1 flex flex-col h-full">
-          <div className="factoryActions flex flex-row w-full h-10 bg-zinc-950 texture-industrial">
-            <FactoryControls />
-          </div>
-          <div className="justify-self-stretch flex flex-row w-full h-[calc(100%-calc(10*var(--spacing)))]">
-            <Factory />
-          </div>
+          <Factory />
         </div>
 
         <Outlet />

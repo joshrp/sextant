@@ -5,8 +5,8 @@
  */
 
 import type { HighsSolution } from "highs";
-import type { ProductId, Recipe } from "../graph/loadJsonData";
 import type { CustomEdgeType } from '../graph/edges';
+import type { ProductId, Recipe } from "../graph/loadJsonData";
 import type { CustomNodeType } from '../graph/nodes';
 import type { EqualityTypes, FactoryGoal, GraphModel, GraphScoringMethod, NodeConnection, NodeConnections, OpenConnections, Solution } from "./types";
 
@@ -159,11 +159,24 @@ export function buildNodeConnections(
       (openConnections.outputs[output.product.id] ||= []).push(node.id)
     });
 
-    nodeConnections[node.id] = {
+    const nodeData = {
       recipeId: node.data.recipeId,
       inputs: inputs,
       outputs: outputs,
-    };
+    } as const;
+    
+    if (node.data.type === "settlement") {
+      nodeConnections[node.id] = {
+        ...nodeData,
+        options: node.data.options,
+        type: "settlement",
+      }
+    } else {
+      nodeConnections[node.id] = {
+        ...nodeData,
+        type: node.data.type,
+      };
+    }
   });
 
   edges.forEach(edge => {

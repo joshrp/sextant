@@ -17,7 +17,7 @@ import { calculateInfrastructure, type InfrastructureType } from '~/factory/infr
 
 const { recipes, machines } = loadData();
 
-interface InfrastructurePopoverProps {
+export interface InfrastructurePopoverProps {
   /** The infrastructure type to show usage for */
   type: InfrastructureType;
   /** Icon to show in the button */
@@ -28,6 +28,9 @@ interface InfrastructurePopoverProps {
   unit?: string;
   /** Total amount (shown in button) */
   totalAmount?: number;
+  /** Callback to add a producer of this infrastructure */
+  addProducer?: () => void;
+  producerText?: string;
 }
 
 interface MachineUsage {
@@ -51,7 +54,7 @@ function calculateMachineUsage(
   nodes.forEach((node: CustomNodeType) => {
     if (node.type !== 'recipe-node') return;
     
-    const recipe = recipes.get(node.data.recipeId);
+    const recipe = node.data.type !== 'settlement' && recipes.get(node.data?.recipeId);
     if (!recipe) return;
 
     const runCount = node.data.solution?.solved ? node.data.solution.runCount : 1;
@@ -87,6 +90,8 @@ export default function InfrastructurePopover({
   name,
   unit,
   totalAmount,
+  producerText = "Add Producer",
+  addProducer,
 }: InfrastructurePopoverProps) {
   const nodes = useFactory().store.getState().nodes;
   const solution = useFactoryStore(useShallow(state => state.solution));
@@ -112,6 +117,7 @@ export default function InfrastructurePopover({
         <div className="text-nowrap">
           {formatNumber(totalAmount || 0, unit, 0)}
         </div>
+      
       </PopoverButton>
 
       <PopoverPanel
@@ -159,6 +165,13 @@ export default function InfrastructurePopover({
             </div>
           )}
         </div>
+         {addProducer && (
+          <button onClick={addProducer}
+            className="block m-1 p-2 mx-auto cursor-pointer bg-blue-600 hover:brightness-125 text-white text-xs rounded"
+          >
+            {producerText}
+          </button>
+        )}
       </PopoverPanel>
     </Popover>
   );

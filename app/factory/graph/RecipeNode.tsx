@@ -5,15 +5,17 @@ import { memo, useLayoutEffect } from 'react';
 import { useShallow } from 'zustand/shallow';
 import { useFactoryStore } from '../FactoryContext';
 import { loadData, type ProductId } from './loadJsonData';
-import { type RecipeNodeData } from './recipeNodeLogic';
+import { type BalancerNodeData, type RecipeNodeData, type SettlementNodeData } from './recipeNodeLogic';
 import RecipeNodeView from './RecipeNodeView';
+import BalancerNodeView from './BalancerNodeView';
+import SettlementNodeView from './SettlmentNodeView';
 
 const { recipes } = loadData();
 
 // Re-export RecipeNodeData for other files that need it
 export type { RecipeNodeData };
 
-export type RecipeNode = Node<RecipeNodeData>;
+export type RecipeNode = Node<RecipeNodeData | BalancerNodeData | SettlementNodeData>;
 
 type ProductEdges = Map<ProductId, boolean | null>;
 
@@ -30,20 +32,6 @@ const zoomSelector = (s: any) => {
   }
 }
 
-// TODO: Component Testing - Refactored for testability:
-// ✅ DONE: Extracted pure logic functions to recipeNodeLogic.ts (getQuantityDisplay, getRunCount)
-// ✅ DONE: Added unit tests for extracted logic in recipeNodeLogic.test.ts
-// ✅ DONE: Extracted pure RecipeNodeView component to separate file for isolated testing
-// ✅ DONE: Created component tests for RecipeNodeView (RecipeNodeView.component.test.tsx)
-// ✅ DONE: Created Cosmos fixtures for RecipeNodeView (RecipeNodeView.fixture.tsx)
-// 
-// REMAINING WORK for full component testing:
-// 1. Consider extracting HandleList sub-component if needed for additional reuse
-// 2. Consider extracting InfrastructureIcon sub-component if needed for additional reuse
-// 3. Add visual regression tests for different zoom levels and orientations if needed
-// 
-// Note: RecipeNode wrapper handles React Flow and Zustand context integration.
-// RecipeNodeView is a pure component that can be tested in isolation.
 function RecipeNode(props: NodeProps<RecipeNode>) {
   const updateNodeInternals = useUpdateNodeInternals();
   if (props.data.ltr === undefined) props.data.ltr = true; // Default to left-to-right layout
@@ -55,6 +43,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
 
   const removeNode = useFactoryStore(state => state.removeNode);
   const setNodeData = useFactoryStore(state => state.setNodeData);
+  const setSettlementOptions = useFactoryStore(state => state.setSettlementOptions);
   const highlight = useFactoryStore(useShallow(state => state.highlight));
   const flipNode = () => {
     setNodeData(props.id, { ltr: !props.data.ltr });
@@ -63,7 +52,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   const connectedEdges = useFactoryStore(useShallow(state => state.edges.filter(e => e.source === props.id || e.target === props.id)));
   const zoomLevel = useStore(zoomSelector);
 
-  const recipe = recipes.get(props.data.recipeId);
+  const recipe = 'recipeId' in props.data && recipes.get(props.data.recipeId);
   if (!recipe) {
     return <div className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
       <div className="recipe-node-title-bar flex justify-between border-white/20 mb-8 pb-2 border-b-2 items-center-safe ">
@@ -78,7 +67,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
           </button>
         </div>
       </div>
-      <div className="text-center text-red-500">Error: Recipe ID `{props.data.recipeId}` not found.</div>
+      <div className="text-center text-red-500">Error: Recipe ID `{'recipeId' in props.data ? props.data.recipeId : "unknown"}` not found.</div>
 
     </div>;
   }
@@ -95,8 +84,9 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
     }
   });
 
-  return (
-    <RecipeNodeView
+  let contents;
+  if (props.data.type === "balancer") {
+    contents = <BalancerNodeView
       recipe={recipe}
       productEdges={productEdges}
       ltr={props.data.ltr}
@@ -106,8 +96,36 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
       solution={props.data.solution}
       highlight={highlight}
       nodeId={props.id}
-    />
-  );
+    />;
+  } else if (props.data.type === "settlement") {
+    contents = <SettlementNodeView
+      recipe={recipe}
+      settlementOptions={props.data.options}
+      setOptions={options => setSettlementOptions(props.id, options)}
+      productEdges={productEdges}
+      ltr={props.data.ltr}
+      zoomLevel={zoomLevel}
+      onFlip={flipNode}
+      onRemove={() => removeNode(props.id)}
+      solution={props.data.solution}
+      highlight={highlight}
+      nodeId={props.id}
+    />;
+  } else {
+    contents = <RecipeNodeView
+      recipe={recipe}
+      productEdges={productEdges}
+      ltr={props.data.ltr}
+      zoomLevel={zoomLevel}
+      onFlip={flipNode}
+      onRemove={() => removeNode(props.id)}
+      solution={props.data.solution}
+      highlight={highlight}
+      nodeId={props.id}
+
+    />;
+  }
+  return contents;
 }
 
 export default memo(RecipeNode, (prevProps, nextProps) => {

@@ -8,6 +8,7 @@ import type { GraphSolutionState, GraphStore } from "~/factory/store";
 import type { ProductionZoneStoreData } from "~/context/ZoneProvider";
 import type { GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
+import type { ConfigurableNodeTypes, NodeDataTypes, SettlementNodeData } from "~/factory/graph/recipeNodeLogic";
 
 /**
  * Update data for a specific node immutably
@@ -19,7 +20,7 @@ import type { solve } from "~/factory/solver/solver";
 export function updateNodeData(
   state: GraphSolutionState,
   nodeId: string,
-  data: Partial<RecipeNodeData>
+  data: Partial<NodeDataTypes>
 ): GraphSolutionState {
   return {
     ...state,
@@ -30,6 +31,22 @@ export function updateNodeData(
     ),
   };
 }
+
+export function updateSettlementOptions(
+  state: GraphSolutionState,
+  nodeId: string,
+  options?: Partial<SettlementNodeData["options"]>
+): GraphSolutionState {
+  return {
+    ...state,
+    nodes: state.nodes.map(node =>
+      node.id === nodeId && node.data.type === "settlement"
+        ? { ...node, data: { ...node.data, options: { ...node.data.options, ...options } } }
+        : node
+    ),
+  };
+}
+
 
 /**
  * Update data for a specific edge immutably

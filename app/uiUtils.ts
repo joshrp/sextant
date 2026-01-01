@@ -5,12 +5,10 @@ let LANG = "en-GB";
 if (typeof window !== "undefined")
   LANG = window.navigator.language;
 
-export function formatNumber(value: number, unit: string = '', maximumFractionDigits: number = 1): string {
-  if (isNaN(value)) return "? " + unit;
-  if (!isFinite(value)) return (value < 0 ? "-" : "") + "∞ " + unit;
-  if (value === 0) return "0 " + unit;
-  if (Math.abs(value) <= 0.001) return value.toExponential(1) + unit;
-
+export function unitAbbreviation(unit: string, value: number = 0): string {
+  if (!isNaN(value) || !isFinite(value) || value === 0) {
+    value = 0
+  }
   if (unit === "kW") {
     if (Math.abs(value) >= 1000) {
       value /= 1000;
@@ -32,7 +30,18 @@ export function formatNumber(value: number, unit: string = '', maximumFractionDi
       unit = "Ef";
     }
   }
-  return value.toLocaleString(LANG, { maximumFractionDigits }) + " " + unit;
+  return unit;
+}
+
+export function formatNumber(value: number, unit: string = '', maximumFractionDigits: number = 1): string {
+  const unitstr = unitAbbreviation(unit, value);
+  if (isNaN(value)) return "? " + unitstr;
+  if (!isFinite(value)) return (value < 0 ? "-" : "") + "∞ " + unitstr;
+  if (value === 0) return "0 " + unitstr;
+  if (Math.abs(value) <= 0.001) return value.toExponential(1) + unitstr;
+
+
+  return value.toLocaleString(LANG, { maximumFractionDigits }) + " " + unitstr;
 }
 
 export const productIcon = (icon: string) => `/assets/products/${icon}`;
@@ -88,7 +97,7 @@ export const maintenanceKey = (machine: Machine) => {
 
 export function getAllIcons(products: Map<string, Product>, machines: Map<string, Machine>): IconInfo[] {
   const icons: IconInfo[] = [];
-  
+
   // Add product icons
   products.forEach(product => {
     icons.push({
@@ -97,7 +106,7 @@ export function getAllIcons(products: Map<string, Product>, machines: Map<string
       category: 'product'
     });
   });
-  
+
   // Add machine icons
   machines.forEach(machine => {
     icons.push({
@@ -106,14 +115,14 @@ export function getAllIcons(products: Map<string, Product>, machines: Map<string
       category: 'machine'
     });
   });
-  
+
   // Add common UI icons
   const uiIcons = [
     'Worker', 'Workers', 'Electricity', 'Computing', 'Maintenance',
     'Build', 'Buildings', 'Cancel', 'Clock', 'Dumping',
     'Unity', 'Research', 'Settlement', 'Tree', 'Uranium'
   ];
-  
+
   uiIcons.forEach(iconName => {
     icons.push({
       path: uiIcon(iconName),
@@ -121,6 +130,6 @@ export function getAllIcons(products: Map<string, Product>, machines: Map<string
       category: 'ui'
     });
   });
-  
+
   return icons;
 }

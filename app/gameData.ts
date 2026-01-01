@@ -10,6 +10,7 @@
       "unit": "kW",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "BasicServerRack",
           "Balancer_Product_Virtual_Electricity"
         ],
@@ -70,6 +71,7 @@
       "unit": "TFlops",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_Virtual_Computing"
         ],
         "output": [
@@ -3221,6 +3223,7 @@
           "Crop_Canola_Product_Fertilizer2_1",
           "Crop_Canola_Product_FertilizerOrganic_1",
           "ChickenFarm",
+          "Housing_Workers",
           "NuclearReactorT21",
           "NuclearReactorT22",
           "NuclearReactor1",
@@ -3386,6 +3389,7 @@
           "DieselDistillationBasic",
           "RubberProductionNaphthaAlt",
           "RubberProductionDieselWithCoal",
+          "Housing_Workers",
           "Balancer_Product_WasteWater"
         ]
       },
@@ -3863,6 +3867,7 @@
           "ResearchLab31",
           "ResearchLab41",
           "ResearchLab51",
+          "Housing_Workers",
           "Balancer_Product_Recyclables"
         ]
       },
@@ -4537,6 +4542,7 @@
           "AnimalFeedFromPotatoT2",
           "AnimalFeedFromPotato",
           "PotatoDigestion",
+          "Housing_Workers",
           "Balancer_Product_Potato"
         ],
         "output": [
@@ -4576,6 +4582,7 @@
           "AnimalFeedFromCornT2",
           "AnimalFeedFromCorn",
           "CornDigestion",
+          "Housing_Workers",
           "Balancer_Product_Corn"
         ],
         "output": [
@@ -4759,6 +4766,7 @@
           "FoodPackAssemblyTofuT2",
           "FoodPackAssemblyTofu",
           "VegetablesDigestion",
+          "Housing_Workers",
           "Balancer_Product_Vegetables"
         ],
         "output": [
@@ -4795,6 +4803,7 @@
         "input": [
           "CakeProduction",
           "FruitDigestion",
+          "Housing_Workers",
           "Balancer_Product_Fruit"
         ],
         "output": [
@@ -4863,6 +4872,7 @@
           "FoodPackAssemblyEggsT2",
           "FoodPackAssemblyMeat",
           "FoodPackAssemblyEggs",
+          "Housing_Workers",
           "Balancer_Product_Bread"
         ],
         "output": [
@@ -4969,6 +4979,7 @@
           "SnackProductionCorn",
           "SugarRefiningCane",
           "ShreddingSaplings",
+          "Housing_Workers",
           "Balancer_Product_Biomass"
         ]
       },
@@ -4995,6 +5006,7 @@
           "FoodPackAssemblyEggsT2",
           "FoodPackAssemblyEggs",
           "EggsDigestion",
+          "Housing_Workers",
           "Balancer_Product_Eggs"
         ],
         "output": [
@@ -5023,6 +5035,7 @@
           "FoodPackAssemblyTofuT3",
           "FoodPackAssemblyTofuT2",
           "FoodPackAssemblyTofu",
+          "Housing_Workers",
           "Balancer_Product_Tofu"
         ],
         "output": [
@@ -5083,6 +5096,7 @@
           "FoodPackAssemblyMeatT3",
           "FoodPackAssemblyMeatT2",
           "FoodPackAssemblyMeat",
+          "Housing_Workers",
           "Balancer_Product_Meat"
         ],
         "output": [
@@ -5108,6 +5122,7 @@
       "unit": "",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_Sausage"
         ],
         "output": [
@@ -5133,6 +5148,7 @@
       "unit": "",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_Snack"
         ],
         "output": [
@@ -5159,6 +5175,7 @@
       "unit": "",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_Cake"
         ],
         "output": [
@@ -5384,6 +5401,7 @@
           "OfficeSuppliesAssemblyT3",
           "OfficeSuppliesAssemblyT2",
           "OfficeSuppliesAssemblyT1",
+          "Housing_Workers",
           "Balancer_Product_HouseholdGoods"
         ],
         "output": [
@@ -5412,6 +5430,7 @@
       "unit": "",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_HouseholdAppliances"
         ],
         "output": [
@@ -5439,6 +5458,7 @@
       "unit": "",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_ConsumerElectronics"
         ],
         "output": [
@@ -5464,6 +5484,7 @@
       "unit": "",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_LuxuryGoods"
         ],
         "output": [
@@ -5664,6 +5685,7 @@
           "MedicalSupplies2AssemblyT3",
           "MedicalSupplies2AssemblyT2",
           "MedicalSupplies2AssemblyT1",
+          "Housing_Workers",
           "Balancer_Product_MedicalSupplies"
         ],
         "output": [
@@ -5697,6 +5719,7 @@
           "CrewSuppliesAssemblyT2",
           "MedicalSupplies3AssemblyT1",
           "CrewSuppliesAssemblyT1",
+          "Housing_Workers",
           "Balancer_Product_MedicalSupplies2"
         ],
         "output": [
@@ -5724,6 +5747,7 @@
       "unit": "",
       "recipes": {
         "input": [
+          "Housing_Workers",
           "Balancer_Product_MedicalSupplies3"
         ],
         "output": [
@@ -7365,6 +7389,7 @@
         ],
         "output": [
           "ShreddingWaste",
+          "Housing_Workers",
           "Balancer_Product_Waste"
         ]
       },
@@ -7479,6 +7504,35 @@
           "BalancerVirtual"
         ],
         "output": [
+          "BalancerVirtual"
+        ]
+      }
+    },
+    "Product_Virtual_Workers": {
+      "id": "Product_Virtual_Workers",
+      "name": "Workers",
+      "icon": "workers.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_Workers"
+        ],
+        "output": [
+          "Housing_Workers",
+          "Balancer_Product_Virtual_Workers"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual"
+        ],
+        "output": [
+          "Housing",
+          "HousingT2",
+          "HousingT3",
+          "HousingT4",
           "BalancerVirtual"
         ]
       }
@@ -12454,7 +12508,9 @@
       "name": "Housing",
       "category_id": "Housing & services",
       "workers": 0,
-      "recipes": [],
+      "recipes": [
+        "Housing_Workers"
+      ],
       "buildCosts": [
         {
           "id": "Product_ConstructionParts",
@@ -13414,7 +13470,8 @@
         "Balancer_Product_Chicken",
         "Balancer_Product_CargoShip",
         "Balancer_Product_Virtual_Footprint",
-        "Balancer_Product_Virtual_Wildcard"
+        "Balancer_Product_Virtual_Wildcard",
+        "Balancer_Product_Virtual_Workers"
       ],
       "buildCosts": [],
       "isBalancer": true,
@@ -13438,6 +13495,7 @@
       "name": "TurbineSuperPress",
       "machine": "TurbineSuperPress",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13462,6 +13520,7 @@
       "tiersLink": "9db40c7b537580e83807c6c0b01a5c6735d2291bade13eaa8ce01dd13fcae5d7",
       "machine": "TurbineHighPressT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13486,6 +13545,7 @@
       "tiersLink": "9db40c7b537580e83807c6c0b01a5c6735d2291bade13eaa8ce01dd13fcae5d7",
       "machine": "TurbineHighPress",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13510,6 +13570,7 @@
       "tiersLink": "29666db2a45b168c09a03008ee9d6e2c40f87f6357651d3b84c1fdf54f2a80f7",
       "machine": "TurbineLowPressT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13534,6 +13595,7 @@
       "tiersLink": "29666db2a45b168c09a03008ee9d6e2c40f87f6357651d3b84c1fdf54f2a80f7",
       "machine": "TurbineLowPress",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13557,6 +13619,7 @@
       "name": "PowerGeneratorT1",
       "machine": "PowerGeneratorT1",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13576,6 +13639,7 @@
       "name": "PowerGeneratorT2",
       "machine": "PowerGeneratorT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13595,6 +13659,7 @@
       "name": "DieselGenerator",
       "machine": "DieselGenerator",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13618,6 +13683,7 @@
       "name": "DieselGeneratorT2",
       "machine": "DieselGeneratorT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13641,6 +13707,7 @@
       "name": "Wheat milling",
       "machine": "FoodMill",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13664,6 +13731,7 @@
       "name": "Soybean milling",
       "machine": "FoodMill",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13687,6 +13755,7 @@
       "name": "Canola milling",
       "machine": "FoodMill",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13710,6 +13779,7 @@
       "name": "Corn milling (wet)",
       "machine": "FoodMill",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13737,6 +13807,7 @@
       "name": "Tofu making",
       "machine": "FoodProcessor",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13772,6 +13843,7 @@
       "name": "Meat processing",
       "machine": "FoodProcessor",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13803,6 +13875,7 @@
       "name": "Meat processing",
       "machine": "FoodProcessor",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13822,6 +13895,7 @@
       "name": "Sausage processing",
       "machine": "FoodProcessor",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13849,6 +13923,7 @@
       "name": "Snack production",
       "machine": "FoodProcessor",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13884,6 +13959,7 @@
       "name": "Snack production",
       "machine": "FoodProcessor",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13919,6 +13995,7 @@
       "name": "Sugar refining (cane)",
       "machine": "FoodProcessor",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13946,6 +14023,7 @@
       "name": "Bread making",
       "machine": "BakingUnit",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -13969,6 +14047,7 @@
       "name": "Cake production",
       "machine": "BakingUnit",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14004,6 +14083,7 @@
       "name": "Diesel distillation (basic)",
       "machine": "BasicDieselDistiller",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14035,6 +14115,7 @@
       "name": "Water desalination (basic)",
       "machine": "BasicDieselDistiller",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14066,6 +14147,7 @@
       "name": "Oil pumping",
       "machine": "OilPump",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -14080,6 +14162,7 @@
       "name": "Water pumping",
       "machine": "LandWaterPump",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -14094,6 +14177,7 @@
       "name": "Co2 injection",
       "machine": "GasInjectionPump",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14113,6 +14197,7 @@
       "tiersLink": "d54fbe384ec5f3c7d4da12902a869ef460a0a1f2f1b2a082501949b998d17cb4",
       "machine": "OceanWaterPumpT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -14128,6 +14213,7 @@
       "tiersLink": "d54fbe384ec5f3c7d4da12902a869ef460a0a1f2f1b2a082501949b998d17cb4",
       "machine": "OceanWaterPumpLarge",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -14142,6 +14228,7 @@
       "name": "Steam generation",
       "machine": "BoilerCoal",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14169,6 +14256,7 @@
       "name": "Steam generation",
       "machine": "BoilerCoal",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14196,6 +14284,7 @@
       "name": "Steam generation",
       "machine": "BoilerCoal",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14223,6 +14312,7 @@
       "name": "Steam generation",
       "machine": "BoilerCoal",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14250,6 +14340,7 @@
       "name": "Steam generation",
       "machine": "BoilerGas",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14277,6 +14368,7 @@
       "name": "Steam generation",
       "machine": "BoilerGas",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14304,6 +14396,7 @@
       "name": "Steam generation",
       "machine": "BoilerGas",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14331,6 +14424,7 @@
       "name": "Steam generation",
       "machine": "BoilerGas",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14358,6 +14452,7 @@
       "name": "Steam generation",
       "machine": "BoilerGas",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14385,6 +14480,7 @@
       "name": "Steam generation",
       "machine": "BoilerGas",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14412,6 +14508,7 @@
       "name": "Steam generation",
       "machine": "BoilerGas",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14440,6 +14537,7 @@
       "tiersLink": "67d58fd2442d6efc82d9f016a552e6b7c2c91317e4b6f0a8235645dd2c5343de",
       "machine": "BoilerElectric",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14460,6 +14558,7 @@
       "tiersLink": "67d58fd2442d6efc82d9f016a552e6b7c2c91317e4b6f0a8235645dd2c5343de",
       "machine": "BoilerElectric",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14479,6 +14578,7 @@
       "name": "Steam generation",
       "machine": "BoilerElectric",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14499,6 +14599,7 @@
       "tiersLink": "da9eba5af485f71215fc78c438a58e03ca291d8b85288286bd7cb41926f31d8b",
       "machine": "EvaporationPondHeated",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14519,6 +14620,7 @@
       "tiersLink": "97f9f034c23fb42be6c95f477fa31ef9a50d09fa84134858afacbd6004f3b507",
       "machine": "EvaporationPondHeated",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14539,6 +14641,7 @@
       "tiersLink": "408e1475074290b7a93f94946e4d74fb6a1d8c213c0309fa851cbb600da506ae",
       "machine": "EvaporationPondHeated",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14559,6 +14662,7 @@
       "tiersLink": "da9eba5af485f71215fc78c438a58e03ca291d8b85288286bd7cb41926f31d8b",
       "machine": "EvaporationPond",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14579,6 +14683,7 @@
       "tiersLink": "97f9f034c23fb42be6c95f477fa31ef9a50d09fa84134858afacbd6004f3b507",
       "machine": "EvaporationPond",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14599,6 +14704,7 @@
       "tiersLink": "408e1475074290b7a93f94946e4d74fb6a1d8c213c0309fa851cbb600da506ae",
       "machine": "EvaporationPond",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14618,6 +14724,7 @@
       "name": "Thermal desalination",
       "machine": "ThermalDesalinator",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14645,6 +14752,7 @@
       "name": "Thermal desalination",
       "machine": "ThermalDesalinator",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14672,6 +14780,7 @@
       "name": "Thermal desalination",
       "machine": "ThermalDesalinator",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14699,6 +14808,7 @@
       "name": "Thermal desalination",
       "machine": "ThermalDesalinator",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14726,6 +14836,7 @@
       "name": "Water cooling",
       "machine": "WaterChiller",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14745,6 +14856,7 @@
       "name": "Simple concrete making",
       "machine": "BricksMaker",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14777,6 +14889,7 @@
       "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14805,6 +14918,7 @@
       "tiersLink": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14833,6 +14947,7 @@
       "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14857,6 +14972,7 @@
       "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14881,6 +14997,7 @@
       "tiersLink": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
       "machine": "AssemblyRoboticT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14905,6 +15022,7 @@
       "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14925,6 +15043,7 @@
       "tiersLink": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14945,6 +15064,7 @@
       "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14969,6 +15089,7 @@
       "tiersLink": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -14997,6 +15118,7 @@
       "tiersLink": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15021,6 +15143,7 @@
       "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15045,6 +15168,7 @@
       "tiersLink": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15073,6 +15197,7 @@
       "tiersLink": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15097,6 +15222,7 @@
       "tiersLink": "64870ec3ca95b40ca05d3303350551179ff02fab12fdcc87ca06824bca0652b6",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15121,6 +15247,7 @@
       "tiersLink": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15145,6 +15272,7 @@
       "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15173,6 +15301,7 @@
       "tiersLink": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15201,6 +15330,7 @@
       "tiersLink": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15225,6 +15355,7 @@
       "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15253,6 +15384,7 @@
       "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15277,6 +15409,7 @@
       "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15305,6 +15438,7 @@
       "tiersLink": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15329,6 +15463,7 @@
       "tiersLink": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
       "machine": "AssemblyRoboticT2",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15356,6 +15491,7 @@
       "name": "Solar cell assembly",
       "machine": "AssemblyRoboticT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15384,6 +15520,7 @@
       "tiersLink": "f8d0f30f3e0f4341cf4c4fc8eab24a27b7aa6e2d827f7bdd355a08998027ef8f",
       "machine": "AssemblyRoboticT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15407,6 +15544,7 @@
       "name": "Electronics 4 assembly",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15435,6 +15573,7 @@
       "tiersLink": "a9a95e9d88038677eb58061438c82de10aaaf2711f9141d1e5a0872235880077",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15458,6 +15597,7 @@
       "name": "Consumer electronics assembly (T1)",
       "machine": "AssemblyRoboticT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15486,6 +15626,7 @@
       "tiersLink": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15510,6 +15651,7 @@
       "tiersLink": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15534,6 +15676,7 @@
       "tiersLink": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15558,6 +15701,7 @@
       "tiersLink": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15586,6 +15730,7 @@
       "tiersLink": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15610,6 +15755,7 @@
       "tiersLink": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15634,6 +15780,7 @@
       "tiersLink": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15658,6 +15805,7 @@
       "tiersLink": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
       "machine": "AssemblyRoboticT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15686,6 +15834,7 @@
       "tiersLink": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15714,6 +15863,7 @@
       "tiersLink": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15741,6 +15891,7 @@
       "name": "Composite core assembly",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15769,6 +15920,7 @@
       "tiersLink": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15796,6 +15948,7 @@
       "name": "Station parts assembly",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15824,6 +15977,7 @@
       "tiersLink": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
       "machine": "AssemblyRoboticT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15851,6 +16005,7 @@
       "name": "Probe parts assembly",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15878,6 +16033,7 @@
       "name": "Compact reactor assembly",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15905,6 +16061,7 @@
       "name": "Asteroid booster parts assembly",
       "machine": "AssemblyRoboticT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15933,6 +16090,7 @@
       "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15961,6 +16119,7 @@
       "tiersLink": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -15989,6 +16148,7 @@
       "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16013,6 +16173,7 @@
       "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16037,6 +16198,7 @@
       "tiersLink": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
       "machine": "AssemblyRoboticT1",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16061,6 +16223,7 @@
       "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16081,6 +16244,7 @@
       "tiersLink": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16101,6 +16265,7 @@
       "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyRoboticT1",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16125,6 +16290,7 @@
       "tiersLink": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16153,6 +16319,7 @@
       "tiersLink": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16177,6 +16344,7 @@
       "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyRoboticT1",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16201,6 +16369,7 @@
       "tiersLink": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16229,6 +16398,7 @@
       "tiersLink": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16253,6 +16423,7 @@
       "tiersLink": "64870ec3ca95b40ca05d3303350551179ff02fab12fdcc87ca06824bca0652b6",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16277,6 +16448,7 @@
       "tiersLink": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16301,6 +16473,7 @@
       "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16329,6 +16502,7 @@
       "tiersLink": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16357,6 +16531,7 @@
       "tiersLink": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16381,6 +16556,7 @@
       "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16409,6 +16585,7 @@
       "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16433,6 +16610,7 @@
       "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16461,6 +16639,7 @@
       "tiersLink": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16484,6 +16663,7 @@
       "name": "Uranium enriched (T1)",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16508,6 +16688,7 @@
       "tiersLink": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
       "machine": "AssemblyRoboticT1",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16536,6 +16717,7 @@
       "tiersLink": "f8d0f30f3e0f4341cf4c4fc8eab24a27b7aa6e2d827f7bdd355a08998027ef8f",
       "machine": "AssemblyRoboticT1",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16560,6 +16742,7 @@
       "tiersLink": "a9a95e9d88038677eb58061438c82de10aaaf2711f9141d1e5a0872235880077",
       "machine": "AssemblyRoboticT1",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16584,6 +16767,7 @@
       "tiersLink": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16608,6 +16792,7 @@
       "tiersLink": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16632,6 +16817,7 @@
       "tiersLink": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16656,6 +16842,7 @@
       "tiersLink": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
       "machine": "AssemblyRoboticT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16684,6 +16871,7 @@
       "tiersLink": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16708,6 +16896,7 @@
       "tiersLink": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16732,6 +16921,7 @@
       "tiersLink": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16756,6 +16946,7 @@
       "tiersLink": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
       "machine": "AssemblyRoboticT1",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16784,6 +16975,7 @@
       "tiersLink": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16812,6 +17004,7 @@
       "tiersLink": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16840,6 +17033,7 @@
       "tiersLink": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16868,6 +17062,7 @@
       "tiersLink": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
       "machine": "AssemblyRoboticT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16896,6 +17091,7 @@
       "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16924,6 +17120,7 @@
       "tiersLink": "681e9693e6ca40f14fe4f3009a7647593bd555d4908ef1179c515c7f02de8bf2",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16952,6 +17149,7 @@
       "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -16976,6 +17174,7 @@
       "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17000,6 +17199,7 @@
       "tiersLink": "9805140dc4874b8b262b4d3c44097b157beeae53e12b1f2c41e8221fc351f6e4",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 80,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17024,6 +17224,7 @@
       "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17044,6 +17245,7 @@
       "tiersLink": "7b210c326bc4dcb1c7fa992bc00acbcc7d6b821acfcc816ea4352423773a2cd2",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17064,6 +17266,7 @@
       "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17088,6 +17291,7 @@
       "tiersLink": "a19e0be21a1fca6ef6954079bebf96aa7e46542b1e4ca012ffa4e28e984446d3",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17116,6 +17320,7 @@
       "tiersLink": "e7e98a383707c360b5403cde9e772140abd9afb297420489cd7356a54ce13164",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17140,6 +17345,7 @@
       "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17164,6 +17370,7 @@
       "tiersLink": "98eac6858b0eaf5a8db01cf6e844bcbe4d8c792ea8144bed152e296afaf292cd",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17192,6 +17399,7 @@
       "tiersLink": "eda4270e6b295ec254181d22ea2d14bb68bc34998e33cf87954cffd2793c77d6",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17216,6 +17424,7 @@
       "tiersLink": "db6587fcfecb138ecdd0c291211a896950ac6581db996a55e86060f51d321ba2",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17240,6 +17449,7 @@
       "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17268,6 +17478,7 @@
       "tiersLink": "00650c20a324c791a8d448500df08ec4ab6ce5368223da821089717774c28e0d",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17296,6 +17507,7 @@
       "tiersLink": "53c211cf189a5b145acb8333048bdf1d561399e3ad0a975e18b35c99f6b82efa",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17320,6 +17532,7 @@
       "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17348,6 +17561,7 @@
       "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17372,6 +17586,7 @@
       "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17400,6 +17615,7 @@
       "tiersLink": "202dfc2975dc9a8f8a16cd08380db62d314d6d095ed7a63eaaad7a10914ca955",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17424,6 +17640,7 @@
       "tiersLink": "7387499b59bd8d7a2e9c8f3b2b9b2d6fd7ccc55ece94828a553bab8a98a1d0a0",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 120,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17452,6 +17669,7 @@
       "tiersLink": "60e04c0091e5c9743e180857f855ee9b4fdc31caba32e3cb5077bab3d1c14ef7",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17476,6 +17694,7 @@
       "tiersLink": "5bccd1a4f1fd82c71e099c30a323dd9a45579e3bd6c61fd6c1f0a6fc5def2bfc",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17500,6 +17719,7 @@
       "tiersLink": "c1d5a590717075e9f6b515d0400e602cb31a98cb879e347d42c2d9f1f9ce40b9",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17524,6 +17744,7 @@
       "tiersLink": "e69cce08da2327cd574188a015ca552f942398984e56313a33d8f2e8a0b02f23",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17552,6 +17773,7 @@
       "tiersLink": "b111e3e9cc938c56ead49bda06d0a641fcbcdb7b09f223672fa367d56981ade6",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17576,6 +17798,7 @@
       "tiersLink": "59a659df876d6bd85e6bb37ae7618277f85797ba8331d99fa1a9689cadbf3e45",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17600,6 +17823,7 @@
       "tiersLink": "eb036c5f3ab2559043e4b88908d00ebc8e94268e4e81f025f1cb7c10280ee01e",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17624,6 +17848,7 @@
       "tiersLink": "e4a8df025539243cde0f3039f6db46edaeb21290dc457244c807cad528ca92e3",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17652,6 +17877,7 @@
       "tiersLink": "87cc853b4ddb949e0beb1a9848a5bbe104f101dd703436ac5bbc7b175ab951fb",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17680,6 +17906,7 @@
       "tiersLink": "1ba048f80f6e135cfb93bd57cd8d08b4c83b053295922659fc8905ee6bc19548",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17708,6 +17935,7 @@
       "tiersLink": "fee6583d784636c345f4ca8e4f9391f2c7f499b4b732e9df9b953d11c965f87a",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17736,6 +17964,7 @@
       "tiersLink": "223aea81bef041e51280d0cc84abf2f3760e5829054101515b4940882e8db0e0",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17764,6 +17993,7 @@
       "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyElectrified",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17792,6 +18022,7 @@
       "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyElectrified",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17816,6 +18047,7 @@
       "tiersLink": "8215df6e570284fd563025c19a323f974afdfa0b47714a5174f23329659d4f6a",
       "machine": "AssemblyElectrified",
       "origDuration": 80,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17840,6 +18072,7 @@
       "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyElectrified",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17860,6 +18093,7 @@
       "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyElectrified",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17884,6 +18118,7 @@
       "tiersLink": "7d9aa9329f2a03e6ed816553039b6eceed7e3155ca47732133564e945e0a512a",
       "machine": "AssemblyElectrified",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17908,6 +18143,7 @@
       "tiersLink": "1a91b3f5f50b1d500f6a8ef3a4f492b85e645b1d0def9e4fe0ededd4c7bfec34",
       "machine": "AssemblyElectrified",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17936,6 +18172,7 @@
       "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyElectrified",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17960,6 +18197,7 @@
       "tiersLink": "b23bd8ab9771c733d2a35170424ea4e22c852d28204fd87a4443c8e5ef56a002",
       "machine": "AssemblyManual",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -17988,6 +18226,7 @@
       "tiersLink": "8e97fb959b77f8bfa1df6cda717f4490f26ceb84e67f1891e71dc3c12e96206d",
       "machine": "AssemblyManual",
       "origDuration": 80,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18012,6 +18251,7 @@
       "tiersLink": "ddec1c322d948c9f3437c0e2286819b36c5aa21ca11b98e4f6732ef3be9cf97b",
       "machine": "AssemblyManual",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18032,6 +18272,7 @@
       "tiersLink": "b57f31899c845601b8b134d1419dab8acaa739a78cd2d2e855bd83542d0484f0",
       "machine": "AssemblyManual",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18056,6 +18297,7 @@
       "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
       "machine": "AssemblyManual",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18080,6 +18322,7 @@
       "tiersLink": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18112,6 +18355,7 @@
       "tiersLink": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18144,6 +18388,7 @@
       "tiersLink": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18176,6 +18421,7 @@
       "tiersLink": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
       "machine": "ConcreteMixerT3",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18208,6 +18454,7 @@
       "tiersLink": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18240,6 +18487,7 @@
       "tiersLink": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18272,6 +18520,7 @@
       "tiersLink": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18304,6 +18553,7 @@
       "tiersLink": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
       "machine": "ConcreteMixerT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18336,6 +18586,7 @@
       "tiersLink": "fbb74988b2deb13da7bce336c0f2262df7c2f3be481ab3844018a60fe1217263",
       "machine": "ConcreteMixer",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18368,6 +18619,7 @@
       "tiersLink": "fc92a7a80fefa53fe196dbddc9ae4c4fdb9a5222eec029cab24595019e365f65",
       "machine": "ConcreteMixer",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18400,6 +18652,7 @@
       "tiersLink": "b8f7860a992d0175072f6bca412095ea41d173c568ceed894abc97b13386b4b1",
       "machine": "ConcreteMixer",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18432,6 +18685,7 @@
       "tiersLink": "27f2771ffca1d953b1199f29a7010185fdde468c746db29fde4ee0170504e872",
       "machine": "ConcreteMixer",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18463,6 +18717,7 @@
       "name": "Cement production",
       "machine": "RotaryKilnGas",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18490,6 +18745,7 @@
       "name": "Cement production",
       "machine": "RotaryKilnGas",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18517,6 +18773,7 @@
       "name": "Alumina calcification",
       "machine": "RotaryKilnGas",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18544,6 +18801,7 @@
       "name": "Alumina calcification",
       "machine": "RotaryKilnGas",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18571,6 +18829,7 @@
       "name": "Cement production",
       "machine": "RotaryKiln",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18598,6 +18857,7 @@
       "name": "Diamond synthesis",
       "machine": "DiamondReactor",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18621,6 +18881,7 @@
       "name": "Lens making",
       "machine": "LensMaker",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18649,6 +18910,7 @@
       "tiersLink": "602c3aa3553b64080a16f9b5fdecbee83f710f63a618d11573f7f3eff2ccf8fb",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18677,6 +18939,7 @@
       "tiersLink": "77836ad865f13b554001b811e9794c48a9c67d4b101550522265429dcaa1c6c3",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18704,6 +18967,7 @@
       "name": "Microchip manufacturing stage 3A",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18728,6 +18992,7 @@
       "tiersLink": "9855a0d77e8813e530fed183ca429c7042f19ca6d8d1f69479c65071365683d0",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18756,6 +19021,7 @@
       "tiersLink": "38f05198de249595593afbb3bf1c6ad36337cfd55315a643886cbcdf6db51673",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18783,6 +19049,7 @@
       "name": "Microchip manufacturing stage 3B",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18807,6 +19074,7 @@
       "tiersLink": "0f3dbbf2a4dca80bc498b151d12a2b034b96fced8464783614d89e2f5774d0fd",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18835,6 +19103,7 @@
       "tiersLink": "be03e21c9d3a7e3ba2e90d9450e577a1313a5e1055710486e2a270d85aaba56b",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18863,6 +19132,7 @@
       "tiersLink": "711dae2449c07b775555c4ff375f88fa66d690e6259c83d06799512fe8754cca",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18887,6 +19157,7 @@
       "tiersLink": "c2c3eedad26587edbce8e5bcb57edb3ba3f069b59e5a0e9535c20f3781a981cd",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18915,6 +19186,7 @@
       "tiersLink": "fad0a5d9b8377d105ce54599da38541af927af2147751a5c575ec4cdd812681c",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18943,6 +19215,7 @@
       "tiersLink": "a31750c8408d2b4dcb3be51eb8d293767596cd4a7fd0532439716719678c4d0d",
       "machine": "MicrochipMachineT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18967,6 +19240,7 @@
       "tiersLink": "602c3aa3553b64080a16f9b5fdecbee83f710f63a618d11573f7f3eff2ccf8fb",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -18995,6 +19269,7 @@
       "tiersLink": "77836ad865f13b554001b811e9794c48a9c67d4b101550522265429dcaa1c6c3",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19022,6 +19297,7 @@
       "name": "Microchip manufacturing stage 3A",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19046,6 +19322,7 @@
       "tiersLink": "9855a0d77e8813e530fed183ca429c7042f19ca6d8d1f69479c65071365683d0",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19074,6 +19351,7 @@
       "tiersLink": "38f05198de249595593afbb3bf1c6ad36337cfd55315a643886cbcdf6db51673",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19101,6 +19379,7 @@
       "name": "Microchip manufacturing stage 3B",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19125,6 +19404,7 @@
       "tiersLink": "0f3dbbf2a4dca80bc498b151d12a2b034b96fced8464783614d89e2f5774d0fd",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19153,6 +19433,7 @@
       "tiersLink": "be03e21c9d3a7e3ba2e90d9450e577a1313a5e1055710486e2a270d85aaba56b",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19181,6 +19462,7 @@
       "tiersLink": "711dae2449c07b775555c4ff375f88fa66d690e6259c83d06799512fe8754cca",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19205,6 +19487,7 @@
       "tiersLink": "c2c3eedad26587edbce8e5bcb57edb3ba3f069b59e5a0e9535c20f3781a981cd",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19233,6 +19516,7 @@
       "tiersLink": "fad0a5d9b8377d105ce54599da38541af927af2147751a5c575ec4cdd812681c",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19261,6 +19545,7 @@
       "tiersLink": "a31750c8408d2b4dcb3be51eb8d293767596cd4a7fd0532439716719678c4d0d",
       "machine": "MicrochipMachine",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19285,6 +19570,7 @@
       "tiersLink": "49cf55c5b42c28fccc746d6b786ff962a2cd8d626338881c71d0237bae6b5115",
       "machine": "ElectrolyzerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19305,6 +19591,7 @@
       "tiersLink": "7d939d18d8d8fdcf84860e285271f3ae2892eeaa438b987418d143e44efe0704",
       "machine": "ElectrolyzerT2",
       "origDuration": 7,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19329,6 +19616,7 @@
       "tiersLink": "d001302f2d7308a4bc35b45cd5707e8c6b8691ddd8cda0872b7658c340c124d7",
       "machine": "ElectrolyzerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19353,6 +19641,7 @@
       "tiersLink": "49cf55c5b42c28fccc746d6b786ff962a2cd8d626338881c71d0237bae6b5115",
       "machine": "Electrolyzer",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19373,6 +19662,7 @@
       "tiersLink": "7d939d18d8d8fdcf84860e285271f3ae2892eeaa438b987418d143e44efe0704",
       "machine": "Electrolyzer",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19397,6 +19687,7 @@
       "tiersLink": "d001302f2d7308a4bc35b45cd5707e8c6b8691ddd8cda0872b7658c340c124d7",
       "machine": "Electrolyzer",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19420,6 +19711,7 @@
       "name": "Ethanol making (sugar)",
       "machine": "FermentationTank",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19447,6 +19739,7 @@
       "name": "Ethanol making (corn)",
       "machine": "FermentationTank",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19474,6 +19767,7 @@
       "name": "Antibiotics",
       "machine": "FermentationTank",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19505,6 +19799,7 @@
       "name": "Gold settling",
       "machine": "SettlingTank",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19532,6 +19827,7 @@
       "name": "Uranium leaching",
       "machine": "SettlingTank",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19559,6 +19855,7 @@
       "name": "Fluoride leaching",
       "machine": "SettlingTank",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19586,6 +19883,7 @@
       "name": "Red mud settling",
       "machine": "SettlingTank",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19613,6 +19911,7 @@
       "name": "Red mud settling (acid)",
       "machine": "SettlingTank",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19644,6 +19943,7 @@
       "name": "Hi-press steam condensation",
       "machine": "CoolingTowerT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19663,6 +19963,7 @@
       "name": "Lo-press steam condensation",
       "machine": "CoolingTowerT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19682,6 +19983,7 @@
       "name": "Depleted steam condensation",
       "machine": "CoolingTowerT1",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19701,6 +20003,7 @@
       "name": "Super-press steam condensation",
       "machine": "CoolingTowerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19720,6 +20023,7 @@
       "name": "Hi-press steam condensation",
       "machine": "CoolingTowerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19739,6 +20043,7 @@
       "name": "Lo-press steam condensation",
       "machine": "CoolingTowerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19758,6 +20063,7 @@
       "name": "Depleted steam condensation",
       "machine": "CoolingTowerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19777,6 +20083,7 @@
       "name": "Uranium enrichment",
       "machine": "UraniumEnrichmentPlant",
       "origDuration": 120,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19804,6 +20111,7 @@
       "name": "Uranium enrichment",
       "machine": "UraniumEnrichmentPlant",
       "origDuration": 120,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19831,6 +20139,7 @@
       "name": "Uranium enrichment",
       "machine": "UraniumEnrichmentPlant",
       "origDuration": 120,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19858,6 +20167,7 @@
       "name": "Blanket fuel reprocessing",
       "machine": "UraniumEnrichmentPlant",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19881,6 +20191,7 @@
       "name": "Blanket fuel reprocessing into Pu",
       "machine": "UraniumEnrichmentPlant",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19904,6 +20215,7 @@
       "name": "Blanket fuel reprocessing into U20",
       "machine": "UraniumEnrichmentPlant",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19927,6 +20239,7 @@
       "name": "Spent fuel reprocessing",
       "machine": "NuclearReprocessingPlant",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19962,6 +20275,7 @@
       "name": "Spent fuel to blanket",
       "machine": "NuclearReprocessingPlant",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -19997,6 +20311,7 @@
       "name": "Spent mox to blanket",
       "machine": "NuclearReprocessingPlant",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20032,6 +20347,7 @@
       "name": "Core fuel reprocessing",
       "machine": "NuclearReprocessingPlant",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20067,6 +20383,7 @@
       "name": "Charcoal making",
       "machine": "CharcoalMaker",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20091,6 +20408,7 @@
       "tiersLink": "6afe2a85405298af9cdbfc6c488cc5737379221f41d51224bee838240b3d15dc",
       "machine": "Crusher",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20111,6 +20429,7 @@
       "tiersLink": "87b666b7aa058b333678081d1f34f0b7f8725517aa831e57fc9b4cceb8b14f86",
       "machine": "Crusher",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20131,6 +20450,7 @@
       "tiersLink": "5aab0d371d81ea4a6519ae30ecc01546659a76dce8f447be019773416466a4e8",
       "machine": "Crusher",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20151,6 +20471,7 @@
       "tiersLink": "bdec09729bd5bf2702bc1fa7dc4169c154ee903cf41b009c0fec19a52cd6ab0f",
       "machine": "Crusher",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20171,6 +20492,7 @@
       "tiersLink": "fafd2386259eaa9db726e7068025abbbfdd4b2c9160fdd144019e1342f40d419",
       "machine": "Crusher",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20191,6 +20513,7 @@
       "tiersLink": "5ca9a29b789e1812f5751e1556631da2ea7ca56a1ae562598a9114b2b2ea8639",
       "machine": "Crusher",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20211,6 +20534,7 @@
       "tiersLink": "aab9a915580887fb1704382e929d53f92efb7c672829f996e88fbe3a51f13dab",
       "machine": "Crusher",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20231,6 +20555,7 @@
       "tiersLink": "2b5bcdaff16c840507bdc924f18a0c6a834c88adf9393114000a43565788d4d9",
       "machine": "Crusher",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20251,6 +20576,7 @@
       "tiersLink": "e9d2f28f9ab1fdb62eced73b4c3e667f62e3c7e38fd5d31a31d29a9183305072",
       "machine": "Crusher",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20271,6 +20597,7 @@
       "tiersLink": "d414a41573fc16e87a8876667c02853daba400da2369202353fa359816c7f2d0",
       "machine": "Crusher",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20291,6 +20618,7 @@
       "tiersLink": "840ef5869bd6b41845dddc187b9b5e260f84010ad94c3868b5bae68fd0701d53",
       "machine": "Crusher",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20311,6 +20639,7 @@
       "tiersLink": "1c13f6012ecde1569eacc3c7c3cf740263dab005968f268f17a8662cafb3db93",
       "machine": "Crusher",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20331,6 +20660,7 @@
       "tiersLink": "6afe2a85405298af9cdbfc6c488cc5737379221f41d51224bee838240b3d15dc",
       "machine": "CrusherLarge",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20351,6 +20681,7 @@
       "tiersLink": "87b666b7aa058b333678081d1f34f0b7f8725517aa831e57fc9b4cceb8b14f86",
       "machine": "CrusherLarge",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20371,6 +20702,7 @@
       "tiersLink": "5aab0d371d81ea4a6519ae30ecc01546659a76dce8f447be019773416466a4e8",
       "machine": "CrusherLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20391,6 +20723,7 @@
       "tiersLink": "bdec09729bd5bf2702bc1fa7dc4169c154ee903cf41b009c0fec19a52cd6ab0f",
       "machine": "CrusherLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20411,6 +20744,7 @@
       "tiersLink": "fafd2386259eaa9db726e7068025abbbfdd4b2c9160fdd144019e1342f40d419",
       "machine": "CrusherLarge",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20431,6 +20765,7 @@
       "tiersLink": "5ca9a29b789e1812f5751e1556631da2ea7ca56a1ae562598a9114b2b2ea8639",
       "machine": "CrusherLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20451,6 +20786,7 @@
       "tiersLink": "aab9a915580887fb1704382e929d53f92efb7c672829f996e88fbe3a51f13dab",
       "machine": "CrusherLarge",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20471,6 +20807,7 @@
       "tiersLink": "2b5bcdaff16c840507bdc924f18a0c6a834c88adf9393114000a43565788d4d9",
       "machine": "CrusherLarge",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20491,6 +20828,7 @@
       "tiersLink": "e9d2f28f9ab1fdb62eced73b4c3e667f62e3c7e38fd5d31a31d29a9183305072",
       "machine": "CrusherLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20511,6 +20849,7 @@
       "tiersLink": "d414a41573fc16e87a8876667c02853daba400da2369202353fa359816c7f2d0",
       "machine": "CrusherLarge",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20531,6 +20870,7 @@
       "tiersLink": "840ef5869bd6b41845dddc187b9b5e260f84010ad94c3868b5bae68fd0701d53",
       "machine": "CrusherLarge",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20551,6 +20891,7 @@
       "tiersLink": "1c13f6012ecde1569eacc3c7c3cf740263dab005968f268f17a8662cafb3db93",
       "machine": "CrusherLarge",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20570,6 +20911,7 @@
       "name": "Iron scrap smelting (arc II)",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20605,6 +20947,7 @@
       "name": "Iron smelting (arc II)",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20648,6 +20991,7 @@
       "name": "Copper scrap smelting (arc II)",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20683,6 +21027,7 @@
       "name": "Copper smelting (arc II)",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20726,6 +21071,7 @@
       "name": "Glass smelting",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20765,6 +21111,7 @@
       "name": "Glass smelting",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20800,6 +21147,7 @@
       "name": "Silicon smelting (Arc II)",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20843,6 +21191,7 @@
       "name": "Aluminum scrap smelting II",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20878,6 +21227,7 @@
       "name": "Ilmenite smelting (Arc II)",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20917,6 +21267,7 @@
       "name": "Titanium smelting (Arc II)",
       "machine": "ArcFurnace2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20952,6 +21303,7 @@
       "name": "Iron scrap smelting (arc)",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -20979,6 +21331,7 @@
       "name": "Iron smelting (arc)",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21014,6 +21367,7 @@
       "name": "Copper scrap smelting (arc)",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21041,6 +21395,7 @@
       "name": "Copper smelting (arc)",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21076,6 +21431,7 @@
       "name": "Glass smelting",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21107,6 +21463,7 @@
       "name": "Glass smelting (arc)",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21134,6 +21491,7 @@
       "name": "Silicon smelting (Arc)",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21169,6 +21527,7 @@
       "name": "Aluminum scrap smelting I",
       "machine": "ArcFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21196,6 +21555,7 @@
       "name": "Iron scrap smelting",
       "machine": "SmeltingFurnaceT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21223,6 +21583,7 @@
       "name": "Iron smelting (lime)",
       "machine": "SmeltingFurnaceT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21258,6 +21619,7 @@
       "name": "Copper scrap smelting",
       "machine": "SmeltingFurnaceT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21285,6 +21647,7 @@
       "name": "Copper smelting (sand)",
       "machine": "SmeltingFurnaceT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21320,6 +21683,7 @@
       "name": "Glass smelting",
       "machine": "SmeltingFurnaceT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21351,6 +21715,7 @@
       "name": "Glass broken smelting",
       "machine": "SmeltingFurnaceT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21378,6 +21743,7 @@
       "name": "Iron scrap smelting",
       "machine": "SmeltingFurnaceT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21405,6 +21771,7 @@
       "name": "Iron smelting",
       "machine": "SmeltingFurnaceT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21436,6 +21803,7 @@
       "name": "Copper scrap smelting",
       "machine": "SmeltingFurnaceT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21463,6 +21831,7 @@
       "name": "Copper smelting",
       "machine": "SmeltingFurnaceT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21494,6 +21863,7 @@
       "name": "Glass smelting",
       "machine": "SmeltingFurnaceT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21525,6 +21895,7 @@
       "name": "Glass broken smelting",
       "machine": "SmeltingFurnaceT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21552,6 +21923,7 @@
       "name": "Aluminum electrolysis",
       "machine": "AluminumCell",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21580,6 +21952,7 @@
       "tiersLink": "7b915c6ea06c2eb9c4d8ae421873185bc40a3d112a7ca78cadaa698ab40a81a4",
       "machine": "CasterCooledT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21603,6 +21976,7 @@
       "name": "Titanium casting (cooled)",
       "machine": "CasterCooledT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21627,6 +22001,7 @@
       "tiersLink": "7b915c6ea06c2eb9c4d8ae421873185bc40a3d112a7ca78cadaa698ab40a81a4",
       "machine": "CasterCooled",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21651,6 +22026,7 @@
       "tiersLink": "d3e707cee750dcb9a7965c048358318c9f4d89acf40d5e823ed7f5be7a12abaa",
       "machine": "CasterT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21671,6 +22047,7 @@
       "tiersLink": "5d2f2cf5950b64273aeef799e133ba8a65146b809d4fd6335defc1f19c42f945",
       "machine": "CasterT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21691,6 +22068,7 @@
       "tiersLink": "7c493b16cccafd356b96cf86a8f6c616be27b895e981a17b527bda35d44eaa20",
       "machine": "CasterT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21711,6 +22089,7 @@
       "tiersLink": "d3e707cee750dcb9a7965c048358318c9f4d89acf40d5e823ed7f5be7a12abaa",
       "machine": "Caster",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21731,6 +22110,7 @@
       "tiersLink": "5d2f2cf5950b64273aeef799e133ba8a65146b809d4fd6335defc1f19c42f945",
       "machine": "Caster",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21751,6 +22131,7 @@
       "tiersLink": "7c493b16cccafd356b96cf86a8f6c616be27b895e981a17b527bda35d44eaa20",
       "machine": "Caster",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21770,6 +22151,7 @@
       "name": "Titanium alloy mixing",
       "machine": "AlloyMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21793,6 +22175,7 @@
       "name": "Copper purification (acid)",
       "machine": "CopperElectrolysis",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21816,6 +22199,7 @@
       "name": "Copper purification (water)",
       "machine": "CopperElectrolysis",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21839,6 +22223,7 @@
       "name": "Steel smelting",
       "machine": "OxygenFurnaceT2",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21866,6 +22251,7 @@
       "name": "Steel smelting",
       "machine": "OxygenFurnace",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21893,6 +22279,7 @@
       "name": "Glass casting",
       "machine": "GlassMakerT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21912,6 +22299,7 @@
       "name": "Glass casting",
       "machine": "GlassMakerT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21935,6 +22323,7 @@
       "name": "Silicon crystallization",
       "machine": "SiliconCrystallizer",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21958,6 +22347,7 @@
       "name": "Alumina crystallization",
       "machine": "SiliconCrystallizer",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -21977,6 +22367,7 @@
       "name": "Silicon treatment",
       "machine": "SiliconReactor",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22000,6 +22391,7 @@
       "name": "Gold smelting",
       "machine": "GoldFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22027,6 +22419,7 @@
       "name": "Gold smelting",
       "machine": "GoldFurnace",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22047,6 +22440,7 @@
       "tiersLink": "fa9b1fd7b38d6c97794f2bc16573dee9917cf62af3c6f01cfb755311cc2a616a",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22075,6 +22469,7 @@
       "tiersLink": "066d85fed4c9fa9bf1e95cdd22277177787968aba7c44e51edc9aec01336758a",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22107,6 +22502,7 @@
       "tiersLink": "e77a484aebeb728ad18ac2cce823132ad065357838cc8d8402cf65c56fc0e677",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22131,6 +22527,7 @@
       "tiersLink": "8119db4b01b1d1bb5b899cc6922aa90317ce7a8dfa549cf783d2ba40d9421dbf",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22155,6 +22552,7 @@
       "tiersLink": "2b1df9622da57fd7a5d50b52d6967e5aea674268642b485ba894c16ffa57ed91",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22179,6 +22577,7 @@
       "tiersLink": "3eb24554fd905bee2d9d852a553292d94c05492a3221ff6190461d63e66774f0",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22207,6 +22606,7 @@
       "tiersLink": "89c8bac0c69b18920d86839262e6778f815fc437ed32faf2f7ca12f22a2d7193",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22235,6 +22635,7 @@
       "tiersLink": "b3a0645698c815491f77d1a0b544923f811a890a0e0d21bbd0aa73294a1cb030",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22259,6 +22660,7 @@
       "tiersLink": "3917503769019d4d485197e1fbb76ec437ecd1a709a683146cb0c33575c6bdd4",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22287,6 +22689,7 @@
       "tiersLink": "d2bc3558df980a0cc8cd0530602dbf8e3cd6d16a93ce8411d213ab859880efba",
       "machine": "IndustrialMixerT2",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22315,6 +22718,7 @@
       "tiersLink": "bf3be54a690b480e239ce292e273223dee1becd6c5068d7ac16395ee5e31c91c",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22339,6 +22743,7 @@
       "tiersLink": "4f98ad3afa0fb4c5ce36d929a9a0c88dd775c998d0e20131174e8e3d18f05e0a",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22359,6 +22764,7 @@
       "tiersLink": "92964dbeccba3bd89d637ecea6e23d3cf13290af104b932741fc30661075a8c8",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22379,6 +22785,7 @@
       "tiersLink": "051003d185bb857e8c4baad6f99e5fe52aab4211d289b370b35e3f5a24f63d07",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22399,6 +22806,7 @@
       "tiersLink": "0eb9a5a05f8d3982b17cebb06d756f91461dbdb46287a33afda284763c0f3a0c",
       "machine": "IndustrialMixerT2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22419,6 +22827,7 @@
       "tiersLink": "e050b4dc979000579005b8a4f2d7a93dbd86af12bd471c2410b3537aefd4874b",
       "machine": "IndustrialMixerT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22439,6 +22848,7 @@
       "tiersLink": "9903005d7ac49c31ff359e1c9127c11595e51ea1e2f5fa6ec9f2b886ca8404f8",
       "machine": "IndustrialMixerT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22459,6 +22869,7 @@
       "tiersLink": "1c45a128bc47cdf273d13c4bccd288893348fe839a63c15f3da4e2ceb06ce8b2",
       "machine": "IndustrialMixerT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22479,6 +22890,7 @@
       "tiersLink": "fa9b1fd7b38d6c97794f2bc16573dee9917cf62af3c6f01cfb755311cc2a616a",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22507,6 +22919,7 @@
       "tiersLink": "066d85fed4c9fa9bf1e95cdd22277177787968aba7c44e51edc9aec01336758a",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22539,6 +22952,7 @@
       "tiersLink": "e77a484aebeb728ad18ac2cce823132ad065357838cc8d8402cf65c56fc0e677",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22563,6 +22977,7 @@
       "tiersLink": "8119db4b01b1d1bb5b899cc6922aa90317ce7a8dfa549cf783d2ba40d9421dbf",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22587,6 +23002,7 @@
       "tiersLink": "2b1df9622da57fd7a5d50b52d6967e5aea674268642b485ba894c16ffa57ed91",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22611,6 +23027,7 @@
       "tiersLink": "3eb24554fd905bee2d9d852a553292d94c05492a3221ff6190461d63e66774f0",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22639,6 +23056,7 @@
       "tiersLink": "89c8bac0c69b18920d86839262e6778f815fc437ed32faf2f7ca12f22a2d7193",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22667,6 +23085,7 @@
       "tiersLink": "b3a0645698c815491f77d1a0b544923f811a890a0e0d21bbd0aa73294a1cb030",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22691,6 +23110,7 @@
       "tiersLink": "3917503769019d4d485197e1fbb76ec437ecd1a709a683146cb0c33575c6bdd4",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22719,6 +23139,7 @@
       "tiersLink": "d2bc3558df980a0cc8cd0530602dbf8e3cd6d16a93ce8411d213ab859880efba",
       "machine": "IndustrialMixer",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22747,6 +23168,7 @@
       "tiersLink": "bf3be54a690b480e239ce292e273223dee1becd6c5068d7ac16395ee5e31c91c",
       "machine": "IndustrialMixer",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22771,6 +23193,7 @@
       "tiersLink": "4f98ad3afa0fb4c5ce36d929a9a0c88dd775c998d0e20131174e8e3d18f05e0a",
       "machine": "IndustrialMixer",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22791,6 +23214,7 @@
       "tiersLink": "92964dbeccba3bd89d637ecea6e23d3cf13290af104b932741fc30661075a8c8",
       "machine": "IndustrialMixer",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22811,6 +23235,7 @@
       "tiersLink": "051003d185bb857e8c4baad6f99e5fe52aab4211d289b370b35e3f5a24f63d07",
       "machine": "IndustrialMixer",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22831,6 +23256,7 @@
       "tiersLink": "0eb9a5a05f8d3982b17cebb06d756f91461dbdb46287a33afda284763c0f3a0c",
       "machine": "IndustrialMixer",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22851,6 +23277,7 @@
       "tiersLink": "e050b4dc979000579005b8a4f2d7a93dbd86af12bd471c2410b3537aefd4874b",
       "machine": "IndustrialMixer",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22871,6 +23298,7 @@
       "tiersLink": "9903005d7ac49c31ff359e1c9127c11595e51ea1e2f5fa6ec9f2b886ca8404f8",
       "machine": "IndustrialMixer",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22891,6 +23319,7 @@
       "tiersLink": "1c45a128bc47cdf273d13c4bccd288893348fe839a63c15f3da4e2ceb06ce8b2",
       "machine": "IndustrialMixer",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22911,6 +23340,7 @@
       "tiersLink": "245d809feb4d45fc428c4a0717131a40e3d1ec6d66e0f10b4b9d4c285c173b72",
       "machine": "ChemicalPlant2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22935,6 +23365,7 @@
       "tiersLink": "30efc661b3df42b2911137e1b4b2c78d5c15bbc7553abc0539c4adc1c719bc8b",
       "machine": "ChemicalPlant2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22963,6 +23394,7 @@
       "tiersLink": "01219f320f13dbebecb61c6c58f61a16bddf99fd5ec0b79a9289fb29a415900f",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -22987,6 +23419,7 @@
       "tiersLink": "c9756ca7d0ecc4b717a675f37e0b805720324dd1e0868d45638462f15da9b1f6",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23015,6 +23448,7 @@
       "tiersLink": "bad31880210d357d8d95afd7cac41353af5ea9c3a6130f802f7cc86b39e2adb8",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23038,6 +23472,7 @@
       "name": "FuelGas synthesis",
       "machine": "ChemicalPlant2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23066,6 +23501,7 @@
       "tiersLink": "e8443480ca9246b89549005de0c9ec32654a316960a60c9bbb5cc012772da153",
       "machine": "ChemicalPlant2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23093,6 +23529,7 @@
       "name": "Graphite production",
       "machine": "ChemicalPlant2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23112,6 +23549,7 @@
       "name": "Ethanol production",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23140,6 +23578,7 @@
       "tiersLink": "139eeb5c489dd3e29cd348f862f7e706eb1ca0357416fe4002013ba7139ca920",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23163,6 +23602,7 @@
       "name": "Anesthetics production",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23190,6 +23630,7 @@
       "name": "Morphine production",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23217,6 +23658,7 @@
       "name": "Bauxite digestion",
       "machine": "ChemicalPlant2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23244,6 +23686,7 @@
       "name": "Titanium chlorination",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23279,6 +23722,7 @@
       "name": "Titanium chloride reduction",
       "machine": "ChemicalPlant2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23306,6 +23750,7 @@
       "name": "Chemical fuel production",
       "machine": "ChemicalPlant2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23333,6 +23778,7 @@
       "name": "Mox rods",
       "machine": "ChemicalPlant2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23356,6 +23802,7 @@
       "name": "Blanket fuel production",
       "machine": "ChemicalPlant2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23383,6 +23830,7 @@
       "name": "Blanket fuel production",
       "machine": "ChemicalPlant2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23406,6 +23854,7 @@
       "name": "Core fuel production",
       "machine": "ChemicalPlant2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23429,6 +23878,7 @@
       "name": "Core fuel production (Pu)",
       "machine": "ChemicalPlant2",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23452,6 +23902,7 @@
       "name": "Diamond paste production",
       "machine": "ChemicalPlant2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23475,6 +23926,7 @@
       "name": "Diamond paste production",
       "machine": "ChemicalPlant2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23499,6 +23951,7 @@
       "tiersLink": "245d809feb4d45fc428c4a0717131a40e3d1ec6d66e0f10b4b9d4c285c173b72",
       "machine": "ChemicalPlant",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23523,6 +23976,7 @@
       "tiersLink": "30efc661b3df42b2911137e1b4b2c78d5c15bbc7553abc0539c4adc1c719bc8b",
       "machine": "ChemicalPlant",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23551,6 +24005,7 @@
       "tiersLink": "01219f320f13dbebecb61c6c58f61a16bddf99fd5ec0b79a9289fb29a415900f",
       "machine": "ChemicalPlant",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23575,6 +24030,7 @@
       "tiersLink": "c9756ca7d0ecc4b717a675f37e0b805720324dd1e0868d45638462f15da9b1f6",
       "machine": "ChemicalPlant",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23603,6 +24059,7 @@
       "tiersLink": "bad31880210d357d8d95afd7cac41353af5ea9c3a6130f802f7cc86b39e2adb8",
       "machine": "ChemicalPlant",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23627,6 +24084,7 @@
       "tiersLink": "e8443480ca9246b89549005de0c9ec32654a316960a60c9bbb5cc012772da153",
       "machine": "ChemicalPlant",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23655,6 +24113,7 @@
       "tiersLink": "139eeb5c489dd3e29cd348f862f7e706eb1ca0357416fe4002013ba7139ca920",
       "machine": "ChemicalPlant",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23678,6 +24137,7 @@
       "name": "Crude oil refining",
       "machine": "DistillationTowerT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23709,6 +24169,7 @@
       "name": "Crude oil refining",
       "machine": "DistillationTowerT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23736,6 +24197,7 @@
       "name": "Heavy distillate refining",
       "machine": "DistillationTowerT3",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23763,6 +24225,7 @@
       "name": "Titanium purification",
       "machine": "DistillationTowerT3",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23790,6 +24253,7 @@
       "name": "Rubber production",
       "machine": "VacuumDistillationTower",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23813,6 +24277,7 @@
       "name": "Rubber production (coal)",
       "machine": "VacuumDistillationTower",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23840,6 +24305,7 @@
       "name": "Rubber production (ethanol)",
       "machine": "VacuumDistillationTower",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23863,6 +24329,7 @@
       "name": "Rubber production (alt)",
       "machine": "VacuumDistillationTower",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23886,6 +24353,7 @@
       "name": "Rubber production (coal) (alt)",
       "machine": "VacuumDistillationTower",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23913,6 +24381,7 @@
       "name": "HeavyOil cracking",
       "machine": "HydroCrackerT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23940,6 +24409,7 @@
       "name": "HeavyOil cracking",
       "machine": "HydroCrackerT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23967,6 +24437,7 @@
       "name": "Naphtha reforming",
       "machine": "HydroCrackerT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -23994,6 +24465,7 @@
       "name": "Diesel reforming",
       "machine": "HydroCrackerT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24021,6 +24493,7 @@
       "name": "Naphtha reforming",
       "machine": "HydroCrackerT1",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24048,6 +24521,7 @@
       "name": "FuelGas reforming",
       "machine": "HydroCrackerT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24075,6 +24549,7 @@
       "name": "Hydrogen reforming",
       "machine": "HydrogenReformer",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24102,6 +24577,7 @@
       "name": "Hydrogen from SP steam",
       "machine": "HydrogenReformer",
       "origDuration": 15,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24133,6 +24609,7 @@
       "name": "Sour water stripping (recovery)",
       "machine": "SourWaterStripper",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24164,6 +24641,7 @@
       "name": "Plastic making",
       "machine": "PolymerizationPlant",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24191,6 +24669,7 @@
       "name": "Plastic making",
       "machine": "PolymerizationPlant",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24218,6 +24697,7 @@
       "name": "Product disposal",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24232,6 +24712,7 @@
       "name": "Product disposal",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24246,6 +24727,7 @@
       "name": "Product disposal",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24260,6 +24742,7 @@
       "name": "Product disposal",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24274,6 +24757,7 @@
       "name": "Product disposal",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24288,6 +24772,7 @@
       "name": "Product disposal",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24303,6 +24788,7 @@
       "tiersLink": "d14f7d098c7f0f69c89646d64dfda3ee6606e768b46909db8700ccee8cccf6e2",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24323,6 +24809,7 @@
       "tiersLink": "aa820fd9391010b24746dc51cabc2b76d9ff099eb965780e96e665ce32754655",
       "machine": "SmokeStackLarge",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24342,6 +24829,7 @@
       "name": "Product disposal",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24356,6 +24844,7 @@
       "name": "Product disposal",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24370,6 +24859,7 @@
       "name": "Product disposal",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24384,6 +24874,7 @@
       "name": "Product disposal",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24398,6 +24889,7 @@
       "name": "Product disposal",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24412,6 +24904,7 @@
       "name": "Product disposal",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24427,6 +24920,7 @@
       "tiersLink": "d14f7d098c7f0f69c89646d64dfda3ee6606e768b46909db8700ccee8cccf6e2",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24447,6 +24941,7 @@
       "tiersLink": "aa820fd9391010b24746dc51cabc2b76d9ff099eb965780e96e665ce32754655",
       "machine": "SmokeStack",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24466,6 +24961,7 @@
       "name": "Water dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24480,6 +24976,7 @@
       "name": "Brine dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24494,6 +24991,7 @@
       "name": "Waste water dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24513,6 +25011,7 @@
       "name": "Sour water dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24532,6 +25031,7 @@
       "name": "Acid dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24551,6 +25051,7 @@
       "name": "Toxic slurry dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24570,6 +25071,7 @@
       "name": "Seawater dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24584,6 +25086,7 @@
       "name": "Fertilizer dumping",
       "machine": "WasteDump",
       "origDuration": 4,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24603,6 +25106,7 @@
       "name": "Fertilizer dumping",
       "machine": "WasteDump",
       "origDuration": 4,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24622,6 +25126,7 @@
       "name": "Fertilizer dumping",
       "machine": "WasteDump",
       "origDuration": 4,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24641,6 +25146,7 @@
       "name": "Red mud dumping",
       "machine": "WasteDump",
       "origDuration": 2,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24660,6 +25166,7 @@
       "name": "Diesel disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24679,6 +25186,7 @@
       "name": "Heavy oil disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24698,6 +25206,7 @@
       "name": "Light oil disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24717,6 +25226,7 @@
       "name": "Naphtha disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24736,6 +25246,7 @@
       "name": "Ethanol disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24755,6 +25266,7 @@
       "name": "Fuel gas disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24774,6 +25286,7 @@
       "name": "Ammonia disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24793,6 +25306,7 @@
       "name": "Hydrogen disposal",
       "machine": "Flare",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24807,6 +25321,7 @@
       "name": "Exhaust filtering",
       "machine": "ExhaustScrubber",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24842,6 +25357,7 @@
       "name": "Exhaust filtering",
       "machine": "ExhaustScrubber",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24881,6 +25397,7 @@
       "name": "Water treatment",
       "machine": "WaterTreatmentPlant",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24912,6 +25429,7 @@
       "name": "Water treatment (advanced)",
       "machine": "WaterTreatmentPlant",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24943,6 +25461,7 @@
       "name": "Toxic slurry treatment",
       "machine": "WaterTreatmentPlant",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24974,6 +25493,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -24993,6 +25513,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25012,6 +25533,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25031,6 +25553,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25050,6 +25573,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25069,6 +25593,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25088,6 +25613,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25107,6 +25633,7 @@
       "name": "Burning",
       "machine": "Burner",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25126,6 +25653,7 @@
       "name": "Waste incineration",
       "machine": "IncinerationPlant",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25157,6 +25685,7 @@
       "name": "Waste incineration",
       "machine": "IncinerationPlant",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25188,6 +25717,7 @@
       "name": "Waste incineration",
       "machine": "IncinerationPlant",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25219,6 +25749,7 @@
       "name": "Waste incineration",
       "machine": "IncinerationPlant",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25250,6 +25781,7 @@
       "name": "Shredding wood",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25269,6 +25801,7 @@
       "name": "Shredding saplings",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25288,6 +25821,7 @@
       "name": "Shredding iron scrap",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25307,6 +25841,7 @@
       "name": "Shredding aluminum scrap",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25326,6 +25861,7 @@
       "name": "Shredding copper scrap",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25345,6 +25881,7 @@
       "name": "Shredding gold scrap",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25364,6 +25901,7 @@
       "name": "Shredding waste",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25383,6 +25921,7 @@
       "name": "Shredding waste",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25402,6 +25941,7 @@
       "name": "Shredding poly cells",
       "machine": "Shredder",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25421,6 +25961,7 @@
       "name": "Recyclables pressing",
       "machine": "Compactor",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25440,6 +25981,7 @@
       "name": "Copper scrap pressing",
       "machine": "Compactor",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25459,6 +26001,7 @@
       "name": "Iron scrap pressing",
       "machine": "Compactor",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25478,6 +26021,7 @@
       "name": "Aluminum scrap pressing",
       "machine": "Compactor",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25497,6 +26041,7 @@
       "name": "Gold scrap pressing",
       "machine": "Compactor",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25516,6 +26061,7 @@
       "name": "Waste pressing",
       "machine": "Compactor",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25535,6 +26081,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25558,6 +26105,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25581,6 +26129,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25604,6 +26153,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25627,6 +26177,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25650,6 +26201,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25673,6 +26225,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25696,6 +26249,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25719,6 +26273,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25742,6 +26297,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25765,6 +26321,7 @@
       "name": "Digestion",
       "machine": "AnaerobicDigester",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25788,6 +26345,7 @@
       "name": "Air separation",
       "machine": "AirSeparator",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -25806,6 +26364,7 @@
       "name": "Maintenance I",
       "machine": "MaintenanceDepotT1",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25834,6 +26393,7 @@
       "name": "Maintenance I",
       "machine": "MaintenanceDepotT0",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25857,6 +26417,7 @@
       "name": "Maintenance II",
       "machine": "MaintenanceDepotT2",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25885,6 +26446,7 @@
       "name": "Maintenance III",
       "machine": "MaintenanceDepotT3",
       "origDuration": 20,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25913,6 +26475,7 @@
       "name": "Potato Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25936,6 +26499,7 @@
       "name": "Potato Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25959,6 +26523,7 @@
       "name": "Potato Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -25982,6 +26547,7 @@
       "name": "Corn Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26005,6 +26571,7 @@
       "name": "Corn Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26028,6 +26595,7 @@
       "name": "Corn Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26051,6 +26619,7 @@
       "name": "Wheat Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 360,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26074,6 +26643,7 @@
       "name": "Wheat Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 360,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26097,6 +26667,7 @@
       "name": "Wheat Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 360,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26120,6 +26691,7 @@
       "name": "Tree sapling Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26143,6 +26715,7 @@
       "name": "Tree sapling Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26166,6 +26739,7 @@
       "name": "Tree sapling Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26189,6 +26763,7 @@
       "name": "Soybeans Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26212,6 +26787,7 @@
       "name": "Soybeans Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26235,6 +26811,7 @@
       "name": "Soybeans Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26258,6 +26835,7 @@
       "name": "Sugar cane Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 540,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26281,6 +26859,7 @@
       "name": "Sugar cane Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 540,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26304,6 +26883,7 @@
       "name": "Sugar cane Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 540,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26327,6 +26907,7 @@
       "name": "Vegetables Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26350,6 +26931,7 @@
       "name": "Vegetables Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26373,6 +26955,7 @@
       "name": "Vegetables Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26396,6 +26979,7 @@
       "name": "Fruits Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 480,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26419,6 +27003,7 @@
       "name": "Fruits Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 480,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26442,6 +27027,7 @@
       "name": "Fruits Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 480,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26465,6 +27051,7 @@
       "name": "Canola Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26488,6 +27075,7 @@
       "name": "Canola Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26511,6 +27099,7 @@
       "name": "Canola Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26534,6 +27123,7 @@
       "name": "Poppy Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26557,6 +27147,7 @@
       "name": "Poppy Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26580,6 +27171,7 @@
       "name": "Poppy Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26603,6 +27195,7 @@
       "name": "Flowers Fertilizer I",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26626,6 +27219,7 @@
       "name": "Flowers Fertilizer II",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26649,6 +27243,7 @@
       "name": "Flowers Fertilizer (organic)",
       "machine": "FarmT4",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26672,6 +27267,7 @@
       "name": "Potato Fertilizer I",
       "machine": "FarmT2",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26695,6 +27291,7 @@
       "name": "Potato Fertilizer II",
       "machine": "FarmT2",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26718,6 +27315,7 @@
       "name": "Potato Fertilizer (organic)",
       "machine": "FarmT2",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26741,6 +27339,7 @@
       "name": "Corn Fertilizer I",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26764,6 +27363,7 @@
       "name": "Corn Fertilizer II",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26787,6 +27387,7 @@
       "name": "Corn Fertilizer (organic)",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26810,6 +27411,7 @@
       "name": "Wheat Fertilizer I",
       "machine": "FarmT2",
       "origDuration": 360,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26833,6 +27435,7 @@
       "name": "Wheat Fertilizer II",
       "machine": "FarmT2",
       "origDuration": 360,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26856,6 +27459,7 @@
       "name": "Wheat Fertilizer (organic)",
       "machine": "FarmT2",
       "origDuration": 360,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26879,6 +27483,7 @@
       "name": "Tree sapling Fertilizer I",
       "machine": "FarmT2",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26902,6 +27507,7 @@
       "name": "Tree sapling Fertilizer II",
       "machine": "FarmT2",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26925,6 +27531,7 @@
       "name": "Tree sapling Fertilizer (organic)",
       "machine": "FarmT2",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26948,6 +27555,7 @@
       "name": "Soybeans Fertilizer I",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26971,6 +27579,7 @@
       "name": "Soybeans Fertilizer II",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -26994,6 +27603,7 @@
       "name": "Soybeans Fertilizer (organic)",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27017,6 +27627,7 @@
       "name": "Sugar cane Fertilizer I",
       "machine": "FarmT3",
       "origDuration": 540,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27040,6 +27651,7 @@
       "name": "Sugar cane Fertilizer II",
       "machine": "FarmT3",
       "origDuration": 540,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27063,6 +27675,7 @@
       "name": "Sugar cane Fertilizer (organic)",
       "machine": "FarmT3",
       "origDuration": 540,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27086,6 +27699,7 @@
       "name": "Vegetables Fertilizer I",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27109,6 +27723,7 @@
       "name": "Vegetables Fertilizer II",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27132,6 +27747,7 @@
       "name": "Vegetables Fertilizer (organic)",
       "machine": "FarmT2",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27155,6 +27771,7 @@
       "name": "Fruits Fertilizer I",
       "machine": "FarmT3",
       "origDuration": 480,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27178,6 +27795,7 @@
       "name": "Fruits Fertilizer II",
       "machine": "FarmT3",
       "origDuration": 480,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27201,6 +27819,7 @@
       "name": "Fruits Fertilizer (organic)",
       "machine": "FarmT3",
       "origDuration": 480,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27224,6 +27843,7 @@
       "name": "Canola Fertilizer I",
       "machine": "FarmT2",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27247,6 +27867,7 @@
       "name": "Canola Fertilizer II",
       "machine": "FarmT2",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27270,6 +27891,7 @@
       "name": "Canola Fertilizer (organic)",
       "machine": "FarmT2",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27293,6 +27915,7 @@
       "name": "Poppy Fertilizer I",
       "machine": "FarmT3",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27316,6 +27939,7 @@
       "name": "Poppy Fertilizer II",
       "machine": "FarmT3",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27339,6 +27963,7 @@
       "name": "Poppy Fertilizer (organic)",
       "machine": "FarmT3",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27362,6 +27987,7 @@
       "name": "Flowers Fertilizer I",
       "machine": "FarmT3",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27385,6 +28011,7 @@
       "name": "Flowers Fertilizer II",
       "machine": "FarmT3",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27408,6 +28035,7 @@
       "name": "Flowers Fertilizer (organic)",
       "machine": "FarmT3",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27431,6 +28059,7 @@
       "name": "Potato",
       "machine": "FarmT1",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27445,6 +28074,7 @@
       "name": "Corn",
       "machine": "FarmT1",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27459,6 +28089,7 @@
       "name": "Wheat",
       "machine": "FarmT1",
       "origDuration": 360,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27473,6 +28104,7 @@
       "name": "Tree sapling",
       "machine": "FarmT1",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27487,6 +28119,7 @@
       "name": "Soybeans",
       "machine": "FarmT1",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27501,6 +28134,7 @@
       "name": "Vegetables",
       "machine": "FarmT1",
       "origDuration": 240,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27515,6 +28149,7 @@
       "name": "Canola",
       "machine": "FarmT1",
       "origDuration": 180,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27529,6 +28164,7 @@
       "name": "Chicken farm",
       "machine": "ChickenFarm",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27556,6 +28192,7 @@
       "name": "Research lab I 1",
       "machine": "ResearchLab2",
       "origDuration": 10,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27576,6 +28213,7 @@
       "name": "Research lab II 1",
       "machine": "ResearchLab3",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27596,6 +28234,7 @@
       "name": "Research lab III 1",
       "machine": "ResearchLab4",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27616,6 +28255,7 @@
       "name": "Research lab IV 1",
       "machine": "ResearchLab5",
       "origDuration": 5,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27631,11 +28271,128 @@
         }
       ]
     },
+    "Housing_Workers": {
+      "id": "Housing_Workers",
+      "name": "Worker Settlement",
+      "machine": "Housing",
+      "origDuration": 60,
+      "type": "settlement",
+      "duration": 60,
+      "inputs": [
+        {
+          "id": "Product_Water",
+          "quantity": 3.8399999999999994
+        },
+        {
+          "id": "Product_HouseholdGoods",
+          "quantity": 0.8
+        },
+        {
+          "id": "Product_HouseholdAppliances",
+          "quantity": 0.56
+        },
+        {
+          "id": "Product_Virtual_Electricity",
+          "quantity": 88
+        },
+        {
+          "id": "Product_Virtual_Computing",
+          "quantity": 4.608
+        },
+        {
+          "id": "Product_LuxuryGoods",
+          "quantity": 0.288
+        },
+        {
+          "id": "Product_ConsumerElectronics",
+          "quantity": 0.288
+        },
+        {
+          "id": "Product_MedicalSupplies",
+          "quantity": 0.4
+        },
+        {
+          "id": "Product_MedicalSupplies2",
+          "quantity": 0.4
+        },
+        {
+          "id": "Product_MedicalSupplies3",
+          "quantity": 0.4
+        },
+        {
+          "id": "Product_Potato",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Corn",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Bread",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Meat",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Eggs",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Tofu",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Sausage",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Vegetables",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Fruit",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Snack",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Cake",
+          "quantity": 0
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Workers",
+          "quantity": 80
+        },
+        {
+          "id": "Product_WasteWater",
+          "quantity": 3.2
+        },
+        {
+          "id": "Product_Waste",
+          "quantity": 2.344
+        },
+        {
+          "id": "Product_Biomass",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Recyclables",
+          "quantity": 0
+        }
+      ]
+    },
     "NuclearReactorT21": {
       "id": "NuclearReactorT21",
       "name": "Nuclear reactor II 1",
       "machine": "NuclearReactorT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27664,6 +28421,7 @@
       "tiersLink": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
       "machine": "NuclearReactorT2",
       "origDuration": 30,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27692,6 +28450,7 @@
       "tiersLink": "356b680449bd3456a3d318469c2abd03ef88a52e46fb3634cf4b8e626be54e33",
       "machine": "NuclearReactor",
       "origDuration": 40,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27719,6 +28478,7 @@
       "name": "Fast breeder reactor Enrichment 0",
       "machine": "FastBreederReactor",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27755,6 +28515,7 @@
       "name": "Fast breeder reactor Enrichment 1",
       "machine": "FastBreederReactor",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27791,6 +28552,7 @@
       "name": "Fast breeder reactor Enrichment 3",
       "machine": "FastBreederReactor",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27827,6 +28589,7 @@
       "name": "Rainwater harvester",
       "machine": "RainwaterHarvester",
       "origDuration": 720,
+      "type": "recipe",
       "duration": 60,
       "inputs": [],
       "outputs": [
@@ -27841,6 +28604,7 @@
       "name": "Basic rack",
       "machine": "DataCenter",
       "origDuration": 60,
+      "type": "recipe",
       "duration": 60,
       "inputs": [
         {
@@ -27872,6 +28636,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -27891,6 +28656,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -27910,6 +28676,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -27929,6 +28696,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -27948,6 +28716,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -27967,6 +28736,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -27986,6 +28756,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -28005,6 +28776,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -28024,6 +28796,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -28043,6 +28816,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -28062,6 +28836,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28081,6 +28856,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28100,6 +28876,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -28119,6 +28896,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -28138,6 +28916,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -28157,6 +28936,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28176,6 +28956,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28195,6 +28976,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28214,6 +28996,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28233,6 +29016,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28252,6 +29036,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28271,6 +29056,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28290,6 +29076,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28309,6 +29096,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28328,6 +29116,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28347,6 +29136,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28366,6 +29156,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28385,6 +29176,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28404,6 +29196,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28423,6 +29216,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28442,6 +29236,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28461,6 +29256,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28480,6 +29276,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28499,6 +29296,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -28518,6 +29316,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -28537,6 +29336,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28556,6 +29356,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28575,6 +29376,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28594,6 +29396,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28613,6 +29416,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28632,6 +29436,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28651,6 +29456,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -28670,6 +29476,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28689,6 +29496,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28708,6 +29516,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28727,6 +29536,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28746,6 +29556,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -28765,6 +29576,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28784,6 +29596,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28803,6 +29616,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28822,6 +29636,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28841,6 +29656,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -28860,6 +29676,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -28879,6 +29696,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28898,6 +29716,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28917,6 +29736,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28936,6 +29756,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -28955,6 +29776,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -28974,6 +29796,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -28993,6 +29816,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -29012,6 +29836,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -29031,6 +29856,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29050,6 +29876,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29069,6 +29896,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29088,6 +29916,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29107,6 +29936,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29126,6 +29956,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29145,6 +29976,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29164,6 +29996,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29183,6 +30016,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29202,6 +30036,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -29221,6 +30056,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29240,6 +30076,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29259,6 +30096,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29278,6 +30116,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29297,6 +30136,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29316,6 +30156,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29335,6 +30176,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29354,6 +30196,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29373,6 +30216,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29392,6 +30236,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29411,6 +30256,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29430,6 +30276,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29449,6 +30296,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29468,6 +30316,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29487,6 +30336,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29506,6 +30356,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29525,6 +30376,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29544,6 +30396,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29563,6 +30416,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29582,6 +30436,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29601,6 +30456,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29620,6 +30476,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29639,6 +30496,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29658,6 +30516,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerMolten",
       "inputs": [
         {
@@ -29677,6 +30536,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29696,6 +30556,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -29715,6 +30576,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29734,6 +30596,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29753,6 +30616,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29772,6 +30636,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29791,6 +30656,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29810,6 +30676,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29829,6 +30696,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -29848,6 +30716,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -29867,6 +30736,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29886,6 +30756,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29905,6 +30776,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29924,6 +30796,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29943,6 +30816,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -29962,6 +30836,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -29981,6 +30856,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30000,6 +30876,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30019,6 +30896,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30038,6 +30916,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30057,6 +30936,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30076,6 +30956,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30095,6 +30976,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30114,6 +30996,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30133,6 +31016,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30152,6 +31036,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30171,6 +31056,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30190,6 +31076,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30209,6 +31096,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30228,6 +31116,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30247,6 +31136,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30266,6 +31156,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30285,6 +31176,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30304,6 +31196,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30323,6 +31216,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30342,6 +31236,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30361,6 +31256,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30380,6 +31276,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30399,6 +31296,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30418,6 +31316,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30437,6 +31336,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30456,6 +31356,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30475,6 +31376,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30494,6 +31396,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30513,6 +31416,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30532,6 +31436,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30551,6 +31456,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30570,6 +31476,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30589,6 +31496,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30608,6 +31516,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30627,6 +31536,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30646,6 +31556,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30665,6 +31576,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30684,6 +31596,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30703,6 +31616,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30722,6 +31636,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30741,6 +31656,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30760,6 +31676,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -30779,6 +31696,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -30798,6 +31716,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30817,6 +31736,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30836,6 +31756,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -30855,6 +31776,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -30874,6 +31796,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30893,6 +31816,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30912,6 +31836,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30931,6 +31856,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30950,6 +31876,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30969,6 +31896,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -30988,6 +31916,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31007,6 +31936,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31026,6 +31956,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31045,6 +31976,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31064,6 +31996,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31083,6 +32016,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31102,6 +32036,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31121,6 +32056,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31140,6 +32076,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31159,6 +32096,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31178,6 +32116,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31197,6 +32136,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31216,6 +32156,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31235,6 +32176,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31254,6 +32196,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31273,6 +32216,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31292,6 +32236,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31311,6 +32256,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31330,6 +32276,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31349,6 +32296,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31368,6 +32316,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31387,6 +32336,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31406,6 +32356,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31425,6 +32376,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31444,6 +32396,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31463,6 +32416,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31482,6 +32436,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31501,6 +32456,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31520,6 +32476,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31539,6 +32496,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31558,6 +32516,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31577,6 +32536,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31596,6 +32556,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31615,6 +32576,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31634,6 +32596,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31653,6 +32616,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31672,6 +32636,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31691,6 +32656,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31710,6 +32676,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31729,6 +32696,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31748,6 +32716,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31767,6 +32736,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31786,6 +32756,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31805,6 +32776,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31824,6 +32796,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31843,6 +32816,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31862,6 +32836,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31881,6 +32856,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31900,6 +32876,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31919,6 +32896,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31938,6 +32916,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31957,6 +32936,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31976,6 +32956,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -31995,6 +32976,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -32014,6 +32996,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -32033,6 +33016,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -32052,6 +33036,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -32071,6 +33056,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -32090,6 +33076,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -32109,6 +33096,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerPipe",
       "inputs": [
         {
@@ -32128,6 +33116,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerLoose",
       "inputs": [
         {
@@ -32147,6 +33136,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -32166,6 +33156,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerFlat",
       "inputs": [
         {
@@ -32185,6 +33176,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -32204,6 +33196,7 @@
       "name": "Balancer Passthrough",
       "duration": 60,
       "origDuration": 60,
+      "type": "balancer",
       "machine": "BalancerVirtual",
       "inputs": [
         {
@@ -32214,6 +33207,26 @@
       "outputs": [
         {
           "id": "Product_Virtual_Wildcard",
+          "quantity": 1
+        }
+      ]
+    },
+    "Balancer_Product_Virtual_Workers": {
+      "id": "Balancer_Product_Virtual_Workers",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_Workers",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Workers",
           "quantity": 1
         }
       ]

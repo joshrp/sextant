@@ -1,15 +1,16 @@
 import { TrashIcon } from '@heroicons/react/24/outline';
 import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
 import { Position } from '@xyflow/react';
-import { formatNumber, machineIcon, maintenanceIcon, maintenanceName, productBackground, uiIcon } from '~/uiUtils';
+import HelpLink from '~/components/HelpLink';
+import { formatNumber, machineIcon, productBackground } from '~/uiUtils';
 import type { HighlightModes } from '../store';
 import { HandleList, ProductHandle } from './handles';
 import type { ProductId, Recipe } from './loadJsonData';
-import { getQuantityDisplay } from './recipeNodeLogic';
+
 
 type ProductEdges = Map<ProductId, boolean | null>;
 
-export interface RecipeNodeViewProps {
+export interface BalancerNodeViewProps {
   recipe: Recipe;
   productEdges: ProductEdges;
   ltr: boolean;
@@ -28,28 +29,37 @@ export interface RecipeNodeViewProps {
  * Pure presentational component for rendering a recipe node.
  * All calculations and state management should be done by the parent component.
  */
-export default function RecipeNodeView({
+export default function BalancerNodeView({
   recipe,
   productEdges,
   ltr,
+  zoomLevel,
   onFlip,
   onRemove,
   solution,
   highlight,
-  zoomLevel,
   nodeId,
-}: RecipeNodeViewProps) {
-  const runCount = solution?.runCount ?? 1;
-
-  const displayRunCount = solution?.solved && solution.runCount !== undefined ? solution.runCount : 1;
+}: BalancerNodeViewProps) {
+  const runCount = solution?.runCount ? solution.runCount : 1;
+  const displayRunCount = solution?.solved && solution.runCount ? solution.runCount : 1;
 
   const leftProducts = ltr ? recipe.inputs : recipe.outputs;
   const rightProducts = ltr ? recipe.outputs : recipe.inputs;
 
+  let BalancerTitle = "Balancer";
+  // if all inputs are connected or unconnected, it's just a balancer. 
+  // If only outputs are connected, it's importer. If only inputs are connected, it's exporter.
+  const allInputsConnected = recipe.inputs.every(input => productEdges.get(input.product.id));
+  const allOutputsConnected = recipe.outputs.every(output => productEdges.get(output.product.id));
+  if (allInputsConnected && !allOutputsConnected) {
+    BalancerTitle = "Exporter";
+  } else if (!allInputsConnected && allOutputsConnected) {
+    BalancerTitle = "Importer";
+  }
   return (
     <div
       data-zoomlevel={zoomLevel}
-      className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md ">
+      className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
       <div className="recipe-node-title-bar flex justify-between border-white/20 mb-8 pb-2 border-b-2 items-center-safe ">
         <div className="flex-1 text-left p-1">
           <button
@@ -60,7 +70,8 @@ export default function RecipeNodeView({
           </button>
         </div>
         <div className="flex-10 text-center text-xl flex items-center justify-center gap-2">
-          <span>{recipe.machine.name}</span>
+          <span>{BalancerTitle}</span>
+          {recipe.machine.isBalancer && <HelpLink topic="balancer" title="Learn about Balancers" iconSize="w-5 h-5" />}
         </div>
         <div className="flex-1 justify-end-safe text-right ">
           <button
@@ -70,6 +81,7 @@ export default function RecipeNodeView({
           </button>
         </div>
       </div>
+
       <div className="products flex flex-row gap-2 text-xl justify-between mt-4">
         <HandleList
           pos={Position.Left}
@@ -83,7 +95,7 @@ export default function RecipeNodeView({
               <ProductHandle
                 key={prod.product.id}
                 product={prod.product}
-                quantity={prod.quantity * runCount}
+                quantity={prod.quantity}
                 optional={prod.optional}
                 position={Position.Left}
                 isInput={ltr}
@@ -93,17 +105,15 @@ export default function RecipeNodeView({
                 displayRunCount={displayRunCount}
                 highlight={highlight}
                 hasSwitch={false}
-                nodeId={nodeId}
               />
             );
           })}
         </HandleList>
-
         <div className="recipe-machine flex-2 flex-col items-center text-center min-w-30">
           <img src={machineIcon(recipe.machine)} alt={recipe.machine.name}
             className="inline-block w-20 min-w-8 p-1 pointer-events-none
-        bg-gray-400/10 shadow-md/20 rounded-lg data-flipped:scale-x-[-1]
-        " data-flipped={ltr == false || null} />
+                  bg-gray-400/10 shadow-md/20 rounded-lg data-flipped:scale-x-[-1]
+                  " data-flipped={ltr == false || null} />
           <div className="w-full my-1 text-2xl">{formatNumber(runCount, "", runCount < 10 ? 3 : 1)}</div>
 
         </div>
@@ -119,7 +129,7 @@ export default function RecipeNodeView({
               <ProductHandle
                 key={prod.product.id}
                 product={prod.product}
-                quantity={prod.quantity * runCount}
+                quantity={prod.quantity}
                 optional={prod.optional}
                 position={Position.Right}
                 isInput={!ltr}
@@ -134,32 +144,8 @@ export default function RecipeNodeView({
             );
           })}
         </HandleList>
-      </div>
 
-      <div className="recipe-node-infra-bar flex justify-start align-start gap-2 border-white/20 pt-4 mb-1 pb-0 border-t-2">
-        <InfrastructureIcon name="Electricity Used" icon={uiIcon("Electricity")}
-          amount={getQuantityDisplay(recipe.machine.electricity_consumed, runCount, "kW") /*TODO:: Modify by recipe? */} />
-        <InfrastructureIcon name={`Workers (${recipe.machine.workers}) x ${Math.ceil(runCount)}`} icon={uiIcon("Worker")}
-          amount={getQuantityDisplay(recipe.machine.workers, Math.ceil(runCount) /* TODO:: Is this correct? Do workers get consumed even when the building is idle */, "")} />
-        <InfrastructureIcon name={maintenanceName(recipe.machine)} icon={maintenanceIcon(recipe.machine)}
-          amount={getQuantityDisplay(recipe.machine.maintenance_cost?.quantity || 0, runCount, "")} />
-        <InfrastructureIcon name="Computing Used" icon={uiIcon("Computing")}
-          amount={getQuantityDisplay(recipe.machine.computing_consumed, runCount, "TFlops")} />
-        <InfrastructureIcon name={`Tile Footprint (${recipe.machine.footprint?.[0]} x ${recipe.machine.footprint?.[1]}) x ${Math.ceil(runCount)}`} icon={uiIcon("Move128")} iconClassName="rotate-45 scale-120"
-          amount={getQuantityDisplay(recipe.machine.footprint?.reduce((a, i) => a *= i, 1) || 0, Math.ceil(runCount), "")} />
       </div>
-    </div >
-  );
-
-}
-
-function InfrastructureIcon({ name, icon, amount, iconClassName }: { name: string, icon: string, amount: string, iconClassName?: string }) {
-  return (
-    <div data-zero={amount.startsWith("0 ") ? true : null} className="flex-1 text-center text-xl text-gray-400 data-zero:opacity-20 data-zero:grayscale">
-      <div className="h-8">
-        <img src={icon} className={"h-full mx-auto " + iconClassName} title={name} />
-      </div>
-      <div className="text-nowrap">{amount}</div>
     </div>
   );
 }

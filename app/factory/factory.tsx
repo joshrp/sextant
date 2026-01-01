@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { SelectorDialog } from 'app/components/Dialog';
 import Graph from "app/factory/graph/graph";
@@ -10,12 +10,14 @@ import {
   type RecipeId
 } from "./graph/loadJsonData";
 
+import { ChevronDoubleRightIcon } from "@heroicons/react/24/outline";
 import { ReactFlowProvider } from "@xyflow/react";
+import { FactoryOverlayBar } from "~/components/FactoryOverlayBar";
+import FactoryControls from "~/context/FactoryControls";
+import { usePlannerStore } from "~/context/PlannerContext";
 import useFactory, { useFactoryStore } from "./FactoryContext";
 import RecipePicker from "./RecipePicker";
-import { usePlannerStore } from "~/context/PlannerContext";
-import { ChevronDoubleRightIcon } from "@heroicons/react/24/outline";
-import { FactoryOverlayBar } from "~/components/FactoryOverlayBar";
+import type { RecipeNode } from "./graph/RecipeNode";
 
 const { products, machines, recipes } = loadData();
 console.log("Loaded products", products);
@@ -94,19 +96,42 @@ export function Factory() {
     setAddRecipeNode(recipe);
   };
 
-  const addProductToGraph = useCallback((id: RecipeId, recipeAdd: AddRecipeNode) => {
+  const addProductToGraph = useCallback((id: RecipeId, isBalancer: boolean, recipeAdd: AddRecipeNode) => {
 
     if (!recipeAdd.productId) return;
-    const newNode = {
-      id: id + "_" + (new Date().getTime()),
-      position: recipeAdd.position ?? { x: 100, y: 100 },
-      type: "recipe-node",
-      data: {
-        recipeId: id,
-        ltr: true,
-      },
-    };
-
+    const recipe = recipes.get(id);
+    if (!recipe) {
+      console.error('Recipe not found:', id);
+      return;
+    }
+    let newNode: RecipeNode;
+    if (recipe.type === "settlement") {
+      newNode = {
+        id: id + "_" + (new Date().getTime()),
+        position: recipeAdd.position ?? { x: 100, y: 100 },
+        type: 'recipe-node',
+        data: {
+          type: recipe.type,
+          recipeId: id,
+          ltr: true,
+          options: {
+            inputs: Object.fromEntries(recipe.inputs.map(input => [input.product.id, true])) as Record<ProductId, boolean>,
+            outputs: Object.fromEntries(recipe.outputs.map(output => [output.product.id, true])) as Record<ProductId, boolean>,
+          }
+        },
+      };
+    } else {
+      newNode = {
+        id: id + "_" + (new Date().getTime()),
+        position: recipeAdd.position ?? { x: 100, y: 100 },
+        type: 'recipe-node',
+        data: {
+          type: recipe.type,
+          recipeId: id,
+          ltr: true,
+        },
+      };
+    }
     addNode(newNode);
     if (recipeAdd.produce)
       onConnect({
@@ -130,49 +155,54 @@ export function Factory() {
   }
 
   return (<>
-    <div className="
+    <div className="factoryActions flex flex-row w-full h-10 bg-zinc-950">
+      <FactoryControls addNewRecipe={addNewRecipe} />
+    </div>
+    <div className="justify-self-stretch flex flex-row w-full h-[calc(100%-calc(10*var(--spacing)))]">
+      <div className="
       relative bg-transparent overflow-x-visible overflow-y-visible
     "
-      style={{ width: `calc(${currentWidth}px`, minWidth: '200px', maxWidth: '600px' }}
-    >
-      <div
-        className="absolute z-[1000] top-1/2 -right-7 w-6 h-6 cursor-col-resize hover:text-white text-gray-700 transition-colors"
-        onMouseDown={handleMouseDown}
-        style={{
-          // backgroundColor: isResizing ? 'rgb(59 130 246)' : 'transparent',
-        }}
-      ><ChevronDoubleRightIcon className="w-full h-full block" /></div>
-      <div
-        ref={sidebarRef}
-        className="
+        style={{ width: `calc(${currentWidth}px`, minWidth: '200px', maxWidth: '600px' }}
+      >
+        <div
+          className="absolute z-[1000] top-1/2 -right-7 w-6 h-6 cursor-col-resize hover:text-white text-gray-700 transition-colors"
+          onMouseDown={handleMouseDown}
+          style={{
+            // backgroundColor: isResizing ? 'rgb(59 130 246)' : 'transparent',
+          }}
+        ><ChevronDoubleRightIcon className="w-full h-full block" /></div>
+        <div
+          ref={sidebarRef}
+          className="
           flex flex-col bg-zinc-950
           overflow-y-scroll overflow-x-hidden
           w-[calc(100%)] h-full
           "
-            // w-[calc(100%-(var(--spacing)*2))] h-full
-      >
-        <Sidebar addNewRecipe={addNewRecipe} />
+        // w-[calc(100%-(var(--spacing)*2))] h-full
+        >
+          <Sidebar addNewRecipe={addNewRecipe} />
 
+        </div>
       </div>
-    </div>
-    <div className="flex-1">
-      <div className="w-full h-full relative">
-        <FactoryOverlayBar />
-        <ReactFlowProvider>
-          <Graph addNewRecipe={addNewRecipe} />
-        </ReactFlowProvider>
+      <div className="flex-1">
+        <div className="w-full h-full relative">
+          <FactoryOverlayBar />
+          <ReactFlowProvider>
+            <Graph addNewRecipe={addNewRecipe} />
+          </ReactFlowProvider>
+        </div>
       </div>
+      {addRecipeNode ? (
+        <SelectorDialog widthClassName="" title={recipeSelectorProduct?.name} isOpen={addRecipeNode !== null} setIsOpen={blankRecipeSelectorProduct}>
+          <RecipePicker
+            productId={addRecipeNode.productId}
+            selectRecipe={(recipeId, isBalancer) => {
+              addProductToGraph(recipeId, isBalancer, addRecipeNode)
+            }}
+            productIs={addRecipeNode.produce ? "output" : "input"} />
+        </SelectorDialog>
+      ) : ("")}
     </div>
-    {addRecipeNode ? (
-      <SelectorDialog widthClassName="" title={recipeSelectorProduct?.name} isOpen={addRecipeNode !== null} setIsOpen={blankRecipeSelectorProduct}>
-        <RecipePicker
-          productId={addRecipeNode.productId}
-          selectRecipe={(recipeId) => {
-            addProductToGraph(recipeId, addRecipeNode)
-          }}
-          productIs={addRecipeNode.produce ? "output" : "input"} />
-      </SelectorDialog>
-    ) : ("")}
   </>
   );
 }
