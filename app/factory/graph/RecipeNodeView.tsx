@@ -2,6 +2,7 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
 import { Handle, Position } from '@xyflow/react';
 import { formatNumber, machineIcon, maintenanceIcon, maintenanceName, productBackground, productIcon, uiIcon } from '~/uiUtils';
+import HelpLink from '~/components/HelpLink';
 import type { HighlightModes } from '../store';
 import type { ProductId, Recipe } from './loadJsonData';
 import { getQuantityDisplay } from './recipeNodeLogic';
@@ -58,7 +59,10 @@ export default function RecipeNodeView({
             <ArrowsRightLeftIcon className={`transition-[scale] duration-200 inline-block w-6 ${ltr ? "" : "scale-x-[-1]"}`} />
           </button>
         </div>
-        <div className="flex-10 text-center text-xl">{recipe.machine.name}</div>
+        <div className="flex-10 text-center text-xl flex items-center justify-center gap-2">
+          <span>{recipe.machine.name}</span>
+          {recipe.machine.isBalancer && <HelpLink topic="balancer" title="Learn about Balancers" iconSize="w-5 h-5" />}
+        </div>
         <div className="flex-1 justify-end-safe text-right ">
           <button
             className="cursor-pointer text-red-500/50 hover:text-white/80 hover:bg-red-500/50 p-1 rounded"

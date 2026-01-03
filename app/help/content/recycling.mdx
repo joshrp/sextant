@@ -1,0 +1,23 @@
+# Why are there no Waste Sorters?
+Recycling in COI is complicated, read the full page for the why. The short version is that recycling is global, and waste sorters need to be able to output scrap from any recycled material, not just the ones they process.
+
+The calculator will output both scrap outputs and recycling outputs for buildings that produce recycling.
+
+Use the recycling output if you want to track througput needs for trains, shredders etc.
+
+Use the scrap outputs if you want to model your scrap usage and how that impacts raw material needs.
+
+## Understanding Recycling in COI
+
+Due to the way Recycling works in Captain of Industry, there are some unintuitive aspects to calculating the scrap produced by waste sorters processing Recycling materials.
+
+The [Wiki Page](https://wiki.coigame.com/Recyclables) is a good start for understanding how Recycling works in the game.
+
+The key points are:
+
+ - Recycling is output as a single item in game but it's a wrapper of the materials that were recycled. The amount is determined by your recycling efficiency (Research & Edicts) **at the time of creation, not processing**. 
+ - Recycling is global. Whenever a Waste Sorter processes Recycling, it contributes to the global pool of recyclables, which is then distributed to all Waste Sorters output. **One waste sorter across the map could output scrap aluminium despite only ever processing maintainance waste!** This is a key point to understand as it means recycling should not happen isolated. 
+
+To model this usefully, all buildings that produce recycling will produce **both** their relevant scrap outputs **AND** an optional Recycling output. The Scrap (iron, copper etc.) that is produced is on your efficiency settings (TODO::link to settings page here?).
+
+

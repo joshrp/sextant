@@ -1,5 +1,5 @@
 import { Button, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { ChevronDownIcon, ChevronRightIcon, PencilSquareIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, ChevronRightIcon, PencilSquareIcon, XMarkIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
 import { CheckIcon, InboxArrowDownIcon, PencilIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router";
@@ -182,6 +182,15 @@ function ZoneHeader({ selectedZone }: { selectedZone?: string }) {
         </Button>
       </>
     }
+    <div className="flex-1" />
+    <Link 
+      to="help?topic=introduction" 
+      className="shrink-1 cursor-pointer hover:text-white text-gray-400 flex items-center gap-2"
+      title="Help"
+    >
+      <InformationCircleIcon className="w-6 h-6" />
+      <span>Help</span>
+    </Link>
   </>);
 }
 

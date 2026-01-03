@@ -1,17 +1,18 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { ArrowPathRoundedSquareIcon, ExclamationTriangleIcon, InformationCircleIcon, MinusCircleIcon } from "@heroicons/react/24/outline";
+import { ArrowPathRoundedSquareIcon, ExclamationTriangleIcon, MinusCircleIcon } from "@heroicons/react/24/outline";
 import { ArrowsPointingOutIcon, CheckCircleIcon, ChevronDownIcon, Cog8ToothIcon } from "@heroicons/react/24/solid";
+
 import React from "react";
 import { Link } from "react-router";
 import { useShallow } from "zustand/shallow";
+import InfrastructurePopover from "~/components/InfrastructurePopover";
+import HelpLink from "~/components/HelpLink";
+import type { InfrastructureType } from "~/factory/infrastructure/calculations";
 import { formatNumber, maintenanceIcon, productIcon, uiIcon } from "~/uiUtils";
 import { useFactoryStore } from "../factory/FactoryContext";
 import { loadData, type ProductId } from "../factory/graph/loadJsonData";
-import InfrastructurePopover from "~/components/InfrastructurePopover";
-import type { InfrastructureType } from "~/factory/infrastructure/calculations";
 
 const productData = loadData()?.products;
-
 
 export default function FactoryControls() {
   const solutionStatus = useFactoryStore(useShallow(state => state.solutionStatus));
@@ -95,7 +96,10 @@ export default function FactoryControls() {
         </div>
       </MenuButton>
       <MenuItems anchor="bottom start" className="bg-gray-800 text-gray-400 border-2 border-gray-500 rounded-sm shadow-lg relative left-0 z-10">
-        <div className="text-sm p-2 align-middle border-b-1 border-gray-500">Scoring Method <InformationCircleIcon className="w-5 inline-block ml-1 -mt-1 text-gray-400" /></div>
+        <div className="text-sm p-2 align-middle border-b-1 border-gray-500 flex items-center gap-1">
+          <span>Scoring Method</span>
+          <HelpLink topic="scoring" title="Learn about Scoring Methods" />
+        </div>
         <MenuItem key="inputs" as="div"
           onClick={() => (scoringMethod != "inputs" ? setScoreMethod("inputs") : null)}
 
@@ -112,7 +116,9 @@ export default function FactoryControls() {
             </div>
             <div className="flex gap-1 mt-1">
               {solution?.products.inputs.map((i, index) => {
-                const prod = productData.get(i.productId)!;
+                const prod = productData.get(i.productId);
+                console.assert(prod, "Product data not found for product ID: " + i.productId);
+                if (!prod) return null;
                 return (<React.Fragment key={i.productId}>
                   {(index > 0 ? <span key={"plus-" + index} className="inline-block">+</span> : null)}
                   <div key={i.productId} className="flex-1 text-center text-xs text-gray-400 data-zero:opacity-20 data-zero:grayscale">
@@ -191,7 +197,9 @@ export default function FactoryControls() {
             </div>
             <div className="flex gap-1 mt-1">
               {solution?.products.outputs.map((i, index) => {
-                const prod = productData.get(i.productId)!;
+                const prod = productData.get(i.productId);
+                console.assert(prod, "Product data not found for product ID: " + i.productId);
+                if (!prod) return null;
                 return (<React.Fragment key={i.productId}>
                   {(index > 0 ? <span key={"plus-" + index} className="inline-block">+</span> : null)}
                   <div key={i.productId} className="flex-1 text-center text-xs data-zero:opacity-20 data-zero:grayscale">

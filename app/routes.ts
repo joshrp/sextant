@@ -7,6 +7,7 @@ const routes = [
    index("routes/index.tsx"),
    route("zones/:zone/:factory?", "routes/home.tsx", [
       route("settings/:tab?", "components/Settings/FactorySettings.tsx"),
+      route("help", "routes/help.tsx"),
    ])
 ] satisfies RouteConfig;
 

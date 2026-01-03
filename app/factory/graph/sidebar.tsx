@@ -13,6 +13,7 @@ import type { FactoryGoal } from '../solver/types';
 import { loadData, type Product, type ProductId } from './loadJsonData';
 import Manifold from './Manifold';
 import { EyeIcon } from '@heroicons/react/24/outline';
+import HelpLink from '~/components/HelpLink';
 
 const productData = loadData()?.products;
 
@@ -128,7 +129,10 @@ function SideBar({ addNewRecipe }: props) {
 
   return (<>
     <div className='sidebar flex flex-col p-2 h-full justify-start'>
-      <div className="title">Goals</div>
+      <div className="title flex items-center justify-between">
+        <span>Goals</span>
+        <HelpLink topic="goals" title="Learn about Goals" />
+      </div>
       <div className="">
         {goals.map((goal, i) => {
           const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
@@ -219,7 +223,7 @@ function SideBar({ addNewRecipe }: props) {
         })}
       </div>
       <div className="subtitle mt-4">Inputs</div>
-      <div className="inputs-list grid grid-cols-2 gap-2 bg-gray-800 rounded">
+      <div className="inputs-list grid grid-cols-2 gap-2 mb-2 bg-gray-800 rounded">
         {solution?.products?.inputs.map((input, i) => {
           const product = productData.get(input.productId);
           if (!product) {
@@ -257,7 +261,10 @@ function SideBar({ addNewRecipe }: props) {
 
         })}
       </div>
-      <div className="subtitle justify-self-end-safe mt-auto">Manifolds</div>
+      <div className="subtitle justify-self-end-safe mt-auto flex items-center justify-between">
+        <span>Manifolds</span>
+        <HelpLink topic="manifolds" title="Learn about Manifolds" />
+      </div>
       <div className="justify-self-end-safe">
         {manifolds?.map((m, i) => {
           if (!m) return;
