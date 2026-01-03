@@ -35,6 +35,7 @@ interface MachineUsage {
   machineName: string;
   amount: number;
   count: number;
+  subText: string;
 }
 
 /**
@@ -57,7 +58,10 @@ function calculateMachineUsage(
     const amount = calculateInfrastructure(recipe.machine, runCount, type);
     
     if (amount === 0) return;
-
+    let subText = '';
+    if (type === 'footprint' && recipe.machine.footprint) {
+      subText = `(${recipe.machine.footprint[0]}x${recipe.machine.footprint[1]})`;
+    }
     const existing = usageByMachine.get(recipe.machine.id);
     if (existing) {
       existing.amount += amount;
@@ -68,6 +72,7 @@ function calculateMachineUsage(
         machineName: recipe.machine.name,
         amount,
         count: Math.ceil(runCount),
+        subText: subText,
       });
     }
   });
@@ -142,7 +147,7 @@ export default function InfrastructurePopover({
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold truncate">{usage.machineName}</div>
                       <div className="text-gray-500 text-xs">
-                        {usage.count} {usage.count === 1 ? 'building' : 'buildings'}
+                        {usage.count} {usage.count === 1 ? 'building' : 'buildings'} {usage.subText} 
                       </div>
                     </div>
                     <div className="text-right font-mono flex-shrink-0">
