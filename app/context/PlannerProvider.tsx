@@ -5,6 +5,8 @@ import { createStore } from "zustand";
 import { devtools, persist, type StorageValue } from "zustand/middleware";
 import hydration from "~/hydration";
 import { PlannerContext } from "./PlannerContext";
+import { deleteIdb } from "./idb";
+import { clearCachedZoneStore } from "./zoneCache";
 
 export const PlannerProvider = ({ children }: { children: ReactNode }) => {
   const storeRef = useRef<PlannerStore | null>(null);
@@ -25,13 +27,17 @@ export interface PlannerStoreData {
   zones: {
     id: string,
     order: number,
-    name: string
+    name: string,
+    icon?: string,
+    description?: string
   }[],
   lastSettingsTab: string,
   lastZone: string | undefined,
   sidebarWidth: number,
-  newZone(name: string): void;
+  newZone(name: string, icon?: string, description?: string): string;
   renameZone(id: string, newName: string): void;
+  updateZone(id: string, updates: { name?: string; icon?: string; description?: string }): void;
+  deleteZone(id: string): void;
   setLastZone(zoneId: string): void;
   setSidebarWidth(width: number): void;
 };
@@ -52,7 +58,7 @@ const Store = () => {
           lastZone: undefined,
           sidebarWidth: 240, // Default width in pixels
 
-          newZone: (name: string) => {
+          newZone: (name: string, icon?: string, description?: string): string => {
             const settings = get();
             const newId = name.trim().toLowerCase().replace(/\s+/g, "-");
             if (settings.zones.some(z => z.id === newId))
@@ -61,9 +67,12 @@ const Store = () => {
               zones: [...settings.zones, {
                 id: newId,
                 name: name.trim(),
-                order: settings.zones.length
+                order: settings.zones.length,
+                icon,
+                description
               }]
             });
+            return newId;
           },
           renameZone: (id: string, newName: string) => {
             const settings = get();
@@ -74,6 +83,36 @@ const Store = () => {
             zone.name = newName;
             set({
               zones: [...settings.zones]
+            });
+          },
+          updateZone: (id: string, updates: { name?: string; icon?: string; description?: string }) => {
+            const settings = get();
+            const zone = settings.zones.find(z => z.id === id);
+            if (!zone) throw new Error("Zone not found");
+            if (updates.name !== undefined && updates.name !== zone.name) {
+              if (settings.zones.some(z => z.name === updates.name && z.id !== id)) {
+                throw new Error("Zone with this name already exists");
+              }
+              zone.name = updates.name;
+            }
+            if (updates.icon !== undefined) zone.icon = updates.icon;
+            if (updates.description !== undefined) zone.description = updates.description;
+            set({
+              zones: [...settings.zones]
+            });
+          },
+          deleteZone: async (id: string) => {
+            const settings = get();
+            const zone = settings.zones.find(z => z.id === id);
+            if (!zone) throw new Error("Zone not found");
+            
+            const filteredZones = settings.zones.filter(z => z.id !== id);
+            await deleteIdb(id);
+            clearCachedZoneStore(id);
+            set({
+              zones: filteredZones,
+              // Clear lastZone if it was the deleted zone
+              lastZone: settings.lastZone === id ? undefined : settings.lastZone,
             });
           },
           setLastZone: (zoneId: string) => {
@@ -101,7 +140,10 @@ const Store = () => {
 
             return (await idb).put(mainObjectStore, str, name)
           },
-          removeItem: (name) => localStorage.removeItem(name),
+          removeItem: async (name) => {
+            if (!idb) return Promise.resolve();
+            return (await idb).delete(mainObjectStore, name);
+          }
         },
         version: 2,
         migrate: (persistedState: unknown) => {//, currentVersion: number) => {

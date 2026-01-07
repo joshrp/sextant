@@ -1,50 +1,52 @@
-import { ArchiveBoxIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { SelectorDialog } from "./Dialog";
 import IconSelector, { type IconInfo } from "./IconSelector";
+import ConfirmDialog from "./ConfirmDialog";
 import { getAllIcons } from "~/uiUtils";
 import { loadData } from "~/factory/graph/loadJsonData";
 
 const { products, machines } = loadData();
 
-type FactoryEditDialogProps = {
+type ZoneEditDialogProps = {
   isOpen: boolean;
-  factoryId?: string;
+  zoneId?: string;
   initialName?: string;
   initialIcon?: string;
   initialDescription?: string;
-  existingFactoryNames: string[];
+  existingZoneNames: string[];
   onSave: (data: { name: string; icon?: string; description?: string }) => void;
   onCancel: () => void;
-  onArchive?: () => void;
+  onDelete?: () => void;
   title?: string;
-  showArchiveButton?: boolean;
+  showDeleteButton?: boolean;
 };
 
-export default function FactoryEditDialog({
+export default function ZoneEditDialog({
   isOpen,
   initialName = "",
   initialIcon = "",
   initialDescription = "",
-  existingFactoryNames,
+  existingZoneNames,
   onSave,
   onCancel,
-  onArchive,
-  title = "Edit Factory",
-  showArchiveButton = false,
-}: FactoryEditDialogProps) {
+  onDelete,
+  title = "Edit Zone",
+  showDeleteButton = false,
+}: ZoneEditDialogProps) {
   const [name, setName] = useState(initialName);
   const [icon, setIcon] = useState<string | undefined>(initialIcon || undefined);
   const [description, setDescription] = useState(initialDescription);
   const [showIconSelector, setShowIconSelector] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [nameManuallyEdited, setNameManuallyEdited] = useState(!!initialName);
-  const [nameError, setNameError] = useState<string | null>(null);
   
   const allIcons = getAllIcons(products, machines);
+  const [nameError, setNameError] = useState<string | null>(null);
 
   const handleSave = () => {
     if (name.trim() === "") {
-      setNameError("Factory name cannot be empty");
+      setNameError("Zone name cannot be empty");
       return;
     }
     setNameError(null);
@@ -64,17 +66,25 @@ export default function FactoryEditDialog({
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     setNameManuallyEdited(true);
-    if (nameError) setNameError(null);
+  };
+
+  const handleDeleteClick = () => {
+    setShowDeleteConfirm(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    setShowDeleteConfirm(false);
+    onDelete?.();
   };
 
   // Check for name collision - memoize the trimmed name
   const trimmedName = name.trim();
-  const hasNameCollision = trimmedName !== "" && trimmedName !== initialName && existingFactoryNames.includes(trimmedName);
+  const hasNameCollision = trimmedName !== "" && trimmedName !== initialName && existingZoneNames.includes(trimmedName);
 
   return (
     <>
       <SelectorDialog
-        isOpen={isOpen && !showIconSelector}
+        isOpen={isOpen && !showIconSelector && !showDeleteConfirm}
         setIsOpen={(open) => !open && onCancel()}
         title={title}
         widthClassName="w-[600px]"
@@ -107,19 +117,22 @@ export default function FactoryEditDialog({
 
           {/* Name Input - Now Second, no asterisk */}
           <div>
-            <label className="block text-sm font-medium mb-2">Factory Name</label>
+            <label className="block text-sm font-medium mb-2">Zone Name</label>
             <input
               type="text"
               value={name}
-              onChange={handleNameChange}
+              onChange={(e) => {
+                handleNameChange(e);
+                if (nameError) setNameError(null);
+              }}
               className={`w-full px-3 py-2 bg-gray-700 text-white rounded border focus:outline-none ${
                 hasNameCollision || nameError ? 'border-red-500' : 'border-gray-600 focus:border-blue-500'
               }`}
-              placeholder="Enter factory name"
+              placeholder="Enter zone name"
             />
             {hasNameCollision && (
               <p className="text-red-400 text-sm mt-1">
-                A factory with this name already exists in this zone
+                A zone with this name already exists
               </p>
             )}
             {nameError && !hasNameCollision && (
@@ -143,16 +156,16 @@ export default function FactoryEditDialog({
 
           {/* Action Buttons */}
           <div className="flex justify-between pt-4 border-t border-gray-700">
-            {/* Archive button on the left */}
+            {/* Delete button on the left */}
             <div>
-              {showArchiveButton && onArchive && (
+              {showDeleteButton && onDelete && (
                 <button
-                  onClick={onArchive}
-                  className="px-4 py-2 bg-amber-700 hover:bg-amber-600 text-white rounded cursor-pointer flex items-center gap-2"
-                  title="Archive this factory (can be restored later)"
+                  onClick={handleDeleteClick}
+                  className="px-4 py-2 bg-red-700 hover:bg-red-600 text-white rounded cursor-pointer flex items-center gap-2"
+                  title="Delete this zone permanently"
                 >
-                  <ArchiveBoxIcon className="w-5 h-5" />
-                  Archive
+                  <TrashIcon className="w-5 h-5" />
+                  Delete Zone
                 </button>
               )}
             </div>
@@ -185,6 +198,20 @@ export default function FactoryEditDialog({
           selectedIcon={icon}
         />
       )}
+
+      <ConfirmDialog
+        isOpen={showDeleteConfirm}
+        onConfirm={handleDeleteConfirm}
+        onCancel={() => setShowDeleteConfirm(false)}
+        title="Delete Zone"
+        confirmText="Delete Zone"
+        cancelText="Cancel"
+        isDestructive={true}
+      >
+        <p>Permanently delete zone &quot;{initialName}&quot;?</p>
+        <p>This will remove all data for the zone, including factories.</p>
+        <p>This action cannot be undone.</p>
+      </ConfirmDialog>
     </>
   );
 }

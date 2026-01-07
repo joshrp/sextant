@@ -1,13 +1,16 @@
 import { Button, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { ChevronDownIcon, ChevronRightIcon, PencilSquareIcon, XMarkIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
-import { CheckIcon, InboxArrowDownIcon, PencilIcon, PlusIcon } from "@heroicons/react/24/solid";
+import { ArchiveBoxIcon, ChevronDownIcon, ChevronRightIcon, InformationCircleIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
+import { InboxArrowDownIcon, PencilIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router";
 
+import ArchiveBrowser from "~/components/ArchiveBrowser";
+import FactoryArchiveHandler from "~/components/FactoryArchiveHandler";
 import FactoryEditDialog from "~/components/FactoryEditDialog";
+import ZoneEditDialog from "~/components/ZoneEditDialog";
 import FactoryControls from "~/context/FactoryControls";
 import { FactoryProvider } from "~/context/FactoryProvider";
-import usePlanner, { usePlannerStore } from "~/context/PlannerContext";
+import { usePlannerStore } from "~/context/PlannerContext";
 import useProductionZone, { useProductionZoneStore } from "~/context/ZoneContext";
 import { ProductionZoneProvider } from "~/context/ZoneProvider";
 import { loadData } from "~/factory/graph/loadJsonData";
@@ -24,39 +27,7 @@ export function meta() {
 }
 
 const { products, machines } = loadData();
-interface InlineStringEditorProps {
-  onSubmit: (value: string) => void;
-  onCancel: () => void;
-  initialValue?: string;
-  checkValue?: (value: string) => boolean; // Return true if valid
-  placeholder?: string;
-}
 
-export function InlineStringEditor({
-  initialValue,
-  onSubmit,
-  onCancel,
-  checkValue,
-  placeholder = ""
-}: InlineStringEditorProps) {
-  const [value, setValue] = useState<string>(initialValue || "");
-  const isTaken = checkValue ? checkValue(value) : false;
-
-  return <form className="flex flex-row gap-1 align-baseline" onSubmit={() => onSubmit(value)}>
-    <XMarkIcon onClick={onCancel} className="h-6 w-6 text-red-300 inline-block cursor-pointer" />
-    <input type="text"
-      data-is-taken={isTaken || null}
-      placeholder={placeholder}
-      className="bg-gray-700 text-white rounded w-40 px-2 data-is-taken:bg-red-700"
-      value={value}
-      onChange={e => {
-        setValue(e.target.value);
-      }}
-    />
-    <CheckIcon data-is-taken={isTaken} onClick={() => onSubmit(value)}
-      className="h-6 w-6 text-green-500 inline-block data-[is-taken=false]:cursor-pointer data-[is-taken=true]:text-gray-800" />
-  </form>
-}
 export default function Home() {
   const selectedZone = useStableParam("zone");
   const zones = usePlannerStore(state => state.zones);
@@ -114,74 +85,87 @@ export default function Home() {
 }
 
 function ZoneHeader({ selectedZone }: { selectedZone?: string }) {
-  const plannerStore = usePlanner().store;
+  const nav = useNavigate();
   const zones = usePlannerStore(state => state.zones);
   const zone = zones.find(z => z.id === selectedZone);
-
+  const updateZone = usePlannerStore(state => state.updateZone);
+  const deleteZone = usePlannerStore(state => state.deleteZone);
   const newZoneAction = usePlannerStore(state => state.newZone);
 
-  const [renameZoneId, setRenameZoneId] = useState<string>("");
-  const [inputNewName, setInputNewName] = useState<boolean>(false);
+  const [editingZoneId, setEditingZoneId] = useState<string | null>(null);
+  const [isCreatingNew, setIsCreatingNew] = useState(false);
 
-  const checkName = (newName: string) => zones.some(z => z.name.toLowerCase() === newName.toLowerCase() && z.id !== renameZoneId);
+  const editingZone = editingZoneId ? zones.find(z => z.id === editingZoneId) : null;
+  const existingZoneNames = zones.filter(z => z.id !== editingZoneId).map(z => z.name);
 
-  const nameSubmit = (name: string) => {
-    if (name.trim() === "") return;
-    if (renameZone) {
-      plannerStore.getState().renameZone(renameZoneId, name.trim());
-      setRenameZoneId("");
-    } else { // New zone
-      newZoneAction(name.trim());
+  const handleSaveZone = (data: { name: string; icon?: string; description?: string }) => {
+    if (isCreatingNew) {
+      const newId = newZoneAction(data.name, data.icon, data.description);
+      setIsCreatingNew(false);
+      nav(`/zones/${newId}`);
+    } else if (editingZoneId) {
+      updateZone(editingZoneId, data);
+      setEditingZoneId(null);
     }
-  }
-  const renameZone = zones.find(z => z.id === renameZoneId);
+  };
+
+  const handleDeleteZone = () => {
+    if (!editingZoneId) return;
+    
+    // Delete the zone
+    deleteZone(editingZoneId);
+    setEditingZoneId(null);
+    
+    // Navigate to another zone if the deleted zone was selected
+    if (editingZoneId === selectedZone) {
+      const remainingZones = zones.filter(z => z.id !== editingZoneId);
+      if (remainingZones.length > 0) {
+        nav(`/zones/${remainingZones[0].id}`);
+      } else {
+        nav('/');
+      }
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setIsCreatingNew(false);
+    setEditingZoneId(null);
+  };
 
   return (<>
     <h1 className="shrink-1 border-r-2 border-gray-400 pr-8">Factory Planner</h1>
     <h2 className="shrink-1">Zone:</h2>
-    {inputNewName || renameZone
-      ? <div className="inline-block">
-        <InlineStringEditor initialValue={renameZone?.name}
-          placeholder={renameZoneId ? "" : "Zone Name"}
-          checkValue={checkName}
-          onSubmit={nameSubmit}
-          onCancel={() => {
-            setInputNewName(false);
-            setRenameZoneId("");
-          }
-          } />
-      </div> : <>
-        <Menu>
-          <MenuButton className="text-white items-middle h-full px-2 shrink-1 rounded-sm bg-gray-700 cursor-pointer">
-            <span>{zone?.name}</span>
-            <ChevronDownIcon className="w-6 h-full inline-block ml-2 mb-1" />
-          </MenuButton>
-          <MenuItems anchor={"bottom start"}
-            className="border-2 border-gray-400 shadow-2xl absolute rounded z-10 bg-gray-700  text-white">
-            {zones.map(z => (
-              <MenuItem key={z.id}>
-                <div className="flex flex-row items-center-safe justify-between not-last:border-b-2  border-gray-400">
-                  <Link className="flex-6 border-0 block px-2 py-1 hover:bg-gray-600" to={`/zones/${z.id}`}>
-                    {z.name}
-                  </Link>
-                  <div className="actions p-2 inline-block shrink-1 border-l-2 border-gray-400">
-                    <Button className="h-full cursor-pointer hover:text-gray-400 block" title="Edit Name"
-                      onClick={() => setRenameZoneId(z.id)}>
-                      <PencilIcon className="w-4 h-full" />
-                    </Button>
-                  </div>
-                </div>
-              </MenuItem>
-            ))}
-          </MenuItems>
-        </Menu>
-        <Button className="shrink-1 -mt-1 cursor-pointer hover:text-gray-700 text-white"
-          title="Create New Zone"
-          onClick={() => setInputNewName(true)} >
-          <PencilSquareIcon className="w-5 h-full inline-block" />
-        </Button>
-      </>
-    }
+    <Menu>
+      <MenuButton className="text-white items-middle flex-row flex h-full px-2 shrink-1 rounded-sm bg-gray-700 cursor-pointer">
+        {zone?.icon && <img src={zone.icon} alt="" className="flex-1 block mr-2" />}
+        <span>{zone?.name}</span>
+        <ChevronDownIcon className="w-6 flex-1 h-full inline-block ml-2 mb-1" />
+      </MenuButton>
+      <MenuItems anchor={"bottom start"}
+        className="border-2 border-gray-400 shadow-2xl absolute rounded z-10 bg-gray-700  text-white">
+        {zones.map(z => (
+          <MenuItem key={z.id}>
+            <div className="flex flex-row items-center-safe justify-between not-last:border-b-2  border-gray-400">
+              <Link className="flex-6 border-0 block px-2 py-1 hover:bg-gray-600 items-center gap-2" to={`/zones/${z.id}`}>
+                {z.icon && <img src={z.icon} alt="" className="w-6 " />}
+                {z.name}
+              </Link>
+              <div className="actions p-2 inline-block shrink-1 border-l-2 border-gray-400">
+                <Button className="h-full cursor-pointer hover:text-gray-400 block" title="Edit Zone"
+                  onClick={() => setEditingZoneId(z.id)}>
+                  <PencilIcon className="w-4 h-full" />
+                </Button>
+              </div>
+            </div>
+          </MenuItem>
+        ))}
+      </MenuItems>
+    </Menu>
+    <Button className="shrink-1 -mt-1 cursor-pointer hover:text-gray-700 text-white"
+      title="Create New Zone"
+      onClick={() => setIsCreatingNew(true)} >
+      <PencilSquareIcon className="w-5 h-full inline-block" />
+    </Button>
     <div className="flex-1" />
     <Link 
       to="help?topic=introduction" 
@@ -191,6 +175,22 @@ function ZoneHeader({ selectedZone }: { selectedZone?: string }) {
       <InformationCircleIcon className="w-6 h-6" />
       <span>Help</span>
     </Link>
+
+    {(isCreatingNew || editingZoneId) && (
+      <ZoneEditDialog
+        isOpen={true}
+        zoneId={editingZoneId || undefined}
+        initialName={editingZone?.name || ""}
+        initialIcon={editingZone?.icon}
+        initialDescription={editingZone?.description}
+        existingZoneNames={existingZoneNames}
+        onSave={handleSaveZone}
+        onCancel={handleCancelEdit}
+        onDelete={handleDeleteZone}
+        title={isCreatingNew ? "Create Zone" : "Edit Zone"}
+        showDeleteButton={!isCreatingNew && zones.length > 1}
+      />
+    )}
   </>);
 }
 
@@ -213,10 +213,16 @@ function Zone() {
   const selectedFactory = factories.find(f => f.id === selectedFactoryId);
   store.getState().setLastFactory(selectedFactoryId);
   const idb = useProductionZone().idb;
+  
+  // State for archiving the selected factory
+  const [archiveRequested, setArchiveRequested] = useState(false);
 
   return useMemo(() => <>
     <div className="shrink-1 h-full">
-      <ZoneSideBar selectedFactoryId={selectedFactoryId} />
+      <ZoneSideBar 
+        selectedFactoryId={selectedFactoryId} 
+        onArchiveSelected={() => setArchiveRequested(true)}
+      />
     </div>
     {selectedFactory &&
       <FactoryProvider idb={idb} zoneId={zoneId} id={selectedFactoryId} name={selectedFactory?.name || "Default Factory"} weights={baseWeights}>
@@ -230,6 +236,14 @@ function Zone() {
         </div>
 
         <Outlet />
+        
+        {/* Archive handler - inside FactoryProvider so it can access factory data */}
+        {archiveRequested && (
+          <FactoryArchiveHandler
+            factoryId={selectedFactoryId}
+            onComplete={() => setArchiveRequested(false)}
+          />
+        )}
       </FactoryProvider >
     } {!selectedFactory &&
       <div className="h-full flex flex-col justify-center-safe items-center-safe bg-zinc-950">
@@ -237,10 +251,10 @@ function Zone() {
         <p>Please select a factory from the sidebar.</p>
       </div>
     }
-  </>, [baseWeights, selectedFactory, idb]);
+  </>, [baseWeights, selectedFactory, idb, archiveRequested]);
 }
 
-export function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }) {
+export function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { selectedFactoryId: string; onArchiveSelected?: () => void }) {
   const nav = useNavigate();
   const zoneId = useProductionZone().id;
 
@@ -256,6 +270,7 @@ export function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }
   const [expanded, setExpanded] = useState<boolean>(false);
   const [editingFactoryId, setEditingFactoryId] = useState<string | null>(null);
   const [isCreatingNew, setIsCreatingNew] = useState(false);
+  const [showArchiveBrowser, setShowArchiveBrowser] = useState(false);
 
   const editingFactory = editingFactoryId ? factories.find(f => f.id === editingFactoryId) : null;
   const existingFactoryNames = useMemo(
@@ -277,6 +292,18 @@ export function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }
   const handleCancelEdit = () => {
     setIsCreatingNew(false);
     setEditingFactoryId(null);
+  };
+  
+  const handleArchive = () => {
+    // Only allow archiving the currently selected factory
+    if (editingFactoryId === selectedFactoryId && onArchiveSelected) {
+      setEditingFactoryId(null);
+      onArchiveSelected();
+    }
+  };
+
+  const handleArchiveRestored = (newFactoryId: string) => {
+    nav(`/zones/${zoneId}/${newFactoryId}`);
   };
 
   return useMemo(() => <aside
@@ -338,7 +365,7 @@ export function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }
           </li>)
         )}
 
-        {/* New & Import Controls */}
+        {/* New & Import & Archive Controls */}
         <li className="p-1 mt-2 bg-gray-800 flex flex-row justify-center-safe gap-4 text-white group-data-expanded:text-left
         border-2 border-gray-700 border-r-0 rounded-l
         ml-2
@@ -352,14 +379,21 @@ export function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }
             title="New Factory">
             <PlusIcon className="w-6" />
           </button>
-          {expanded &&
+          {expanded && <>
             <Link className="text-xs text-gray-400 hover:text-white cursor-pointer"
               to={`./settings/importexport`}
               title="Import Factory"
             >
               <InboxArrowDownIcon className="w-6" />
             </Link>
-          }
+            <button
+              onClick={() => setShowArchiveBrowser(true)}
+              className="text-gray-400 hover:text-white cursor-pointer"
+              title="Restore from Archive"
+            >
+              <ArchiveBoxIcon className="w-6" />
+            </button>
+          </>}
         </li>
 
       </ul>
@@ -384,9 +418,17 @@ export function ZoneSideBar({ selectedFactoryId }: { selectedFactoryId: string }
         existingFactoryNames={existingFactoryNames}
         onSave={handleSaveFactory}
         onCancel={handleCancelEdit}
+        onArchive={handleArchive}
         title={isCreatingNew ? "Create Factory" : "Edit Factory"}
+        showArchiveButton={!isCreatingNew && editingFactoryId === selectedFactoryId}
       />
     )}
 
-  </aside>, [factories, selectedFactoryId, expanded, zoneId, isCreatingNew, editingFactoryId, existingFactoryNames]);
+    <ArchiveBrowser
+      isOpen={showArchiveBrowser}
+      onClose={() => setShowArchiveBrowser(false)}
+      onRestored={handleArchiveRestored}
+    />
+
+  </aside>, [factories, selectedFactoryId, expanded, zoneId, isCreatingNew, editingFactoryId, existingFactoryNames, showArchiveBrowser]);
 }

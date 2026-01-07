@@ -4,25 +4,31 @@ import { createStore } from "zustand";
 import { devtools, persist, subscribeWithSelector, type StorageValue } from "zustand/middleware";
 import hydration from "~/hydration";
 import type { ProductId } from "../factory/graph/loadJsonData";
-import type { GraphImportData } from "~/factory/store";
+import type { GraphCoreData, GraphImportData } from "~/factory/store";
 import FactoryStore from "../factory/store";
 import { getIdb, zoneObjectStore, type IDB } from "./idb";
-
-const storeCache = {} as Record<string, { store: ProductionZoneStore, idb: IDB }>;
+import {
+  archiveFactory as archiveFactoryToIdb,
+  listArchivedFactories as listArchivedFactoriesFromIdb,
+  restoreArchivedFactory as restoreArchivedFactoryFromIdb,
+  deleteArchivedFactory as deleteArchivedFactoryFromIdb,
+} from "./factoryArchive";
+import { getCachedZoneStore, setCachedZoneStore } from "./zoneCache";
 
 export const ProductionZoneProvider = ({ zoneId, zoneName, children }: { zoneId: string, zoneName: string, children: ReactNode }) => {
   const storeRef = useRef<ProductionZoneStore | null>(null);
   const idbRef = useRef<IDB | null>(null);
 
-  if (storeCache[zoneId]) {
+  const cached = getCachedZoneStore(zoneId);
+  if (cached) {
     console.log("Reusing cached store for zone", zoneId);
-    storeRef.current = storeCache[zoneId].store;
-    idbRef.current = storeCache[zoneId].idb;
+    storeRef.current = cached.store;
+    idbRef.current = cached.idb;
   } else {
     console.log("Production Zone Store initialized for", zoneId);
     idbRef.current = getIdb(zoneId);
     storeRef.current = Store(idbRef.current!, { id: zoneId, name: zoneName });
-    storeCache[zoneId] = { store: storeRef.current, idb: idbRef.current! };
+    setCachedZoneStore(zoneId, storeRef.current, idbRef.current!);
   }
 
   return (
@@ -44,8 +50,62 @@ export const ProductionZoneProvider = ({ zoneId, zoneName, children }: { zoneId:
         const newStore = FactoryStore(idbRef.current!, { id, name: data.name })
         newStore.Graph.getState().importData(data);
 
-        storeRef.current.getState().newFactory(data.name, id, data.icon);
-      }
+        storeRef.current.getState().newFactory(data.name, id);
+      },
+
+      // Archive a factory: minify, compress, and store in archive DB
+      archiveFactory: async (factoryId: string, factoryData: GraphCoreData) => {
+        if (!storeRef.current) throw new Error("Store not initialized");
+        if (!idbRef.current) throw new Error("IDB not initialized");
+
+        const factory = storeRef.current.getState().factories.find(f => f.id === factoryId);
+        if (!factory) throw new Error("Factory not found: " + factoryId);
+
+        return archiveFactoryToIdb(idbRef.current, factoryData, {
+          id: factory.id,
+          icon: factory.icon,
+          description: factory.description,
+        });
+      },
+
+      // Restore a factory from archive
+      restoreFactory: async (archiveId: string) => {
+        if (!storeRef.current) throw new Error("Store not initialized");
+        if (!idbRef.current) throw new Error("IDB not initialized");
+
+        const data = await restoreArchivedFactoryFromIdb(idbRef.current, archiveId);
+
+        // Create new factory ID (may be different from archive ID if name collision)
+        let newId = factoryIdFromName(data.name);
+        if (storeRef.current.getState().factories.find(f => f.id === newId)) {
+          newId = newId + "-" + Date.now().toString().slice(-4);
+        }
+
+        const newStore = FactoryStore(idbRef.current, { id: newId, name: data.name });
+        await newStore.Graph.getState().importData(data);
+
+        storeRef.current.getState().newFactory(data.name, newId);
+
+        return newId;
+      },
+
+      // Remove factory from active list (does not archive)
+      deleteFactory: (factoryId: string) => {
+        if (!storeRef.current) return;
+        storeRef.current.getState().removeFactory(factoryId);
+      },
+
+      // List all archived factories
+      listArchivedFactories: async () => {
+        if (!idbRef.current) return [];
+        return listArchivedFactoriesFromIdb(idbRef.current);
+      },
+
+      // Permanently delete from archive
+      deleteArchivedFactory: async (archiveId: string) => {
+        if (!idbRef.current) return;
+        return deleteArchivedFactoryFromIdb(idbRef.current, archiveId);
+      },
     }}>
       {children}
     </ProductionZoneContext.Provider>
@@ -81,6 +141,7 @@ export interface ProductionZoneStoreData {
   setLastFactory(id: string): void;
   renameFactory(id: string, newName: string): void;
   updateFactory(id: string, updates: { name?: string; icon?: string; description?: string }): void;
+  removeFactory(id: string): void;
 };
 
 const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
@@ -156,6 +217,15 @@ const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
             },
             setLastFactory: (id: string) => {
               set({ lastFactory: id });
+            },
+            removeFactory: (id: string) => {
+              const settings = get();
+              const filteredFactories = settings.factories.filter(f => f.id !== id);
+              set({
+                factories: filteredFactories,
+                // Clear lastFactory if it was the removed factory
+                lastFactory: settings.lastFactory === id ? undefined : settings.lastFactory,
+              });
             }
           })
         ),
@@ -176,8 +246,10 @@ const Store = (idb: IDB, { id, name }: { id: string, name: string }) => {
 
               return (await idb).put(zoneObjectStore, str, name)
             },
-            removeItem: (name) => localStorage.removeItem(name),
-
+            removeItem: async (name) => {
+              if (!idb) return;
+              return (await idb).delete(zoneObjectStore, name);
+            }
           },
           version: 2,
           migrate: (persistedState: unknown, currentVersion: number) => {

@@ -1,9 +1,9 @@
-import { describe, expect, it, vi, beforeAll, afterAll } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ReactFlowProvider } from '@xyflow/react';
-import RecipeNodeView from './RecipeNodeView';
+import { describe, expect, it, vi } from 'vitest';
 import type { RecipeNodeViewProps } from './RecipeNodeView';
+import RecipeNodeView from './RecipeNodeView';
 import { loadData, type RecipeId } from './loadJsonData';
 
 

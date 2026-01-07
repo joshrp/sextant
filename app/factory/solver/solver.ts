@@ -589,7 +589,7 @@ export default class Solver {
 }
 
 // Instead of exporting a variable, export a setter function
-let DEBUG_SOLVER = true;
+let DEBUG_SOLVER = false;
 export function setDebugSolver(val: boolean) {
   DEBUG_SOLVER = val;
 }
