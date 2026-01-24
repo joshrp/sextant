@@ -12,10 +12,13 @@ import type { AddRecipeNode } from '../factory';
 import type { FactoryGoal } from '../solver/types';
 import { loadData, type Product, type ProductId } from './loadJsonData';
 import Manifold from './Manifold';
-import { EyeIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import HelpLink from '~/components/HelpLink';
+import type { HighlightModes } from '../store';
+import type { CustomNodeType } from './nodes';
 
 const productData = loadData()?.products;
+const { recipes } = loadData();
 
 type props = {
   addNewRecipe: (addRecipeNode: AddRecipeNode) => void
@@ -46,6 +49,8 @@ function SideBar({ addNewRecipe }: props) {
   const model = useFactoryStore(useShallow(state => state.graph));
   const solutionUpdateAction = useFactoryStore(useShallow(state => state.solutionUpdateAction));
   const setHighlight = useFactoryStore(useShallow(state => state.setHighlight));
+  const highlight = useFactoryStore(useShallow(state => state.highlight));
+  const nodes = useFactoryStore(useShallow(state => state.nodes));
   const [editGoal, setEditGoal] = useState<FactoryGoal | null>(null);
 
   const addGoal = useCallback((goal: FactoryGoal): void => {
@@ -129,150 +134,160 @@ function SideBar({ addNewRecipe }: props) {
 
   return (<>
     <div className='sidebar flex flex-col p-2 h-full justify-start'>
-      <div className="title flex items-center justify-between">
-        <span>Goals</span>
-        <HelpLink topic="goals" title="Learn about Goals" />
-      </div>
-      <div className="goals" data-testid="sidebar-goals-list">
-        {goals.map((goal, i) => {
-          const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
-          const product = productData.get(goal.productId);
-        if (!product) {
-            console.warn("Product not found for goal", goal);
-            return null;
-          }
-          let fulfilled = false;
-          if (resultCount !== undefined) {
-            if (goal.type == "eq")
-              fulfilled = goal.qty == resultCount;
-            else if (goal.type == "lt")
-              fulfilled = goal.qty >= resultCount;
-            else if (goal.type == "gt")
-              fulfilled = goal.qty <= resultCount;
-          }
-          return <SidebarPopover
-            key={"goal-" + i}
-            trigger={
-              <div className={`output-goal w-full gap-2 p-2 flex my-1
-                                  hover:bg-gray-900
-                                    rounded cursor-pointer 
-                                    border-1 border-gray-500  text-xs 
-                                    ${fulfilled ? "bg-green-900" : "bg-red-900"}
-                                    `}
-              >
-                <ProductGoal goal={goal} resultCount={resultCount} />
-              </div>
-            }
-            anchor="bottom end"
-          >
-            {goalsMenuOptions.map(m =>
-              <PopoverMenuItem key={"goal-item-" + m.label} onClick={m.onClick(goal)}>
-                {m.label}
-              </PopoverMenuItem>
-            )}
-          </SidebarPopover>
-        })}
-        <button onClick={() => setSelectProductDialog(true)} className="cursor-pointer bg-gray-700 rounded hover:bg-gray-900 focus:bg-gray-900 active:bg-gray-900 ">
-          <div className="inline-flex text-center w-8 align-middle">
-            <PlusIcon />
+      {highlight?.mode === 'edge' ? (
+        <EdgeHighlightOverlay 
+          highlight={highlight} 
+          nodes={nodes}
+          onClose={() => setHighlight({ mode: 'none' })}
+        />
+      ) : (
+        <>
+          <div className="title flex items-center justify-between">
+            <span>Goals</span>
+            <HelpLink topic="goals" title="Learn about Goals" />
           </div>
-        </button>
-
-      </div>
-      <div className="subtitle mt-4">By Products</div>
-
-      <div className="byproducts grid grid-cols-2 gap-2" data-testid="sidebar-byproducts-list">
-        {solution?.products?.outputs.map((output, i) => {
-          const goal = goals.find(g => g.productId === output.productId && g.dir == "output");
-          const product = productData.get(output.productId);
-          if (!product) {
-            console.warn("Product not found for output", output);
-            return null;
-          }
-          let amount = output.amount;
-          let isSurplus = false;
-          if (goal) {
-            amount -= goal.qty;
-            isSurplus = true;
-          }
-          if (amount <= 0) return;
-
-          return <SidebarPopover
-            key={"output-" + i}
-            trigger={
-              <div
-                style={{ backgroundColor: productBackground(product) }}
-                className={`output-goal flex justify-between items-center-safe w-full px-2 py-1 
-                          h-8 rounded cursor-pointer
-                          hover:brightness-110  
-                          ${isSurplus ? "bg-green-900" : ""}`}
+          <div className="goals" data-testid="sidebar-goals-list">
+            {goals.map((goal, i) => {
+              const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
+              const product = productData.get(goal.productId);
+            if (!product) {
+                console.warn("Product not found for goal", goal);
+                return null;
+              }
+              let fulfilled = false;
+              if (resultCount !== undefined) {
+                if (goal.type == "eq")
+                  fulfilled = goal.qty == resultCount;
+                else if (goal.type == "lt")
+                  fulfilled = goal.qty >= resultCount;
+                else if (goal.type == "gt")
+                  fulfilled = goal.qty <= resultCount;
+              }
+              return <SidebarPopover
+                key={"goal-" + i}
+                trigger={
+                  <div className={`output-goal w-full gap-2 p-2 flex my-1
+                                      hover:bg-gray-900
+                                        rounded cursor-pointer 
+                                        border-1 border-gray-500  text-xs 
+                                        ${fulfilled ? "bg-green-900" : "bg-red-900"}
+                                        `}
+                  >
+                    <ProductGoal goal={goal} resultCount={resultCount} />
+                  </div>
+                }
+                anchor="bottom end"
               >
-                <img className="h-full " src={productIcon(product.icon)} />
-                <span className="flex-8 text-right text-sm ">{formatNumber(amount, product.unit)}</span>
+                {goalsMenuOptions.map(m =>
+                  <PopoverMenuItem key={"goal-item-" + m.label} onClick={m.onClick(goal)}>
+                    {m.label}
+                  </PopoverMenuItem>
+                )}
+              </SidebarPopover>
+            })}
+            <button onClick={() => setSelectProductDialog(true)} className="cursor-pointer bg-gray-700 rounded hover:bg-gray-900 focus:bg-gray-900 active:bg-gray-900 ">
+              <div className="inline-flex text-center w-8 align-middle">
+                <PlusIcon />
               </div>
-            }
-            anchor="bottom start"
-          >
-            {byProductsMenuOptions.map(m =>
-              <> <PopoverMenuItem key={"byproduct-menu-" + m.label} onClick={m.onClick(output)}>
-                {m.label}
-              </PopoverMenuItem>
-              </>
-            )}
-          </SidebarPopover>
-        })}
-      </div>
-      <div className="subtitle mt-4">Inputs</div>
-      <div className="inputs-list grid grid-cols-2 gap-2 mb-2 bg-gray-800 rounded" data-testid="sidebar-inputs-list">
-        {solution?.products?.inputs.map((input, i) => {
-          const product = productData.get(input.productId);
-          if (!product) {
-            console.warn("Product not found for input", input);
-            return null;
-          }
-          const amount = input.amount * -1;
-          if (amount <= 0) return;
-          return <SidebarPopover
-            key={"input-" + i}
-            trigger={
-              <div
-                style={{ backgroundColor: productBackground(product) }}
-                className={`input-goal flex justify-between items-center-safe w-full px-2 py-1  
-                          h-8 rounded cursor-pointer
-                          hover:brightness-110`}
+            </button>
+
+          </div>
+          <div className="subtitle mt-4">By Products</div>
+
+          <div className="byproducts grid grid-cols-2 gap-2" data-testid="sidebar-byproducts-list">
+            {solution?.products?.outputs.map((output, i) => {
+              const goal = goals.find(g => g.productId === output.productId && g.dir == "output");
+              const product = productData.get(output.productId);
+              if (!product) {
+                console.warn("Product not found for output", output);
+                return null;
+              }
+              let amount = output.amount;
+              let isSurplus = false;
+              if (goal) {
+                amount -= goal.qty;
+                isSurplus = true;
+              }
+              if (amount <= 0) return;
+
+              return <SidebarPopover
+                key={"output-" + i}
+                trigger={
+                  <div
+                    style={{ backgroundColor: productBackground(product) }}
+                    className={`output-goal flex justify-between items-center-safe w-full px-2 py-1 
+                              h-8 rounded cursor-pointer
+                              hover:brightness-110  
+                              ${isSurplus ? "bg-green-900" : ""}`}
+                  >
+                    <img className="h-full " src={productIcon(product.icon)} />
+                    <span className="flex-8 text-right text-sm ">{formatNumber(amount, product.unit)}</span>
+                  </div>
+                }
+                anchor="bottom start"
               >
-                <img className="h-full drop-shadow-md/30 " src={productIcon(product.icon)} />
-                <span className="flex-8 text-right text-sm text-shadow-lg">{formatNumber(amount, product.unit)}</span>
-              </div>
-            }
-            anchor="bottom start"
-          >
-            {inputsMenuOptions.map(m =>
-              <PopoverMenuItem key={"input-menu-" + m.label} onClick={m.onClick(input)}>
-                {m.label}
-              </PopoverMenuItem>
-            )}
-            <PopoverIconActions>
-              <PopoverIconAction Icon={EyeIcon} label="Show Uses" onClick={() => {
-                setHighlight({ mode: 'product', productId: input.productId, options: { inputs: true, outputs: true } });
-              }} />
-            </PopoverIconActions>
-          </SidebarPopover>
+                {byProductsMenuOptions.map(m =>
+                  <> <PopoverMenuItem key={"byproduct-menu-" + m.label} onClick={m.onClick(output)}>
+                    {m.label}
+                  </PopoverMenuItem>
+                  </>
+                )}
+              </SidebarPopover>
+            })}
+          </div>
+          <div className="subtitle mt-4">Inputs</div>
+          <div className="inputs-list grid grid-cols-2 gap-2 mb-2 bg-gray-800 rounded" data-testid="sidebar-inputs-list">
+            {solution?.products?.inputs.map((input, i) => {
+              const product = productData.get(input.productId);
+              if (!product) {
+                console.warn("Product not found for input", input);
+                return null;
+              }
+              const amount = input.amount * -1;
+              if (amount <= 0) return;
+              return <SidebarPopover
+                key={"input-" + i}
+                trigger={
+                  <div
+                    style={{ backgroundColor: productBackground(product) }}
+                    className={`input-goal flex justify-between items-center-safe w-full px-2 py-1  
+                              h-8 rounded cursor-pointer
+                              hover:brightness-110`}
+                  >
+                    <img className="h-full drop-shadow-md/30 " src={productIcon(product.icon)} />
+                    <span className="flex-8 text-right text-sm text-shadow-lg">{formatNumber(amount, product.unit)}</span>
+                  </div>
+                }
+                anchor="bottom start"
+              >
+                {inputsMenuOptions.map(m =>
+                  <PopoverMenuItem key={"input-menu-" + m.label} onClick={m.onClick(input)}>
+                    {m.label}
+                  </PopoverMenuItem>
+                )}
+                <PopoverIconActions>
+                  <PopoverIconAction Icon={EyeIcon} label="Show Uses" onClick={() => {
+                    setHighlight({ mode: 'product', productId: input.productId, options: { inputs: true, outputs: true } });
+                  }} />
+                </PopoverIconActions>
+              </SidebarPopover>
 
-        })}
-      </div>
-      <div className="subtitle justify-self-end-safe mt-auto flex items-center justify-between">
-        <span>Manifolds</span>
-        <HelpLink topic="manifolds" title="Learn about Manifolds" />
-      </div>
-      <div className="justify-self-end-safe">
-        {manifolds?.map((m, i) => {
-          if (!m) return;
+            })}
+          </div>
+          <div className="subtitle justify-self-end-safe mt-auto flex items-center justify-between">
+            <span>Manifolds</span>
+            <HelpLink topic="manifolds" title="Learn about Manifolds" />
+          </div>
+          <div className="justify-self-end-safe">
+            {manifolds?.map((m, i) => {
+              if (!m) return;
 
-          return <Manifold key={"manifold-" + i} manifoldId={m} />
-        })}
+              return <Manifold key={"manifold-" + i} manifoldId={m} />
+            })}
 
-      </div>
+          </div>
+        </>
+      )}
     </div>
     <ProductSelector
       products={productData}
@@ -365,6 +380,73 @@ export function ProductGoal({ goal, resultCount }: { goal: FactoryGoal, resultCo
       {resultCount ? formatNumber(resultCount, product.unit) : ''}
     </div>
   </>;
+}
+
+type EdgeHighlightOverlayProps = {
+  highlight: HighlightModes & { mode: 'edge' };
+  nodes: CustomNodeType[];
+  onClose: () => void;
+};
+
+function EdgeHighlightOverlay({ highlight, nodes, onClose }: EdgeHighlightOverlayProps) {
+  const product = productData.get(highlight.sourceHandle);
+  const sourceNode = nodes.find((n) => n.id === highlight.sourceNodeId);
+  const targetNode = nodes.find((n) => n.id === highlight.targetNodeId);
+  
+  if (!product || !sourceNode || !targetNode) {
+    return null;
+  }
+
+  const sourceRecipe = recipes.get(sourceNode.data.recipeId);
+  const targetRecipe = recipes.get(targetNode.data.recipeId);
+
+  return (
+    <div className="edge-highlight-overlay flex flex-col gap-4">
+      <div className="title flex items-center justify-between">
+        <span>Edge Connection</span>
+        <button 
+          onClick={onClose}
+          className="cursor-pointer text-gray-400 hover:text-white p-1 rounded hover:bg-gray-700"
+          title="Clear highlight"
+        >
+          <XMarkIcon className="w-5 h-5" />
+        </button>
+      </div>
+
+      <div className="flex flex-col gap-3 p-3 bg-gray-800 rounded">
+        <div className="text-sm text-gray-400">Connecting Product:</div>
+        <div 
+          style={{ backgroundColor: productBackground(product) }}
+          className="flex items-center gap-2 p-2 rounded"
+        >
+          <img className="h-8 w-8" src={productIcon(product.icon)} alt={product.name} />
+          <span className="text-lg font-semibold">{product.name}</span>
+        </div>
+
+        <div className="mt-2 text-sm text-gray-400">Source (Output):</div>
+        <div className="flex flex-col gap-1 p-2 bg-gray-700 rounded">
+          <div className="font-medium">{sourceRecipe?.machine.name}</div>
+          <div className="text-xs text-gray-400">Node: {highlight.sourceNodeId.substring(0, 20)}...</div>
+        </div>
+
+        <div className="flex justify-center">
+          <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+
+        <div className="text-sm text-gray-400">Target (Input):</div>
+        <div className="flex flex-col gap-1 p-2 bg-gray-700 rounded">
+          <div className="font-medium">{targetRecipe?.machine.name}</div>
+          <div className="text-xs text-gray-400">Node: {highlight.targetNodeId.substring(0, 20)}...</div>
+        </div>
+      </div>
+
+      <div className="text-xs text-gray-500 italic mt-2">
+        Click elsewhere or press the × button to clear this view
+      </div>
+    </div>
+  );
 }
 
 export default SideBar;
