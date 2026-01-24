@@ -1,4 +1,4 @@
-import { ZoneSideBar } from './home';
+import ZoneSideBar from './ZoneSideBar';
 import { getRouterWrapper, getZoneWrapper } from '~/test/helpers/renderHelpers';
 
 export default {
