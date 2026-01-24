@@ -11,7 +11,7 @@ import { test, expect } from '@playwright/test';
  */
 test('import factory from compressed export string', async ({ page }) => {
   // Navigate to default factory view
-  await page.goto('http://localhost:5173/zones/main/default-factory');
+  await page.goto('/zones/main/default-factory', { waitUntil: 'domcontentloaded' });
 
   // Open factory menu and navigate to import settings
   await page.getByTestId('zone-sidebar-expand-toggle').click();

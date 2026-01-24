@@ -11,11 +11,11 @@ import { test, expect } from '@playwright/test';
 test.describe('Factory Planner App', () => {
   test('should display zone selector and factory goals on initial load', async ({ page }) => {
     // Navigate to the app
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
     
     // Wait for the app to load and redirect to a zone
     // The app auto-redirects from / to /zones/{zoneId}
-    await page.waitForURL(/\/zones\//, { timeout: 10000 });
+    await page.waitForURL(/\/zones\//, { timeout: 1000 });
 
     // Verify the main header title is visible
     await expect(page.getByRole('heading', { name: 'Factory Planner' })).toBeVisible();
@@ -39,14 +39,14 @@ test.describe('Factory Planner App', () => {
     await page.goto('/');
     
     // Wait for the app to load
-    await page.waitForURL(/\/zones\//, { timeout: 10000 });
+    await page.waitForURL(/\/zones\//, { timeout: 1000 });
     
     // Verify the sidebar aside element exists
     const sidebar = page.locator('aside');
     await expect(sidebar).toBeVisible();
     
     // Verify there are list items in the sidebar (factory tabs)
-    await expect(sidebar.locator('li')).toHaveCount(3, { timeout: 5000 });
+    await expect(sidebar.locator('li')).toHaveCount(3, { timeout: 1000 });
     
     // Find and click the expand button (last button in sidebar)
     const expandButton = sidebar.locator('button').last();
