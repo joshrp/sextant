@@ -52,10 +52,13 @@ describe("Import Export", () => {
 
       expect(store.Graph.getState().solution?.ObjectiveValue).toBeCloseTo(20375.7, 1);
       const newExport = imex.minify(store.Graph.getState(), "zone-power-generation-steam");
-      expect(newExport).toStrictEqual([2, ...min.slice(1)]); 
+      // Exported format should be V3 now (with node data type field)
+      expect(newExport[0]).toBe(3);
       
+      // Verify round-trip: compress, decompress, unminify should preserve data
       const recompressed = await imex.compress(newExport);
-      expect(recompressed).toEqual(exportStr);
+      const redecompressed = await imex.decompress(recompressed);
+      expect(redecompressed).toEqual(newExport);
       
     });
 

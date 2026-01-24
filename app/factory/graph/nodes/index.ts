@@ -7,25 +7,25 @@ export const initialNodes = [
     id: "SteamLpCondensation", 
     type: "recipe-node", 
     position: { x: -250, y: -300 }, 
-    data: { recipeId: "SteamLpCondensation"as RecipeId } 
+    data: { type: "recipe", recipeId: "SteamLpCondensation" as RecipeId } 
   },
   {
     id: "AcidMixMixingT2", 
     type: "recipe-node",
     position: { x: 50, y: 0 },
-    data: { recipeId: "AcidMixMixingT2" as RecipeId },
+    data: { type: "recipe", recipeId: "AcidMixMixingT2" as RecipeId },
   },
   { 
     id: "ExhaustFiltering",  
     type: "recipe-node", 
     position: { x: -300, y: 0 }, 
-    data: { recipeId: "ExhaustFiltering" as RecipeId } 
+    data: { type: "recipe", recipeId: "ExhaustFiltering" as RecipeId } 
   },
   {
     id: "TurbineHighPressT2", 
     type: "recipe-node",
     position: { x: -550, y: -350 },
-    data: { recipeId: "TurbineHighPressT2" as RecipeId },
+    data: { type: "recipe", recipeId: "TurbineHighPressT2" as RecipeId },
   },
 ] satisfies RecipeNodeType[];
 

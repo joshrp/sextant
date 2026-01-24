@@ -14,8 +14,8 @@ const settlementRecipe = recipes.get('Housing_Workers' as RecipeId);
 // Create default settlement options with all toggles enabled
 const createDefaultOptions = (): SettlementNodeData["options"] => {
   const options: SettlementNodeData["options"] = {
-    inputs: {},
-    outputs: {},
+    inputs: {} as Record<ProductId, boolean>,
+    outputs: {} as Record<ProductId, boolean>,
   };
   
   if (settlementRecipe) {

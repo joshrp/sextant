@@ -2,13 +2,12 @@
  * Pure reducer functions for GraphStore actions
  * These functions transform state immutably and can be tested independently
  */
-import type { RecipeNodeData } from "~/factory/graph/RecipeNode";
 import type { ButtonEdgeData } from "~/factory/graph/edges/ButtonEdge";
 import type { GraphSolutionState, GraphStore } from "~/factory/store";
 import type { ProductionZoneStoreData } from "~/context/ZoneProvider";
 import type { GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
-import type { ConfigurableNodeTypes, NodeDataTypes, SettlementNodeData } from "~/factory/graph/recipeNodeLogic";
+import type { NodeDataTypes, SettlementNodeData } from "~/factory/graph/recipeNodeLogic";
 
 /**
  * Update data for a specific node immutably
@@ -26,7 +25,7 @@ export function updateNodeData(
     ...state,
     nodes: state.nodes.map(node =>
       node.id === nodeId
-        ? { ...node, data: { ...node.data, ...data } }
+        ? { ...node, data: { ...node.data, ...data } as NodeDataTypes }
         : node
     ),
   };

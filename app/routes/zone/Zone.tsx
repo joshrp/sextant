@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { Outlet } from "react-router";
 
 import FactoryArchiveHandler from "~/components/FactoryArchiveHandler";
-import FactoryControls from "~/context/FactoryControls";
 import { FactoryProvider } from "~/context/FactoryProvider";
 import useProductionZone, { useProductionZoneStore } from "~/context/ZoneContext";
 import { Factory } from "~/factory/factory";

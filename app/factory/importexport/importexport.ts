@@ -1,4 +1,5 @@
 import { loadData, type ProductId, type RecipeId } from "../graph/loadJsonData";
+import type { RecipeNodeData } from "../graph/recipeNodeLogic";
 import type { GraphCoreData, GraphImportData } from "../store";
 import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 
@@ -61,14 +62,54 @@ export type MinifiedStateV2 = [
   ][],
 ]
 
-const currentVersion = 2;
+// Node data types short codes for minification
+const DataTypes = {
+  "recipe": "r",
+  "balancer": "b",
+  "settlement": "s",
+  get: function (id?: string): string { return this[(id ?? "recipe") as keyof typeof DataTypes] as string || "r" },
+  find: function (val: string | undefined): "recipe" | "balancer" | "settlement" {
+    const found = Object.entries(this).find(([, v]) => v === val)?.[0] as "recipe" | "balancer" | "settlement" | undefined;
+    return found ?? "recipe";
+  }
+}
+
+export type MinifiedStateV3 = [
+  number, // version
+  string, // name
+  string, // zone
+  string, // icon (optional)
+  [ // nodes
+    string, // type (React Flow node type)
+    string, // id
+    number, // x
+    number, // y
+    string, // recipeId
+    boolean, // ltr
+    string, // dataType (recipe, balancer, settlement)
+  ][],
+  [ // edges
+    string, // type
+    string, // productId
+    string, // source
+    string, // target
+  ][],
+  [ // goals
+    string, // productId
+    number, // qty
+    "eq" | "lt" | "gt", // type
+    boolean, // isOutput
+  ][],
+]
+
+const currentVersion = 3;
 /**
  * Take Graph Store data and strip it to the basics needed to import
  * Strips out all keys in favor of an array with strict positions.
  * Any change to the data here needs to be versioned. 
  * Increase the currentVersion and make a migration for the old one in unminifyVersion
  */
-export function minify<T extends GraphCoreData>(state: T, zone: string, icon?: string): MinifiedStateV2 {
+export function minify<T extends GraphCoreData>(state: T, zone: string, icon?: string): MinifiedStateV3 {
   return [
     currentVersion,
     state.name,
@@ -81,6 +122,7 @@ export function minify<T extends GraphCoreData>(state: T, zone: string, icon?: s
       n.position.y,
       n.data.recipeId,
       n.data.ltr ?? true,
+      DataTypes.get(n.data.type),
     ]),
     Object.values(state.edges).map(e => [
       EdgeTypes.get(e.type) as string,
@@ -113,6 +155,7 @@ class Unminify {
   public versions = {
     1: this.one.bind(this),
     2: this.two.bind(this),
+    3: this.three.bind(this),
   };
 
   constructor() { }
@@ -156,7 +199,7 @@ class Unminify {
           id: n[1],
           type: NodeTypes.find(n[0]) || "recipe-node",
           position: { x: n[2], y: n[3] },
-          data: { recipeId: recipeId, ltr: n[5] },
+          data: { recipeId: recipeId, ltr: n[5], type: 'recipe' },
         }
       }),
       edges: min[3].map(e => {
@@ -207,6 +250,27 @@ class Unminify {
       icon: min[3],
     }
   }
+
+  // V3 is a V2 type, but each node has a new field on the end indicating it's data type
+  // V1 now defaults to recipe, then is overridden here
+  three(data: MinifiedStateBase): GraphImportData {
+    const min = data as MinifiedStateV3;
+    const v2 = this.versions[2](min);
+    return {
+      ...v2,
+      nodes: v2.nodes.map((n, index) => {
+        const dataType = DataTypes.find(min[4][index][6]) || "recipe";
+        return {
+          ...n,
+          data: {
+            ...n.data,
+            type: dataType,
+          } as RecipeNodeData,
+        }
+      }),
+
+    }
+  }
 }
 
 /**
@@ -238,7 +302,7 @@ export const compress = async (state: unknown): Promise<string> => {
     const b64 = btoa(binary);
     try {
       await writer.close();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (_) { /* Make sure it's closed. Throws an error if already closed */ }
 
     return b64;
@@ -274,7 +338,7 @@ export const decompress = async (b64: string): Promise<unknown> => {
   const decoded = new TextDecoder().decode(new Uint8Array(out));
   try {
     await writer.close();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (_) { /* Make sure it's closed. Throws an error if already closed */ }
   return JSON.parse(decoded, hydration.reviver);
 }
@@ -307,9 +371,9 @@ export type MinifiedStateV1 = [
 ]
 
 /**
- * Bulk export format: flat array of V2 minified factories
+ * Bulk export format: flat array of V3 minified factories
  */
-export type BulkExportData = MinifiedStateV2[];
+export type BulkExportData = MinifiedStateV3[];
 
 /**
  * Result of parsing a bulk import - contains all factories and grouped by zone
@@ -324,7 +388,7 @@ export interface BulkImportData {
 
 /**
  * Minify multiple factories for bulk export
- * Returns a flat array of V2 minified factories
+ * Returns a flat array of V3 minified factories
  */
 export function minifyBulk(
   factories: Array<{ state: GraphCoreData; zoneName: string; icon?: string }>
@@ -391,7 +455,7 @@ export async function decompressBulk(b64: string): Promise<BulkImportData> {
 /**
  * Extract metadata from minified factory data without fully unminifying
  */
-export function getFactoryMetadataFromMinified(min: MinifiedStateV2): FactoryExportMetadata {
+export function getFactoryMetadataFromMinified(min: MinifiedStateV2 | MinifiedStateV3): FactoryExportMetadata {
   return {
     id: '', // ID is not stored in export, will be assigned on import
     name: min[1],

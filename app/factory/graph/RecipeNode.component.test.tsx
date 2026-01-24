@@ -66,6 +66,7 @@ describe('RecipeNode Component', () => {
   describe('Error State', () => {
     it('renders error message for non-existent recipe', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'NonExistentRecipe_12345' as RecipeId,
         ltr: true,
       });
@@ -85,6 +86,7 @@ describe('RecipeNode Component', () => {
 
     it('renders delete button in error state', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'InvalidRecipe' as RecipeId,
         ltr: true,
       });
@@ -104,6 +106,7 @@ describe('RecipeNode Component', () => {
   describe('Valid Recipe Rendering', () => {
     it('renders machine name and title bar', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -124,6 +127,7 @@ describe('RecipeNode Component', () => {
 
     it('displays run count in center of node', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -138,6 +142,7 @@ describe('RecipeNode Component', () => {
 
     it('displays solution run count when provided', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
         solution: {
@@ -155,6 +160,7 @@ describe('RecipeNode Component', () => {
 
     it('renders flip button with correct icon', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -172,6 +178,7 @@ describe('RecipeNode Component', () => {
 
     it('renders delete button with trash icon', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -189,6 +196,7 @@ describe('RecipeNode Component', () => {
 
     it('renders product handles for recipe inputs and outputs', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -210,7 +218,8 @@ describe('RecipeNode Component', () => {
   describe('Layout Orientation', () => {
     it('defaults to ltr layout', () => {
       const props = createNodeProps({
-        recipeId: 'PowerGeneratorT2' as RecipeId as RecipeId,
+        type: "recipe",
+        recipeId: 'PowerGeneratorT2' as RecipeId,
         // ltr not specified
       });
 
@@ -227,6 +236,7 @@ describe('RecipeNode Component', () => {
 
     it('renders with rtl layout when ltr=false', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: false,
       });
@@ -247,6 +257,7 @@ describe('RecipeNode Component', () => {
     it('flip button responds to clicks', async () => {
       const user = userEvent.setup();
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -266,6 +277,7 @@ describe('RecipeNode Component', () => {
     it('delete button responds to clicks', async () => {
       const user = userEvent.setup();
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -287,6 +299,7 @@ describe('RecipeNode Component', () => {
   describe('Solution States', () => {
     it('displays default state without solution', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
       });
@@ -300,6 +313,7 @@ describe('RecipeNode Component', () => {
 
     it('displays unsolved solution state', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
         solution: {
@@ -316,6 +330,7 @@ describe('RecipeNode Component', () => {
 
     it('displays decimal run counts', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'PowerGeneratorT2' as RecipeId,
         ltr: true,
         solution: {
@@ -334,6 +349,7 @@ describe('RecipeNode Component', () => {
   describe('Multiple Recipe Types', () => {
     it('renders TurbineHighPressT2 correctly', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'TurbineHighPressT2' as RecipeId,
         ltr: true,
       });
@@ -349,6 +365,7 @@ describe('RecipeNode Component', () => {
 
     it('renders SteamDepletedCondensation correctly', () => {
       const props = createNodeProps({
+        type: "recipe",
         recipeId: 'SteamDepletedCondensation' as RecipeId,
         ltr: true,
       });

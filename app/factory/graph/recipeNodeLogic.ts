@@ -85,15 +85,15 @@ export const SettlementCalculator = (recipeId: Recipe, options: SettlementNodeDa
   }
 }
 
-export const BalancerCalculator = (data: BalancerNodeData) => {
-  return (productId: ProductId): number => {
+export const BalancerCalculator = () => {
+  return (): number => {
     return 0; // Placeholder implementation
   }
 }
 
-export const BasicCalculator = (data: RecipeNodeData) => {
+export const BasicCalculator = () => {
   return {
-    productRatio: (productId: ProductId): number => {
+    productRatio: (): number => {
       return 0; // Placeholder implementation
     }
   };

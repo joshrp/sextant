@@ -38,23 +38,28 @@ const simpleNode = (props: NodeProps & {data: RecipeNodeData}) => {
 
 export default {
   'Basic - Power Generator': () => simpleNode(createNodeProps({
+    type: "recipe",
     recipeId: 'PowerGeneratorT2' as RecipeId,
     ltr: true,
   })),
   'Basic - Power Generator Flipped': () => simpleNode(createNodeProps({
+    type: "recipe",
     recipeId: 'PowerGeneratorT2' as RecipeId,
     ltr: false,
   })),
   'Complex - Fast Breeder Reactor': () => simpleNode(createNodeProps({
+    type: "recipe",
     recipeId: 'FastBreederReactorEnrichment2' as RecipeId,
     ltr: true,
   })),
   'With Solution - Low Run Count': () => simpleNode(createNodeProps({
+    type: "recipe",
     recipeId: 'PowerGeneratorT2' as RecipeId,
     ltr: true,
     solution: { solved: true, runCount: 2.5 }
   })),
   'With Solution - High Run Count': () => simpleNode(createNodeProps({
+    type: "recipe",
     recipeId: 'TurbineHighPressT2' as RecipeId,
     ltr: true,
     solution: { solved: true, runCount: 15.75 }
