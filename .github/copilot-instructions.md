@@ -3,6 +3,8 @@
 ## Project Overview
 Production planning calculator for Captain of Industry game. React-based SPA using React Router v7 with linear programming solver (HiGHS.js) to optimize factory layouts and resource flows.
 
+Read the docs in `doc/` for testing implementation and running guidelines as well as future plans.
+
 ## Architecture
 
 ### State Management Hierarchy

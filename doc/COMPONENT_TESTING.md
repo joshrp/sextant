@@ -207,10 +207,10 @@ npm run test:component
 npm run test:all
 
 # Specific test file (unit test)
-npm test recipeNodeLogic
+npm test -- recipeNodeLogic
 
 # Specific test file (component test)
-npm run test:component RecipeNode
+npm run test:component -- RecipeNode
 
 # Watch mode (unit tests)
 npm test -- --watch

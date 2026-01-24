@@ -3,10 +3,17 @@
 ## Overview
 This document outlines isolated testing tasks prioritized by complexity and risk. Each task includes refactoring, review, and test implementation phases to ensure quality coverage as the MVP evolves.
 
+## Agent Startup (Read First)
+When starting a testing task, read these docs in order:
+1. `doc/TESTING_TASKS_SUMMARY.md`
+2. `doc/TESTING_ROADMAP.md`
+3. `doc/COMPONENT_TESTING.md`
+4. `doc/E2E_TESTING.md`
+
 ## Testing Tool Stack
 - **Vitest** - Unit tests (pure functions, business logic) - Already configured
-- **@testing-library/react** - Component tests (user interactions) - Needs setup
-- **Playwright** - E2E smoke tests (critical paths only, 2-3 tests max) - Needs setup
+- **@testing-library/react** - Component tests (user interactions) - Configured (jsdom suite)
+- **Playwright** - E2E smoke tests (critical paths only, 2-3 tests max) - Configured (baseline specs)
 
 ## Time Estimate Legend
 
@@ -16,7 +23,7 @@ Each task shows two time estimates:
 
 Multiplier: Agents typically take 1.5-3x longer due to:
 - Need for validation/review cycles
-- Tool learning (Playwright setup, testing-library patterns)
+- Tool learning (Playwright usage, testing-library patterns)
 - Debugging without immediate feedback
 - Conservative iteration (smaller changes, more verification)
 
@@ -68,7 +75,7 @@ The linear programming solver is the core of the app. While basic tests exist, e
 - All tests pass in < 5 seconds
 
 **Agent Notes:**
-- Run tests frequently: `npm test solver`
+- Run tests frequently: `npm test -- solver`
 - Validate snapshots manually before committing
 - If snapshot fails, check if change is expected or bug
 - HiGHS solver timeout is 2000ms - don't change this
@@ -150,7 +157,7 @@ Create `app/factory/importexport/encoder.test.ts`:
 - Use `describe()` blocks to group related tests
 - Test error cases with `expect(() => decode(bad)).toThrow()`
 - Compare full state, not just length/shape
-- Run individual test: `npm test encoder`
+- Run individual test: `npm test -- encoder`
 
 ---
 
@@ -212,7 +219,7 @@ export function generateLoopClosures(
 Update `app/factory/solver/graphModel.ts` to use these functions - becomes thin wrapper over pure functions.
 
 **Agent Notes:**
-- Run `npm test solver` after each extraction to verify behavior
+- Run `npm test -- solver` after each extraction to verify behavior
 - Types should NOT import from `@xyflow/react`
 - Keep existing `createGraphModel()` signature unchanged
 - Test manually in UI after refactor (create factory, solve, verify results)
@@ -696,34 +703,31 @@ Installed and configured Playwright with production build serving:
 - `fullyParallel: true` enabled since tests don't share IndexedDB state
 
 ### Phase 2: Implement Critical Path Tests ⏳ TODO
-    url: 'http://localhost:5173',
+    url: 'http://localhost:4173',
     reuseExistingServer: !process.env.CI,
     timeout: 120000, // 2 min for slow starts
   },
 });
 ```
 
-Create directory structure:
+Current directory structure (add new specs here):
 ```
 e2e/
-  fixtures/
-    testFactory.ts      # Helper to create test data
-  tests/
-    1-create-factory.spec.ts
-    2-import-factory.spec.ts
-    3-navigation.spec.ts
+  app.spec.ts
+  factory-import.spec.ts
+  # add more *.spec.ts files as coverage expands
 ```
 
 **Agent Notes:**
-- Run `npx playwright test --headed` to see browser
-- Use `npx playwright codegen http://localhost:5173` to generate selectors
-- Tests run against dev server (Vite)
-- Single worker prevents IndexedDB conflicts between tests
+- Run `npm run test:e2e -- --headed` to see browser
+- Use `npx playwright codegen http://localhost:4173` to generate selectors
+- Tests run against production preview (`npm run preview`, port 4173)
+- Single worker on CI prevents IndexedDB conflicts between tests
 
 ### Phase 2: Implement Critical Path Tests
 👤 3-4 hours | 🤖 5-7 hours
 
-**Test 1: Create and Solve Factory** (`e2e/tests/1-create-factory.spec.ts`)
+**Test 1: Create and Solve Factory** (`e2e/app.spec.ts`)
 ```typescript
 import { test, expect } from '@playwright/test';
 
@@ -758,7 +762,7 @@ test('create factory and solve', async ({ page }) => {
 });
 ```
 
-**Test 2: Import Factory** (`e2e/tests/2-import-factory.spec.ts`)
+**Test 2: Import Factory** (`e2e/factory-import.spec.ts`)
 ```typescript
 test('import factory from export', async ({ page }) => {
   await page.goto('/');
@@ -778,7 +782,7 @@ test('import factory from export', async ({ page }) => {
 });
 ```
 
-**Test 3: Navigation** (`e2e/tests/3-navigation.spec.ts`)
+**Test 3: Navigation** (`e2e/navigation.spec.ts`)
 ```typescript
 test('navigate between zones and factories', async ({ page }) => {
   await page.goto('/');
@@ -821,7 +825,7 @@ test('navigate between zones and factories', async ({ page }) => {
 - Use `page.pause()` to debug interactively
 - Selectors: prefer `text=` over CSS (more stable)
 - Wait for navigation: `await expect(page).toHaveURL(...)`
-- Run single test: `npx playwright test 1-create-factory`
+- Run single test: `npm run test:e2e -- app.spec.ts`
 
 ### Phase 3: CI Integration
 👤 1 hour | 🤖 2 hours
@@ -841,7 +845,8 @@ jobs:
           node-version: '20'
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: npx playwright test
+      - run: npm run build
+      - run: npm run test:e2e
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -852,7 +857,8 @@ jobs:
 **Local CI simulation:**
 ```bash
 # Run in headless mode (like CI)
-npx playwright test
+npm run build
+npm run test:e2e
 
 # View report
 npx playwright show-report
@@ -969,7 +975,7 @@ npx playwright show-report
 
 ### When Stuck
 
-1. **Run test in isolation** - `npm test <filename>`
+1. **Run test in isolation** - `npm test -- <filename>`
 2. **Use test debugging** - Add `console.log()`, use `test.only()`
 3. **Check type errors** - `npm run typecheck`
 4. **Review similar tests** - Look at existing test patterns
@@ -1024,13 +1030,13 @@ npm test -- --watch
 npm test -- --coverage
 
 # Specific file
-npm test solver
+npm test -- solver
 
 # E2E tests
-npx playwright test
+npm run test:e2e
 
 # E2E with UI
-npx playwright test --headed
+npm run test:e2e -- --headed
 
 # Update snapshots (after intentional changes)
 npm test -- -u
@@ -1058,7 +1064,8 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm ci
       - run: npx playwright install --with-deps
-      - run: npx playwright test
+      - run: npm run build
+      - run: npm run test:e2e
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

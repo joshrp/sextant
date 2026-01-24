@@ -49,13 +49,13 @@ The Playwright configuration is in `playwright.config.ts`:
 npm run test:e2e
 
 # Run with visible browser
-npx playwright test --headed
+npm run test:e2e -- --headed
 
 # Run specific test file
-npx playwright test e2e/app.spec.ts
+npm run test:e2e -- e2e/app.spec.ts
 
 # Run with UI mode (interactive debugging)
-npx playwright test --ui
+npm run test:e2e -- --ui
 
 # Generate test code by clicking in browser
 npx playwright codegen http://localhost:4173
@@ -65,7 +65,7 @@ npx playwright codegen http://localhost:4173
 
 ```bash
 # Debug tests with step-through
-npx playwright test --debug
+npm run test:e2e -- --debug
 
 # View HTML report after tests complete
 npx playwright show-report

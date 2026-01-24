@@ -1,13 +1,14 @@
 # Testing Tasks - Quick Reference for AI Agents (Updated)
 
-## Recent Progress (Last 2 Weeks)
+## Current Progress
 
 **✅ Completed Tasks:**
 - Task 5: Game Data Utils (100%)
 - Task 6: Component Testing Setup (100%)
 - Task 4: Store Reducers - GraphStore only (60%)
+- Task 8: E2E Smoke Tests - baseline coverage (partial)
 
-**📊 Overall Progress: ~25% complete** (2.6 of 8 tasks)
+**📊 Overall Progress: ~30% complete** (3 of 8 tasks with partials in Task 4 and Task 8)
 
 ---
 
@@ -118,10 +119,10 @@ All tasks show two time estimates:
 **Time:** 👤 4-6h | 🤖 8-12h  
 **Why:** Integration confidence  
 **What:** 3 critical paths only (create factory, import, navigate)  
-**Tool:** Playwright (needs install/setup)  
-**Status:** ⏳ TODO  
+**Tool:** Playwright (configured)  
+**Status:** 🔄 PARTIAL (baseline tests exist)  
 **Dependencies:** Benefits from Task 6 (component testing foundation)
-**Agent Notes:** Use `test.describe.serial()`, clear IndexedDB between tests, keep minimal
+**Agent Notes:** Keep tests minimal, clear IndexedDB between tests when needed, prefer `npm run test:e2e`
 
 ---
 
@@ -136,7 +137,7 @@ All tasks show two time estimates:
 | 5. Game Data | 🟡 High | -- | ✅ DONE | -- | ⭐⭐⭐⭐ |
 | 6. Components | 🟢 Foundation | -- | ✅ DONE | -- | ⭐⭐⭐ |
 | 7. Hydration | 🟢 Foundation | 3-4h | ⏳ TODO | None | ⭐⭐⭐ |
-| 8. E2E | 🟢 Foundation | 8-12h | ⏳ TODO | Task 6 ✅ | ⭐⭐ |
+| 8. E2E | 🟢 Foundation | 8-12h | 🔄 PARTIAL | Task 6 ✅ | ⭐⭐ |
 
 ---
 
@@ -195,6 +196,7 @@ All tasks show two time estimates:
 - ✅ Component testing infrastructure ready
 - ✅ Game data utilities complete
 - 🔄 Store testing 60% done
+- 🔄 E2E baseline tests in place (needs expansion)
 - ⏳ Core solver and import/export tests NEEDED URGENTLY  
 
 ---
@@ -203,17 +205,10 @@ All tasks show two time estimates:
 
 ### Initial Setup
 ```bash
-# Run existing tests (baseline)
-npm test
+# Install dependencies
+npm ci
 
-# Install for component testing (Task 6)
-npm install -D @testing-library/react @testing-library/user-event @testing-library/jest-dom
-
-# Install for store testing (Task 4)
-npm install -D fake-indexeddb
-
-# Install for E2E testing (Task 8)
-npm install -D @playwright/test
+# Install Playwright browsers (if not already cached)
 npx playwright install chromium
 ```
 
@@ -226,17 +221,18 @@ npm test
 npm test -- --watch
 
 # Specific test file
-npm test solver
-npm test importexport
+npm test -- solver
+npm test -- importexport
 
 # Coverage report
 npm test -- --coverage
 
-# E2E tests
-npx playwright test
+# E2E tests (build required)
+npm run build
+npm run test:e2e
 
 # E2E with visible browser
-npx playwright test --headed
+npm run test:e2e -- --headed
 
 # Update snapshots (after intentional changes)
 npm test -- -u
@@ -252,27 +248,26 @@ app/
     importexport/
       encoder.test.ts              # Task 2: Create this
   gameData/
-    utils.test.ts                  # Task 5: Create this
+    utils.test.ts                  # Exists (Task 5)
   hydration.test.ts                # Task 7: Create this
   test/
     fixtures/
       graphs.ts                    # Task 1 & 3: Create this
       exports.ts                   # Task 2: Create this
     setup/
-      indexeddb.ts                 # Task 4: Create this
-      componentTests.tsx           # Task 6: Create this
+      indexeddb.ts                 # Exists (IndexedDB polyfill)
+      componentTests.ts            # Exists (RTL setup)
     helpers/
-      storeHelpers.ts              # Task 4: Create this
+      renderHelpers.tsx            # Exists (test helpers)
   context/
     reducers/
-      graphReducers.test.ts        # Task 4: Create this
+      graphReducers.test.ts        # Exists (Task 4)
       zoneReducers.test.ts         # Task 4: Create this
       plannerReducers.test.ts      # Task 4: Create this
 e2e/
-  tests/
-    1-create-factory.spec.ts       # Task 8: Create this
-    2-import-factory.spec.ts       # Task 8: Create this
-    3-navigation.spec.ts           # Task 8: Create this
+  app.spec.ts                      # Baseline E2E
+  factory-import.spec.ts           # Baseline E2E
+  # Add more specs here as Task 8 expands
 ```
 
 ---
@@ -280,6 +275,7 @@ e2e/
 ## Agent Success Checklist
 
 ### Before Starting a Task
+- [ ] Read this summary and the core docs: `TESTING_TASKS_SUMMARY.md`, `TESTING_ROADMAP.md`, `COMPONENT_TESTING.md`, `E2E_TESTING.md`
 - [ ] Read full task description in `TESTING_ROADMAP.md`
 - [ ] Check dependencies are complete
 - [ ] Run `npm test` to establish baseline
@@ -309,7 +305,7 @@ e2e/
 ❌ **Breaking existing code** → Run full test suite  
 
 ### When Stuck
-1. Run test in isolation: `npm test <filename>`
+1. Run test in isolation: `npm test -- <filename>`
 2. Add debug logging: `console.log()` in test
 3. Check type errors: `npm run typecheck`
 4. Review similar existing tests
@@ -368,7 +364,7 @@ npm update @testing-library/react @playwright/test
 npm test -- --coverage
 
 # After refactoring: Verify no regressions
-npm test && npx playwright test
+npm test && npm run build && npm run test:e2e
 ```
 
 ---
@@ -377,13 +373,14 @@ npm test && npx playwright test
 
 | Role | Total Time | Completed | Remaining | Progress |
 |------|-----------|-----------|-----------|----------|
-| 🤖 AI Agent | 52-79h total | 15-20h | 35-52h | ~25% |
+| 🤖 AI Agent | 52-79h total | 15-20h | 35-52h | ~30% |
 | 👤 Experienced Dev | 27-43h total | 10-12h | 17-26h | ~30% |
 
 **What's Done:**
 - ✅ Game Data Utils (Task 5) - 3-4h
 - ✅ Component Testing (Task 6) - 6-8h  
 - 🔄 Store Reducers (Task 4) - 6h (60% complete)
+- 🔄 E2E Baseline (Task 8) - 2 specs (partial)
 
 **What's Next (Priority Order):**
 1. 🔴 Tasks 1, 2 - Solver and Import/Export (10-16h) - CRITICAL
