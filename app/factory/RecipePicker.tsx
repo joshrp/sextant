@@ -1,8 +1,9 @@
 import { ChevronDownIcon, ClockIcon, PlusIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { formatNumber, machineIcon } from "~/uiUtils";
 import { loadData, type ProductId, type Recipe, type RecipeId } from "./graph/loadJsonData";
 import { getRecipesByProduct } from "~/gameData/utils";
+import { prepareRecipesForSearch, searchRecipes, groupRecipesByTier, createMatchedTermsMap } from "./recipeSearch";
 
 const { products } = loadData();
 
@@ -33,21 +34,18 @@ export default function RecipePicker({
 
   const maxInputs = Math.max(...recipesList.map(recipe => recipe.inputs.length));
   const maxOutputs = Math.max(...recipesList.map(recipe => recipe.outputs.length));
-  const recipesByLinkId = new Map<string, Recipe[]>();
-  let balancerRecipe: Recipe | null = null as Recipe | null;
-  recipesList.forEach(recipe => {
-    const linkId = recipe.tiersLink || recipe.id;
-
-    if (recipe.machine.isBalancer) {
-      balancerRecipe = recipe;
-      return; // skip balancers
-    }
-
-    if (recipesByLinkId.has(linkId))
-      recipesByLinkId.get(linkId)!.push(recipe);
-    else
-      recipesByLinkId.set(linkId, [recipe]);
-  });
+  
+  const recipesWithSearchTerms = useMemo(() => prepareRecipesForSearch(recipesList), [recipesList]);
+  const { matchedRecipes, unmatchedRecipes, balancerRecipe } = useMemo(
+    () => searchRecipes(recipesWithSearchTerms, searchTerm),
+    [recipesWithSearchTerms, searchTerm]
+  );
+  const matchedRecipesByLinkId = useMemo(() => groupRecipesByTier(matchedRecipes), [matchedRecipes]);
+  const unmatchedRecipesByLinkId = useMemo(() => groupRecipesByTier(
+    unmatchedRecipes.map(r => ({ recipe: r, matchedTerms: new Set<string>() }))
+  ), [unmatchedRecipes]);
+  const matchedTermsMap = useMemo(() => createMatchedTermsMap(matchedRecipes), [matchedRecipes]);
+  const hasActiveSearch = searchTerm.trim().length > 0;
   // Number of columns per recipe:
   // + 1 for machine
   // + maxInputs for inputs 
@@ -62,9 +60,9 @@ export default function RecipePicker({
     setTiersOpen(old => ({ ...old, [linkId]: isOpen }));
   };
   return (<div>
-    <div className="flex flex-row justify-between gap-2 items-center-safe">
-      <div>
-        <input type="text" className="h-full w-full outline-none bg-transparent" placeholder="Fuzzy Search Recipes..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+    <div className="flex flex-row justify-between gap-2 items-center-safe mb-2">
+      <div className="flex-1 px-3 py-2 rounded-md bg-gray-800/50 border border-gray-700">
+        <input type="text" className="h-full w-full outline-none bg-transparent" placeholder="Search by product name..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
       </div>
       {balancerRecipe && <div>
         <button className="relative has-tooltip p-0.5 rounded-sm cursor-pointer hover:brightness-125 bg-gray-800 border-gray-500"
@@ -78,25 +76,52 @@ export default function RecipePicker({
       }
     </div>
     <table className="recipe-list min-w-[50vw] mx-auto border-spacing-y-1 border-separate text-sm"><tbody>
-      {recipesByLinkId.values().map(recipeGroup => {
-        const parentRecipe = recipeGroup[0]; // TODO better sort here? Fastest first? preference?
+      {matchedRecipesByLinkId.values().map(recipeGroup => {
+        const parentMatch = recipeGroup[0];
 
-        const isOpen = tiersOpen[parentRecipe.tiersLink || parentRecipe.id] || false;
+        const isOpen = tiersOpen[parentMatch.recipe.tiersLink || parentMatch.recipe.id] || false;
 
         return (<>
-          <RecipeRow key={parentRecipe.id} recipe={parentRecipe}
+          <RecipeRow key={parentMatch.recipe.id} recipe={parentMatch.recipe}
             maxInputCells={maxInputCells} maxOutputCells={maxOutputCells}
             selectRecipe={selectRecipe} setOpen={setOpen}
+            matchedTerms={matchedTermsMap.get(parentMatch.recipe.id)} hasActiveSearch={hasActiveSearch}
             isParent={true} isOpen={isOpen} groupCount={recipeGroup.length} />
 
-          {isOpen && recipeGroup.slice(1).map(recipe => (
-            <RecipeRow key={recipe.id} recipe={recipe}
+          {isOpen && recipeGroup.slice(1).map(match => (
+            <RecipeRow key={match.recipe.id} recipe={match.recipe}
               maxInputCells={maxInputCells} maxOutputCells={maxOutputCells}
               selectRecipe={selectRecipe} setOpen={setOpen}
+              matchedTerms={matchedTermsMap.get(match.recipe.id)} hasActiveSearch={hasActiveSearch}
               isParent={false} groupCount={recipeGroup.length} />
           ))}
         </>);
       })}
+      {hasActiveSearch && unmatchedRecipesByLinkId.size > 0 && (<>
+        <tr><td colSpan={maxInputCells + maxOutputCells + 3} className="text-center text-gray-500 py-2 border-t border-gray-600">
+          Non-matching recipes
+        </td></tr>
+        {unmatchedRecipesByLinkId.values().map(recipeGroup => {
+          const parentMatch = recipeGroup[0];
+          const isOpen = tiersOpen[parentMatch.recipe.tiersLink || parentMatch.recipe.id] || false;
+
+          return (<>
+            <RecipeRow key={parentMatch.recipe.id} recipe={parentMatch.recipe}
+              maxInputCells={maxInputCells} maxOutputCells={maxOutputCells}
+              selectRecipe={selectRecipe} setOpen={setOpen}
+              matchedTerms={undefined} hasActiveSearch={hasActiveSearch}
+              isParent={true} isOpen={isOpen} groupCount={recipeGroup.length} />
+
+            {isOpen && recipeGroup.slice(1).map(match => (
+              <RecipeRow key={match.recipe.id} recipe={match.recipe}
+                maxInputCells={maxInputCells} maxOutputCells={maxOutputCells}
+                selectRecipe={selectRecipe} setOpen={setOpen}
+                matchedTerms={undefined} hasActiveSearch={hasActiveSearch}
+                isParent={false} groupCount={recipeGroup.length} />
+            ))}
+          </>);
+        })}
+      </>)}
     </tbody ></table>
   </div>);
 }
@@ -108,24 +133,29 @@ type RecipeRowProps = {
   isParent?: boolean;
   isOpen?: boolean;
   groupCount: number,
+  matchedTerms?: Set<string>;
+  hasActiveSearch: boolean;
   setOpen: (linkId: string, isOpen: boolean) => void;
   selectRecipe: (recipeId: RecipeId, isBalancer: boolean) => void;
 };
 
-function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupCount, isOpen, isParent, setOpen }: RecipeRowProps) {
+function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupCount, isOpen, isParent, setOpen, matchedTerms, hasActiveSearch }: RecipeRowProps) {
   const outputCells = Math.max((recipe.outputs.length * 2) - 1, 0);
   const inputCells = Math.max((recipe.inputs.length * 2) - 1, 0);
   const prefixInputCells = Array(maxInputCells - inputCells).fill(<td />);
   const suffixOutputCells = Array(maxOutputCells - outputCells).fill(<td />);
 
+  const isMatch = (productName: string) => !hasActiveSearch || matchedTerms?.has(productName);
+
   // prefix the inputs with empty divs to fill the grid
   const inputs = prefixInputCells.concat(recipe.inputs.map((input, index) => {
+    const matched = isMatch(input.product.name);
     return (<>
       {index !== 0 && <td className="w-6"><PlusIcon /></td>}
-      <td key={input.product.id} className="has-tooltip relative">
+      <td key={input.product.id} className="has-tooltip relative" data-matched={matched || null}>
         <span className='tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>{input.product.name}</span>
         <img src={'/assets/products/' + input.product.icon} alt={input.product.name}
-          className="block mb-2 mx-auto max-w-10" />
+          className="block mb-2 mx-auto max-w-10 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
         {formatNumber(input.quantity, input.product.unit)}
       </td>
     </>);
@@ -133,6 +163,7 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
 
   // append the outputs with empty divs to fill the grid
   const outputs = recipe.outputs.map((output, index) => {
+    const matched = isMatch(output.product.name);
     return (<>
       {index !== 0 && <td className="w-6"><PlusIcon /></td>}
 
@@ -144,7 +175,7 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
           {output.product.name + (output.optional ? " (optional)" : "")}
         </span>
         <img src={'/assets/products/' + output.product.icon} alt={output.product.name}
-          className="block mx-auto mb-2 max-w-10 group-data-optional:border-2 border-dashed border-gray-500" />
+          className="block mx-auto mb-2 max-w-10 group-data-optional:border-2 border-dashed border-gray-500 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
         {formatNumber(output.quantity, output.product.unit)}
       </td>
     </>);
