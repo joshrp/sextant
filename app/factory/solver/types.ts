@@ -78,13 +78,19 @@ export interface Solution {
   nodeCounts: { nodeId: string, count: number }[]
   manifolds: { [constraintId: string]: number },
   infrastructure: {
-    workers: number,
-    electricity: number,
-    computing: number,
-    maintenance_1: number,
-    maintenance_2: number,
-    maintenance_3: number,
+    workers: number,                   // net (consumed - generated)
+    electricity: number,               // net (consumed - generated)
+    computing: number,                 // net (consumed - generated)
+    maintenance_1: number,             // net (consumed - generated)
+    maintenance_2: number,             // net (consumed - generated)
+    maintenance_3: number,             // net (consumed - generated)
     footprint: number,
+    workers_generated: number,         // total generated (always >= 0)
+    electricity_generated: number,     // total generated (always >= 0)
+    computing_generated: number,       // total generated (always >= 0)
+    maintenance_1_generated: number,   // total generated (always >= 0)
+    maintenance_2_generated: number,   // total generated (always >= 0)
+    maintenance_3_generated: number,   // total generated (always >= 0)
   },
   ObjectiveValue: number,
 }

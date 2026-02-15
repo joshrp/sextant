@@ -20,6 +20,15 @@ export type InfrastructureType =
   | 'footprint';
 
 /**
+ * Net infrastructure value with consumed, generated, and net amounts
+ */
+export interface NetInfrastructure {
+  consumed: number;
+  generated: number;
+  net: number;
+}
+
+/**
  * Calculate electricity consumption for a machine
  * @param machine - The machine to calculate for
  * @param runCount - Number of times the machine runs
@@ -88,6 +97,118 @@ export function calculateComputing(machine: Machine, runCount: number): number {
 export function calculateFootprint(machine: Machine, runCount: number): number {
   const area = machine.footprint?.reduce((a, i) => a * i, 1) || 0;
   return area * Math.ceil(runCount);
+}
+
+/**
+ * Calculate net electricity for a machine (consumed - generated)
+ * @param machine - The machine to calculate for
+ * @param runCount - Number of times the machine runs
+ * @returns Net electricity with consumed, generated, and net values
+ */
+export function calculateElectricityNet(machine: Machine, runCount: number): NetInfrastructure {
+  const consumed = machine.electricity_consumed * runCount;
+  const generated = machine.electricity_generated * runCount;
+  return {
+    consumed,
+    generated,
+    net: consumed - generated,
+  };
+}
+
+/**
+ * Calculate net computing for a machine (consumed - generated)
+ * @param machine - The machine to calculate for
+ * @param runCount - Number of times the machine runs
+ * @returns Net computing with consumed, generated, and net values
+ */
+export function calculateComputingNet(machine: Machine, runCount: number): NetInfrastructure {
+  const consumed = machine.computing_consumed * runCount;
+  const generated = machine.computing_generated * runCount;
+  return {
+    consumed,
+    generated,
+    net: consumed - generated,
+  };
+}
+
+/**
+ * Calculate net workers for a machine (consumed - generated)
+ * Workers are consumed per building (integer), not per run count
+ * @param machine - The machine to calculate for
+ * @param runCount - Number of times the machine runs (will be ceiled)
+ * @returns Net workers with consumed, generated, and net values
+ */
+export function calculateWorkersNet(machine: Machine, runCount: number): NetInfrastructure {
+  const consumed = machine.workers * Math.ceil(runCount);
+  const generated = machine.workers_generated * Math.ceil(runCount);
+  return {
+    consumed,
+    generated,
+    net: consumed - generated,
+  };
+}
+
+/**
+ * Calculate net maintenance for a machine (consumed - generated)
+ * @param machine - The machine to calculate for
+ * @param runCount - Number of times the machine runs
+ * @param type - The maintenance tier type
+ * @returns Net maintenance with consumed, generated, and net values
+ */
+export function calculateMaintenanceNet(machine: Machine, runCount: number, type: 'maintenance_1' | 'maintenance_2' | 'maintenance_3'): NetInfrastructure {
+  const tier = getMaintenanceTier(machine);
+  const tierNum = parseInt(type.split('_')[1]);
+  const consumed = tier === tierNum ? calculateMaintenance(machine, runCount) : 0;
+  
+  // Check if machine generates this tier of maintenance
+  let generated = 0;
+  if (machine.maintenance_generated) {
+    const genTier = getMaintenanceTier({ ...machine, maintenance_cost: machine.maintenance_generated } as Machine);
+    if (genTier === tierNum) {
+      generated = machine.maintenance_generated.quantity * runCount;
+    }
+  }
+  
+  return {
+    consumed,
+    generated,
+    net: consumed - generated,
+  };
+}
+
+/**
+ * Calculate net infrastructure for a specific type
+ * @param machine - The machine to calculate for
+ * @param runCount - Number of times the machine runs
+ * @param type - The infrastructure type to calculate
+ * @returns Net infrastructure with consumed, generated, and net values
+ */
+export function calculateInfrastructureNet(
+  machine: Machine, 
+  runCount: number, 
+  type: InfrastructureType
+): NetInfrastructure {
+  switch (type) {
+    case 'electricity':
+      return calculateElectricityNet(machine, runCount);
+    case 'computing':
+      return calculateComputingNet(machine, runCount);
+    case 'workers':
+      return calculateWorkersNet(machine, runCount);
+    case 'maintenance_1':
+    case 'maintenance_2':
+    case 'maintenance_3':
+      return calculateMaintenanceNet(machine, runCount, type);
+    case 'footprint': {
+      // Footprint doesn't support generation
+      const consumed = calculateInfrastructure(machine, runCount, type);
+      return {
+        consumed,
+        generated: 0,
+        net: consumed,
+      };
+    }
+  }
 }
 
 /**

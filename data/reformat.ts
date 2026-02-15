@@ -7,6 +7,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import type { Machine, MachineId, MachineSerialized, Product, ProductId, ProductSerialized, Recipe, RecipeId, RecipeSerialized } from "../app/factory/graph/loadJsonData";
 import path from "node:path";
 import Big from "big.js"
+import { getMaintenanceTier } from "~/factory/infrastructure/calculations";
 
 type RawProduct = {
   id: string;
@@ -42,8 +43,11 @@ type RawMachine = {
   category: string;
   next_tier: string;
   workers: number;
+  workers_generated?: number;  // Optional for now, defaults to 0
   maintenance_cost_units: string;
   maintenance_cost_quantity: number;
+  maintenance_generated_units?: string;  // Optional for now
+  maintenance_generated_quantity?: number;  // Optional for now
   electricity_consumed: number;
   electricity_generated: number;
   computing_consumed: number;
@@ -261,7 +265,7 @@ function getRecipeQty60(io: RawRecipe["inputs" | "outputs"][0], duration: number
 
 function modifyMachineData(rawMachine: RawMachine): RawMachine {
   // Fix any known issues with raw machine data here
-  switch(rawMachine.id) {
+  switch (rawMachine.id) {
     case "Housing": {
       // The values below are per 1000 workers. 
       // https://wiki.coigame.com/Settlement
@@ -273,94 +277,113 @@ function modifyMachineData(rawMachine: RawMachine): RawMachine {
         name: "Worker Settlement",
         duration: 60,
         isSettlement: true,
-        
+
         power_multiplier: 1,
         inputs: [{
           name: "Water",
           quantity: inputRatio.mul(48).toNumber(),
-        },{
+        }, {
           name: "Household goods",
           quantity: inputRatio.mul(10).toNumber(),
-        },{
+        }, {
           name: "Household appliances",
           quantity: inputRatio.mul(7).toNumber(),
-        },{
+        }, {
           name: "Electricity",
           quantity: inputRatio.mul(1100).toNumber(), // 1.1 MW per 80 workers
-        },{
+        }, {
           name: "Computing",
           quantity: inputRatio.mul(57.6).toNumber(), // 57.6 TFlops per 80 workers
-        },{
+        }, {
           name: "Luxury goods",
           quantity: inputRatio.mul(3.6).toNumber(),
-        },{
+        }, {
           name: "Consumer electronics",
           quantity: inputRatio.mul(3.6).toNumber(),
-        },{
+        }, {
           name: "Medical Supplies",
-          quantity: inputRatio.mul(5).toNumber(), // Only 1 type of medical supplies is actually used
-        },{
+          quantity: inputRatio.mul(5).toNumber(),
+        }, {
           name: "Medical Supplies II",
           quantity: inputRatio.mul(5).toNumber(),
-        },{
+        }, {
           name: "Medical Supplies III",
           quantity: inputRatio.mul(5).toNumber(),
         },
-        // Food inputs, default to 0 because it depends what else is provided
+        // Their base numbers are given and adjusted down by what else is provided
         {
           name: "Potato",
           quantity: inputRatio.mul(42).toNumber(),
-        },{
+        }, {
           name: "Corn",
           quantity: inputRatio.mul(30).toNumber(),
-        },{
+        }, {
           name: "Bread",
-          quantity: inputRatio.mul(20).toNumber(), 
-        },{
+          quantity: inputRatio.mul(20).toNumber(),
+        }, {
           name: "Meat",
           quantity: inputRatio.mul(27).toNumber(),
-        },{
+        }, {
           name: "Eggs",
           quantity: inputRatio.mul(30).toNumber(),
-        },{
+        }, {
           name: "Tofu",
           quantity: inputRatio.mul(18).toNumber(),
-        },{
+        }, {
           name: "Sausage",
           quantity: inputRatio.mul(33.5).toNumber(),
-        },{
+        }, {
           name: "Vegetables",
           quantity: inputRatio.mul(42).toNumber(),
-        },{
+        }, {
           name: "Fruit",
           quantity: inputRatio.mul(31.5).toNumber(),
-        },{
+        }, {
           name: "Snack",
           quantity: inputRatio.mul(26).toNumber(),
-        },{
+        }, {
           name: "Cake",
           quantity: inputRatio.mul(25).toNumber(),
         }
-      ],
+        ],
         outputs: [{
           name: "Product_Virtual_Workers",
           quantity: 80,
-        },{
+        }, {
           name: "Waste water",
           quantity: inputRatio.mul(40).toNumber(),
-        },{
+        }, {
           name: "Waste",
           quantity: inputRatio.mul(29.3).toNumber(),
-        },{
+        }, {
           name: "Biomass",
           quantity: 0,
-        },{
+        }, {
           name: "Recyclables",
           quantity: 0,
         }],
       });
-      break;   
+      break;
     }
+    case 'DataCenter': {
+      const computeOutput = rawMachine.recipes[0].outputs.find(o => o.name === "Computing");
+      const maintenanceInput = rawMachine.recipes[0].inputs.find(i => i.name.startsWith("Maintenance"));
+      const elecInput = rawMachine.recipes[0].inputs.find(i => i.name === "Electricity");
+      if (!computeOutput || !maintenanceInput || !elecInput) {
+        throw new Error("DataCenter recipe is missing expected Computing output, Maintenance input, or Electricity input.");
+      }
+      const maintenanceInputQty = maintenanceInput ? getRecipeQty60(maintenanceInput, rawMachine.recipes[0].duration) : 0;
+
+      rawMachine.computing_generated = computeOutput ? getRecipeQty60(computeOutput, rawMachine.recipes[0].duration) : 0;
+      rawMachine.maintenance_cost_quantity = maintenanceInputQty;
+      rawMachine.maintenance_cost_units = maintenanceInput.name;
+      rawMachine.electricity_consumed = elecInput.quantity;
+      // Remove all 3 from the recipe itself
+      rawMachine.recipes[0].inputs = rawMachine.recipes[0].inputs.filter(i => i.name !== "Electricity" && !i.name.startsWith("Maintenance"));
+      rawMachine.recipes[0].outputs = rawMachine.recipes[0].outputs.filter(o => o.name !== "Computing");
+      break;
+    }
+
   }
   return rawMachine;
 }
@@ -394,6 +417,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       electricity_generated: rawMachine.electricity_generated,
       computing_consumed: rawMachine.computing_consumed,
       computing_generated: rawMachine.computing_generated,
+      workers_generated: rawMachine.workers_generated || 0,
       storage_capacity: rawMachine.storage_capacity,
       unity_cost: rawMachine.unity_cost,
       research_speed: rawMachine.research_speed,
@@ -406,6 +430,14 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       machine.maintenance_cost = {
         id: products.get(rawMachine.maintenance_cost_units)?.id as Product["id"],
         quantity: rawMachine.maintenance_cost_quantity,
+      };
+    }
+
+    if (rawMachine.maintenance_generated_units && rawMachine.maintenance_generated_quantity && rawMachine.maintenance_generated_quantity > 0) {
+      assert(products.has(rawMachine.maintenance_generated_units), `Product ${rawMachine.maintenance_generated_units} not found in product data.`);
+      machine.maintenance_generated = {
+        id: products.get(rawMachine.maintenance_generated_units)?.id as Product["id"],
+        quantity: rawMachine.maintenance_generated_quantity,
       };
     }
 
@@ -489,12 +521,12 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
         dupedRecipes.get(dedupKey)!.push(newRecipeId);
         const first = dupedRecipes.get(dedupKey)![0];
         recipeData.get(first)!.tiersLink = tierId as Recipe["id"];
-        
+
       } else
         dupedRecipes.set(dedupKey, [newRecipeId]);
 
       let recipeType: "recipe" | "settlement" = 'recipe';
-      if (rawRecipe.isSettlement) 
+      if (rawRecipe.isSettlement)
         recipeType = 'settlement';
       const recipe: RecipeSerialized = {
         id: newRecipeId as Recipe["id"],
@@ -523,6 +555,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       name: `Balancer`,
       category_id: "Balancer" as Machine["category_id"],
       workers: 0,
+      workers_generated: 0,
       recipes: [],
       buildCosts: [],
       isBalancer: true,
@@ -534,7 +567,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       storage_capacity: 0,
       unity_cost: 0,
       research_speed: 0,
-      footprint: [0,0],
+      footprint: [0, 0],
     };
     machineData.set(machine.id, machine);
   }

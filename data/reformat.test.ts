@@ -173,4 +173,42 @@ describe("Check parsed data", () => {
       }
     } 
   });
+
+  test("Power generators have electricity_generated > 0", () => {
+    const { machines } = loadedData;
+    const powerGen = machines.get("PowerGeneratorT1");
+    expect(powerGen).toBeDefined();
+    expect(powerGen?.electricity_generated).toBe(2000);
+    expect(powerGen?.electricity_consumed).toBe(0);
+    
+    // Check other power generators exist
+    const powerGenT2 = machines.get("PowerGeneratorT2");
+    expect(powerGenT2).toBeDefined();
+    expect(powerGenT2?.electricity_generated).toBeGreaterThan(0);
+  });
+
+  test("Server rack has computing_generated > 0", () => {
+    const { machines } = loadedData;
+    const serverRack = machines.get("BasicServerRack");
+    expect(serverRack).toBeDefined();
+    expect(serverRack?.computing_generated).toBe(4);
+    expect(serverRack?.computing_consumed).toBe(0);
+    expect(serverRack?.electricity_consumed).toBe(85);
+  });
+
+  test("All machines have generation fields defined", () => {
+    const { machines } = loadedData;
+    for (const machine of machines.values()) {
+      expect(machine.electricity_generated).toBeDefined();
+      expect(machine.computing_generated).toBeDefined();
+      expect(machine.electricity_consumed).toBeDefined();
+      expect(machine.computing_consumed).toBeDefined();
+      
+      // Verify they are numbers (not undefined or null)
+      expect(typeof machine.electricity_generated).toBe('number');
+      expect(typeof machine.computing_generated).toBe('number');
+      expect(typeof machine.electricity_consumed).toBe('number');
+      expect(typeof machine.computing_consumed).toBe('number');
+    }
+  });
 });

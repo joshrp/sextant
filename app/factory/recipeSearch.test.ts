@@ -16,6 +16,7 @@ function createMockRecipe(overrides: Omit<Partial<Recipe>, 'id'> & { id: string 
       name: 'Test Machine',
       category_id: 'TestCategory' as CategoryId,
       workers: 1,
+      workers_generated: 0,
       electricity_consumed: 0,
       electricity_generated: 0,
       computing_consumed: 0,

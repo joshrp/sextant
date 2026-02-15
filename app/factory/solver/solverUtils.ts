@@ -55,7 +55,7 @@ export function makeVertexId(node: string, io: string, product: string): string 
  * @param scoreMethod - Scoring method used for the solution
  * @returns Structured Solution object
  */
-export function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: FactoryGoal[], scoreMethod: GraphScoringMethod): Solution {
+export function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals: FactoryGoal[], scoreMethod: GraphScoringMethod, recipeData: Map<string, Recipe>): Solution {
   if (res.Status !== "Optimal") throw new Error("Cannot parse solution, not optimal");
 
   const nodeResults: Solution["nodeCounts"] = [];
@@ -64,6 +64,12 @@ export function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals:
   const manifoldsSet = new Set(Object.keys(graph.constraints));
   const infraResults: Solution["infrastructure"] = {
     workers: 0, electricity: 0, computing: 0, maintenance_1: 0, maintenance_2: 0, maintenance_3: 0, footprint: 0,
+    workers_generated: 0,
+    electricity_generated: 0,
+    computing_generated: 0,
+    maintenance_1_generated: 0,
+    maintenance_2_generated: 0,
+    maintenance_3_generated: 0,
   };
 
   Object.keys(res.Columns).forEach(k => {
@@ -96,6 +102,31 @@ export function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals:
 
     if (manifoldsSet.has(k)) {
       manifoldResults[k] = parseHighsNumberResult(res.Columns[k].Primal);
+    }
+  });
+
+  // Post-processing: Calculate total generated infrastructure from nodeCounts
+  nodeResults.forEach(({ nodeId, count }) => {
+    const node = graph.graph[nodeId];
+    if (node) {
+      const recipe = recipeData.get(node.recipeId);
+      if (recipe?.machine) {
+        infraResults.electricity_generated += (recipe.machine.electricity_generated || 0) * count;
+        infraResults.computing_generated += (recipe.machine.computing_generated || 0) * count;
+        infraResults.workers_generated += (recipe.machine.workers_generated || 0) * Math.ceil(count);
+        
+        // Maintenance generation - need to determine which tier
+        if (recipe.machine.maintenance_generated && recipe.machine.maintenance_generated.quantity > 0) {
+          const maintenanceId = recipe.machine.maintenance_generated.id as string;
+          if (maintenanceId === "Product_Virtual_MaintenanceT1") {
+            infraResults.maintenance_1_generated += recipe.machine.maintenance_generated.quantity * count;
+          } else if (maintenanceId === "Product_Virtual_MaintenanceT2") {
+            infraResults.maintenance_2_generated += recipe.machine.maintenance_generated.quantity * count;
+          } else if (maintenanceId === "Product_Virtual_MaintenanceT3") {
+            infraResults.maintenance_3_generated += recipe.machine.maintenance_generated.quantity * count;
+          }
+        }
+      }
     }
   });
 

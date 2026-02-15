@@ -12,15 +12,19 @@
 
 .react-flow__node:hover {
   z-index: 2000 !important;
-   & [data-zoomlevel] {
+
+  & [data-zoomlevel] {
     transition: scale 0.1s ease-out
   }
+
   & [data-zoomlevel="1"] {
     scale: 1.5;
   }
+
   & [data-zoomlevel="2"] {
     scale: 2.5;
   }
+
   & [data-zoomlevel="3"] {
     scale: 3.5;
   }
@@ -159,4 +163,13 @@
 
 .edgeAlert {
   z-index: 1000 !important
+}
+
+:has( > .filterGreenShift) {
+  .filterGreenShift {
+    filter: drop-shadow(0 100px 0 var(--color-green-600));
+    @apply -translate-y-[100px];
+  }
+
+  overflow: hidden;
 }

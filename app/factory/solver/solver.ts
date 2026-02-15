@@ -5,7 +5,7 @@ import { maintenanceKey } from "~/uiUtils";
 import type { CustomEdgeType } from '../graph/edges';
 import type { CustomNodeType } from '../graph/nodes';
 import { type Constraint, type FactoryGoal, type GraphModel, type GraphScoringMethod, type ManifoldOptions, type NodeConnections, type Solution } from "./types";
-import { buildNodeConnections, filterAndSortSolutions, findOptionalTerms, getEquality, getInfrastructureWeight, inputMatcher, makeVertexId, outputMatcher, parseHighsSolution, shouldSkipConstraint } from "./solverUtils";
+import { buildNodeConnections, filterAndSortSolutions, findOptionalTerms, getEquality, getInfrastructureWeight, infraMatcher, inputMatcher, makeVertexId, outputMatcher, parseHighsSolution, shouldSkipConstraint } from "./solverUtils";
 import { solveWithHighs } from "./solverClient";
 import { SettlementCalculator } from "../graph/recipeNodeLogic";
 
@@ -52,7 +52,7 @@ export function createGraphModel(nodes: CustomNodeType[], edges: CustomEdgeType[
 const infraConstraintId = "in_frastructure_total";
 
 const infrastructureProducts: { [key in keyof Partial<Solution["infrastructure"]>]: string } = {
-  workers: "Product_Virtual_Worker",
+  workers: "Product_Virtual_Workers",
   electricity: "Product_Virtual_Electricity",
   computing: "Product_Virtual_Computing",
   maintenance_1: "Product_Virtual_MaintenanceT1",
@@ -96,7 +96,10 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
   const constraintsList = [];
   for (const con of Object.values(graph.constraints)) {
     constraintsList.push(`${con.id}: ${con.terms.map(t => `${t.sign} ${t.weight * (t.value ?? 1)} ${t.id}`).join(' ')} ${getEquality(con.equality)} 0`);
-
+    if (infraMatcher.test(con.id)) {
+      boundsList.push(`${con.id} free`);
+      continue;
+    }
     if (con.unconnected && goals.find(g => g.productId == con.productId)) continue;
 
     // Find any optional terms, they need appropriate sinks
@@ -196,7 +199,7 @@ export async function solve(
 
   if (!res) return "Error";
   if (res.Status == "Optimal") {
-    const solution = parseHighsSolution(res, graph, goals, scoreMethod);
+    const solution = parseHighsSolution(res, graph, goals, scoreMethod, recipeData);
     if(DEBUG_SOLVER) {
       console.debug("Parsed Solution:", solution);
     }
@@ -249,7 +252,7 @@ export async function solve(
       const best = working[0];
       debug("Best solution found for constraint", best.constraintId, "with objective value", best.solution?.ObjectiveValue);
       return {
-        solution: parseHighsSolution(best.solution as HighsSolution, graph, goals, scoreMethod),
+        solution: parseHighsSolution(best.solution as HighsSolution, graph, goals, scoreMethod, recipeData),
         manifolds: Array.from(best.freeConstraints).map(c => {
           const constraint = graph.constraints[c];
           return {
@@ -499,8 +502,14 @@ export default class Solver {
     const infraConstraint = this.getOrCreateConstraint(infraConstraintId, "Score_Infrastructure" as ProductId);
     infraConstraint.unconnected = true;
 
+    // Create all infrastructure constraints upfront and mark them as unconnected
+    // This ensures they are free (not constrained to 0) even if no nodes use them
     for (const key of Object.keys(infrastructureProducts) as (keyof Solution["infrastructure"])[]) {
       const infraId = "in_" + key;
+      const productId = infrastructureProducts[key] as ProductId;
+      const infraCon = this.getOrCreateConstraint(infraId, productId);
+      infraCon.unconnected = true;
+      
       const weight = getInfrastructureWeight(key);
 
       infraConstraint.terms.push({
@@ -543,6 +552,19 @@ export default class Solver {
         isInput: true,
       });
     }
+    // Workers generation (net offset)
+    if (recipe.machine.workers_generated && recipe.machine.workers_generated > 0) {
+      const constraint = this.getOrCreateConstraint("in_workers", "Product_Virtual_Workers" as ProductId);
+      constraint.unconnected = true;
+      constraint.terms.push({
+        id: label + "_int",
+        nodeId: nodeId,
+        value: recipe.machine.workers_generated,
+        sign: "-",        // Subtracts from consumption total
+        weight: 1,
+        isInput: false,   // Producing, not consuming
+      });
+    }
     // Electricity
     if (recipe.machine.electricity_consumed && recipe.machine.electricity_consumed > 0) {
       const constraint = this.getOrCreateConstraint("in_electricity", "Product_Virtual_Electricity" as ProductId);
@@ -556,6 +578,19 @@ export default class Solver {
         isInput: true,
       });
 
+    }
+    // Electricity generation (net offset)
+    if (recipe.machine.electricity_generated && recipe.machine.electricity_generated > 0) {
+      const constraint = this.getOrCreateConstraint("in_electricity", "Product_Virtual_Electricity" as ProductId);
+      constraint.unconnected = true;
+      constraint.terms.push({
+        id: label,
+        nodeId: nodeId,
+        value: recipe.machine.electricity_generated,
+        sign: "-",        // Subtracts from consumption total
+        weight: 1,
+        isInput: false,   // Producing, not consuming
+      });
     }
     // Computing
     if (recipe.machine.computing_consumed && recipe.machine.computing_consumed > 0) {
@@ -571,6 +606,19 @@ export default class Solver {
         isInput: true,
       });
     }
+    // Computing generation
+    if (recipe.machine.computing_generated && recipe.machine.computing_generated > 0) {
+      const constraint = this.getOrCreateConstraint("in_computing", "Product_Virtual_Computing" as ProductId);
+      constraint.unconnected = true;
+      constraint.terms.push({
+        id: label,
+        nodeId: nodeId,
+        value: recipe.machine.computing_generated,
+        sign: "-",
+        weight: 1,
+        isInput: false,
+      });
+    }
     // Maintenance
     if (recipe.machine.maintenance_cost && recipe.machine.maintenance_cost.quantity > 0) {
 
@@ -584,6 +632,20 @@ export default class Solver {
         sign: "+",
         weight: 1,
         isInput: true,
+      });
+    }
+    // Maintenance generation (net offset)
+    if (recipe.machine.maintenance_generated && recipe.machine.maintenance_generated.quantity > 0) {
+      const constraint = this.getOrCreateConstraint("in_" + maintenanceKey(recipe.machine, recipe.machine.maintenance_generated), recipe.machine.maintenance_generated.id as ProductId);
+      constraint.unconnected = true;
+      
+      constraint.terms.push({
+        id: label,
+        nodeId: nodeId,
+        value: recipe.machine.maintenance_generated.quantity,
+        sign: "-",
+        weight: 1,
+        isInput: false,
       });
     }
 

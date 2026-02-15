@@ -1,11 +1,13 @@
 import { TrashIcon } from '@heroicons/react/24/outline';
 import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
 import { Position } from '@xyflow/react';
-import { formatNumber, machineIcon, maintenanceIcon, maintenanceName, productBackground, uiIcon } from '~/uiUtils';
+import { formatNumber, formatSignedInfra, machineIcon, maintenanceIcon, maintenanceName, productBackground, uiIcon } from '~/uiUtils';
+import { calculateElectricityNet, calculateComputingNet } from '~/factory/infrastructure/calculations';
 import type { HighlightModes } from '../store';
 import { HandleList, ProductHandle } from './handles';
 import type { ProductId, Recipe } from './loadJsonData';
 import { getQuantityDisplay } from './recipeNodeLogic';
+import type { HTMLAttributes } from 'react';
 
 type ProductEdges = Map<ProductId, boolean | null>;
 
@@ -137,14 +139,16 @@ export default function RecipeNodeView({
       </div>
 
       <div className="recipe-node-infra-bar flex justify-start align-start gap-2 border-white/20 pt-4 mb-1 pb-0 border-t-2">
-        <InfrastructureIcon name="Electricity Used" icon={uiIcon("Electricity")}
-          amount={getQuantityDisplay(recipe.machine.electricity_consumed, runCount, "kW") /*TODO:: Modify by recipe? */} />
+        <InfrastructureIcon name="Electricity" icon={uiIcon("Electricity")}
+          net={calculateElectricityNet(recipe.machine, runCount).net}
+          unit="kW" />
         <InfrastructureIcon name={`Workers (${recipe.machine.workers}) x ${Math.ceil(runCount)}`} icon={uiIcon("Worker")}
           amount={getQuantityDisplay(recipe.machine.workers, Math.ceil(runCount) /* TODO:: Is this correct? Do workers get consumed even when the building is idle */, "")} />
         <InfrastructureIcon name={maintenanceName(recipe.machine)} icon={maintenanceIcon(recipe.machine)}
           amount={getQuantityDisplay(recipe.machine.maintenance_cost?.quantity || 0, runCount, "")} />
-        <InfrastructureIcon name="Computing Used" icon={uiIcon("Computing")}
-          amount={getQuantityDisplay(recipe.machine.computing_consumed, runCount, "TFlops")} />
+        <InfrastructureIcon name="Computing" icon={uiIcon("Computing")}
+          net={calculateComputingNet(recipe.machine, runCount).net}
+          unit="TFlops" />
         <InfrastructureIcon name={`Tile Footprint (${recipe.machine.footprint?.[0]} x ${recipe.machine.footprint?.[1]}) x ${Math.ceil(runCount)}`} icon={uiIcon("Move128")} iconClassName="rotate-45 scale-120"
           amount={getQuantityDisplay(recipe.machine.footprint?.reduce((a, i) => a *= i, 1) || 0, Math.ceil(runCount), "")} />
       </div>
@@ -153,13 +157,46 @@ export default function RecipeNodeView({
 
 }
 
-function InfrastructureIcon({ name, icon, amount, iconClassName }: { name: string, icon: string, amount: string, iconClassName?: string }) {
+function InfrastructureIcon({
+  name,
+  icon,
+  amount,
+  net,
+  unit,
+  iconClassName = ""
+}: {
+  name: string,
+  icon: string,
+  amount?: string,
+  net?: number,
+  unit?: string,
+  iconClassName?: string
+}) {
+  // If net and unit are provided, use signed formatting
+  let displayAmount = amount;
+  let colorClass = '';
+  let iconColourShift: HTMLAttributes<HTMLDivElement>['className'] = '';
+  if (net !== undefined && unit !== undefined) {
+    const formatted = formatSignedInfra(net, unit);
+    displayAmount = formatted.text;
+
+    if (formatted.color === 'green') {
+      colorClass = 'text-green-600';
+      iconColourShift = 'filterGreenShift';
+    }
+  }
+
+  // Check if value is zero - handle various formatted cases
+  const isZero = net !== undefined
+    ? Math.abs(net) < 0.0001  // Use numeric check for net values
+    : (displayAmount?.startsWith("0 ") || displayAmount === "0");
+
   return (
-    <div data-zero={amount.startsWith("0 ") ? true : null} className="flex-1 text-center text-xl text-gray-400 data-zero:opacity-20 data-zero:grayscale">
+    <div data-zero={isZero ? true : null} className="flex-1 text-center text-xl text-gray-400 data-zero:opacity-20 data-zero:grayscale">
       <div className="h-8">
-        <img src={icon} className={"h-full mx-auto " + iconClassName} title={name} />
+        <img src={icon} className={"h-full mx-auto " + iconColourShift + iconClassName} title={name} />
       </div>
-      <div className="text-nowrap">{amount}</div>
+      <div className={"text-nowrap " + colorClass}>{displayAmount}</div>
     </div>
   );
 }

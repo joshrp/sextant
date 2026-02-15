@@ -28,7 +28,12 @@ type MachineBase = {
   name: string;
   category_id: CategoryId;
   workers: number;
+  workers_generated: number;
   maintenance_cost?: {
+    id: ProductId;
+    quantity: number;
+  };
+  maintenance_generated?: {
     id: ProductId;
     quantity: number;
   };

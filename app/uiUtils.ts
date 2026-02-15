@@ -5,9 +5,9 @@ let LANG = "en-GB";
 if (typeof window !== "undefined")
   LANG = window.navigator.language;
 
-export function unitAbbreviation(unit: string, origValue: number = 0): string {
+export function unitAbbreviation(unit: string, origValue: number = 0): [string, number] {
   let value = origValue + 0;
-  if (!isNaN(value) || !isFinite(value) || value === 0) {
+  if (isNaN(value) || !isFinite(value)) {
     value = 0
   }
   if (unit === "kW") {
@@ -31,18 +31,50 @@ export function unitAbbreviation(unit: string, origValue: number = 0): string {
       unit = "Ef";
     }
   }
-  return unit;
+  return [unit, value];
 }
 
 export function formatNumber(value: number, unit: string = '', maximumFractionDigits: number = 1): string {
-  const unitstr = unitAbbreviation(unit, value);
-  if (isNaN(value)) return "? " + unitstr;
-  if (!isFinite(value)) return (value < 0 ? "-" : "") + "∞ " + unitstr;
-  if (value === 0) return "0 " + unitstr;
-  if (Math.abs(value) <= 0.001) return value.toExponential(1) + unitstr;
+  const [unitstr, adjustedValue] = unitAbbreviation(unit, value);
+  if (isNaN(adjustedValue)) return "? " + unitstr;
+  if (!isFinite(adjustedValue)) return (adjustedValue < 0 ? "-" : "") + "∞ " + unitstr;
+  if (adjustedValue === 0) return "0 " + unitstr;
+  if (Math.abs(adjustedValue) <= 0.001) return adjustedValue.toExponential(2) + unitstr;
 
 
-  return value.toLocaleString(LANG, { maximumFractionDigits }) + " " + unitstr;
+  return adjustedValue.toLocaleString(LANG, { maximumFractionDigits }) + " " + unitstr;
+}
+
+/**
+ * Format a signed infrastructure value with color coding
+ * @param net Net infrastructure value where positive = deficit (consumption exceeds generation) 
+ *            and negative = surplus (generation exceeds consumption)
+ * @param unit Unit of measurement (e.g., "kW", "TFlops")
+ * @returns Formatted text with sign and color (green for surplus/production, amber for deficit/consumption, neutral for zero)
+ */
+export function formatSignedInfra(net: number, unit: string): { text: string, color: 'green' | 'amber' | 'neutral' } {
+  const absValue = Math.abs(net);
+  const formattedValue = formatNumber(absValue, unit);
+  
+  if (net > 0) {
+    // Positive net = consuming (deficit)
+    return {
+      text: `${formattedValue}`,
+      color: 'neutral',
+    };
+  } else if (net < 0) {
+    // Negative net = producing (surplus)
+    return {
+      text: `+${formattedValue}`,
+      color: 'green',
+    };
+  } else {
+    // Zero
+    return {
+      text: formattedValue,
+      color: 'neutral',
+    };
+  }
 }
 
 export const productIcon = (icon: string) => `/assets/products/${icon}`;
@@ -83,8 +115,9 @@ export const maintenanceName = (machine: Machine) => {
   }
 }
 
-export const maintenanceKey = (machine: Machine) => {
-  switch (machine.maintenance_cost?.id) {
+export const maintenanceKey = (machine: Machine, maintenanceObj?: { id: ProductId; quantity: number }) => {
+  const maintenance = maintenanceObj || machine.maintenance_cost;
+  switch (maintenance?.id) {
     case "Product_Virtual_MaintenanceT1" as ProductId:
       return "maintenance_1";
     case "Product_Virtual_MaintenanceT2" as ProductId:

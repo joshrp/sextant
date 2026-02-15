@@ -93,7 +93,6 @@ export default function ProductHandle(props: ProductHandleProps) {
         </Switch>
       </div>
   }
-
   return (
     <div
       style={{ backgroundColor: productColor }}

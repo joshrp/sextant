@@ -30,13 +30,22 @@ export default function FactoryControls({
     name: 'Electricity',
     type: 'electricity',
     icon: uiIcon('Electricity'),
-    totalAmount: solution?.infrastructure['electricity'],
-    unit: 'kW'
+    totalAmount: solution?.infrastructure['electricity'] || 0,
+    unit: 'kW',
+    producerText: "Add Generator",
+    addProducer: () => {
+      addNewRecipe({
+        productId: 'Product_Virtual_Electricity' as ProductId,
+        position: { x: 100, y: 100 },
+        produce: true,
+        otherNode: "",
+      });
+    }
   }, {
     name: 'Workers',
     type: 'workers',
     icon: uiIcon('Worker'),
-    totalAmount: solution?.infrastructure['workers'],
+    totalAmount: solution?.infrastructure['workers'] || 0,
     producerText: "Add Settlement",    
     addProducer: () => {
       addNewRecipe({
@@ -50,23 +59,32 @@ export default function FactoryControls({
     name: 'Maintenance 1',
     type: 'maintenance_1',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT1' as ProductId),
-    totalAmount: solution?.infrastructure['maintenance_1']
+    totalAmount: solution?.infrastructure['maintenance_1'] || 0
   }, {
     name: 'Maintenance 2',
     type: 'maintenance_2',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT2' as ProductId),
-    totalAmount: solution?.infrastructure['maintenance_2']
+    totalAmount: solution?.infrastructure['maintenance_2'] || 0
   }, {
     name: 'Maintenance 3',
     type: 'maintenance_3',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT3' as ProductId),
-    totalAmount: solution?.infrastructure['maintenance_3']
+    totalAmount: solution?.infrastructure['maintenance_3'] || 0
   }, {
     name: 'Computing',
     type: 'computing',
     icon: uiIcon('Computing'),
-    totalAmount: solution?.infrastructure['computing'],
-    unit: 'TFlops'
+    totalAmount: solution?.infrastructure['computing'] || 0,
+    unit: 'TFlops',
+    producerText: "Add Server Rack",
+    addProducer: () => {
+      addNewRecipe({
+        productId: 'Product_Virtual_Computing' as ProductId,
+        position: { x: 100, y: 100 },
+        produce: true,
+        otherNode: "",
+      });
+    }
   }];
 
   const showScore = (solutionStatus == "Solved" || solutionStatus == "Partial") && solution;
