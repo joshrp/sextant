@@ -4,6 +4,7 @@ import { formatNumber, machineIcon } from "~/uiUtils";
 import { loadData, type ProductId, type Recipe, type RecipeId } from "./graph/loadJsonData";
 import { getRecipesByProduct } from "~/gameData/utils";
 import { prepareRecipesForSearch, searchRecipes, groupRecipesByTier, createMatchedTermsMap } from "./recipeSearch";
+import HelpLink from "~/components/HelpLink";
 
 const { products } = loadData();
 
@@ -73,18 +74,28 @@ export default function RecipePicker({
           <input type="text" className="w-full outline-none bg-transparent" placeholder="Search by product name..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
         </div>
       </div>
-      {balancerRecipe && <div>
-        <button className="relative has-tooltip p-0.5 rounded-sm cursor-pointer hover:brightness-125 bg-gray-800 border-gray-500"
-          onClick={() => selectRecipe(balancerRecipe!.id, true)}>
-          <span className='tooltip z-50 rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-8 left-1/2 -translate-x-1/2 text-nowrap'>Use Import/Export/Balancer</span>
-          <img src={machineIcon(balancerRecipe?.machine)} alt={balancerRecipe?.machine.name || "Balancer"}
-            className="inline-block max-w-10"
-          />
-        </button>
-      </div>
-      }
     </div>
     <table className="recipe-list min-w-[50vw] mx-auto border-spacing-y-1 border-separate text-sm"><tbody>
+      {balancerRecipe && (
+        <tr className="group/row recipe-row cursor-pointer"
+          onClick={() => selectRecipe(balancerRecipe!.id, true)}>
+          <td className="recipe-machine">
+            <div className="flex flex-row gap-2 border-r-2 border-gray-600">
+              <div className="flex-5">
+                <img src={machineIcon(balancerRecipe.machine)} alt={balancerRecipe.machine.name || "Balancer"}
+                  className="justify-self-center-safe max-w-15" />
+                {balancerRecipe.machine.name}
+              </div>
+            </div>
+          </td>
+          <td colSpan={maxInputCells + maxOutputCells + 1} className="text-center text-gray-300 text-sm">
+            <span className="italic">Import / Export / Balance</span>
+            <span className="inline-block ml-2 align-middle" onClick={(e) => e.stopPropagation()}>
+              <HelpLink topic="balancer" title="Learn about balancers" iconSize="w-4 h-4" />
+            </span>
+          </td>
+        </tr>
+      )}
       {matchedRecipesByLinkId.values().map(recipeGroup => {
         const parentMatch = recipeGroup[0];
 
@@ -195,7 +206,7 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
     onClick={() => {
       selectRecipe(recipe.id, false);
     }} key={recipe.id}>
-    <td className="recipe-machine max-w-20">
+    <td className="recipe-machine ">
       <div className="flex flex-row gap-2 border-r-2 border-gray-600">
         <div className="flex-5">
           <img src={machineIcon(recipe.machine)} alt={recipe.machine.name}

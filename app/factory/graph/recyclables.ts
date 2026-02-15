@@ -7,22 +7,96 @@ export type RecyclablesMaterial = 'copper' | 'gold' | 'aluminium' | 'glass' | 'i
 
 export type RecyclablesMaterialSplit = Partial<Record<RecyclablesMaterial, Big>>;
 
-/** Per-unit recyclable material breakdown for each product that contributes recyclables */
+/** Per-unit recyclable material breakdown for each product that contributes recyclables.
+ * Values represent scrap output at 60% recycling efficiency (ver 0.7.5). */
 export const recyclablesSourceMaterialSplit: Partial<Record<ProductId, RecyclablesMaterialSplit>> = {
+  [ProductId('Product_Steel')]: {
+    iron: Big('1.2'),
+  },
+  [ProductId('Product_MechanicalParts')]: {
+    iron: Big('0.6'),
+  },
+  [ProductId('Product_PCB')]: {
+    copper: Big('0.15'),
+    glass: Big('0.3'),
+  },
+  [ProductId('Product_Microchips')]: {
+    copper: Big('0.4'),
+    gold: Big('0.4'),
+  },
+  [ProductId('Product_HouseholdGoods')]: {
+    iron: Big('0.15'),
+    glass: Big('0.3'),
+  },
+  [ProductId('Product_MedicalEquipment')]: {
+    iron: Big('0.72'),
+  },
+  [ProductId('Product_Anesthetics')]: {
+    iron: Big('0.15'),
+  },
+  [ProductId('Product_Morphine')]: {
+    glass: Big('0.15'),
+  },
+  [ProductId('Product_Electronics')]: {
+    copper: Big('0.6'),
+  },
+  [ProductId('Product_Electronics2')]: {
+    copper: Big('1.35'),
+    glass: Big('0.3'),
+  },
+  [ProductId('Product_Electronics3')]: {
+    copper: Big('3.1'),
+    gold: Big('0.4'),
+    glass: Big('0.6'),
+  },
+  [ProductId('Product_LabEquipment')]: {
+    iron: Big('0.4'),
+    copper: Big('0.2'),
+  },
+  [ProductId('Product_LabEquipment2')]: {
+    iron: Big('0.4'),
+    copper: Big('0.2'),
+    glass: Big('0.2'),
+  },
+  [ProductId('Product_LabEquipment3')]: {
+    iron: Big('0.4'),
+    copper: Big('0.425'),
+    glass: Big('0.25'),
+  },
+  [ProductId('Product_LabEquipment4')]: {
+    iron: Big('0.4'),
+    copper: Big('0.8125'),
+    gold: Big('0.05'),
+    glass: Big('0.325'),
+  },
+  [ProductId('Product_OfficeSupplies')]: {
+    iron: Big('0.05'),
+    copper: Big('0.225'),
+    glass: Big('0.15'),
+  },
+  [ProductId('Product_HouseholdAppliances')]: {
+    iron: Big('0.4'),
+    copper: Big('0.85'),
+    glass: Big('0.1'),
+  },
   [ProductId('Product_ConsumerElectronics')]: {
     copper: Big(1).div(30).plus(1),
     gold: Big(1).div(7.5),
-    aluminium: Big(3).div(10),
-    glass: Big(1).div(5),
+    aluminium: Big('0.3'),
+    glass: Big('0.2'),
   },
-  [ProductId('Product_HouseholdGoods')]: {
-    iron: Big(15).div(100),
-    glass: Big(1).div(3),
+  [ProductId('Product_LuxuryGoods')]: {
+    gold: Big('0.15'),
   },
-  [ProductId('Product_HouseholdAppliances')]: {
-    copper: Big(85).div(100),
-    glass: Big(1).div(10),
-    iron: Big(10).div(4),
+  [ProductId('Product_MedicalSupplies')]: {
+    iron: Big('0.36'),
+  },
+  [ProductId('Product_MedicalSupplies2')]: {
+    iron: Big('0.36'),
+  },
+  [ProductId('Product_MedicalSupplies3')]: {
+    iron: Big('0.435'),
+    glass: Big('0.075'),
   },
 };
 

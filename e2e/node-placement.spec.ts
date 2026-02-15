@@ -359,11 +359,11 @@ test.describe('Smart Node Placement from Sidebar', () => {
       sourceHandleInfo.productId,
       sourceHandleInfo.handleType as 'input' | 'output'
     );
+    const dropRight = { x: sourceCenter.x + 250, y: sourceCenter.y };
     const shouldFlipRight = sourceHandleInfo.handleType === 'output'
       ? dropRight.x < sourceCenter.x
       : dropRight.x > sourceCenter.x;
 
-    const dropRight = { x: sourceCenter.x + 250, y: sourceCenter.y };
     await page.mouse.move(sourceCenter.x, sourceCenter.y);
     await page.mouse.down();
     await page.mouse.move(dropRight.x, dropRight.y);
@@ -397,11 +397,11 @@ test.describe('Smart Node Placement from Sidebar', () => {
       sourceHandleInfo.productId,
       sourceHandleInfo.handleType as 'input' | 'output'
     );
+    const dropLeft = { x: sourceCenter.x - 250, y: sourceCenter.y };
     const shouldFlipLeft = sourceHandleInfo.handleType === 'output'
       ? dropLeft.x < sourceCenter.x
       : dropLeft.x > sourceCenter.x;
 
-    const dropLeft = { x: sourceCenter.x - 250, y: sourceCenter.y };
     await page.mouse.move(sourceCenter.x, sourceCenter.y);
     await page.mouse.down();
     await page.mouse.move(dropLeft.x, dropLeft.y);

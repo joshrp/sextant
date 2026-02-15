@@ -136,7 +136,7 @@ describe('recipeNodeLogic', () => {
         },
       }, 1);
 
-      expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(66.25, 8);
+      expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(57.75, 8);
     });
 
     it('does not add disabled commodity inputs to recyclables', () => {
@@ -186,7 +186,7 @@ describe('recipeNodeLogic', () => {
         [ProductId('Product_HouseholdAppliances')]: Big(4),
       });
 
-      expect(result.toNumber()).toBeCloseTo(65.25, 8);
+      expect(result.toNumber()).toBeCloseTo(56.75, 8);
     });
 
     it('returns zero for products that do not contribute recyclables', () => {
@@ -212,7 +212,7 @@ describe('recipeNodeLogic', () => {
       );
 
       expect(electronics.toNumber()).toBeCloseTo(50, 8);
-      expect(appliances.toNumber()).toBeCloseTo(13.8, 8);
+      expect(appliances.toNumber()).toBeCloseTo(5.4, 8);
       expect(unsupported.toNumber()).toBe(0);
     });
 
@@ -233,7 +233,7 @@ describe('recipeNodeLogic', () => {
 
       expect(split.copper?.toNumber()).toBeCloseTo(3.4, 8);
       expect(split.glass?.toNumber()).toBeCloseTo(0.4, 8);
-      expect(split.iron?.toNumber()).toBeCloseTo(10, 8);
+      expect(split.iron?.toNumber()).toBeCloseTo(1.6, 8);
     });
 
     it('defines recyclables source materials for known contributing products', () => {

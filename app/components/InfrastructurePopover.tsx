@@ -8,12 +8,12 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/shallow';
-import { formatNumber } from '~/uiUtils';
 import useFactory, { useFactoryStore } from '~/factory/FactoryContext';
 import { loadData, type MachineId } from '~/factory/graph/loadJsonData';
 import type { CustomNodeType } from '~/factory/graph/nodes';
-import type { Solution } from '~/factory/solver/types';
 import { calculateInfrastructure, type InfrastructureType } from '~/factory/infrastructure/calculations';
+import type { Solution } from '~/factory/solver/types';
+import { formatNumber } from '~/uiUtils';
 
 const { recipes, machines } = loadData();
 
