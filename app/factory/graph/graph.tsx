@@ -105,8 +105,24 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
     const existingRects = getExistingNodeRects(currentNodes);
     const existingWidths = getExistingNodeWidths(currentNodes);
     const candidateSize = estimateNodeSize(handleCount, existingWidths);
+    const observedWidths = existingRects.map(rect => rect.width).filter(width => width > 0);
+    const observedHeights = existingRects.map(rect => rect.height).filter(height => height > 0);
+
+    const median = (values: number[]) => {
+      if (values.length === 0) return 0;
+      const sorted = [...values].sort((a, b) => a - b);
+      const mid = Math.floor(sorted.length / 2);
+      return sorted.length % 2 === 0
+        ? (sorted[mid - 1] + sorted[mid]) / 2
+        : sorted[mid];
+    };
+
+    const conservativeCandidate = {
+      width: Math.max(candidateSize.width, median(observedWidths)),
+      height: Math.max(candidateSize.height, median(observedHeights)),
+    };
     
-    return findAvailableSlot(existingRects, candidateSize, viewportBounds);
+    return findAvailableSlot(existingRects, conservativeCandidate, viewportBounds);
   }, [store, getViewport]);
 
   // Register smart position callback with Factory via ref

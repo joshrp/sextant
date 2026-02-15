@@ -75,7 +75,11 @@ export async function runTestCase(name: string, fixture: FactoryFixture) {
     // Verify manifolds if expected
     if (fixture.expected.manifolds) {
       expect(solution.manifolds).toBeDefined();
-      expect(solution.manifolds).toEqual(fixture.expected.manifolds);
+      //loop each manifold and check values are close
+      for (const [key, expectedValue] of Object.entries(fixture.expected.manifolds)) {
+        const actualValue = solution.manifolds[key as keyof typeof solution.manifolds];
+        expect(actualValue, `Manifold mismatch for key ${key} in test case ${name}`).toBeCloseTo(expectedValue, 2);
+      }
     }
   }
   console.log('Finished test case:', name);

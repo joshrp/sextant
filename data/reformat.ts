@@ -1,13 +1,12 @@
 
 
+import Big from "big.js";
 import * as ColorThief from "colorthief";
 import assert from "node:assert";
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
-import type { Machine, MachineId, MachineSerialized, Product, ProductId, ProductSerialized, Recipe, RecipeId, RecipeSerialized } from "../app/factory/graph/loadJsonData";
 import path from "node:path";
-import Big from "big.js"
-import { getMaintenanceTier } from "~/factory/infrastructure/calculations";
+import type { Machine, MachineId, MachineSerialized, Product, ProductId, ProductSerialized, Recipe, RecipeId, RecipeSerialized } from "../app/factory/graph/loadJsonData";
 
 type RawProduct = {
   id: string;
@@ -386,6 +385,25 @@ function modifyMachineData(rawMachine: RawMachine): RawMachine {
 
   }
   return rawMachine;
+}
+
+const modifyRecipeData = (rawRecipe: RawRecipe, machine: Partial<MachineSerialized>): RawRecipe => {
+  // Find any recyclables outputs and add the appropriate inputs based on the machine's category and the recipe's inputs
+  const recyclingOutput = rawRecipe.outputs.find(o => o.name === "Recyclables");
+  // if (recyclingOutput) {
+  //   // Find the recycling breakdown for each of the inputs
+  //   const materialSplit = rawRecipe.inputs.reduce((split, input) => {
+  //     const inputSplit = recyclablesSourceMaterialSplit[ProductId(input.name)];
+  //     if (inputSplit) {
+  //       Object.entries(inputSplit).forEach(([mat, qty]) => {
+  //         split[mat] = (split[mat] ?? Big(0)).plus(qty);
+  //       });
+  //     }
+  //     return split;
+  //   }, {} as RecyclablesMaterialSplit);
+
+  // }
+  return rawRecipe;
 }
 
 export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMachine[], products: Awaited<ReturnType<typeof formatProductData>>) {

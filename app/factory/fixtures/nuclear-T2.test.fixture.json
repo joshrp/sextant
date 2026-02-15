@@ -427,9 +427,9 @@
   ],
   "manifoldOptions": [],
   "scoringMethod": "infra",
-  "previousSolutionObjectiveValue": 5283.738333333333,
+  "previousSolutionObjectiveValue": 2283.738333333333,
   "expected": {
-    "objectiveValue": 5283.738333333333,
+    "objectiveValue": 2283.738333333333,
     "nodeCounts": [
       {
         "nodeId": "PowerGeneratorT2_1764163946538",
@@ -634,13 +634,13 @@
     ],
     "infrastructure": {
       "workers": 778,
-      "electricity": 43129.7,
+      "electricity": -256870,
       "computing": 42,
       "maintenance_1": 195.361,
       "maintenance_2": 381,
       "maintenance_3": 0,
       "footprint": 6866,
-      "frastructure_total": 5215.08
+      "frastructure_total": 2215.08
     },
     "products": {
       "inputs": [
@@ -737,10 +737,10 @@
       ]
     },
     "manifolds": {
-      "in_frastructure_total": 5215.08,
+      "in_frastructure_total": 2215.08,
       "in_footprint": 6866,
       "in_workers": 778,
-      "in_electricity": 43129.7,
+      "in_electricity": -256870,
       "in_computing": 42,
       "in_maintenance_1": 195.361,
       "in_maintenance_2": 381,

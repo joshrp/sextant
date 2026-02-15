@@ -103,7 +103,7 @@
   "manifoldOptions": [],
   "scoringMethod": "inputs",
   "expected": {
-    "objectiveValue": -56.1,
+    "objectiveValue": -55.1,
     "nodeCounts": [
       {
         "nodeId": "PowerGeneratorT2_1764079649353",
@@ -132,7 +132,7 @@
     ],
     "infrastructure": {
       "workers": 8,
-      "electricity": 0,
+      "electricity": -10000,
       "computing": 0,
       "maintenance_1": 4,
       "maintenance_2": 4,

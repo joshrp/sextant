@@ -170,7 +170,7 @@ describe('RecipeNodeView Component', () => {
       const props = getRecipeProps('PowerGeneratorT2' as RecipeId);
       const { container } = renderWithReactFlow(<RecipeNodeView {...props} />);
 
-      const electricityIcon = container.querySelector('[title="Electricity Used"]');
+      const electricityIcon = container.querySelector('[title="Electricity"]');
       expect(electricityIcon).toBeInTheDocument();
 
       // Look for worker icon title

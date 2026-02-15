@@ -93,70 +93,70 @@
   ],
   "manifoldOptions": [],
   "scoringMethod": "infra",
-  "previousSolutionObjectiveValue": 377.9566666666666,
+  "previousSolutionObjectiveValue": -378.9466666666665,
   "expected": {
-    "objectiveValue": 377.9566666666666,
+    "objectiveValue": -378.9466666666665,
     "nodeCounts": [
       {
+        "nodeId": "TurbineHighPressT2_1762894643141",
+        "count": 5.33333
+      },
+      {
+        "nodeId": "SteamGenerationCoal_1762894650507",
+        "count": 7.33333
+      },
+      {
+        "nodeId": "TurbineLowPressT2_1762894672067",
+        "count": 5.33333
+      },
+      {
+        "nodeId": "DesalinationFromDepleted_1762894728428",
+        "count": 10.6667
+      },
+      {
         "nodeId": "PowerGeneratorT2_1762894639871",
         "count": 5.33333
       },
       {
         "nodeId": "DesalinationFromDepleted_1762894728428",
-        "count": 8.53333
+        "count": 10.6667
+      },
+      {
+        "nodeId": "TurbineHighPressT2_1762894643141",
+        "count": 5.33333
+      },
+      {
+        "nodeId": "TurbineLowPressT2_1762894672067",
+        "count": 5.33333
       },
       {
         "nodeId": "PowerGeneratorT2_1762894639871",
         "count": 5.33333
       },
       {
-        "nodeId": "TurbineHighPressT2_1762894643141",
-        "count": 5.86667
-      },
-      {
         "nodeId": "SteamGenerationCoal_1762894650507",
-        "count": 5.86667
-      },
-      {
-        "nodeId": "TurbineLowPressT2_1762894672067",
-        "count": 4.26667
-      },
-      {
-        "nodeId": "DesalinationFromDepleted_1762894728428",
-        "count": 8.53333
-      },
-      {
-        "nodeId": "TurbineHighPressT2_1762894643141",
-        "count": 5.86667
-      },
-      {
-        "nodeId": "TurbineLowPressT2_1762894672067",
-        "count": 4.26667
-      },
-      {
-        "nodeId": "SteamGenerationCoal_1762894650507",
-        "count": 5.86667
+        "count": 7.33333
       }
     ],
     "infrastructure": {
-      "workers": 82,
-      "electricity": 3413.33,
+      "workers": 100,
+      "electricity": -75733.3,
       "computing": 0,
-      "maintenance_1": 49.0667,
-      "maintenance_2": 20.2667,
+      "maintenance_1": 53.3333,
+      "maintenance_2": 21.3333,
       "maintenance_3": 0,
-      "footprint": 1009,
-      "frastructure_total": 367.867
+      "footprint": 1172,
+      "frastructure_total": -390.667
     },
     "products": {
       "inputs": [
         {
           "productId": "Product_Coal",
-          "amount": -176
+          "amount": -220
         },
         {
           "productId": "Product_Seawater",
-          "amount": -128
+          "amount": -160
         }
       ],
       "outputs": [
@@ -166,33 +166,35 @@
         },
         {
           "productId": "Product_Exhaust",
-          "amount": 352
+          "amount": 440
         },
         {
           "productId": "Product_Brine",
-          "amount": 51.2
+          "amount": 64
         }
       ]
     },
     "manifolds": {
-      "in_frastructure_total": 367.867,
-      "in_footprint": 1009,
-      "in_workers": 82,
-      "in_electricity": 3413.33,
-      "in_maintenance_1": 49.0667,
-      "in_maintenance_2": 20.2667,
+      "in_frastructure_total": -390.667,
+      "in_footprint": 1172,
+      "in_workers": 100,
+      "in_electricity": -75733.3,
+      "in_computing": 0,
+      "in_maintenance_1": 53.3333,
+      "in_maintenance_2": 21.3333,
+      "in_maintenance_3": 0,
       "c0": 0,
       "c1": 0,
       "c2": 0,
       "o_Product_Virtual_Electricity": 80000,
-      "c3": 0,
-      "c4": 76.8,
+      "c3": 96,
+      "c4": 0,
       "c5": 0,
-      "i_Product_Coal": -176,
-      "o_Product_Exhaust": 352,
+      "i_Product_Coal": -220,
+      "o_Product_Exhaust": 440,
       "c6": 0,
-      "i_Product_Seawater": -128,
-      "o_Product_Brine": 51.2
+      "i_Product_Seawater": -160,
+      "o_Product_Brine": 64
     }
   }
 }

@@ -11,7 +11,6 @@
       "recipes": {
         "input": [
           "Housing_Workers",
-          "BasicServerRack",
           "Balancer_Product_Virtual_Electricity"
         ],
         "output": [
@@ -75,7 +74,6 @@
           "Balancer_Product_Virtual_Computing"
         ],
         "output": [
-          "BasicServerRack",
           "Balancer_Product_Virtual_Computing"
         ]
       },
@@ -196,7 +194,6 @@
       "unit": "",
       "recipes": {
         "input": [
-          "BasicServerRack",
           "Balancer_Product_Virtual_MaintenanceT3"
         ],
         "output": [
@@ -13274,10 +13271,10 @@
       ],
       "isFarm": false,
       "isBalancer": false,
-      "electricity_consumed": 0,
+      "electricity_consumed": 4080,
       "electricity_generated": 0,
       "computing_consumed": 0,
-      "computing_generated": 0,
+      "computing_generated": 192,
       "workers_generated": 0,
       "storage_capacity": 0,
       "unity_cost": 0,
@@ -13285,7 +13282,11 @@
       "footprint": [
         18,
         11
-      ]
+      ],
+      "maintenance_cost": {
+        "id": "Product_Virtual_MaintenanceT3",
+        "quantity": 42.39063
+      }
     },
     "BasicServerRack": {
       "id": "BasicServerRack",
@@ -28781,24 +28782,12 @@
         {
           "id": "Product_ChilledWater",
           "quantity": 24
-        },
-        {
-          "id": "Product_Virtual_MaintenanceT3",
-          "quantity": 42.39063
-        },
-        {
-          "id": "Product_Virtual_Electricity",
-          "quantity": 4080
         }
       ],
       "outputs": [
         {
           "id": "Product_Water",
           "quantity": 24
-        },
-        {
-          "id": "Product_Virtual_Computing",
-          "quantity": 192
         }
       ]
     },

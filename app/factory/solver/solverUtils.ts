@@ -295,7 +295,7 @@ export function filterAndSortSolutions<T extends { solution?: { Status: string; 
   targetValue: number
 ): T[] {
   return solutions
-    .filter(x => x.solution?.Status === "Optimal" && x.solution?.ObjectiveValue > 0)
+    .filter(x => x.solution?.Status === "Optimal" && x.solution?.ObjectiveValue !== 0)
     .sort((a, b) => {
       const aObj = Math.abs(targetValue - (a.solution?.ObjectiveValue || 0));
       const bObj = Math.abs(targetValue - (b.solution?.ObjectiveValue || 0));

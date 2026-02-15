@@ -50,7 +50,7 @@ describe("Import Export", () => {
       
       await (store.Graph.getState().importData(data));
 
-      expect(store.Graph.getState().solution?.ObjectiveValue).toBeCloseTo(20375.7, 1);
+      expect(store.Graph.getState().solution?.ObjectiveValue).toBeCloseTo(10375.7, 1);
       const newExport = imex.minify(store.Graph.getState(), "zone-power-generation-steam");
       // Exported format should be V3 now (with node data type field)
       expect(newExport[0]).toBe(3);
