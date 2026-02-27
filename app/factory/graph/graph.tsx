@@ -35,6 +35,7 @@ const selector = (state: GraphStore) => ({
 
 type props = {
   addNewRecipe: (addRecipeNode: AddRecipeNode) => void;
+  addAnnotationNode: (position: { x: number; y: number }) => void;
   smartPositionRef: MutableRefObject<((recipeId: RecipeId) => { x: number; y: number }) | null>;
 };
 
@@ -52,7 +53,7 @@ type props = {
 //    - GraphController component (state management)
 // 5. Add unit tests for position calculation logic
 // 6. Mock React Flow context for component testing
-export default function Graph({ addNewRecipe, smartPositionRef }: props) {
+export default function Graph({ addNewRecipe, addAnnotationNode, smartPositionRef }: props) {
   const store = useFactory().store;
 
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore(
@@ -79,9 +80,10 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
   }, [fitBounds, fit]);
 
   // Calculate smart position for button-placed nodes
-  const getSmartPositionForRecipe = useCallback((recipeId: RecipeId): { x: number; y: number } => {
-    const recipe = recipes.get(recipeId);
-    if (!recipe) {
+  // Pass null as recipeId for annotation nodes (uses a fixed default size).
+  const getSmartPositionForRecipe = useCallback((recipeId: RecipeId | null): { x: number; y: number } => {
+    const recipe = recipeId ? recipes.get(recipeId) : undefined;
+    if (recipeId && !recipe) {
       console.warn('Recipe not found for smart positioning:', recipeId);
       // Return viewport center as fallback
       const viewport = getViewport();
@@ -91,7 +93,8 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
       };
     }
     
-    const handleCount = Math.max(recipe.inputs.length, recipe.outputs.length);
+    // Annotation nodes have no handles; use 0 so estimateNodeSize returns the base height.
+    const handleCount = recipe ? Math.max(recipe.inputs.length, recipe.outputs.length) : 0;
     const viewport = getViewport();
     
     // Use cached container or fallback to window dimensions
@@ -148,7 +151,7 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
       const sourceNodeId = connectionState.fromHandle.nodeId;
       const sourceNode = nodes.find(n => n.id === sourceNodeId);
       const sourceNodePos = sourceNode?.position ?? { x: 0, y: 0 };
-      const sourceLtr = sourceNode?.data.ltr ?? true;
+      const sourceLtr = (sourceNode && 'ltr' in sourceNode.data ? sourceNode.data.ltr : undefined) ?? true;
 
       // Prefer the actual source handle center X for orientation decisions.
       // Node top-left is a coarse proxy and is inaccurate for RTL nodes / right-side inputs.
@@ -185,6 +188,20 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
     }
   }, [screenToFlowPosition, addNewRecipe, nodes]);
 
+  /** Double-click on empty canvas creates an annotation node at the click position. */
+  const onPaneDoubleClick = useCallback((event: React.MouseEvent) => {
+    // Only create if the double-click is on the pane background, not on a node or edge
+    const target = event.target as HTMLElement;
+    if (target.closest('.react-flow__node') || target.closest('.react-flow__edge')) {
+      return;
+    }
+    const position = screenToFlowPosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+    addAnnotationNode(position);
+  }, [screenToFlowPosition, addAnnotationNode]);
+
   return (
     <ReactFlow<CustomNodeType, CustomEdgeType>
       nodes={nodes}
@@ -195,6 +212,7 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
       onEdgesChange={onEdgesChange}
       onConnectEnd={onConnectEnd}
       onConnect={onConnect}
+      onDoubleClick={onPaneDoubleClick}
       minZoom={0.1}
       elevateEdgesOnSelect={true}
       colorMode="dark"

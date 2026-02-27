@@ -8,6 +8,7 @@ import testExports from "./testExports.json";
 import { default as FactoryStore, type GraphCoreData } from '../store';
 import { openDB } from 'idb';
 import {setDebugSolver} from '../solver/solver';
+import type { RecipeId } from '../graph/loadJsonData';
 
 describe("Import Export", () => {
   describe.each(Object.entries(testFactories))('Exporting %s', (key, data) => {
@@ -52,8 +53,8 @@ describe("Import Export", () => {
 
       expect(store.Graph.getState().solution?.ObjectiveValue).toBeCloseTo(10375.7, 1);
       const newExport = imex.minify(store.Graph.getState(), "zone-power-generation-steam");
-      // Exported format should be V3 now (with node data type field)
-      expect(newExport[0]).toBe(3);
+      // Exported format should be V4 now (with annotation node support)
+      expect(newExport[0]).toBe(4);
       
       // Verify round-trip: compress, decompress, unminify should preserve data
       const recompressed = await imex.compress(newExport);
@@ -108,6 +109,76 @@ describe("Import Export", () => {
       const imported = imex.unminify(decompressed);
       expect(imported.icon).toBe("");
       expect(imported.name).toBe("Test Factory without Icon");
+    });
+  });
+
+  describe('Annotation Node Export/Import', () => {
+    test('round-trip preserves annotation nodes alongside recipe nodes', async () => {
+      const testData: GraphCoreData = {
+        name: "Mixed Nodes Factory",
+        nodes: [
+          {
+            id: "r1",
+            type: "recipe-node",
+            position: { x: 100, y: 200 },
+            data: { type: "recipe", recipeId: "PowerGeneratorT2" as RecipeId, ltr: true },
+          },
+          {
+            id: "a1",
+            type: "annotation-node",
+            position: { x: 300, y: 400 },
+            data: { text: "This is a **markdown** note" },
+          },
+        ],
+        edges: [],
+        goals: [],
+      };
+
+      const minified = imex.minify(testData, "test-zone");
+      expect(minified[0]).toBe(4); // V4 format
+      expect(minified[4]).toHaveLength(2);
+
+      // Compress, decompress, unminify
+      const compressed = await imex.compress(minified);
+      const decompressed = await imex.decompress(compressed);
+      const imported = imex.unminify(decompressed);
+
+      expect(imported.nodes).toHaveLength(2);
+
+      const recipeNode = imported.nodes.find(n => n.type === "recipe-node");
+      expect(recipeNode).toBeDefined();
+      expect(recipeNode!.id).toBe("r1");
+      expect(recipeNode!.position).toEqual({ x: 100, y: 200 });
+
+      const annotationNode = imported.nodes.find(n => n.type === "annotation-node");
+      expect(annotationNode).toBeDefined();
+      expect(annotationNode!.id).toBe("a1");
+      expect(annotationNode!.position).toEqual({ x: 300, y: 400 });
+      expect(annotationNode!.data).toEqual({ text: "This is a **markdown** note" });
+    });
+
+    test('annotation-only factory round-trips correctly', async () => {
+      const testData: GraphCoreData = {
+        name: "Notes Only",
+        nodes: [
+          {
+            id: "n1",
+            type: "annotation-node",
+            position: { x: 0, y: 0 },
+            data: { text: "First note" },
+          },
+        ],
+        edges: [],
+        goals: [],
+      };
+
+      const minified = imex.minify(testData, "zone");
+      const compressed = await imex.compress(minified);
+      const imported = imex.unminify(await imex.decompress(compressed));
+
+      expect(imported.nodes).toHaveLength(1);
+      expect(imported.nodes[0].type).toBe("annotation-node");
+      expect(imported.nodes[0].data).toEqual({ text: "First note" });
     });
   });
 

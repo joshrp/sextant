@@ -7,7 +7,7 @@
 import type { HighsSolution } from "highs";
 import type { CustomEdgeType } from '../graph/edges';
 import type { ProductId, Recipe } from "../graph/loadJsonData";
-import type { CustomNodeType } from '../graph/nodes';
+import type { CustomNodeType } from '../graph/nodeTypes';
 import type { EqualityTypes, FactoryGoal, GraphModel, GraphScoringMethod, NodeConnection, NodeConnections, OpenConnections, Solution } from "./types";
 
 // Regex matchers for parsing HiGHS solution columns
@@ -174,6 +174,8 @@ export function buildNodeConnections(
 
   const nodeOrder = {} as Record<string, number>;
   nodes.forEach((node, index) => {
+    // Annotation nodes don't participate in the solver
+    if (node.type !== "recipe-node") return;
     nodesById[node.id] = node;
     nodeOrder[node.id] = index;
     nodeRecipe[node.id] = recipeData.get(node.data.recipeId)!;

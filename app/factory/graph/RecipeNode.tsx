@@ -1,21 +1,20 @@
 import { TrashIcon } from '@heroicons/react/24/outline';
-import { useStore, useUpdateNodeInternals, type Node, type NodeProps } from '@xyflow/react';
+import { useStore, useUpdateNodeInternals, type NodeProps } from '@xyflow/react';
 import equal from 'fast-deep-equal';
-import { memo, useLayoutEffect } from 'react';
+import { memo, useCallback, useLayoutEffect, useMemo } from 'react';
 import { useShallow } from 'zustand/shallow';
 import { useFactoryStore } from '../FactoryContext';
-import { loadData, type ProductId } from './loadJsonData';
-import { type BalancerNodeData, type RecipeNodeData, type SettlementNodeData } from './recipeNodeLogic';
-import RecipeNodeView from './RecipeNodeView';
 import BalancerNodeView from './BalancerNodeView';
+import { loadData, type ProductId } from './loadJsonData';
+import { type RecipeNodeData, type RecipeNodeType } from './recipeNodeLogic';
+import RecipeNodeView from './RecipeNodeView';
 import SettlementNodeView from './SettlmentNodeView';
 
 const { recipes } = loadData();
 
-// Re-export RecipeNodeData for other files that need it
+// Re-export types for other files that need them
 export type { RecipeNodeData };
-
-export type RecipeNode = Node<RecipeNodeData | BalancerNodeData | SettlementNodeData>;
+export type RecipeNode = RecipeNodeType;
 
 type ProductEdges = Map<ProductId, boolean | null>;
 
@@ -35,13 +34,20 @@ const zoomSelector = (s: any) => {
 function RecipeNode(props: NodeProps<RecipeNode>) {
   const updateNodeInternals = useUpdateNodeInternals();
   if (props.data.ltr === undefined) props.data.ltr = true; // Default to left-to-right layout
-
-  const removeNode = useFactoryStore(state => state.removeNode);
-  const setNodeData = useFactoryStore(state => state.setNodeData);
-  const onNodesChange = useFactoryStore(state => state.onNodesChange);
+  
+  // Select all stable actions in a single subscription
+  const { removeNode, setNodeData, onNodesChange, setSettlementOptions } = useFactoryStore(
+    useShallow(state => ({
+      removeNode: state.removeNode,
+      setNodeData: state.setNodeData,
+      onNodesChange: state.onNodesChange,
+      setSettlementOptions: state.setSettlementOptions,
+    }))
+  );
+  
+  // Derived state that depends on props.id
   const nodePosition = useFactoryStore(state => state.nodes.find(n => n.id === props.id)?.position);
   const alignToDrop = props.data.alignToDrop;
-  const setSettlementOptions = useFactoryStore(state => state.setSettlementOptions);
   const highlight = useFactoryStore(useShallow(state => state.highlight));
 
   // whenever we toggle collapsed, re‐measure _after_ layout
@@ -189,9 +195,9 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
     };
   }, [alignToDrop, nodePosition, props.data.ltr, props.id, onNodesChange, setNodeData]);
 
-  const flipNode = () => {
+  const flipNode = useCallback(() => {
     setNodeData(props.id, { ltr: !props.data.ltr });
-  };
+  }, [props.id, props.data.ltr, setNodeData]);
 
   const connectedEdges = useFactoryStore(useShallow(state => state.edges.filter(e => e.source === props.id || e.target === props.id)));
   const zoomLevel = useStore(zoomSelector);
@@ -216,60 +222,66 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
     </div>;
   }
 
-  const productEdges: ProductEdges = new Map();
-  recipe.inputs.forEach(input => productEdges.set(input.product.id, false));
-  recipe.outputs.forEach(output => productEdges.set(output.product.id, false));
-  connectedEdges.forEach(edge => {
-    const prodId = edge.sourceHandle as ProductId | undefined;
-    if (prodId && productEdges.has(prodId)) {
-      productEdges.set(prodId, true);
+  const productEdges: ProductEdges = useMemo(() => {
+    const edges = new Map();
+    recipe.inputs.forEach(input => edges.set(input.product.id, false));
+    recipe.outputs.forEach(output => edges.set(output.product.id, false));
+    connectedEdges.forEach(edge => {
+      const prodId = edge.sourceHandle as ProductId | undefined;
+      if (prodId && edges.has(prodId)) {
+        edges.set(prodId, true);
+      } else {
+        throw new Error("Edge connected to recipe node with unknown product ID: " + edge.sourceHandle);
+      }
+    });
+    return edges;
+  }, [recipe, connectedEdges]);
+
+  return useMemo(() => {
+    let contents;
+    if (props.data.type === "balancer") {
+      contents = <BalancerNodeView
+        recipe={recipe}
+        productEdges={productEdges}
+        ltr={!!props.data.ltr}
+        zoomLevel={zoomLevel}
+        onFlip={flipNode}
+        onRemove={() => removeNode(props.id)}
+        solution={props.data.solution}
+        highlight={highlight}
+        nodeId={props.id}
+      />;
+    } else if (props.data.type === "settlement") {
+      contents = <SettlementNodeView
+        recipe={recipe}
+        settlementOptions={props.data.options}
+        setOptions={options => setSettlementOptions(props.id, options)}
+        productEdges={productEdges}
+        ltr={!!props.data.ltr}
+        zoomLevel={zoomLevel}
+        onFlip={flipNode}
+        onRemove={() => removeNode(props.id)}
+        solution={props.data.solution}
+        highlight={highlight}
+        nodeId={props.id}
+      />;
     } else {
-      throw new Error("Edge connected to recipe node with unknown product ID: " + edge.sourceHandle);
+      contents = <RecipeNodeView
+        recipe={recipe}
+        productEdges={productEdges}
+        ltr={!!props.data.ltr}
+        zoomLevel={zoomLevel}
+        onFlip={flipNode}
+        onRemove={() => removeNode(props.id)}
+        solution={props.data.solution}
+        highlight={highlight}
+        nodeId={props.id}
+
+      />;
     }
-  });
+    return contents;
+  }, [props.data, props.data.solution, recipe, productEdges, zoomLevel, highlight, props.id]);
 
-  let contents;
-  if (props.data.type === "balancer") {
-    contents = <BalancerNodeView
-      recipe={recipe}
-      productEdges={productEdges}
-      ltr={props.data.ltr}
-      zoomLevel={zoomLevel}
-      onFlip={flipNode}
-      onRemove={() => removeNode(props.id)}
-      solution={props.data.solution}
-      highlight={highlight}
-      nodeId={props.id}
-    />;
-  } else if (props.data.type === "settlement") {
-    contents = <SettlementNodeView
-      recipe={recipe}
-      settlementOptions={props.data.options}
-      setOptions={options => setSettlementOptions(props.id, options)}
-      productEdges={productEdges}
-      ltr={props.data.ltr}
-      zoomLevel={zoomLevel}
-      onFlip={flipNode}
-      onRemove={() => removeNode(props.id)}
-      solution={props.data.solution}
-      highlight={highlight}
-      nodeId={props.id}
-    />;
-  } else {
-    contents = <RecipeNodeView
-      recipe={recipe}
-      productEdges={productEdges}
-      ltr={props.data.ltr}
-      zoomLevel={zoomLevel}
-      onFlip={flipNode}
-      onRemove={() => removeNode(props.id)}
-      solution={props.data.solution}
-      highlight={highlight}
-      nodeId={props.id}
-
-    />;
-  }
-  return contents;
 }
 
 export default memo(RecipeNode, (prevProps, nextProps) => {

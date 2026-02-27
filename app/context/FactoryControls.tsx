@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ArrowPathRoundedSquareIcon, ExclamationTriangleIcon, MinusCircleIcon } from "@heroicons/react/24/outline";
-import { ArrowsPointingOutIcon, CheckCircleIcon, ChevronDownIcon, Cog8ToothIcon } from "@heroicons/react/24/solid";
+import { ArrowsPointingOutIcon, CheckCircleIcon, ChevronDownIcon, Cog8ToothIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
 
 import React from "react";
 import { Link } from "react-router";
@@ -16,8 +16,10 @@ const productData = loadData()?.products;
 
 export default function FactoryControls({
   addNewRecipe,
+  addAnnotationNode,
 }: {
   addNewRecipe: (recipe: AddRecipeNode) => void;
+  addAnnotationNode: (position: { x: number; y: number }) => void;
 }) {
   const solutionStatus = useFactoryStore(useShallow(state => state.solutionStatus));
   const solution = useFactoryStore(useShallow(state => state.solution));
@@ -248,42 +250,55 @@ export default function FactoryControls({
       </MenuItems>
     </Menu >
 
-    <div className="costs pl-4 mt-0.5 align-middle flex-1 h-full grid auto-cols-fr grid-flow-col grid-rows-1 py-0.5 gap-1 justify-around content-start">
+    <div className="costs pl-4 mt-0.5 align-middle flex-1 h-full flex flex-row py-0.5 gap-1 justify-start content-start max-w-md">
       {solution ? (<>
         {infraScores.map((i) => {
           return (
-            <InfrastructurePopover
-              key={i.type}
-              type={i.type}
-              icon={i.icon}
-              name={i.name}
-              unit={i.unit}
-              totalAmount={i.totalAmount}
-              addProducer={i.addProducer}
-              producerText={i.producerText}
-            />
+            <div key={i.type} className="flex-1">
+              <InfrastructurePopover
+                type={i.type}
+                icon={i.icon}
+                name={i.name}
+                unit={i.unit}
+                totalAmount={i.totalAmount}
+                addProducer={i.addProducer}
+                producerText={i.producerText}
+              />
+            </div>
           );
         })}
 
         {solution?.infrastructure['footprint'] != undefined ? (
-          <InfrastructurePopover
-            key="footprint"
-            type="footprint"
-            icon="/assets/ui/Move128.png"
-            name="Machine Footprint"
-            unit="tiles"
-            totalAmount={solution?.infrastructure['footprint']}
-          />
+          <div className="flex-1">
+            <InfrastructurePopover
+              key="footprint"
+              type="footprint"
+              icon="/assets/ui/Move128.png"
+              name="Machine Footprint"
+              unit="tiles"
+              totalAmount={solution?.infrastructure['footprint']}
+            />
+          </div>
         ) : null}
 
       </>) : null}
     </div>
 
-    <div className="px-2 cursor-pointer justify-self-end-safe content-center-safe hover:brightness-70" title="Factory Settings">
-      <Link to="settings" className="h-full">
-        <Cog8ToothIcon className="w-6 inline-block" />
-      </Link>
+    <div className="flex items-center gap-1 ml-auto shrink-0">
+      <button
+        className="p-1 block cursor-pointer hover:brightness-70 transition-colors"
+        onClick={() => addAnnotationNode({ x: 0, y: 0 })}
+        title="Add Note"
+        data-testid="factory-controls-add-note-button"
+      >
+        <PencilSquareIcon className="w-6 mx-auto h-full" />
+      </button>
 
+      <div className="px-2 cursor-pointer content-center hover:brightness-70" title="Factory Settings">
+        <Link to="settings" className="h-full">
+          <Cog8ToothIcon className="w-6 inline-block" />
+        </Link>
+      </div>
     </div>
   </div >
   );

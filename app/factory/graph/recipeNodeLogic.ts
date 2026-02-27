@@ -2,6 +2,7 @@
  * Pure logic functions for RecipeNode component
  * Extracted for testability
  */
+import type { Node } from '@xyflow/react';
 import { formatNumber } from '~/uiUtils';
 import { ProductId, type Recipe, type RecipeId } from './loadJsonData';
 import { getProductCategory, isFoodCategory, type SettlementCategory } from './settlementCategories';
@@ -52,6 +53,12 @@ export type SettlementNodeData = NodeBaseData & {
 };
 
 export type NodeDataTypes = RecipeNodeData | BalancerNodeData | SettlementNodeData;
+
+/**
+ * React Flow node type for recipe/balancer/settlement nodes.
+ * Lives here (not in RecipeNode.tsx) so it can be imported by non-component code.
+ */
+export type RecipeNodeType = Node<NodeDataTypes>;
 
 /**
  * Calculates the display value for a product quantity

@@ -3,7 +3,7 @@ import { loadData, type ProductId } from "../graph/loadJsonData";
 
 import { maintenanceKey } from "~/uiUtils";
 import type { CustomEdgeType } from '../graph/edges';
-import type { CustomNodeType } from '../graph/nodes';
+import type { CustomNodeType } from '../graph/nodeTypes';
 import { type Constraint, type FactoryGoal, type GraphModel, type GraphScoringMethod, type ManifoldOptions, type NodeConnections, type Solution } from "./types";
 import { buildNodeConnections, filterAndSortSolutions, findOptionalTerms, getEquality, getInfrastructureWeight, infraMatcher, inputMatcher, makeVertexId, outputMatcher, parseHighsSolution, shouldSkipConstraint } from "./solverUtils";
 import { solveWithHighs } from "./solverClient";

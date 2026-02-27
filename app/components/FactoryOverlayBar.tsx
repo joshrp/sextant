@@ -111,8 +111,8 @@ export function FactoryOverlayBar() {
     
     if (!product || !sourceNode || !targetNode) return null;
 
-    const sourceRecipe = recipes.get(sourceNode.data.recipeId);
-    const targetRecipe = recipes.get(targetNode.data.recipeId);
+    const sourceRecipe = sourceNode.type === "recipe-node" ? recipes.get(sourceNode.data.recipeId) : undefined;
+    const targetRecipe = targetNode.type === "recipe-node" ? recipes.get(targetNode.data.recipeId) : undefined;
 
     if (!sourceRecipe || !targetRecipe) return null;
 

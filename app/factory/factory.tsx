@@ -19,6 +19,7 @@ import { usePlannerStore } from "~/context/PlannerContext";
 import { useFactoryStore } from "./FactoryContext";
 import RecipePicker from "./RecipePicker";
 import type { RecipeNode } from "./graph/RecipeNode";
+import type { AnnotationNodeType } from "./graph/annotationNode";
 import { isSentinelPosition } from "./graph/nodePositioning";
 import type { HandleDropAlignment } from "./graph/recipeNodeLogic";
 
@@ -44,6 +45,21 @@ export function Factory() {
 
   const [addRecipeNode, setAddRecipeNode] = useState<AddRecipeNode | null>(null);
   const recipeSelectorProduct = addRecipeNode ? products.get(addRecipeNode.productId) : null
+
+  /** Create an annotation node at the given position and immediately open its edit dialog.
+   * When given the sentinel position, smart positioning is used to find a free slot. */
+  const addAnnotationNode = useCallback((position: { x: number; y: number }) => {
+    const resolvedPosition = isSentinelPosition(position) && smartPositionRef.current
+      ? smartPositionRef.current(null)
+      : position;
+    const newNode: AnnotationNodeType = {
+      id: `annotation_${Date.now()}`,
+      type: 'annotation-node',
+      position: resolvedPosition,
+      data: { text: '', autoEdit: true },
+    };
+    addNode(newNode);
+  }, [addNode]);
 
   // Sidebar resize state
   const sidebarWidth = usePlannerStore((state) => state.sidebarWidth);
@@ -97,8 +113,9 @@ export function Factory() {
     };
   }, [isResizing, handleMouseMove, handleMouseUp]);
 
-  // Ref for Graph to register its smart positioning callback
-  const smartPositionRef = useRef<((recipeId: RecipeId) => { x: number; y: number }) | null>(null);
+  // Ref for Graph to register its smart positioning callback.
+  // Accepts RecipeId | null — null is used by annotation nodes.
+  const smartPositionRef = useRef<((recipeId: RecipeId | null) => { x: number; y: number }) | null>(null);
 
   const addNewRecipe = useCallback((recipe: AddRecipeNode) => {
     // For sidebar/controls calls with sentinel position, inject the smart positioning callback from Graph
@@ -186,7 +203,7 @@ export function Factory() {
 
   return (<>
     <div className="factoryActions flex flex-row w-full h-10 bg-zinc-950">
-      <FactoryControls addNewRecipe={addNewRecipe} />
+      <FactoryControls addNewRecipe={addNewRecipe} addAnnotationNode={addAnnotationNode} />
     </div>
     <div className="justify-self-stretch flex flex-row w-full h-[calc(100%-calc(10*var(--spacing)))]">
       <div className="
@@ -226,7 +243,7 @@ export function Factory() {
             </div>
           )}
           <ReactFlowProvider>
-            <Graph addNewRecipe={addNewRecipe} smartPositionRef={smartPositionRef} />
+            <Graph addNewRecipe={addNewRecipe} addAnnotationNode={addAnnotationNode} smartPositionRef={smartPositionRef} />
           </ReactFlowProvider>
         </div>
       </div>

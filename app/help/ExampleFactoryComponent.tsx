@@ -59,7 +59,7 @@ export function HydrogenProductionExample() {
   return (
     <div className="w-full h-[500px] border-2 border-zinc-300 dark:border-zinc-700 rounded-lg overflow-hidden bg-zinc-900">
       <ReactFlowProvider>
-        <Graph addNewRecipe={addNewRecipe} smartPositionRef={smartPositionRef} />
+        <Graph addNewRecipe={addNewRecipe} addAnnotationNode={() => {}} smartPositionRef={smartPositionRef} />
       </ReactFlowProvider>
     </div>
   );

@@ -34,7 +34,7 @@ const createFixture = (
   return getRouterWrapper(
     getFactoryWrapper(
       <div className='h-10 flex'>
-        <FactoryControls  addNewRecipe={() => {}} />
+        <FactoryControls addNewRecipe={() => {}} addAnnotationNode={() => {}} />
       </div>,
       {
         store,

@@ -1,6 +1,6 @@
 import { loadData, type ProductId, type RecipeId } from "../graph/loadJsonData";
-import type { RecipeNodeData } from "../graph/recipeNodeLogic";
-import type { GraphCoreData, GraphImportData } from "../store";
+import { isRecipeNode, isAnnotationNode } from "../graph/nodeTypes";
+import type { GraphCoreData, GraphImportData, GraphImportRecipeNode } from "../store";
 import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 
 import hydration from "~/hydration";
@@ -26,6 +26,7 @@ export interface FactoryExportMetadata {
 }
 const NodeTypes = {
   "recipe-node": "n",
+  "annotation-node": "a",
   get: function (id?: string) { return this[(id ?? "recipe-node") as keyof typeof NodeTypes] },
   find: function (val: string): string | undefined { return Object.entries(this).find(([, v]) => v === val)?.[0] }
 }
@@ -102,28 +103,86 @@ export type MinifiedStateV3 = [
   ][],
 ]
 
-const currentVersion = 3;
+/**
+ * V4 nodes are heterogeneous: recipe nodes and annotation nodes have different tuple shapes.
+ * Recipe node tuple: [nodeType, id, x, y, recipeId, ltr, dataType]
+ * Annotation node tuple: [nodeType, id, x, y, text]
+ */
+export type MinifiedRecipeNodeV4 = [
+  string, // nodeType ("n")
+  string, // id
+  number, // x
+  number, // y
+  string, // recipeId
+  boolean, // ltr
+  string, // dataType (recipe, balancer, settlement)
+];
+
+export type MinifiedAnnotationNodeV4 = [
+  string, // nodeType ("a")
+  string, // id
+  number, // x
+  number, // y
+  string, // text
+];
+
+export type MinifiedStateV4 = [
+  number, // version (4)
+  string, // name
+  string, // zone
+  string, // icon (optional)
+  (MinifiedRecipeNodeV4 | MinifiedAnnotationNodeV4)[], // nodes
+  [ // edges
+    string, // type
+    string, // productId
+    string, // source
+    string, // target
+  ][],
+  [ // goals
+    string, // productId
+    number, // qty
+    "eq" | "lt" | "gt", // type
+    boolean, // isOutput
+  ][],
+]
+
+const currentVersion = 4;
 /**
  * Take Graph Store data and strip it to the basics needed to import
  * Strips out all keys in favor of an array with strict positions.
  * Any change to the data here needs to be versioned. 
  * Increase the currentVersion and make a migration for the old one in unminifyVersion
  */
-export function minify<T extends GraphCoreData>(state: T, zone: string, icon?: string): MinifiedStateV3 {
+export function minify<T extends GraphCoreData>(state: T, zone: string, icon?: string): MinifiedStateV4 {
   return [
     currentVersion,
     state.name,
     zone,
     icon || "",
-    Object.values(state.nodes).map(n => [
-      NodeTypes.get(n.type) as string,
-      n.id,
-      n.position.x,
-      n.position.y,
-      n.data.recipeId,
-      n.data.ltr ?? true,
-      DataTypes.get(n.data.type),
-    ]),
+    Object.values(state.nodes).map((n): MinifiedRecipeNodeV4 | MinifiedAnnotationNodeV4 => {
+      if (isAnnotationNode(n)) {
+        return [
+          NodeTypes.get(n.type) as string,
+          n.id,
+          n.position.x,
+          n.position.y,
+          n.data.text,
+        ];
+      }
+      if (isRecipeNode(n)) {
+        return [
+          NodeTypes.get(n.type) as string,
+          n.id,
+          n.position.x,
+          n.position.y,
+          n.data.recipeId,
+          n.data.ltr ?? true,
+          DataTypes.get(n.data.type),
+        ];
+      }
+      // Unreachable for known node types
+      throw new Error(`Unknown node type: ${(n as { type: string }).type}`);
+    }),
     Object.values(state.edges).map(e => [
       EdgeTypes.get(e.type) as string,
       e.sourceHandle,
@@ -156,6 +215,7 @@ class Unminify {
     1: this.one.bind(this),
     2: this.two.bind(this),
     3: this.three.bind(this),
+    4: this.four.bind(this),
   };
 
   constructor() { }
@@ -197,9 +257,9 @@ class Unminify {
         nodes.set(n[1], recipeId);
         return {
           id: n[1],
-          type: NodeTypes.find(n[0]) || "recipe-node",
+          type: "recipe-node" as const,
           position: { x: n[2], y: n[3] },
-          data: { recipeId: recipeId, ltr: n[5], type: 'recipe' },
+          data: { recipeId: recipeId, ltr: n[5], type: 'recipe' as const },
         }
       }),
       edges: min[3].map(e => {
@@ -256,20 +316,81 @@ class Unminify {
   three(data: MinifiedStateBase): GraphImportData {
     const min = data as MinifiedStateV3;
     const v2 = this.versions[2](min);
+    // V3 only had recipe nodes, so safely narrow
+    const recipeNodes = v2.nodes as GraphImportRecipeNode[];
     return {
       ...v2,
-      nodes: v2.nodes.map((n, index) => {
+      nodes: recipeNodes.map((n, index) => {
         const dataType = DataTypes.find(min[4][index][6]) || "recipe";
         return {
           ...n,
           data: {
             ...n.data,
             type: dataType,
-          } as RecipeNodeData,
+          },
+        } satisfies GraphImportRecipeNode;
+      }),
+    }
+  }
+
+  // V4 adds support for annotation nodes alongside recipe nodes.
+  // Node tuples are heterogeneous — annotation nodes have a shorter tuple with text.
+  four(data: MinifiedStateBase): GraphImportData {
+    const min = data as MinifiedStateV4;
+    // Reuse V3 for edges and goals (identical format), but handle nodes manually
+    const annotationNodeTypeCode = NodeTypes.get("annotation-node");
+
+    const nodes: GraphImportData["nodes"] = min[4].map(n => {
+      const nodeTypeCode = n[0];
+      if (nodeTypeCode === annotationNodeTypeCode) {
+        // Annotation node: [type, id, x, y, text]
+        const ann = n as MinifiedAnnotationNodeV4;
+        return {
+          id: ann[1],
+          type: "annotation-node" as const,
+          position: { x: ann[2], y: ann[3] },
+          data: { text: ann[4] },
+        };
+      }
+      // Recipe node: [type, id, x, y, recipeId, ltr, dataType]
+      const rec = n as MinifiedRecipeNodeV4;
+      const recipeId = rec[4] as RecipeId;
+      if (recipes.has(recipeId) === false) {
+        throw new Error("Unknown recipeId in node: " + rec[4]);
+      }
+      const dataType = DataTypes.find(rec[6]) || "recipe";
+      return {
+        id: rec[1],
+        type: "recipe-node" as const,
+        position: { x: rec[2], y: rec[3] },
+        data: {
+          type: dataType,
+          recipeId: recipeId,
+          ltr: rec[5],
+        },
+      };
+    });
+
+    return {
+      name: min[1],
+      zoneName: min[2],
+      icon: min[3],
+      nodes,
+      edges: min[5].map(e => {
+        return {
+          type: EdgeTypes.find(e[0]) || "button-edge",
+          source: e[2],
+          target: e[3],
+          product: e[1] as ProductId,
         }
       }),
-
-    }
+      goals: min[6].map(g => ({
+        productId: g[0] as ProductId,
+        qty: g[1],
+        type: g[2],
+        dir: g[3] ? "output" : "input",
+      }))
+    };
   }
 }
 
@@ -371,9 +492,9 @@ export type MinifiedStateV1 = [
 ]
 
 /**
- * Bulk export format: flat array of V3 minified factories
+ * Bulk export format: flat array of V4 minified factories
  */
-export type BulkExportData = MinifiedStateV3[];
+export type BulkExportData = MinifiedStateV4[];
 
 /**
  * Result of parsing a bulk import - contains all factories and grouped by zone
@@ -388,7 +509,7 @@ export interface BulkImportData {
 
 /**
  * Minify multiple factories for bulk export
- * Returns a flat array of V3 minified factories
+ * Returns a flat array of V4 minified factories
  */
 export function minifyBulk(
   factories: Array<{ state: GraphCoreData; zoneName: string; icon?: string }>
@@ -455,7 +576,7 @@ export async function decompressBulk(b64: string): Promise<BulkImportData> {
 /**
  * Extract metadata from minified factory data without fully unminifying
  */
-export function getFactoryMetadataFromMinified(min: MinifiedStateV2 | MinifiedStateV3): FactoryExportMetadata {
+export function getFactoryMetadataFromMinified(min: MinifiedStateV2 | MinifiedStateV3 | MinifiedStateV4): FactoryExportMetadata {
   return {
     id: '', // ID is not stored in export, will be assigned on import
     name: min[1],

@@ -10,6 +10,7 @@ import type { ProductionZoneStoreData } from "~/context/ZoneProvider";
 import useFactory, { useFactoryStore } from "~/factory/FactoryContext";
 import { loadData, type ProductId } from "~/factory/graph/loadJsonData";
 import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
+import { isRecipeNode } from "~/factory/graph/nodes";
 import hydration from "~/hydration";
 import { useStableParam } from "~/routes";
 import { productIcon } from "~/uiUtils";
@@ -202,7 +203,7 @@ function FactoryDebug() {
       "elk.spacing.portPort": "100",
       "elk.layered.nodePlacement.favorStraightEdges": "true"
     },
-    children: factoryStore.nodes.map(n => {
+    children: factoryStore.nodes.filter(isRecipeNode).map(n => {
       const inputs = getRecipeInputs(n.data.recipeId);
       const outputs = getRecipeOutputs(n.data.recipeId);
 

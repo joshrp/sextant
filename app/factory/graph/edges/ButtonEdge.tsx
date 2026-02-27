@@ -13,6 +13,7 @@ import useFactory, { useFactoryStore } from "~/factory/FactoryContext";
 import type { HighlightModes } from "~/factory/store";
 import { loadData, type ProductId } from "../loadJsonData";
 import { productIcon } from "~/uiUtils";
+import { isRecipeNode } from "../nodes";
 
 export type ManifoldState = "Under" | "Neutral" | "Over"
 
@@ -59,7 +60,7 @@ export default function ButtonEdge({
 
   const manifoldOptions = useFactoryStore(state => state.manifoldOptions);
 
-  const nodes = useFactory().store.getState().nodes;
+  const nodes = useFactory().store.getState().nodes.filter(isRecipeNode);
   const highlight = useFactoryStore(state => state.highlight);
 
   const [hasSelectedHandle, setHasSelectedHandle] = useState(false);

@@ -85,7 +85,7 @@ export default function RecipeNodeView({
               <ProductHandle
                 key={prod.product.id}
                 product={prod.product}
-                quantity={prod.quantity * runCount}
+                quantity={prod.quantity}
                 optional={prod.optional}
                 position={Position.Left}
                 isInput={ltr}
@@ -121,7 +121,7 @@ export default function RecipeNodeView({
               <ProductHandle
                 key={prod.product.id}
                 product={prod.product}
-                quantity={prod.quantity * runCount}
+                quantity={prod.quantity}
                 optional={prod.optional}
                 position={Position.Right}
                 isInput={!ltr}

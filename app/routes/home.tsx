@@ -44,7 +44,7 @@ export default function Home() {
 
   return <>
     <main className="h-[100vh] w-[100vw] overflow-hidden bg-gray-800">
-      <div className="max-w-[100vw] h-10 p-2 ml-10 flex flex-row gap-4 items-center text-gray-300 texture-panel">
+      <div className="max-w-[100vw] h-10 p-2 ml-10 flex flex-row gap-2 items-center text-gray-300 texture-panel">
         <ZoneHeader selectedZone={selectedZone} />
       </div>
       {zone && (

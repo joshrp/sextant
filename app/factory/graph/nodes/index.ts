@@ -1,6 +1,11 @@
 import type { NodeTypes } from "@xyflow/react";
-import RecipeNode, { type RecipeNode as RecipeNodeType} from "../RecipeNode";
+import RecipeNode from "../RecipeNode";
+import AnnotationNode from "../AnnotationNodeView";
 import type { RecipeId } from "../loadJsonData";
+import type { RecipeNodeType } from "../nodeTypes";
+
+export type { CustomNodeType, RecipeNodeType, AnnotationNodeType } from "../nodeTypes";
+export { isRecipeNode, isAnnotationNode } from "../nodeTypes";
 
 export const initialNodes = [
   { 
@@ -30,8 +35,6 @@ export const initialNodes = [
 ] satisfies RecipeNodeType[];
 
 export const nodeTypes = {
-  "recipe-node": RecipeNode, 
+  "recipe-node": RecipeNode,
+  "annotation-node": AnnotationNode,
 } satisfies NodeTypes;
-
-// Append the types of you custom edges to the BuiltInNode type
-export type CustomNodeType = RecipeNodeType;

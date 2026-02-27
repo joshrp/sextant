@@ -18,6 +18,10 @@ import { basicGraphState, emptyGraphState } from '~/test/fixtures/graphStates';
 import type { ProductId } from '~/factory/graph/loadJsonData';
 import type { GraphStore } from '~/factory/store';
 import type { ManifoldOptions, GraphModel } from '~/factory/solver/types';
+import type { RecipeNode } from '~/factory/graph/RecipeNode';
+
+/** Narrow a CustomNodeType to RecipeNode for type-safe assertions */
+const asRecipe = (node: { data: unknown }) => node as RecipeNode;
 
 describe('GraphStore Reducers', () => {
   describe('updateNodeData', () => {
@@ -25,9 +29,9 @@ describe('GraphStore Reducers', () => {
       const result = updateNodeData(basicGraphState, 'node-1', { ltr: false });
 
       // Node data should be updated
-      expect(result.nodes[0].data.ltr).toBe(false);
+      expect(asRecipe(result.nodes[0]).data.ltr).toBe(false);
       // Other node data should be preserved
-      expect(result.nodes[0].data.recipeId).toBe('SteamLpCondensation');
+      expect(asRecipe(result.nodes[0]).data.recipeId).toBe('SteamLpCondensation');
       // State should be immutable (new object)
       expect(result).not.toBe(basicGraphState);
       expect(result.nodes).not.toBe(basicGraphState.nodes);
@@ -40,9 +44,9 @@ describe('GraphStore Reducers', () => {
         solution: { solved: true, runCount: 5 },
       });
 
-      expect(result.nodes[0].data.solution).toEqual({ solved: true, runCount: 5 });
-      expect(result.nodes[0].data.recipeId).toBe('SteamLpCondensation');
-      expect(result.nodes[0].data.ltr).toBe(true);
+      expect(asRecipe(result.nodes[0]).data.solution).toEqual({ solved: true, runCount: 5 });
+      expect(asRecipe(result.nodes[0]).data.recipeId).toBe('SteamLpCondensation');
+      expect(asRecipe(result.nodes[0]).data.ltr).toBe(true);
     });
 
     test('handles missing node gracefully', () => {
@@ -293,8 +297,8 @@ describe('GraphStore Reducers', () => {
       state = updateScoringMethod(state, 'inputs');
 
       expect(state).not.toBe(basicGraphState);
-      expect(state.nodes[0].data.ltr).toBe(false);
-      expect(state.nodes[1].data.ltr).toBe(false);
+      expect(asRecipe(state.nodes[0]).data.ltr).toBe(false);
+      expect(asRecipe(state.nodes[1]).data.ltr).toBe(false);
       expect(state.scoringMethod).toBe('inputs');
     });
   });

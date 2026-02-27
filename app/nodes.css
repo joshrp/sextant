@@ -173,3 +173,57 @@
 
   overflow: hidden;
 }
+
+/* Annotation node markdown content styles */
+.annotation-content {
+
+  @apply text-xl p-4;
+
+  & h1 {
+    @apply text-6xl font-bold mb-4 ;
+  }
+
+  & h2 {
+    @apply text-4xl font-semibold mb-4;
+  }
+
+  & h3 {
+    @apply text-2xl font-semibold mb-2;
+  }
+
+  & p {
+    @apply text-lg mb-1;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  & ul,
+  & ol {
+    @apply mb-1 pl-4;
+  }
+
+  & ul {
+    @apply list-disc;
+  }
+  & ol {
+    @apply list-decimal;
+  }
+
+  & li {
+    @apply mb-0;
+  }
+
+  & code {
+    @apply bg-gray-800 px-1 rounded;
+  }
+
+  & a {
+    @apply underline;
+  }
+
+  & blockquote {
+    @apply border-l-2 pl-2 italic;
+  }
+}

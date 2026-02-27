@@ -8,6 +8,7 @@ import type { ProductionZoneStoreData } from "~/context/ZoneProvider";
 import type { GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
 import type { NodeDataTypes, SettlementNodeData } from "~/factory/graph/recipeNodeLogic";
+import { isRecipeNode } from "~/factory/graph/nodeTypes";
 
 /**
  * Update data for a specific node immutably
@@ -39,7 +40,7 @@ export function updateSettlementOptions(
   return {
     ...state,
     nodes: state.nodes.map(node =>
-      node.id === nodeId && node.data.type === "settlement"
+      node.id === nodeId && isRecipeNode(node) && node.data.type === "settlement"
         ? { ...node, data: { ...node.data, options: { ...node.data.options, ...options } } }
         : node
     ),

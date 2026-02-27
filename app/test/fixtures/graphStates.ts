@@ -2,7 +2,7 @@
  * Test fixtures for GraphStore state
  * Provides sample graph states for testing reducers
  */
-import type { CustomNodeType } from "~/factory/graph/nodes";
+import type { CustomNodeType } from "~/factory/graph/nodeTypes";
 import type { CustomEdgeType } from "~/factory/graph/edges";
 import type { ProductId, RecipeId } from "~/factory/graph/loadJsonData";
 import type { GraphSolutionState } from "~/factory/store";
@@ -17,13 +17,13 @@ export const basicGraphState: GraphSolutionState = {
       id: "node-1",
       type: "recipe-node",
       position: { x: 0, y: 0 },
-      data: { recipeId: "SteamLpCondensation" as RecipeId, ltr: true },
+      data: { type: "recipe" as const, recipeId: "SteamLpCondensation" as RecipeId, ltr: true },
     },
     {
       id: "node-2",
       type: "recipe-node",
       position: { x: 200, y: 0 },
-      data: { recipeId: "AcidMixMixingT2" as RecipeId, ltr: true },
+      data: { type: "recipe" as const, recipeId: "AcidMixMixingT2" as RecipeId, ltr: true },
     },
   ] as CustomNodeType[],
   edges: [

@@ -9,15 +9,15 @@ import type { ProductionZoneStoreData } from "../context/ZoneProvider";
 import type { CustomEdgeType } from "./graph/edges";
 import type { ButtonEdge, ButtonEdgeData } from "./graph/edges/ButtonEdge";
 import type { ProductId, RecipeId } from "./graph/loadJsonData";
-import type { CustomNodeType, } from "./graph/nodes";
-import type { RecipeNodeData } from "./graph/RecipeNode";
+import type { CustomNodeType } from "./graph/nodeTypes";
+import type { BalancerNodeData, NodeDataTypes, RecipeNodeData, SettlementNodeData } from "./graph/recipeNodeLogic";
+import type { AnnotationNodeData } from "./graph/annotationNode";
 import { createGraphModel, solve } from "./solver/solver";
 import type { Constraint, FactoryGoal, GraphModel, GraphScoringMethod, ManifoldOptions, Solution, SolutionStatus } from "./solver/types";
 import * as reducers from "~/context/reducers/graphReducers";
 import { minify } from "./importexport/importexport";
 import type { IDB } from "~/context/idb";
 import type { FactoryFixture } from "./fixtures";
-import type { BalancerNodeData, NodeDataTypes, SettlementNodeData } from "./graph/recipeNodeLogic";
 
 // Default empty settlement options for backward compatibility when importing settlements without options
 const EMPTY_SETTLEMENT_OPTIONS: SettlementNodeData["options"] = { 
@@ -49,7 +49,7 @@ export interface GraphStoreActions {
   addEdge: (edge: CustomEdgeType) => void;
   onNodesChange: OnNodesChange<CustomNodeType>;
   onEdgesChange: OnEdgesChange;
-  setNodeData: (nodeId: string, data: Partial<RecipeNodeData>) => void,
+  setNodeData: (nodeId: string, data: Partial<RecipeNodeData | AnnotationNodeData>) => void,
   setEdgeData: (edgeId: string, data: Partial<ButtonEdgeData>) => void,
   onConnect: OnConnect;
   forceSetNodesEdges: () => void,
@@ -168,7 +168,10 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
 
           addNode: (node) => {
             set({ nodes: [...get().nodes.concat(node)] }, false, "addNode");
-            get().graphUpdateAction();
+            // Only rebuild graph & re-solve for recipe nodes
+            if (node.type === "recipe-node") {
+              get().graphUpdateAction();
+            }
           },
           addEdge: (connection) => {
             set(state => ({ edges: addEdge(connection, state.edges) }), false, "addEdge");
@@ -185,7 +188,9 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
               type: "remove",
               id: e.id
             })));
-            get().graphUpdateAction();
+            if (node[0]?.type === "recipe-node") {
+              get().graphUpdateAction();
+            }
           },
           onNodesChange: (changes) => {
             set({
@@ -346,12 +351,17 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
           importData: async (data: GraphImportData, options?: { skipSolver?: boolean }) => {
 
             const newNodes: GraphCoreData["nodes"] = data.nodes.map(n => {
-              if (!('recipeId' in n.data)) {
-                throw new Error(`Node data for node ${n.id} is missing recipeId`);
+              // Handle annotation nodes
+              if (n.type === 'annotation-node') {
+                return {
+                  id: n.id,
+                  type: 'annotation-node' as const,
+                  position: n.position,
+                  data: { text: n.data.text },
+                };
               }
-              if (n.type !== 'recipe-node') {
-                throw new Error(`Unsupported node type ${n.type} for node ${n.id}`);
-              }
+
+              // After annotation-node check, n is narrowed to GraphImportRecipeNode
               // Default to "recipe" type if not specified for backwards compatibility
               const nodeType = n.data.type ?? "recipe";
               
@@ -505,17 +515,7 @@ export type GraphImportData = {
   name: string;
   icon: string;
   zoneName: string;
-  nodes: {
-    id: string;
-    type: string;
-    position: { x: number; y: number; };
-    data: { 
-      type?: "recipe" | "balancer" | "settlement"; 
-      recipeId: RecipeId, 
-      ltr?: boolean;
-      options?: { inputs: Record<ProductId, boolean>; outputs: Record<ProductId, boolean>; };
-    };
-  }[],
+  nodes: (GraphImportRecipeNode | GraphImportAnnotationNode)[],
   edges: {
     type: string;
     source: string;
@@ -528,4 +528,25 @@ export type GraphImportData = {
     type: "eq" | "lt" | "gt";
     dir: "input" | "output";
   }[]
+};
+
+export type GraphImportRecipeNode = {
+  id: string;
+  type: "recipe-node";
+  position: { x: number; y: number; };
+  data: {
+    type?: "recipe" | "balancer" | "settlement";
+    recipeId: RecipeId;
+    ltr?: boolean;
+    options?: { inputs: Record<ProductId, boolean>; outputs: Record<ProductId, boolean>; };
+  };
+};
+
+export type GraphImportAnnotationNode = {
+  id: string;
+  type: "annotation-node";
+  position: { x: number; y: number; };
+  data: {
+    text: string;
+  };
 };

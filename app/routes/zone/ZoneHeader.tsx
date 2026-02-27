@@ -1,5 +1,5 @@
 import { Button, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { ChevronDownIcon, InformationCircleIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, InformationCircleIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { PencilIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
@@ -57,7 +57,7 @@ export default function ZoneHeader({ selectedZone }: { selectedZone?: string }) 
 
   return (<>
     <h1 className="shrink-1 border-r-2 border-gray-400 pr-8">Factory Planner</h1>
-    <h2 className="shrink-1">Zone:</h2>
+    <h2 className="shrink-1 ml-6">Zone:</h2>
     <Menu>
       <MenuButton className="text-white items-middle flex-row flex h-full px-2 shrink-1 rounded-sm bg-gray-700 cursor-pointer texture-embossed">
         {zone?.icon && <img src={zone.icon} alt="" className="flex-1 block mr-2" />}
@@ -92,7 +92,7 @@ export default function ZoneHeader({ selectedZone }: { selectedZone?: string }) 
     <Button className="shrink-1 -mt-1 cursor-pointer hover:text-gray-700 text-white"
       title="Create New Zone"
       onClick={() => setIsCreatingNew(true)} >
-      <PencilSquareIcon className="w-5 h-full inline-block" />
+      <PlusIcon className="w-5 h-full inline-block" />
     </Button>
     <div className="flex-1" />
     <Link
