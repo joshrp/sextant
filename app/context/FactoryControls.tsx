@@ -90,8 +90,15 @@ export default function FactoryControls({
   const showScore = (solutionStatus == "Solved" || solutionStatus == "Partial") && solution;
 
   const hasInputGoal = useFactoryStore(state => state.goals.some(g => g.qty < 0 && g.type != "gt"));
+  const isEmpty = useFactoryStore(state => state.nodes.length === 0 && state.goals.length === 0);
   return (<div className="factoryControls px-2 flex justify-stretch w-full">
-    <button className="p-1 block cursor-pointer" onClick={graphUpdateAction} data-testid="factory-controls-graph-update-button"><ArrowPathRoundedSquareIcon className="mx-auto h-full" /></button>
+    <button
+      className="p-1 block cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+      onClick={graphUpdateAction}
+      disabled={isEmpty}
+      title={isEmpty ? "Add goals and recipes first" : "Solve / update"}
+      data-testid="factory-controls-graph-update-button"
+    ><ArrowPathRoundedSquareIcon className="mx-auto h-full" /></button>
 
     <Menu key="factory-menu" as="div" className="relative">
       <MenuButton className="cursor-pointer h-full" data-testid="factory-controls-solution-method-menu-button">

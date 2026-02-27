@@ -119,6 +119,13 @@ export default function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { 
           </li>)
         )}
 
+        {/* Hint when only one factory */}
+        {factories.length <= 1 && expanded && (
+          <li className="px-2 py-2 text-xs text-gray-500 italic text-center">
+            Create new factories in this zone to plan different areas
+          </li>
+        )}
+
         {/* New & Import & Archive Controls */}
         <li className="p-1 mt-2 bg-gray-800 flex flex-row justify-center-safe gap-4 text-white group-data-expanded:text-left
         border-2 border-gray-700 border-r-0 rounded-l texture-embossed

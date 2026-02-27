@@ -82,6 +82,11 @@ export default function ZoneHeader({ selectedZone }: { selectedZone?: string }) 
             </div>
           </MenuItem>
         ))}
+        {zones.length <= 1 && (
+          <div className="px-3 py-2 text-xs text-gray-400 italic border-t border-gray-500">
+            Zones are isolated production areas
+          </div>
+        )}
       </MenuItems>
     </Menu>
     <Button className="shrink-1 -mt-1 cursor-pointer hover:text-gray-700 text-white"

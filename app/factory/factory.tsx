@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { SelectorDialog } from 'app/components/Dialog';
+import EmptyStateCard from "~/components/EmptyStateCard";
 import Graph from "app/factory/graph/graph";
 import Sidebar from "app/factory/graph/sidebar";
 
@@ -39,6 +40,7 @@ export type AddRecipeNode = {
 export function Factory() {
   const addNode = useFactoryStore(state => state.addNode);
   const onConnect = useFactoryStore(state => state.onConnect);
+  const hasNodes = useFactoryStore(state => state.nodes.length > 0);
 
   const [addRecipeNode, setAddRecipeNode] = useState<AddRecipeNode | null>(null);
   const recipeSelectorProduct = addRecipeNode ? products.get(addRecipeNode.productId) : null
@@ -215,6 +217,14 @@ export function Factory() {
       <div className="flex-1">
         <div className="w-full h-full relative">
           <FactoryOverlayBar />
+          {!hasNodes && (
+            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+              <EmptyStateCard
+                variant="centered"
+                text="Add a production goal from the sidebar to start building"
+              />
+            </div>
+          )}
           <ReactFlowProvider>
             <Graph addNewRecipe={addNewRecipe} smartPositionRef={smartPositionRef} />
           </ReactFlowProvider>
