@@ -2,13 +2,14 @@ import { openDB } from "idb";
 import { useCallback, useEffect, useRef, type ReactNode } from "react";
 import { createStore } from "zustand";
 
-import { devtools, persist, subscribeWithSelector, type StorageValue } from "zustand/middleware";
+import { devtools, persist, type StorageValue } from "zustand/middleware";
 import { setDebugSolver } from "~/factory/solver/solver";
 import FactoryStore from "~/factory/store";
 import hydration from "~/hydration";
 import type { ExportableFactory, ExportableZone } from "~/types/bulkOperations";
 import { PlannerContext, type BulkImportItem } from "./PlannerContext";
-import type { ProductionZoneStore, ProductionZoneStoreData } from "./ZoneProvider";
+import type { ProductionZoneStore, ProductionZoneStoreData } from "./ZoneStore";
+import { createZoneStore } from "./ZoneStore";
 import { deleteIdb, getIdb as getZoneIdb, zoneObjectStore } from "./idb";
 import { factoryIdFromName } from "./utils";
 import { clearCachedZoneStore, getCachedZoneStore, setCachedZoneStore } from "./zoneCache";
@@ -54,7 +55,9 @@ export const PlannerProvider = ({ children }: { children: ReactNode }) => {
       }
     }
 
-    // Import factories into each zone
+    // Import factories into each zone (without solving), collecting stores for the solve pass
+    const importedFactoryStores: ReturnType<typeof FactoryStore>[] = [];
+
     for (const [zoneId, zoneItems] of itemsByZone) {
       // Get or create the zone IDB
       const zoneIdb = getZoneIdb(zoneId);
@@ -70,35 +73,36 @@ export const PlannerProvider = ({ children }: { children: ReactNode }) => {
         if (!zone) throw new Error("Zone not found: " + zoneId);
         
         // Create and await hydration of the zone store
-        zoneStore = await createMinimalZoneStoreAsync(zoneIdb, zoneId, zone.name);
+        zoneStore = await createZoneStoreAsync(zoneIdb, zoneId, zone.name);
         setCachedZoneStore(zoneId, zoneStore, zoneIdb);
       }
-      const solvers = [];
 
-      // Import each factory into the zone
+      // Import each factory into the zone without solving
       for (const item of zoneItems) {
         const factoryName = item.data.name;
         // Use factoryIdFromName to get base ID
         const baseFactoryId = factoryIdFromName(factoryName);
 
         // Add factory to zone's factory list first - this handles ID collision and returns actual ID
-        const actualFactoryId = zoneStore.getState().newFactory(factoryName, baseFactoryId);
+        const actualFactoryId = zoneStore.getState().newFactory(factoryName, baseFactoryId, item.data.icon || undefined);
 
         // Create the factory store with the actual ID and import data without running solver
         const factoryStore = FactoryStore(zoneIdb, { id: actualFactoryId, name: factoryName });
         await factoryStore.Graph.getState().importData(item.data, { skipSolver: true });
-        solvers.push(factoryStore.Graph.getState().graphUpdateAction);
+        importedFactoryStores.push(factoryStore);
+        
         // Wait for factory store to persist to IDB
         await waitForStorePersist();
       }
       
       // Wait for zone store to persist after all factories are added
       await waitForStorePersist();
+    }
 
-      // Run solvers after all factories are imported and persisted
-      for (const solve of solvers) {
-        await solve();
-      }
+    // All factories are now persisted — run solves
+    for (const factoryStore of importedFactoryStores) {
+      await factoryStore.Graph.getState().graphUpdateAction();
+      await waitForStorePersist();
     }
   }, []);
 
@@ -154,13 +158,13 @@ export const PlannerProvider = ({ children }: { children: ReactNode }) => {
               zoneId: zone.id,
               zoneName: zone.name,
               zoneIcon: zone.icon,
-              name: state.name || factory.name,
+              name: factory.name || state.name,
               icon: factory.icon,
               nodeCount: state.nodes?.length || 0,
               edgeCount: state.edges?.length || 0,
               goalCount: state.goals?.length || 0,
               data: {
-                name: state.name || factory.name,
+                name: factory.name || state.name,
                 nodes: state.nodes || [],
                 edges: state.edges || [],
                 goals: state.goals || [],
@@ -256,86 +260,25 @@ async function waitForStorePersist(): Promise<void> {
 }
 
 /**
- * Create a minimal zone store for import operations and wait for hydration
- * This avoids the full ProductionZoneProvider machinery
+ * Create a real zone store for import operations and wait for hydration.
+ * Uses the same Store factory as ProductionZoneProvider to ensure version
+ * compatibility and correct migration of persisted data.
  */
-async function createMinimalZoneStoreAsync(
-  idb: ReturnType<typeof getZoneIdb>, 
-  zoneId: string, 
+async function createZoneStoreAsync(
+  idb: ReturnType<typeof getZoneIdb>,
+  zoneId: string,
   zoneName: string
 ): Promise<ProductionZoneStore> {
+  if (!idb) throw new Error("IDB is null for zone: " + zoneId);
+  const store = createZoneStore(idb, { id: zoneId, name: zoneName });
+
   return new Promise((resolve) => {
-    const store: ProductionZoneStore = createStore<ProductionZoneStoreData>()(
-      subscribeWithSelector(
-        persist(
-          devtools(
-            (set, get) => ({
-              id: zoneId,
-              name: zoneName,
-              factories: [],
-              weights: {
-                base: "early" as const,
-                products: new Map(),
-                infrastructure: new Map(),
-              },
-              lastFactory: undefined,
-              productDisplayMode: "icons" as const,
-              setProductDisplayMode: () => {},
-              newFactory: (name: string, id?: string) => {
-                const settings = get();
-                if (!id) id = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
-                if (settings.factories.some(f => f.id === id)) {
-                  id = id + "-" + Date.now().toString().slice(-4);
-                }
-                set({
-                  factories: [...settings.factories, {
-                    id: id,
-                    name: name.trim(),
-                    order: settings.factories.length,
-                  }]
-                });
-                return id;
-              },
-              renameFactory: () => {},
-              updateFactory: () => {},
-              setLastFactory: () => {},
-              removeFactory: () => {},
-            })
-          ),
-          {
-            name: "current-state",
-            storage: {
-              getItem: async (name: string) => {
-                if (!idb) return null;
-                const str = await (await idb).get(zoneObjectStore, name);
-                if (!str) return null;
-                return JSON.parse(str, hydration.reviver);
-              },
-              setItem: async (name: string, newValue: StorageValue<ProductionZoneStoreData>) => {
-                if (!idb) return;
-                const str = JSON.stringify(newValue, hydration.replacer);
-                return (await idb).put(zoneObjectStore, str, name);
-              },
-              removeItem: async (name: string) => {
-                if (!idb) return;
-                return (await idb).delete(zoneObjectStore, name);
-              }
-            },
-          }
-        )
-      )
-    );
-    
-    // Wait for hydration to complete before resolving
-    // For new zones, the hydration will complete quickly since there's no data to load
-    store.persist.onFinishHydration(() => {
-      resolve(store);
-    });
-    
-    // If hydration has already completed (synchronously), resolve immediately
+    // If hydration already completed synchronously, resolve immediately
     if (store.persist.hasHydrated()) {
       resolve(store);
+      return;
     }
+    store.persist.onFinishHydration(() => resolve(store));
   });
 }
 

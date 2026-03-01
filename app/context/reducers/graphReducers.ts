@@ -4,7 +4,7 @@
  */
 import type { ButtonEdgeData } from "~/factory/graph/edges/ButtonEdge";
 import type { GraphSolutionState, GraphStore } from "~/factory/store";
-import type { ProductionZoneStoreData } from "~/context/ZoneProvider";
+import type { ProductionZoneStoreData } from "~/context/ZoneStore";
 import type { GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
 import type { NodeDataTypes, SettlementNodeData } from "~/factory/graph/recipeNodeLogic";

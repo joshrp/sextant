@@ -5,7 +5,7 @@ import { addEdge, applyEdgeChanges, applyNodeChanges, getConnectedEdges, type On
 
 import type { StorageValue } from "zustand/middleware";
 import hydration from "~/hydration";
-import type { ProductionZoneStoreData } from "../context/ZoneProvider";
+import type { ProductionZoneStoreData } from "../context/ZoneStore";
 import type { CustomEdgeType } from "./graph/edges";
 import type { ButtonEdge, ButtonEdgeData } from "./graph/edges/ButtonEdge";
 import type { ProductId, RecipeId } from "./graph/loadJsonData";

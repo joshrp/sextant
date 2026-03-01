@@ -1,4 +1,4 @@
-import type { ProductionZoneStore } from "./ZoneProvider";
+import type { ProductionZoneStore } from "./ZoneStore";
 import type { IDB } from "./idb";
 
 type ZoneCacheEntry = { store: ProductionZoneStore, idb: IDB };

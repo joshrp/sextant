@@ -6,7 +6,7 @@ import { ChevronDownIcon, ClipboardIcon, InformationCircleIcon } from "@heroicon
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import usePlanner, { usePlannerStore } from "~/context/PlannerContext";
 import { default as useProductionMatrix } from "~/context/ZoneContext";
-import type { ProductionZoneStoreData } from "~/context/ZoneProvider";
+import type { ProductionZoneStoreData } from "~/context/ZoneStore";
 import useFactory, { useFactoryStore } from "~/factory/FactoryContext";
 import { loadData, type ProductId } from "~/factory/graph/loadJsonData";
 import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
