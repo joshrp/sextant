@@ -1,0 +1,327 @@
+{
+  "factory": [
+    4,
+    "2",
+    "test-zone",
+    "",
+    [
+      [
+        "n",
+        "Crop_Potato_Product_Fertilizer2_1_1772662706527",
+        -310.5862831848037,
+        172.31351310380887,
+        "Crop_Potato_Product_Fertilizer2_1",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "AnimalFeedFromPotatoT2_1772877574214",
+        335.9993954964329,
+        184.34483277473578,
+        "AnimalFeedFromPotatoT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "ChickenFarm_1772877578001",
+        929.572500909074,
+        321.0716446128637,
+        "ChickenFarm",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "MeatProcessingTrimmings_1772877593353",
+        1416.0246048189924,
+        384.73628539046683,
+        "MeatProcessingTrimmings",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "SausageProduction_1772877595716",
+        1977.7958531262789,
+        382.00198024949066,
+        "SausageProduction",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Fertilizer2ProductionT2_1772877601633",
+        335.9993941762147,
+        -220.65564242140164,
+        "Fertilizer2ProductionT2",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "FertilizerProductionFromOrganicT2_1772877603726",
+        805.7777352290168,
+        -376.0214176115407,
+        "FertilizerProductionFromOrganicT2",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "OrganicFertilizerProductionDirtT2_1772877615913",
+        1394.2016405573258,
+        -369.2242422824405,
+        "OrganicFertilizerProductionDirtT2",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "AnimalFeedCompostT2_1772877622243",
+        1968.9543112468934,
+        -319.54842048713397,
+        "AnimalFeedCompostT2",
+        false,
+        "r"
+      ]
+    ],
+    [
+      [
+        "b",
+        "Product_Potato",
+        "Crop_Potato_Product_Fertilizer2_1_1772662706527",
+        "AnimalFeedFromPotatoT2_1772877574214"
+      ],
+      [
+        "b",
+        "Product_AnimalFeed",
+        "AnimalFeedFromPotatoT2_1772877574214",
+        "ChickenFarm_1772877578001"
+      ],
+      [
+        "b",
+        "Product_ChickenCarcass",
+        "ChickenFarm_1772877578001",
+        "MeatProcessingTrimmings_1772877593353"
+      ],
+      [
+        "b",
+        "Product_MeatTrimmings",
+        "MeatProcessingTrimmings_1772877593353",
+        "SausageProduction_1772877595716"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Fertilizer2ProductionT2_1772877601633",
+        "Crop_Potato_Product_Fertilizer2_1_1772662706527"
+      ],
+      [
+        "b",
+        "Product_Fertilizer",
+        "FertilizerProductionFromOrganicT2_1772877603726",
+        "Fertilizer2ProductionT2_1772877601633"
+      ],
+      [
+        "b",
+        "Product_FertilizerOrganic",
+        "OrganicFertilizerProductionDirtT2_1772877615913",
+        "FertilizerProductionFromOrganicT2_1772877603726"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "AnimalFeedCompostT2_1772877622243",
+        "OrganicFertilizerProductionDirtT2_1772877615913"
+      ],
+      [
+        "b",
+        "Product_AnimalFeed",
+        "AnimalFeedFromPotatoT2_1772877574214",
+        "AnimalFeedCompostT2_1772877622243"
+      ]
+    ],
+    [
+      [
+        "Product_Sausage",
+        10,
+        "eq",
+        true
+      ]
+    ]
+  ],
+  "manifoldOptions": [],
+  "scoringMethod": "infra",
+  "previousSolutionObjectiveValue": 157.0531934572182,
+  "expected": {
+    "objectiveValue": 157.0531934572182,
+    "nodeCounts": [
+      {
+        "nodeId": "Crop_Potato_Product_Fertilizer2_1_1772662706527",
+        "count": 1.17613
+      },
+      {
+        "nodeId": "AnimalFeedFromPotatoT2_1772877574214",
+        "count": 0.189487
+      },
+      {
+        "nodeId": "ChickenFarm_1772877578001",
+        "count": 1.11111
+      },
+      {
+        "nodeId": "MeatProcessingTrimmings_1772877593353",
+        "count": 0.37037
+      },
+      {
+        "nodeId": "SausageProduction_1772877595716",
+        "count": 0.416667
+      },
+      {
+        "nodeId": "Fertilizer2ProductionT2_1772877601633",
+        "count": 0.0686107
+      },
+      {
+        "nodeId": "FertilizerProductionFromOrganicT2_1772877603726",
+        "count": 0.0457405
+      },
+      {
+        "nodeId": "OrganicFertilizerProductionDirtT2_1772877615913",
+        "count": 0.0285878
+      },
+      {
+        "nodeId": "AnimalFeedCompostT2_1772877622243",
+        "count": 0.0571756
+      },
+      {
+        "nodeId": "AnimalFeedFromPotatoT2_1772877574214",
+        "count": 0.189487
+      },
+      {
+        "nodeId": "MeatProcessingTrimmings_1772877593353",
+        "count": 0.37037
+      },
+      {
+        "nodeId": "SausageProduction_1772877595716",
+        "count": 0.416667
+      },
+      {
+        "nodeId": "Fertilizer2ProductionT2_1772877601633",
+        "count": 0.0686107
+      },
+      {
+        "nodeId": "FertilizerProductionFromOrganicT2_1772877603726",
+        "count": 0.0457405
+      },
+      {
+        "nodeId": "OrganicFertilizerProductionDirtT2_1772877615913",
+        "count": 0.0285878
+      },
+      {
+        "nodeId": "AnimalFeedCompostT2_1772877622243",
+        "count": 0.0571756
+      },
+      {
+        "nodeId": "Crop_Potato_Product_Fertilizer2_1_1772662706527",
+        "count": 1.17613
+      },
+      {
+        "nodeId": "ChickenFarm_1772877578001",
+        "count": 1.11111
+      }
+    ],
+    "infrastructure": {
+      "workers": 90,
+      "electricity": 165.772,
+      "computing": 0,
+      "maintenance_1": 6.87585,
+      "maintenance_2": 0.182962,
+      "maintenance_3": 0,
+      "footprint": 5669,
+      "workers_generated": 0,
+      "electricity_generated": 0,
+      "computing_generated": 0,
+      "maintenance_1_generated": 0,
+      "maintenance_2_generated": 0,
+      "maintenance_3_generated": 0,
+      "frastructure_total": 100.363
+    },
+    "products": {
+      "inputs": [
+        {
+          "productId": "Product_Water",
+          "amount": -63.1074
+        },
+        {
+          "productId": "Product_Flour",
+          "amount": -2.5
+        },
+        {
+          "productId": "Product_Salt",
+          "amount": -3.75
+        },
+        {
+          "productId": "Product_Limestone",
+          "amount": -0.823329
+        },
+        {
+          "productId": "Product_Sulfur",
+          "amount": -0.823329
+        },
+        {
+          "productId": "Product_Ammonia",
+          "amount": -1.09777
+        },
+        {
+          "productId": "Product_Oxygen",
+          "amount": -1.64666
+        },
+        {
+          "productId": "Product_Dirt",
+          "amount": -1.37221
+        }
+      ],
+      "outputs": [
+        {
+          "productId": "Product_Eggs",
+          "amount": 8.13802
+        },
+        {
+          "productId": "Product_Sausage",
+          "amount": 10
+        }
+      ]
+    },
+    "manifolds": {
+      "in_frastructure_total": 100.363,
+      "in_footprint": 5669,
+      "in_workers": 90,
+      "in_electricity": 165.772,
+      "in_computing": 0,
+      "in_maintenance_1": 6.87585,
+      "in_maintenance_2": 0.182962,
+      "in_maintenance_3": 0,
+      "i_Product_Water": -63.1074,
+      "c0": 0,
+      "c1": 0,
+      "c2": 0,
+      "c3": 0,
+      "c4": 0,
+      "o_Product_Eggs": 8.13802,
+      "c5": 0,
+      "c6": 0,
+      "i_Product_Flour": -2.5,
+      "i_Product_Salt": -3.75,
+      "o_Product_Sausage": 10,
+      "c7": 0,
+      "i_Product_Limestone": -0.823329,
+      "i_Product_Sulfur": -0.823329,
+      "c8": 0,
+      "i_Product_Ammonia": -1.09777,
+      "i_Product_Oxygen": -1.64666,
+      "c9": 0,
+      "i_Product_Dirt": -1.37221
+    }
+  }
+}

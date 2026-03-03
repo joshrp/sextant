@@ -13714,7 +13714,11 @@
           "id": "Product_SteamHi",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TurbineHighPressT2": {
       "id": "TurbineHighPressT2",
@@ -13739,7 +13743,11 @@
           "id": "Product_SteamLP",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TurbineHighPress": {
       "id": "TurbineHighPress",
@@ -13764,7 +13772,11 @@
           "id": "Product_SteamLP",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TurbineLowPressT2": {
       "id": "TurbineLowPressT2",
@@ -13789,7 +13801,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TurbineLowPress": {
       "id": "TurbineLowPress",
@@ -13814,7 +13830,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PowerGeneratorT1": {
       "id": "PowerGeneratorT1",
@@ -13834,7 +13854,11 @@
           "id": "Product_Virtual_Electricity",
           "quantity": 2000
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PowerGeneratorT2": {
       "id": "PowerGeneratorT2",
@@ -13854,7 +13878,11 @@
           "id": "Product_Virtual_Electricity",
           "quantity": 15000
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DieselGenerator": {
       "id": "DieselGenerator",
@@ -13878,7 +13906,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DieselGeneratorT2": {
       "id": "DieselGeneratorT2",
@@ -13902,7 +13934,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WheatMilling": {
       "id": "WheatMilling",
@@ -13926,7 +13962,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SoybeanMilling": {
       "id": "SoybeanMilling",
@@ -13950,7 +13990,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CanolaMilling": {
       "id": "CanolaMilling",
@@ -13974,7 +14018,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CornMilling": {
       "id": "CornMilling",
@@ -14002,7 +14050,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TofuProduction": {
       "id": "TofuProduction",
@@ -14038,7 +14090,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 4.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MeatProcessing": {
       "id": "MeatProcessing",
@@ -14070,7 +14126,11 @@
           "id": "Product_MeatTrimmings",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MeatProcessingTrimmings": {
       "id": "MeatProcessingTrimmings",
@@ -14090,7 +14150,11 @@
           "id": "Product_MeatTrimmings",
           "quantity": 27
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SausageProduction": {
       "id": "SausageProduction",
@@ -14118,7 +14182,11 @@
           "id": "Product_Sausage",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SnackProductionPotato": {
       "id": "SnackProductionPotato",
@@ -14154,7 +14222,11 @@
           "id": "Product_Biomass",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SnackProductionCorn": {
       "id": "SnackProductionCorn",
@@ -14190,7 +14262,11 @@
           "id": "Product_Biomass",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SugarRefiningCane": {
       "id": "SugarRefiningCane",
@@ -14218,7 +14294,11 @@
           "id": "Product_Biomass",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BreadProduction": {
       "id": "BreadProduction",
@@ -14242,7 +14322,11 @@
           "id": "Product_Bread",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CakeProduction": {
       "id": "CakeProduction",
@@ -14278,7 +14362,11 @@
           "id": "Product_Cake",
           "quantity": 14
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DieselDistillationBasic": {
       "id": "DieselDistillationBasic",
@@ -14310,7 +14398,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WaterDesalinationBasic": {
       "id": "WaterDesalinationBasic",
@@ -14342,7 +14434,11 @@
           "id": "Product_Exhaust",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OilGroundPumping": {
       "id": "OilGroundPumping",
@@ -14357,7 +14453,11 @@
           "id": "Product_CrudeOil",
           "quantity": 20
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LandWaterPumping": {
       "id": "LandWaterPumping",
@@ -14372,7 +14472,11 @@
           "id": "Product_Water",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CarbonDioxideInjection": {
       "id": "CarbonDioxideInjection",
@@ -14391,7 +14495,11 @@
           "quantity": 24
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OceanWaterPumping": {
       "id": "OceanWaterPumping",
@@ -14407,7 +14515,11 @@
           "id": "Product_Seawater",
           "quantity": 108
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OceanWaterPumpingT2": {
       "id": "OceanWaterPumpingT2",
@@ -14423,7 +14535,11 @@
           "id": "Product_Seawater",
           "quantity": 108
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationCoal": {
       "id": "SteamGenerationCoal",
@@ -14451,7 +14567,11 @@
           "id": "Product_Exhaust",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationWood": {
       "id": "SteamGenerationWood",
@@ -14479,7 +14599,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationBiomass": {
       "id": "SteamGenerationBiomass",
@@ -14507,7 +14631,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationAnimalFeed": {
       "id": "SteamGenerationAnimalFeed",
@@ -14535,7 +14663,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationHeavyOil": {
       "id": "SteamGenerationHeavyOil",
@@ -14563,7 +14695,11 @@
           "id": "Product_Exhaust",
           "quantity": 90
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationMediumOil": {
       "id": "SteamGenerationMediumOil",
@@ -14591,7 +14727,11 @@
           "id": "Product_Exhaust",
           "quantity": 90
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationLightOil": {
       "id": "SteamGenerationLightOil",
@@ -14619,7 +14759,11 @@
           "id": "Product_Exhaust",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationNaphtha": {
       "id": "SteamGenerationNaphtha",
@@ -14647,7 +14791,11 @@
           "id": "Product_Exhaust",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationEthanol": {
       "id": "SteamGenerationEthanol",
@@ -14675,7 +14823,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationFuelGas": {
       "id": "SteamGenerationFuelGas",
@@ -14703,7 +14855,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationHydrogen": {
       "id": "SteamGenerationHydrogen",
@@ -14731,7 +14887,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationElectric": {
       "id": "SteamGenerationElectric",
@@ -14752,7 +14912,11 @@
           "id": "Product_SteamHi",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationElectricHalf": {
       "id": "SteamGenerationElectricHalf",
@@ -14773,7 +14937,11 @@
           "id": "Product_SteamHi",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamGenerationSpElectric": {
       "id": "SteamGenerationSpElectric",
@@ -14793,7 +14961,11 @@
           "id": "Product_SteamSp",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BrineMakingHeated": {
       "id": "BrineMakingHeated",
@@ -14814,7 +14986,11 @@
           "id": "Product_Brine",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SaltMakingHeated": {
       "id": "SaltMakingHeated",
@@ -14835,7 +15011,11 @@
           "id": "Product_Salt",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SaltMakingFromBrineHeated": {
       "id": "SaltMakingFromBrineHeated",
@@ -14856,7 +15036,11 @@
           "id": "Product_Salt",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BrineMaking": {
       "id": "BrineMaking",
@@ -14877,7 +15061,11 @@
           "id": "Product_Brine",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SaltMaking": {
       "id": "SaltMaking",
@@ -14898,7 +15086,11 @@
           "id": "Product_Salt",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SaltMakingFromBrine": {
       "id": "SaltMakingFromBrine",
@@ -14919,7 +15111,11 @@
           "id": "Product_Salt",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DesalinationFromSP": {
       "id": "DesalinationFromSP",
@@ -14947,7 +15143,11 @@
           "id": "Product_Brine",
           "quantity": 42
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DesalinationFromHP": {
       "id": "DesalinationFromHP",
@@ -14975,7 +15175,11 @@
           "id": "Product_Brine",
           "quantity": 42
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DesalinationFromLP": {
       "id": "DesalinationFromLP",
@@ -15003,7 +15207,11 @@
           "id": "Product_Brine",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DesalinationFromDepleted": {
       "id": "DesalinationFromDepleted",
@@ -15031,7 +15239,11 @@
           "id": "Product_Brine",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WaterChilling": {
       "id": "WaterChilling",
@@ -15051,7 +15263,11 @@
           "id": "Product_ChilledWater",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SimpleConcreteMaking": {
       "id": "SimpleConcreteMaking",
@@ -15083,7 +15299,11 @@
           "id": "Product_Exhaust",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblyT5": {
       "id": "CpAssemblyT5",
@@ -15112,7 +15332,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblySteelT5": {
       "id": "CpAssemblySteelT5",
@@ -15141,7 +15365,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp2AssemblyT5": {
       "id": "Cp2AssemblyT5",
@@ -15166,7 +15394,11 @@
           "id": "Product_ConstructionParts2",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp3AssemblyT4": {
       "id": "Cp3AssemblyT4",
@@ -15191,7 +15423,11 @@
           "id": "Product_ConstructionParts3",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp4AssemblyRoboticT2": {
       "id": "Cp4AssemblyRoboticT2",
@@ -15216,7 +15452,11 @@
           "id": "Product_ConstructionParts4",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT5Iron": {
       "id": "MechPartsAssemblyT5Iron",
@@ -15237,7 +15477,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT5": {
       "id": "MechPartsAssemblyT5",
@@ -15258,7 +15502,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts1AssemblyT5": {
       "id": "VehicleParts1AssemblyT5",
@@ -15283,7 +15531,11 @@
           "id": "Product_VehicleParts",
           "quantity": 68.57142857142857
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts2AssemblyT3": {
       "id": "VehicleParts2AssemblyT3",
@@ -15312,7 +15564,11 @@
           "id": "Product_VehicleParts2",
           "quantity": 17.142857142857142
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts3AssemblyT3": {
       "id": "VehicleParts3AssemblyT3",
@@ -15337,7 +15593,11 @@
           "id": "Product_VehicleParts3",
           "quantity": 17.142857142857142
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment1AssemblyT4": {
       "id": "LabEquipment1AssemblyT4",
@@ -15362,7 +15622,11 @@
           "id": "Product_LabEquipment",
           "quantity": 102.85714285714286
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment2AssemblyT4": {
       "id": "LabEquipment2AssemblyT4",
@@ -15391,7 +15655,11 @@
           "id": "Product_LabEquipment2",
           "quantity": 51.42857142857143
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment3AssemblyT3": {
       "id": "LabEquipment3AssemblyT3",
@@ -15416,7 +15684,11 @@
           "id": "Product_LabEquipment3",
           "quantity": 51.42857142857143
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment4AssemblyT3": {
       "id": "LabEquipment4AssemblyT3",
@@ -15441,7 +15713,11 @@
           "id": "Product_LabEquipment4",
           "quantity": 32
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RailPartsAssemblyT3": {
       "id": "RailPartsAssemblyT3",
@@ -15466,7 +15742,11 @@
           "id": "Product_RailParts",
           "quantity": 64
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HouseholdGoodsAssemblyT4": {
       "id": "HouseholdGoodsAssemblyT4",
@@ -15495,7 +15775,11 @@
           "id": "Product_HouseholdGoods",
           "quantity": 68.57142857142857
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HouseholdAppliancesAssemblyT3": {
       "id": "HouseholdAppliancesAssemblyT3",
@@ -15524,7 +15808,11 @@
           "id": "Product_HouseholdAppliances",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LuxuryGoodsAssemblyT3": {
       "id": "LuxuryGoodsAssemblyT3",
@@ -15549,7 +15837,11 @@
           "id": "Product_LuxuryGoods",
           "quantity": 32
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PCBAssemblyT3": {
       "id": "PCBAssemblyT3",
@@ -15578,7 +15870,11 @@
           "id": "Product_PCB",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ElectronicsAssemblyT5": {
       "id": "ElectronicsAssemblyT5",
@@ -15603,7 +15899,11 @@
           "id": "Product_Electronics",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Electronics2AssemblyT3": {
       "id": "Electronics2AssemblyT3",
@@ -15632,7 +15932,11 @@
           "id": "Product_Electronics2",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumRodsAssemblyT3": {
       "id": "UraniumRodsAssemblyT3",
@@ -15657,7 +15961,11 @@
           "id": "Product_UraniumRod",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SolarCellAssemblyT3": {
       "id": "SolarCellAssemblyT3",
@@ -15686,7 +15994,11 @@
           "id": "Product_SolarCell",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SolarCellMonoAssemblyT1": {
       "id": "SolarCellMonoAssemblyT1",
@@ -15714,7 +16026,11 @@
           "id": "Product_SolarCellMono",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Electronics3AssemblyRoboticT2": {
       "id": "Electronics3AssemblyRoboticT2",
@@ -15739,7 +16055,11 @@
           "id": "Product_Electronics3",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Electronics4Assembly": {
       "id": "Electronics4Assembly",
@@ -15767,7 +16087,11 @@
           "id": "Product_Electronics4",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ServerAssemblyT2": {
       "id": "ServerAssemblyT2",
@@ -15792,7 +16116,11 @@
           "id": "Product_Server",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConsumerElectronicsAssemblyT1": {
       "id": "ConsumerElectronicsAssemblyT1",
@@ -15820,7 +16148,11 @@
           "id": "Product_ConsumerElectronics",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalEquipmentAssemblyT3": {
       "id": "MedicalEquipmentAssemblyT3",
@@ -15845,7 +16177,11 @@
           "id": "Product_MedicalEquipment",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSuppliesAssemblyT3": {
       "id": "MedicalSuppliesAssemblyT3",
@@ -15870,7 +16206,11 @@
           "id": "Product_MedicalSupplies",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSupplies2AssemblyT3": {
       "id": "MedicalSupplies2AssemblyT3",
@@ -15895,7 +16235,11 @@
           "id": "Product_MedicalSupplies2",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSupplies3AssemblyT3": {
       "id": "MedicalSupplies3AssemblyT3",
@@ -15924,7 +16268,11 @@
           "id": "Product_MedicalSupplies3",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyMeatT3": {
       "id": "FoodPackAssemblyMeatT3",
@@ -15949,7 +16297,11 @@
           "id": "Product_FoodPack",
           "quantity": 34.285714285714285
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyEggsT3": {
       "id": "FoodPackAssemblyEggsT3",
@@ -15974,7 +16326,11 @@
           "id": "Product_FoodPack",
           "quantity": 34.285714285714285
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyTofuT3": {
       "id": "FoodPackAssemblyTofuT3",
@@ -15999,7 +16355,11 @@
           "id": "Product_FoodPack",
           "quantity": 34.285714285714285
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OfficeSuppliesAssemblyT3": {
       "id": "OfficeSuppliesAssemblyT3",
@@ -16028,7 +16388,11 @@
           "id": "Product_OfficeSupplies",
           "quantity": 51.42857142857143
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompositePanelAssemblyT3": {
       "id": "CompositePanelAssemblyT3",
@@ -16057,7 +16421,11 @@
           "id": "Product_CompositePanel",
           "quantity": 32
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompositeCoreBasicAssemblyT3": {
       "id": "CompositeCoreBasicAssemblyT3",
@@ -16086,7 +16454,11 @@
           "id": "Product_CompositeBodyBasic",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompositeCoreAssembly": {
       "id": "CompositeCoreAssembly",
@@ -16114,7 +16486,11 @@
           "id": "Product_CompositeCore",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "StationPartsBasicAssemblyT3": {
       "id": "StationPartsBasicAssemblyT3",
@@ -16143,7 +16519,11 @@
           "id": "Product_SpaceStationParts1",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "StationPartsAssembly": {
       "id": "StationPartsAssembly",
@@ -16171,7 +16551,11 @@
           "id": "Product_SpaceStationParts2",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CrewSuppliesAssemblyT3": {
       "id": "CrewSuppliesAssemblyT3",
@@ -16200,7 +16584,11 @@
           "id": "Product_CrewSupplies",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ProbePartsAssembly": {
       "id": "ProbePartsAssembly",
@@ -16228,7 +16616,11 @@
           "id": "Product_SpaceProbeParts",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompactReactorAssembly": {
       "id": "CompactReactorAssembly",
@@ -16256,7 +16648,11 @@
           "id": "Product_CompactReactor",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AsteroidBoosterPartsAssembly": {
       "id": "AsteroidBoosterPartsAssembly",
@@ -16284,7 +16680,11 @@
           "id": "Product_AsteroidBoosterParts",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblyT4": {
       "id": "CpAssemblyT4",
@@ -16313,7 +16713,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblySteelT4": {
       "id": "CpAssemblySteelT4",
@@ -16342,7 +16746,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp2AssemblyT4": {
       "id": "Cp2AssemblyT4",
@@ -16367,7 +16775,11 @@
           "id": "Product_ConstructionParts2",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp3AssemblyT3": {
       "id": "Cp3AssemblyT3",
@@ -16392,7 +16804,11 @@
           "id": "Product_ConstructionParts3",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp4AssemblyRoboticT1": {
       "id": "Cp4AssemblyRoboticT1",
@@ -16417,7 +16833,11 @@
           "id": "Product_ConstructionParts4",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT4Iron": {
       "id": "MechPartsAssemblyT4Iron",
@@ -16438,7 +16858,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT4": {
       "id": "MechPartsAssemblyT4",
@@ -16459,7 +16883,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts1AssemblyT4": {
       "id": "VehicleParts1AssemblyT4",
@@ -16484,7 +16912,11 @@
           "id": "Product_VehicleParts",
           "quantity": 34.285714285714285
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts2AssemblyT2": {
       "id": "VehicleParts2AssemblyT2",
@@ -16513,7 +16945,11 @@
           "id": "Product_VehicleParts2",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts3AssemblyT2": {
       "id": "VehicleParts3AssemblyT2",
@@ -16538,7 +16974,11 @@
           "id": "Product_VehicleParts3",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment1AssemblyT3": {
       "id": "LabEquipment1AssemblyT3",
@@ -16563,7 +17003,11 @@
           "id": "Product_LabEquipment",
           "quantity": 51.42857142857143
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment2AssemblyT3": {
       "id": "LabEquipment2AssemblyT3",
@@ -16592,7 +17036,11 @@
           "id": "Product_LabEquipment2",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment3AssemblyT2": {
       "id": "LabEquipment3AssemblyT2",
@@ -16617,7 +17065,11 @@
           "id": "Product_LabEquipment3",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment4AssemblyT2": {
       "id": "LabEquipment4AssemblyT2",
@@ -16642,7 +17094,11 @@
           "id": "Product_LabEquipment4",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RailPartsAssemblyT2": {
       "id": "RailPartsAssemblyT2",
@@ -16667,7 +17123,11 @@
           "id": "Product_RailParts",
           "quantity": 32
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HouseholdGoodsAssemblyT3": {
       "id": "HouseholdGoodsAssemblyT3",
@@ -16696,7 +17156,11 @@
           "id": "Product_HouseholdGoods",
           "quantity": 32
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HouseholdAppliancesAssemblyT2": {
       "id": "HouseholdAppliancesAssemblyT2",
@@ -16725,7 +17189,11 @@
           "id": "Product_HouseholdAppliances",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LuxuryGoodsAssemblyT2": {
       "id": "LuxuryGoodsAssemblyT2",
@@ -16750,7 +17218,11 @@
           "id": "Product_LuxuryGoods",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PCBAssemblyT2": {
       "id": "PCBAssemblyT2",
@@ -16779,7 +17251,11 @@
           "id": "Product_PCB",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ElectronicsAssemblyT4": {
       "id": "ElectronicsAssemblyT4",
@@ -16804,7 +17280,11 @@
           "id": "Product_Electronics",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Electronics2AssemblyT2": {
       "id": "Electronics2AssemblyT2",
@@ -16833,7 +17313,11 @@
           "id": "Product_Electronics2",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumRodsAssemblyT2": {
       "id": "UraniumRodsAssemblyT2",
@@ -16858,7 +17342,11 @@
           "id": "Product_UraniumRod",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumEnrichedAssemblyT1": {
       "id": "UraniumEnrichedAssemblyT1",
@@ -16882,7 +17370,11 @@
           "id": "Product_UraniumEnriched20",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SolarCellAssemblyT2": {
       "id": "SolarCellAssemblyT2",
@@ -16911,7 +17403,11 @@
           "id": "Product_SolarCell",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Electronics3AssemblyRoboticT1": {
       "id": "Electronics3AssemblyRoboticT1",
@@ -16936,7 +17432,11 @@
           "id": "Product_Electronics3",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ServerAssemblyT1": {
       "id": "ServerAssemblyT1",
@@ -16961,7 +17461,11 @@
           "id": "Product_Server",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalEquipmentAssemblyT2": {
       "id": "MedicalEquipmentAssemblyT2",
@@ -16986,7 +17490,11 @@
           "id": "Product_MedicalEquipment",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSuppliesAssemblyT2": {
       "id": "MedicalSuppliesAssemblyT2",
@@ -17011,7 +17519,11 @@
           "id": "Product_MedicalSupplies",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSupplies2AssemblyT2": {
       "id": "MedicalSupplies2AssemblyT2",
@@ -17036,7 +17548,11 @@
           "id": "Product_MedicalSupplies2",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSupplies3AssemblyT2": {
       "id": "MedicalSupplies3AssemblyT2",
@@ -17065,7 +17581,11 @@
           "id": "Product_MedicalSupplies3",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyMeatT2": {
       "id": "FoodPackAssemblyMeatT2",
@@ -17090,7 +17610,11 @@
           "id": "Product_FoodPack",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyEggsT2": {
       "id": "FoodPackAssemblyEggsT2",
@@ -17115,7 +17639,11 @@
           "id": "Product_FoodPack",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyTofuT2": {
       "id": "FoodPackAssemblyTofuT2",
@@ -17140,7 +17668,11 @@
           "id": "Product_FoodPack",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OfficeSuppliesAssemblyT2": {
       "id": "OfficeSuppliesAssemblyT2",
@@ -17169,7 +17701,11 @@
           "id": "Product_OfficeSupplies",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompositePanelAssemblyT2": {
       "id": "CompositePanelAssemblyT2",
@@ -17198,7 +17734,11 @@
           "id": "Product_CompositePanel",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompositeCoreBasicAssemblyT2": {
       "id": "CompositeCoreBasicAssemblyT2",
@@ -17227,7 +17767,11 @@
           "id": "Product_CompositeBodyBasic",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "StationPartsBasicAssemblyT2": {
       "id": "StationPartsBasicAssemblyT2",
@@ -17256,7 +17800,11 @@
           "id": "Product_SpaceStationParts1",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CrewSuppliesAssemblyT2": {
       "id": "CrewSuppliesAssemblyT2",
@@ -17285,7 +17833,11 @@
           "id": "Product_CrewSupplies",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblyT3": {
       "id": "CpAssemblyT3",
@@ -17314,7 +17866,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblySteelT3": {
       "id": "CpAssemblySteelT3",
@@ -17343,7 +17899,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp2AssemblyT3": {
       "id": "Cp2AssemblyT3",
@@ -17368,7 +17928,11 @@
           "id": "Product_ConstructionParts2",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp3AssemblyT2": {
       "id": "Cp3AssemblyT2",
@@ -17393,7 +17957,11 @@
           "id": "Product_ConstructionParts3",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp4AssemblyElectrifiedT2": {
       "id": "Cp4AssemblyElectrifiedT2",
@@ -17418,7 +17986,11 @@
           "id": "Product_ConstructionParts4",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT3Iron": {
       "id": "MechPartsAssemblyT3Iron",
@@ -17439,7 +18011,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT3": {
       "id": "MechPartsAssemblyT3",
@@ -17460,7 +18036,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts1AssemblyT3": {
       "id": "VehicleParts1AssemblyT3",
@@ -17485,7 +18065,11 @@
           "id": "Product_VehicleParts",
           "quantity": 17.142857142857142
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts2AssemblyT1": {
       "id": "VehicleParts2AssemblyT1",
@@ -17514,7 +18098,11 @@
           "id": "Product_VehicleParts2",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts3AssemblyT1": {
       "id": "VehicleParts3AssemblyT1",
@@ -17539,7 +18127,11 @@
           "id": "Product_VehicleParts3",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment1AssemblyT2": {
       "id": "LabEquipment1AssemblyT2",
@@ -17564,7 +18156,11 @@
           "id": "Product_LabEquipment",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment2AssemblyT2": {
       "id": "LabEquipment2AssemblyT2",
@@ -17593,7 +18189,11 @@
           "id": "Product_LabEquipment2",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment3AssemblyT1": {
       "id": "LabEquipment3AssemblyT1",
@@ -17618,7 +18218,11 @@
           "id": "Product_LabEquipment3",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RailPartsAssemblyT1": {
       "id": "RailPartsAssemblyT1",
@@ -17643,7 +18247,11 @@
           "id": "Product_RailParts",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HouseholdGoodsAssemblyT2": {
       "id": "HouseholdGoodsAssemblyT2",
@@ -17672,7 +18280,11 @@
           "id": "Product_HouseholdGoods",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HouseholdAppliancesAssemblyT1": {
       "id": "HouseholdAppliancesAssemblyT1",
@@ -17701,7 +18313,11 @@
           "id": "Product_HouseholdAppliances",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LuxuryGoodsAssemblyT1": {
       "id": "LuxuryGoodsAssemblyT1",
@@ -17726,7 +18342,11 @@
           "id": "Product_LuxuryGoods",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PCBAssemblyT1": {
       "id": "PCBAssemblyT1",
@@ -17755,7 +18375,11 @@
           "id": "Product_PCB",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ElectronicsAssemblyT3": {
       "id": "ElectronicsAssemblyT3",
@@ -17780,7 +18404,11 @@
           "id": "Product_Electronics",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Electronics2AssemblyT1": {
       "id": "Electronics2AssemblyT1",
@@ -17809,7 +18437,11 @@
           "id": "Product_Electronics2",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumRodsAssemblyT1": {
       "id": "UraniumRodsAssemblyT1",
@@ -17834,7 +18466,11 @@
           "id": "Product_UraniumRod",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SolarCellAssemblyT1": {
       "id": "SolarCellAssemblyT1",
@@ -17863,7 +18499,11 @@
           "id": "Product_SolarCell",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalEquipmentAssemblyT1": {
       "id": "MedicalEquipmentAssemblyT1",
@@ -17888,7 +18528,11 @@
           "id": "Product_MedicalEquipment",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSuppliesAssemblyT1": {
       "id": "MedicalSuppliesAssemblyT1",
@@ -17913,7 +18557,11 @@
           "id": "Product_MedicalSupplies",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSupplies2AssemblyT1": {
       "id": "MedicalSupplies2AssemblyT1",
@@ -17938,7 +18586,11 @@
           "id": "Product_MedicalSupplies2",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MedicalSupplies3AssemblyT1": {
       "id": "MedicalSupplies3AssemblyT1",
@@ -17967,7 +18619,11 @@
           "id": "Product_MedicalSupplies3",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyMeat": {
       "id": "FoodPackAssemblyMeat",
@@ -17992,7 +18648,11 @@
           "id": "Product_FoodPack",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyEggs": {
       "id": "FoodPackAssemblyEggs",
@@ -18017,7 +18677,11 @@
           "id": "Product_FoodPack",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FoodPackAssemblyTofu": {
       "id": "FoodPackAssemblyTofu",
@@ -18042,7 +18706,11 @@
           "id": "Product_FoodPack",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OfficeSuppliesAssemblyT1": {
       "id": "OfficeSuppliesAssemblyT1",
@@ -18071,7 +18739,11 @@
           "id": "Product_OfficeSupplies",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompositePanelAssemblyT1": {
       "id": "CompositePanelAssemblyT1",
@@ -18100,7 +18772,11 @@
           "id": "Product_CompositePanel",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CompositeCoreBasicAssemblyT1": {
       "id": "CompositeCoreBasicAssemblyT1",
@@ -18129,7 +18805,11 @@
           "id": "Product_CompositeBodyBasic",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "StationPartsBasicAssemblyT1": {
       "id": "StationPartsBasicAssemblyT1",
@@ -18158,7 +18838,11 @@
           "id": "Product_SpaceStationParts1",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CrewSuppliesAssemblyT1": {
       "id": "CrewSuppliesAssemblyT1",
@@ -18187,7 +18871,11 @@
           "id": "Product_CrewSupplies",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblyT2": {
       "id": "CpAssemblyT2",
@@ -18216,7 +18904,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp2AssemblyT2": {
       "id": "Cp2AssemblyT2",
@@ -18241,7 +18933,11 @@
           "id": "Product_ConstructionParts2",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp3AssemblyT1": {
       "id": "Cp3AssemblyT1",
@@ -18266,7 +18962,11 @@
           "id": "Product_ConstructionParts3",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT2": {
       "id": "MechPartsAssemblyT2",
@@ -18287,7 +18987,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts1AssemblyT2": {
       "id": "VehicleParts1AssemblyT2",
@@ -18312,7 +19016,11 @@
           "id": "Product_VehicleParts",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LabEquipment1AssemblyT1": {
       "id": "LabEquipment1AssemblyT1",
@@ -18337,7 +19045,11 @@
           "id": "Product_LabEquipment",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HouseholdGoodsAssemblyT1": {
       "id": "HouseholdGoodsAssemblyT1",
@@ -18366,7 +19078,11 @@
           "id": "Product_HouseholdGoods",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ElectronicsAssemblyT2": {
       "id": "ElectronicsAssemblyT2",
@@ -18391,7 +19107,11 @@
           "id": "Product_Electronics",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CpAssemblyT1": {
       "id": "CpAssemblyT1",
@@ -18420,7 +19140,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Cp2AssemblyT1": {
       "id": "Cp2AssemblyT1",
@@ -18445,7 +19169,11 @@
           "id": "Product_ConstructionParts2",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MechPartsAssemblyT1": {
       "id": "MechPartsAssemblyT1",
@@ -18466,7 +19194,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VehicleParts1AssemblyT1": {
       "id": "VehicleParts1AssemblyT1",
@@ -18491,7 +19223,11 @@
           "id": "Product_VehicleParts",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ElectronicsAssemblyT1": {
       "id": "ElectronicsAssemblyT1",
@@ -18516,7 +19252,11 @@
           "id": "Product_Electronics",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingSlagT3": {
       "id": "ConcreteMixingSlagT3",
@@ -18549,7 +19289,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingGravelT3": {
       "id": "ConcreteMixingGravelT3",
@@ -18582,7 +19326,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingSlagMT3": {
       "id": "ConcreteMixingSlagMT3",
@@ -18615,7 +19363,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingGravelMT3": {
       "id": "ConcreteMixingGravelMT3",
@@ -18648,7 +19400,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingSlagT2": {
       "id": "ConcreteMixingSlagT2",
@@ -18681,7 +19437,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingGravelT2": {
       "id": "ConcreteMixingGravelT2",
@@ -18714,7 +19474,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingSlagMT2": {
       "id": "ConcreteMixingSlagMT2",
@@ -18747,7 +19511,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingGravelMT2": {
       "id": "ConcreteMixingGravelMT2",
@@ -18780,7 +19548,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingSlag": {
       "id": "ConcreteMixingSlag",
@@ -18813,7 +19585,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingGravel": {
       "id": "ConcreteMixingGravel",
@@ -18846,7 +19622,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingGravelM": {
       "id": "ConcreteMixingGravelM",
@@ -18879,7 +19659,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ConcreteMixingSlagM": {
       "id": "ConcreteMixingSlagM",
@@ -18912,7 +19696,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CementProductionGas": {
       "id": "CementProductionGas",
@@ -18940,7 +19728,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CementProductionHydrogen": {
       "id": "CementProductionHydrogen",
@@ -18968,7 +19760,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 4.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminaCalcificationGas": {
       "id": "AluminaCalcificationGas",
@@ -18996,7 +19792,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminaCalcificationHydrogen": {
       "id": "AluminaCalcificationHydrogen",
@@ -19024,7 +19824,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CementProduction": {
       "id": "CementProduction",
@@ -19052,7 +19856,11 @@
           "id": "Product_Exhaust",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DiamondSynthesis": {
       "id": "DiamondSynthesis",
@@ -19076,7 +19884,11 @@
           "id": "Product_Diamond",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LensMaking": {
       "id": "LensMaking",
@@ -19104,7 +19916,11 @@
           "id": "Product_Lens",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage1A": {
       "id": "MicrochipMachineT2_MicrochipProdStage1A",
@@ -19133,7 +19949,11 @@
           "id": "Product_MicrochipsStage1A",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage2A": {
       "id": "MicrochipMachineT2_MicrochipProdStage2A",
@@ -19162,7 +19982,11 @@
           "id": "Product_MicrochipsStage1B",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage3A": {
       "id": "MicrochipMachineT2_MicrochipProdStage3A",
@@ -19186,7 +20010,11 @@
           "id": "Product_MicrochipsStage1C",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage1B": {
       "id": "MicrochipMachineT2_MicrochipProdStage1B",
@@ -19215,7 +20043,11 @@
           "id": "Product_MicrochipsStage2A",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage2B": {
       "id": "MicrochipMachineT2_MicrochipProdStage2B",
@@ -19244,7 +20076,11 @@
           "id": "Product_MicrochipsStage2B",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage3B": {
       "id": "MicrochipMachineT2_MicrochipProdStage3B",
@@ -19268,7 +20104,11 @@
           "id": "Product_MicrochipsStage2C",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage1C": {
       "id": "MicrochipMachineT2_MicrochipProdStage1C",
@@ -19297,7 +20137,11 @@
           "id": "Product_MicrochipsStage3A",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage2C": {
       "id": "MicrochipMachineT2_MicrochipProdStage2C",
@@ -19326,7 +20170,11 @@
           "id": "Product_MicrochipsStage3B",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage3C": {
       "id": "MicrochipMachineT2_MicrochipProdStage3C",
@@ -19351,7 +20199,11 @@
           "id": "Product_MicrochipsStage3C",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage1D": {
       "id": "MicrochipMachineT2_MicrochipProdStage1D",
@@ -19380,7 +20232,11 @@
           "id": "Product_MicrochipsStage4A",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdStage2D": {
       "id": "MicrochipMachineT2_MicrochipProdStage2D",
@@ -19409,7 +20265,11 @@
           "id": "Product_MicrochipsStage4B",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachineT2_MicrochipProdFinalStage": {
       "id": "MicrochipMachineT2_MicrochipProdFinalStage",
@@ -19434,7 +20294,11 @@
           "id": "Product_Microchips",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage1A": {
       "id": "MicrochipMachine_MicrochipProdStage1A",
@@ -19463,7 +20327,11 @@
           "id": "Product_MicrochipsStage1A",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage2A": {
       "id": "MicrochipMachine_MicrochipProdStage2A",
@@ -19492,7 +20360,11 @@
           "id": "Product_MicrochipsStage1B",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage3A": {
       "id": "MicrochipMachine_MicrochipProdStage3A",
@@ -19516,7 +20388,11 @@
           "id": "Product_MicrochipsStage1C",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage1B": {
       "id": "MicrochipMachine_MicrochipProdStage1B",
@@ -19545,7 +20421,11 @@
           "id": "Product_MicrochipsStage2A",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage2B": {
       "id": "MicrochipMachine_MicrochipProdStage2B",
@@ -19574,7 +20454,11 @@
           "id": "Product_MicrochipsStage2B",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage3B": {
       "id": "MicrochipMachine_MicrochipProdStage3B",
@@ -19598,7 +20482,11 @@
           "id": "Product_MicrochipsStage2C",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage1C": {
       "id": "MicrochipMachine_MicrochipProdStage1C",
@@ -19627,7 +20515,11 @@
           "id": "Product_MicrochipsStage3A",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage2C": {
       "id": "MicrochipMachine_MicrochipProdStage2C",
@@ -19656,7 +20548,11 @@
           "id": "Product_MicrochipsStage3B",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage3C": {
       "id": "MicrochipMachine_MicrochipProdStage3C",
@@ -19681,7 +20577,11 @@
           "id": "Product_MicrochipsStage3C",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage1D": {
       "id": "MicrochipMachine_MicrochipProdStage1D",
@@ -19710,7 +20610,11 @@
           "id": "Product_MicrochipsStage4A",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdStage2D": {
       "id": "MicrochipMachine_MicrochipProdStage2D",
@@ -19739,7 +20643,11 @@
           "id": "Product_MicrochipsStage4B",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MicrochipMachine_MicrochipProdFinalStage": {
       "id": "MicrochipMachine_MicrochipProdFinalStage",
@@ -19764,7 +20672,11 @@
           "id": "Product_Microchips",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BrineElectrolysisT2": {
       "id": "BrineElectrolysisT2",
@@ -19785,7 +20697,11 @@
           "id": "Product_Chlorine",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WaterElectrolysisT2": {
       "id": "WaterElectrolysisT2",
@@ -19810,7 +20726,11 @@
           "id": "Product_Hydrogen",
           "quantity": 17.142857142857142
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AmmoniaElectrolysisT2": {
       "id": "AmmoniaElectrolysisT2",
@@ -19835,7 +20755,11 @@
           "id": "Product_Hydrogen",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BrineElectrolysis": {
       "id": "BrineElectrolysis",
@@ -19856,7 +20780,11 @@
           "id": "Product_Chlorine",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WaterElectrolysis": {
       "id": "WaterElectrolysis",
@@ -19881,7 +20809,11 @@
           "id": "Product_Hydrogen",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AmmoniaElectrolysis": {
       "id": "AmmoniaElectrolysis",
@@ -19906,7 +20838,11 @@
           "id": "Product_Hydrogen",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SugarToEthanolFermentation": {
       "id": "SugarToEthanolFermentation",
@@ -19934,7 +20870,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CornToEthanolFermentation": {
       "id": "CornToEthanolFermentation",
@@ -19962,7 +20902,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AntibioticsFermentation": {
       "id": "AntibioticsFermentation",
@@ -19994,7 +20938,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GoldSettling": {
       "id": "GoldSettling",
@@ -20022,7 +20970,11 @@
           "id": "Product_ToxicSlurry",
           "quantity": 27
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumLeaching": {
       "id": "UraniumLeaching",
@@ -20050,7 +21002,11 @@
           "id": "Product_ToxicSlurry",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FluorideLeaching": {
       "id": "FluorideLeaching",
@@ -20078,7 +21034,11 @@
           "id": "Product_Slag",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RedMudSettling": {
       "id": "RedMudSettling",
@@ -20106,7 +21066,11 @@
           "id": "Product_Slag",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RedMudSettlingAcid": {
       "id": "RedMudSettlingAcid",
@@ -20138,7 +21102,11 @@
           "id": "Product_IronOreCrushed",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamHpCondensation": {
       "id": "SteamHpCondensation",
@@ -20158,7 +21126,11 @@
           "id": "Product_Water",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamLpCondensation": {
       "id": "SteamLpCondensation",
@@ -20178,7 +21150,11 @@
           "id": "Product_Water",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamDepletedCondensation": {
       "id": "SteamDepletedCondensation",
@@ -20198,7 +21174,11 @@
           "id": "Product_Water",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamSpCondensationT2": {
       "id": "SteamSpCondensationT2",
@@ -20218,7 +21198,11 @@
           "id": "Product_Water",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamHpCondensationT2": {
       "id": "SteamHpCondensationT2",
@@ -20238,7 +21222,11 @@
           "id": "Product_Water",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamLpCondensationT2": {
       "id": "SteamLpCondensationT2",
@@ -20258,7 +21246,11 @@
           "id": "Product_Water",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteamDepletedCondensationT2": {
       "id": "SteamDepletedCondensationT2",
@@ -20278,7 +21270,11 @@
           "id": "Product_Water",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumEnrichment": {
       "id": "UraniumEnrichment",
@@ -20306,7 +21302,11 @@
           "id": "Product_UraniumDepleted",
           "quantity": 2.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ReprocessedUraniumEnrichment": {
       "id": "ReprocessedUraniumEnrichment",
@@ -20334,7 +21334,11 @@
           "id": "Product_UraniumDepleted",
           "quantity": 1.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumEnrichment20": {
       "id": "UraniumEnrichment20",
@@ -20362,7 +21366,11 @@
           "id": "Product_UraniumDepleted",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BlanketFuelReprocessing": {
       "id": "BlanketFuelReprocessing",
@@ -20386,7 +21394,11 @@
           "id": "Product_CoreFuel",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BlanketFuelReprocessingToPu": {
       "id": "BlanketFuelReprocessingToPu",
@@ -20410,7 +21422,11 @@
           "id": "Product_Plutonium",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BlanketFuelReprocessingToU30": {
       "id": "BlanketFuelReprocessingToU30",
@@ -20434,7 +21450,11 @@
           "id": "Product_UraniumEnriched20",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SpentFuelReprocessing": {
       "id": "SpentFuelReprocessing",
@@ -20470,7 +21490,11 @@
           "id": "Product_FissionProduct",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SpentFuelToBlanket": {
       "id": "SpentFuelToBlanket",
@@ -20506,7 +21530,11 @@
           "id": "Product_FissionProduct",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SpentMoxToBlanket": {
       "id": "SpentMoxToBlanket",
@@ -20542,7 +21570,11 @@
           "id": "Product_FissionProduct",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CoreFuelReprocessing": {
       "id": "CoreFuelReprocessing",
@@ -20578,7 +21610,11 @@
           "id": "Product_FissionProduct",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CharcoalBurning": {
       "id": "CharcoalBurning",
@@ -20602,7 +21638,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronOreCrushing": {
       "id": "IronOreCrushing",
@@ -20623,7 +21663,11 @@
           "id": "Product_IronOreCrushed",
           "quantity": 32
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperOreCrushing": {
       "id": "CopperOreCrushing",
@@ -20644,7 +21688,11 @@
           "id": "Product_CopperOreCrushed",
           "quantity": 32
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SlagCrushing": {
       "id": "SlagCrushing",
@@ -20665,7 +21713,11 @@
           "id": "Product_SlagCrushed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RockCrushing": {
       "id": "RockCrushing",
@@ -20686,7 +21738,11 @@
           "id": "Product_Gravel",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GravelCrushing": {
       "id": "GravelCrushing",
@@ -20707,7 +21763,11 @@
           "id": "Product_ManufacturedSand",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "QuartzCrushing": {
       "id": "QuartzCrushing",
@@ -20728,7 +21788,11 @@
           "id": "Product_QuartzCrushed",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "QuartzMilling": {
       "id": "QuartzMilling",
@@ -20749,7 +21813,11 @@
           "id": "Product_Sand",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumCrushing": {
       "id": "UraniumCrushing",
@@ -20770,7 +21838,11 @@
           "id": "Product_UraniumOreCrushed",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GoldOreCrushing": {
       "id": "GoldOreCrushing",
@@ -20791,7 +21863,11 @@
           "id": "Product_GoldOreCrushed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GoldMilling": {
       "id": "GoldMilling",
@@ -20812,7 +21888,11 @@
           "id": "Product_GoldOrePowder",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BauxiteMilling": {
       "id": "BauxiteMilling",
@@ -20833,7 +21913,11 @@
           "id": "Product_BauxitePowder",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IlmeniteMilling": {
       "id": "IlmeniteMilling",
@@ -20854,7 +21938,11 @@
           "id": "Product_TitaniumOreCrushed",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronOreCrushingT2": {
       "id": "IronOreCrushingT2",
@@ -20875,7 +21963,11 @@
           "id": "Product_IronOreCrushed",
           "quantity": 192
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperOreCrushingT2": {
       "id": "CopperOreCrushingT2",
@@ -20896,7 +21988,11 @@
           "id": "Product_CopperOreCrushed",
           "quantity": 192
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SlagCrushingT2": {
       "id": "SlagCrushingT2",
@@ -20917,7 +22013,11 @@
           "id": "Product_SlagCrushed",
           "quantity": 144
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RockCrushingT2": {
       "id": "RockCrushingT2",
@@ -20938,7 +22038,11 @@
           "id": "Product_Gravel",
           "quantity": 144
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GravelCrushingT2": {
       "id": "GravelCrushingT2",
@@ -20959,7 +22063,11 @@
           "id": "Product_ManufacturedSand",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "QuartzCrushingT2": {
       "id": "QuartzCrushingT2",
@@ -20980,7 +22088,11 @@
           "id": "Product_QuartzCrushed",
           "quantity": 288
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "QuartzMillingT2": {
       "id": "QuartzMillingT2",
@@ -21001,7 +22113,11 @@
           "id": "Product_Sand",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "UraniumCrushingT2": {
       "id": "UraniumCrushingT2",
@@ -21022,7 +22138,11 @@
           "id": "Product_UraniumOreCrushed",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GoldOreCrushingT2": {
       "id": "GoldOreCrushingT2",
@@ -21043,7 +22163,11 @@
           "id": "Product_GoldOreCrushed",
           "quantity": 144
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GoldOreMillingT2": {
       "id": "GoldOreMillingT2",
@@ -21064,7 +22188,11 @@
           "id": "Product_GoldOrePowder",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BauxiteMillingT2": {
       "id": "BauxiteMillingT2",
@@ -21085,7 +22213,11 @@
           "id": "Product_BauxitePowder",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IlmeniteMillingT2": {
       "id": "IlmeniteMillingT2",
@@ -21106,7 +22238,11 @@
           "id": "Product_TitaniumOreCrushed",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingArcScrap": {
       "id": "IronSmeltingArcScrap",
@@ -21142,7 +22278,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingArc": {
       "id": "IronSmeltingArc",
@@ -21186,7 +22326,11 @@
           "id": "Product_Exhaust",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingArcScrap": {
       "id": "CopperSmeltingArcScrap",
@@ -21222,7 +22366,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingArc": {
       "id": "CopperSmeltingArc",
@@ -21266,7 +22414,11 @@
           "id": "Product_Exhaust",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmeltingArc": {
       "id": "GlassSmeltingArc",
@@ -21306,7 +22458,11 @@
           "id": "Product_Exhaust",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmeltingArcWithBroken": {
       "id": "GlassSmeltingArcWithBroken",
@@ -21342,7 +22498,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SiliconSmeltingArc2": {
       "id": "SiliconSmeltingArc2",
@@ -21386,7 +22546,11 @@
           "id": "Product_Exhaust",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminumSmeltingScrapArcT2": {
       "id": "AluminumSmeltingScrapArcT2",
@@ -21422,7 +22586,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IlmeniteSmeltingArc2": {
       "id": "IlmeniteSmeltingArc2",
@@ -21462,7 +22630,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TitaniumSmeltingArc2": {
       "id": "TitaniumSmeltingArc2",
@@ -21498,7 +22670,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingArcScrapT1": {
       "id": "IronSmeltingArcScrapT1",
@@ -21526,7 +22702,11 @@
           "id": "Product_Exhaust",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingArcT1": {
       "id": "IronSmeltingArcT1",
@@ -21562,7 +22742,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingArcScrapT1": {
       "id": "CopperSmeltingArcScrapT1",
@@ -21590,7 +22774,11 @@
           "id": "Product_Exhaust",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingArcT1": {
       "id": "CopperSmeltingArcT1",
@@ -21626,7 +22814,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmeltingArcT1": {
       "id": "GlassSmeltingArcT1",
@@ -21658,7 +22850,11 @@
           "id": "Product_Exhaust",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmeltingArcT1WithBroken": {
       "id": "GlassSmeltingArcT1WithBroken",
@@ -21686,7 +22882,11 @@
           "id": "Product_Exhaust",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SiliconSmeltingArc": {
       "id": "SiliconSmeltingArc",
@@ -21722,7 +22922,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminumSmeltingScrapArcT1": {
       "id": "AluminumSmeltingScrapArcT1",
@@ -21750,7 +22954,11 @@
           "id": "Product_Exhaust",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingT2Scrap": {
       "id": "IronSmeltingT2Scrap",
@@ -21778,7 +22986,11 @@
           "id": "Product_Exhaust",
           "quantity": 27
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingT2": {
       "id": "IronSmeltingT2",
@@ -21814,7 +23026,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingT2Scrap": {
       "id": "CopperSmeltingT2Scrap",
@@ -21842,7 +23058,11 @@
           "id": "Product_Exhaust",
           "quantity": 27
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingT2": {
       "id": "CopperSmeltingT2",
@@ -21878,7 +23098,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmeltingT2": {
       "id": "GlassSmeltingT2",
@@ -21910,7 +23134,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmeltingT2WithBroken": {
       "id": "GlassSmeltingT2WithBroken",
@@ -21938,7 +23166,11 @@
           "id": "Product_Exhaust",
           "quantity": 27
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingT1Scrap": {
       "id": "IronSmeltingT1Scrap",
@@ -21966,7 +23198,11 @@
           "id": "Product_Exhaust",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronSmeltingT1Coal": {
       "id": "IronSmeltingT1Coal",
@@ -21998,7 +23234,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingT1Scrap": {
       "id": "CopperSmeltingT1Scrap",
@@ -22026,7 +23266,11 @@
           "id": "Product_Exhaust",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperSmeltingT1": {
       "id": "CopperSmeltingT1",
@@ -22058,7 +23302,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmelting": {
       "id": "GlassSmelting",
@@ -22090,7 +23338,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassSmeltingWithBroken": {
       "id": "GlassSmeltingWithBroken",
@@ -22118,7 +23370,11 @@
           "id": "Product_Exhaust",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminumElectrolysis": {
       "id": "AluminumElectrolysis",
@@ -22146,7 +23402,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteelCastingCooledT2": {
       "id": "SteelCastingCooledT2",
@@ -22171,7 +23431,11 @@
           "id": "Product_Steel",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TitaniumAlloyCastingT2": {
       "id": "TitaniumAlloyCastingT2",
@@ -22195,7 +23459,11 @@
           "id": "Product_TitaniumAlloy",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteelCastingCooled": {
       "id": "SteelCastingCooled",
@@ -22220,7 +23488,11 @@
           "id": "Product_Steel",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronCastingCooled": {
       "id": "IronCastingCooled",
@@ -22241,7 +23513,11 @@
           "id": "Product_Iron",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperCastingCooled": {
       "id": "CopperCastingCooled",
@@ -22262,7 +23538,11 @@
           "id": "Product_ImpureCopper",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminumCastingT2": {
       "id": "AluminumCastingT2",
@@ -22283,7 +23563,11 @@
           "id": "Product_Aluminum",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IronCasting": {
       "id": "IronCasting",
@@ -22304,7 +23588,11 @@
           "id": "Product_Iron",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperCasting": {
       "id": "CopperCasting",
@@ -22325,7 +23613,11 @@
           "id": "Product_ImpureCopper",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminumCasting": {
       "id": "AluminumCasting",
@@ -22346,7 +23638,11 @@
           "id": "Product_Aluminum",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TitaniumAlloyMixing": {
       "id": "TitaniumAlloyMixing",
@@ -22370,7 +23666,11 @@
           "id": "Product_MoltenTitaniumAlloy",
           "quantity": 108
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperElectrolysisProcess": {
       "id": "CopperElectrolysisProcess",
@@ -22394,7 +23694,11 @@
           "id": "Product_Copper",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CopperElectrolysisWithWater": {
       "id": "CopperElectrolysisWithWater",
@@ -22418,7 +23722,11 @@
           "id": "Product_Copper",
           "quantity": 19.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteelSmeltingT2": {
       "id": "SteelSmeltingT2",
@@ -22446,7 +23754,11 @@
           "id": "Product_Exhaust",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SteelSmelting": {
       "id": "SteelSmelting",
@@ -22474,7 +23786,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassCastingT2": {
       "id": "GlassCastingT2",
@@ -22494,7 +23810,11 @@
           "id": "Product_Glass",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassCastingT1": {
       "id": "GlassCastingT1",
@@ -22518,7 +23838,11 @@
           "id": "Product_BrokenGlass",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SiliconCrystallization": {
       "id": "SiliconCrystallization",
@@ -22542,7 +23866,11 @@
           "id": "Product_SiliconWafer",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AluminaCrystallization": {
       "id": "AluminaCrystallization",
@@ -22562,7 +23890,11 @@
           "id": "Product_SapphireWafer",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SiliconTreatment": {
       "id": "SiliconTreatment",
@@ -22586,7 +23918,11 @@
           "id": "Product_PolySilicon",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GoldSmelting": {
       "id": "GoldSmelting",
@@ -22614,7 +23950,11 @@
           "id": "Product_Exhaust",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GoldScrapSmelting": {
       "id": "GoldScrapSmelting",
@@ -22634,7 +23974,11 @@
           "id": "Product_Gold",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassMixMixingT2": {
       "id": "GlassMixMixingT2",
@@ -22663,7 +24007,11 @@
           "id": "Product_GlassMix",
           "quantity": 120
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassMixMixingWithAcidT2": {
       "id": "GlassMixMixingWithAcidT2",
@@ -22696,7 +24044,11 @@
           "id": "Product_GlassMix",
           "quantity": 120
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AcidMixMixingT2": {
       "id": "AcidMixMixingT2",
@@ -22721,7 +24073,11 @@
           "id": "Product_Acid",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SulfurNeutralizationT2": {
       "id": "SulfurNeutralizationT2",
@@ -22746,7 +24102,11 @@
           "id": "Product_Slag",
           "quantity": 30
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BrineProductionT2": {
       "id": "BrineProductionT2",
@@ -22771,7 +24131,11 @@
           "id": "Product_Brine",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FilterMediaMixingT2": {
       "id": "FilterMediaMixingT2",
@@ -22800,7 +24164,11 @@
           "id": "Product_FilterMedia",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FilterMediaMixingMT2": {
       "id": "FilterMediaMixingMT2",
@@ -22829,7 +24197,11 @@
           "id": "Product_FilterMedia",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OrganicFertilizerProductionT2": {
       "id": "OrganicFertilizerProductionT2",
@@ -22854,7 +24226,11 @@
           "id": "Product_FertilizerOrganic",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OrganicFertilizerProductionDirtT2": {
       "id": "OrganicFertilizerProductionDirtT2",
@@ -22883,7 +24259,11 @@
           "id": "Product_FertilizerOrganic",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Fertilizer2ProductionT2": {
       "id": "Fertilizer2ProductionT2",
@@ -22912,7 +24292,11 @@
           "id": "Product_Fertilizer2",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DirtMixingT2": {
       "id": "DirtMixingT2",
@@ -22937,7 +24321,11 @@
           "id": "Product_Dirt",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromPotatoT2": {
       "id": "AnimalFeedFromPotatoT2",
@@ -22958,7 +24346,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromWheatT2": {
       "id": "AnimalFeedFromWheatT2",
@@ -22979,7 +24371,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 192
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromCornT2": {
       "id": "AnimalFeedFromCornT2",
@@ -23000,7 +24396,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 144
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromSoybeanT2": {
       "id": "AnimalFeedFromSoybeanT2",
@@ -23021,7 +24421,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 216
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedCompostT2": {
       "id": "AnimalFeedCompostT2",
@@ -23042,7 +24446,11 @@
           "id": "Product_Compost",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BiomassCompostT2": {
       "id": "BiomassCompostT2",
@@ -23063,7 +24471,11 @@
           "id": "Product_Compost",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MeatTrimmingsCompostT2": {
       "id": "MeatTrimmingsCompostT2",
@@ -23084,7 +24496,11 @@
           "id": "Product_Compost",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassMixMixing": {
       "id": "GlassMixMixing",
@@ -23113,7 +24529,11 @@
           "id": "Product_GlassMix",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GlassMixMixingWithAcid": {
       "id": "GlassMixMixingWithAcid",
@@ -23146,7 +24566,11 @@
           "id": "Product_GlassMix",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AcidMixMixing": {
       "id": "AcidMixMixing",
@@ -23171,7 +24595,11 @@
           "id": "Product_Acid",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SulfurNeutralization": {
       "id": "SulfurNeutralization",
@@ -23196,7 +24624,11 @@
           "id": "Product_Slag",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BrineProduction": {
       "id": "BrineProduction",
@@ -23221,7 +24653,11 @@
           "id": "Product_Brine",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FilterMediaMixing": {
       "id": "FilterMediaMixing",
@@ -23250,7 +24686,11 @@
           "id": "Product_FilterMedia",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FilterMediaMixingM": {
       "id": "FilterMediaMixingM",
@@ -23279,7 +24719,11 @@
           "id": "Product_FilterMedia",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OrganicFertilizerProduction": {
       "id": "OrganicFertilizerProduction",
@@ -23304,7 +24748,11 @@
           "id": "Product_FertilizerOrganic",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OrganicFertilizerProductionDirt": {
       "id": "OrganicFertilizerProductionDirt",
@@ -23333,7 +24781,11 @@
           "id": "Product_FertilizerOrganic",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Fertilizer2Production": {
       "id": "Fertilizer2Production",
@@ -23362,7 +24814,11 @@
           "id": "Product_Fertilizer2",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DirtMixing": {
       "id": "DirtMixing",
@@ -23387,7 +24843,11 @@
           "id": "Product_Dirt",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromPotato": {
       "id": "AnimalFeedFromPotato",
@@ -23408,7 +24868,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromWheat": {
       "id": "AnimalFeedFromWheat",
@@ -23429,7 +24893,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 96
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromCorn": {
       "id": "AnimalFeedFromCorn",
@@ -23450,7 +24918,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedFromSoybean": {
       "id": "AnimalFeedFromSoybean",
@@ -23471,7 +24943,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 108
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedCompost": {
       "id": "AnimalFeedCompost",
@@ -23492,7 +24968,11 @@
           "id": "Product_Compost",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BiomassCompost": {
       "id": "BiomassCompost",
@@ -23513,7 +24993,11 @@
           "id": "Product_Compost",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MeatTrimmingsCompost": {
       "id": "MeatTrimmingsCompost",
@@ -23534,7 +25018,11 @@
           "id": "Product_Compost",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FertilizerProductionT2": {
       "id": "FertilizerProductionT2",
@@ -23559,7 +25047,11 @@
           "id": "Product_Fertilizer",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FertilizerProductionFromOrganicT2": {
       "id": "FertilizerProductionFromOrganicT2",
@@ -23588,7 +25080,11 @@
           "id": "Product_Fertilizer",
           "quantity": 90
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AmmoniaSynthesisT2": {
       "id": "AmmoniaSynthesisT2",
@@ -23613,7 +25109,11 @@
           "id": "Product_Ammonia",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PaperProductionT2": {
       "id": "PaperProductionT2",
@@ -23642,7 +25142,11 @@
           "id": "Product_Paper",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "EthanolCookingOilReformingT2": {
       "id": "EthanolCookingOilReformingT2",
@@ -23667,7 +25171,11 @@
           "id": "Product_Diesel",
           "quantity": 54
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FuelGasSynthesis": {
       "id": "FuelGasSynthesis",
@@ -23695,7 +25203,11 @@
           "id": "Product_Water",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GraphiteProductionT2": {
       "id": "GraphiteProductionT2",
@@ -23724,7 +25236,11 @@
           "id": "Product_SourWater",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GraphiteProductionCo2": {
       "id": "GraphiteProductionCo2",
@@ -23744,7 +25260,11 @@
           "id": "Product_Graphite",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CarbonToEthanolProduction": {
       "id": "CarbonToEthanolProduction",
@@ -23772,7 +25292,11 @@
           "id": "Product_Water",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DisinfectantProductionT2": {
       "id": "DisinfectantProductionT2",
@@ -23797,7 +25321,11 @@
           "id": "Product_Disinfectant",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnestheticsProduction": {
       "id": "AnestheticsProduction",
@@ -23825,7 +25353,11 @@
           "id": "Product_Anesthetics",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MorphineProduction": {
       "id": "MorphineProduction",
@@ -23853,7 +25385,11 @@
           "id": "Product_Morphine",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BauxiteDigestion": {
       "id": "BauxiteDigestion",
@@ -23881,7 +25417,11 @@
           "id": "Product_RedMud",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TitaniumChlorination": {
       "id": "TitaniumChlorination",
@@ -23917,7 +25457,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TitaniumChlorideReduction": {
       "id": "TitaniumChlorideReduction",
@@ -23945,7 +25489,11 @@
           "id": "Product_Chlorine",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ChemicalFuelProduction": {
       "id": "ChemicalFuelProduction",
@@ -23973,7 +25521,11 @@
           "id": "Product_ChemicalFuel",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MoxRodsAssemblyT1": {
       "id": "MoxRodsAssemblyT1",
@@ -23997,7 +25549,11 @@
           "id": "Product_MoxRod",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BlanketFuelFromDepleted": {
       "id": "BlanketFuelFromDepleted",
@@ -24025,7 +25581,11 @@
           "id": "Product_BlanketFuel",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BlanketFuelFromYellowcake": {
       "id": "BlanketFuelFromYellowcake",
@@ -24049,7 +25609,11 @@
           "id": "Product_BlanketFuel",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CoreFuelFromEnriched": {
       "id": "CoreFuelFromEnriched",
@@ -24073,7 +25637,11 @@
           "id": "Product_CoreFuel",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CoreFuelFromPu": {
       "id": "CoreFuelFromPu",
@@ -24097,7 +25665,11 @@
           "id": "Product_CoreFuel",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DiamondPasteFromCookingOil": {
       "id": "DiamondPasteFromCookingOil",
@@ -24121,7 +25693,11 @@
           "id": "Product_DiamondPaste",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DiamondPasteFromHeavyOil": {
       "id": "DiamondPasteFromHeavyOil",
@@ -24145,7 +25721,11 @@
           "id": "Product_DiamondPaste",
           "quantity": 16
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FertilizerProduction": {
       "id": "FertilizerProduction",
@@ -24170,7 +25750,11 @@
           "id": "Product_Fertilizer",
           "quantity": 30
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FertilizerProductionFromOrganic": {
       "id": "FertilizerProductionFromOrganic",
@@ -24199,7 +25783,11 @@
           "id": "Product_Fertilizer",
           "quantity": 45
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AmmoniaSynthesis": {
       "id": "AmmoniaSynthesis",
@@ -24224,7 +25812,11 @@
           "id": "Product_Ammonia",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PaperProduction": {
       "id": "PaperProduction",
@@ -24253,7 +25845,11 @@
           "id": "Product_Paper",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "EthanolCookingOilReforming": {
       "id": "EthanolCookingOilReforming",
@@ -24278,7 +25874,11 @@
           "id": "Product_Diesel",
           "quantity": 27
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "GraphiteProductionT1": {
       "id": "GraphiteProductionT1",
@@ -24307,7 +25907,11 @@
           "id": "Product_SourWater",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DisinfectantProduction": {
       "id": "DisinfectantProduction",
@@ -24332,7 +25936,11 @@
           "id": "Product_Disinfectant",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CrudeOilRefiningT1": {
       "id": "CrudeOilRefiningT1",
@@ -24364,7 +25972,11 @@
           "id": "Product_SourWater",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CrudeOilRefiningT2": {
       "id": "CrudeOilRefiningT2",
@@ -24392,7 +26004,11 @@
           "id": "Product_LightOil",
           "quantity": 30
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HeavyDistillateRefining": {
       "id": "HeavyDistillateRefining",
@@ -24420,7 +26036,11 @@
           "id": "Product_FuelGas",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "TitaniumPurification": {
       "id": "TitaniumPurification",
@@ -24448,7 +26068,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RubberProductionNaphtha": {
       "id": "RubberProductionNaphtha",
@@ -24472,7 +26096,11 @@
           "id": "Product_Rubber",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RubberProductionNaphthaAlt": {
       "id": "RubberProductionNaphthaAlt",
@@ -24500,7 +26128,11 @@
           "id": "Product_WasteWater",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RubberProductionEthanol": {
       "id": "RubberProductionEthanol",
@@ -24524,7 +26156,11 @@
           "id": "Product_Rubber",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RubberProductionDiesel": {
       "id": "RubberProductionDiesel",
@@ -24548,7 +26184,11 @@
           "id": "Product_Rubber",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RubberProductionDieselWithCoal": {
       "id": "RubberProductionDieselWithCoal",
@@ -24576,7 +26216,11 @@
           "id": "Product_WasteWater",
           "quantity": 4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HeavyOilCracking": {
       "id": "HeavyOilCracking",
@@ -24604,7 +26248,11 @@
           "id": "Product_FuelGas",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HeavyOilCrackingToNaphtha": {
       "id": "HeavyOilCrackingToNaphtha",
@@ -24632,7 +26280,11 @@
           "id": "Product_FuelGas",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "NaphthaReforming": {
       "id": "NaphthaReforming",
@@ -24660,7 +26312,11 @@
           "id": "Product_FuelGas",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "DieselReforming": {
       "id": "DieselReforming",
@@ -24688,7 +26344,11 @@
           "id": "Product_FuelGas",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "NaphthaReformingToGas": {
       "id": "NaphthaReformingToGas",
@@ -24716,7 +26376,11 @@
           "id": "Product_Hydrogen",
           "quantity": 8
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FuelGasReforming": {
       "id": "FuelGasReforming",
@@ -24744,7 +26408,11 @@
           "id": "Product_Water",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HydrogenReforming": {
       "id": "HydrogenReforming",
@@ -24772,7 +26440,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "HydrogenProductionFromSteamSp": {
       "id": "HydrogenProductionFromSteamSp",
@@ -24804,7 +26476,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SourWaterStripping": {
       "id": "SourWaterStripping",
@@ -24836,7 +26512,11 @@
           "id": "Product_Water",
           "quantity": 21
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PlasticMaking": {
       "id": "PlasticMaking",
@@ -24864,7 +26544,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PlasticMakingEthanol": {
       "id": "PlasticMakingEthanol",
@@ -24892,7 +26576,11 @@
           "id": "Product_Exhaust",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeDepletedSteam": {
       "id": "SmokeStackLargeDepletedSteam",
@@ -24907,7 +26595,11 @@
           "quantity": 900
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeLpSteam": {
       "id": "SmokeStackLargeLpSteam",
@@ -24922,7 +26614,11 @@
           "quantity": 900
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeHpSteam": {
       "id": "SmokeStackLargeHpSteam",
@@ -24937,7 +26633,11 @@
           "quantity": 900
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeSpSteam": {
       "id": "SmokeStackLargeSpSteam",
@@ -24952,7 +26652,11 @@
           "quantity": 900
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeOxygen": {
       "id": "SmokeStackLargeOxygen",
@@ -24967,7 +26671,11 @@
           "quantity": 900
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeNitrogen": {
       "id": "SmokeStackLargeNitrogen",
@@ -24982,7 +26690,11 @@
           "quantity": 900
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeExhaust": {
       "id": "SmokeStackLargeExhaust",
@@ -25003,7 +26715,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 450
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLargeCarbonDioxide": {
       "id": "SmokeStackLargeCarbonDioxide",
@@ -25024,7 +26740,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 225
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackDepletedSteam": {
       "id": "SmokeStackDepletedSteam",
@@ -25039,7 +26759,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackLpSteam": {
       "id": "SmokeStackLpSteam",
@@ -25054,7 +26778,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackHpSteam": {
       "id": "SmokeStackHpSteam",
@@ -25069,7 +26797,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackSpSteam": {
       "id": "SmokeStackSpSteam",
@@ -25084,7 +26816,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackOxygen": {
       "id": "SmokeStackOxygen",
@@ -25099,7 +26835,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackNitrogen": {
       "id": "SmokeStackNitrogen",
@@ -25114,7 +26854,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackExhaust": {
       "id": "SmokeStackExhaust",
@@ -25135,7 +26879,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 30
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SmokeStackCarbonDioxide": {
       "id": "SmokeStackCarbonDioxide",
@@ -25156,7 +26904,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OceanWaterDumping": {
       "id": "OceanWaterDumping",
@@ -25171,7 +26923,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BrineDumping": {
       "id": "BrineDumping",
@@ -25186,7 +26942,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "OceanWasteWaterPumping": {
       "id": "OceanWasteWaterPumping",
@@ -25206,7 +26966,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SourWaterDumping": {
       "id": "SourWaterDumping",
@@ -25226,7 +26990,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 120
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WasteAcidDumping": {
       "id": "WasteAcidDumping",
@@ -25246,7 +27014,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 120
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ToxicSlurryDumping": {
       "id": "ToxicSlurryDumping",
@@ -25266,7 +27038,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 150
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SeaWaterDumping": {
       "id": "SeaWaterDumping",
@@ -25281,7 +27057,11 @@
           "quantity": 60
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FertilizerOrganicDumping": {
       "id": "FertilizerOrganicDumping",
@@ -25301,7 +27081,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FertilizerChem1Dumping": {
       "id": "FertilizerChem1Dumping",
@@ -25321,7 +27105,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FertilizerChem2Dumping": {
       "id": "FertilizerChem2Dumping",
@@ -25341,7 +27129,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 30
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RedMudDumping": {
       "id": "RedMudDumping",
@@ -25361,7 +27153,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareDiesel": {
       "id": "FlareDiesel",
@@ -25381,7 +27177,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 30
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareHeavyOil": {
       "id": "FlareHeavyOil",
@@ -25401,7 +27201,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 30
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareLightOil": {
       "id": "FlareLightOil",
@@ -25421,7 +27225,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareNaphtha": {
       "id": "FlareNaphtha",
@@ -25441,7 +27249,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareEthanol": {
       "id": "FlareEthanol",
@@ -25461,7 +27273,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareFuelGas": {
       "id": "FlareFuelGas",
@@ -25481,7 +27297,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareAmmonia": {
       "id": "FlareAmmonia",
@@ -25501,7 +27321,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FlareHydrogen": {
       "id": "FlareHydrogen",
@@ -25516,7 +27340,11 @@
           "quantity": 48
         }
       ],
-      "outputs": []
+      "outputs": [],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ExhaustFiltering": {
       "id": "ExhaustFiltering",
@@ -25552,7 +27380,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ExhaustFilteringLime": {
       "id": "ExhaustFilteringLime",
@@ -25592,7 +27424,11 @@
           "id": "Product_Slag",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WaterTreatment": {
       "id": "WaterTreatment",
@@ -25624,7 +27460,11 @@
           "id": "Product_Sludge",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WaterTreatmentT2": {
       "id": "WaterTreatmentT2",
@@ -25656,7 +27496,11 @@
           "id": "Product_Sludge",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ToxicSlurryTreatment": {
       "id": "ToxicSlurryTreatment",
@@ -25688,7 +27532,11 @@
           "id": "Product_Slag",
           "quantity": 60
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "LandfillBurning": {
       "id": "LandfillBurning",
@@ -25708,7 +27556,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BiomassBurning": {
       "id": "BiomassBurning",
@@ -25728,7 +27580,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AnimalFeedBurning": {
       "id": "AnimalFeedBurning",
@@ -25748,7 +27604,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CanolaBurning": {
       "id": "CanolaBurning",
@@ -25768,7 +27628,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MeatTrimmingsBurning": {
       "id": "MeatTrimmingsBurning",
@@ -25788,7 +27652,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ChickenCarcassBurning": {
       "id": "ChickenCarcassBurning",
@@ -25808,7 +27676,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SulfurBurning": {
       "id": "SulfurBurning",
@@ -25828,7 +27700,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 48
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SludgeBurning": {
       "id": "SludgeBurning",
@@ -25848,7 +27724,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IncinerationOfWaste": {
       "id": "IncinerationOfWaste",
@@ -25880,7 +27760,11 @@
           "id": "Product_SteamHi",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IncinerationOfWastePressed": {
       "id": "IncinerationOfWastePressed",
@@ -25912,7 +27796,11 @@
           "id": "Product_SteamHi",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IncinerationOfWasteHydrogen": {
       "id": "IncinerationOfWasteHydrogen",
@@ -25944,7 +27832,11 @@
           "id": "Product_SteamHi",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "IncinerationOfWastePressedHydrogen": {
       "id": "IncinerationOfWastePressedHydrogen",
@@ -25976,7 +27868,11 @@
           "id": "Product_SteamHi",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingWood": {
       "id": "ShreddingWood",
@@ -25996,7 +27892,11 @@
           "id": "Product_Woodchips",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingSaplings": {
       "id": "ShreddingSaplings",
@@ -26016,7 +27916,11 @@
           "id": "Product_Biomass",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingIronScrap": {
       "id": "ShreddingIronScrap",
@@ -26036,7 +27940,11 @@
           "id": "Product_IronScrap",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingAluminumScrap": {
       "id": "ShreddingAluminumScrap",
@@ -26056,7 +27964,11 @@
           "id": "Product_AluminumScrap",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingCopperScrap": {
       "id": "ShreddingCopperScrap",
@@ -26076,7 +27988,11 @@
           "id": "Product_CopperScrap",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingGoldScrap": {
       "id": "ShreddingGoldScrap",
@@ -26096,7 +28012,11 @@
           "id": "Product_GoldScrap",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingWaste": {
       "id": "ShreddingWaste",
@@ -26116,7 +28036,11 @@
           "id": "Product_Waste",
           "quantity": 72
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingRetiredWaste": {
       "id": "ShreddingRetiredWaste",
@@ -26136,7 +28060,11 @@
           "id": "Product_Recyclables",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ShreddingPolyCells": {
       "id": "ShreddingPolyCells",
@@ -26156,7 +28084,11 @@
           "id": "Product_Recyclables",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PressingOfRecyclables": {
       "id": "PressingOfRecyclables",
@@ -26176,7 +28108,11 @@
           "id": "Product_RecyclablesPressed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PressingOfCopperScrap": {
       "id": "PressingOfCopperScrap",
@@ -26196,7 +28132,11 @@
           "id": "Product_CopperScrapPressed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PressingOfIronScrap": {
       "id": "PressingOfIronScrap",
@@ -26216,7 +28156,11 @@
           "id": "Product_IronScrapPressed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PressingOfAluminumScrap": {
       "id": "PressingOfAluminumScrap",
@@ -26236,7 +28180,11 @@
           "id": "Product_AluminumScrapPressed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PressingOfGoldScrap": {
       "id": "PressingOfGoldScrap",
@@ -26256,7 +28204,11 @@
           "id": "Product_GoldScrapPressed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PressingOfWaste": {
       "id": "PressingOfWaste",
@@ -26276,7 +28228,11 @@
           "id": "Product_WastePressed",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SludgeDigestion": {
       "id": "SludgeDigestion",
@@ -26300,7 +28256,11 @@
           "id": "Product_Compost",
           "quantity": 3
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PotatoDigestion": {
       "id": "PotatoDigestion",
@@ -26324,7 +28284,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "VegetablesDigestion": {
       "id": "VegetablesDigestion",
@@ -26348,7 +28312,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FruitDigestion": {
       "id": "FruitDigestion",
@@ -26372,7 +28340,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "PoppyDigestion": {
       "id": "PoppyDigestion",
@@ -26396,7 +28368,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "WheatDigestion": {
       "id": "WheatDigestion",
@@ -26420,7 +28396,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "CornDigestion": {
       "id": "CornDigestion",
@@ -26444,7 +28424,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SoybeanDigestion": {
       "id": "SoybeanDigestion",
@@ -26468,7 +28452,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "SugarCaneDigestion": {
       "id": "SugarCaneDigestion",
@@ -26492,7 +28480,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MeatTrimmingsDigestion": {
       "id": "MeatTrimmingsDigestion",
@@ -26516,7 +28508,11 @@
           "id": "Product_Compost",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "EggsDigestion": {
       "id": "EggsDigestion",
@@ -26540,7 +28536,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "AirSeparation": {
       "id": "AirSeparation",
@@ -26559,7 +28559,11 @@
           "id": "Product_Nitrogen",
           "quantity": 36
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MaintenanceT1Recycling": {
       "id": "MaintenanceT1Recycling",
@@ -26596,7 +28600,11 @@
           "id": "Product_CopperScrap",
           "quantity": 7.2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": true,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MaintenanceT0Recipe": {
       "id": "MaintenanceT0Recipe",
@@ -26620,7 +28628,11 @@
           "id": "Product_Virtual_MaintenanceT1",
           "quantity": 220
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": true,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MaintenanceT2Recycling": {
       "id": "MaintenanceT2Recycling",
@@ -26661,7 +28673,11 @@
           "id": "Product_BrokenGlass",
           "quantity": 3.6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": true,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "MaintenanceT3Recycling": {
       "id": "MaintenanceT3Recycling",
@@ -26706,7 +28722,11 @@
           "id": "Product_BrokenGlass",
           "quantity": 3.6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": true,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Crop_Potato_Product_Fertilizer": {
       "id": "Crop_Potato_Product_Fertilizer",
@@ -26730,7 +28750,11 @@
           "id": "Product_Potato",
           "quantity": 29
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Potato_Product_Fertilizer2": {
       "id": "Crop_Potato_Product_Fertilizer2",
@@ -26754,7 +28778,11 @@
           "id": "Product_Potato",
           "quantity": 29
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Potato_Product_FertilizerOrganic": {
       "id": "Crop_Potato_Product_FertilizerOrganic",
@@ -26778,7 +28806,11 @@
           "id": "Product_Potato",
           "quantity": 29
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Corn_Product_Fertilizer": {
       "id": "Crop_Corn_Product_Fertilizer",
@@ -26802,7 +28834,11 @@
           "id": "Product_Corn",
           "quantity": 24.75
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Corn_Product_Fertilizer2": {
       "id": "Crop_Corn_Product_Fertilizer2",
@@ -26826,7 +28862,11 @@
           "id": "Product_Corn",
           "quantity": 24.75
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Corn_Product_FertilizerOrganic": {
       "id": "Crop_Corn_Product_FertilizerOrganic",
@@ -26850,7 +28890,11 @@
           "id": "Product_Corn",
           "quantity": 24.75
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Wheat_Product_Fertilizer": {
       "id": "Crop_Wheat_Product_Fertilizer",
@@ -26874,7 +28918,11 @@
           "id": "Product_Wheat",
           "quantity": 14.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Wheat_Product_Fertilizer2": {
       "id": "Crop_Wheat_Product_Fertilizer2",
@@ -26898,7 +28946,11 @@
           "id": "Product_Wheat",
           "quantity": 14.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Wheat_Product_FertilizerOrganic": {
       "id": "Crop_Wheat_Product_FertilizerOrganic",
@@ -26922,7 +28974,11 @@
           "id": "Product_Wheat",
           "quantity": 14.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_TreeSapling_Product_Fertilizer": {
       "id": "Crop_TreeSapling_Product_Fertilizer",
@@ -26946,7 +29002,11 @@
           "id": "Product_TreeSapling",
           "quantity": 7.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_TreeSapling_Product_Fertilizer2": {
       "id": "Crop_TreeSapling_Product_Fertilizer2",
@@ -26970,7 +29030,11 @@
           "id": "Product_TreeSapling",
           "quantity": 7.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_TreeSapling_Product_FertilizerOrganic": {
       "id": "Crop_TreeSapling_Product_FertilizerOrganic",
@@ -26994,7 +29058,11 @@
           "id": "Product_TreeSapling",
           "quantity": 7.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Soybeans_Product_Fertilizer": {
       "id": "Crop_Soybeans_Product_Fertilizer",
@@ -27018,7 +29086,11 @@
           "id": "Product_Soybean",
           "quantity": 8.25
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Soybeans_Product_Fertilizer2": {
       "id": "Crop_Soybeans_Product_Fertilizer2",
@@ -27042,7 +29114,11 @@
           "id": "Product_Soybean",
           "quantity": 8.25
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Soybeans_Product_FertilizerOrganic": {
       "id": "Crop_Soybeans_Product_FertilizerOrganic",
@@ -27066,7 +29142,11 @@
           "id": "Product_Soybean",
           "quantity": 8.25
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_SugarCane_Product_Fertilizer": {
       "id": "Crop_SugarCane_Product_Fertilizer",
@@ -27090,7 +29170,11 @@
           "id": "Product_SugarCane",
           "quantity": 33
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_SugarCane_Product_Fertilizer2": {
       "id": "Crop_SugarCane_Product_Fertilizer2",
@@ -27114,7 +29198,11 @@
           "id": "Product_SugarCane",
           "quantity": 33
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_SugarCane_Product_FertilizerOrganic": {
       "id": "Crop_SugarCane_Product_FertilizerOrganic",
@@ -27138,7 +29226,11 @@
           "id": "Product_SugarCane",
           "quantity": 33
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Vegetables_Product_Fertilizer": {
       "id": "Crop_Vegetables_Product_Fertilizer",
@@ -27162,7 +29254,11 @@
           "id": "Product_Vegetables",
           "quantity": 22.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Vegetables_Product_Fertilizer2": {
       "id": "Crop_Vegetables_Product_Fertilizer2",
@@ -27186,7 +29282,11 @@
           "id": "Product_Vegetables",
           "quantity": 22.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Vegetables_Product_FertilizerOrganic": {
       "id": "Crop_Vegetables_Product_FertilizerOrganic",
@@ -27210,7 +29310,11 @@
           "id": "Product_Vegetables",
           "quantity": 22.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Fruits_Product_Fertilizer": {
       "id": "Crop_Fruits_Product_Fertilizer",
@@ -27234,7 +29338,11 @@
           "id": "Product_Fruit",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Fruits_Product_Fertilizer2": {
       "id": "Crop_Fruits_Product_Fertilizer2",
@@ -27258,7 +29366,11 @@
           "id": "Product_Fruit",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Fruits_Product_FertilizerOrganic": {
       "id": "Crop_Fruits_Product_FertilizerOrganic",
@@ -27282,7 +29394,11 @@
           "id": "Product_Fruit",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Canola_Product_Fertilizer": {
       "id": "Crop_Canola_Product_Fertilizer",
@@ -27306,7 +29422,11 @@
           "id": "Product_Canola",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Canola_Product_Fertilizer2": {
       "id": "Crop_Canola_Product_Fertilizer2",
@@ -27330,7 +29450,11 @@
           "id": "Product_Canola",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Canola_Product_FertilizerOrganic": {
       "id": "Crop_Canola_Product_FertilizerOrganic",
@@ -27354,7 +29478,11 @@
           "id": "Product_Canola",
           "quantity": 18
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Poppy_Product_Fertilizer": {
       "id": "Crop_Poppy_Product_Fertilizer",
@@ -27378,7 +29506,11 @@
           "id": "Product_Poppy",
           "quantity": 9.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Poppy_Product_Fertilizer2": {
       "id": "Crop_Poppy_Product_Fertilizer2",
@@ -27402,7 +29534,11 @@
           "id": "Product_Poppy",
           "quantity": 9.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Poppy_Product_FertilizerOrganic": {
       "id": "Crop_Poppy_Product_FertilizerOrganic",
@@ -27426,7 +29562,11 @@
           "id": "Product_Poppy",
           "quantity": 9.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Flowers_Product_Fertilizer": {
       "id": "Crop_Flowers_Product_Fertilizer",
@@ -27450,7 +29590,11 @@
           "id": "Product_Flowers",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Flowers_Product_Fertilizer2": {
       "id": "Crop_Flowers_Product_Fertilizer2",
@@ -27474,7 +29618,11 @@
           "id": "Product_Flowers",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Flowers_Product_FertilizerOrganic": {
       "id": "Crop_Flowers_Product_FertilizerOrganic",
@@ -27498,7 +29646,11 @@
           "id": "Product_Flowers",
           "quantity": 9
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Potato_Product_Fertilizer_1": {
       "id": "Crop_Potato_Product_Fertilizer_1",
@@ -27522,7 +29674,11 @@
           "id": "Product_Potato",
           "quantity": 19.333333333333332
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Potato_Product_Fertilizer2_1": {
       "id": "Crop_Potato_Product_Fertilizer2_1",
@@ -27546,7 +29702,11 @@
           "id": "Product_Potato",
           "quantity": 19.333333333333332
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Potato_Product_FertilizerOrganic_1": {
       "id": "Crop_Potato_Product_FertilizerOrganic_1",
@@ -27570,7 +29730,11 @@
           "id": "Product_Potato",
           "quantity": 19.333333333333332
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Corn_Product_Fertilizer_1": {
       "id": "Crop_Corn_Product_Fertilizer_1",
@@ -27594,7 +29758,11 @@
           "id": "Product_Corn",
           "quantity": 16.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Corn_Product_Fertilizer2_1": {
       "id": "Crop_Corn_Product_Fertilizer2_1",
@@ -27618,7 +29786,11 @@
           "id": "Product_Corn",
           "quantity": 16.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Corn_Product_FertilizerOrganic_1": {
       "id": "Crop_Corn_Product_FertilizerOrganic_1",
@@ -27642,7 +29814,11 @@
           "id": "Product_Corn",
           "quantity": 16.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Wheat_Product_Fertilizer_1": {
       "id": "Crop_Wheat_Product_Fertilizer_1",
@@ -27666,7 +29842,11 @@
           "id": "Product_Wheat",
           "quantity": 9.666666666666666
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Wheat_Product_Fertilizer2_1": {
       "id": "Crop_Wheat_Product_Fertilizer2_1",
@@ -27690,7 +29870,11 @@
           "id": "Product_Wheat",
           "quantity": 9.666666666666666
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Wheat_Product_FertilizerOrganic_1": {
       "id": "Crop_Wheat_Product_FertilizerOrganic_1",
@@ -27714,7 +29898,11 @@
           "id": "Product_Wheat",
           "quantity": 9.666666666666666
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_TreeSapling_Product_Fertilizer_1": {
       "id": "Crop_TreeSapling_Product_Fertilizer_1",
@@ -27738,7 +29926,11 @@
           "id": "Product_TreeSapling",
           "quantity": 5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_TreeSapling_Product_Fertilizer2_1": {
       "id": "Crop_TreeSapling_Product_Fertilizer2_1",
@@ -27762,7 +29954,11 @@
           "id": "Product_TreeSapling",
           "quantity": 5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_TreeSapling_Product_FertilizerOrganic_1": {
       "id": "Crop_TreeSapling_Product_FertilizerOrganic_1",
@@ -27786,7 +29982,11 @@
           "id": "Product_TreeSapling",
           "quantity": 5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Soybeans_Product_Fertilizer_1": {
       "id": "Crop_Soybeans_Product_Fertilizer_1",
@@ -27810,7 +30010,11 @@
           "id": "Product_Soybean",
           "quantity": 5.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Soybeans_Product_Fertilizer2_1": {
       "id": "Crop_Soybeans_Product_Fertilizer2_1",
@@ -27834,7 +30038,11 @@
           "id": "Product_Soybean",
           "quantity": 5.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Soybeans_Product_FertilizerOrganic_1": {
       "id": "Crop_Soybeans_Product_FertilizerOrganic_1",
@@ -27858,7 +30066,11 @@
           "id": "Product_Soybean",
           "quantity": 5.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_SugarCane_Product_Fertilizer_1": {
       "id": "Crop_SugarCane_Product_Fertilizer_1",
@@ -27882,7 +30094,11 @@
           "id": "Product_SugarCane",
           "quantity": 27.555555555555557
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_SugarCane_Product_Fertilizer2_1": {
       "id": "Crop_SugarCane_Product_Fertilizer2_1",
@@ -27906,7 +30122,11 @@
           "id": "Product_SugarCane",
           "quantity": 27.555555555555557
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_SugarCane_Product_FertilizerOrganic_1": {
       "id": "Crop_SugarCane_Product_FertilizerOrganic_1",
@@ -27930,7 +30150,11 @@
           "id": "Product_SugarCane",
           "quantity": 27.555555555555557
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Vegetables_Product_Fertilizer_1": {
       "id": "Crop_Vegetables_Product_Fertilizer_1",
@@ -27954,7 +30178,11 @@
           "id": "Product_Vegetables",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Vegetables_Product_Fertilizer2_1": {
       "id": "Crop_Vegetables_Product_Fertilizer2_1",
@@ -27978,7 +30206,11 @@
           "id": "Product_Vegetables",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Vegetables_Product_FertilizerOrganic_1": {
       "id": "Crop_Vegetables_Product_FertilizerOrganic_1",
@@ -28002,7 +30234,11 @@
           "id": "Product_Vegetables",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Fruits_Product_Fertilizer_1": {
       "id": "Crop_Fruits_Product_Fertilizer_1",
@@ -28026,7 +30262,11 @@
           "id": "Product_Fruit",
           "quantity": 12.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Fruits_Product_Fertilizer2_1": {
       "id": "Crop_Fruits_Product_Fertilizer2_1",
@@ -28050,7 +30290,11 @@
           "id": "Product_Fruit",
           "quantity": 12.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Fruits_Product_FertilizerOrganic_1": {
       "id": "Crop_Fruits_Product_FertilizerOrganic_1",
@@ -28074,7 +30318,11 @@
           "id": "Product_Fruit",
           "quantity": 12.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Canola_Product_Fertilizer_1": {
       "id": "Crop_Canola_Product_Fertilizer_1",
@@ -28098,7 +30346,11 @@
           "id": "Product_Canola",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Canola_Product_Fertilizer2_1": {
       "id": "Crop_Canola_Product_Fertilizer2_1",
@@ -28122,7 +30374,11 @@
           "id": "Product_Canola",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Canola_Product_FertilizerOrganic_1": {
       "id": "Crop_Canola_Product_FertilizerOrganic_1",
@@ -28146,7 +30402,11 @@
           "id": "Product_Canola",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Poppy_Product_Fertilizer_1": {
       "id": "Crop_Poppy_Product_Fertilizer_1",
@@ -28170,7 +30430,11 @@
           "id": "Product_Poppy",
           "quantity": 7.75
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Poppy_Product_Fertilizer2_1": {
       "id": "Crop_Poppy_Product_Fertilizer2_1",
@@ -28194,7 +30458,11 @@
           "id": "Product_Poppy",
           "quantity": 7.75
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Poppy_Product_FertilizerOrganic_1": {
       "id": "Crop_Poppy_Product_FertilizerOrganic_1",
@@ -28218,7 +30486,11 @@
           "id": "Product_Poppy",
           "quantity": 7.75
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Flowers_Product_Fertilizer_1": {
       "id": "Crop_Flowers_Product_Fertilizer_1",
@@ -28242,7 +30514,11 @@
           "id": "Product_Flowers",
           "quantity": 7.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Flowers_Product_Fertilizer2_1": {
       "id": "Crop_Flowers_Product_Fertilizer2_1",
@@ -28266,7 +30542,11 @@
           "id": "Product_Flowers",
           "quantity": 7.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Flowers_Product_FertilizerOrganic_1": {
       "id": "Crop_Flowers_Product_FertilizerOrganic_1",
@@ -28290,7 +30570,11 @@
           "id": "Product_Flowers",
           "quantity": 7.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Potato": {
       "id": "Crop_Potato",
@@ -28305,7 +30589,11 @@
           "id": "Product_Potato",
           "quantity": 19.333333333333332
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Corn": {
       "id": "Crop_Corn",
@@ -28320,7 +30608,11 @@
           "id": "Product_Corn",
           "quantity": 16.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Wheat": {
       "id": "Crop_Wheat",
@@ -28335,7 +30627,11 @@
           "id": "Product_Wheat",
           "quantity": 9.666666666666666
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_TreeSapling": {
       "id": "Crop_TreeSapling",
@@ -28350,7 +30646,11 @@
           "id": "Product_TreeSapling",
           "quantity": 5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Soybeans": {
       "id": "Crop_Soybeans",
@@ -28365,7 +30665,11 @@
           "id": "Product_Soybean",
           "quantity": 5.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Vegetables": {
       "id": "Crop_Vegetables",
@@ -28380,7 +30684,11 @@
           "id": "Product_Vegetables",
           "quantity": 15
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "Crop_Canola": {
       "id": "Crop_Canola",
@@ -28395,7 +30703,11 @@
           "id": "Product_Canola",
           "quantity": 12
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "ChickenFarm": {
       "id": "ChickenFarm",
@@ -28423,7 +30735,11 @@
           "id": "Product_ChickenCarcass",
           "quantity": 10
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": true,
+      "usesSolarPower": false
     },
     "ResearchLab21": {
       "id": "ResearchLab21",
@@ -28452,7 +30768,11 @@
           "id": "Product_CopperScrap",
           "quantity": 1.2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ResearchLab31": {
       "id": "ResearchLab31",
@@ -28485,7 +30805,11 @@
           "id": "Product_BrokenGlass",
           "quantity": 2.4
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ResearchLab41": {
       "id": "ResearchLab41",
@@ -28518,7 +30842,11 @@
           "id": "Product_BrokenGlass",
           "quantity": 6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "ResearchLab51": {
       "id": "ResearchLab51",
@@ -28555,7 +30883,11 @@
           "id": "Product_BrokenGlass",
           "quantity": 15.6
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Housing_Workers": {
       "id": "Housing_Workers",
@@ -28671,7 +31003,11 @@
           "id": "Product_Recyclables",
           "quantity": 0
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "NuclearReactorT21": {
       "id": "NuclearReactorT21",
@@ -28699,7 +31035,11 @@
           "id": "Product_SpentMox",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "NuclearReactorT22": {
       "id": "NuclearReactorT22",
@@ -28728,7 +31068,11 @@
           "id": "Product_SpentFuel",
           "quantity": 2
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "NuclearReactor1": {
       "id": "NuclearReactor1",
@@ -28757,7 +31101,11 @@
           "id": "Product_SpentFuel",
           "quantity": 1.5
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FastBreederReactorEnrichment1": {
       "id": "FastBreederReactorEnrichment1",
@@ -28794,7 +31142,11 @@
           "quantity": 0,
           "optional": true
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FastBreederReactorEnrichment2": {
       "id": "FastBreederReactorEnrichment2",
@@ -28831,7 +31183,11 @@
           "quantity": 16,
           "optional": true
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "FastBreederReactorEnrichment3": {
       "id": "FastBreederReactorEnrichment3",
@@ -28868,7 +31224,11 @@
           "quantity": 48,
           "optional": true
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "RainwaterHarvester": {
       "id": "RainwaterHarvester",
@@ -28883,7 +31243,11 @@
           "id": "Product_Water",
           "quantity": 3.0833333333333335
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "BasicServerRack": {
       "id": "BasicServerRack",
@@ -28903,7 +31267,11 @@
           "id": "Product_Water",
           "quantity": 24
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_Electricity": {
       "id": "Balancer_Product_Virtual_Electricity",
@@ -28923,7 +31291,11 @@
           "id": "Product_Virtual_Electricity",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_MechPower": {
       "id": "Balancer_Product_Virtual_MechPower",
@@ -28943,7 +31315,11 @@
           "id": "Product_Virtual_MechPower",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_Computing": {
       "id": "Balancer_Product_Virtual_Computing",
@@ -28963,7 +31339,11 @@
           "id": "Product_Virtual_Computing",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_Upoints": {
       "id": "Balancer_Product_Virtual_Upoints",
@@ -28983,7 +31363,11 @@
           "id": "Product_Virtual_Upoints",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_Heat": {
       "id": "Balancer_Product_Virtual_Heat",
@@ -29003,7 +31387,11 @@
           "id": "Product_Virtual_Heat",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_MaintenanceT1": {
       "id": "Balancer_Product_Virtual_MaintenanceT1",
@@ -29023,7 +31411,11 @@
           "id": "Product_Virtual_MaintenanceT1",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_MaintenanceT2": {
       "id": "Balancer_Product_Virtual_MaintenanceT2",
@@ -29043,7 +31435,11 @@
           "id": "Product_Virtual_MaintenanceT2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_MaintenanceT3": {
       "id": "Balancer_Product_Virtual_MaintenanceT3",
@@ -29063,7 +31459,11 @@
           "id": "Product_Virtual_MaintenanceT3",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_SpaceCrew": {
       "id": "Balancer_Product_Virtual_SpaceCrew",
@@ -29083,7 +31483,11 @@
           "id": "Product_Virtual_SpaceCrew",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_SpaceResearchPoints": {
       "id": "Balancer_Product_Virtual_SpaceResearchPoints",
@@ -29103,7 +31507,11 @@
           "id": "Product_Virtual_SpaceResearchPoints",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Wood": {
       "id": "Balancer_Product_Wood",
@@ -29123,7 +31531,11 @@
           "id": "Product_Wood",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Woodchips": {
       "id": "Balancer_Product_Woodchips",
@@ -29143,7 +31555,11 @@
           "id": "Product_Woodchips",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Fertilizer": {
       "id": "Balancer_Product_Fertilizer",
@@ -29163,7 +31579,11 @@
           "id": "Product_Fertilizer",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Fertilizer2": {
       "id": "Balancer_Product_Fertilizer2",
@@ -29183,7 +31603,11 @@
           "id": "Product_Fertilizer2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_FertilizerOrganic": {
       "id": "Balancer_Product_FertilizerOrganic",
@@ -29203,7 +31627,11 @@
           "id": "Product_FertilizerOrganic",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TreeSapling": {
       "id": "Balancer_Product_TreeSapling",
@@ -29223,7 +31651,11 @@
           "id": "Product_TreeSapling",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Paper": {
       "id": "Balancer_Product_Paper",
@@ -29243,7 +31675,11 @@
           "id": "Product_Paper",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Dirt": {
       "id": "Balancer_Product_Dirt",
@@ -29263,7 +31699,11 @@
           "id": "Product_Dirt",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Compost": {
       "id": "Balancer_Product_Compost",
@@ -29283,7 +31723,11 @@
           "id": "Product_Compost",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Sludge": {
       "id": "Balancer_Product_Sludge",
@@ -29303,7 +31747,11 @@
           "id": "Product_Sludge",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Limestone": {
       "id": "Balancer_Product_Limestone",
@@ -29323,7 +31771,11 @@
           "id": "Product_Limestone",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Rock": {
       "id": "Balancer_Product_Rock",
@@ -29343,7 +31795,11 @@
           "id": "Product_Rock",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Gravel": {
       "id": "Balancer_Product_Gravel",
@@ -29363,7 +31819,11 @@
           "id": "Product_Gravel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ManufacturedSand": {
       "id": "Balancer_Product_ManufacturedSand",
@@ -29383,7 +31843,11 @@
           "id": "Product_ManufacturedSand",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_FilterMedia": {
       "id": "Balancer_Product_FilterMedia",
@@ -29403,7 +31867,11 @@
           "id": "Product_FilterMedia",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Coal": {
       "id": "Balancer_Product_Coal",
@@ -29423,7 +31891,11 @@
           "id": "Product_Coal",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Graphite": {
       "id": "Balancer_Product_Graphite",
@@ -29443,7 +31915,11 @@
           "id": "Product_Graphite",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Slag": {
       "id": "Balancer_Product_Slag",
@@ -29463,7 +31939,11 @@
           "id": "Product_Slag",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SlagCrushed": {
       "id": "Balancer_Product_SlagCrushed",
@@ -29483,7 +31963,11 @@
           "id": "Product_SlagCrushed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_IronOre": {
       "id": "Balancer_Product_IronOre",
@@ -29503,7 +31987,11 @@
           "id": "Product_IronOre",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_IronOreCrushed": {
       "id": "Balancer_Product_IronOreCrushed",
@@ -29523,7 +32011,11 @@
           "id": "Product_IronOreCrushed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_IronScrap": {
       "id": "Balancer_Product_IronScrap",
@@ -29543,7 +32035,11 @@
           "id": "Product_IronScrap",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_IronScrapPressed": {
       "id": "Balancer_Product_IronScrapPressed",
@@ -29563,7 +32059,11 @@
           "id": "Product_IronScrapPressed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenIron": {
       "id": "Balancer_Product_MoltenIron",
@@ -29583,7 +32083,11 @@
           "id": "Product_MoltenIron",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenSteel": {
       "id": "Balancer_Product_MoltenSteel",
@@ -29603,7 +32107,11 @@
           "id": "Product_MoltenSteel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Iron": {
       "id": "Balancer_Product_Iron",
@@ -29623,7 +32131,11 @@
           "id": "Product_Iron",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Steel": {
       "id": "Balancer_Product_Steel",
@@ -29643,7 +32155,11 @@
           "id": "Product_Steel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CopperOre": {
       "id": "Balancer_Product_CopperOre",
@@ -29663,7 +32179,11 @@
           "id": "Product_CopperOre",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CopperOreCrushed": {
       "id": "Balancer_Product_CopperOreCrushed",
@@ -29683,7 +32203,11 @@
           "id": "Product_CopperOreCrushed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CopperScrap": {
       "id": "Balancer_Product_CopperScrap",
@@ -29703,7 +32227,11 @@
           "id": "Product_CopperScrap",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CopperScrapPressed": {
       "id": "Balancer_Product_CopperScrapPressed",
@@ -29723,7 +32251,11 @@
           "id": "Product_CopperScrapPressed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenCopper": {
       "id": "Balancer_Product_MoltenCopper",
@@ -29743,7 +32275,11 @@
           "id": "Product_MoltenCopper",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ImpureCopper": {
       "id": "Balancer_Product_ImpureCopper",
@@ -29763,7 +32299,11 @@
           "id": "Product_ImpureCopper",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Copper": {
       "id": "Balancer_Product_Copper",
@@ -29783,7 +32323,11 @@
           "id": "Product_Copper",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Bauxite": {
       "id": "Balancer_Product_Bauxite",
@@ -29803,7 +32347,11 @@
           "id": "Product_Bauxite",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_BauxitePowder": {
       "id": "Balancer_Product_BauxitePowder",
@@ -29823,7 +32371,11 @@
           "id": "Product_BauxitePowder",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_RedMud": {
       "id": "Balancer_Product_RedMud",
@@ -29843,7 +32395,11 @@
           "id": "Product_RedMud",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_HydratedAlumina": {
       "id": "Balancer_Product_HydratedAlumina",
@@ -29863,7 +32419,11 @@
           "id": "Product_HydratedAlumina",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Alumina": {
       "id": "Balancer_Product_Alumina",
@@ -29883,7 +32443,11 @@
           "id": "Product_Alumina",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_AluminumScrap": {
       "id": "Balancer_Product_AluminumScrap",
@@ -29903,7 +32467,11 @@
           "id": "Product_AluminumScrap",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_AluminumScrapPressed": {
       "id": "Balancer_Product_AluminumScrapPressed",
@@ -29923,7 +32491,11 @@
           "id": "Product_AluminumScrapPressed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenAluminum": {
       "id": "Balancer_Product_MoltenAluminum",
@@ -29943,7 +32515,11 @@
           "id": "Product_MoltenAluminum",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Aluminum": {
       "id": "Balancer_Product_Aluminum",
@@ -29963,7 +32539,11 @@
           "id": "Product_Aluminum",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TitaniumOre": {
       "id": "Balancer_Product_TitaniumOre",
@@ -29983,7 +32563,11 @@
           "id": "Product_TitaniumOre",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TitaniumOreCrushed": {
       "id": "Balancer_Product_TitaniumOreCrushed",
@@ -30003,7 +32587,11 @@
           "id": "Product_TitaniumOreCrushed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TitaniumSlag": {
       "id": "Balancer_Product_TitaniumSlag",
@@ -30023,7 +32611,11 @@
           "id": "Product_TitaniumSlag",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TitaniumChloride": {
       "id": "Balancer_Product_TitaniumChloride",
@@ -30043,7 +32635,11 @@
           "id": "Product_TitaniumChloride",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TitaniumChloridePure": {
       "id": "Balancer_Product_TitaniumChloridePure",
@@ -30063,7 +32659,11 @@
           "id": "Product_TitaniumChloridePure",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TitaniumSponge": {
       "id": "Balancer_Product_TitaniumSponge",
@@ -30083,7 +32683,11 @@
           "id": "Product_TitaniumSponge",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenTitanium": {
       "id": "Balancer_Product_MoltenTitanium",
@@ -30103,7 +32707,11 @@
           "id": "Product_MoltenTitanium",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenTitaniumAlloy": {
       "id": "Balancer_Product_MoltenTitaniumAlloy",
@@ -30123,7 +32731,11 @@
           "id": "Product_MoltenTitaniumAlloy",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_TitaniumAlloy": {
       "id": "Balancer_Product_TitaniumAlloy",
@@ -30143,7 +32755,11 @@
           "id": "Product_TitaniumAlloy",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_GoldOre": {
       "id": "Balancer_Product_GoldOre",
@@ -30163,7 +32779,11 @@
           "id": "Product_GoldOre",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_GoldOreCrushed": {
       "id": "Balancer_Product_GoldOreCrushed",
@@ -30183,7 +32803,11 @@
           "id": "Product_GoldOreCrushed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_GoldOrePowder": {
       "id": "Balancer_Product_GoldOrePowder",
@@ -30203,7 +32827,11 @@
           "id": "Product_GoldOrePowder",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_GoldOreConcentrate": {
       "id": "Balancer_Product_GoldOreConcentrate",
@@ -30223,7 +32851,11 @@
           "id": "Product_GoldOreConcentrate",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Gold": {
       "id": "Balancer_Product_Gold",
@@ -30243,7 +32875,11 @@
           "id": "Product_Gold",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_GoldScrap": {
       "id": "Balancer_Product_GoldScrap",
@@ -30263,7 +32899,11 @@
           "id": "Product_GoldScrap",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_GoldScrapPressed": {
       "id": "Balancer_Product_GoldScrapPressed",
@@ -30283,7 +32923,11 @@
           "id": "Product_GoldScrapPressed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Sand": {
       "id": "Balancer_Product_Sand",
@@ -30303,7 +32947,11 @@
           "id": "Product_Sand",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenGlass": {
       "id": "Balancer_Product_MoltenGlass",
@@ -30323,7 +32971,11 @@
           "id": "Product_MoltenGlass",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_BrokenGlass": {
       "id": "Balancer_Product_BrokenGlass",
@@ -30343,7 +32995,11 @@
           "id": "Product_BrokenGlass",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Glass": {
       "id": "Balancer_Product_Glass",
@@ -30363,7 +33019,11 @@
           "id": "Product_Glass",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_GlassMix": {
       "id": "Balancer_Product_GlassMix",
@@ -30383,7 +33043,11 @@
           "id": "Product_GlassMix",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_UraniumOre": {
       "id": "Balancer_Product_UraniumOre",
@@ -30403,7 +33067,11 @@
           "id": "Product_UraniumOre",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_UraniumOreCrushed": {
       "id": "Balancer_Product_UraniumOreCrushed",
@@ -30423,7 +33091,11 @@
           "id": "Product_UraniumOreCrushed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Yellowcake": {
       "id": "Balancer_Product_Yellowcake",
@@ -30443,7 +33115,11 @@
           "id": "Product_Yellowcake",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_UraniumEnriched": {
       "id": "Balancer_Product_UraniumEnriched",
@@ -30463,7 +33139,11 @@
           "id": "Product_UraniumEnriched",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_UraniumEnriched20": {
       "id": "Balancer_Product_UraniumEnriched20",
@@ -30483,7 +33163,11 @@
           "id": "Product_UraniumEnriched20",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_UraniumReprocessed": {
       "id": "Balancer_Product_UraniumReprocessed",
@@ -30503,7 +33187,11 @@
           "id": "Product_UraniumReprocessed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Plutonium": {
       "id": "Balancer_Product_Plutonium",
@@ -30523,7 +33211,11 @@
           "id": "Product_Plutonium",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_UraniumDepleted": {
       "id": "Balancer_Product_UraniumDepleted",
@@ -30543,7 +33235,11 @@
           "id": "Product_UraniumDepleted",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_UraniumRod": {
       "id": "Balancer_Product_UraniumRod",
@@ -30563,7 +33259,11 @@
           "id": "Product_UraniumRod",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoxRod": {
       "id": "Balancer_Product_MoxRod",
@@ -30583,7 +33283,11 @@
           "id": "Product_MoxRod",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SpentFuel": {
       "id": "Balancer_Product_SpentFuel",
@@ -30603,7 +33307,11 @@
           "id": "Product_SpentFuel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SpentMox": {
       "id": "Balancer_Product_SpentMox",
@@ -30623,7 +33331,11 @@
           "id": "Product_SpentMox",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_FissionProduct": {
       "id": "Balancer_Product_FissionProduct",
@@ -30643,7 +33355,11 @@
           "id": "Product_FissionProduct",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_RetiredWaste": {
       "id": "Balancer_Product_RetiredWaste",
@@ -30663,7 +33379,11 @@
           "id": "Product_RetiredWaste",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CoreFuel": {
       "id": "Balancer_Product_CoreFuel",
@@ -30683,7 +33403,11 @@
           "id": "Product_CoreFuel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CoreFuelDirty": {
       "id": "Balancer_Product_CoreFuelDirty",
@@ -30703,7 +33427,11 @@
           "id": "Product_CoreFuelDirty",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_BlanketFuel": {
       "id": "Balancer_Product_BlanketFuel",
@@ -30723,7 +33451,11 @@
           "id": "Product_BlanketFuel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_BlanketFuelEnriched": {
       "id": "Balancer_Product_BlanketFuelEnriched",
@@ -30743,7 +33475,11 @@
           "id": "Product_BlanketFuelEnriched",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Quartz": {
       "id": "Balancer_Product_Quartz",
@@ -30763,7 +33499,11 @@
           "id": "Product_Quartz",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_QuartzCrushed": {
       "id": "Balancer_Product_QuartzCrushed",
@@ -30783,7 +33523,11 @@
           "id": "Product_QuartzCrushed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MoltenSilicon": {
       "id": "Balancer_Product_MoltenSilicon",
@@ -30803,7 +33547,11 @@
           "id": "Product_MoltenSilicon",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_PolySilicon": {
       "id": "Balancer_Product_PolySilicon",
@@ -30823,7 +33571,11 @@
           "id": "Product_PolySilicon",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SiliconWafer": {
       "id": "Balancer_Product_SiliconWafer",
@@ -30843,7 +33595,11 @@
           "id": "Product_SiliconWafer",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Water": {
       "id": "Balancer_Product_Water",
@@ -30863,7 +33619,11 @@
           "id": "Product_Water",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ChilledWater": {
       "id": "Balancer_Product_ChilledWater",
@@ -30883,7 +33643,11 @@
           "id": "Product_ChilledWater",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Seawater": {
       "id": "Balancer_Product_Seawater",
@@ -30903,7 +33667,11 @@
           "id": "Product_Seawater",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Brine": {
       "id": "Balancer_Product_Brine",
@@ -30923,7 +33691,11 @@
           "id": "Product_Brine",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_WasteWater": {
       "id": "Balancer_Product_WasteWater",
@@ -30943,7 +33715,11 @@
           "id": "Product_WasteWater",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ToxicSlurry": {
       "id": "Balancer_Product_ToxicSlurry",
@@ -30963,7 +33739,11 @@
           "id": "Product_ToxicSlurry",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_PollutedWater": {
       "id": "Balancer_Product_Virtual_PollutedWater",
@@ -30983,7 +33763,11 @@
           "id": "Product_Virtual_PollutedWater",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_PollutedAir": {
       "id": "Balancer_Product_Virtual_PollutedAir",
@@ -31003,7 +33787,11 @@
           "id": "Product_Virtual_PollutedAir",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Chlorine": {
       "id": "Balancer_Product_Chlorine",
@@ -31023,7 +33811,11 @@
           "id": "Product_Chlorine",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SteamSp": {
       "id": "Balancer_Product_SteamSp",
@@ -31043,7 +33835,11 @@
           "id": "Product_SteamSp",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SteamHi": {
       "id": "Balancer_Product_SteamHi",
@@ -31063,7 +33859,11 @@
           "id": "Product_SteamHi",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SteamLP": {
       "id": "Balancer_Product_SteamLP",
@@ -31083,7 +33883,11 @@
           "id": "Product_SteamLP",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SteamDepleted": {
       "id": "Balancer_Product_SteamDepleted",
@@ -31103,7 +33907,11 @@
           "id": "Product_SteamDepleted",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Salt": {
       "id": "Balancer_Product_Salt",
@@ -31123,7 +33931,11 @@
           "id": "Product_Salt",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Exhaust": {
       "id": "Balancer_Product_Exhaust",
@@ -31143,7 +33955,11 @@
           "id": "Product_Exhaust",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Recyclables": {
       "id": "Balancer_Product_Recyclables",
@@ -31163,7 +33979,11 @@
           "id": "Product_Recyclables",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_RecyclablesPressed": {
       "id": "Balancer_Product_RecyclablesPressed",
@@ -31183,7 +34003,11 @@
           "id": "Product_RecyclablesPressed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CrudeOil": {
       "id": "Balancer_Product_CrudeOil",
@@ -31203,7 +34027,11 @@
           "id": "Product_CrudeOil",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Diesel": {
       "id": "Balancer_Product_Diesel",
@@ -31223,7 +34051,11 @@
           "id": "Product_Diesel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Naphtha": {
       "id": "Balancer_Product_Naphtha",
@@ -31243,7 +34075,11 @@
           "id": "Product_Naphtha",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_FuelGas": {
       "id": "Balancer_Product_FuelGas",
@@ -31263,7 +34099,11 @@
           "id": "Product_FuelGas",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Sulfur": {
       "id": "Balancer_Product_Sulfur",
@@ -31283,7 +34123,11 @@
           "id": "Product_Sulfur",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SourWater": {
       "id": "Balancer_Product_SourWater",
@@ -31303,7 +34147,11 @@
           "id": "Product_SourWater",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Ammonia": {
       "id": "Balancer_Product_Ammonia",
@@ -31323,7 +34171,11 @@
           "id": "Product_Ammonia",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Acid": {
       "id": "Balancer_Product_Acid",
@@ -31343,7 +34195,11 @@
           "id": "Product_Acid",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_HeavyOil": {
       "id": "Balancer_Product_HeavyOil",
@@ -31363,7 +34219,11 @@
           "id": "Product_HeavyOil",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MediumOil": {
       "id": "Balancer_Product_MediumOil",
@@ -31383,7 +34243,11 @@
           "id": "Product_MediumOil",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_LightOil": {
       "id": "Balancer_Product_LightOil",
@@ -31403,7 +34267,11 @@
           "id": "Product_LightOil",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Plastic": {
       "id": "Balancer_Product_Plastic",
@@ -31423,7 +34291,11 @@
           "id": "Product_Plastic",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Rubber": {
       "id": "Balancer_Product_Rubber",
@@ -31443,7 +34315,11 @@
           "id": "Product_Rubber",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Hydrogen": {
       "id": "Balancer_Product_Hydrogen",
@@ -31463,7 +34339,11 @@
           "id": "Product_Hydrogen",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Nitrogen": {
       "id": "Balancer_Product_Nitrogen",
@@ -31483,7 +34363,11 @@
           "id": "Product_Nitrogen",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CarbonDioxide": {
       "id": "Balancer_Product_CarbonDioxide",
@@ -31503,7 +34387,11 @@
           "id": "Product_CarbonDioxide",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Ethanol": {
       "id": "Balancer_Product_Ethanol",
@@ -31523,7 +34411,11 @@
           "id": "Product_Ethanol",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Potato": {
       "id": "Balancer_Product_Potato",
@@ -31543,7 +34435,11 @@
           "id": "Product_Potato",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Corn": {
       "id": "Balancer_Product_Corn",
@@ -31563,7 +34459,11 @@
           "id": "Product_Corn",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Wheat": {
       "id": "Balancer_Product_Wheat",
@@ -31583,7 +34483,11 @@
           "id": "Product_Wheat",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Soybean": {
       "id": "Balancer_Product_Soybean",
@@ -31603,7 +34507,11 @@
           "id": "Product_Soybean",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SugarCane": {
       "id": "Balancer_Product_SugarCane",
@@ -31623,7 +34531,11 @@
           "id": "Product_SugarCane",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Canola": {
       "id": "Balancer_Product_Canola",
@@ -31643,7 +34555,11 @@
           "id": "Product_Canola",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Vegetables": {
       "id": "Balancer_Product_Vegetables",
@@ -31663,7 +34579,11 @@
           "id": "Product_Vegetables",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Fruit": {
       "id": "Balancer_Product_Fruit",
@@ -31683,7 +34603,11 @@
           "id": "Product_Fruit",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Poppy": {
       "id": "Balancer_Product_Poppy",
@@ -31703,7 +34627,11 @@
           "id": "Product_Poppy",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Bread": {
       "id": "Balancer_Product_Bread",
@@ -31723,7 +34651,11 @@
           "id": "Product_Bread",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Flour": {
       "id": "Balancer_Product_Flour",
@@ -31743,7 +34675,11 @@
           "id": "Product_Flour",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_AnimalFeed": {
       "id": "Balancer_Product_AnimalFeed",
@@ -31763,7 +34699,11 @@
           "id": "Product_AnimalFeed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Biomass": {
       "id": "Balancer_Product_Biomass",
@@ -31783,7 +34723,11 @@
           "id": "Product_Biomass",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Eggs": {
       "id": "Balancer_Product_Eggs",
@@ -31803,7 +34747,11 @@
           "id": "Product_Eggs",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Tofu": {
       "id": "Balancer_Product_Tofu",
@@ -31823,7 +34771,11 @@
           "id": "Product_Tofu",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CookingOil": {
       "id": "Balancer_Product_CookingOil",
@@ -31843,7 +34795,11 @@
           "id": "Product_CookingOil",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Meat": {
       "id": "Balancer_Product_Meat",
@@ -31863,7 +34819,11 @@
           "id": "Product_Meat",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Sausage": {
       "id": "Balancer_Product_Sausage",
@@ -31883,7 +34843,11 @@
           "id": "Product_Sausage",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Snack": {
       "id": "Balancer_Product_Snack",
@@ -31903,7 +34867,11 @@
           "id": "Product_Snack",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Cake": {
       "id": "Balancer_Product_Cake",
@@ -31923,7 +34891,11 @@
           "id": "Product_Cake",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_FoodPack": {
       "id": "Balancer_Product_FoodPack",
@@ -31943,7 +34915,11 @@
           "id": "Product_FoodPack",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Chicken": {
       "id": "Balancer_Product_Chicken",
@@ -31963,7 +34939,11 @@
           "id": "Product_Chicken",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CargoShip": {
       "id": "Balancer_Product_CargoShip",
@@ -31983,7 +34963,11 @@
           "id": "Product_CargoShip",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ChickenCarcass": {
       "id": "Balancer_Product_ChickenCarcass",
@@ -32003,7 +34987,11 @@
           "id": "Product_ChickenCarcass",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MeatTrimmings": {
       "id": "Balancer_Product_MeatTrimmings",
@@ -32023,7 +35011,11 @@
           "id": "Product_MeatTrimmings",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Sugar": {
       "id": "Balancer_Product_Sugar",
@@ -32043,7 +35035,11 @@
           "id": "Product_Sugar",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CornMash": {
       "id": "Balancer_Product_CornMash",
@@ -32063,7 +35059,11 @@
           "id": "Product_CornMash",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_HouseholdGoods": {
       "id": "Balancer_Product_HouseholdGoods",
@@ -32083,7 +35083,11 @@
           "id": "Product_HouseholdGoods",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_HouseholdAppliances": {
       "id": "Balancer_Product_HouseholdAppliances",
@@ -32103,7 +35107,11 @@
           "id": "Product_HouseholdAppliances",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ConsumerElectronics": {
       "id": "Balancer_Product_ConsumerElectronics",
@@ -32123,7 +35131,11 @@
           "id": "Product_ConsumerElectronics",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_LuxuryGoods": {
       "id": "Balancer_Product_LuxuryGoods",
@@ -32143,7 +35155,11 @@
           "id": "Product_LuxuryGoods",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ImportedGoods": {
       "id": "Balancer_Product_ImportedGoods",
@@ -32163,7 +35179,11 @@
           "id": "Product_ImportedGoods",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Antibiotics": {
       "id": "Balancer_Product_Antibiotics",
@@ -32183,7 +35203,11 @@
           "id": "Product_Antibiotics",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Disinfectant": {
       "id": "Balancer_Product_Disinfectant",
@@ -32203,7 +35227,11 @@
           "id": "Product_Disinfectant",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Anesthetics": {
       "id": "Balancer_Product_Anesthetics",
@@ -32223,7 +35251,11 @@
           "id": "Product_Anesthetics",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Morphine": {
       "id": "Balancer_Product_Morphine",
@@ -32243,7 +35275,11 @@
           "id": "Product_Morphine",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MedicalEquipment": {
       "id": "Balancer_Product_MedicalEquipment",
@@ -32263,7 +35299,11 @@
           "id": "Product_MedicalEquipment",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MedicalSupplies": {
       "id": "Balancer_Product_MedicalSupplies",
@@ -32283,7 +35323,11 @@
           "id": "Product_MedicalSupplies",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MedicalSupplies2": {
       "id": "Balancer_Product_MedicalSupplies2",
@@ -32303,7 +35347,11 @@
           "id": "Product_MedicalSupplies2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MedicalSupplies3": {
       "id": "Balancer_Product_MedicalSupplies3",
@@ -32323,7 +35371,11 @@
           "id": "Product_MedicalSupplies3",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Cement": {
       "id": "Balancer_Product_Cement",
@@ -32343,7 +35395,11 @@
           "id": "Product_Cement",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ConcreteSlab": {
       "id": "Balancer_Product_ConcreteSlab",
@@ -32363,7 +35419,11 @@
           "id": "Product_ConcreteSlab",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Bricks": {
       "id": "Balancer_Product_Bricks",
@@ -32383,7 +35443,11 @@
           "id": "Product_Bricks",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ConstructionParts": {
       "id": "Balancer_Product_ConstructionParts",
@@ -32403,7 +35467,11 @@
           "id": "Product_ConstructionParts",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ConstructionParts2": {
       "id": "Balancer_Product_ConstructionParts2",
@@ -32423,7 +35491,11 @@
           "id": "Product_ConstructionParts2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ConstructionParts3": {
       "id": "Balancer_Product_ConstructionParts3",
@@ -32443,7 +35515,11 @@
           "id": "Product_ConstructionParts3",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ConstructionParts4": {
       "id": "Balancer_Product_ConstructionParts4",
@@ -32463,7 +35539,11 @@
           "id": "Product_ConstructionParts4",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MechanicalParts": {
       "id": "Balancer_Product_MechanicalParts",
@@ -32483,7 +35563,11 @@
           "id": "Product_MechanicalParts",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_VehicleParts": {
       "id": "Balancer_Product_VehicleParts",
@@ -32503,7 +35587,11 @@
           "id": "Product_VehicleParts",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_VehicleParts2": {
       "id": "Balancer_Product_VehicleParts2",
@@ -32523,7 +35611,11 @@
           "id": "Product_VehicleParts2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_VehicleParts3": {
       "id": "Balancer_Product_VehicleParts3",
@@ -32543,7 +35635,11 @@
           "id": "Product_VehicleParts3",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_LabEquipment": {
       "id": "Balancer_Product_LabEquipment",
@@ -32563,7 +35659,11 @@
           "id": "Product_LabEquipment",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_LabEquipment2": {
       "id": "Balancer_Product_LabEquipment2",
@@ -32583,7 +35683,11 @@
           "id": "Product_LabEquipment2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_LabEquipment3": {
       "id": "Balancer_Product_LabEquipment3",
@@ -32603,7 +35707,11 @@
           "id": "Product_LabEquipment3",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_LabEquipment4": {
       "id": "Balancer_Product_LabEquipment4",
@@ -32623,7 +35731,11 @@
           "id": "Product_LabEquipment4",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_RailParts": {
       "id": "Balancer_Product_RailParts",
@@ -32643,7 +35755,11 @@
           "id": "Product_RailParts",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_OfficeSupplies": {
       "id": "Balancer_Product_OfficeSupplies",
@@ -32663,7 +35779,11 @@
           "id": "Product_OfficeSupplies",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Electronics": {
       "id": "Balancer_Product_Electronics",
@@ -32683,7 +35803,11 @@
           "id": "Product_Electronics",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_PCB": {
       "id": "Balancer_Product_PCB",
@@ -32703,7 +35827,11 @@
           "id": "Product_PCB",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Electronics2": {
       "id": "Balancer_Product_Electronics2",
@@ -32723,7 +35851,11 @@
           "id": "Product_Electronics2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Electronics3": {
       "id": "Balancer_Product_Electronics3",
@@ -32743,7 +35875,11 @@
           "id": "Product_Electronics3",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Electronics4": {
       "id": "Balancer_Product_Electronics4",
@@ -32763,7 +35899,11 @@
           "id": "Product_Electronics4",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Server": {
       "id": "Balancer_Product_Server",
@@ -32783,7 +35923,11 @@
           "id": "Product_Server",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Microchips": {
       "id": "Balancer_Product_Microchips",
@@ -32803,7 +35947,11 @@
           "id": "Product_Microchips",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage1A": {
       "id": "Balancer_Product_MicrochipsStage1A",
@@ -32823,7 +35971,11 @@
           "id": "Product_MicrochipsStage1A",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage1B": {
       "id": "Balancer_Product_MicrochipsStage1B",
@@ -32843,7 +35995,11 @@
           "id": "Product_MicrochipsStage1B",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage1C": {
       "id": "Balancer_Product_MicrochipsStage1C",
@@ -32863,7 +36019,11 @@
           "id": "Product_MicrochipsStage1C",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage2A": {
       "id": "Balancer_Product_MicrochipsStage2A",
@@ -32883,7 +36043,11 @@
           "id": "Product_MicrochipsStage2A",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage2B": {
       "id": "Balancer_Product_MicrochipsStage2B",
@@ -32903,7 +36067,11 @@
           "id": "Product_MicrochipsStage2B",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage2C": {
       "id": "Balancer_Product_MicrochipsStage2C",
@@ -32923,7 +36091,11 @@
           "id": "Product_MicrochipsStage2C",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage3A": {
       "id": "Balancer_Product_MicrochipsStage3A",
@@ -32943,7 +36115,11 @@
           "id": "Product_MicrochipsStage3A",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage3B": {
       "id": "Balancer_Product_MicrochipsStage3B",
@@ -32963,7 +36139,11 @@
           "id": "Product_MicrochipsStage3B",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage3C": {
       "id": "Balancer_Product_MicrochipsStage3C",
@@ -32983,7 +36163,11 @@
           "id": "Product_MicrochipsStage3C",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage4A": {
       "id": "Balancer_Product_MicrochipsStage4A",
@@ -33003,7 +36187,11 @@
           "id": "Product_MicrochipsStage4A",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_MicrochipsStage4B": {
       "id": "Balancer_Product_MicrochipsStage4B",
@@ -33023,7 +36211,11 @@
           "id": "Product_MicrochipsStage4B",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Diamond": {
       "id": "Balancer_Product_Diamond",
@@ -33043,7 +36235,11 @@
           "id": "Product_Diamond",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_DiamondPaste": {
       "id": "Balancer_Product_DiamondPaste",
@@ -33063,7 +36259,11 @@
           "id": "Product_DiamondPaste",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SapphireWafer": {
       "id": "Balancer_Product_SapphireWafer",
@@ -33083,7 +36283,11 @@
           "id": "Product_SapphireWafer",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Lens": {
       "id": "Balancer_Product_Lens",
@@ -33103,7 +36307,11 @@
           "id": "Product_Lens",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SolarCell": {
       "id": "Balancer_Product_SolarCell",
@@ -33123,7 +36331,11 @@
           "id": "Product_SolarCell",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SolarCellMono": {
       "id": "Balancer_Product_SolarCellMono",
@@ -33143,7 +36355,11 @@
           "id": "Product_SolarCellMono",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CompositePanel": {
       "id": "Balancer_Product_CompositePanel",
@@ -33163,7 +36379,11 @@
           "id": "Product_CompositePanel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CompositeBodyBasic": {
       "id": "Balancer_Product_CompositeBodyBasic",
@@ -33183,7 +36403,11 @@
           "id": "Product_CompositeBodyBasic",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CompositeCore": {
       "id": "Balancer_Product_CompositeCore",
@@ -33203,7 +36427,11 @@
           "id": "Product_CompositeCore",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_ChemicalFuel": {
       "id": "Balancer_Product_ChemicalFuel",
@@ -33223,7 +36451,11 @@
           "id": "Product_ChemicalFuel",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SpaceStationParts1": {
       "id": "Balancer_Product_SpaceStationParts1",
@@ -33243,7 +36475,11 @@
           "id": "Product_SpaceStationParts1",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SpaceStationParts2": {
       "id": "Balancer_Product_SpaceStationParts2",
@@ -33263,7 +36499,11 @@
           "id": "Product_SpaceStationParts2",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CrewSupplies": {
       "id": "Balancer_Product_CrewSupplies",
@@ -33283,7 +36523,11 @@
           "id": "Product_CrewSupplies",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_SpaceProbeParts": {
       "id": "Balancer_Product_SpaceProbeParts",
@@ -33303,7 +36547,11 @@
           "id": "Product_SpaceProbeParts",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_AsteroidBoosterParts": {
       "id": "Balancer_Product_AsteroidBoosterParts",
@@ -33323,7 +36571,11 @@
           "id": "Product_AsteroidBoosterParts",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_CompactReactor": {
       "id": "Balancer_Product_CompactReactor",
@@ -33343,7 +36595,11 @@
           "id": "Product_CompactReactor",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Oxygen": {
       "id": "Balancer_Product_Oxygen",
@@ -33363,7 +36619,11 @@
           "id": "Product_Oxygen",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_HydrogenFluoride": {
       "id": "Balancer_Product_HydrogenFluoride",
@@ -33383,7 +36643,11 @@
           "id": "Product_HydrogenFluoride",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Waste": {
       "id": "Balancer_Product_Waste",
@@ -33403,7 +36667,11 @@
           "id": "Product_Waste",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_WastePressed": {
       "id": "Balancer_Product_WastePressed",
@@ -33423,7 +36691,11 @@
           "id": "Product_WastePressed",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Flowers": {
       "id": "Balancer_Product_Flowers",
@@ -33443,7 +36715,11 @@
           "id": "Product_Flowers",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_Footprint": {
       "id": "Balancer_Product_Virtual_Footprint",
@@ -33463,7 +36739,11 @@
           "id": "Product_Virtual_Footprint",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_Wildcard": {
       "id": "Balancer_Product_Virtual_Wildcard",
@@ -33483,7 +36763,11 @@
           "id": "Product_Virtual_Wildcard",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     },
     "Balancer_Product_Virtual_Workers": {
       "id": "Balancer_Product_Virtual_Workers",
@@ -33503,7 +36787,11 @@
           "id": "Product_Virtual_Workers",
           "quantity": 1
         }
-      ]
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     }
   }
 }

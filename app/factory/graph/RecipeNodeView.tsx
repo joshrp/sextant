@@ -9,6 +9,7 @@ import type { ProductId, Recipe } from './loadJsonData';
 import { getQuantityDisplay, RecipeNodeCalculator } from './recipeNodeLogic';
 import type { RecipeNodeOptions } from './recipeNodeLogic';
 import type { HTMLAttributes } from 'react';
+import { DEFAULT_ZONE_MODIFIERS, type ZoneModifiers } from '~/context/zoneModifiers';
 
 type ProductEdges = Map<ProductId, boolean | null>;
 
@@ -27,6 +28,7 @@ export interface RecipeNodeViewProps {
   nodeId?: string;
   nodeOptions?: RecipeNodeOptions;
   setOptions?: (options: RecipeNodeOptions) => void;
+  modifiers: ZoneModifiers;
 }
 
 /**
@@ -45,12 +47,13 @@ export default function RecipeNodeView({
   nodeId,
   nodeOptions,
   setOptions,
+  modifiers,
 }: RecipeNodeViewProps) {
   const runCount = solution?.runCount ?? 1;
 
   const displayRunCount = solution?.solved && solution.runCount !== undefined ? solution.runCount : 1;
 
-  const Calculator = RecipeNodeCalculator(recipe, nodeOptions, 1);
+  const Calculator = RecipeNodeCalculator(recipe, nodeOptions, 1, modifiers);
 
   // Check if this recipe has optional (recycling breakdown) outputs
   const hasRecyclingOutputs = recipe.outputs.some(p => p.product.isScrap);
@@ -95,12 +98,12 @@ export default function RecipeNodeView({
           {leftProducts.map(prod => {
             const isConnected = !!productEdges.get(prod.product.id);
             const productColor = productBackground(prod.product);
-
+            const quantity = ltr ? Calculator.productInput(prod.product.id) : Calculator.productOutput(prod.product.id);
             return (
               <ProductHandle
                 key={prod.product.id}
                 product={prod.product}
-                quantity={ltr ? Calculator.productInput(prod.product.id) : Calculator.productOutput(prod.product.id)}
+                quantity={quantity * runCount}
                 optional={prod.optional}
                 position={Position.Left}
                 isInput={ltr}
@@ -143,12 +146,13 @@ export default function RecipeNodeView({
           {rightProducts.map(prod => {
             const isConnected = !!productEdges.get(prod.product.id);
             const productColor = productBackground(prod.product);
+            const quantity = ltr ? Calculator.productOutput(prod.product.id) : Calculator.productInput(prod.product.id);
 
             return (
               <ProductHandle
                 key={prod.product.id}
                 product={prod.product}
-                quantity={ltr ? Calculator.productOutput(prod.product.id) : Calculator.productInput(prod.product.id)}
+                quantity={quantity * runCount}
                 optional={prod.optional}
                 position={Position.Right}
                 isInput={!ltr}
@@ -172,7 +176,7 @@ export default function RecipeNodeView({
         <InfrastructureIcon name={`Workers (${recipe.machine.workers}) x ${Math.ceil(runCount)}`} icon={uiIcon("Worker")}
           amount={getQuantityDisplay(recipe.machine.workers, Math.ceil(runCount) /* TODO:: Is this correct? Do workers get consumed even when the building is idle */, "")} />
         <InfrastructureIcon name={maintenanceName(recipe.machine)} icon={maintenanceIcon(recipe.machine)}
-          amount={getQuantityDisplay(recipe.machine.maintenance_cost?.quantity || 0, runCount, "")} />
+          amount={getQuantityDisplay((recipe.machine.maintenance_cost?.quantity || 0) * modifiers.maintenanceConsumption, runCount, "")} />
         <InfrastructureIcon name="Computing" icon={uiIcon("Computing")}
           net={calculateComputingNet(recipe.machine, runCount).net}
           unit="TFlops" />

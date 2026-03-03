@@ -1,13 +1,16 @@
 import { getIdb } from '~/context/idb';
 import { unminify } from '../importexport/importexport';
-import { setDebugSolver } from '../solver/solver';
 import type { GraphScoringMethod, ManifoldOptions, Solution } from '../solver/types';
 import Store from '../store';
+import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
+import type { ZoneModifiers } from '~/context/zoneModifiers';
 import * as nuclearT2AndFBR from './nuclear-t2-and-FBR.test.fixture.json';
 import * as nuclearT2 from './nuclear-T2.test.fixture.json';
 import * as powerGenerationSteam from './power-generation-steam.test.fixture.json';
 import * as researchT2 from './research-t2-simple.test.fixture.json';
 import * as steamFreed from './steam-freed-manifold.test.fixture.json';
+import * as settlement from './basic-settlement-potato-waste-water.test.fixture.json';
+import * as farming from './farming-fertilizer.test.fixture.json';
 
 /**
  * Test data format for solver tests using the import/export system
@@ -39,6 +42,8 @@ export const fixtures: { [name: string]: FactoryFixture } = {
   'power-generation-steam': powerGenerationSteam as unknown as FactoryFixture,
   'research-t2-simple': researchT2 as unknown as FactoryFixture,
   'steam-freed-manifold': steamFreed as unknown as FactoryFixture,
+  'basic-settlement-potato-waste-water': settlement as unknown as FactoryFixture,
+  'farming-fertilizer': farming as unknown as FactoryFixture,
 };
 
 /**
@@ -47,9 +52,7 @@ export const fixtures: { [name: string]: FactoryFixture } = {
  * @param fixture JSON Loaded test fixture
  * @returns A tuple of the store to use immediately, and a promise that resolves when import is complete
  */
-export function getTestStoreRunner(id: string, fixture: FactoryFixture) {
-  setDebugSolver(true);
-
+export function getTestStoreRunner(id: string, fixture: FactoryFixture, getZoneModifiers?: () => ZoneModifiers) {
   const mockIDB = getIdb(id);
   if (!mockIDB) {
     throw new Error("Failed to create mock IndexedDB for testing");
@@ -60,7 +63,7 @@ export function getTestStoreRunner(id: string, fixture: FactoryFixture) {
   // Unminify the factory data
   const factoryData = unminify(fixture.factory);
   // Create a new store instance
-  const store = Store(mockIDB, { id, name: factoryData.name });
+  const store = Store(mockIDB, { id, name: factoryData.name }, getZoneModifiers ?? (() => DEFAULT_ZONE_MODIFIERS));
   
   store.Graph.setState({
     scoringMethod: fixture.scoringMethod,

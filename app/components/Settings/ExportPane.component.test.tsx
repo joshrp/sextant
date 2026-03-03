@@ -79,6 +79,7 @@ describe('ExportPane - Duplicate Factory Names Bug Fix', () => {
           store: mockStore,
           bulkImport: mockBulkImport,
           getExportableData: mockGetExportableData,
+          importWelcomeFactory: async () => {},
         }}
       >
         <ExportPane />

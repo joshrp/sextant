@@ -8,6 +8,7 @@ import { HandleList, ProductHandle } from './handles';
 import type { ProductId, Recipe, RecipeProduct } from './loadJsonData';
 import { SettlementCalculator, isOptionEnabled, type SettlementNodeData } from './recipeNodeLogic';
 import { groupProductsByCategory, CATEGORY_INFO, isFoodCategory } from './settlementCategories';
+import { DEFAULT_ZONE_MODIFIERS, type ZoneModifiers } from '~/context/zoneModifiers';
 
 type ProductEdges = Map<ProductId, boolean | null>;
 
@@ -26,6 +27,7 @@ export interface SettlementNodeViewProps {
   };
   highlight?: HighlightModes;
   nodeId?: string;
+  modifiers: ZoneModifiers;
 }
 
 /**
@@ -57,10 +59,11 @@ export default function SettlementNodeView({
   solution,
   highlight,
   nodeId,
+  modifiers,
 }: SettlementNodeViewProps) {
 
   const runCount = solution?.runCount !== undefined ? solution.runCount : 1;
-  const Calculator = SettlementCalculator(recipe, settlementOptions, runCount);
+  const Calculator = SettlementCalculator(recipe, settlementOptions, runCount, modifiers);
 
   const displayRunCount = solution?.solved && solution.runCount ? solution.runCount : 1;
 

@@ -5,6 +5,7 @@ import { loadData, type ProductId, type RecipeId } from './factory/graph/loadJso
 import type { SettlementNodeViewProps } from './factory/graph/SettlmentNodeView';
 import SettlementNodeView from './factory/graph/SettlmentNodeView';
 import type { SettlementNodeData } from './factory/graph/recipeNodeLogic';
+import { DEFAULT_ZONE_MODIFIERS } from './context/zoneModifiers';
 
 const { recipes } = loadData();
 
@@ -73,6 +74,7 @@ const createFixture = (propsOverrides?: Partial<SettlementNodeViewProps>) => {
           zoomLevel={zoomLevel}
           onFlip={() => setFlipped(!flipped)}
           onRemove={() => setRemoved(true)}
+          modifiers={DEFAULT_ZONE_MODIFIERS}
           {...propsOverrides}
         />
       </div>

@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import type { RecipeNodeViewProps } from './RecipeNodeView';
 import RecipeNodeView from './RecipeNodeView';
 import { loadData, type RecipeId } from './loadJsonData';
+import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 
 const { recipes } = loadData();
@@ -31,7 +32,7 @@ const getRecipeProps = (recipeId: RecipeId, overrides?: Partial<RecipeNodeViewPr
     zoomLevel: 0,
     onFlip: vi.fn(),
     onRemove: vi.fn(),
-
+    modifiers: DEFAULT_ZONE_MODIFIERS,
     ...overrides,
   };
 };

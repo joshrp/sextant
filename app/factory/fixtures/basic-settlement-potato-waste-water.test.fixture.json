@@ -1,0 +1,370 @@
+{
+  "factory": [
+    4,
+    "sadfsadfsadf",
+    "test-zone",
+    "",
+    [
+      [
+        "n",
+        "Housing_Workers_1772661097983",
+        -2095.086494318349,
+        -420.9389269465047,
+        "Housing_Workers",
+        true,
+        "s"
+      ],
+      [
+        "n",
+        "Crop_Potato_Product_FertilizerOrganic_1772874493525",
+        -2708.720304217184,
+        445.8464618702792,
+        "Crop_Potato_Product_FertilizerOrganic",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "DesalinationFromSP_1772874519347",
+        -3390.2978918786202,
+        444.9693482037818,
+        "DesalinationFromSP",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "HouseholdAppliancesAssemblyT3_1772874812855",
+        -2921.532988210118,
+        -250.08269614382897,
+        "HouseholdAppliancesAssemblyT3",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "WaterTreatmentT2_1772874823115",
+        -1984.186102235059,
+        -1076.1630726383432,
+        "WaterTreatmentT2",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "Balancer_Product_Water_1772874835115",
+        -2700.6882387756345,
+        -761.6572564259063,
+        "Balancer_Product_Water",
+        true,
+        "b"
+      ]
+    ],
+    [
+      [
+        "b",
+        "Product_Potato",
+        "Crop_Potato_Product_FertilizerOrganic_1772874493525",
+        "Housing_Workers_1772661097983"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "DesalinationFromSP_1772874519347",
+        "Crop_Potato_Product_FertilizerOrganic_1772874493525"
+      ],
+      [
+        "b",
+        "Product_HouseholdAppliances",
+        "HouseholdAppliancesAssemblyT3_1772874812855",
+        "Housing_Workers_1772661097983"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "WaterTreatmentT2_1772874823115",
+        "Housing_Workers_1772661097983"
+      ],
+      [
+        "b",
+        "Product_WasteWater",
+        "Housing_Workers_1772661097983",
+        "WaterTreatmentT2_1772874823115"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1772874835115",
+        "Housing_Workers_1772661097983"
+      ]
+    ],
+    [
+      [
+        "Product_Virtual_Workers",
+        1000,
+        "eq",
+        true
+      ]
+    ]
+  ],
+  "manifoldOptions": [],
+  "scoringMethod": "infra",
+  "previousSolutionObjectiveValue": 275.4959913793103,
+  "expected": {
+    "objectiveValue": 275.4959913793103,
+    "nodeCounts": [
+      {
+        "nodeId": "Crop_Potato_Product_FertilizerOrganic_1772874493525",
+        "count": 1.44828
+      },
+      {
+        "nodeId": "DesalinationFromSP_1772874519347",
+        "count": 0.905172
+      },
+      {
+        "nodeId": "WaterTreatmentT2_1772874823115",
+        "count": 0.25
+      },
+      {
+        "nodeId": "DesalinationFromSP_1772874519347",
+        "count": 0.905172
+      },
+      {
+        "nodeId": "HouseholdAppliancesAssemblyT3_1772874812855",
+        "count": 0.145833
+      },
+      {
+        "nodeId": "WaterTreatmentT2_1772874823115",
+        "count": 0.25
+      },
+      {
+        "nodeId": "Crop_Potato_Product_FertilizerOrganic_1772874493525",
+        "count": 1.44828
+      },
+      {
+        "nodeId": "Housing_Workers_1772661097983",
+        "count": 12.5
+      },
+      {
+        "nodeId": "HouseholdAppliancesAssemblyT3_1772874812855",
+        "count": 0.145833
+      },
+      {
+        "nodeId": "Housing_Workers_1772661097983",
+        "count": 12.5
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1772874835115",
+        "count": 18
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1772874835115",
+        "count": 18
+      }
+    ],
+    "infrastructure": {
+      "workers": 70,
+      "electricity": 570.402,
+      "computing": 0.875,
+      "maintenance_1": 15.8966,
+      "maintenance_2": 0,
+      "maintenance_3": 0.583333,
+      "footprint": 15472,
+      "workers_generated": 0,
+      "electricity_generated": 0,
+      "computing_generated": 0,
+      "maintenance_1_generated": 0,
+      "maintenance_2_generated": 0,
+      "maintenance_3_generated": 0,
+      "frastructure_total": 120.776
+    },
+    "products": {
+      "inputs": [
+        {
+          "productId": "Product_HouseholdGoods",
+          "amount": -10
+        },
+        {
+          "productId": "Product_Virtual_Electricity",
+          "amount": -1100
+        },
+        {
+          "productId": "Product_Virtual_Computing",
+          "amount": -57.6
+        },
+        {
+          "productId": "Product_LuxuryGoods",
+          "amount": -3.6
+        },
+        {
+          "productId": "Product_ConsumerElectronics",
+          "amount": -3.6
+        },
+        {
+          "productId": "Product_MedicalSupplies",
+          "amount": -5
+        },
+        {
+          "productId": "Product_MedicalSupplies2",
+          "amount": -5
+        },
+        {
+          "productId": "Product_MedicalSupplies3",
+          "amount": -5
+        },
+        {
+          "productId": "Product_Corn",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Bread",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Meat",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Eggs",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Tofu",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Sausage",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Vegetables",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Fruit",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Snack",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Cake",
+          "amount": 0
+        },
+        {
+          "productId": "Product_FertilizerOrganic",
+          "amount": -19.01
+        },
+        {
+          "productId": "Product_Seawater",
+          "amount": -97.7586
+        },
+        {
+          "productId": "Product_SteamSp",
+          "amount": -5.43103
+        },
+        {
+          "productId": "Product_Electronics",
+          "amount": -4.66667
+        },
+        {
+          "productId": "Product_Electronics2",
+          "amount": -2.33333
+        },
+        {
+          "productId": "Product_Steel",
+          "amount": -2.33333
+        },
+        {
+          "productId": "Product_FilterMedia",
+          "amount": -2
+        },
+        {
+          "productId": "Product_Chlorine",
+          "amount": -4
+        },
+        {
+          "productId": "Product_Water",
+          "amount": -18
+        }
+      ],
+      "outputs": [
+        {
+          "productId": "Product_Virtual_Workers",
+          "amount": 1000
+        },
+        {
+          "productId": "Product_Waste",
+          "amount": 29.3
+        },
+        {
+          "productId": "Product_Biomass",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Recyclables",
+          "amount": 26.64
+        },
+        {
+          "productId": "Product_Brine",
+          "amount": 38.0172
+        },
+        {
+          "productId": "Product_Sludge",
+          "amount": 9
+        }
+      ]
+    },
+    "manifolds": {
+      "in_frastructure_total": 120.776,
+      "in_footprint": 15472,
+      "in_workers": 70,
+      "in_electricity": 570.402,
+      "in_computing": 0.875,
+      "in_maintenance_1": 15.8966,
+      "in_maintenance_2": 0,
+      "in_maintenance_3": 0.583333,
+      "c0": 0,
+      "c1": 0,
+      "c2": 0,
+      "i_Product_HouseholdGoods": -10,
+      "c3": 0,
+      "i_Product_Virtual_Electricity": -1100,
+      "i_Product_Virtual_Computing": -57.6,
+      "i_Product_LuxuryGoods": -3.6,
+      "i_Product_ConsumerElectronics": -3.6,
+      "i_Product_MedicalSupplies": -5,
+      "i_Product_MedicalSupplies2": -5,
+      "i_Product_MedicalSupplies3": -5,
+      "c4": 0,
+      "i_Product_Corn": 0,
+      "i_Product_Bread": 0,
+      "i_Product_Meat": 0,
+      "i_Product_Eggs": 0,
+      "i_Product_Tofu": 0,
+      "i_Product_Sausage": 0,
+      "i_Product_Vegetables": 0,
+      "i_Product_Fruit": 0,
+      "i_Product_Snack": 0,
+      "i_Product_Cake": 0,
+      "o_Product_Virtual_Workers": 1000,
+      "c5": 0,
+      "o_Product_Waste": 29.3,
+      "o_Product_Biomass": 0,
+      "o_Product_Recyclables": 26.64,
+      "c6": 0,
+      "i_Product_FertilizerOrganic": -19.01,
+      "i_Product_Seawater": -97.7586,
+      "i_Product_SteamSp": -5.43103,
+      "o_Product_Brine": 38.0172,
+      "i_Product_Electronics": -4.66667,
+      "i_Product_Electronics2": -2.33333,
+      "i_Product_Steel": -2.33333,
+      "i_Product_FilterMedia": -2,
+      "i_Product_Chlorine": -4,
+      "o_Product_Sludge": 9,
+      "i_Product_Water": -18
+    }
+  }
+}

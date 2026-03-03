@@ -57,7 +57,6 @@ export default function ProductHandle(props: ProductHandleProps) {
     isConnected,
     productColor,
     ltr,
-    displayRunCount,
     highlight,
     nodeId,
   } = props;
@@ -107,7 +106,7 @@ export default function ProductHandle(props: ProductHandleProps) {
     >
       {isLeft ? handle : switchElement}
       <div className="flex-1 min-w-4 p-2 text-shadow-md/50">
-        {formatNumber(quantity * displayRunCount, product.unit)}
+        {formatNumber(quantity, product.unit)}
       </div>
       {isLeft ? switchElement : handle}
     </div>

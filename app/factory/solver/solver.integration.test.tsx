@@ -2,19 +2,21 @@ import "fake-indexeddb/auto";
 
 import { describe, expect, test } from 'vitest';
 import { fixtures, getTestStoreRunner, type FactoryFixture } from "../fixtures";
+import { DEFAULT_ZONE_MODIFIERS, type ZoneModifiers } from "~/context/zoneModifiers";
+import { setDebugSolver } from "./solver";
+
 
 /**
  * Helper function to run a test case using a real store
  * @param fixture The test fixture with factory data and options
  */
-export async function runTestCase(name: string, fixture: FactoryFixture) {
+export async function runTestCase(name: string, fixture: FactoryFixture, modifiers: ZoneModifiers): Promise<void> {
   console.log('Starting test case:', name);
-  const [store, prom] = await getTestStoreRunner('test', fixture);
+  const [store, prom] = await getTestStoreRunner('test', fixture, () => modifiers);
 
   await prom; 
 
   const state = store.Graph.getState();
-  console.log('Starting expectations for test case', name);
   // Verify the solution was computed
   expect(state.solution).toBeDefined();
 
@@ -111,7 +113,24 @@ describe("Store Solver Integration Tests", () => {
   test.each(Object.entries(fixtures))(
     "$0",
     async (name: string, fixture: FactoryFixture) => {
-      await runTestCase(name, fixture);
+      setDebugSolver(false);
+
+      await runTestCase(name, fixture, DEFAULT_ZONE_MODIFIERS);
+      // await runTestCase(name + " with modified zone modifiers", fixture, {
+      //   ...DEFAULT_ZONE_MODIFIERS,
+      //   consumerElectronics: 0.5,
+      //   farmYield: 1.5,
+      //   contractProfitability: 0.8,
+      //   farmWater: 0.7,
+      //   foodConsumption: 1.2,
+      //   householdAppliances: 0.6,
+      //   householdGoods: 0.6,
+      //   maintenanceConsumption: 1.3,
+      //   maintenanceOutput: 1.3,
+      //   recyclingEfficiency: 0.5,
+      //   settlementWater: 1.4,
+      //   solarOutput: 1.2,
+      // });
     }
   );
 });

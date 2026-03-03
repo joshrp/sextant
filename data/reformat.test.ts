@@ -167,7 +167,7 @@ describe("Check parsed data", () => {
     const scrapProductIds = new Set([
       "Product_IronScrap", "Product_CopperScrap", "Product_GoldScrap",
       "Product_AluminumScrap", "Product_BrokenGlass",
-    ] as ProductId[]);
+    ]);
 
     recipes.forEach((recipe) => {
       const recyclablesOut = recipe.outputs.find(o => o.product.id === "Product_Recyclables" as ProductId);

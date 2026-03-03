@@ -4,6 +4,13 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithFactory } from '~/test/helpers/renderHelpers';
 import type { HandleProps, NodeProps } from '@xyflow/react';
+import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
+
+// Mock zone context to provide default modifiers
+vi.mock('~/context/ZoneContext', () => ({
+  default: () => { throw new Error('useProductionZone should not be called directly in these tests'); },
+  useProductionZoneStore: () => DEFAULT_ZONE_MODIFIERS,
+}));
 
 // Mock React Flow hooks and components
 vi.mock('@xyflow/react', async () => {

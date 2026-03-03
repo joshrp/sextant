@@ -9,6 +9,7 @@ import { default as FactoryStore, type GraphCoreData } from '../store';
 import { openDB } from 'idb';
 import {setDebugSolver} from '../solver/solver';
 import type { RecipeId } from '../graph/loadJsonData';
+import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 describe("Import Export", () => {
   describe.each(Object.entries(testFactories))('Exporting %s', (key, data) => {
@@ -47,7 +48,7 @@ describe("Import Export", () => {
       const min = await imex.decompress(exportStr) as imex.MinifiedStateV1;
       const data = imex.unminify(min);
       const idb = getIdb();
-      const store = FactoryStore(idb, {id: "test", name: "Test Factory" });
+      const store = FactoryStore(idb, {id: "test", name: "Test Factory" }, () => DEFAULT_ZONE_MODIFIERS);
       
       await (store.Graph.getState().importData(data));
 

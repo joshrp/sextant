@@ -90,7 +90,6 @@ export default function BalancerNodeView({
           {leftProducts.map(prod => {
             const isConnected = !!productEdges.get(prod.product.id);
             const productColor = productBackground(prod.product);
-            console.log('rendering product handle for', prod.product.name, 'count:', displayRunCount, 'units:', prod.product.unit);
             return (
               <ProductHandle
                 key={prod.product.id}

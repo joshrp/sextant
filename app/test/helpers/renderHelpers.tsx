@@ -8,21 +8,23 @@ import type { ReactElement, ReactNode } from 'react';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 import { getIdb } from '~/context/idb';
 import { ProductionZoneProvider } from '~/context/ZoneProvider';
+import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 import { FactoryContext } from '~/factory/FactoryContext';
-import Store, { type FactoryStore } from '~/factory/store';
+import Store, { type FactoryStore, type GetZoneModifiers } from '~/factory/store';
 
 /**
  * Creates a test factory store with default values
  */
 export function createTestFactoryStore(
   id = 'test-factory',
-  name = 'Test Factory'
+  name = 'Test Factory',
+  getZoneModifiers: GetZoneModifiers = () => DEFAULT_ZONE_MODIFIERS,
 ): FactoryStore {
   const idb = getIdb(id);
   if (!idb) {
     throw new Error('Failed to create IndexedDB instance for test factory store');
   }
-  return Store(idb, { id, name });
+  return Store(idb, { id, name }, getZoneModifiers);
 }
 
 interface RenderWithFactoryOptions extends Omit<RenderOptions, 'wrapper'> {

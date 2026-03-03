@@ -12,6 +12,7 @@ import {
   recyclablesProductId,
   recyclablesSourceMaterialSplit,
 } from './recyclables';
+import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 function makeRecipe(params: {
   inputs: Array<{ id: string; quantity: number }>;
@@ -70,7 +71,7 @@ describe('recipeNodeLogic', () => {
           [ProductId('Product_Meat')]: true,
         },
         outputs: {},
-      }, 2);
+      }, 2, DEFAULT_ZONE_MODIFIERS);
 
       expect(calculator.productInput(ProductId('Product_Potato'))).toBeCloseTo(3);
       expect(calculator.productInput(ProductId('Product_Bread'))).toBeCloseTo(1.5);
@@ -90,7 +91,7 @@ describe('recipeNodeLogic', () => {
         outputs: {
           [ProductId('Product_WasteWater')]: false,
         },
-      }, 1);
+      }, 1, DEFAULT_ZONE_MODIFIERS);
 
       expect(calculator.productInput(ProductId('Product_Water'))).toBe(0);
       expect(calculator.productOutput(ProductId('Product_WasteWater'))).toBe(0);
@@ -109,7 +110,7 @@ describe('recipeNodeLogic', () => {
         outputs: {
           [ProductId('Product_WasteWater')]: true,
         },
-      }, 1);
+      }, 1, DEFAULT_ZONE_MODIFIERS);
 
       expect(calculator.productInput(ProductId('Product_Water'))).toBe(0);
       expect(calculator.productOutput(ProductId('Product_WasteWater'))).toBe(0);
@@ -134,7 +135,7 @@ describe('recipeNodeLogic', () => {
         outputs: {
           [ProductId('Product_Recyclables')]: true,
         },
-      }, 1);
+      }, 1, DEFAULT_ZONE_MODIFIERS);
 
       expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(57.75, 8);
     });
@@ -158,7 +159,7 @@ describe('recipeNodeLogic', () => {
         outputs: {
           [ProductId('Product_Recyclables')]: true,
         },
-      }, 1);
+      }, 1, DEFAULT_ZONE_MODIFIERS);
 
       expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(51, 8);
     });
@@ -172,7 +173,7 @@ describe('recipeNodeLogic', () => {
       const calculator = SettlementCalculator(recipe, {
         inputs: {},
         outputs: {},
-      }, 1);
+      }, 1, DEFAULT_ZONE_MODIFIERS);
 
       expect(calculator.productInput(ProductId('Product_Potato'))).toBe(0);
     });

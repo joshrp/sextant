@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Outlet } from "react-router";
 
 import FactoryArchiveHandler from "~/components/FactoryArchiveHandler";
@@ -34,6 +34,8 @@ export default function Zone() {
   store.getState().setLastFactory(selectedFactoryId);
   const idb = useProductionZone().idb;
 
+  const getZoneModifiers = useCallback(() => store.getState().modifiers, [store]);
+
   // State for archiving the selected factory
   const [archiveRequested, setArchiveRequested] = useState(false);
 
@@ -45,7 +47,7 @@ export default function Zone() {
       />
     </div>
     {selectedFactory &&
-      <FactoryProvider idb={idb} zoneId={zoneId} id={selectedFactoryId} name={selectedFactory?.name || "Default Factory"} weights={baseWeights}>
+      <FactoryProvider idb={idb} zoneId={zoneId} id={selectedFactoryId} name={selectedFactory?.name || "Default Factory"} weights={baseWeights} getZoneModifiers={getZoneModifiers}>
         <div className="flex-1 flex flex-col h-full">
           <Factory />
         </div>

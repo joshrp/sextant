@@ -13,6 +13,7 @@ import { getCachedZoneStore, setCachedZoneStore } from "./zoneCache";
 import { factoryIdFromName } from "./utils";
 import { createZoneStore } from "./ZoneStore";
 import type { ProductionZoneStore } from "./ZoneStore";
+import { DEFAULT_ZONE_MODIFIERS } from "./zoneModifiers";
 export type { ProductionZoneStore, ProductionZoneStoreData } from "./ZoneStore";
 
 export const ProductionZoneProvider = ({ zoneId, zoneName, children }: { zoneId: string, zoneName: string, children: ReactNode }) => {
@@ -47,7 +48,9 @@ export const ProductionZoneProvider = ({ zoneId, zoneName, children }: { zoneId:
         if (storeRef.current?.getState().factories.find(f => f.id === id))
           throw new Error("Factory with this ID already exists: " + id);
 
-        const newStore = FactoryStore(idbRef.current!, { id, name: data.name })
+        const getZoneModifiers = () => storeRef.current?.getState().modifiers ?? DEFAULT_ZONE_MODIFIERS;
+
+        const newStore = FactoryStore(idbRef.current!, { id, name: data.name }, getZoneModifiers)
         newStore.Graph.getState().importData(data);
 
         storeRef.current.getState().newFactory(data.name, id);
@@ -81,7 +84,9 @@ export const ProductionZoneProvider = ({ zoneId, zoneName, children }: { zoneId:
           newId = newId + "-" + Date.now().toString().slice(-4);
         }
 
-        const newStore = FactoryStore(idbRef.current, { id: newId, name: data.name });
+        const getZoneModifiers = () => storeRef.current?.getState().modifiers ?? DEFAULT_ZONE_MODIFIERS;
+
+        const newStore = FactoryStore(idbRef.current, { id: newId, name: data.name }, getZoneModifiers);
         await newStore.Graph.getState().importData(data);
 
         storeRef.current.getState().newFactory(data.name, newId);

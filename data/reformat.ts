@@ -8,6 +8,20 @@ import path from "node:path";
 import type { Machine, MachineId, MachineSerialized, Product, ProductId, ProductSerialized, Recipe, RecipeId, RecipeSerialized, RecipeProductSerialized } from "../app/factory/graph/loadJsonData";
 import { recyclablesMaterialToProductName, recyclablesProductId, recyclablesSourceMaterialSplit, type RecyclablesMaterial, type RecyclablesMaterialSplit } from "../app/factory/graph/recyclables";
 
+// ---------------------------------------------------------------------------
+// Recipe classification constants (mirrors recipeClassifier.ts logic)
+// ---------------------------------------------------------------------------
+const MAINTENANCE_PRODUCT_IDS = new Set<string>([
+  'Product_Virtual_MaintenanceT1',
+  'Product_Virtual_MaintenanceT2',
+  'Product_Virtual_MaintenanceT3',
+]);
+
+const SOLAR_PANEL_MACHINE_IDS = new Set<string>([
+  'SolarPanel',
+  'SolarPanelMono',
+]);
+
 type RawProduct = {
   id: string;
   name: string;
@@ -579,6 +593,10 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
         duration: 60, // This is the default with no exceptions... yet
         inputs,
         outputs,
+        isMaintenance: inputs.some(i => MAINTENANCE_PRODUCT_IDS.has(i.id)),
+        isMaintenanceProducer: outputs.some(o => MAINTENANCE_PRODUCT_IDS.has(o.id)),
+        isFarm: rawMachine.id.includes('Farm'),
+        usesSolarPower: SOLAR_PANEL_MACHINE_IDS.has(rawMachine.id),
       };
 
       recipeData.set(newRecipeId, recipe);
@@ -635,6 +653,10 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       machine: BalancerMachineId,
       inputs: [{ id: product.id, quantity: 1 }],
       outputs: [{ id: product.id, quantity: 1 }],
+      isMaintenance: false,
+      isMaintenanceProducer: false,
+      isFarm: false,
+      usesSolarPower: false,
     };
     recipeData.set(BalancerRecipe.id, BalancerRecipe);
     machine.recipes.push(BalancerRecipe.id);

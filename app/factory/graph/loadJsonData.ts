@@ -133,6 +133,14 @@ export type RecipeBase = {
   tiersLink?: string;
   duration: number;
   origDuration: number;
+  /** Pre-computed at reformat time: recipe consumes maintenance products */
+  isMaintenance: boolean;
+  /** Pre-computed at reformat time: recipe produces maintenance products */
+  isMaintenanceProducer: boolean;
+  /** Pre-computed at reformat time: recipe's machine is a farm */
+  isFarm: boolean;
+  /** Pre-computed at reformat time: recipe's machine is a solar panel variant */
+  usesSolarPower: boolean;
 }
 export type Recipe = RecipeBase & {
   machine: Machine;

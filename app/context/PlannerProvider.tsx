@@ -13,6 +13,7 @@ import { createZoneStore } from "./ZoneStore";
 import { deleteIdb, getIdb as getZoneIdb, zoneObjectStore } from "./idb";
 import { factoryIdFromName } from "./utils";
 import { clearCachedZoneStore, getCachedZoneStore, setCachedZoneStore } from "./zoneCache";
+import { DEFAULT_ZONE_MODIFIERS } from "./zoneModifiers";
 import { loadTemplateFactory } from "~/onboarding/templateFactory";
 
 export const PlannerProvider = ({ children }: { children: ReactNode }) => {
@@ -86,8 +87,10 @@ export const PlannerProvider = ({ children }: { children: ReactNode }) => {
         // Add factory to zone's factory list first - this handles ID collision and returns actual ID
         const actualFactoryId = zoneStore.getState().newFactory(factoryName, baseFactoryId, item.data.icon || undefined);
 
+        const getZoneModifiers = () => zoneStore?.getState().modifiers ?? DEFAULT_ZONE_MODIFIERS;
+
         // Create the factory store with the actual ID and import data without running solver
-        const factoryStore = FactoryStore(zoneIdb, { id: actualFactoryId, name: factoryName });
+        const factoryStore = FactoryStore(zoneIdb, { id: actualFactoryId, name: factoryName }, getZoneModifiers);
         await factoryStore.Graph.getState().importData(item.data, { skipSolver: true });
         importedFactoryStores.push(factoryStore);
         

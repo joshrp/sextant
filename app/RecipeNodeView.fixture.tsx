@@ -5,6 +5,7 @@ import { loadData, type ProductId, type RecipeId } from './factory/graph/loadJso
 import type { RecipeNodeViewProps } from './factory/graph/RecipeNodeView';
 import RecipeNodeView from './factory/graph/RecipeNodeView';
 import type { HighlightNone, HighlightProduct } from './factory/store';
+import { DEFAULT_ZONE_MODIFIERS } from './context/zoneModifiers';
 
 const { recipes } = loadData();
 
@@ -72,6 +73,7 @@ const createFixture = (recipeIdStart: string, width: number, propsOverrides?: Pa
           onFlip: () => setFlipped(!flipped),
           onRemove: () => setRemoved(true),
           highlight,
+          modifiers: DEFAULT_ZONE_MODIFIERS,
           ...propsOverrides
         }} />
     </div>

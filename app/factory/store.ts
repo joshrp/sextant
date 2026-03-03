@@ -10,7 +10,7 @@ import type { CustomEdgeType } from "./graph/edges";
 import type { ButtonEdge, ButtonEdgeData } from "./graph/edges/ButtonEdge";
 import type { ProductId, RecipeId } from "./graph/loadJsonData";
 import type { CustomNodeType } from "./graph/nodeTypes";
-import type { BalancerNodeData, NodeDataTypes, RecipeNodeData, SettlementNodeData } from "./graph/recipeNodeLogic";
+import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "./graph/recipeNodeLogic";
 import type { AnnotationNodeData } from "./graph/annotationNode";
 import { createGraphModel, solve } from "./solver/solver";
 import type { Constraint, FactoryGoal, GraphModel, GraphScoringMethod, ManifoldOptions, Solution, SolutionStatus } from "./solver/types";
@@ -18,6 +18,9 @@ import * as reducers from "~/context/reducers/graphReducers";
 import { minify } from "./importexport/importexport";
 import type { IDB } from "~/context/idb";
 import type { FactoryFixture } from "./fixtures";
+import type { ZoneModifiers } from "~/context/zoneModifiers";
+
+export type GetZoneModifiers = () => ZoneModifiers;
 
 // Default empty settlement options for backward compatibility when importing settlements without options
 const EMPTY_SETTLEMENT_OPTIONS: SettlementNodeData["options"] = { 
@@ -111,7 +114,7 @@ export type FactoryStore = ReturnType<typeof Store>;
 
 export type GraphStoreProps = { id: string, name: string };
 
-const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
+const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZoneModifiers) => {
   const Historical = createStore<{ lastUpdated: number | null }>()(
     devtools(
       persist(
@@ -252,7 +255,7 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
           graphUpdateAction: async () => {
             try {
               set({
-                graph: createGraphModel(get().nodes, get().edges),
+                graph: createGraphModel(get().nodes, get().edges, getZoneModifiers()),
               }, false, "graphUpdateAction");
               // console.log("Graph created", get().graph);
               get().validateManifolds();
@@ -310,7 +313,7 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps) => {
             set(state => reducers.updateScoringMethod(state, method), false, "setScoreMethod");
             get().solutionUpdateAction(false);
           },
-          setNodeData: (nodeId: string, data: Partial<RecipeNodeData | BalancerNodeData | SettlementNodeData>) => {
+          setNodeData: (nodeId: string, data: Partial<NodeDataTypes>) => {
             set(state => reducers.updateNodeData(state, nodeId, data), false, "setNodeData");
           },
           setRecipeNodeOptions: (nodeId: string, options: RecipeNodeData["options"]) => {

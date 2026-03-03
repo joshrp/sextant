@@ -4,6 +4,7 @@ import hydration from "~/hydration";
 import type { ProductId } from "../factory/graph/loadJsonData";
 import { zoneObjectStore, type IDB } from "./idb";
 import { factoryIdFromName } from "./utils";
+import { DEFAULT_ZONE_MODIFIERS, type ZoneModifiers } from "./zoneModifiers";
 
 export interface ProductionZoneStoreData {
   id: string,
@@ -22,6 +23,9 @@ export interface ProductionZoneStoreData {
   },
   lastFactory: string | undefined;
   productDisplayMode: "icons" | "names";
+  modifiers: ZoneModifiers;
+  setModifier(key: keyof ZoneModifiers, value: number): void;
+  resetModifiers(): void;
   setProductDisplayMode: (mode: "icons" | "names") => void;
   newFactory(name: string, id?: string, icon?: string, description?: string): string;
   setLastFactory(id: string): void;
@@ -52,6 +56,9 @@ function buildZoneStore(idb: IDB, { id, name }: { id: string, name: string }) {
             },
             lastFactory: undefined,
             productDisplayMode: "icons",
+            modifiers: DEFAULT_ZONE_MODIFIERS,
+            setModifier: (key, value) => set(s => ({ modifiers: { ...s.modifiers, [key]: value } })),
+            resetModifiers: () => set({ modifiers: DEFAULT_ZONE_MODIFIERS }),
             setProductDisplayMode: (mode: "icons" | "names") => {
               set({ productDisplayMode: mode });
             },
@@ -137,7 +144,7 @@ function buildZoneStore(idb: IDB, { id, name }: { id: string, name: string }) {
               return (await idb).delete(zoneObjectStore, name);
             }
           },
-          version: 2,
+          version: 3,
           migrate: (persistedState: unknown, currentVersion: number) => {
             if (!persistedState || !('factories' in (persistedState as ProductionZoneStoreData))) {
               console.log("No persisted state found, or invalid, something is weird in migrate.");
@@ -152,6 +159,11 @@ function buildZoneStore(idb: IDB, { id, name }: { id: string, name: string }) {
                 base: "early",
               };
               console.log("Migrated ProductionZone_settings from version 1 to include weights", newState);
+            }
+
+            if (currentVersion <= 2) {
+              newState.modifiers = DEFAULT_ZONE_MODIFIERS;
+              console.log("Migrated ProductionZone_settings to version 3: added modifiers", newState);
             }
 
             return newState;

@@ -8,6 +8,7 @@ import { ProductId, type Recipe, type RecipeId } from './loadJsonData';
 import { getProductCategory, isFoodCategory, type SettlementCategory } from './settlementCategories';
 import { recyclablesProductId, totalRecyclablesOutput } from './recyclables';
 import Big from "big.js"
+import type { ZoneModifiers } from '~/context/zoneModifiers';
 
 export type HandleDropAlignment = {
   x: number;
@@ -83,7 +84,12 @@ const linkedProducts: Array<[ProductId, ProductId]> = [
   [ProductId("Product_Water"), ProductId("Product_WasteWater")],
 ];
 
-export const SettlementCalculator = (recipe: Recipe, options: SettlementNodeData["options"], runCount: number) => {
+export const SettlementCalculator = (
+  recipe: Recipe,
+  options: SettlementNodeData["options"],
+  runCount: number,
+  modifiers: ZoneModifiers
+) => {
   const foodCategoriesMet = new Set<SettlementCategory>();
   const categoryItemsMet = new Map<SettlementCategory, number>();
   const inputRatios = {} as Record<ProductId, Big>;
@@ -115,9 +121,26 @@ export const SettlementCalculator = (recipe: Recipe, options: SettlementNodeData
     }
 
     if (category !== null && isFoodCategory(category)) {
-      // Reduce the amount of food based on how many categories of food are delivered, 
+      // Reduce the amount of food based on how many categories of food are delivered,
       //  and how many items in the same category are delivered
       baseQty = baseQty.div(foodCategoriesMet.size * (categoryItemsMet.get(category) || 1));
+      baseQty = baseQty.mul(modifiers.foodConsumption);
+    }
+
+    if (input.product.id === ProductId('Product_Water')) {
+      baseQty = baseQty.mul(modifiers.settlementWater);
+    }
+
+    if (input.product.id === ProductId('Product_HouseholdGoods')) {
+      baseQty = baseQty.mul(modifiers.householdGoods);
+    }
+
+    if (input.product.id === ProductId('Product_HouseholdAppliances')) {
+      baseQty = baseQty.mul(modifiers.householdAppliances);
+    }
+
+    if (input.product.id === ProductId('Product_ConsumerElectronics')) {
+      baseQty = baseQty.mul(modifiers.consumerElectronics);
     }
 
     inputRatios[input.product.id] = baseQty;
@@ -130,10 +153,8 @@ export const SettlementCalculator = (recipe: Recipe, options: SettlementNodeData
       return;
     }
 
-    switch (output.product.id) {
-      case recyclablesProductId:
-        baseQty = baseQty.plus(totalRecyclablesOutput(inputRatios));
-        break;
+    if (output.product.id === recyclablesProductId) {
+      baseQty = baseQty.plus(totalRecyclablesOutput(inputRatios).mul(modifiers.recyclingEfficiency / 0.60));
     }
 
     outputRatios[output.product.id] = baseQty;
@@ -167,19 +188,32 @@ export const SettlementCalculator = (recipe: Recipe, options: SettlementNodeData
 
 export type RecipeNodeOptions = RecipeNodeData['options'];
 
-export const RecipeNodeCalculator = (recipe: Recipe, nodeOptions: RecipeNodeOptions, runCount: number) => {
+export const RecipeNodeCalculator = (
+  recipe: Recipe,
+  nodeOptions: RecipeNodeOptions,
+  runCount: number,
+  modifiers: ZoneModifiers
+) => {
+
   return {
     productInput: (productId: ProductId): number => {
       const input = recipe.inputs.find(i => i.product.id === productId);
       if (!input) return 0;
-      return input.quantity * runCount;
+      let qty = input.quantity;
+      if (recipe.isMaintenance) qty *= modifiers.maintenanceConsumption;
+      if (recipe.isFarm && productId === ProductId('Product_Water')) qty *= modifiers.farmWater;
+      return qty * runCount;
     },
     productOutput: (productId: ProductId): number => {
       const output = recipe.outputs.find(o => o.product.id === productId);
       if (!output) return 0;
       // When recycling is disabled, scrap outputs are zeroed
       if (nodeOptions?.useRecycling === false && output.product.isScrap) return 0;
-      return output.quantity * runCount;
+      let qty = output.quantity;
+      if (recipe.isMaintenanceProducer) qty *= modifiers.maintenanceOutput;
+      if (recipe.isFarm) qty *= modifiers.farmYield;
+      if (recipe.usesSolarPower) qty *= modifiers.solarOutput;
+      return qty * runCount;
     },
   };
 }

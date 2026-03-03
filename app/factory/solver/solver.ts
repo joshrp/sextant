@@ -8,6 +8,7 @@ import { type Constraint, type FactoryGoal, type GraphModel, type GraphScoringMe
 import { buildNodeConnections, filterAndSortSolutions, findOptionalTerms, getEquality, getInfrastructureWeight, infraMatcher, inputMatcher, makeVertexId, outputMatcher, parseHighsSolution, shouldSkipConstraint } from "./solverUtils";
 import { solveWithHighs } from "./solverClient";
 import { RecipeNodeCalculator, SettlementCalculator } from "../graph/recipeNodeLogic";
+import type { ZoneModifiers } from "~/context/zoneModifiers";
 
 const recipeData = loadData().recipes;
 
@@ -44,8 +45,8 @@ const highsOptions: HighsOptions = { time_limit: 2, small_matrix_value: 1e-4 };
  *       !! add = 0 constraint
 */
 
-export function createGraphModel(nodes: CustomNodeType[], edges: CustomEdgeType[]): GraphModel {
-  const solver = new Solver(nodes, edges);
+export function createGraphModel(nodes: CustomNodeType[], edges: CustomEdgeType[], zoneModifiers: ZoneModifiers): GraphModel {
+  const solver = new Solver(nodes, edges, zoneModifiers);
   return solver.toGraphModel()
 }
 
@@ -276,11 +277,13 @@ export default class Solver {
 
   public constraints: { [key: string]: Constraint } = {};
   public graph: NodeConnections;
+  public zoneModifiers: ZoneModifiers;
 
   public nodeIdToLabels: Record<string, string> = {};
   public itemConstraints: Map<ProductId, string> = new Map();
 
-  constructor(nodes: CustomNodeType[], edges: CustomEdgeType[]) {
+  constructor(nodes: CustomNodeType[], edges: CustomEdgeType[], zoneModifiers: ZoneModifiers) {
+    this.zoneModifiers = zoneModifiers;
     this.graph = buildNodeConnections(nodes, edges, recipeData);
     this.fillConstraints();
   }
@@ -320,10 +323,10 @@ export default class Solver {
 
     let qty = recipeItem.quantity;
     if (node.type === "settlement") {
-      const Calculator = SettlementCalculator(recipe, node.options, 1);
+      const Calculator = SettlementCalculator(recipe, node.options, 1, this.zoneModifiers);
       qty = isInput ? Calculator.productInput(productId) : Calculator.productOutput(productId);
     } else if (node.type === "recipe") {
-      const Calculator = RecipeNodeCalculator(recipe, node.options, 1);
+      const Calculator = RecipeNodeCalculator(recipe, node.options, 1, this.zoneModifiers);
       qty = isInput ? Calculator.productInput(productId) : Calculator.productOutput(productId);
     }
 

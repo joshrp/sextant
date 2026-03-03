@@ -9,6 +9,7 @@ import { loadData, type ProductId } from './loadJsonData';
 import { type RecipeNodeData, type RecipeNodeType } from './recipeNodeLogic';
 import RecipeNodeView from './RecipeNodeView';
 import SettlementNodeView from './SettlmentNodeView';
+import { useProductionZoneStore } from '~/context/ZoneContext';
 
 const { recipes } = loadData();
 
@@ -202,6 +203,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
 
   const connectedEdges = useFactoryStore(useShallow(state => state.edges.filter(e => e.source === props.id || e.target === props.id)));
   const zoomLevel = useStore(zoomSelector);
+  const modifiers = useProductionZoneStore(state => state.modifiers);
 
   const recipe = 'recipeId' in props.data && recipes.get(props.data.recipeId);
   if (!recipe) {
@@ -265,6 +267,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         solution={props.data.solution}
         highlight={highlight}
         nodeId={props.id}
+        modifiers={modifiers}
       />;
     } else {
       contents = <RecipeNodeView
@@ -282,10 +285,11 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
           setRecipeNodeOptions(props.id, opts);
           updateNodeInternals(props.id);
         }}
+        modifiers={modifiers}
       />;
     }
     return contents;
-  }, [props.data, props.data.solution, recipe, productEdges, zoomLevel, highlight, props.id]);
+  }, [props.data, props.data.solution, recipe, productEdges, zoomLevel, highlight, props.id, modifiers]);
 
 }
 

@@ -12,6 +12,7 @@ import { createContext, useContext, type ReactNode, useMemo, useState, useEffect
 import { getIdb } from '~/context/idb';
 import Store, { type FactoryStore } from '~/factory/store';
 import type { GraphImportData } from '~/factory/store';
+import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 // Help context uses a minimal zone structure for examples
 interface HelpContextValue {
@@ -45,7 +46,7 @@ export function HelpProvider({ children }: HelpProviderProps) {
     const store = Store(idb, { 
       id: HELP_FACTORY_ID, 
       name: HELP_FACTORY_NAME 
-    });
+    }, () => DEFAULT_ZONE_MODIFIERS);
     
     setFactoryStore(store);
     

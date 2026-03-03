@@ -17,6 +17,7 @@ import { productIcon } from "~/uiUtils";
 import { SelectorDialog } from "../Dialog";
 import ExportPane from "./ExportPane";
 import ImportPane from "./ImportPane";
+import ZoneModifiersPane from "./ZoneModifiersPane";
 
 const { products } = loadData();
 
@@ -25,7 +26,7 @@ const settingsTabs = [
   { id: "export", name: "Export" },
   { id: "import", name: "Import" },
   { id: "debug", name: "Debug" },
-  { id: "advanced", name: "Advanced" },
+  { id: "modifiers", name: "Modifiers" },
 ];
 const tabIds = settingsTabs.map(t => t.id);
 
@@ -39,18 +40,15 @@ export default function FactorySettings() {
   let tabId = `${tabParam}`;
   // If there's no tab, or the tab isn't valid. Go to the last tab, if that's not valid go to weights
   useEffect(() => {
-    console.log('Settings tab effect', { tabParam, tabId, lastTab });
     if (!tabParam || !tabIds.includes(tabParam)) {
       if (lastTab && tabIds.includes(lastTab))
         tabId = lastTab
       else
         tabId = "weights";
 
-      console.log('No tab in URL, send to:', tabId);
       navigate(`../settings/${tabId}`, { replace: true });
     }
     else if (lastTab !== tabId) {
-      console.log('Setting lastSettingsTab from', lastTab, 'to', tabId);
       plannerStore.setState((state) => ({ ...state, lastSettingsTab: tabId }), false, "Set lastSettingsTab");
     }
   }, [tabParam, lastTab]);
@@ -70,10 +68,8 @@ export default function FactorySettings() {
     case "debug":
       content = <FactoryDebug />;
       break;
-    case "advanced":
-      content = <div>
-        Advanced Settings (to be implemented)
-      </div>;
+    case "modifiers":
+      content = <ZoneModifiersPane />;
       break;
     default:
       content = <div>Unknown tab</div>;
