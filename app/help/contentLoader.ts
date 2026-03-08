@@ -12,6 +12,8 @@ import * as BalancerContent from './content/balancer.mdx';
 import * as ScoringContent from './content/scoring.mdx';
 import * as ManifoldsContent from './content/manifolds.mdx';
 import * as SettlementsContent from './content/settlements.mdx';
+import * as ImportExportContent from './content/import-export.mdx';
+import * as YourDataContent from './content/your-data.mdx';
 
 
 // Map topic IDs to their content components
@@ -25,6 +27,8 @@ export const contentMap = {
   scoring: ScoringContent.default,
   manifolds: ManifoldsContent.default,
   settlements: SettlementsContent.default,
+  'import-export': ImportExportContent.default,
+  'your-data': YourDataContent.default,
 } as const;
 
 /**

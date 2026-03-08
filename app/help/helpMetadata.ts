@@ -107,6 +107,22 @@ export const helpTopics: HelpTopic[] = [
     category: 'advanced',
     order: 1,
   },
+  {
+    id: 'import-export',
+    title: 'Import & Export',
+    description: 'Exporting, importing, and sharing factories',
+    contentKey: 'import-export',
+    category: 'getting-started',
+    order: 4,
+  },
+  {
+    id: 'your-data',
+    title: 'Your Data & Backing Up',
+    description: 'Where your data is stored and how to back it up',
+    contentKey: 'your-data',
+    category: 'reference',
+    order: 5,
+  },
 ];
 
 /**

@@ -1,0 +1,27 @@
+# Your Data & Backing Up
+
+## Where Your Data Lives
+
+All your factories, zones, and planner information are stored in **IndexedDB** — a database built into your browser. Your data is tied to this domain and never sent to any server. Nothing leaves your device.
+
+This means:
+
+- **No account needed** — everything works offline after the page has loaded
+- **No sync** — data will not update across devices
+- **Clearing browser data will delete your factories** — treat your browser storage with care
+
+## Backing Up Your Data
+
+Because your data lives only in the browser, I strongly recommend taking regular exports of important plans and designs.
+
+Use **[Bulk Export](help?topic=import-export)** from the planner menu to export all your factories and zones as a single string. Save that string to a text file somewhere outside your browser (a local file, cloud storage, etc.).
+
+To restore, paste the string back in using **Bulk Import**.
+
+See the [Import & Export](help?topic=import-export) guide for the full details.
+
+## Archiving Factories
+
+Individual factories can be **archived**, before being deleted outright. Archived factories are kept in IndexedDB and can be restored later from the archive browser in the zone sidebar. Archives are also subject to the same browser-storage caveat above, so export important factories if you want a durable backup.
+
+
