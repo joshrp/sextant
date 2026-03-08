@@ -16,44 +16,9 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Lint
-        run: npm run lint
-
-      - name: Typecheck
-        run: npm run typecheck
-      
-      - name: Test
-        run: npm test
-
-      - name: Install playwright browsers
-        run: npx playwright install --with-deps
-
-      - name: E2E Test
-        run: npm run test:e2e
-
-      - name: Build
-        run: npm run build
-        env:
-          GITHUB_PAGES: "true"
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build/client
+    uses: ./.github/workflows/build.yml
+    with:
+      upload-artifact: true
 
   deploy:
     needs: build
