@@ -7568,6 +7568,36 @@
           "BalancerVirtual"
         ]
       }
+    },
+    "Product_Virtual_ResearchPoints": {
+      "id": "Product_Virtual_ResearchPoints",
+      "name": "Research Points",
+      "icon": "research.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "pts",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_ResearchPoints"
+        ],
+        "output": [
+          "ResearchLab1_Research",
+          "ResearchLab1_Research",
+          "ResearchLab21",
+          "ResearchLab31",
+          "ResearchLab41",
+          "ResearchLab51",
+          "Balancer_Product_Virtual_ResearchPoints"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual"
+        ],
+        "output": [
+          "BalancerVirtual"
+        ]
+      }
     }
   },
   "machines": {
@@ -11873,7 +11903,9 @@
       "name": "Research lab (basic)",
       "category_id": "Buildings",
       "workers": 6,
-      "recipes": [],
+      "recipes": [
+        "ResearchLab1_Research"
+      ],
       "buildCosts": [
         {
           "id": "Product_ConstructionParts",
@@ -13678,7 +13710,8 @@
         "Balancer_Product_CargoShip",
         "Balancer_Product_Virtual_Footprint",
         "Balancer_Product_Virtual_Wildcard",
-        "Balancer_Product_Virtual_Workers"
+        "Balancer_Product_Virtual_Workers",
+        "Balancer_Product_Virtual_ResearchPoints"
       ],
       "buildCosts": [],
       "isBalancer": true,
@@ -30746,6 +30779,29 @@
       "isFarm": true,
       "usesSolarPower": false
     },
+    "ResearchLab1_Research": {
+      "id": "ResearchLab1_Research",
+      "name": "Research lab (basic)",
+      "machine": "ResearchLab1",
+      "origDuration": 60,
+      "type": "recipe",
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Virtual_ResearchPoints",
+          "quantity": 3
+        },
+        {
+          "id": "Product_Virtual_ResearchPoints",
+          "quantity": 3
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
     "ResearchLab21": {
       "id": "ResearchLab21",
       "name": "Research lab I 1",
@@ -30764,6 +30820,10 @@
           "id": "Product_Recyclables",
           "quantity": 6,
           "optional": true
+        },
+        {
+          "id": "Product_Virtual_ResearchPoints",
+          "quantity": 6
         },
         {
           "id": "Product_IronScrap",
@@ -30797,6 +30857,10 @@
           "id": "Product_Recyclables",
           "quantity": 12,
           "optional": true
+        },
+        {
+          "id": "Product_Virtual_ResearchPoints",
+          "quantity": 12
         },
         {
           "id": "Product_IronScrap",
@@ -30836,6 +30900,10 @@
           "optional": true
         },
         {
+          "id": "Product_Virtual_ResearchPoints",
+          "quantity": 24
+        },
+        {
           "id": "Product_IronScrap",
           "quantity": 9.6
         },
@@ -30871,6 +30939,10 @@
           "id": "Product_Recyclables",
           "quantity": 48,
           "optional": true
+        },
+        {
+          "id": "Product_Virtual_ResearchPoints",
+          "quantity": 48
         },
         {
           "id": "Product_IronScrap",
@@ -36810,6 +36882,30 @@
       "outputs": [
         {
           "id": "Product_Virtual_Workers",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Balancer_Product_Virtual_ResearchPoints": {
+      "id": "Balancer_Product_Virtual_ResearchPoints",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_ResearchPoints",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_ResearchPoints",
           "quantity": 1
         }
       ],

@@ -25,7 +25,7 @@ export default function ZoneHeader({ selectedZone }: { selectedZone?: string }) 
     if (isCreatingNew) {
       const newId = newZoneAction(data.name, data.icon, data.description);
       setIsCreatingNew(false);
-      nav(`${import.meta.env.BASE_URL}/zones/${newId}`);
+      nav(`/zones/${newId}`);
     } else if (editingZoneId) {
       updateZone(editingZoneId, data);
       setEditingZoneId(null);
@@ -43,9 +43,9 @@ export default function ZoneHeader({ selectedZone }: { selectedZone?: string }) 
     if (editingZoneId === selectedZone) {
       const remainingZones = zones.filter(z => z.id !== editingZoneId);
       if (remainingZones.length > 0) {
-        nav(`${import.meta.env.BASE_URL}/zones/${remainingZones[0].id}`);
+        nav(`/zones/${remainingZones[0].id}`);
       } else {
-        nav(`${import.meta.env.BASE_URL}/`);
+        nav(`/`);
       }
     }
   };
@@ -57,7 +57,7 @@ export default function ZoneHeader({ selectedZone }: { selectedZone?: string }) 
 
   return (<>
     <h1 className="shrink-1 border-r-2 border-gray-400 pr-8">
-      <img src={`${import.meta.env.BASE_URL}/sextant-white.svg`} alt="Sextant Logo" className="w-10 inline-block mr-2" />
+      <img src={`${import.meta.env.BASE_URL}sextant-white.svg`} alt="Sextant Logo" className="w-10 inline-block mr-2" />
       Sextant - CoI Planner
     </h1>
     <h2 className="shrink-1 ml-6">Zone:</h2>

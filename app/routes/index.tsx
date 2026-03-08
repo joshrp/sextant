@@ -19,7 +19,7 @@ export default function Index() {
       }
       
       // The Zone component will handle factory defaulting
-      navigate(`${import.meta.env.BASE_URL}/zones/${targetZoneId}`, { replace: true });
+      navigate(`/zones/${targetZoneId}`, { replace: true });
     }
   }, [navigate, zones, lastZone]);
 

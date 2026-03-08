@@ -1,5 +1,5 @@
-import { useCallback, useMemo, useState } from "react";
-import { Outlet } from "react-router";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { Outlet, useNavigate } from "react-router";
 
 import FactoryArchiveHandler from "~/components/FactoryArchiveHandler";
 import { FactoryProvider } from "~/context/FactoryProvider";
@@ -9,6 +9,7 @@ import { useStableParam } from "~/routes";
 import ZoneSideBar from "./ZoneSideBar";
 
 export default function Zone() {
+  const nav = useNavigate();
   let selectedFactoryId = useStableParam("factory", "");
 
   const baseWeights = useProductionZoneStore(state => state.weights);
@@ -16,9 +17,12 @@ export default function Zone() {
   const zoneId = useProductionZone().id;
   const store = useProductionZone().store;
 
+  // Compute the redirect target if the factory param is missing or stale
+  let redirectTarget: string | null = null;
+
   if (selectedFactoryId === "" && factories.length > 0) {
     selectedFactoryId = store.getState().lastFactory || factories[0]?.id;
-    history.replaceState({}, "", `/zones/${zoneId}/${selectedFactoryId}`);
+    redirectTarget = `/zones/${zoneId}/${selectedFactoryId}`;
   }
 
   let selectedFactory = factories.find(f => f.id === selectedFactoryId);
@@ -28,8 +32,15 @@ export default function Zone() {
   if (!selectedFactory && factories.length > 0 && selectedFactoryId !== "") {
     selectedFactoryId = store.getState().lastFactory ?? factories[0].id;
     selectedFactory = factories.find(f => f.id === selectedFactoryId);
-    history.replaceState({}, "", `/zones/${zoneId}/${selectedFactoryId}`);
+    redirectTarget = `/zones/${zoneId}/${selectedFactoryId}`;
   }
+
+  // Perform the redirect in an effect to avoid re-render loops
+  useEffect(() => {
+    if (redirectTarget) {
+      nav(redirectTarget, { replace: true });
+    }
+  }, [redirectTarget, nav]);
 
   store.getState().setLastFactory(selectedFactoryId);
   const idb = useProductionZone().idb;

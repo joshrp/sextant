@@ -3,6 +3,7 @@ import fuzzysort from 'fuzzysort';
 import { ListBulletIcon, TableCellsIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import type { GameDataParsed, Product } from "~/factory/graph/loadJsonData";
+import { productIcon } from "~/uiUtils";
 import { SelectorDialog } from "./Dialog";
 import { useProductionZoneStore } from '~/context/ZoneContext';
 
@@ -70,7 +71,7 @@ export default function ProductSelector({ isOpen, setIsOpen, products, onSelect 
               style={{ borderColor: item.color }}
               className={"cursor-pointer bg-transparent hover:bg-gray-700 hover:border-2  p-2 hover:p-1 rounded block"}
               onClick={() => onSelect(item)}
-            ><img src={'/assets/products/' + item.icon} title={item.name} className="inline-block w-12" />
+            ><img src={productIcon(item.icon)} title={item.name} className="inline-block w-12" />
             </button>
           </div>)
         })}
@@ -84,7 +85,7 @@ export default function ProductSelector({ isOpen, setIsOpen, products, onSelect 
               className={"w-full text-left border-1 border-transparent hover:border-gray-500 rounded p-2 hover:bg-gray-700 cursor-pointer"}
               onClick={() => onSelect(item)}
             >
-              <img src={'/assets/products/' + item.icon} title={item.name} className="inline-block align-middle mr-2 w-8" />
+              <img src={productIcon(item.icon)} title={item.name} className="inline-block align-middle mr-2 w-8" />
               <span className="align-middle">{item.name}</span>
             </button>
           </div>)

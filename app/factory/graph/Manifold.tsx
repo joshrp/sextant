@@ -5,7 +5,7 @@ import { useShallow } from "zustand/shallow";
 import useFactory, { useFactoryStore } from "../FactoryContext";
 import type { Constraint } from "../solver/types";
 import { loadData, type Product } from "./loadJsonData";
-import { formatNumber } from "~/uiUtils";
+import { formatNumber, productIcon } from "~/uiUtils";
 import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 
 type ManifoldProps = {
@@ -127,7 +127,7 @@ export default function Manifold(props: ManifoldProps) {
       onMouseLeave={() => mouseLeave(constraint.edges)}
     >
       <div className="w-[45%] flex gap-1 content-center-safe align-middle items-center-safe">
-        <img className="h-full " src={'/assets/products/' + mani.icon} title={mani.name} />
+        <img className="h-full " src={productIcon(mani.icon)} title={mani.name} />
         {(isOver || isUnder) ? <ExclamationTriangleIcon className="inline-block h-[70%] text-rose-400" /> : ''}
 
       </div>
@@ -154,7 +154,7 @@ export default function Manifold(props: ManifoldProps) {
     ><div className="overflow-hidden flex flex-row gap-1 align-middle justify-between">
         <div className="w-[45%] flex flex-wrap gap-1 content-center-safe">
           {Array.from(mani.parent.inputs).map(i => <div key={"manifold-input-" + i.id}>
-            <img className="w-4" src={'/assets/products/' + i.icon} title={i.name} />
+            <img className="w-4" src={productIcon(i.icon)} title={i.name} />
           </div>
           )}
         </div>
@@ -167,7 +167,7 @@ export default function Manifold(props: ManifoldProps) {
         </div>
         <div className="flex w-[45%] flex-wrap gap-1 justify-end-safe content-center-safe">
           {Array.from(mani.parent.outputs).map(i => <div key={"manifold-output-" + i.id}>
-            <img className="w-4" src={'/assets/products/' + i.icon} title={i.name} />
+            <img className="w-4" src={productIcon(i.icon)} title={i.name} />
           </div>
           )}
         </div>
@@ -189,7 +189,7 @@ export default function Manifold(props: ManifoldProps) {
             >
               <div className="w-[45%] flex flex-wrap gap-1 content-center-safe">
                 {Array.from(c.inputs).map(i => <div key={"manifold-input-" + i.id}>
-                  <img className="w-4" src={'/assets/products/' + i.icon} title={i.name} />
+                  <img className="w-4" src={productIcon(i.icon)} title={i.name} />
                 </div>
                 )}
               </div>
@@ -198,7 +198,7 @@ export default function Manifold(props: ManifoldProps) {
               </div>
               <div className="flex w-[45%] flex-wrap gap-1 justify-end-safe content-center-safe">
                 {Array.from(c.outputs).map(i => <div key={"manifold-output-" + i.id}>
-                  <img className="w-4" src={'/assets/products/' + i.icon} title={i.name} />
+                  <img className="w-4" src={productIcon(i.icon)} title={i.name} />
                 </div>
                 )}
               </div>

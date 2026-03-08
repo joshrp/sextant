@@ -273,7 +273,7 @@ export default function FactoryControls({
             <InfrastructurePopover
               key="footprint"
               type="footprint"
-              icon="/assets/ui/Move128.png"
+              icon={uiIcon('Move128')}
               name="Machine Footprint"
               unit="tiles"
               totalAmount={solution?.infrastructure['footprint']}

@@ -1,6 +1,6 @@
 import { ChevronDownIcon, ClockIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useMemo, useState } from "react";
-import { formatNumber, machineIcon } from "~/uiUtils";
+import { formatNumber, machineIcon, productIcon } from "~/uiUtils";
 import { loadData, type ProductId, type Recipe, type RecipeId } from "./graph/loadJsonData";
 import { getRecipesByProduct } from "~/gameData/utils";
 import { prepareRecipesForSearch, searchRecipes, groupRecipesByTier, createMatchedTermsMap } from "./recipeSearch";
@@ -174,7 +174,7 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
       {index !== 0 && <td className="w-6"><PlusIcon /></td>}
       <td key={input.product.id} className="has-tooltip relative" data-matched={matched || null}>
         <span className='tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>{input.product.name}</span>
-        <img src={'/assets/products/' + input.product.icon} alt={input.product.name}
+        <img src={productIcon(input.product.icon)} alt={input.product.name}
           className="block mb-2 mx-auto max-w-10 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
         {formatNumber(input.quantity, input.product.unit)}
       </td>
@@ -194,7 +194,7 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
         <span className='z-100 tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>
           {output.product.name + (output.optional ? " (optional)" : "")}
         </span>
-        <img src={'/assets/products/' + output.product.icon} alt={output.product.name}
+        <img src={productIcon(output.product.icon)} alt={output.product.name}
           className="block mx-auto mb-2 max-w-10 group-data-optional:border-2 border-dashed border-gray-500 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
         {formatNumber(output.quantity, output.product.unit)}
       </td>

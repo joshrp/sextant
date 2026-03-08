@@ -6,7 +6,7 @@ import { loadData, type MachineId } from '~/factory/graph/loadJsonData';
 import type { CustomNodeType } from '~/factory/graph/nodes';
 import { calculateInfrastructureNet, type InfrastructureType } from '~/factory/infrastructure/calculations';
 import type { Solution } from '~/factory/solver/types';
-import { formatNumber, formatSignedInfra } from '~/uiUtils';
+import { formatNumber, formatSignedInfra, machineIcon as getMachineIcon } from '~/uiUtils';
 
 const { recipes, machines } = loadData();
 
@@ -163,7 +163,7 @@ return (
                 <div className="space-y-2">
                   {producers.map(usage => {
                     const machine = machines.get(usage.machineId);
-                    const machineIconUrl = machine ? `/assets/buildings/${machine.id}.png` : '';
+                    const machineIconUrl = machine ? getMachineIcon(machine) : '';
 
                     return (
                       <div
@@ -200,7 +200,7 @@ return (
                 <div className="space-y-2">
                   {consumers.map(usage => {
                     const machine = machines.get(usage.machineId);
-                    const machineIconUrl = machine ? `/assets/buildings/${machine.id}.png` : '';
+                    const machineIconUrl = machine ? getMachineIcon(machine) : '';
 
                     return (
                       <div

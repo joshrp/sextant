@@ -4,6 +4,8 @@ A production planning calculator for [Captain of Industry](https://www.captain-o
 
 **[https://joshrp.github.io/Sextant/](https://joshrp.github.io/Sextant/)**
 
+![Sextant UI](https://github.com/joshrp/sextant/blob/main/public/assets/help/sextant-ui.png?raw=true)
+
 ## Features
 
 - Visual factory graph editor built on React Flow

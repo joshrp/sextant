@@ -267,6 +267,17 @@ export async function formatProductData(rawProducts: RawProduct[]) {
     machines: { input: [], output: ['Housing', 'HousingT2', 'HousingT3', 'HousingT4'] },
   });
 
+  productData.set("Product_Virtual_ResearchPoints", {
+    id: "Product_Virtual_ResearchPoints" as Product["id"],
+    name: "Research Points",
+    icon: "research.png",
+    color: "#808080",
+    transport: "Virtual",
+    unit: "pts",
+    recipes: { input: [], output: [] },
+    machines: { input: [], output: [] },
+  });
+
   // Mark scrap products (and their pressed variants) with isScrap flag
   const scrapProductNames = new Set(Object.values(recyclablesMaterialToProductName));
   for (const product of productData.values()) {
@@ -481,6 +492,23 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
     //   }
     // }
 
+    // ResearchLab1 has no recipes in raw data but still produces research.
+    // Synthesize a recipe with no inputs and Research Points output.
+    if (rawMachine.id === "ResearchLab1") {
+      rawMachine.recipes.push({
+        id: "ResearchLab1_Research",
+        name: rawMachine.name,
+        duration: 60,
+        isSettlement: false,
+        power_multiplier: 1,
+        inputs: [],
+        outputs: [{
+          name: "Product_Virtual_ResearchPoints",
+          quantity: rawMachine.research_speed,
+        }],
+      });
+    }
+
     // Research Labs and Maintenance Depots have optional recycling in game, but this is modeled as multiple recipes
     // We want to collapse these into a single recipe with optional outputs to avoid clutter in the UI 
     // and to allow fractional outputs of recycled items
@@ -489,6 +517,19 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
         console.warn(`Collapsing recipes for ${rawMachine.id} to only recipes with outputs and making them optional.`);
         rawMachine.recipes = rawMachine.recipes.filter(r => r.outputs.length > 0);
         rawMachine.recipes.forEach(r => r.outputs.forEach(o => o.optional = true));
+      }
+    }
+
+    // Add Research Points output to all ResearchLab recipes
+    if (rawMachine.id.startsWith("ResearchLab")) {
+      for (const recipe of rawMachine.recipes) {
+        // research_speed is a per-minute rate; convert to per-cycle quantity
+        // so that getRecipeQty60 (qty * 60 / duration) recovers research_speed.
+        const perCycleQty = (rawMachine.research_speed * recipe.duration) / 60;
+        recipe.outputs.push({
+          name: "Product_Virtual_ResearchPoints",
+          quantity: perCycleQty,
+        });
       }
     }
     if (rawMachine.id.startsWith("MaintenanceDepot") && !rawMachine.id.endsWith("T0")) {

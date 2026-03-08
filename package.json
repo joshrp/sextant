@@ -14,7 +14,7 @@
     "test": "npm run test:unit && npm run test:component",
     "lint": "eslint ./app",
     "formatData": "npx tsx ./data/reformat.ts",
-    "check": "npm run typecheck && npm run lint && npm run test:all",
+    "check": "npm run typecheck && npm run lint && npm run test",
     "cosmos": "cosmos",
     "cosmos-export": "cosmos-export"
   },

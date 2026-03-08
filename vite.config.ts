@@ -13,8 +13,10 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const setupDir = resolve(__dirname, "app/test/setup");
 
+const base = process.env.GITHUB_PAGES ? "/sextant/" : "/";
+
 export default defineConfig({
-  base: process.env.GITHUB_PAGES ? "/sextant/" : "/",
+  base,
   plugins: [
     tailwindcss(), 
     !process.env.VITEST && mdx({

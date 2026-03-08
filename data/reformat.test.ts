@@ -1,4 +1,4 @@
-import { parseData, type GameData, type ProductId, type RecipeId } from "~/factory/graph/loadJsonData";
+import { parseData, ProductId, type GameData, type RecipeId } from "~/factory/graph/loadJsonData";
 import { getDataFromRaw, writeRawData } from "./reformat";
 import { recyclablesSourceMaterialSplit } from "~/factory/graph/recyclables";
 
@@ -140,6 +140,12 @@ describe("Check parsed data", () => {
       expect(machine.recipes.length).toBe(1);
       const item = machine.recipes[0].outputs.find(o => o.product.id === "Product_Recyclables" as ProductId);
       expect(item?.optional).toBe(true);
+
+      const rpOutput = machine.recipes[0].outputs.find(
+        o => o.product.id === ("Product_Virtual_ResearchPoints" as ProductId)
+      );
+      expect(rpOutput, `Recipe for ${id} should output Research Points`).toBeDefined();
+      expect(rpOutput?.optional, `Research Points should not be optional for ${id}`).toBeFalsy();
     }
 
     // All maintenance machines should have exactly one maintenance recipe with optional recyclables
@@ -149,6 +155,50 @@ describe("Check parsed data", () => {
       expect(machine.recipes.length).toBe(1);
       expect(machine.recipes[0].outputs.find(o => o.product.id === "Product_Recyclables" as ProductId && o.optional)).toBeDefined();
     }
+  });
+
+  test("Research Points virtual product exists with correct properties", () => {
+    const { products } = loadedData;
+    const researchPoints = products.get(ProductId("Product_Virtual_ResearchPoints"));
+    expect(researchPoints).toBeDefined();
+    expect(researchPoints?.name).toBe("Research Points");
+    expect(researchPoints?.icon).toBe("research.png");
+    expect(researchPoints?.transport).toBe("Virtual");
+    expect(researchPoints?.unit).toBe("pts");
+  });
+
+  test("All Research Labs produce Research Points at their research_speed rate", () => {
+    const { machines } = loadedData;
+
+    const expectedRates: Record<string, number> = {
+      ResearchLab1: 3,
+      ResearchLab2: 6,
+      ResearchLab3: 12,
+      ResearchLab4: 24,
+      ResearchLab5: 48,
+    };
+
+    for (const [machineId, expectedRate] of Object.entries(expectedRates)) {
+      const machine = machines.get(machineId)!;
+      expect(machine, `Machine ${machineId} should exist`).toBeDefined();
+      expect(machine.recipes.length, `Machine ${machineId} should have exactly 1 recipe`).toBe(1);
+
+      const recipe = machine.recipes[0];
+      const rpOutput = recipe.outputs.find(
+        o => o.product.id === ("Product_Virtual_ResearchPoints" as ProductId)
+      );
+      expect(rpOutput, `Recipe ${recipe.id} should output Research Points`).toBeDefined();
+      expect(rpOutput?.quantity, `Research Points rate for ${machineId}`).toBe(expectedRate);
+      expect(rpOutput?.optional, `Research Points should NOT be optional for ${machineId}`).toBeFalsy();
+    }
+  });
+
+  test("ResearchLab1 has a synthetic recipe with no inputs", () => {
+    const { machines } = loadedData;
+    const lab1 = machines.get("ResearchLab1")!;
+    expect(lab1).toBeDefined();
+    expect(lab1.recipes.length).toBe(1);
+    expect(lab1.recipes[0].inputs.length).toBe(0);
   });
 
   test("Find Recyclables", () => {

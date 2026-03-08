@@ -8,6 +8,12 @@ import { defineConfig, devices } from '@playwright/test';
  * 
  * Run `npm run build` before running e2e tests to ensure the build is fresh.
  */
+
+// When GITHUB_PAGES is set, the app is built with base "/sextant/".
+// Use a trailing-slash baseURL so that relative goto paths (e.g. goto('./'))
+// resolve correctly under the base path.
+const basePath = process.env.GITHUB_PAGES ? '/sextant/' : '/';
+
 export default defineConfig({
   testDir: './e2e',
   
@@ -28,8 +34,8 @@ export default defineConfig({
   
   /* Shared settings for all the projects below */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost:4173',
+    /* Base URL to use in actions like `await page.goto('./')`. */
+    baseURL: `http://localhost:4173${basePath}`,
     
     /* Collect trace when retrying the failed test. */
     trace: 'on-first-retry',
@@ -49,7 +55,7 @@ export default defineConfig({
   /* Run a local dev server before starting the tests */
   webServer: {
     command: 'npm run build && npm run preview',
-    url: 'http://localhost:4173',
+    url: `http://localhost:4173${basePath}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },
