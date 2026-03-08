@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { useStore } from "zustand";
 import type { ProductionZoneStore, ProductionZoneStoreData } from "./ZoneStore";
-import type { GraphCoreData, GraphImportData } from "~/factory/store";
+import type { GraphCoreData, GraphImportData } from "~/context/store";
 import type { IDB } from "./idb";
 import type { ArchivedFactoryMetadata } from "./factoryArchive";
 

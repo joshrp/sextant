@@ -1,5 +1,5 @@
 import { compress, decompress, minify, unminify } from "~/factory/importexport/importexport";
-import type { GraphCoreData, GraphImportData } from "~/factory/store";
+import type { GraphCoreData, GraphImportData } from "~/context/store";
 import { factoryArchiveStore, type IDB } from "./idb";
 
 /**

@@ -9,8 +9,8 @@ import {
   useReactFlow
 } from "@xyflow/react";
 import { useCallback, useState } from "react";
-import useFactory, { useFactoryStore } from "~/factory/FactoryContext";
-import type { HighlightModes } from "~/factory/store";
+import useFactory, { useFactoryStore } from "~/context/FactoryContext";
+import type { HighlightModes } from "~/context/store";
 import { loadData, type ProductId } from "../loadJsonData";
 import { productIcon } from "~/uiUtils";
 import { isRecipeNode } from "../nodes";

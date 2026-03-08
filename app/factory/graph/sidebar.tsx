@@ -6,7 +6,7 @@ import { SelectorDialog } from 'app/components/Dialog';
 import { SidebarPopover, PopoverMenuItem, PopoverIconActions, PopoverIconAction } from '~/components/SidebarPopover';
 import { useShallow } from 'zustand/shallow';
 import ProductSelector from '~/components/ProductSelector';
-import useFactory, { useFactoryStore } from '~/factory/FactoryContext';
+import useFactory, { useFactoryStore } from '~/context/FactoryContext';
 import { formatNumber, productBackground, productIcon } from '~/uiUtils';
 import type { AddRecipeNode } from '../factory';
 import type { FactoryGoal } from '../solver/types';

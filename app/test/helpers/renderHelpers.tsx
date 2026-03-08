@@ -9,8 +9,8 @@ import { createMemoryRouter, RouterProvider } from 'react-router';
 import { getIdb } from '~/context/idb';
 import { ProductionZoneProvider } from '~/context/ZoneProvider';
 import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
-import { FactoryContext } from '~/factory/FactoryContext';
-import Store, { type FactoryStore, type GetZoneModifiers } from '~/factory/store';
+import { FactoryContext } from '~/context/FactoryContext';
+import Store, { type FactoryStore, type GetZoneModifiers } from '~/context/store';
 
 /**
  * Creates a test factory store with default values

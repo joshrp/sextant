@@ -4,11 +4,11 @@ import { Position } from '@xyflow/react';
 import HelpLink from '~/components/HelpLink';
 import { type ZoneModifiers } from '~/context/zoneModifiers';
 import { formatNumber, machineIcon, productBackground } from '~/uiUtils';
-import type { HighlightModes } from '../store';
-import { HandleList, ProductHandle } from './handles';
-import type { ProductId, Recipe, RecipeProduct } from './loadJsonData';
+import type { HighlightModes } from '../../../context/store';
+import { HandleList, ProductHandle } from '../handles';
+import type { ProductId, Recipe, RecipeProduct } from '../loadJsonData';
 import { SettlementCalculator, isOptionEnabled, type SettlementNodeData } from './recipeNodeLogic';
-import { CATEGORY_INFO, groupProductsByCategory, isFoodCategory } from './settlementCategories';
+import { CATEGORY_INFO, groupProductsByCategory, isFoodCategory } from '../settlementCategories';
 
 type ProductEdges = Map<ProductId, boolean>;
 

@@ -2,9 +2,9 @@ import { type NodeProps } from '@xyflow/react';
 import { memo, useCallback, useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
 import { TrashIcon } from '@heroicons/react/24/outline';
-import { useFactoryStore } from '../FactoryContext';
+import { useFactoryStore } from '../../../context/FactoryContext';
 import type { AnnotationNodeType } from './annotationNode';
-import AnnotationEditDialog from './AnnotationEditDialog';
+import AnnotationEditDialog from '../AnnotationEditDialog';
 
 /**
  * React Flow node component for annotation (free-form note) nodes.

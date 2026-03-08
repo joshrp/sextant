@@ -1,7 +1,7 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useMemo, type HTMLAttributes } from 'react';
 import { useShallow } from 'zustand/shallow';
-import useFactory, { useFactoryStore } from '~/factory/FactoryContext';
+import useFactory, { useFactoryStore } from '~/context/FactoryContext';
 import { loadData, type MachineId } from '~/factory/graph/loadJsonData';
 import type { CustomNodeType } from '~/factory/graph/nodes';
 import { calculateInfrastructureNet, type InfrastructureType } from '~/factory/infrastructure/calculations';

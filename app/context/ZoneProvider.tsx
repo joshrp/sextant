@@ -1,7 +1,7 @@
 import { useRef, type ReactNode } from "react";
 import { ProductionZoneContext } from "./ZoneContext";
-import type { GraphCoreData, GraphImportData } from "~/factory/store";
-import FactoryStore from "../factory/store";
+import type { GraphCoreData, GraphImportData } from "~/context/store";
+import FactoryStore from "./store";
 import { getIdb, deleteFactoryFromIdb, type IDB } from "./idb";
 import {
   archiveFactory as archiveFactoryToIdb,

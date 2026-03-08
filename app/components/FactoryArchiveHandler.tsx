@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import useProductionZone, { useProductionZoneStore } from "~/context/ZoneContext";
-import { useFactoryStore } from "~/factory/FactoryContext";
+import { useFactoryStore } from "~/context/FactoryContext";
 import ConfirmDialog from "./ConfirmDialog";
 
 interface FactoryArchiveHandlerProps {

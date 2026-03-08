@@ -8,7 +8,7 @@ import { useShallow } from "zustand/shallow";
 import InfrastructurePopover, { type InfrastructurePopoverProps } from "~/components/InfrastructurePopover";
 import HelpLink from "~/components/HelpLink";
 import { formatNumber, maintenanceIcon, productIcon, uiIcon } from "~/uiUtils";
-import { useFactoryStore } from "../factory/FactoryContext";
+import { useFactoryStore } from "./FactoryContext";
 import { loadData, type ProductId } from "../factory/graph/loadJsonData";
 import type { AddRecipeNode } from "~/factory/factory";
 

@@ -7,5 +7,5 @@ export default {
   // Server-side render by default, to enable SPA mode set this to `false`
   ssr: false,
   // basename must start with the Vite `base` path (without trailing slash)
-  basename: base.replace(/\/$/, "") || "/",
+  basename: base,
 } satisfies Config;

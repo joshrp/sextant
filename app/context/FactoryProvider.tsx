@@ -1,7 +1,7 @@
 import { useRef, type ReactNode } from "react";
-import { FactoryContext } from "../factory/FactoryContext";
+import { FactoryContext } from "./FactoryContext";
 import type { ProductionZoneStoreData } from "./ZoneStore";
-import Store, { type FactoryStore, type GetZoneModifiers } from "../factory/store";
+import Store, { type FactoryStore, type GetZoneModifiers } from "./store";
 import type { IDB } from "./idb";
 
 interface FactoryProviderProps {

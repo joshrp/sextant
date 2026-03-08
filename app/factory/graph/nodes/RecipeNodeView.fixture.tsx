@@ -1,11 +1,11 @@
 import { ReactFlowProvider } from '@xyflow/react';
 import { useState } from 'react';
 import { useFixtureInput, useFixtureSelect } from 'react-cosmos/client';
-import { loadData, type ProductId, type RecipeId } from './factory/graph/loadJsonData';
-import type { RecipeNodeViewProps } from './factory/graph/RecipeNodeView';
-import RecipeNodeView from './factory/graph/RecipeNodeView';
-import type { HighlightNone, HighlightProduct } from './factory/store';
-import { DEFAULT_ZONE_MODIFIERS } from './context/zoneModifiers';
+import { loadData, type ProductId, type RecipeId } from '../loadJsonData';
+import type { RecipeNodeViewProps } from './RecipeNodeView';
+import RecipeNodeView from './RecipeNodeView';
+import type { HighlightNone, HighlightProduct } from '../../../context/store';
+import { DEFAULT_ZONE_MODIFIERS } from '../../../context/zoneModifiers';
 
 const { recipes } = loadData();
 

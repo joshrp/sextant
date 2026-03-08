@@ -1,7 +1,7 @@
 import { getIdb } from '~/context/idb';
 import { unminify } from '../importexport/importexport';
 import type { GraphScoringMethod, ManifoldOptions, Solution } from '../solver/types';
-import Store from '../store';
+import Store from '../../context/store';
 import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 import type { ZoneModifiers } from '~/context/zoneModifiers';
 import * as nuclearT2AndFBR from './nuclear-t2-and-FBR.test.fixture.json';

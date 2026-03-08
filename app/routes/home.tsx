@@ -43,7 +43,7 @@ export default function Home() {
       </div>
       {zone && (
         <ProductionZoneProvider zoneId={selectedZone} zoneName={zone.name}>
-          <div className={`h-[calc(100vh-calc(${headerHeightSteps}*var(--spacing)))] flex flex-row`}>
+          <div className={`h-[calc(100vh-calc(12*var(--spacing)))] flex flex-row`}>
             <Zone />
           </div>
         </ProductionZoneProvider>

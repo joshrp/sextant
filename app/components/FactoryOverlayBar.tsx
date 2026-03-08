@@ -1,9 +1,9 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import { useFactoryStore } from "~/factory/FactoryContext";
+import { useFactoryStore } from "~/context/FactoryContext";
 import { loadData, type ProductId } from "~/factory/graph/loadJsonData";
-import type { HighlightProduct } from "~/factory/store";
+import type { HighlightProduct } from "~/context/store";
 import { productIcon } from "~/uiUtils";
 
 const { products, recipes } = loadData();

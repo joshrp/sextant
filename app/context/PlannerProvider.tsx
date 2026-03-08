@@ -4,7 +4,7 @@ import { createStore } from "zustand";
 
 import { devtools, persist, type StorageValue } from "zustand/middleware";
 import { setDebugSolver } from "~/factory/solver/solver";
-import FactoryStore from "~/factory/store";
+import FactoryStore from "~/context/store";
 import hydration from "~/hydration";
 import type { ExportableFactory, ExportableZone } from "~/types/bulkOperations";
 import { PlannerContext, type BulkImportItem } from "./PlannerContext";

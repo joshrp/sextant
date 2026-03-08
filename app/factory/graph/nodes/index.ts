@@ -1,6 +1,6 @@
 import type { NodeTypes } from "@xyflow/react";
-import RecipeNode from "../RecipeNode";
-import AnnotationNode from "../AnnotationNodeView";
+import RecipeNode from "./RecipeNode";
+import AnnotationNode from "./AnnotationNodeView";
 import type { RecipeId } from "../loadJsonData";
 import type { RecipeNodeType } from "../nodeTypes";
 

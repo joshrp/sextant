@@ -1,7 +1,7 @@
-import RecipeNode from './factory/graph/RecipeNode';
-import type { RecipeNodeData } from './factory/graph/recipeNodeLogic';
-import type { RecipeId } from './factory/graph/loadJsonData';
-import { createTestFactoryStore, getFactoryWrapper } from './test/helpers/renderHelpers';
+import RecipeNode from './RecipeNode';
+import type { RecipeNodeData } from './recipeNodeLogic';
+import type { RecipeId } from '../loadJsonData';
+import { createTestFactoryStore, getFactoryWrapper } from '../../../test/helpers/renderHelpers';
 import type { NodeProps } from '@xyflow/react';
 
 // This fixture tests the full RecipeNode component with React Flow and Zustand context

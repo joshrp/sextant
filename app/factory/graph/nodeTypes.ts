@@ -3,8 +3,8 @@
  * Import from here in non-component code (store, solver, importexport, etc.)
  * to avoid coupling the serialization/logic layer to React component code.
  */
-import type { RecipeNodeType } from './recipeNodeLogic';
-import type { AnnotationNodeType } from './annotationNode';
+import type { RecipeNodeType } from './nodes/recipeNodeLogic';
+import type { AnnotationNodeType } from './nodes/annotationNode';
 
 export type { RecipeNodeType, AnnotationNodeType };
 

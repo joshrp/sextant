@@ -1,8 +1,8 @@
 import { ReactFlowProvider } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
-import AnnotationNode from './factory/graph/AnnotationNodeView';
-import type { AnnotationNodeType } from './factory/graph/annotationNode';
-import { createTestFactoryStore, getFactoryWrapper } from './test/helpers/renderHelpers';
+import AnnotationNode from './AnnotationNodeView';
+import type { AnnotationNodeType } from './annotationNode';
+import { createTestFactoryStore, getFactoryWrapper } from '../../../test/helpers/renderHelpers';
 
 // This fixture tests the full AnnotationNode component with React Flow and Zustand context.
 

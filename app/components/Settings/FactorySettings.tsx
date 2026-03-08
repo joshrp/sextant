@@ -7,7 +7,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react
 import usePlanner, { usePlannerStore } from "~/context/PlannerContext";
 import { default as useProductionMatrix } from "~/context/ZoneContext";
 import type { ProductionZoneStoreData } from "~/context/ZoneStore";
-import useFactory, { useFactoryStore } from "~/factory/FactoryContext";
+import useFactory, { useFactoryStore } from "~/context/FactoryContext";
 import { loadData, type ProductId } from "~/factory/graph/loadJsonData";
 import { getRecipeInputs, getRecipeOutputs } from "~/gameData/utils";
 import { isRecipeNode } from "~/factory/graph/nodes";

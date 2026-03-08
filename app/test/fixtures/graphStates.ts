@@ -5,7 +5,7 @@
 import type { CustomNodeType } from "~/factory/graph/nodeTypes";
 import type { CustomEdgeType } from "~/factory/graph/edges";
 import type { ProductId, RecipeId } from "~/factory/graph/loadJsonData";
-import type { GraphSolutionState } from "~/factory/store";
+import type { GraphSolutionState } from "~/context/store";
 
 /**
  * Basic graph state with a few nodes and edges

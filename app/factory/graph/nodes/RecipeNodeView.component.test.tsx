@@ -4,7 +4,7 @@ import { ReactFlowProvider } from '@xyflow/react';
 import { describe, expect, it, vi } from 'vitest';
 import type { RecipeNodeViewProps } from './RecipeNodeView';
 import RecipeNodeView from './RecipeNodeView';
-import { loadData, type RecipeId } from './loadJsonData';
+import { loadData, type RecipeId } from '../loadJsonData';
 import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 

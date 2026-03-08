@@ -1,5 +1,5 @@
 import type { ProductId, RecipeId } from "../graph/loadJsonData";
-import type { SettlementNodeData } from "../graph/recipeNodeLogic";
+import type { SettlementNodeData } from "../graph/nodes/recipeNodeLogic";
 
 export type NodeConnectionBase = {
   recipeId: RecipeId,

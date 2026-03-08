@@ -10,8 +10,8 @@
 
 import { createContext, useContext, type ReactNode, useMemo, useState, useEffect } from 'react';
 import { getIdb } from '~/context/idb';
-import Store, { type FactoryStore } from '~/factory/store';
-import type { GraphImportData } from '~/factory/store';
+import Store, { type FactoryStore } from '~/context/store';
+import type { GraphImportData } from '~/context/store';
 import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 // Help context uses a minimal zone structure for examples

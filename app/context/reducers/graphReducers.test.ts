@@ -16,9 +16,9 @@ import {
 } from './graphReducers';
 import { basicGraphState, emptyGraphState } from '~/test/fixtures/graphStates';
 import type { ProductId } from '~/factory/graph/loadJsonData';
-import type { GraphStore } from '~/factory/store';
+import type { GraphStore } from '~/context/store';
 import type { ManifoldOptions, GraphModel } from '~/factory/solver/types';
-import type { RecipeNode } from '~/factory/graph/RecipeNode';
+import type { RecipeNode } from '~/factory/graph/nodes/RecipeNode';
 
 /** Narrow a CustomNodeType to RecipeNode for type-safe assertions */
 const asRecipe = (node: { data: unknown }) => node as RecipeNode;

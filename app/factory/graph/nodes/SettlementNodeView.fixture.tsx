@@ -1,11 +1,11 @@
 import { ReactFlowProvider } from '@xyflow/react';
 import { useState } from 'react';
 import { useFixtureInput } from 'react-cosmos/client';
-import { loadData, type ProductId, type RecipeId } from './factory/graph/loadJsonData';
-import type { SettlementNodeViewProps } from './factory/graph/SettlmentNodeView';
-import SettlementNodeView from './factory/graph/SettlmentNodeView';
-import type { SettlementNodeData } from './factory/graph/recipeNodeLogic';
-import { DEFAULT_ZONE_MODIFIERS } from './context/zoneModifiers';
+import { loadData, type ProductId, type RecipeId } from '../loadJsonData';
+import type { SettlementNodeViewProps } from './SettlementNodeView';
+import SettlementNodeView from './SettlementNodeView';
+import type { SettlementNodeData } from './recipeNodeLogic';
+import { DEFAULT_ZONE_MODIFIERS } from '../../../context/zoneModifiers';
 
 const { recipes } = loadData();
 

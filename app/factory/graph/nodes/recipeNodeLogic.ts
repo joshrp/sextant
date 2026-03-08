@@ -4,9 +4,9 @@
  */
 import type { Node } from '@xyflow/react';
 import { formatNumber } from '~/uiUtils';
-import { ProductId, type Recipe, type RecipeId } from './loadJsonData';
-import { getProductCategory, isFoodCategory, type SettlementCategory } from './settlementCategories';
-import { recyclablesProductId, totalRecyclablesOutput, materialSplitForProduct, type RecyclablesMaterialSplit, recyclablesMaterialToProductName } from './recyclables';
+import { ProductId, type Recipe, type RecipeId } from '../loadJsonData';
+import { getProductCategory, isFoodCategory, type SettlementCategory } from '../settlementCategories';
+import { recyclablesProductId, totalRecyclablesOutput, materialSplitForProduct, type RecyclablesMaterialSplit, recyclablesMaterialToProductName } from '../recyclables';
 import Big from "big.js"
 import type { ZoneModifiers } from '~/context/zoneModifiers';
 

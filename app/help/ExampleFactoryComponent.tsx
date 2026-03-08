@@ -6,10 +6,10 @@
 import { ReactFlowProvider } from '@xyflow/react';
 import { useEffect, useRef } from 'react';
 import Graph from '~/factory/graph/graph';
-import useFactory from '~/factory/FactoryContext';
+import useFactory from '~/context/FactoryContext';
 import { useHelp } from './HelpContext';
 import { decompress, unminify } from '~/factory/importexport/importexport';
-import type { GraphImportData } from '~/factory/store';
+import type { GraphImportData } from '~/context/store';
 
 // Import compressed test exports
 import testExports from '~/factory/importexport/testExports.json';

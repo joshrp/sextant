@@ -5,9 +5,9 @@ import type { HTMLAttributes } from 'react';
 import { type ZoneModifiers } from '~/context/zoneModifiers';
 import { calculateComputingNet, calculateElectricityNet } from '~/factory/infrastructure/calculations';
 import { formatNumber, formatSignedInfra, machineIcon, maintenanceIcon, maintenanceName, productBackground, uiIcon } from '~/uiUtils';
-import type { HighlightModes } from '../store';
-import { HandleList, ProductHandle } from './handles';
-import type { ProductId, Recipe } from './loadJsonData';
+import type { HighlightModes } from '../../../context/store';
+import { HandleList, ProductHandle } from '../handles';
+import type { ProductId, Recipe } from '../loadJsonData';
 import type { RecipeNodeOptions } from './recipeNodeLogic';
 import { getQuantityDisplay, RecipeNodeCalculator } from './recipeNodeLogic';
 

@@ -4,7 +4,7 @@ import { ReactFlowProvider, Position } from '@xyflow/react';
 import HandleList from './HandleList';
 import ProductHandle from './ProductHandle';
 import type { ProductId } from '../loadJsonData';
-import type { HighlightProduct } from '~/factory/store';
+import type { HighlightProduct } from '~/context/store';
 
 // Wrapper to provide ReactFlowProvider for tests
 const renderWithReactFlow = (ui: React.ReactElement) => {

@@ -1,4 +1,4 @@
-import type { GraphCoreData, GraphImportData } from "~/factory/store";
+import type { GraphCoreData, GraphImportData } from "~/context/store";
 import type { ZoneModifiers } from "~/context/zoneModifiers";
 
 /**

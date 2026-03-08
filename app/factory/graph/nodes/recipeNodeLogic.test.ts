@@ -3,7 +3,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import Big from 'big.js';
-import { ProductId, type Recipe } from './loadJsonData';
+import { ProductId, type Recipe } from '../loadJsonData';
 import { getQuantityDisplay, SettlementCalculator } from './recipeNodeLogic';
 import {
   recyclablesForProduct,
@@ -11,7 +11,7 @@ import {
   materialSplitForProduct,
   recyclablesProductId,
   recyclablesSourceMaterialSplit,
-} from './recyclables';
+} from '../recyclables';
 import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 function makeRecipe(params: {

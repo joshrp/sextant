@@ -11,7 +11,7 @@ import { ArrowsUpDownIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import usePlanner, { usePlannerStore } from '~/context/PlannerContext';
 import { zoneIdFromName } from '~/context/utils';
 import { decompressBulk, type BulkImportData } from '~/factory/importexport/importexport';
-import type { GraphImportData } from '~/factory/store';
+import type { GraphImportData } from '~/context/store';
 import { DEFAULT_ZONE_MODIFIERS, MODIFIER_META, type ZoneModifiers } from '~/context/zoneModifiers';
 
 /**

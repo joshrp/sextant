@@ -16,12 +16,12 @@ import { ReactFlowProvider } from "@xyflow/react";
 import { FactoryOverlayBar } from "~/components/FactoryOverlayBar";
 import FactoryControls from "~/context/FactoryControls";
 import { usePlannerStore } from "~/context/PlannerContext";
-import { useFactoryStore } from "./FactoryContext";
+import { useFactoryStore } from "../context/FactoryContext";
 import RecipePicker from "./RecipePicker";
-import type { RecipeNode } from "./graph/RecipeNode";
-import type { AnnotationNodeType } from "./graph/annotationNode";
+import type { RecipeNode } from "./graph/nodes/RecipeNode";
+import type { AnnotationNodeType } from "./graph/nodes/annotationNode";
 import { isSentinelPosition } from "./graph/nodePositioning";
-import type { HandleDropAlignment } from "./graph/recipeNodeLogic";
+import type { HandleDropAlignment } from "./graph/nodes/recipeNodeLogic";
 
 const { products, machines, recipes } = loadData();
 console.log("Loaded products", products);

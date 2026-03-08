@@ -5,19 +5,19 @@ import { addEdge, applyEdgeChanges, applyNodeChanges, getConnectedEdges, type On
 
 import type { StorageValue } from "zustand/middleware";
 import hydration from "~/hydration";
-import type { ProductionZoneStoreData } from "../context/ZoneStore";
-import type { CustomEdgeType } from "./graph/edges";
-import type { ButtonEdge, ButtonEdgeData } from "./graph/edges/ButtonEdge";
-import type { ProductId, RecipeId } from "./graph/loadJsonData";
-import type { CustomNodeType } from "./graph/nodeTypes";
-import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "./graph/recipeNodeLogic";
-import type { AnnotationNodeData } from "./graph/annotationNode";
-import { createGraphModel, solve } from "./solver/solver";
-import type { Constraint, FactoryGoal, GraphModel, GraphScoringMethod, ManifoldOptions, Solution, SolutionStatus } from "./solver/types";
+import type { ProductionZoneStoreData } from "./ZoneStore";
+import type { CustomEdgeType } from "../factory/graph/edges";
+import type { ButtonEdge, ButtonEdgeData } from "../factory/graph/edges/ButtonEdge";
+import type { ProductId, RecipeId } from "../factory/graph/loadJsonData";
+import type { CustomNodeType } from "../factory/graph/nodeTypes";
+import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "../factory/graph/nodes/recipeNodeLogic";
+import type { AnnotationNodeData } from "../factory/graph/nodes/annotationNode";
+import { createGraphModel, solve } from "../factory/solver/solver";
+import type { Constraint, FactoryGoal, GraphModel, GraphScoringMethod, ManifoldOptions, Solution, SolutionStatus } from "../factory/solver/types";
 import * as reducers from "~/context/reducers/graphReducers";
-import { minify } from "./importexport/importexport";
+import { minify } from "../factory/importexport/importexport";
 import type { IDB } from "~/context/idb";
-import type { FactoryFixture } from "./fixtures";
+import type { FactoryFixture } from "../factory/fixtures";
 import type { ZoneModifiers } from "~/context/zoneModifiers";
 import { DEFAULT_ZONE_MODIFIERS } from "~/context/zoneModifiers";
 

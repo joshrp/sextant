@@ -2,7 +2,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { ExclamationTriangleIcon, LockClosedIcon, LockOpenIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useShallow } from "zustand/shallow";
-import useFactory, { useFactoryStore } from "../FactoryContext";
+import useFactory, { useFactoryStore } from "../../context/FactoryContext";
 import type { Constraint } from "../solver/types";
 import { loadData, type Product } from "./loadJsonData";
 import { formatNumber, productIcon } from "~/uiUtils";

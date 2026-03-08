@@ -48,7 +48,7 @@ vi.mock('@xyflow/react', async () => {
 import RecipeNode from './RecipeNode';
 import type { RecipeNodeData } from './recipeNodeLogic';
 import type { RecipeNode as RecipeNodeType } from './RecipeNode';
-import type { RecipeId } from './loadJsonData';
+import type { RecipeId } from '../loadJsonData';
 
 describe('RecipeNode Component', () => {
   const createNodeProps = (data: RecipeNodeData, id = 'test-node-1'): NodeProps<RecipeNodeType> => ({

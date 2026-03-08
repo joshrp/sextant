@@ -1,5 +1,5 @@
 import { Position } from '@xyflow/react';
-import type { HighlightModes } from '../../store';
+import type { HighlightModes } from '../../../context/store';
 import type { ProductId } from '../loadJsonData';
 import RFHandle from './RFHandle';
 import type { RFHandleProps } from './RFHandle';

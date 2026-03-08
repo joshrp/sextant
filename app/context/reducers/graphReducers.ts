@@ -3,11 +3,11 @@
  * These functions transform state immutably and can be tested independently
  */
 import type { ButtonEdgeData } from "~/factory/graph/edges/ButtonEdge";
-import type { GraphSolutionState, GraphStore } from "~/factory/store";
+import type { GraphSolutionState, GraphStore } from "~/context/store";
 import type { ProductionZoneStoreData } from "~/context/ZoneStore";
 import type { GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
-import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "~/factory/graph/recipeNodeLogic";
+import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "~/factory/graph/nodes/recipeNodeLogic";
 import { isRecipeNode } from "~/factory/graph/nodeTypes";
 
 /**

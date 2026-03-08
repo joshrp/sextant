@@ -5,7 +5,7 @@ import '@ungap/compression-stream/poly';
 import * as imex from "./importexport";
 import testFactories from "./testFactories.json";
 import testExports from "./testExports.json";
-import { default as FactoryStore, type GraphCoreData } from '../store';
+import { default as FactoryStore, type GraphCoreData } from '../../context/store';
 import { openDB } from 'idb';
 import {setDebugSolver} from '../solver/solver';
 import type { RecipeId, ProductId } from '../graph/loadJsonData';

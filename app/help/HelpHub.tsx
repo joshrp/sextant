@@ -9,7 +9,7 @@ import { useSearchParams } from 'react-router';
 import { MDXProvider } from '@mdx-js/react';
 import { HelpProvider, useHelp } from './HelpContext';
 import { helpCategories, getTopicsByCategory, getTopicById, type HelpTopic } from './helpMetadata';
-import { FactoryContext } from '~/factory/FactoryContext';
+import { FactoryContext } from '~/context/FactoryContext';
 import { contentMap, loadContent } from './contentLoader';
 
 interface HelpHubProps {

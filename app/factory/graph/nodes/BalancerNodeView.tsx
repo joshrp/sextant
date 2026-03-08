@@ -3,9 +3,9 @@ import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
 import { Position } from '@xyflow/react';
 import HelpLink from '~/components/HelpLink';
 import { machineIcon, productBackground } from '~/uiUtils';
-import type { HighlightModes } from '../store';
-import { HandleList, ProductHandle } from './handles';
-import type { ProductId, Recipe } from './loadJsonData';
+import type { HighlightModes } from '../../../context/store';
+import { HandleList, ProductHandle } from '../handles';
+import type { ProductId, Recipe } from '../loadJsonData';
 
 
 type ProductEdges = Map<ProductId, boolean>;

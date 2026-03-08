@@ -3,12 +3,12 @@ import { useStore, useUpdateNodeInternals, type NodeProps } from '@xyflow/react'
 import equal from 'fast-deep-equal';
 import { memo, useCallback, useLayoutEffect, useMemo } from 'react';
 import { useShallow } from 'zustand/shallow';
-import { useFactoryStore } from '../FactoryContext';
+import { useFactoryStore } from '../../../context/FactoryContext';
 import BalancerNodeView from './BalancerNodeView';
-import { loadData, type ProductId } from './loadJsonData';
+import { loadData, type ProductId } from '../loadJsonData';
 import { type RecipeNodeData, type RecipeNodeType } from './recipeNodeLogic';
 import RecipeNodeView from './RecipeNodeView';
-import SettlementNodeView from './SettlmentNodeView';
+import SettlementNodeView from './SettlementNodeView';
 import { useProductionZoneStore } from '~/context/ZoneContext';
 
 const { recipes } = loadData();
