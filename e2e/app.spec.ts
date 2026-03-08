@@ -11,7 +11,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Factory Planner App', () => {
   test('should display zone selector and factory goals on initial load', async ({ page }) => {
     // Navigate to the app
-    await page.goto('./', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
     
     // Wait for the app to load and redirect to a zone
     // The app auto-redirects from / to /zones/{zoneId}
@@ -36,7 +36,7 @@ test.describe('Factory Planner App', () => {
   });
 
   test('should display factory tabs in sidebar', async ({ page }) => {
-    await page.goto('./');
+    await page.goto('/');
     
     // Wait for the app to load
     await page.waitForURL(/\/zones\//, { timeout: 1000 });
