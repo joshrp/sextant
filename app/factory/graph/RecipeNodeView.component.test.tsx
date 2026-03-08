@@ -10,14 +10,15 @@ import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
 
 const { recipes } = loadData();
 
-// Helper to create mock product edges
-const createMockProductEdges = (recipe: ReturnType<typeof recipes.get>) => {
-  const edges = new Map();
+// Helper to create mock product edges split by input/output
+const createMockEdges = (recipe: ReturnType<typeof recipes.get>) => {
+  const inputEdges = new Map();
+  const outputEdges = new Map();
   if (recipe) {
-    recipe.inputs.forEach(input => edges.set(input.product.id, null));
-    recipe.outputs.forEach(output => edges.set(output.product.id, null));
+    recipe.inputs.forEach(input => inputEdges.set(input.product.id, false));
+    recipe.outputs.forEach(output => outputEdges.set(output.product.id, false));
   }
-  return edges;
+  return { inputEdges, outputEdges };
 };
 
 // Helper to get a recipe and create base props
@@ -27,7 +28,7 @@ const getRecipeProps = (recipeId: RecipeId, overrides?: Partial<RecipeNodeViewPr
 
   return {
     recipe,
-    productEdges: createMockProductEdges(recipe),
+    ...createMockEdges(recipe),
     ltr: true,
     zoomLevel: 0,
     onFlip: vi.fn(),

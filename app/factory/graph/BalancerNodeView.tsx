@@ -8,11 +8,12 @@ import { HandleList, ProductHandle } from './handles';
 import type { ProductId, Recipe } from './loadJsonData';
 
 
-type ProductEdges = Map<ProductId, boolean | null>;
+type ProductEdges = Map<ProductId, boolean>;
 
 export interface BalancerNodeViewProps {
   recipe: Recipe;
-  productEdges: ProductEdges;
+  inputEdges: ProductEdges;
+  outputEdges: ProductEdges;
   ltr: boolean;
   zoomLevel: 0 | 1 | 2 | 3;
   onFlip: () => void;
@@ -31,7 +32,8 @@ export interface BalancerNodeViewProps {
  */
 export default function BalancerNodeView({
   recipe,
-  productEdges,
+  inputEdges,
+  outputEdges,
   ltr,
   zoomLevel,
   onFlip,
@@ -48,8 +50,8 @@ export default function BalancerNodeView({
   let BalancerTitle = "Balancer";
   // if all inputs are connected or unconnected, it's just a balancer. 
   // If only outputs are connected, it's importer. If only inputs are connected, it's exporter.
-  const allInputsConnected = recipe.inputs.every(input => productEdges.get(input.product.id));
-  const allOutputsConnected = recipe.outputs.every(output => productEdges.get(output.product.id));
+  const allInputsConnected = recipe.inputs.every(input => inputEdges.get(input.product.id));
+  const allOutputsConnected = recipe.outputs.every(output => outputEdges.get(output.product.id));
   if (allInputsConnected && !allOutputsConnected) {
     BalancerTitle = "Exporter";
   } else if (!allInputsConnected && allOutputsConnected) {
@@ -88,13 +90,14 @@ export default function BalancerNodeView({
           inputs={ltr}
         >
           {leftProducts.map(prod => {
-            const isConnected = !!productEdges.get(prod.product.id);
+            const isConnected = !!(ltr ? inputEdges : outputEdges).get(prod.product.id);
             const productColor = productBackground(prod.product);
             return (
               <ProductHandle
                 key={prod.product.id}
                 product={prod.product}
                 quantity={prod.quantity}
+                hideQuantity={isConnected}
                 optional={prod.optional}
                 position={Position.Left}
                 isInput={ltr}
@@ -120,7 +123,7 @@ export default function BalancerNodeView({
           inputs={!ltr}
         >
           {rightProducts.map(prod => {
-            const isConnected = !!productEdges.get(prod.product.id);
+            const isConnected = !!(ltr ? outputEdges : inputEdges).get(prod.product.id);
             const productColor = productBackground(prod.product);
 
             return (
@@ -128,6 +131,7 @@ export default function BalancerNodeView({
                 key={prod.product.id}
                 product={prod.product}
                 quantity={prod.quantity}
+                hideQuantity={isConnected}
                 optional={prod.optional}
                 position={Position.Right}
                 isInput={!ltr}

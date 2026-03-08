@@ -10,13 +10,14 @@ import type { ProductId, Recipe, RecipeProduct } from './loadJsonData';
 import { SettlementCalculator, isOptionEnabled, type SettlementNodeData } from './recipeNodeLogic';
 import { CATEGORY_INFO, groupProductsByCategory, isFoodCategory } from './settlementCategories';
 
-type ProductEdges = Map<ProductId, boolean | null>;
+type ProductEdges = Map<ProductId, boolean>;
 
 export interface SettlementNodeViewProps {
   recipe: Recipe;
   settlementOptions: SettlementNodeData["options"];
   setOptions: (options: SettlementNodeData["options"]) => void;
-  productEdges: ProductEdges;
+  inputEdges: ProductEdges;
+  outputEdges: ProductEdges;
   ltr: boolean;
   zoomLevel: 0 | 1 | 2 | 3;
   onFlip: () => void;
@@ -51,7 +52,8 @@ export default function SettlementNodeView({
   recipe,
   settlementOptions,
   setOptions,
-  productEdges,
+  inputEdges,
+  outputEdges,
   ltr,
   zoomLevel,
   onFlip,
@@ -88,7 +90,7 @@ export default function SettlementNodeView({
   const inputGroups = groupProductsByCategory(recipe.inputs);
 
   const renderProductHandle = (prod: RecipeProduct, position: Position, isInput: boolean) => {
-    const isConnected = !!productEdges.get(prod.product.id);
+    const isConnected = !!(isInput ? inputEdges : outputEdges).get(prod.product.id);
     const productColor = productBackground(prod.product);
 
     return (

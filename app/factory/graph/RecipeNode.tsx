@@ -17,7 +17,7 @@ const { recipes } = loadData();
 export type { RecipeNodeData };
 export type RecipeNode = RecipeNodeType;
 
-type ProductEdges = Map<ProductId, boolean | null>;
+type ProductEdges = Map<ProductId, boolean>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const zoomSelector = (s: any) => {
@@ -225,27 +225,40 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
     </div>;
   }
 
-  const productEdges: ProductEdges = useMemo(() => {
-    const edges = new Map();
-    recipe.inputs.forEach(input => edges.set(input.product.id, false));
-    recipe.outputs.forEach(output => edges.set(output.product.id, false));
+  const { inputEdges, outputEdges } = useMemo(() => {
+    const inputEdges: ProductEdges = new Map();
+    const outputEdges: ProductEdges = new Map();
+    recipe.inputs.forEach(input => inputEdges.set(input.product.id, false));
+    recipe.outputs.forEach(output => outputEdges.set(output.product.id, false));
     connectedEdges.forEach(edge => {
-      const prodId = edge.sourceHandle as ProductId | undefined;
-      if (prodId && edges.has(prodId)) {
-        edges.set(prodId, true);
+      if (edge.source === props.id) {
+        // This node is the source → product is an output
+        const prodId = edge.sourceHandle as ProductId | undefined;
+        if (prodId && outputEdges.has(prodId)) {
+          outputEdges.set(prodId, true);
+        } else {
+          throw new Error("Edge connected to recipe node with unknown output product ID: " + edge.sourceHandle);
+        }
       } else {
-        throw new Error("Edge connected to recipe node with unknown product ID: " + edge.sourceHandle);
+        // This node is the target → product is an input
+        const prodId = edge.targetHandle as ProductId | undefined;
+        if (prodId && inputEdges.has(prodId)) {
+          inputEdges.set(prodId, true);
+        } else {
+          throw new Error("Edge connected to recipe node with unknown input product ID: " + edge.targetHandle);
+        }
       }
     });
-    return edges;
-  }, [recipe, connectedEdges]);
+    return { inputEdges, outputEdges };
+  }, [recipe, connectedEdges, props.id]);
 
   return useMemo(() => {
     let contents;
     if (props.data.type === "balancer") {
       contents = <BalancerNodeView
         recipe={recipe}
-        productEdges={productEdges}
+        inputEdges={inputEdges}
+        outputEdges={outputEdges}
         ltr={!!props.data.ltr}
         zoomLevel={zoomLevel}
         onFlip={flipNode}
@@ -259,7 +272,8 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         recipe={recipe}
         settlementOptions={props.data.options}
         setOptions={options => setSettlementOptions(props.id, options)}
-        productEdges={productEdges}
+        inputEdges={inputEdges}
+        outputEdges={outputEdges}
         ltr={!!props.data.ltr}
         zoomLevel={zoomLevel}
         onFlip={flipNode}
@@ -272,7 +286,8 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
     } else {
       contents = <RecipeNodeView
         recipe={recipe}
-        productEdges={productEdges}
+        inputEdges={inputEdges}
+        outputEdges={outputEdges}
         ltr={!!props.data.ltr}
         zoomLevel={zoomLevel}
         onFlip={flipNode}
@@ -289,7 +304,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
       />;
     }
     return contents;
-  }, [props.data, props.data.solution, recipe, productEdges, zoomLevel, highlight, props.id, modifiers]);
+  }, [props.data, props.data.solution, recipe, inputEdges, outputEdges, zoomLevel, highlight, props.id, modifiers]);
 
 }
 

@@ -11,11 +11,12 @@ import type { ProductId, Recipe } from './loadJsonData';
 import type { RecipeNodeOptions } from './recipeNodeLogic';
 import { getQuantityDisplay, RecipeNodeCalculator } from './recipeNodeLogic';
 
-type ProductEdges = Map<ProductId, boolean | null>;
+type ProductEdges = Map<ProductId, boolean>;
 
 export interface RecipeNodeViewProps {
   recipe: Recipe;
-  productEdges: ProductEdges;
+  inputEdges: ProductEdges;
+  outputEdges: ProductEdges;
   ltr: boolean;
   zoomLevel: 0 | 1 | 2 | 3;
   onFlip: () => void;
@@ -37,7 +38,8 @@ export interface RecipeNodeViewProps {
  */
 export default function RecipeNodeView({
   recipe,
-  productEdges,
+  inputEdges,
+  outputEdges,
   ltr,
   onFlip,
   onRemove,
@@ -96,7 +98,7 @@ export default function RecipeNodeView({
           inputs={ltr}
         >
           {leftProducts.map(prod => {
-            const isConnected = !!productEdges.get(prod.product.id);
+            const isConnected = !!(ltr ? inputEdges : outputEdges).get(prod.product.id);
             const productColor = productBackground(prod.product);
             const quantity = ltr ? Calculator.productInput(prod.product.id) : Calculator.productOutput(prod.product.id);
             return (
@@ -144,7 +146,7 @@ export default function RecipeNodeView({
           inputs={!ltr}
         >
           {rightProducts.map(prod => {
-            const isConnected = !!productEdges.get(prod.product.id);
+            const isConnected = !!(ltr ? outputEdges : inputEdges).get(prod.product.id);
             const productColor = productBackground(prod.product);
             const quantity = ltr ? Calculator.productOutput(prod.product.id) : Calculator.productInput(prod.product.id);
 

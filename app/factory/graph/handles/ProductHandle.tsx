@@ -11,6 +11,8 @@ export interface ProductHandlePropsBase {
   product: RFHandleProps['product'];
   /** The quantity of this product */
   quantity: number;
+  /** Hide the quantity display */
+  hideQuantity?: boolean;
   /** Whether this product is optional */
   optional?: boolean;
   /** The position of the handle (left or right) */
@@ -106,7 +108,7 @@ export default function ProductHandle(props: ProductHandleProps) {
     >
       {isLeft ? handle : switchElement}
       <div className="flex-1 min-w-4 p-2 text-shadow-md/50">
-        {formatNumber(quantity, product.unit)}
+        {props.hideQuantity ? '' : formatNumber(quantity, product.unit)}
       </div>
       {isLeft ? switchElement : handle}
     </div>
