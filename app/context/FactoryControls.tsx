@@ -52,7 +52,7 @@ export default function FactoryControls({
     addProducer: () => {
       addNewRecipe({
         productId: 'Product_Virtual_Workers' as ProductId,
-        position: { x: 100, y: 100 },
+        position: { x: 0, y: 0 },
         produce: true,
         otherNode: "",
       });
@@ -61,17 +61,44 @@ export default function FactoryControls({
     name: 'Maintenance 1',
     type: 'maintenance_1',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT1' as ProductId),
-    totalAmount: solution?.infrastructure['maintenance_1'] || 0
+    totalAmount: solution?.infrastructure['maintenance_1'] || 0,
+    producerText: "Add Maintenance Depot",
+    addProducer: () => {
+      addNewRecipe({
+        productId: 'Product_Virtual_MaintenanceT1' as ProductId,
+        position: { x: 0, y: 0 },
+        produce: true,
+        otherNode: "",
+      });
+    }
   }, {
     name: 'Maintenance 2',
     type: 'maintenance_2',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT2' as ProductId),
-    totalAmount: solution?.infrastructure['maintenance_2'] || 0
+    totalAmount: solution?.infrastructure['maintenance_2'] || 0,
+    producerText: "Add Maintenance Depot",
+    addProducer: () => {
+      addNewRecipe({
+        productId: 'Product_Virtual_MaintenanceT2' as ProductId,
+        position: { x: 0, y: 0 },
+        produce: true,
+        otherNode: "",
+      });
+    }
   }, {
     name: 'Maintenance 3',
     type: 'maintenance_3',
     icon: maintenanceIcon('Product_Virtual_MaintenanceT3' as ProductId),
-    totalAmount: solution?.infrastructure['maintenance_3'] || 0
+    totalAmount: solution?.infrastructure['maintenance_3'] || 0,
+    producerText: "Add Maintenance Depot",
+    addProducer: () => {
+      addNewRecipe({
+        productId: 'Product_Virtual_MaintenanceT3' as ProductId,
+        position: { x: 0, y: 0 },
+        produce: true,
+        otherNode: "",
+      });
+    }
   }, {
     name: 'Computing',
     type: 'computing',

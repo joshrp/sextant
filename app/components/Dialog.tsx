@@ -21,11 +21,11 @@ export function SelectorDialog({
       <DialogPanel className={`
         m-auto grid grid-rows-[min-content_1fr] 
         ${widthClassName} ${heightClassName}        
-        bg-gray-100 dark:bg-gray-800 shadow-md shadow-black/40 rounded-md
+        bg-gray-800 shadow-md shadow-black/40 rounded-md
         transition-opacity data-open:opacity-100 data-closed:opacity-0 
         data-enter:duration-2000 data-enter:ease-out data-leave:duration-200 
         data-leave:ease-in text-center sm:items-center sm:p-0`}>
-        <div className="w-full flex items-center justify-between mb-2 p-2 border-b-2 border-gray-300 dark:border-gray-700 relative texture-embossed">
+        <div className="w-full flex items-center justify-between mb-2 p-2 border-b-2 border-gray-700 relative texture-embossed">
           <div className="flex-1" />
           <DialogTitle className="flex-6">
             {title}

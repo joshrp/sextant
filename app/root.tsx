@@ -26,7 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <PlannerProvider>
-      <html lang="en">
+      <html lang="en" className="dark">
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=1200, initial-scale=1" />

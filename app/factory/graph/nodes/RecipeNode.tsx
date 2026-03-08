@@ -207,7 +207,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
 
   const recipe = 'recipeId' in props.data && recipes.get(props.data.recipeId);
   if (!recipe) {
-    return <div className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
+    return <div className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-800 rounded-lg shadow-md">
       <div className="recipe-node-title-bar flex justify-between border-white/20 mb-8 pb-2 border-b-2 items-center-safe ">
         <div className="flex-1 text-left p-1">
         </div>

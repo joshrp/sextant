@@ -23,29 +23,29 @@ interface HelpHubProps {
 const mdxComponents = {
   // Headings
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className="text-4xl font-bold mb-6 mt-8 text-zinc-900 dark:text-zinc-100 border-b-2 border-zinc-300 dark:border-zinc-700 pb-2" {...props} />
+    <h1 className="text-4xl font-bold mb-6 mt-8 text-zinc-100 border-b-2 border-zinc-700 pb-2" {...props} />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="text-3xl font-semibold mb-4 mt-6 text-zinc-800 dark:text-zinc-200" {...props} />
+    <h2 className="text-3xl font-semibold mb-4 mt-6 text-zinc-200" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="text-2xl font-semibold mb-3 mt-4 text-zinc-800 dark:text-zinc-200" {...props} />
+    <h3 className="text-2xl font-semibold mb-3 mt-4 text-zinc-200" {...props} />
   ),
   h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h4 className="text-xl font-medium mb-2 mt-3 text-zinc-700 dark:text-zinc-300" {...props} />
+    <h4 className="text-xl font-medium mb-2 mt-3 text-zinc-300" {...props} />
   ),
 
   // Paragraphs and text
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-4 leading-relaxed text-zinc-700 dark:text-zinc-300" {...props} />
+    <p className="mb-4 leading-relaxed text-zinc-300" {...props} />
   ),
 
   // Lists
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="mb-4 list-disc space-y-2 text-zinc-700 dark:text-zinc-300" {...props} />
+    <ul className="mb-4 list-disc space-y-2 text-zinc-300" {...props} />
   ),
   ol: (props: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className="list-decimal list-inside mb-4 space-y-2 text-zinc-700 dark:text-zinc-300" {...props} />
+    <ol className="list-decimal list-inside mb-4 space-y-2 text-zinc-300" {...props} />
   ),
   li: (props: React.HTMLAttributes<HTMLLIElement>) => (
     <li className="" {...props} />
@@ -53,12 +53,12 @@ const mdxComponents = {
 
   // Links
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a className="text-blue-600 dark:text-blue-400 hover:underline" {...props} />
+    <a className="text-blue-400 hover:underline" {...props} />
   ),
 
   // Code
   code: (props: React.HTMLAttributes<HTMLElement>) => (
-    <code className="bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded text-sm font-mono" {...props} />
+    <code className="bg-zinc-800 px-2 py-1 rounded text-sm font-mono" {...props} />
   ),
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
     <pre className="bg-zinc-900 text-zinc-100 p-4 rounded-lg overflow-x-auto mb-4" {...props} />
@@ -66,7 +66,7 @@ const mdxComponents = {
 
   // Blockquotes
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
-    <blockquote className="border-l-4 border-blue-500 pl-4 italic my-4 text-zinc-600 dark:text-zinc-400" {...props} />
+    <blockquote className="border-l-4 border-blue-500 pl-4 italic my-4 text-zinc-400" {...props} />
   ),
 
   // Images - enforced consistent sizing
@@ -76,29 +76,29 @@ const mdxComponents = {
 
   // Tables
   table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
-    <table className="min-w-full divide-y divide-zinc-300 dark:divide-zinc-700 mb-4" {...props} />
+    <table className="min-w-full divide-y divide-zinc-700 mb-4" {...props} />
   ),
   thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className="bg-zinc-100 dark:bg-zinc-800" {...props} />
+    <thead className="bg-zinc-800" {...props} />
   ),
   tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <tbody className="divide-y divide-zinc-200 dark:divide-zinc-700" {...props} />
+    <tbody className="divide-y divide-zinc-700" {...props} />
   ),
   th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
-    <th className="px-4 py-2 text-left text-sm font-semibold text-zinc-900 dark:text-zinc-100" {...props} />
+    <th className="px-4 py-2 text-left text-sm font-semibold text-zinc-100" {...props} />
   ),
   td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
-    <td className="px-4 py-2 text-sm text-zinc-700 dark:text-zinc-300" {...props} />
+    <td className="px-4 py-2 text-sm text-zinc-300" {...props} />
   ),
 
   // Horizontal rule
   hr: (props: React.HTMLAttributes<HTMLHRElement>) => (
-    <hr className="my-8 border-t-2 border-zinc-300 dark:border-zinc-700" {...props} />
+    <hr className="my-8 border-t-2 border-zinc-700" {...props} />
   ),
 
   // Strong and emphasis
   strong: (props: React.HTMLAttributes<HTMLElement>) => (
-    <strong className="font-bold text-zinc-900 dark:text-zinc-100" {...props} />
+    <strong className="font-bold text-zinc-100" {...props} />
   ),
   em: (props: React.HTMLAttributes<HTMLElement>) => (
     <em className="italic" {...props} />
@@ -165,21 +165,21 @@ function HelpHubContent({ isOpen, onClose }: HelpHubProps) {
       <DialogBackdrop className="fixed inset-0 bg-black/60" />
 
       <div className="fixed inset-0 overflow-hidden">
-        <DialogPanel className="h-[90vh] w-[90vw] m-auto mt-[5vh] bg-white dark:bg-zinc-900 flex flex-col">
+        <DialogPanel className="h-[90vh] w-[90vw] m-auto mt-[5vh] bg-zinc-900 flex flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between p-2 border-b border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800">
+          <div className="flex items-center justify-between p-2 border-b border-zinc-700 bg-zinc-800">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="p-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded"
+                className="p-2 hover:bg-zinc-700 rounded"
               >
                 <Bars3Icon className="w-6 h-6" />
               </button>
-              <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              <h1 className="text-2xl font-bold text-zinc-100">
                 Captains Manual
               </h1>
             </div>
-            <CloseButton className="p-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded">
+            <CloseButton className="p-2 hover:bg-zinc-700 rounded">
               <XMarkIcon className="w-6 h-6" />
             </CloseButton>
           </div>
@@ -188,7 +188,7 @@ function HelpHubContent({ isOpen, onClose }: HelpHubProps) {
           <div className="flex-1 flex overflow-hidden">
             {/* Sidebar */}
             {sidebarOpen && (
-              <aside className="w-64 border-r border-zinc-300 dark:border-zinc-700 overflow-y-auto bg-zinc-50 dark:bg-zinc-800 p-4">
+              <aside className="w-64 border-r border-zinc-700 overflow-y-auto bg-zinc-800 p-4">
                 {helpCategories
                   .sort((a, b) => (a.order || 999) - (b.order || 999))
                   .map(category => {
@@ -197,7 +197,7 @@ function HelpHubContent({ isOpen, onClose }: HelpHubProps) {
 
                     return (
                       <div key={category.id} className="mb-6">
-                        <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-600 dark:text-zinc-400 mb-2">
+                        <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-400 mb-2">
                           {category.title}
                         </h3>
                         <ul className="space-y-1">
@@ -207,7 +207,7 @@ function HelpHubContent({ isOpen, onClose }: HelpHubProps) {
                                 onClick={() => selectTopic(topic)}
                                 className={`w-full text-left px-3 py-2 rounded transition ${topic.id === topicId
                                   ? 'bg-blue-500 text-white'
-                                  : 'hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300'
+                                  : 'hover:bg-zinc-700 text-zinc-300'
                                   }`}
                               >
                                 {topic.title}
@@ -250,8 +250,8 @@ function HelpHubContent({ isOpen, onClose }: HelpHubProps) {
 
                 {!currentTopic && (
                   <div className="text-center py-12">
-                    <h2 className="text-2xl font-semibold mb-4 text-zinc-900 dark:text-zinc-100">Topic Not Found</h2>
-                    <p className="text-zinc-600 dark:text-zinc-400">
+                    <h2 className="text-2xl font-semibold mb-4 text-zinc-100">Topic Not Found</h2>
+                    <p className="text-zinc-400">
                       The requested help topic could not be found.
                     </p>
                   </div>
