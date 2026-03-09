@@ -1,4 +1,4 @@
-{"game_version":"0.7.9.0","vehicles":[{
+{"game_version":"0.8.0.0","vehicles":[{
 "name":"Truck","costs":[{
 "product":"Vehicle Parts II","quantity":30
 }
@@ -21,7 +21,7 @@
 "product":"Electronics","quantity":20
 }
 ,{
-"product":"Hydrogen","quantity":18
+"product":"Hydrogen","quantity":19
 }
 ]
 }
@@ -69,7 +69,7 @@
 "product":"Vehicle Parts III","quantity":110
 }
 ,{
-"product":"Hydrogen","quantity":43
+"product":"Hydrogen","quantity":45
 }
 ]
 }
@@ -81,7 +81,34 @@
 "product":"Vehicle Parts III","quantity":110
 }
 ,{
-"product":"Hydrogen","quantity":43
+"product":"Hydrogen","quantity":45
+}
+]
+}
+,{
+"name":"Amphibious truck","costs":[{
+"product":"Vehicle Parts II","quantity":60
+}
+,{
+"product":"Steel","quantity":20
+}
+,{
+"product":"Diesel","quantity":36
+}
+]
+}
+,{
+"name":"Amphibious truck","costs":[{
+"product":"Vehicle Parts II","quantity":60
+}
+,{
+"product":"Steel","quantity":20
+}
+,{
+"product":"Electronics","quantity":20
+}
+,{
+"product":"Hydrogen","quantity":45
 }
 ]
 }
@@ -105,7 +132,7 @@
 "product":"Vehicle Parts III","quantity":220
 }
 ,{
-"product":"Hydrogen","quantity":84
+"product":"Hydrogen","quantity":88
 }
 ]
 }
@@ -132,7 +159,7 @@
 "product":"Electronics","quantity":40
 }
 ,{
-"product":"Hydrogen","quantity":32
+"product":"Hydrogen","quantity":34
 }
 ]
 }
@@ -145,6 +172,30 @@
 }
 ,{
 "product":"Diesel","quantity":10
+}
+]
+}
+,{
+"name":"Amphibious excavator","costs":[{
+"product":"Vehicle Parts II","quantity":60
+}
+,{
+"product":"Steel","quantity":30
+}
+,{
+"product":"Diesel","quantity":45
+}
+]
+}
+,{
+"name":"Amphibious excavator","costs":[{
+"product":"Steel","quantity":30
+}
+,{
+"product":"Vehicle Parts II","quantity":220
+}
+,{
+"product":"Hydrogen","quantity":56
 }
 ]
 }
@@ -171,7 +222,7 @@
 "product":"Electronics","quantity":40
 }
 ,{
-"product":"Hydrogen","quantity":38
+"product":"Hydrogen","quantity":40
 }
 ]
 }

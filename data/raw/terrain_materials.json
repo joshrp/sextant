@@ -1,4 +1,4 @@
-{"game_version":"0.7.9.0","terrain_materials":[{
+{"game_version":"0.8.0.0","terrain_materials":[{
 "id":"Grass_Terrain","name":"Grass","mined_product":"Dirt","mining_hardness":"","mined_quantity_per_tile_cubed":1.400391,"disruption_recovery_time":0,"is_hardened_floor":false,"max_collapse_height_diff":1.799805,"min_collapse_height_diff":0.9003906,"mined_quantity_mult":"70.00%","vehicle_traversal_cost":0
 }
 ,{

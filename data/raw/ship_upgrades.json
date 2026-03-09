@@ -1,4 +1,4 @@
-{"game_version":"0.7.9.0","engines":[{
+{"game_version":"0.8.0.0","engines":[{
 "name":"Ship engine","fuel_capacity":80,"extra_crew_needed":15,"costs":[]
 }
 ,{

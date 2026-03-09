@@ -1,4 +1,4 @@
-{"game_version":"0.7.9.0","products":[{
+{"game_version":"0.8.0.0","products":[{
 "id":"Product_Virtual_Electricity","name":"Electricity","icon":"Electricity","type":"VirtualProductProto","icon_path":"Assets/Base/Products/Icons/Electricity.svg","unit":"{0} kW"
 }
 ,{
