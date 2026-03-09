@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { useEffect } from "react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -23,6 +24,26 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+
+  // Track Shift key globally so any component can style based on .shift-held
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') document.body.classList.add('shift-held');
+    };
+    const onKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') document.body.classList.remove('shift-held');
+    };
+    const onBlur = () => document.body.classList.remove('shift-held');
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('keyup', onKeyUp);
+    window.addEventListener('blur', onBlur);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('keyup', onKeyUp);
+      window.removeEventListener('blur', onBlur);
+      document.body.classList.remove('shift-held');
+    };
+  }, []);
 
   return (
     <PlannerProvider>

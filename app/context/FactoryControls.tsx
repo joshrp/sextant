@@ -5,6 +5,7 @@ import { ArrowsPointingOutIcon, CheckCircleIcon, ChevronDownIcon, Cog8ToothIcon,
 import React from "react";
 import { Link } from "react-router";
 import { useShallow } from "zustand/shallow";
+import ConstructionCostsPopover from "~/components/ConstructionCostsPopover";
 import HelpLink from "~/components/HelpLink";
 import InfrastructurePopover, { type InfrastructurePopoverProps } from "~/components/InfrastructurePopover";
 import type { AddRecipeNode } from "~/factory/factory";
@@ -310,6 +311,12 @@ export default function FactoryControls({
             />
           </div>
         ) : null}
+
+        <div className="border-l border-gray-600 mx-1 self-stretch" />
+
+        <div className="flex-1">
+          <ConstructionCostsPopover />
+        </div>
 
       </>) : null}
     </div>

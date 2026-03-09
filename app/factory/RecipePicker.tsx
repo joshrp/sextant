@@ -8,6 +8,7 @@ import HelpLink from "~/components/HelpLink";
 import { useProductionZoneStore } from '~/context/ZoneContext';
 
 const { products } = loadData();
+const MAX_DISPLAY_ITEMS = 6;
 
 export default function RecipePicker({
   productId,
@@ -35,8 +36,8 @@ export default function RecipePicker({
     return <div className="text-gray-500">No recipes available for {product.name} {productIs !== "any" ? `as an ${productIs}` : ""}</div>;
   }
 
-  const maxInputs = Math.max(...recipesList.map(recipe => recipe.inputs.length));
-  const maxOutputs = Math.max(...recipesList.map(recipe => recipe.outputs.length));
+  const maxInputs = Math.min(Math.max(...recipesList.map(recipe => recipe.inputs.length)), MAX_DISPLAY_ITEMS);
+  const maxOutputs = Math.min(Math.max(...recipesList.map(recipe => recipe.outputs.length)), MAX_DISPLAY_ITEMS);
 
   const recipesWithSearchTerms = useMemo(() => prepareRecipesForSearch(recipesList), [recipesList]);
   const { matchedRecipes, unmatchedRecipes, balancerRecipe } = useMemo(
@@ -166,48 +167,91 @@ type RecipeRowProps = {
   selectRecipe: (recipeId: RecipeId, isBalancer: boolean) => void;
 };
 
+function CompactItemList({ items, type, isMatch, contractProfitability }: {
+  items: Recipe['inputs'] | Recipe['outputs'];
+  type: 'input' | 'output';
+  isMatch: (name: string) => boolean | undefined;
+  contractProfitability?: number;
+}) {
+  return (
+    <div className="flex flex-wrap gap-1 justify-center items-end py-1">
+      {items.map((item) => {
+        const matched = isMatch(item.product.name);
+        const qty = type === 'output' && contractProfitability !== undefined
+          ? item.quantity * contractProfitability : item.quantity;
+        const isOptional = type === 'output' && 'optional' in item && item.optional;
+        return (
+          <div key={item.product.id}
+            className="has-tooltip relative text-center min-w-8"
+            data-matched={matched || null}
+          >
+            <span className='tooltip rounded shadow-lg p-1 border border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap z-100'>
+              {item.product.name}{isOptional ? ' (optional)' : ''}
+            </span>
+            <img src={productIcon(item.product.icon)} alt={item.product.name}
+              className={`block mx-auto max-w-7 transition-opacity data-[matched=false]:opacity-30 ${isOptional ? 'border-2 border-dashed border-gray-500' : ''}`}
+              data-matched={matched} />
+            <span className="text-xs">{formatNumber(qty, item.product.unit)}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupCount, isOpen, isParent, setOpen, matchedTerms, hasActiveSearch, contractProfitability }: RecipeRowProps) {
-  const outputCells = Math.max((recipe.outputs.length * 2) - 1, 0);
-  const inputCells = Math.max((recipe.inputs.length * 2) - 1, 0);
-  const prefixInputCells = Array(maxInputCells - inputCells).fill(<td />);
-  const suffixOutputCells = Array(maxOutputCells - outputCells).fill(<td />);
+  const isCompactInputs = recipe.inputs.length > MAX_DISPLAY_ITEMS;
+  const isCompactOutputs = recipe.outputs.length > MAX_DISPLAY_ITEMS;
+
+  const outputCells = isCompactOutputs ? 0 : Math.max((recipe.outputs.length * 2) - 1, 0);
+  const inputCells = isCompactInputs ? 0 : Math.max((recipe.inputs.length * 2) - 1, 0);
+  const prefixInputCells = isCompactInputs ? [] : Array(maxInputCells - inputCells).fill(<td />);
+  const suffixOutputCells = isCompactOutputs ? [] : Array(maxOutputCells - outputCells).fill(<td />);
 
   const isMatch = (productName: string) => !hasActiveSearch || matchedTerms?.has(productName);
 
-  // prefix the inputs with empty divs to fill the grid
-  const inputs = prefixInputCells.concat(recipe.inputs.map((input, index) => {
-    const matched = isMatch(input.product.name);
-    return (<>
-      {index !== 0 && <td className="w-6"><PlusIcon /></td>}
-      <td key={input.product.id} className="has-tooltip relative" data-matched={matched || null}>
-        <span className='tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>{input.product.name}</span>
-        <img src={productIcon(input.product.icon)} alt={input.product.name}
-          className="block mb-2 mx-auto max-w-10 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
-        {formatNumber(input.quantity, input.product.unit)}
-      </td>
-    </>);
-  }));
+  // For recipes with many inputs, render a compact colSpan cell
+  const inputs = isCompactInputs
+    ? [<td key="compact-inputs" colSpan={maxInputCells} className="text-center">
+        <CompactItemList items={recipe.inputs} type="input" isMatch={isMatch} />
+      </td>]
+    : prefixInputCells.concat(recipe.inputs.map((input, index) => {
+        const matched = isMatch(input.product.name);
+        return (<>
+          {index !== 0 && <td className="w-6"><PlusIcon /></td>}
+          <td key={input.product.id} className="has-tooltip relative" data-matched={matched || null}>
+            <span className='tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>{input.product.name}</span>
+            <img src={productIcon(input.product.icon)} alt={input.product.name}
+              className="block mb-2 mx-auto max-w-10 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
+            {formatNumber(input.quantity, input.product.unit)}
+          </td>
+        </>);
+      }));
 
-  // append the outputs with empty divs to fill the grid
-  const outputs = recipe.outputs.map((output, index) => {
-    const matched = isMatch(output.product.name);
-    const outputQty = recipe.type === 'contract' ? output.quantity * contractProfitability : output.quantity;
-    return (<>
-      {index !== 0 && <td className="w-6"><PlusIcon /></td>}
+  // For recipes with many outputs, render a compact colSpan cell
+  const outputs = isCompactOutputs
+    ? [<td key="compact-outputs" colSpan={maxOutputCells} className="text-center">
+        <CompactItemList items={recipe.outputs} type="output" isMatch={isMatch} contractProfitability={recipe.type === 'contract' ? contractProfitability : undefined} />
+      </td>]
+    : recipe.outputs.map((output, index) => {
+        const matched = isMatch(output.product.name);
+        const outputQty = recipe.type === 'contract' ? output.quantity * contractProfitability : output.quantity;
+        return (<>
+          {index !== 0 && <td className="w-6"><PlusIcon /></td>}
 
-      <td data-optional={output.optional ? true : null}
-        key={output.product.id}
-        className="group has-tooltip relative data-optional:italic"
-      >
-        <span className='z-100 tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>
-          {output.product.name + (output.optional ? " (optional)" : "")}
-        </span>
-        <img src={productIcon(output.product.icon)} alt={output.product.name}
-          className="block mx-auto mb-2 max-w-10 group-data-optional:border-2 border-dashed border-gray-500 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
-        {formatNumber(outputQty, output.product.unit)}
-      </td>
-    </>);
-  }).concat(suffixOutputCells);
+          <td data-optional={output.optional ? true : null}
+            key={output.product.id}
+            className="group has-tooltip relative data-optional:italic"
+          >
+            <span className='z-100 tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>
+              {output.product.name + (output.optional ? " (optional)" : "")}
+            </span>
+            <img src={productIcon(output.product.icon)} alt={output.product.name}
+              className="block mx-auto mb-2 max-w-10 group-data-optional:border-2 border-dashed border-gray-500 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
+            {formatNumber(outputQty, output.product.unit)}
+          </td>
+        </>);
+      }).concat(suffixOutputCells);
 
   return (<tr className="group/row recipe-row cursor-pointer"
     data-is-open={isOpen} data-isParent={isParent} data-hasGroup={groupCount > 1}

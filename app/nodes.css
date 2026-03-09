@@ -12,7 +12,9 @@
 
 .react-flow__node:hover {
   z-index: 2000 !important;
+}
 
+.shift-held .react-flow__node:hover {
   & [data-zoomlevel] {
     transition: scale 0.1s ease-out
   }
