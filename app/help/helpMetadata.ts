@@ -109,7 +109,7 @@ export const helpTopics: HelpTopic[] = [
   },
   {
     id: 'import-export',
-    title: 'Import & Export',
+    title: 'Exporting Designs',
     description: 'Exporting, importing, and sharing factories',
     contentKey: 'import-export',
     category: 'getting-started',
@@ -130,6 +130,14 @@ export const helpTopics: HelpTopic[] = [
     contentKey: 'contracts',
     category: 'advanced',
     order: 6,
+  },
+  {
+    id: 'bugs',
+    title: 'Bugs & Problems',
+    description: 'Report bugs, request features, and find the source code',
+    contentKey: 'bugs',
+    category: 'reference',
+    order: 10,
   },
 ];
 
