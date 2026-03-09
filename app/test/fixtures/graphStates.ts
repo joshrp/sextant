@@ -38,6 +38,7 @@ export const basicGraphState: GraphSolutionState = {
   ] as CustomEdgeType[],
   goals: [],
   scoringMethod: "infra",
+  goalErrors: [],
 };
 
 /**
@@ -49,4 +50,5 @@ export const emptyGraphState: GraphSolutionState = {
   edges: [],
   goals: [],
   scoringMethod: "infra",
+  goalErrors: [],
 };

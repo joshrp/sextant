@@ -10,6 +10,7 @@ import type { CustomEdgeType } from "../factory/graph/edges";
 import type { ButtonEdge, ButtonEdgeData } from "../factory/graph/edges/ButtonEdge";
 import type { ProductId, RecipeId } from "../factory/graph/loadJsonData";
 import type { CustomNodeType } from "../factory/graph/nodeTypes";
+import type { GoalError } from "../factory/solver/types";
 import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "../factory/graph/nodes/recipeNodeLogic";
 import type { AnnotationNodeData } from "../factory/graph/nodes/annotationNode";
 import { createGraphModel, solve } from "../factory/solver/solver";
@@ -41,6 +42,7 @@ export interface GraphSolutionState extends GraphCoreData {
   solution?: Solution;
   solutionStatus?: SolutionStatus;
   scoringMethod: GraphScoringMethod;
+  goalErrors: GoalError[];
 }
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
@@ -158,6 +160,7 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZon
           solution: undefined,
           solutionStatus: undefined,
           scoringMethod: "infra",
+          goalErrors: [],
 
           baseWeights: {
             infrastructure: new Map<string, number>(),
@@ -335,7 +338,7 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZon
             set(state => reducers.updateEdgeData(state, edgeId, data), false, "setEdgeData");
           },
           clearAll: () => {
-            set({ nodes: [], edges: [], graph: undefined, solution: undefined, solutionStatus: undefined }, false, "clearAll");
+            set({ nodes: [], edges: [], graph: undefined, solution: undefined, solutionStatus: undefined, goalErrors: [] }, false, "clearAll");
           },
           // Sometimes ReactFlow just needs a kick
           forceSetNodesEdges: () => {

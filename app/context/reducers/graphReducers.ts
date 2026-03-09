@@ -5,7 +5,7 @@
 import type { ButtonEdgeData } from "~/factory/graph/edges/ButtonEdge";
 import type { GraphSolutionState, GraphStore } from "~/context/store";
 import type { ProductionZoneStoreData } from "~/context/ZoneStore";
-import type { GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
+import type { GoalError, GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
 import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "~/factory/graph/nodes/recipeNodeLogic";
 import { isRecipeNode } from "~/factory/graph/nodeTypes";
@@ -152,7 +152,41 @@ export type SolutionUpdateStateOutputs = {
   solution?: GraphSolutionState["solution"];
   solutionStatus?: GraphSolutionState["solutionStatus"];
   manifoldOptions?: GraphStore["manifoldOptions"];
+  goalErrors?: GoalError[];
 };
+
+/**
+ * Validate that goals don't conflict with the graph's open connections.
+ * An output goal requires an open output constraint (o_ prefix) for that product.
+ * An input goal requires an open input constraint (i_ prefix) for that product.
+ * If a goal's direction conflicts with the constraint direction, the LP would be infeasible.
+ */
+export function validateGoals(graph: GraphModel, goals: import("~/factory/solver/types").FactoryGoal[]): GoalError[] {
+  const errors: GoalError[] = [];
+  for (const goal of goals) {
+    const constraintId = graph.itemConstraints.get(goal.productId);
+    if (!constraintId) continue; // product not in graph open connections
+
+    const isInputConstraint = constraintId.startsWith('i_');
+    const isOutputConstraint = constraintId.startsWith('o_');
+
+    if (goal.dir === "output" && isInputConstraint) {
+      errors.push({
+        productId: goal.productId,
+        dir: goal.dir,
+        message: "This goal's product has an open connection as an input somewhere in the factory",
+      });
+    }
+    if (goal.dir === "input" && isOutputConstraint) {
+      errors.push({
+        productId: goal.productId,
+        dir: goal.dir,
+        message: "This goal's product has an open connection as an output somewhere in the factory",
+      });
+    }
+  }
+  return errors;
+}
 
 export async function solutionUpdateAction<T extends SolutionUpdateStateInputs>({
   state, solver, autoSolve = true
@@ -162,7 +196,14 @@ export async function solutionUpdateAction<T extends SolutionUpdateStateInputs>(
   autoSolve?: boolean;
 }): Promise<SolutionUpdateStateOutputs> {
   if (!state.graph) return {};
-  const resp: SolutionUpdateStateOutputs = { solutionStatus: "Running" };
+
+  // Validate goals against the graph before solving
+  const goalErrors = validateGoals(state.graph, state.goals);
+  if (goalErrors.length > 0) {
+    return { solutionStatus: "Error", goalErrors, solution: undefined };
+  }
+
+  const resp: SolutionUpdateStateOutputs = { solutionStatus: "Running", goalErrors: [] };
 
   const manifoldOptions = state.manifoldOptions || [];
   let previousSolutionValue: number | undefined = undefined;

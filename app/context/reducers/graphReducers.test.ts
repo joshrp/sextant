@@ -393,6 +393,7 @@ describe('GraphStore Reducers', () => {
       expect(result).toStrictEqual({
         solutionStatus: 'Solved',
         solution: mockSolution,
+        goalErrors: [],
       });
     });
 
@@ -418,6 +419,7 @@ describe('GraphStore Reducers', () => {
       expect(result).toStrictEqual({
         solutionStatus: 'Partial',
         solution: mockSolution,
+        goalErrors: [],
       });
     });
 
@@ -458,6 +460,7 @@ describe('GraphStore Reducers', () => {
       expect(result).toStrictEqual({
         solutionStatus: 'Solved',
         solution: mockSolution,
+        goalErrors: [],
       });
     });
   });

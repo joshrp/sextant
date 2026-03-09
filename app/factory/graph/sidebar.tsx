@@ -1,5 +1,5 @@
 import { Button, Field, Fieldset, Input, Label, Radio, RadioGroup } from '@headlessui/react';
-import { ClockIcon, PlusIcon } from '@heroicons/react/24/solid';
+import { ClockIcon, ExclamationTriangleIcon, PlusIcon } from '@heroicons/react/24/solid';
 import { useCallback, useState, type ChangeEvent } from 'react';
 
 import { SelectorDialog } from 'app/components/Dialog';
@@ -10,6 +10,7 @@ import useFactory, { useFactoryStore } from '~/context/FactoryContext';
 import { formatNumber, productBackground, productIcon } from '~/uiUtils';
 import type { AddRecipeNode } from '../factory';
 import type { FactoryGoal } from '../solver/types';
+import type { GoalError } from '../solver/types';
 import { loadData, type Product, type ProductId } from './loadJsonData';
 import Manifold from './Manifold';
 import { EyeIcon } from '@heroicons/react/24/outline';
@@ -44,6 +45,7 @@ function SideBar({ addNewRecipe }: props) {
 
   const solution = useFactoryStore(useShallow(state => state.solution));
   const goals = useFactoryStore(useShallow(state => state.goals));
+  const goalErrors = useFactoryStore(useShallow(state => state.goalErrors));
   const model = useFactoryStore(useShallow(state => state.graph));
   const solutionUpdateAction = useFactoryStore(useShallow(state => state.solutionUpdateAction));
   const setHighlight = useFactoryStore(useShallow(state => state.setHighlight));
@@ -140,8 +142,9 @@ function SideBar({ addNewRecipe }: props) {
         )}
         {goals.map((goal, i) => {
           const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
+          const goalError = goalErrors?.find((e: GoalError) => e.productId === goal.productId && e.dir === goal.dir);
           const product = productData.get(goal.productId);
-        if (!product) {
+          if (!product) {
             console.warn("Product not found for goal", goal);
             return null;
           }
@@ -157,14 +160,20 @@ function SideBar({ addNewRecipe }: props) {
           return <SidebarPopover
             key={"goal-" + i}
             trigger={
-              <div className={`output-goal w-full gap-2 p-2 flex my-1
-                                  hover:bg-gray-900
-                                    rounded cursor-pointer 
-                                    border-1 border-gray-500  text-xs 
-                                    ${fulfilled ? "bg-green-900" : "bg-red-900"}
-                                    `}
+              <div
+                data-goal-error={goalError ? "true" : undefined}
+                data-goal-fulfilled={fulfilled ? "true" : undefined}
+                className="output-goal w-full gap-2 p-2 flex my-1
+                    hover:bg-gray-900
+                      rounded cursor-pointer 
+                      border border-gray-500  text-xs 
+                      bg-red-900
+                      data-goal-error:bg-zinc-700
+                      data-goal-fulfilled:bg-green-900
+                      "
+
               >
-                <ProductGoal goal={goal} resultCount={resultCount} />
+                <ProductGoal goal={goal} resultCount={resultCount} error={goalError} />
               </div>
             }
             anchor="bottom end"
@@ -345,14 +354,14 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
       </RadioGroup>
       <Field className="flex gap-2 justify-center align-middle">
         <Label className="p-1">Amount</Label>
-        <Input 
-          value={goalData.qty} 
-          onChange={updateState} 
+        <Input
+          value={goalData.qty}
+          onChange={updateState}
           onKeyDown={handleKeyDown}
-          className="bg-gray-600 p-1 w-[6rem]" 
-          name="qty" 
-          type="number" 
-          placeholder="50" 
+          className="bg-gray-600 p-1 w-[6rem]"
+          name="qty"
+          type="number"
+          placeholder="50"
         />
         <span className="text-xs mt-2 text-gray-400">
           60 <ClockIcon className="inline w-4 pb-1  text-gray-500" />
@@ -365,7 +374,7 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
   </>
 }
 
-export function ProductGoal({ goal, resultCount }: { goal: FactoryGoal, resultCount?: number }) {
+export function ProductGoal({ goal, resultCount, error }: { goal: FactoryGoal, resultCount?: number, error?: GoalError }) {
   const product = productData.get(goal.productId);
   if (!product) return null;
 
@@ -374,9 +383,15 @@ export function ProductGoal({ goal, resultCount }: { goal: FactoryGoal, resultCo
       <img className="w-full" src={productIcon(product.icon)} />
     </div>
     <div className="flex-3 content-center-safe">{icons[goal.type]} {formatNumber(goal.qty, product.unit)}</div>
+
     <div className="verticalRule self-stretch w-0.5 bg-neutral-500 opacity-50"></div>
     <div className="w-full flex-2 content-center-safe justify-self-end-safe text-right text-nowrap">
       {resultCount ? formatNumber(resultCount, product.unit) : ''}
+      {error && (
+        <div className="content-center-safe" title={error.message}>
+          <ExclamationTriangleIcon className="w-6 text-red-400" />
+        </div>
+      )}
     </div>
   </>;
 }

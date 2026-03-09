@@ -100,6 +100,17 @@ describe("Import Export", () => {
       console.log("Contract Node:", store.Graph.getState().nodes); // --- IGNORE ---
       expect(contractNode).toBeDefined();
     });
+
+    test('Should fail to solve the exported goal product', async () => {
+      setDebugSolver(false);
+      const exportStr = testExports['version-5']['goal-as-input-failure'];
+      const decompressed = await imex.decompress(exportStr) as imex.MinifiedStateV5;
+      const data = imex.unminifyBulk(decompressed);
+      const idb = getIdb();
+      const store = FactoryStore(idb, {id: "test-goal-input", name: "Test Goal Input Factory" }, () => DEFAULT_ZONE_MODIFIERS);
+      await (store.Graph.getState().importData(data.factories[0]));
+      expect(store.Graph.getState().solutionStatus).toEqual('Error');
+    });
   });
 
   describe('Icon Export/Import', () => {

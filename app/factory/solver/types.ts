@@ -49,6 +49,12 @@ export type FactoryGoal = {
   dir: "input" | "output"
 };
 
+export type GoalError = {
+  productId: ProductId;
+  dir: "input" | "output";
+  message: string;
+};
+
 // Every constraint needs to know what to add and subtract, what item it's for and which nodes they came from
 // The constraint "label" in LPP will be the item (+ a uniq), while the nodes will be the variables (the recipe / building)
 export type Constraint = {
