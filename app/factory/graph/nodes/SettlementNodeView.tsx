@@ -69,7 +69,6 @@ export default function SettlementNodeView({
 
   const displayRunCount = solution?.solved && solution.runCount ? solution.runCount : 1;
 
-  const rightProducts = ltr ? recipe.outputs : recipe.inputs;
   const toggleOption = (
     map: Partial<Record<ProductId, boolean>>,
     id: ProductId,
@@ -92,7 +91,7 @@ export default function SettlementNodeView({
   const renderProductHandle = (prod: RecipeProduct, position: Position, isInput: boolean) => {
     const isConnected = !!(isInput ? inputEdges : outputEdges).get(prod.product.id);
     const productColor = productBackground(prod.product);
-
+    console.log('Rendering ProductHandle', { prod, isInput, position  });
     return (
       <ProductHandle
         key={prod.product.id}
@@ -115,9 +114,9 @@ export default function SettlementNodeView({
     );
   };
 
-  const renderCategorizedInputs = () => {
+  const renderCategorizedInputs = (pos: Position) => {
     const elements: React.ReactNode[] = [];
-    
+    console.log('Rendering categorized inputs', { pos });
     for (const [category, products] of inputGroups) {
       const categoryInfo = CATEGORY_INFO[category];
       const isFood = isFoodCategory(category);
@@ -131,7 +130,7 @@ export default function SettlementNodeView({
       );
       
       elements.push(
-        ...products.map(prod => renderProductHandle(prod, Position.Left, ltr))
+        ...products.map(prod => renderProductHandle(prod, pos, true))
       );
     }
     
@@ -170,7 +169,7 @@ export default function SettlementNodeView({
           pos={Position.Left}
           inputs={ltr}
         >
-          {ltr ? renderCategorizedInputs() : rightProducts.map(prod => renderProductHandle(prod, Position.Left, false))}
+          {ltr ? renderCategorizedInputs(Position.Left) : recipe.outputs.map(prod => renderProductHandle(prod, Position.Left, false))}
         </HandleList>
         <div className="recipe-machine flex-2 flex-col items-center text-center min-w-30 mx-8">
           <img src={machineIcon(recipe.machine)} alt={recipe.machine.name}
@@ -184,7 +183,7 @@ export default function SettlementNodeView({
           pos={Position.Right}
           inputs={!ltr}
         >
-          {ltr ? rightProducts.map(prod => renderProductHandle(prod, Position.Right, false)) : renderCategorizedInputs()}
+          {ltr ? recipe.outputs.map(prod => renderProductHandle(prod, Position.Right, false)) : renderCategorizedInputs(Position.Right)}
         </HandleList>
 
       </div>
