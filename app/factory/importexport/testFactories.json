@@ -143,19 +143,16 @@
     ],
     "goals": [
       {
-        "dir": "output",
         "type": "eq",
         "productId": "Product_Water",
         "qty": 10
       },
       {
-        "dir": "output",
         "type": "gt",
         "productId": "Product_SteamSp",
         "qty": -400
       },
       {
-        "dir": "output",
         "type": "gt",
         "productId": "Product_Hydrogen",
         "qty": 1010
@@ -1468,13 +1465,11 @@
     ],
     "goals": [
       {
-        "dir": "output",
         "type": "eq",
         "productId": "Product_Water",
         "qty": 400
       },
       {
-        "dir": "output",
         "type": "gt",
         "productId": "Product_Virtual_Electricity",
         "qty": 1000000

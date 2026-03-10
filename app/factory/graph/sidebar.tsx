@@ -65,7 +65,6 @@ function SideBar({ addNewRecipe }: props) {
 
   const editGoalFor = useCallback((product: Product) => {
     setEditGoal({
-      dir: "output",
       type: "eq",
       productId: product.id,
       qty: 10
@@ -89,14 +88,14 @@ function SideBar({ addNewRecipe }: props) {
     onClick: (goal: FactoryGoal) => () => {
       // Filter for only constraints that don't match this product
       store.setState(state => ({
-        goals: state.goals.filter(c => c.productId !== goal.productId || c.dir !== goal.dir)
+        goals: state.goals.filter(c => c.productId !== goal.productId)
       }));
     }
   }, {
     label: "Add Producer",
     onClick: (goal: FactoryGoal) => () => addNewRecipe({
       productId: goal.productId,
-      produce: goal.dir == "output",
+      produce: true,
       position: { x: 0, y: 0 },
       otherNode: "",
     }),
@@ -114,7 +113,6 @@ function SideBar({ addNewRecipe }: props) {
     label: "Add as Goal",
     onClick: <T extends { productId: ProductId }>(output: T) => () => {
       setEditGoal({
-        dir: "output",
         type: "eq",
         productId: output.productId,
         qty: 10
@@ -141,8 +139,8 @@ function SideBar({ addNewRecipe }: props) {
           <EmptyStateCard text="What do you want to produce? Click + to get started" />
         )}
         {goals.map((goal, i) => {
-          const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId && g.goal.dir == goal.dir)?.resultCount;
-          const goalError = goalErrors?.find((e: GoalError) => e.productId === goal.productId && e.dir === goal.dir);
+          const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId)?.resultCount;
+          const goalError = goalErrors?.find((e: GoalError) => e.productId === goal.productId);
           const product = productData.get(goal.productId);
           if (!product) {
             console.warn("Product not found for goal", goal);
@@ -201,7 +199,7 @@ function SideBar({ addNewRecipe }: props) {
           </div>
         )}
         {solution?.products?.outputs.map((output, i) => {
-          const goal = goals.find(g => g.productId === output.productId && g.dir == "output");
+          const goal = goals.find(g => g.productId === output.productId);
           const product = productData.get(output.productId);
           if (!product) {
             console.warn("Product not found for output", output);

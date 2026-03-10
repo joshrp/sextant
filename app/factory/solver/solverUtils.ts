@@ -132,7 +132,7 @@ export function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals:
 
   return {
     goals: goals.map(goal => {
-      const columnPrefix = goal.dir == "input" ? "i" : "o";
+      const columnPrefix = goal.qty < 0 ? "i" : "o";
       return {
         goal,
         resultCount: res.Columns[columnPrefix + "_" + goal.productId]?.Primal

@@ -184,7 +184,6 @@ export type MinifiedStateV5 = [
     string, // productId
     number, // qty
     "eq" | "lt" | "gt", // type
-    boolean, // isOutput
   ][],
 ];
 
@@ -268,7 +267,6 @@ export function minify<T extends GraphCoreData>(state: T, zone: string, icon?: s
       g.productId,
       g.qty,
       g.type,
-      g.dir === "output",
     ])
   ];
 }

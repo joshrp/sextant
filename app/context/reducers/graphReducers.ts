@@ -5,7 +5,7 @@
 import type { ButtonEdgeData } from "~/factory/graph/edges/ButtonEdge";
 import type { GraphSolutionState, GraphStore } from "~/context/store";
 import type { ProductionZoneStoreData } from "~/context/ZoneStore";
-import type { GoalError, GraphScoringMethod, ManifoldOptions, GraphModel } from "~/factory/solver/types";
+import type { GoalError, GraphScoringMethod, ManifoldOptions, GraphModel, FactoryGoal } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
 import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "~/factory/graph/nodes/recipeNodeLogic";
 import { isRecipeNode } from "~/factory/graph/nodeTypes";
@@ -161,7 +161,7 @@ export type SolutionUpdateStateOutputs = {
  * An input goal requires an open input constraint (i_ prefix) for that product.
  * If a goal's direction conflicts with the constraint direction, the LP would be infeasible.
  */
-export function validateGoals(graph: GraphModel, goals: import("~/factory/solver/types").FactoryGoal[]): GoalError[] {
+export function validateGoals(graph: GraphModel, goals: FactoryGoal[]): GoalError[] {
   const errors: GoalError[] = [];
   for (const goal of goals) {
     const constraintId = graph.itemConstraints.get(goal.productId);
@@ -170,17 +170,15 @@ export function validateGoals(graph: GraphModel, goals: import("~/factory/solver
     const isInputConstraint = constraintId.startsWith('i_');
     const isOutputConstraint = constraintId.startsWith('o_');
 
-    if (goal.dir === "output" && isInputConstraint) {
+    if (goal.qty >= 0 && isInputConstraint) {
       errors.push({
         productId: goal.productId,
-        dir: goal.dir,
         message: "This goal's product has an open connection as an input somewhere in the factory",
       });
     }
-    if (goal.dir === "input" && isOutputConstraint) {
+    if (goal.qty < 0 && isOutputConstraint) {
       errors.push({
         productId: goal.productId,
-        dir: goal.dir,
         message: "This goal's product has an open connection as an output somewhere in the factory",
       });
     }

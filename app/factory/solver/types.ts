@@ -46,12 +46,10 @@ export type FactoryGoal = {
   productId: ProductId,
   qty: number,
   type: "eq" | "lt" | "gt",
-  dir: "input" | "output"
 };
 
 export type GoalError = {
   productId: ProductId;
-  dir: "input" | "output";
   message: string;
 };
 

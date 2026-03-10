@@ -3428,7 +3428,9 @@
         ],
         "output": [
           "OceanWaterPumping",
+          "OceanWaterPumping2x",
           "OceanWaterPumpingT2",
+          "OceanWaterPumping2xT2",
           "Balancer_Product_Seawater"
         ]
       },
@@ -8397,7 +8399,8 @@
       "category_id": "Water extraction & processing",
       "workers": 1,
       "recipes": [
-        "OceanWaterPumping"
+        "OceanWaterPumping",
+        "OceanWaterPumping2x"
       ],
       "buildCosts": [
         {
@@ -8430,7 +8433,8 @@
       "category_id": "Water extraction & processing",
       "workers": 1,
       "recipes": [
-        "OceanWaterPumpingT2"
+        "OceanWaterPumpingT2",
+        "OceanWaterPumping2xT2"
       ],
       "buildCosts": [
         {
@@ -8440,7 +8444,7 @@
       ],
       "isFarm": false,
       "isBalancer": false,
-      "electricity_consumed": 300,
+      "electricity_consumed": 200,
       "electricity_generated": 0,
       "computing_consumed": 0,
       "computing_generated": 0,
@@ -11807,7 +11811,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 1000,
+      "storage_capacity": 1600,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -11838,7 +11842,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 500,
+      "storage_capacity": 800,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -11869,7 +11873,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 250,
+      "storage_capacity": 400,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -11900,7 +11904,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 1000,
+      "storage_capacity": 1600,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -11931,7 +11935,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 500,
+      "storage_capacity": 800,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -11962,7 +11966,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 250,
+      "storage_capacity": 400,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -11993,7 +11997,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 1000,
+      "storage_capacity": 1600,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12024,7 +12028,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 500,
+      "storage_capacity": 800,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12055,7 +12059,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 250,
+      "storage_capacity": 400,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12344,7 +12348,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 240,
+      "storage_capacity": 400,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12371,7 +12375,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 360,
+      "storage_capacity": 400,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12398,7 +12402,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 120,
+      "storage_capacity": 200,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12425,7 +12429,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 40,
+      "storage_capacity": 100,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12452,7 +12456,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 5000,
+      "storage_capacity": 6000,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12479,7 +12483,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 2500,
+      "storage_capacity": 3000,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12506,7 +12510,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 400,
+      "storage_capacity": 500,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12560,7 +12564,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 5000,
+      "storage_capacity": 6000,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12587,7 +12591,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 2500,
+      "storage_capacity": 3000,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12614,7 +12618,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 400,
+      "storage_capacity": 500,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12668,7 +12672,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 5000,
+      "storage_capacity": 6000,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12695,7 +12699,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 2500,
+      "storage_capacity": 3000,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -12722,7 +12726,7 @@
       "computing_consumed": 0,
       "computing_generated": 0,
       "workers_generated": 0,
-      "storage_capacity": 400,
+      "storage_capacity": 500,
       "unity_cost": 0,
       "research_speed": 0,
       "footprint": [
@@ -14803,6 +14807,26 @@
       "isFarm": false,
       "usesSolarPower": false
     },
+    "OceanWaterPumping2x": {
+      "id": "OceanWaterPumping2x",
+      "name": "Ocean water pumping",
+      "tiersLink": "256b0ba13a8d45f967c1f480469ead95801b7555d0417d21971eec51b2e7a821",
+      "machine": "OceanWaterPumpT1",
+      "origDuration": 5,
+      "type": "recipe",
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 216
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
     "OceanWaterPumpingT2": {
       "id": "OceanWaterPumpingT2",
       "name": "Ocean water pumping II",
@@ -14816,6 +14840,26 @@
         {
           "id": "Product_Seawater",
           "quantity": 108
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "OceanWaterPumping2xT2": {
+      "id": "OceanWaterPumping2xT2",
+      "name": "Ocean water pumping II",
+      "tiersLink": "256b0ba13a8d45f967c1f480469ead95801b7555d0417d21971eec51b2e7a821",
+      "machine": "OceanWaterPumpLarge",
+      "origDuration": 5,
+      "type": "recipe",
+      "duration": 60,
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Seawater",
+          "quantity": 216
         }
       ],
       "isMaintenance": false,
@@ -16128,7 +16172,7 @@
     "PCBAssemblyT3": {
       "id": "PCBAssemblyT3",
       "name": "PCB assembly (T3)",
-      "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
+      "tiersLink": "b7af26da3320b83d4199659126901b3fa70eaf4461d1e95c0b45e01b8bf32b71",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "type": "recipe",
@@ -16136,7 +16180,7 @@
       "inputs": [
         {
           "id": "Product_Glass",
-          "quantity": 24
+          "quantity": 12
         },
         {
           "id": "Product_Plastic",
@@ -16161,15 +16205,15 @@
     "ElectronicsAssemblyT5": {
       "id": "ElectronicsAssemblyT5",
       "name": "Electronics assembly (T5)",
-      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "31b9869876d6fdac7c51a7432baa39fada95f671ebee47ff0a106ee85ae319aa",
       "machine": "AssemblyRoboticT2",
-      "origDuration": 10,
+      "origDuration": 15,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Rubber",
-          "quantity": 24
+          "quantity": 16
         },
         {
           "id": "Product_Copper",
@@ -16190,7 +16234,7 @@
     "Electronics2AssemblyT3": {
       "id": "Electronics2AssemblyT3",
       "name": "Electronics 2 assembly (T3)",
-      "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
+      "tiersLink": "d80584414c8330be9fca1982637ec4dade3a29f27ada13d01de40ed101033d20",
       "machine": "AssemblyRoboticT2",
       "origDuration": 10,
       "type": "recipe",
@@ -16206,7 +16250,7 @@
         },
         {
           "id": "Product_PolySilicon",
-          "quantity": 24
+          "quantity": 12
         }
       ],
       "outputs": [
@@ -16296,7 +16340,7 @@
         },
         {
           "id": "Product_SiliconWafer",
-          "quantity": 9
+          "quantity": 12
         },
         {
           "id": "Product_Glass",
@@ -17509,7 +17553,7 @@
     "PCBAssemblyT2": {
       "id": "PCBAssemblyT2",
       "name": "PCB assembly (T2)",
-      "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
+      "tiersLink": "b7af26da3320b83d4199659126901b3fa70eaf4461d1e95c0b45e01b8bf32b71",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
       "type": "recipe",
@@ -17517,7 +17561,7 @@
       "inputs": [
         {
           "id": "Product_Glass",
-          "quantity": 12
+          "quantity": 6
         },
         {
           "id": "Product_Plastic",
@@ -17542,15 +17586,15 @@
     "ElectronicsAssemblyT4": {
       "id": "ElectronicsAssemblyT4",
       "name": "Electronics assembly (T4)",
-      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "31b9869876d6fdac7c51a7432baa39fada95f671ebee47ff0a106ee85ae319aa",
       "machine": "AssemblyRoboticT1",
-      "origDuration": 10,
+      "origDuration": 15,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Rubber",
-          "quantity": 12
+          "quantity": 8
         },
         {
           "id": "Product_Copper",
@@ -17571,7 +17615,7 @@
     "Electronics2AssemblyT2": {
       "id": "Electronics2AssemblyT2",
       "name": "Electronics 2 assembly (T2)",
-      "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
+      "tiersLink": "d80584414c8330be9fca1982637ec4dade3a29f27ada13d01de40ed101033d20",
       "machine": "AssemblyRoboticT1",
       "origDuration": 20,
       "type": "recipe",
@@ -17587,7 +17631,7 @@
         },
         {
           "id": "Product_PolySilicon",
-          "quantity": 12
+          "quantity": 6
         }
       ],
       "outputs": [
@@ -18633,7 +18677,7 @@
     "PCBAssemblyT1": {
       "id": "PCBAssemblyT1",
       "name": "PCB assembly (T1)",
-      "tiersLink": "cf2d564ff60da131c99e3f5f50bf360e00ff22e0c40b4be7170f4052aac83de7",
+      "tiersLink": "b7af26da3320b83d4199659126901b3fa70eaf4461d1e95c0b45e01b8bf32b71",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
       "type": "recipe",
@@ -18641,7 +18685,7 @@
       "inputs": [
         {
           "id": "Product_Glass",
-          "quantity": 6
+          "quantity": 3
         },
         {
           "id": "Product_Plastic",
@@ -18666,15 +18710,15 @@
     "ElectronicsAssemblyT3": {
       "id": "ElectronicsAssemblyT3",
       "name": "Electronics assembly (T3)",
-      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "31b9869876d6fdac7c51a7432baa39fada95f671ebee47ff0a106ee85ae319aa",
       "machine": "AssemblyElectrifiedT2",
-      "origDuration": 10,
+      "origDuration": 15,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Rubber",
-          "quantity": 6
+          "quantity": 4
         },
         {
           "id": "Product_Copper",
@@ -18695,7 +18739,7 @@
     "Electronics2AssemblyT1": {
       "id": "Electronics2AssemblyT1",
       "name": "Electronics 2 assembly (T1)",
-      "tiersLink": "a7f8745dc4ead1fc1485570c74ddfa4caaf0ebb49d14902f7113c025836ac779",
+      "tiersLink": "d80584414c8330be9fca1982637ec4dade3a29f27ada13d01de40ed101033d20",
       "machine": "AssemblyElectrifiedT2",
       "origDuration": 40,
       "type": "recipe",
@@ -18711,7 +18755,7 @@
         },
         {
           "id": "Product_PolySilicon",
-          "quantity": 6
+          "quantity": 3
         }
       ],
       "outputs": [
@@ -19369,15 +19413,15 @@
     "ElectronicsAssemblyT2": {
       "id": "ElectronicsAssemblyT2",
       "name": "Electronics assembly (T2)",
-      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "31b9869876d6fdac7c51a7432baa39fada95f671ebee47ff0a106ee85ae319aa",
       "machine": "AssemblyElectrified",
-      "origDuration": 20,
+      "origDuration": 30,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Rubber",
-          "quantity": 3
+          "quantity": 2
         },
         {
           "id": "Product_Copper",
@@ -19514,7 +19558,7 @@
     "ElectronicsAssemblyT1": {
       "id": "ElectronicsAssemblyT1",
       "name": "Electronics assembly (T1)",
-      "tiersLink": "6dec20c7cb96fa15179b701467170fc0188c2941f7ab9afb1b743916464837cb",
+      "tiersLink": "31b9869876d6fdac7c51a7432baa39fada95f671ebee47ff0a106ee85ae319aa",
       "machine": "AssemblyManual",
       "origDuration": 60,
       "type": "recipe",
@@ -19526,13 +19570,13 @@
         },
         {
           "id": "Product_Copper",
-          "quantity": 4
+          "quantity": 6
         }
       ],
       "outputs": [
         {
           "id": "Product_Electronics",
-          "quantity": 4
+          "quantity": 6
         }
       ],
       "isMaintenance": false,
@@ -22796,11 +22840,11 @@
       "inputs": [
         {
           "id": "Product_Sand",
-          "quantity": 96
+          "quantity": 60
         },
         {
           "id": "Product_Coal",
-          "quantity": 24
+          "quantity": 12
         },
         {
           "id": "Product_Graphite",
@@ -22814,11 +22858,11 @@
       "outputs": [
         {
           "id": "Product_MoltenSilicon",
-          "quantity": 72
+          "quantity": 48
         },
         {
           "id": "Product_Slag",
-          "quantity": 36
+          "quantity": 24
         },
         {
           "id": "Product_SteamLP",
@@ -22826,7 +22870,7 @@
         },
         {
           "id": "Product_Exhaust",
-          "quantity": 48
+          "quantity": 36
         }
       ],
       "isMaintenance": false,
@@ -23180,11 +23224,11 @@
       "inputs": [
         {
           "id": "Product_Sand",
-          "quantity": 48
+          "quantity": 30
         },
         {
           "id": "Product_Coal",
-          "quantity": 12
+          "quantity": 6
         },
         {
           "id": "Product_Graphite",
@@ -23194,15 +23238,15 @@
       "outputs": [
         {
           "id": "Product_MoltenSilicon",
-          "quantity": 36
+          "quantity": 24
         },
         {
           "id": "Product_Slag",
-          "quantity": 18
+          "quantity": 12
         },
         {
           "id": "Product_Exhaust",
-          "quantity": 24
+          "quantity": 18
         }
       ],
       "isMaintenance": false,
@@ -24136,7 +24180,7 @@
       "inputs": [
         {
           "id": "Product_PolySilicon",
-          "quantity": 48
+          "quantity": 24
         },
         {
           "id": "Product_Water",
@@ -24182,13 +24226,13 @@
       "id": "SiliconTreatment",
       "name": "Silicon treatment",
       "machine": "SiliconReactor",
-      "origDuration": 30,
+      "origDuration": 15,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_MoltenSilicon",
-          "quantity": 18
+          "quantity": 12
         },
         {
           "id": "Product_Hydrogen",
@@ -24198,7 +24242,7 @@
       "outputs": [
         {
           "id": "Product_PolySilicon",
-          "quantity": 18
+          "quantity": 12
         }
       ],
       "isMaintenance": false,
@@ -27196,13 +27240,13 @@
       "id": "OceanWaterDumping",
       "name": "Water dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Water",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [],
@@ -27215,13 +27259,13 @@
       "id": "BrineDumping",
       "name": "Brine dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Brine",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [],
@@ -27234,19 +27278,19 @@
       "id": "OceanWasteWaterPumping",
       "name": "Waste water dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_WasteWater",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "isMaintenance": false,
@@ -27258,19 +27302,19 @@
       "id": "SourWaterDumping",
       "name": "Sour water dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_SourWater",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 120
+          "quantity": 400
         }
       ],
       "isMaintenance": false,
@@ -27282,19 +27326,19 @@
       "id": "WasteAcidDumping",
       "name": "Acid dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Acid",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 120
+          "quantity": 400
         }
       ],
       "isMaintenance": false,
@@ -27306,19 +27350,19 @@
       "id": "ToxicSlurryDumping",
       "name": "Toxic slurry dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_ToxicSlurry",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 150
+          "quantity": 500
         }
       ],
       "isMaintenance": false,
@@ -27330,13 +27374,13 @@
       "id": "SeaWaterDumping",
       "name": "Seawater dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Seawater",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [],
@@ -27349,19 +27393,19 @@
       "id": "FertilizerOrganicDumping",
       "name": "Fertilizer dumping",
       "machine": "WasteDump",
-      "origDuration": 4,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_FertilizerOrganic",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 15
+          "quantity": 40
         }
       ],
       "isMaintenance": false,
@@ -27373,19 +27417,19 @@
       "id": "FertilizerChem1Dumping",
       "name": "Fertilizer dumping",
       "machine": "WasteDump",
-      "origDuration": 4,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Fertilizer",
-          "quantity": 30
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 15
+          "quantity": 100
         }
       ],
       "isMaintenance": false,
@@ -27397,19 +27441,19 @@
       "id": "FertilizerChem2Dumping",
       "name": "Fertilizer dumping",
       "machine": "WasteDump",
-      "origDuration": 4,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_Fertilizer2",
-          "quantity": 30
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 30
+          "quantity": 200
         }
       ],
       "isMaintenance": false,
@@ -27421,19 +27465,19 @@
       "id": "RedMudDumping",
       "name": "Red mud dumping",
       "machine": "WasteDump",
-      "origDuration": 2,
+      "origDuration": 3,
       "type": "recipe",
       "duration": 60,
       "inputs": [
         {
           "id": "Product_RedMud",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_PollutedWater",
-          "quantity": 60
+          "quantity": 200
         }
       ],
       "isMaintenance": false,

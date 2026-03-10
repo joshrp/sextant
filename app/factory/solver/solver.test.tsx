@@ -27,12 +27,10 @@ describe("Solver", () => {
 });
 
 const basicGoals: FactoryGoal[] = [{
-  dir: "output",
   productId: "acid" as ProductId,
   qty: 48,
   type: "eq"
 }, {
-  dir: "output",
   productId: "air_pollution" as ProductId,
   qty: 48,
   type: "gt"
