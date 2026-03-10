@@ -320,32 +320,61 @@ type NewProductOptionsProps = {
 }
 function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
   const [goalData, setGoalData] = useState(goal);
+  const [rawInput, setRawInput] = useState(goal.qty === 0 ? '' : String(goal.qty));
 
-  const updateState = (e: ChangeEvent<HTMLInputElement>) => {
-    const prop = e.target.name;
-    if (!prop) return;
-    let newVal: number | string = e.target.value;
-    if (e.target.type == "number") {
-      newVal = parseFloat(newVal);
-      if (isNaN(newVal as number)) newVal = 0;
+  // Derive direction reactively from the raw string — no separate isInput state
+  const isInput = rawInput.startsWith('-');
+  const parsedQty = parseFloat(rawInput);
+  const absQty = isNaN(parsedQty) ? 0 : Math.abs(parsedQty);
+
+  const updateQty = (e: ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    // Only allow digits, a leading minus, and a decimal point
+    if (raw !== '' && raw !== '-' && !/^-?\d*\.?\d*$/.test(raw)) return;
+    setRawInput(raw);
+    const parsed = parseFloat(raw);
+    if (!isNaN(parsed)) {
+      setGoalData(d => ({ ...d, qty: parsed }));
     }
-    setGoalData(d => ({ ...d, [prop]: newVal }));
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      addGoal(goalData);
+      submitGoal();
     }
+  }
+
+  const toggleDirection = (input: boolean) => {
+    setRawInput(prev => {
+      if (input && !prev.startsWith('-')) return prev === '' ? '-' : '-' + prev;
+      if (!input && prev.startsWith('-')) return prev.slice(1);
+      return prev;
+    });
+    setGoalData(d => ({ ...d, qty: input ? -Math.abs(d.qty) : Math.abs(d.qty) }));
+  }
+
+  const submitGoal = () => {
+    const qty = parseFloat(rawInput);
+    addGoal({ ...goalData, qty: isNaN(qty) ? 0 : qty });
   }
 
   return <>
     <Fieldset className="w-full min-h-50 flex flex-col gap-4">
+      <RadioGroup name="direction" value={isInput} onChange={toggleDirection} className="flex justify-stretch w-full gap-2">
+        {([["Output", false], ["Input", true]] as const).map(([label, value]) => (
+          <Field className="flex-1 justify-around gap-2" key={"goal-dir-" + label}>
+            <Radio value={value} className="group block rounded border-1 data-checked:border-2 border-gray-700 data-checked:bg-teal-900 w-full h-full text-center p-1">
+              <Label>{label}</Label>
+            </Radio>
+          </Field>
+        ))}
+      </RadioGroup>
       <RadioGroup name="type" value={goalData.type} onChange={v => setGoalData(d => ({ ...d, type: v }))} className="flex justify-stretch w-full gap-2">
         {[["Minimum of", "gt"], ["Exactly", "eq"], ["Maximum of", "lt"]].map(r => (
           <Field className="flex-1 justify-around gap-2" key={"goal-type-" + r[1]}>
             <Radio key={r[1]} value={r[1]} className="group block rounded border-1 data-checked:border-2 border-gray-700 data-checked:bg-teal-900 w-full h-full">
-              <Label >{r[0] + " " + formatNumber(goalData.qty ?? 0, productData.get(goalData.productId)!.unit)}</Label>
+              <Label >{r[0] + " " + formatNumber(absQty, productData.get(goalData.productId)!.unit)}</Label>
             </Radio>
           </Field>
         ))}
@@ -353,12 +382,13 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
       <Field className="flex gap-2 justify-center align-middle">
         <Label className="p-1">Amount</Label>
         <Input
-          value={goalData.qty}
-          onChange={updateState}
+          value={rawInput}
+          onChange={updateQty}
           onKeyDown={handleKeyDown}
           className="bg-gray-600 p-1 w-[6rem]"
           name="qty"
-          type="number"
+          type="text"
+          inputMode="numeric"
           placeholder="50"
         />
         <span className="text-xs mt-2 text-gray-400">
@@ -366,7 +396,7 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
         </span>
       </Field>
       <Field>
-        <Button onClick={() => { addGoal(goalData) }} className="addItemAsGoal p-2 px-8 cursor-pointer mt-8 hover:bg-gray-900 rounded bg-gray-700 border-2 border-gray-500">Save</Button>
+        <Button onClick={submitGoal} className="addItemAsGoal p-2 px-8 cursor-pointer mt-8 hover:bg-gray-900 rounded bg-gray-700 border-2 border-gray-500">Save</Button>
       </Field>
     </Fieldset>
   </>
