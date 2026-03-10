@@ -166,6 +166,19 @@ export function Factory() {
           }
         },
       };
+    } else if (recipe.type === "thermal-storage") {
+      newNode = {
+        id: id + "_" + (new Date().getTime()),
+        position,
+        type: 'recipe-node',
+        data: {
+          type: "thermal-storage",
+          recipeId: id,
+          ltr,
+          alignToDrop: recipeAdd.alignToDrop,
+          options: { loss: 10 },
+        },
+      };
     } else {
       newNode = {
         id: id + "_" + (new Date().getTime()),

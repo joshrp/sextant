@@ -132,6 +132,14 @@ export const helpTopics: HelpTopic[] = [
     order: 6,
   },
   {
+    id: 'thermal-storage',
+    title: 'Thermal Storage',
+    description: 'How thermal storage buildings are modeled as steam-to-steam conversion with configurable loss.',
+    contentKey: 'thermal-storage',
+    category: 'advanced',
+    order: 45,
+  },
+  {
     id: 'bugs',
     title: 'Bugs & Problems',
     description: 'Report bugs, request features, and find the source code',

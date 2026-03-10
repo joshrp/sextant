@@ -98,8 +98,78 @@ describe("Check refomatted data", () => {
 
         if (isBreeder0x && isBlanketOrEnriched) continue; // There's always an exception to the rule...
         if (isHousing) continue; // Housing recipes have zero outputs
+        if (recipe.type === "thermal-storage") continue; // Thermal storage water quantities are dynamic; computed by ThermalStorageCalculator
         expect(output.quantity, `Output ${output.id} in recipe ${recipe.id} has invalid quantity`).toBeGreaterThan(0);
       }
+    }
+  });
+
+  test("3 synthetic thermal storage recipes are generated", async () => {
+    const { recipes, machines, products } = allData;
+    const thermalRecipeIds = [
+      "ThermalStorage_Product_SteamLP",
+      "ThermalStorage_Product_SteamHi",
+      "ThermalStorage_Product_SteamSp",
+    ];
+
+    // All 3 exist
+    for (const id of thermalRecipeIds) {
+      const recipe = recipes.get(id as RecipeId);
+      expect(recipe, `Recipe ${id} should exist`).toBeDefined();
+      expect(recipe!.type).toBe("thermal-storage");
+      expect(recipe!.duration).toBe(60);
+      expect(recipe!.machine).toBe("ThermalStorage");
+    }
+
+    // Machine exists and has 3 recipes
+    const machine = machines.get("ThermalStorage" as any);
+    expect(machine).toBeDefined();
+    expect(machine!.recipes).toHaveLength(3);
+  });
+
+  test("Each thermal storage recipe has correct inputs/outputs/duration", async () => {
+    const { recipes } = allData;
+    const steamIds = ["Product_SteamLP", "Product_SteamHi", "Product_SteamSp"];
+
+    for (const steamId of steamIds) {
+      const recipe = recipes.get(`ThermalStorage_${steamId}` as RecipeId)!;
+      expect(recipe).toBeDefined();
+
+      // Input: 1800 steam + 1800 water
+      expect(recipe.inputs).toHaveLength(2);
+      expect(recipe.inputs.find(i => i.id === steamId)?.quantity).toBe(1800);
+      expect(recipe.inputs.find(i => i.id === ("Product_Water" as ProductId))?.quantity).toBe(1800);
+
+      // Output: 1800 steam + 1800 water
+      expect(recipe.outputs).toHaveLength(2);
+      const steamOutput = recipe.outputs.find(o => o.id === steamId);
+      const waterOutput = recipe.outputs.find(o => o.id === ("Product_Water" as ProductId));
+      expect(steamOutput).toBeDefined();
+      expect(steamOutput!.quantity).toBe(1800);
+      expect(waterOutput).toBeDefined();
+      expect(waterOutput!.quantity).toBe(1800);
+    }
+  });
+
+  test("Thermal storage recipes are registered on correct products", async () => {
+    const { recipes, products } = allData;
+    const steamIds = ["Product_SteamLP", "Product_SteamHi", "Product_SteamSp"];
+
+    for (const steamId of steamIds) {
+      const recipeId = `ThermalStorage_${steamId}` as RecipeId;
+      const steamProduct = products.get(steamId as ProductId);
+      expect(steamProduct).toBeDefined();
+      expect(steamProduct!.recipes.input).toContain(recipeId);
+      expect(steamProduct!.recipes.output).toContain(recipeId);
+    }
+
+    // Water should be both input and output
+    const water = products.get("Product_Water" as ProductId);
+    expect(water).toBeDefined();
+    const waterRecipes = ["ThermalStorage_Product_SteamLP", "ThermalStorage_Product_SteamHi", "ThermalStorage_Product_SteamSp"];
+    for (const recipeId of waterRecipes) {
+      expect(water!.recipes.input).toContain(recipeId);
+      expect(water!.recipes.output).toContain(recipeId);
     }
   });
 

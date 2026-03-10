@@ -11,7 +11,7 @@ import type { ButtonEdge, ButtonEdgeData } from "../factory/graph/edges/ButtonEd
 import type { ProductId, RecipeId } from "../factory/graph/loadJsonData";
 import type { CustomNodeType } from "../factory/graph/nodeTypes";
 import type { GoalError } from "../factory/solver/types";
-import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "../factory/graph/nodes/recipeNodeLogic";
+import type { NodeDataTypes, RecipeNodeData, SettlementNodeData, ThermalStorageNodeData } from "../factory/graph/nodes/recipeNodeLogic";
 import type { AnnotationNodeData } from "../factory/graph/nodes/annotationNode";
 import { createGraphModel, solve } from "../factory/solver/solver";
 import type { Constraint, FactoryGoal, GraphModel, GraphScoringMethod, ManifoldOptions, Solution, SolutionStatus } from "../factory/solver/types";
@@ -69,6 +69,7 @@ export interface GraphStoreActions {
   getProductsInGraph: () => Set<ProductId> | undefined;
   setSettlementOptions: (nodeId: string, options: SettlementNodeData["options"]) => void;
   setRecipeNodeOptions: (nodeId: string, options: RecipeNodeData["options"]) => void;
+  setThermalStorageOptions: (nodeId: string, options: ThermalStorageNodeData["options"]) => void;
   clearAll: () => void;
 }
 
@@ -334,6 +335,10 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZon
             set(state => reducers.updateSettlementOptions(state, nodeId, options), false, "setSettlementOptions");
             get().graphUpdateAction();
           },
+          setThermalStorageOptions: (nodeId: string, options: ThermalStorageNodeData["options"]) => {
+            set(state => reducers.updateThermalStorageOptions(state, nodeId, options), false, "setThermalStorageOptions");
+            get().graphUpdateAction();
+          },
           setEdgeData: (edgeId: string, data: Partial<ButtonEdgeData>) => {
             set(state => reducers.updateEdgeData(state, edgeId, data), false, "setEdgeData");
           },
@@ -408,6 +413,13 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZon
                 nodeData = {
                   type: "contract",
                   recipeId: n.data.recipeId,
+                };
+              } else if (nodeType === "thermal-storage") {
+                nodeData = {
+                  type: "thermal-storage",
+                  recipeId: n.data.recipeId,
+                  ltr: n.data.ltr,
+                  options: { loss: n.data.options?.loss ?? 10 },
                 };
               } else {
                 nodeData = {
@@ -574,13 +586,15 @@ export type GraphImportRecipeNode = {
   type: "recipe-node";
   position: { x: number; y: number; };
   data: {
-    type?: "recipe" | "balancer" | "settlement" | "contract";
+    type?: "recipe" | "balancer" | "settlement" | "contract" | "thermal-storage";
     recipeId: RecipeId;
     ltr?: boolean;
     options?: {
       inputs?: Record<ProductId, boolean>;
       outputs?: Record<ProductId, boolean>;
       useRecycling?: boolean;
+      /** Thermal storage loss percentage: 0–100, step 5, default 10 */
+      loss?: number;
     };
   };
 };

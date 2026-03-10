@@ -9,6 +9,7 @@ import { loadData, type ProductId } from '../loadJsonData';
 import { type RecipeNodeData, type RecipeNodeType } from './recipeNodeLogic';
 import RecipeNodeView from './RecipeNodeView';
 import SettlementNodeView from './SettlementNodeView';
+import ThermalStorageNodeView from './ThermalStorageNodeView';
 import { useProductionZoneStore } from '~/context/ZoneContext';
 
 const { recipes } = loadData();
@@ -37,13 +38,14 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   if (props.data.ltr === undefined) props.data.ltr = true; // Default to left-to-right layout
   
   // Select all stable actions in a single subscription
-  const { removeNode, setNodeData, setRecipeNodeOptions, onNodesChange, setSettlementOptions } = useFactoryStore(
+  const { removeNode, setNodeData, setRecipeNodeOptions, onNodesChange, setSettlementOptions, setThermalStorageOptions } = useFactoryStore(
     useShallow(state => ({
       removeNode: state.removeNode,
       setNodeData: state.setNodeData,
       setRecipeNodeOptions: state.setRecipeNodeOptions,
       onNodesChange: state.onNodesChange,
       setSettlementOptions: state.setSettlementOptions,
+      setThermalStorageOptions: state.setThermalStorageOptions,
     }))
   );
   
@@ -271,6 +273,22 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         recipe={recipe}
         settlementOptions={props.data.options}
         setOptions={options => setSettlementOptions(props.id, options)}
+        inputEdges={inputEdges}
+        outputEdges={outputEdges}
+        ltr={!!props.data.ltr}
+        zoomLevel={zoomLevel}
+        onFlip={flipNode}
+        onRemove={() => removeNode(props.id)}
+        solution={props.data.solution}
+        highlight={highlight}
+        nodeId={props.id}
+        modifiers={modifiers}
+      />;
+    } else if (props.data.type === "thermal-storage") {
+      contents = <ThermalStorageNodeView
+        recipe={recipe}
+        thermalStorageOptions={props.data.options}
+        setOptions={options => setThermalStorageOptions(props.id, options)}
         inputEdges={inputEdges}
         outputEdges={outputEdges}
         ltr={!!props.data.ltr}

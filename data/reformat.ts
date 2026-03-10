@@ -124,6 +124,7 @@ export async function getDataFromRaw(rawPath = "./data/raw"): Promise<Serialized
   const machineData = await initialMachineAndRecipeData(JSON.parse(machinesAndBuildings).machines_and_buildings, productData);
   const contracts = JSON.parse(contractsFile).contracts as RawContract[];
   addContractRecipes(contracts, machineData.products, machineData.machines, machineData.recipes);
+  addThermalStorageRecipes(machineData.products, machineData.machines, machineData.recipes);
 
   return {
     products: machineData.products,
@@ -815,6 +816,112 @@ function addContractRecipes(
   }
 
   console.log(`Added ${contractMachine.recipes.length} contract recipes.`);
+}
+
+/**
+ * Thermal storage steam types to generate synthetic recipes for.
+ * Each entry maps a steam product to a human-readable recipe name.
+ */
+const thermalStorageSteamTypes = [
+  { steamId: "Product_SteamLP" as ProductId, name: "Thermal storage (LP steam)" },
+  { steamId: "Product_SteamHi" as ProductId, name: "Thermal storage (HP steam)" },
+  { steamId: "Product_SteamSp" as ProductId, name: "Thermal storage (SP steam)" },
+];
+
+/**
+ * Add synthetic thermal storage recipes to the game data.
+ * Models the Thermal Storage building as a steam-to-steam passthrough with configurable loss.
+ * Heat is hidden as an intermediate product; the recipes show steam in → steam + water out.
+ * The ThermalStorageCalculator (in recipeNodeLogic.ts) modifies output quantities based on loss.
+ */
+function addThermalStorageRecipes(
+  productsById: Map<ProductId, ProductSerialized>,
+  machineData: Map<MachineId, MachineSerialized>,
+  recipeData: Map<RecipeId, RecipeSerialized>,
+) {
+  const thermalStorageMachineId = "ThermalStorage" as MachineId;
+  const thermalStorageMachine: MachineSerialized = {
+    id: thermalStorageMachineId,
+    name: "Thermal Storage",
+    category_id: "ThermalStorage" as Machine["category_id"],
+    workers: 0,
+    workers_generated: 0,
+    recipes: [],
+    buildCosts: [],
+    isBalancer: false,
+    isFarm: false,
+    electricity_consumed: 0,
+    electricity_generated: 0,
+    computing_consumed: 0,
+    computing_generated: 0,
+    storage_capacity: 0,
+    unity_cost: 0,
+    research_speed: 0,
+  };
+  machineData.set(thermalStorageMachineId, thermalStorageMachine);
+
+  const waterProductId = "Product_Water" as ProductId;
+
+  for (const { steamId, name } of thermalStorageSteamTypes) {
+    const steamProduct = productsById.get(steamId);
+    const waterProduct = productsById.get(waterProductId);
+    if (!steamProduct) {
+      console.warn(`Thermal storage: steam product "${steamId}" not found, skipping.`);
+      continue;
+    }
+    if (!waterProduct) {
+      console.warn(`Thermal storage: water product not found, skipping.`);
+      continue;
+    }
+
+    const recipeId = `ThermalStorage_${steamId}` as RecipeId;
+
+    const recipe: RecipeSerialized = {
+      id: recipeId,
+      name: name,
+      duration: 60,
+      origDuration: 60,
+      type: "thermal-storage",
+      machine: thermalStorageMachineId,
+      inputs: [
+        { id: steamId, quantity: 1800 },
+        { id: waterProductId, quantity: 1800 }, // base no-loss throughput; ThermalStorageCalculator sets to steamOutput (steamInput × (1-loss))
+      ],
+      outputs: [
+        { id: steamId, quantity: 1800 },        // base no-loss throughput; ThermalStorageCalculator reduces by loss%
+        { id: waterProductId, quantity: 1800 },  // base = steamInput quantity; ThermalStorageCalculator keeps at steamInput
+      ],
+      isMaintenance: false,
+      isMaintenanceProducer: false,
+      isFarm: false,
+      usesSolarPower: false,
+    };
+
+    recipeData.set(recipeId, recipe);
+    thermalStorageMachine.recipes.push(recipeId);
+
+    // Register on steam product (both input and output)
+    steamProduct.recipes.input.push(recipeId);
+    steamProduct.recipes.output.push(recipeId);
+    if (!steamProduct.machines.input.includes(thermalStorageMachineId)) {
+      steamProduct.machines.input.push(thermalStorageMachineId);
+    }
+    if (!steamProduct.machines.output.includes(thermalStorageMachineId)) {
+      steamProduct.machines.output.push(thermalStorageMachineId);
+    }
+
+    // Register on water product (both input and output)
+    waterProduct.recipes.input.push(recipeId);
+    waterProduct.recipes.output.push(recipeId);
+    if (!waterProduct.machines.input.includes(thermalStorageMachineId)) {
+      waterProduct.machines.input.push(thermalStorageMachineId);
+    }
+    if (!waterProduct.machines.output.includes(thermalStorageMachineId)) {
+      waterProduct.machines.output.push(thermalStorageMachineId);
+    }
+  }
+
+  console.log(`Added ${thermalStorageMachine.recipes.length} thermal storage recipes.`);
 }
 
 /**

@@ -22,7 +22,7 @@ export type HandleDropAlignment = {
 export type NodeBaseData = {
   ltr?: boolean; // Left to right layout
   // Type of the node, rendering and calculations may differ based on type. Default is "recipe".
-  type?: "recipe" | "settlement" | "balancer" | "contract";
+  type?: "recipe" | "settlement" | "balancer" | "contract" | "thermal-storage";
   alignToDrop?: HandleDropAlignment;
   solution?: {
     solved: true,
@@ -64,7 +64,17 @@ export type ContractNodeData = NodeBaseData & {
   options?: undefined;
 };
 
-export type NodeDataTypes = RecipeNodeData | BalancerNodeData | SettlementNodeData | ContractNodeData;
+export type ThermalStorageNodeOptions = {
+  loss: number; // 0-100, step 5, default 10
+};
+
+export type ThermalStorageNodeData = NodeBaseData & {
+  type: "thermal-storage";
+  recipeId: RecipeId;
+  options: ThermalStorageNodeOptions;
+};
+
+export type NodeDataTypes = RecipeNodeData | BalancerNodeData | SettlementNodeData | ContractNodeData | ThermalStorageNodeData;
 
 /**
  * React Flow node type for recipe/balancer/settlement/contract nodes.
@@ -254,6 +264,40 @@ export const RecipeNodeCalculator = (
     },
   };
 }
+
+export const ThermalStorageCalculator = (
+  recipe: Recipe,
+  nodeOptions: ThermalStorageNodeOptions,
+  runCount: number,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _modifiers: ZoneModifiers
+) => {
+  // Default 10% loss matches the base game's round-trip conversion loss
+  const lossFraction = (nodeOptions?.loss ?? 10) / 100;
+  const steamInput = recipe.inputs.find(i => i.product.id !== ProductId("Product_Water"));
+  const steamInputQty = steamInput?.quantity ?? 0;
+  return {
+    productInput: (productId: ProductId): number => {
+      const input = recipe.inputs.find(i => i.product.id === productId);
+      if (!input) return 0;
+      // Water input = steam output amount (water is converted to steam)
+      if (productId === ProductId("Product_Water")) {
+        return steamInputQty * (1 - lossFraction) * runCount;
+      }
+      return input.quantity * runCount;
+    },
+    productOutput: (productId: ProductId): number => {
+      const output = recipe.outputs.find(o => o.product.id === productId);
+      if (!output) return 0;
+      // Water output = steam input amount (steam condenses to water)
+      if (productId === ProductId("Product_Water")) {
+        return steamInputQty * runCount;
+      }
+      // Steam output: reduce by loss fraction
+      return output.quantity * (1 - lossFraction) * runCount;
+    },
+  };
+};
 
 export const BalancerCalculator = () => {
   return (): number => {

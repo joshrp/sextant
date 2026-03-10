@@ -1,5 +1,5 @@
 import type { ProductId, RecipeId } from "../graph/loadJsonData";
-import type { SettlementNodeData } from "../graph/nodes/recipeNodeLogic";
+import type { SettlementNodeData, ThermalStorageNodeOptions } from "../graph/nodes/recipeNodeLogic";
 
 export type NodeConnectionBase = {
   recipeId: RecipeId,
@@ -32,7 +32,12 @@ export type NodeConnectionContract = NodeConnectionBase & {
   options: undefined;
 };
 
-export type NodeConnection = NodeConnectionContract | NodeConnectionRecipe | NodeConnectionBalancer | NodeConnectionSettlement;
+export type NodeConnectionThermalStorage = NodeConnectionBase & {
+  type: "thermal-storage";
+  options: ThermalStorageNodeOptions;
+};
+
+export type NodeConnection = NodeConnectionContract | NodeConnectionRecipe | NodeConnectionBalancer | NodeConnectionSettlement | NodeConnectionThermalStorage;
 
 export type EqualityTypes = "eq" | "gt" | "lt";
 

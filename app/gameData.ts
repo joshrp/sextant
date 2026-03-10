@@ -3340,7 +3340,10 @@
           "FastBreederReactorEnrichment1",
           "FastBreederReactorEnrichment2",
           "FastBreederReactorEnrichment3",
-          "Balancer_Product_Water"
+          "Balancer_Product_Water",
+          "ThermalStorage_Product_SteamLP",
+          "ThermalStorage_Product_SteamHi",
+          "ThermalStorage_Product_SteamSp"
         ],
         "output": [
           "WaterDesalinationBasic",
@@ -3365,15 +3368,20 @@
           "ToxicSlurryTreatment",
           "RainwaterHarvester",
           "BasicServerRack",
-          "Balancer_Product_Water"
+          "Balancer_Product_Water",
+          "ThermalStorage_Product_SteamLP",
+          "ThermalStorage_Product_SteamHi",
+          "ThermalStorage_Product_SteamSp"
         ]
       },
       "machines": {
         "input": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ],
         "output": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ]
       }
     },
@@ -3668,22 +3676,26 @@
           "HydrogenProductionFromSteamSp",
           "SmokeStackLargeSpSteam",
           "SmokeStackSpSteam",
-          "Balancer_Product_SteamSp"
+          "Balancer_Product_SteamSp",
+          "ThermalStorage_Product_SteamSp"
         ],
         "output": [
           "SteamGenerationSpElectric",
           "FastBreederReactorEnrichment1",
           "FastBreederReactorEnrichment2",
           "FastBreederReactorEnrichment3",
-          "Balancer_Product_SteamSp"
+          "Balancer_Product_SteamSp",
+          "ThermalStorage_Product_SteamSp"
         ]
       },
       "machines": {
         "input": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ],
         "output": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ]
       }
     },
@@ -3713,7 +3725,8 @@
           "SourWaterStripping",
           "SmokeStackLargeHpSteam",
           "SmokeStackHpSteam",
-          "Balancer_Product_SteamHi"
+          "Balancer_Product_SteamHi",
+          "ThermalStorage_Product_SteamHi"
         ],
         "output": [
           "TurbineSuperPress",
@@ -3737,15 +3750,18 @@
           "NuclearReactorT21",
           "NuclearReactorT22",
           "NuclearReactor1",
-          "Balancer_Product_SteamHi"
+          "Balancer_Product_SteamHi",
+          "ThermalStorage_Product_SteamHi"
         ]
       },
       "machines": {
         "input": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ],
         "output": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ]
       }
     },
@@ -3765,7 +3781,8 @@
           "SteamLpCondensationT2",
           "SmokeStackLargeLpSteam",
           "SmokeStackLpSteam",
-          "Balancer_Product_SteamLP"
+          "Balancer_Product_SteamLP",
+          "ThermalStorage_Product_SteamLP"
         ],
         "output": [
           "TurbineHighPressT2",
@@ -3782,15 +3799,18 @@
           "TitaniumSmeltingArc2",
           "ExhaustFiltering",
           "ExhaustFilteringLime",
-          "Balancer_Product_SteamLP"
+          "Balancer_Product_SteamLP",
+          "ThermalStorage_Product_SteamLP"
         ]
       },
       "machines": {
         "input": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ],
         "output": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "ThermalStorage"
         ]
       }
     },
@@ -13964,6 +13984,28 @@
         "Contract_Product_Bauxite_For_Product_IronOre",
         "Contract_Product_CopperOre_For_Product_IronOre",
         "Contract_Product_IronOre_For_Product_CopperOre"
+      ],
+      "buildCosts": [],
+      "isBalancer": false,
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "ThermalStorage": {
+      "id": "ThermalStorage",
+      "name": "Thermal Storage",
+      "category_id": "ThermalStorage",
+      "workers": 0,
+      "workers_generated": 0,
+      "recipes": [
+        "ThermalStorage_Product_SteamLP",
+        "ThermalStorage_Product_SteamHi",
+        "ThermalStorage_Product_SteamSp"
       ],
       "buildCosts": [],
       "isBalancer": false,
@@ -38539,6 +38581,102 @@
         {
           "id": "Product_IronOre",
           "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "ThermalStorage_Product_SteamLP": {
+      "id": "ThermalStorage_Product_SteamLP",
+      "name": "Thermal storage (LP steam)",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "thermal-storage",
+      "machine": "ThermalStorage",
+      "inputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 1800
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 1800
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamLP",
+          "quantity": 1800
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 1800
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "ThermalStorage_Product_SteamHi": {
+      "id": "ThermalStorage_Product_SteamHi",
+      "name": "Thermal storage (HP steam)",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "thermal-storage",
+      "machine": "ThermalStorage",
+      "inputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 1800
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 1800
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamHi",
+          "quantity": 1800
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 1800
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "ThermalStorage_Product_SteamSp": {
+      "id": "ThermalStorage_Product_SteamSp",
+      "name": "Thermal storage (SP steam)",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "thermal-storage",
+      "machine": "ThermalStorage",
+      "inputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 1800
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 1800
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_SteamSp",
+          "quantity": 1800
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 1800
         }
       ],
       "isMaintenance": false,

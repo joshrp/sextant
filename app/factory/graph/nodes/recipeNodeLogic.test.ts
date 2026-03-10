@@ -4,7 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import Big from 'big.js';
 import { ProductId, type Recipe } from '../loadJsonData';
-import { getQuantityDisplay, SettlementCalculator } from './recipeNodeLogic';
+import { getQuantityDisplay, SettlementCalculator, ThermalStorageCalculator } from './recipeNodeLogic';
 import {
   recyclablesForProduct,
   totalRecyclablesOutput,
@@ -325,6 +325,84 @@ describe('recipeNodeLogic', () => {
 
     it('exports recyclables as a first-class product id constant', () => {
       expect(recyclablesProductId).toBe(ProductId('Product_Recyclables'));
+    });
+  });
+
+  describe('ThermalStorageCalculator', () => {
+    const thermalRecipe = makeRecipe({
+      inputs: [
+        { id: 'Product_SteamLP', quantity: 1800 },
+        { id: 'Product_Water', quantity: 1800 },
+      ],
+      outputs: [
+        { id: 'Product_SteamLP', quantity: 1800 },
+        { id: 'Product_Water', quantity: 1800 },
+      ],
+    });
+
+    it('at 0% loss: full steam out, water in = steam out, water out = steam in', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 0 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productInput(ProductId('Product_SteamLP'))).toBe(1800);
+      expect(calc.productInput(ProductId('Product_Water'))).toBe(1800);
+      expect(calc.productOutput(ProductId('Product_SteamLP'))).toBe(1800);
+      expect(calc.productOutput(ProductId('Product_Water'))).toBe(1800);
+    });
+
+    it('at 10% loss: 90% steam out, water in matches steam out, water out matches steam in', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 10 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productInput(ProductId('Product_SteamLP'))).toBe(1800);
+      expect(calc.productInput(ProductId('Product_Water'))).toBe(1620);  // matches steam output
+      expect(calc.productOutput(ProductId('Product_SteamLP'))).toBe(1620);
+      expect(calc.productOutput(ProductId('Product_Water'))).toBe(1800); // matches steam input
+    });
+
+    it('at 50% loss: half steam out, water in = half steam, water out = full steam in', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 50 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productInput(ProductId('Product_SteamLP'))).toBe(1800);
+      expect(calc.productInput(ProductId('Product_Water'))).toBe(900);   // matches steam output
+      expect(calc.productOutput(ProductId('Product_SteamLP'))).toBe(900);
+      expect(calc.productOutput(ProductId('Product_Water'))).toBe(1800); // matches steam input
+    });
+
+    it('at 100% loss: no steam out, no water in, water out = steam in', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 100 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productInput(ProductId('Product_SteamLP'))).toBe(1800);
+      expect(calc.productInput(ProductId('Product_Water'))).toBe(0);
+      expect(calc.productOutput(ProductId('Product_SteamLP'))).toBe(0);
+      expect(calc.productOutput(ProductId('Product_Water'))).toBe(1800);
+    });
+
+    it('scales with runCount', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 10 }, 3, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productInput(ProductId('Product_SteamLP'))).toBe(5400);
+      expect(calc.productInput(ProductId('Product_Water'))).toBe(4860);
+      expect(calc.productOutput(ProductId('Product_SteamLP'))).toBe(4860);
+      expect(calc.productOutput(ProductId('Product_Water'))).toBe(5400);
+    });
+
+    it('zone modifiers do not affect thermal storage', () => {
+      const modifiers = { ...DEFAULT_ZONE_MODIFIERS, maintenanceConsumption: 2, farmYield: 3 };
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 10 }, 1, modifiers);
+      expect(calc.productInput(ProductId('Product_SteamLP'))).toBe(1800);
+      expect(calc.productInput(ProductId('Product_Water'))).toBe(1620);
+      expect(calc.productOutput(ProductId('Product_SteamLP'))).toBe(1620);
+      expect(calc.productOutput(ProductId('Product_Water'))).toBe(1800);
+    });
+
+    it('defaults to 10% loss when loss is undefined', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: undefined as unknown as number }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productOutput(ProductId('Product_SteamLP'))).toBe(1620);
+      expect(calc.productOutput(ProductId('Product_Water'))).toBe(1800);
+    });
+
+    it('returns 0 for unknown product input', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 10 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productInput(ProductId('Product_Unknown'))).toBe(0);
+    });
+
+    it('returns 0 for unknown product output', () => {
+      const calc = ThermalStorageCalculator(thermalRecipe, { loss: 10 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.productOutput(ProductId('Product_Unknown'))).toBe(0);
     });
   });
 

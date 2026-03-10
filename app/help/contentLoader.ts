@@ -16,6 +16,7 @@ import * as ImportExportContent from './content/import-export.mdx';
 import * as YourDataContent from './content/your-data.mdx';
 import * as ContractsContent from './content/contracts.mdx';
 import * as BugsContent from './content/bugs.mdx';
+import * as ThermalStorageContent from './content/thermal-storage.mdx';
 
 
 // Map topic IDs to their content components
@@ -33,6 +34,7 @@ export const contentMap = {
   'your-data': YourDataContent.default,
   contracts: ContractsContent.default,
   bugs: BugsContent.default,
+  'thermal-storage': ThermalStorageContent.default,
 } as const;
 
 /**

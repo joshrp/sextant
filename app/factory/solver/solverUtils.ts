@@ -204,6 +204,12 @@ export function buildNodeConnections(
         options: node.data.options,
         type: "settlement",
       }
+    } else if (node.data.type === "thermal-storage") {
+      nodeConnections[node.id] = {
+        ...nodeData,
+        options: node.data.options,
+        type: "thermal-storage",
+      }
     } else if (node.data.type === "recipe" || node.data.type === "contract") {
       nodeConnections[node.id] = {
         ...nodeData,

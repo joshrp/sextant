@@ -7,7 +7,7 @@ import type { GraphSolutionState, GraphStore } from "~/context/store";
 import type { ProductionZoneStoreData } from "~/context/ZoneStore";
 import type { GoalError, GraphScoringMethod, ManifoldOptions, GraphModel, FactoryGoal } from "~/factory/solver/types";
 import type { solve } from "~/factory/solver/solver";
-import type { NodeDataTypes, RecipeNodeData, SettlementNodeData } from "~/factory/graph/nodes/recipeNodeLogic";
+import type { NodeDataTypes, RecipeNodeData, SettlementNodeData, ThermalStorageNodeData } from "~/factory/graph/nodes/recipeNodeLogic";
 import { isRecipeNode } from "~/factory/graph/nodeTypes";
 
 /**
@@ -63,6 +63,21 @@ export function updateRecipeNodeOptions(
             options: { ...node.data.options, ...options },
           },
         }
+        : node
+    ),
+  };
+}
+
+export function updateThermalStorageOptions(
+  state: GraphSolutionState,
+  nodeId: string,
+  options?: Partial<ThermalStorageNodeData["options"]>
+): GraphSolutionState {
+  return {
+    ...state,
+    nodes: state.nodes.map(node =>
+      node.id === nodeId && isRecipeNode(node) && node.data.type === "thermal-storage"
+        ? { ...node, data: { ...node.data, options: { ...node.data.options, ...options } } }
         : node
     ),
   };

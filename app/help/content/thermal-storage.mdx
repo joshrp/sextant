@@ -1,0 +1,19 @@
+# Thermal Storage
+
+Thermal storage buildings store steam as heat and retrieve it later. In-game, this uses an intermediate heat product — but here the heat is abstracted away and the building is modeled as a steam-and-water conversion with configurable loss.
+
+Steam inputs are converted to water at the loss rate while water is converted to steam at the same loss rate. 
+
+## Idle losses
+
+In game, an idle thermal storage looses heat over time, this is hard to model since factories can be burst use or continuous use.
+
+To control this, change the slider according to how much you expect this building to be used. 
+
+- 0% means no loss, the building is never idle and in continuous use. 
+
+- 100% means all steam is lost, the building is always idle and never used.
+
+## Throughput
+
+Each thermal storage building handles up to **1,800 steam per 60 seconds** in-game. 
