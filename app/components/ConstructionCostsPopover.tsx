@@ -33,7 +33,7 @@ export default function ConstructionCostsPopover() {
           <WrenchScrewdriverIcon className="h-full w-4 text-gray-400" />
         </div>
         <div className="text-nowrap">
-          Build
+          Build Cost
         </div>
       </PopoverButton>
 

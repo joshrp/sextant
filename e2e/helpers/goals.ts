@@ -15,10 +15,9 @@ export async function waitForGoalCount(page: Page, count: number, timeout = 3000
  */
 export async function addGoal(page: Page, productName: string, qty: number) {
   const goalList = page.getByTestId('sidebar-goals-list');
-  const initialGoalCount = await goalList.locator('.output-goal').count();
 
-  // Click "+" button in the goals list to open product selector
-  await goalList.getByRole('button').click();
+  // Click "Add Goal" button in the goals list to open product selector
+  await goalList.getByRole('button', { name: 'Add Goal' }).click();
 
   // Wait for the product search input to be visible (dialog may animate in)
   const searchInput = page.getByPlaceholder('Search Products...');
@@ -33,31 +32,35 @@ export async function addGoal(page: Page, productName: string, qty: number) {
   await productButton.waitFor({ state: 'visible', timeout: 5000 });
   await productButton.click();
 
-  // Goal editor dialog appears — wait for the qty input
-  const qtyInput = page.locator('input[name="qty"]');
+  // Goal editor dialog appears — wait for the qty input (scoped to dialog to avoid
+  // matching the inline qty input already present in the sidebar goal card)
+  const dialog = page.locator('dialog, [role="dialog"]').last();
+  const qtyInput = dialog.locator('input[name="qty"]');
   await qtyInput.waitFor({ state: 'visible' });
 
   // Set the quantity
   await qtyInput.fill(String(qty));
 
   // Save the goal
-  await page.locator('button.addItemAsGoal').click();
+  await dialog.locator('button.addItemAsGoal').click();
 
-  // Wait for the goal to appear in the sidebar
-  await waitForGoalCount(page, initialGoalCount + 1);
+  // Wait for this product's goal card to be visible — avoids count-delta races
+  // with async IndexedDB hydration restoring pre-existing goals simultaneously.
+  await expect(
+    goalList.locator(`.output-goal:has-text("${productName}")`)
+  ).toBeVisible({ timeout: 5000 });
 }
 
 /**
- * Add a producer for a goal via its context menu.
+ * Add a producer for a goal via its hamburger menu.
  * Assumes the goal is already visible in the sidebar.
  */
 export async function addProducerFromGoal(page: Page, goalIndex: number) {
-  // Click the goal to open its popover menu
-  const goals = page.getByTestId('sidebar-goals-list').locator('.output-goal');
-  await goals.nth(goalIndex).click();
-  
+  // Click the hamburger (Bars3Icon) inside the goal card to open its popover menu
+  const goalCard = page.getByTestId('sidebar-goals-list').locator('.output-goal').nth(goalIndex);
+  await goalCard.locator('div.cursor-pointer').click();
 
-  // Click "Add Producer" — use locator('button') to exclude div[role="button"] annotation nodes
+  // Click "Add Producer"
   const menuItem = page.locator('button', { hasText: 'Add Producer' });
   await menuItem.waitFor({ state: 'visible' });
   await menuItem.click();

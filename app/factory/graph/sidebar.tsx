@@ -1,6 +1,6 @@
 import { Button, Field, Fieldset, Input, Label, Radio, RadioGroup } from '@headlessui/react';
-import { ClockIcon, ExclamationTriangleIcon, PlusIcon } from '@heroicons/react/24/solid';
-import { useCallback, useState, type ChangeEvent } from 'react';
+import { Bars3Icon, ClockIcon, ExclamationTriangleIcon, PlusIcon } from '@heroicons/react/24/solid';
+import { useCallback, useEffect, useState, type ChangeEvent } from 'react';
 
 import { SelectorDialog } from 'app/components/Dialog';
 import { SidebarPopover, PopoverMenuItem, PopoverIconActions, PopoverIconAction } from '~/components/SidebarPopover';
@@ -23,22 +23,166 @@ type props = {
   addNewRecipe: (addRecipeNode: AddRecipeNode) => void
 };
 
-const icons = {
-  "gt": "\u2265",
-  "lt": "\u2264",
-  "eq": "\u003D"
-}
-
 // TODO: Component Testing - This component is complex and needs refactoring for testability:
 // 1. Extract goal management logic (addGoal, editGoal, removeGoal) into a custom hook or reducer
 // 2. Extract manifold filtering logic into a pure function
-// 3. Separate presentation from state management - create smaller sub-components for:
-//    - GoalsList component (displaying and editing goals)
-//    - ManifoldsList component (displaying manifolds)
-//    - SolutionSummary component (displaying solution results)
-// 4. Move menu configuration (goalsMenuOptions, inputsMenuOptions) to constants/config
-// 5. Add unit tests for extracted logic functions
-// 6. Add component tests for sub-components with mocked store
+// 3. Separate presentation from state management - create smaller sub-components
+// 4. Add unit tests for extracted logic functions
+// 5. Add component tests for sub-components with mocked store
+
+type GoalCardProps = {
+  goal: FactoryGoal;
+  resultCount?: number;
+  error?: GoalError;
+  onUpdate: (goal: FactoryGoal) => void;
+  onEdit: () => void;
+  onRemove: () => void;
+  onAddProducer: () => void;
+};
+
+function GoalCard({ goal, resultCount, error, onUpdate, onEdit, onRemove, onAddProducer }: GoalCardProps) {
+  const product = productData.get(goal.productId);
+  if (!product) return null;
+
+  // Magnitude only — no sign. Direction is tracked separately so the dropdown stays stable.
+  const [rawInput, setRawInput] = useState(goal.qty === 0 ? '' : String(Math.abs(goal.qty)));
+  const [isInput, setIsInput] = useState(goal.qty < 0);
+
+  // Sync when goal changes externally (e.g. after full-edit dialog)
+  useEffect(() => {
+    setRawInput(goal.qty === 0 ? '' : String(Math.abs(goal.qty)));
+    setIsInput(goal.qty < 0);
+  }, [goal.qty]);
+
+  let fulfilled = false;
+  if (resultCount !== undefined) {
+    if (goal.type === "eq") fulfilled = goal.qty === resultCount;
+    else if (goal.type === "lt") fulfilled = goal.qty >= resultCount;
+    else if (goal.type === "gt") fulfilled = goal.qty <= resultCount;
+  }
+
+  // Direction dropdown — commits immediately
+  const handleDirectionChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const wantInput = e.target.value === 'use';
+    setIsInput(wantInput);
+    const val = parseFloat(rawInput);
+    if (!isNaN(val)) onUpdate({ ...goal, qty: wantInput ? -val : val });
+  };
+
+  // Type dropdown — commits immediately. Option values are always the stored type;
+  // the labels flip in Use mode so e.target.value is already correct.
+  const handleTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    onUpdate({ ...goal, type: e.target.value as FactoryGoal['type'] });
+  };
+
+  // Qty input: typing a leading '-' flips direction to Use and strips the sign
+  const handleQtyChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let raw = e.target.value;
+    if (raw.startsWith('-')) {
+      setIsInput(true);
+      raw = raw.slice(1);
+    }
+    if (raw !== '' && !/^\d*\.?\d*$/.test(raw)) return;
+    setRawInput(raw);
+  };
+
+  const commitQty = () => {
+    const val = parseFloat(rawInput);
+    if (!isNaN(val) && val >= 0) {
+      onUpdate({ ...goal, qty: isInput ? -val : val });
+    } else {
+      // Revert to last committed value
+      setRawInput(goal.qty === 0 ? '' : String(Math.abs(goal.qty)));
+      setIsInput(goal.qty < 0);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') { e.preventDefault(); commitQty(); }
+  };
+
+  const selectCls = "bg-gray-700/60 border border-gray-600/50 rounded px-1.5 py-0.5 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400";
+
+  return (
+    <div
+      data-goal-error={error ? "true" : undefined}
+      data-goal-fulfilled={fulfilled ? "true" : undefined}
+      className="output-goal w-full my-1 rounded border border-gray-600 text-xs bg-gray-800 overflow-hidden"
+    >
+      {/* Row 1: icon + name + hamburger menu */}
+      <div className="flex items-center justify-between gap-1 px-2 pt-2 pb-1.5">
+        <div className="flex items-center gap-1.5 min-w-0">
+          <img className="h-5 w-5 shrink-0" src={productIcon(product.icon)} />
+          <span className="truncate font-medium">{product.name}</span>
+          {product.unit && (
+            <span className="text-gray-400 shrink-0">{product.unit}</span>
+          )}
+        </div>
+        <SidebarPopover
+          trigger={<Bars3Icon className="w-6 shrink opacity-50 hover:opacity-100 cursor-pointer" />}
+          anchor="bottom end"
+        >
+          <PopoverMenuItem onClick={onEdit}>Edit</PopoverMenuItem>
+          <PopoverMenuItem onClick={onRemove}>Remove</PopoverMenuItem>
+          <PopoverMenuItem onClick={onAddProducer}>Add Producer</PopoverMenuItem>
+        </SidebarPopover>
+      </div>
+
+      {/* Row 2: direction select + type select + qty input */}
+      <div className="flex items-center gap-1.5 px-2 pb-2">
+        <select
+          value={isInput ? 'use' : 'produce'}
+          onChange={handleDirectionChange}
+          className={`${selectCls} ${isInput ? 'text-blue-300' : 'text-green-300'} shrink-0`}
+        >
+          <option value="produce">Produce</option>
+          <option value="use">Use</option>
+        </select>
+        <select
+          value={goal.type}
+          onChange={handleTypeChange}
+          className={`${selectCls} text-gray-200 grow`}
+        >
+          <option value="gt">{isInput ? 'at most' : 'at least'}</option>
+          <option value="eq">exactly</option>
+          <option value="lt">{isInput ? 'at least' : 'at most'}</option>
+        </select>
+        <div className="flex items-center gap-1 shrink-0">
+          <input
+            value={rawInput}
+            onChange={handleQtyChange}
+            onBlur={commitQty}
+            onKeyDown={handleKeyDown}
+            className={`${selectCls} w-16 text-right`}
+            name="qty"
+            type="text"
+            inputMode="numeric"
+            placeholder="0"
+          />
+        </div>
+      </div>
+
+      {/* Row 3: result strip — coloured to reflect status */}
+      {(resultCount !== undefined || error) && (
+        <div className={`flex items-center justify-end gap-1 px-2 py-1 border-t border-gray-600/50
+          ${error ? 'bg-zinc-700 text-gray-300' : fulfilled ? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'}`}>
+          {error ? (
+            <div className="flex items-center gap-1 text-red-400" title={error.message}>
+              <ExclamationTriangleIcon className="w-3.5 h-3.5" />
+              <span>Conflict</span>
+            </div>
+          ) : (
+            <div className="flex items-baseline w-full gap-2">
+              <span className="text-xs opacity-70">{resultCount! >= 0 ? 'Produces' : 'Consumes'}</span>
+              <span className="flex-1 text-center text-sm font-semibold">{formatNumber(Math.abs(resultCount!), product.unit)}</span>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function SideBar({ addNewRecipe }: props) {
 
   const store = useFactory().store;
@@ -55,7 +199,7 @@ function SideBar({ addNewRecipe }: props) {
   const addGoal = useCallback((goal: FactoryGoal): void => {
     const exists = goals.findIndex(g => goal.productId == g.productId);
     if (exists >= 0)
-      store.setState(state => ({ goals: [...state.goals.filter(g => g.productId != goal.productId), goal] }), false, "Remove existing goal before adding new one");
+      store.setState(state => ({ goals: state.goals.map(g => g.productId === goal.productId ? goal : g) }), false, "Update existing goal in place");
     else
       store.setState(state => ({ goals: [...state.goals, goal] }), false, "Add new goal");
     solutionUpdateAction();
@@ -86,26 +230,6 @@ function SideBar({ addNewRecipe }: props) {
     : [];
 
   const [selectProductDialog, setSelectProductDialog] = useState(false);
-  const goalsMenuOptions = [{
-    label: "Edit",
-    onClick: (c: FactoryGoal) => () => setEditGoal(c)
-  }, {
-    label: "Remove",
-    onClick: (goal: FactoryGoal) => () => {
-      // Filter for only constraints that don't match this product
-      store.setState(state => ({
-        goals: state.goals.filter(c => c.productId !== goal.productId)
-      }));
-    }
-  }, {
-    label: "Add Producer",
-    onClick: (goal: FactoryGoal) => () => addNewRecipe({
-      productId: goal.productId,
-      produce: true,
-      position: { x: 0, y: 0 },
-      otherNode: "",
-    }),
-  }]
   const inputsMenuOptions = [{
     label: "Add Producer",
     onClick: <T extends { productId: ProductId }>(input: T) => () => addNewRecipe({
@@ -144,55 +268,32 @@ function SideBar({ addNewRecipe }: props) {
         {goals.length === 0 && (
           <EmptyStateCard text="What do you want to produce? Click + to get started" />
         )}
-        {goals.map((goal, i) => {
+        {goals.map((goal) => {
           const resultCount = solution?.goals?.find(g => g.goal.productId == goal.productId)?.resultCount;
           const goalError = goalErrors?.find((e: GoalError) => e.productId === goal.productId);
-          const product = productData.get(goal.productId);
-          if (!product) {
-            console.warn("Product not found for goal", goal);
-            return null;
-          }
-          let fulfilled = false;
-          if (resultCount !== undefined) {
-            if (goal.type == "eq")
-              fulfilled = goal.qty == resultCount;
-            else if (goal.type == "lt")
-              fulfilled = goal.qty >= resultCount;
-            else if (goal.type == "gt")
-              fulfilled = goal.qty <= resultCount;
-          }
-          return <SidebarPopover
-            key={"goal-" + i}
-            trigger={
-              <div
-                data-goal-error={goalError ? "true" : undefined}
-                data-goal-fulfilled={fulfilled ? "true" : undefined}
-                className="output-goal w-full gap-2 p-2 flex my-1
-                    hover:bg-gray-900
-                      rounded cursor-pointer 
-                      border border-gray-500  text-xs 
-                      bg-red-900
-                      data-goal-error:bg-zinc-700
-                      data-goal-fulfilled:bg-green-900
-                      "
-
-              >
-                <ProductGoal goal={goal} resultCount={resultCount} error={goalError} />
-              </div>
-            }
-            anchor="bottom end"
-          >
-            {goalsMenuOptions.map(m =>
-              <PopoverMenuItem key={"goal-item-" + m.label} onClick={m.onClick(goal)}>
-                {m.label}
-              </PopoverMenuItem>
-            )}
-          </SidebarPopover>
+          return (
+            <GoalCard
+              key={"goal-" + goal.productId}
+              goal={goal}
+              resultCount={resultCount}
+              error={goalError}
+              onUpdate={addGoal}
+              onEdit={() => setEditGoal(goal)}
+              onRemove={() =>
+                store.setState(state => ({ goals: state.goals.filter(c => c.productId !== goal.productId) }))
+              }
+              onAddProducer={() => addNewRecipe({
+                productId: goal.productId,
+                produce: true,
+                position: { x: 0, y: 0 },
+                otherNode: "",
+              })}
+            />
+          );
         })}
-        <button onClick={() => setSelectProductDialog(true)} className="cursor-pointer bg-gray-700 rounded hover:bg-gray-900 focus:bg-gray-900 active:bg-gray-900 ">
-          <div className="inline-flex text-center w-8 align-middle">
-            <PlusIcon />
-          </div>
+        <button onClick={() => setSelectProductDialog(true)} className="cursor-pointer w-full mt-1 flex items-center justify-center gap-1.5 py-1.5 rounded bg-gray-700 hover:bg-gray-600 active:bg-gray-900 text-xs text-gray-300">
+          <PlusIcon className="w-3.5 h-3.5" />
+          Add Goal
         </button>
 
       </div>
@@ -330,8 +431,6 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
 
   // Derive direction reactively from the raw string — no separate isInput state
   const isInput = rawInput.startsWith('-');
-  const parsedQty = parseFloat(rawInput);
-  const absQty = isNaN(parsedQty) ? 0 : Math.abs(parsedQty);
 
   const updateQty = (e: ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value;
@@ -380,7 +479,7 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
         {[["Minimum of", "gt"], ["Exactly", "eq"], ["Maximum of", "lt"]].map(r => (
           <Field className="flex-1 justify-around gap-2" key={"goal-type-" + r[1]}>
             <Radio key={r[1]} value={r[1]} className="group block rounded border-1 data-checked:border-2 border-gray-700 data-checked:bg-teal-900 w-full h-full">
-              <Label >{r[0] + " " + formatNumber(absQty, productData.get(goalData.productId)!.unit)}</Label>
+              <Label >{r[0] + " " + formatNumber(goalData.qty, productData.get(goalData.productId)!.unit)}</Label>
             </Radio>
           </Field>
         ))}
@@ -396,6 +495,7 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
           type="text"
           inputMode="numeric"
           placeholder="50"
+          autoFocus
         />
         <span className="text-xs mt-2 text-gray-400">
           60 <ClockIcon className="inline w-4 pb-1  text-gray-500" />
@@ -416,7 +516,7 @@ export function ProductGoal({ goal, resultCount, error }: { goal: FactoryGoal, r
     <div className="flex-1 max-w-10 justify-self-start">
       <img className="w-full" src={productIcon(product.icon)} />
     </div>
-    <div className="flex-3 content-center-safe">{icons[goal.type]} {formatNumber(goal.qty, product.unit)}</div>
+    <div className="flex-3 content-center-safe">{{ gt: "≥", lt: "≤", eq: "=" }[goal.type]} {formatNumber(goal.qty, product.unit)}</div>
 
     <div className="verticalRule self-stretch w-0.5 bg-neutral-500 opacity-50"></div>
     <div className="w-full flex-2 content-center-safe justify-self-end-safe text-right text-nowrap">
