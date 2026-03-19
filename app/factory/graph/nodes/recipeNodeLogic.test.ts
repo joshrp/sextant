@@ -137,7 +137,7 @@ describe('recipeNodeLogic', () => {
         },
       }, 1, DEFAULT_ZONE_MODIFIERS);
 
-      expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(19.916666, 4);
+      expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(57.75, 4);
     });
 
     it('does not add disabled commodity inputs to recyclables', () => {
@@ -161,7 +161,7 @@ describe('recipeNodeLogic', () => {
         },
       }, 1, DEFAULT_ZONE_MODIFIERS);
 
-      expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(17.666666, 4);
+      expect(calculator.productOutput(ProductId('Product_Recyclables'))).toBeCloseTo(51, 4);
     });
 
     it('computes per-material scrap breakdown from enabled inputs', () => {

@@ -84,10 +84,9 @@ export default function BalancerNodeView({
         </div>
       </div>
 
-      <div className="products flex flex-row gap-2 text-xl  justify-center mt-4 mb-8">
+      <div className="products flex flex-row gap-2 text-xl justify-between mb-8">
         <HandleList
           pos={Position.Left}
-          className='justify-center'
           inputs={ltr}
         >
           {leftProducts.map(prod => {
@@ -123,7 +122,6 @@ export default function BalancerNodeView({
         </div>
         <HandleList
           pos={Position.Right}
-          className='justify-center'
           inputs={!ltr}
         >
           {rightProducts.map(prod => {

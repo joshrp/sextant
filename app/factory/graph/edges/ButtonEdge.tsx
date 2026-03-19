@@ -4,7 +4,7 @@ import {
   type Edge,
   EdgeLabelRenderer,
   type EdgeProps,
-  getSimpleBezierPath,
+  getSmoothStepPath,
   useOnSelectionChange,
   useReactFlow
 } from "@xyflow/react";
@@ -84,20 +84,21 @@ export default function ButtonEdge({
     targetPosition,
     nodes,
     options: {
-      gridRatio: 20,
-      nodePadding: 50,
+      gridRatio: 10,
+      nodePadding: 40,
       generatePath: pathfindingAStarNoDiagonal,
     },
   });
 
   if (getSmartEdgeResponse instanceof Error) {
-    const bezier = getSimpleBezierPath({
+    const bezier = getSmoothStepPath({
       sourceX,
       sourceY,
       sourcePosition,
       targetX,
       targetY,
       targetPosition,
+
     });
     svgPathString = bezier[0];
     edgeCenterX = bezier[1];

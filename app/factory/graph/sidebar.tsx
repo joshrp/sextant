@@ -38,9 +38,10 @@ type GoalCardProps = {
   onEdit: () => void;
   onRemove: () => void;
   onAddProducer: () => void;
+  onAddConsumer: () => void;
 };
 
-function GoalCard({ goal, resultCount, error, onUpdate, onEdit, onRemove, onAddProducer }: GoalCardProps) {
+function GoalCard({ goal, resultCount, error, onUpdate, onEdit, onRemove, onAddProducer, onAddConsumer }: GoalCardProps) {
   const product = productData.get(goal.productId);
   if (!product) return null;
 
@@ -124,7 +125,11 @@ function GoalCard({ goal, resultCount, error, onUpdate, onEdit, onRemove, onAddP
         >
           <PopoverMenuItem onClick={onEdit}>Edit</PopoverMenuItem>
           <PopoverMenuItem onClick={onRemove}>Remove</PopoverMenuItem>
-          <PopoverMenuItem onClick={onAddProducer}>Add Producer</PopoverMenuItem>
+          {isInput ? (
+            <PopoverMenuItem onClick={onAddConsumer}>Add Consumer</PopoverMenuItem>
+          ) : (
+            <PopoverMenuItem onClick={onAddProducer}>Add Producer</PopoverMenuItem>
+          )}
         </SidebarPopover>
       </div>
 
@@ -285,6 +290,12 @@ function SideBar({ addNewRecipe }: props) {
               onAddProducer={() => addNewRecipe({
                 productId: goal.productId,
                 produce: true,
+                position: { x: 0, y: 0 },
+                otherNode: "",
+              })}
+              onAddConsumer={() => addNewRecipe({
+                productId: goal.productId,
+                produce: false,
                 position: { x: 0, y: 0 },
                 otherNode: "",
               })}

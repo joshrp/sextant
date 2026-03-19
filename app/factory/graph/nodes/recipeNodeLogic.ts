@@ -256,6 +256,10 @@ export const RecipeNodeCalculator = (
       // When recycling is disabled, scrap outputs are zeroed
       if (nodeOptions?.useRecycling === false && output.product.isScrap) return 0;
       let qty = output.quantity;
+      // Data values are at 60% efficiency — scale to zone modifier level
+      if (output.product.isScrap || output.product.id === recyclablesProductId) {
+        qty *= modifiers.recyclingEfficiency / 0.60;
+      }
       if (recipe.isMaintenanceProducer) qty *= modifiers.maintenanceOutput;
       if (recipe.isFarm) qty *= modifiers.farmYield;
       if (recipe.usesSolarPower) qty *= modifiers.solarOutput;

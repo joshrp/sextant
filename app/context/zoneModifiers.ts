@@ -21,7 +21,7 @@ export interface ZoneModifiers {
 }
 
 export const DEFAULT_ZONE_MODIFIERS: ZoneModifiers = {
-  recyclingEfficiency: 0.20,
+  recyclingEfficiency: 0.60,
   maintenanceConsumption: 1.0,
   maintenanceOutput: 1.0,
   farmYield: 1.0,
@@ -64,7 +64,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
     min: 0.01,
     max: 1,
     step: 0.05,
-    default: 0.20,
+    default: 0.60,
     group: 'recycling',
     isMultiplier: false,
 

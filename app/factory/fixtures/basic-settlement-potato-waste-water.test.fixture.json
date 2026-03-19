@@ -336,27 +336,27 @@
         },
         {
           "productId": "Product_Recyclables",
-          "amount": 5.33
+          "amount": 15.99
         },
         {
           "productId": "Product_IronScrap",
-          "amount": 0.933333
+          "amount": 2.8
         },
         {
           "productId": "Product_BrokenGlass",
-          "amount": 0.473333
+          "amount": 1.42
         },
         {
           "productId": "Product_CopperScrap",
-          "amount": 3.22333
+          "amount": 9.67
         },
         {
           "productId": "Product_GoldScrap",
-          "amount": 0.34
+          "amount": 1.02
         },
         {
           "productId": "Product_AluminumScrap",
-          "amount": 0.36
+          "amount": 1.08
         },
         {
           "productId": "Product_Brine",
@@ -404,12 +404,12 @@
       "c5": 0,
       "o_Product_Waste": 29.3,
       "o_Product_Biomass": 0,
-      "o_Product_Recyclables": 5.33,
-      "o_Product_IronScrap": 0.933333,
-      "o_Product_BrokenGlass": 0.473333,
-      "o_Product_CopperScrap": 3.22333,
-      "o_Product_GoldScrap": 0.34,
-      "o_Product_AluminumScrap": 0.36,
+      "o_Product_Recyclables": 15.99,
+      "o_Product_IronScrap": 2.8,
+      "o_Product_BrokenGlass": 1.42,
+      "o_Product_CopperScrap": 9.67,
+      "o_Product_GoldScrap": 1.02,
+      "o_Product_AluminumScrap": 1.08,
       "c6": 0,
       "i_Product_FertilizerOrganic": -9.50502,
       "i_Product_Seawater": -48.8793,
