@@ -257,7 +257,7 @@ export const RecipeNodeCalculator = (
       if (nodeOptions?.useRecycling === false && output.product.isScrap) return 0;
       let qty = output.quantity;
       // Data values are at 60% efficiency — scale to zone modifier level
-      if (output.product.isScrap || output.product.id === recyclablesProductId) {
+      if (output.product.isScrap) {
         qty *= modifiers.recyclingEfficiency / 0.60;
       }
       if (recipe.isMaintenanceProducer) qty *= modifiers.maintenanceOutput;
