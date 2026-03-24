@@ -332,7 +332,7 @@
         },
         {
           "productId": "Product_Biomass",
-          "amount": 0
+          "amount": 4.32
         },
         {
           "productId": "Product_Recyclables",
@@ -403,7 +403,7 @@
       "o_Product_Virtual_Workers": 1000,
       "c5": 0,
       "o_Product_Waste": 29.3,
-      "o_Product_Biomass": 0,
+      "o_Product_Biomass": 4.32,
       "o_Product_Recyclables": 15.99,
       "o_Product_IronScrap": 2.8,
       "o_Product_BrokenGlass": 1.42,

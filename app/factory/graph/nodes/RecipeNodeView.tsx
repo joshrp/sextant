@@ -175,7 +175,7 @@ export default function RecipeNodeView({
 
       <div className="recipe-node-infra-bar mt-2 flex justify-start align-start gap-2 border-white/20 pt-4 mb-1 pb-0 border-t-2">
         <InfrastructureIcon name="Electricity" icon={uiIcon("Electricity")}
-          net={calculateElectricityNet(recipe.machine, runCount).net}
+          net={calculateElectricityNet(recipe, runCount).net}
           unit="kW" />
         <InfrastructureIcon name={`Workers (${recipe.machine.workers}) x ${Math.ceil(runCount)}`} icon={uiIcon("Worker")}
           amount={getQuantityDisplay(recipe.machine.workers, Math.ceil(runCount) /* TODO:: Is this correct? Do workers get consumed even when the building is idle */, "")} />

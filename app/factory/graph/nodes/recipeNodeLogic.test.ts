@@ -119,8 +119,11 @@ describe('recipeNodeLogic', () => {
     it('adds recyclables from enabled settlement commodity inputs', () => {
       const recipe = makeRecipe({
         inputs: [
+          // 30.9 + 3.999 + 9 + 6 = 49.9
           { id: 'Product_ConsumerElectronics', quantity: 30 },
+          // 4.5 + 9 = 13.5
           { id: 'Product_HouseholdGoods', quantity: 3 },
+          // 12 + 25.5 + 3 = 40.5
           { id: 'Product_HouseholdAppliances', quantity: 4 },
         ],
         outputs: [{ id: 'Product_Recyclables', quantity: 1 }],

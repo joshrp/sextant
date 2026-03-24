@@ -1,7 +1,11 @@
 {
+  "version": "1.0.3",
   "name": "sextant",
   "private": true,
   "type": "module",
+  "repository": {
+    "url": "https://github.com/joshrp/sextant"
+  },
   "scripts": {
     "build": "react-router build && cp build/client/index.html build/client/404.html",
     "dev": "react-router dev",

@@ -54,7 +54,7 @@ function calculateMachineUsage(
     if (!recipe) return;
 
     const runCount = node.data.solution?.solved ? node.data.solution.runCount : 1;
-    const netInfra = calculateInfrastructureNet(recipe.machine, runCount, type);
+    const netInfra = calculateInfrastructureNet(recipe, runCount, type);
 
     if (netInfra.consumed === 0 && netInfra.generated === 0) return;
 

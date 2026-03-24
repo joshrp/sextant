@@ -151,7 +151,7 @@ export default function SettlementNodeView({
           </button>
         </div>
         <div className="flex-10 text-center text-xl flex items-center justify-center gap-2">
-          <span className="tracking-wide font-semibold text-3xl">Settlement</span>
+          <span className="tracking-wide font-semibold text-3xl font-[Georgia]">{recipe.name}</span>
           <HelpLink topic="settlements" title="Settlements" iconSize="w-10" />
           {recipe.machine.isBalancer && <HelpLink topic="balancer" title="Learn about Balancers" iconSize="w-5 h-5" />}
         </div>

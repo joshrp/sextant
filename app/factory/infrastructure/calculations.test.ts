@@ -14,12 +14,31 @@ import {
   calculateComputingNet,
   calculateInfrastructureNet,
 } from './calculations';
-import type { Machine, ProductId } from '../graph/loadJsonData';
+import type { Machine, MachineId, ProductId, Recipe, RecipeId } from '../graph/loadJsonData';
 
 // Helper to create a test machine with default values
+// Minimal mock recipe for test machines
+const mockRecipe = {
+  id: 'TestRecipe' as RecipeId,
+  name: 'Test Recipe',
+  type: 'recipe',
+  duration: 60,
+  origDuration: 60,
+  powerMult: 1,
+  isMaintenance: false,
+  isMaintenanceProducer: false,
+  isFarm: false,
+  usesSolarPower: false,
+  isRainWaterHarvester: false,
+  machine: undefined as unknown as Machine, // Will be set after machine is created
+  inputs: [],
+  outputs: [],
+} as Recipe;
+
 function createTestMachine(overrides: Partial<Machine> = {}): Machine {
-  return {
-    id: 'TestMachine',
+  // Create the machine object first
+  const machine: Machine = {
+    id: 'TestMachine' as MachineId,
     name: 'Test Machine',
     category_id: 'TestCategory',
     workers: 0,
@@ -32,11 +51,15 @@ function createTestMachine(overrides: Partial<Machine> = {}): Machine {
     unity_cost: 0,
     research_speed: 0,
     isFarm: false,
-    recipes: [],
+    recipes: [], // Will set below
     icon: 'test.png',
     buildCosts: [],
     ...overrides,
   } as Machine;
+  // Attach a mock recipe referencing this machine
+  const recipe = { ...mockRecipe, machine };
+  machine.recipes = [recipe];
+  return machine;
 }
 
 describe('Infrastructure Calculations', () => {
@@ -199,7 +222,7 @@ describe('Infrastructure Calculations', () => {
         electricity_generated: 2000,
       });
       
-      const result = calculateElectricityNet(generator, 1);
+        const result = calculateElectricityNet(generator.recipes[0], 1);
       
       expect(result.consumed).toBe(0);
       expect(result.generated).toBe(2000);
@@ -212,7 +235,7 @@ describe('Infrastructure Calculations', () => {
         electricity_generated: 0,
       });
       
-      const result = calculateElectricityNet(consumer, 1);
+        const result = calculateElectricityNet(consumer.recipes[0], 1);
       
       expect(result.consumed).toBe(100);
       expect(result.generated).toBe(0);
@@ -225,7 +248,7 @@ describe('Infrastructure Calculations', () => {
         electricity_generated: 200,
       });
       
-      const result = calculateElectricityNet(hybrid, 1);
+        const result = calculateElectricityNet(hybrid.recipes[0], 1);
       
       expect(result.consumed).toBe(500);
       expect(result.generated).toBe(200);
@@ -238,7 +261,7 @@ describe('Infrastructure Calculations', () => {
         electricity_generated: 2000,
       });
       
-      const result = calculateElectricityNet(generator, 2.5);
+        const result = calculateElectricityNet(generator.recipes[0], 2.5);
       
       expect(result.consumed).toBe(0);
       expect(result.generated).toBe(5000);
@@ -253,7 +276,7 @@ describe('Infrastructure Calculations', () => {
         computing_generated: 4,
       });
       
-      const result = calculateComputingNet(serverRack, 1);
+        const result = calculateComputingNet(serverRack.recipes[0].machine, 1);
       
       expect(result.consumed).toBe(0);
       expect(result.generated).toBe(4);
@@ -266,7 +289,7 @@ describe('Infrastructure Calculations', () => {
         computing_generated: 0,
       });
       
-      const result = calculateComputingNet(consumer, 1);
+        const result = calculateComputingNet(consumer.recipes[0].machine, 1);
       
       expect(result.consumed).toBe(2);
       expect(result.generated).toBe(0);
@@ -279,7 +302,7 @@ describe('Infrastructure Calculations', () => {
         computing_generated: 4,
       });
       
-      const result = calculateComputingNet(serverRack, 3);
+        const result = calculateComputingNet(serverRack.recipes[0].machine, 3);
       
       expect(result.consumed).toBe(0);
       expect(result.generated).toBe(12);
@@ -293,9 +316,7 @@ describe('Infrastructure Calculations', () => {
         electricity_consumed: 0,
         electricity_generated: 2000,
       });
-      
-      const result = calculateInfrastructureNet(generator, 1, 'electricity');
-      
+      const result = calculateInfrastructureNet(generator.recipes[0], 1, 'electricity');
       expect(result.consumed).toBe(0);
       expect(result.generated).toBe(2000);
       expect(result.net).toBe(-2000);
@@ -306,9 +327,7 @@ describe('Infrastructure Calculations', () => {
         computing_consumed: 0,
         computing_generated: 4,
       });
-      
-      const result = calculateInfrastructureNet(serverRack, 1, 'computing');
-      
+      const result = calculateInfrastructureNet(serverRack.recipes[0], 1, 'computing');
       expect(result.consumed).toBe(0);
       expect(result.generated).toBe(4);
       expect(result.net).toBe(-4);
@@ -318,9 +337,7 @@ describe('Infrastructure Calculations', () => {
       const machine = createTestMachine({
         workers: 10,
       });
-      
-      const result = calculateInfrastructureNet(machine, 1, 'workers');
-      
+      const result = calculateInfrastructureNet(machine.recipes[0], 1, 'workers');
       expect(result.consumed).toBe(10);
       expect(result.generated).toBe(0);
       expect(result.net).toBe(10);
@@ -333,9 +350,7 @@ describe('Infrastructure Calculations', () => {
           quantity: 5,
         },
       });
-      
-      const result = calculateInfrastructureNet(machine, 1, 'maintenance_1');
-      
+      const result = calculateInfrastructureNet(machine.recipes[0], 1, 'maintenance_1');
       expect(result.consumed).toBe(5);
       expect(result.generated).toBe(0);
       expect(result.net).toBe(5);
@@ -345,9 +360,7 @@ describe('Infrastructure Calculations', () => {
       const machine = createTestMachine({
         footprint: [4, 6],
       });
-      
-      const result = calculateInfrastructureNet(machine, 1, 'footprint');
-      
+      const result = calculateInfrastructureNet(machine.recipes[0], 1, 'footprint');
       expect(result.consumed).toBe(24);
       expect(result.generated).toBe(0);
       expect(result.net).toBe(24);

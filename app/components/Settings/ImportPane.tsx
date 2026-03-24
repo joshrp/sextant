@@ -1031,7 +1031,7 @@ function ModifierImportSection({
 
   const formatVal = (key: keyof ZoneModifiers, val: number) => {
     const meta = MODIFIER_META[key];
-    return meta.isAbsolute ? `${Math.round(val * 100)}%` : `×${val.toFixed(2)}`;
+    return meta.isMultiplier ? `${Math.round(val * 100)}%` : `×${val.toFixed(2)}`;
   };
 
   return (

@@ -189,7 +189,7 @@ export const SettlementCalculator = (
     }
 
     if (output.product.id === recyclablesProductId) {
-      baseQty = baseQty.plus(totalRecyclablesOutput(inputRatios).mul(modifiers.recyclingEfficiency / 0.60));
+      baseQty = baseQty.plus(totalRecyclablesOutput(inputRatios)).mul(modifiers.recyclingEfficiency / 0.60);
     }
 
     // Override scrap breakdown outputs with dynamic values from enabled inputs
@@ -215,6 +215,21 @@ export const SettlementCalculator = (
       outputRatios[outputId] = Big(0);
     }
   }
+
+  outputRatios[ProductId('Product_Biomass')] = Big(
+    inputRatios[ProductId('Product_Potato')] ?? 0
+  ).plus(
+    inputRatios[ProductId('Product_Corn')] ?? 0
+  ).plus(
+    inputRatios[ProductId('Product_Eggs')] ?? 0
+  ).plus(
+    inputRatios[ProductId('Product_Vegetables')] ?? 0
+  ).plus(
+    inputRatios[ProductId('Product_Fruit')] ?? 0
+  ).mul(Big(0.12)).plus(
+    Big(0.4).mul(inputRatios[ProductId('Product_HouseholdGoods')] ?? 0)
+  );
+
 
   // Waste here, after everything else is known
   // If Biomass is not enabled add it to waste and turn it's output to 0
@@ -256,10 +271,16 @@ export const RecipeNodeCalculator = (
       // When recycling is disabled, scrap outputs are zeroed
       if (nodeOptions?.useRecycling === false && output.product.isScrap) return 0;
       let qty = output.quantity;
-      // Data values are at 60% efficiency — scale to zone modifier level
-      if (output.product.isScrap) {
+      if (output.product.id === recyclablesProductId) {
+        // Add up the scrap values from inputs to get the total recyclables output, then apply efficiency modifier
+        qty = totalRecyclablesOutput(Object.fromEntries(recipe.inputs.map(i => [i.product.id, i.quantity]))).toNumber();
+      }
+
+      if (output.product.isScrap || output.product.id === recyclablesProductId) {
+        // Data values are at 60% efficiency — scale to zone modifier level
         qty *= modifiers.recyclingEfficiency / 0.60;
       }
+
       if (recipe.isMaintenanceProducer) qty *= modifiers.maintenanceOutput;
       if (recipe.isFarm) qty *= modifiers.farmYield;
       if (recipe.usesSolarPower) qty *= modifiers.solarOutput;

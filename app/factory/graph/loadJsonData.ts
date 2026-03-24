@@ -133,6 +133,7 @@ export type RecipeBase = {
   tiersLink?: string;
   duration: number;
   origDuration: number;
+  powerMult: number;
   /** Pre-computed at reformat time: recipe consumes maintenance products */
   isMaintenance: boolean;
   /** Pre-computed at reformat time: recipe produces maintenance products */

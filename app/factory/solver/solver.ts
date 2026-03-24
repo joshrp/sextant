@@ -580,7 +580,7 @@ export default class Solver {
       constraint.terms.push({
         id: label,
         nodeId: nodeId,
-        value: recipe.machine.electricity_consumed,
+        value: recipe.machine.electricity_consumed * recipe.powerMult,
         sign: "+",
         weight: 1,
         isInput: true,

@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState, type HTMLAttributes } from 'react';
 import { TrashIcon } from '@heroicons/react/24/outline';
 import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
 import { Position } from '@xyflow/react';
 import HelpLink from '~/components/HelpLink';
-import { formatNumber, machineIcon, productBackground } from '~/uiUtils';
+import { formatNumber, formatSignedInfra, machineIcon, maintenanceIcon, maintenanceName, productBackground, uiIcon } from '~/uiUtils';
 import type { HighlightModes } from '../../../context/store';
 import { HandleList, ProductHandle } from '../handles';
 import type { ProductId, Recipe } from '../loadJsonData';
-import { ThermalStorageCalculator, type ThermalStorageNodeOptions } from './recipeNodeLogic';
+import { getQuantityDisplay, ThermalStorageCalculator, type ThermalStorageNodeOptions } from './recipeNodeLogic';
 import { type ZoneModifiers } from '~/context/zoneModifiers';
+import { calculateComputingNet, calculateElectricityNet } from '~/factory/infrastructure/calculations';
 
 
 type ProductEdges = Map<ProductId, boolean>;
@@ -174,6 +175,63 @@ export default function ThermalStorageNodeView({
           })}
         </HandleList>
       </div>
+      <div className="recipe-node-infra-bar mt-2 flex justify-start align-start gap-2 border-white/20 pt-4 mb-1 pb-0 border-t-2">
+        <InfrastructureIcon name="Electricity" icon={uiIcon("Electricity")}
+          net={calculateElectricityNet(recipe, runCount).net}
+          unit="kW" />
+        <InfrastructureIcon name={`Workers (${recipe.machine.workers}) x ${Math.ceil(runCount)}`} icon={uiIcon("Worker")}
+          amount={getQuantityDisplay(recipe.machine.workers, Math.ceil(runCount) /* TODO:: Is this correct? Do workers get consumed even when the building is idle */, "")} />
+        <InfrastructureIcon name={maintenanceName(recipe.machine)} icon={maintenanceIcon(recipe.machine)}
+          amount={getQuantityDisplay((recipe.machine.maintenance_cost?.quantity || 0) * modifiers.maintenanceConsumption, runCount, "")} />
+        <InfrastructureIcon name="Computing" icon={uiIcon("Computing")}
+          net={calculateComputingNet(recipe.machine, runCount).net}
+          unit="TFlops" />
+        <InfrastructureIcon name={`Tile Footprint (${recipe.machine.footprint?.[0]} x ${recipe.machine.footprint?.[1]}) x ${Math.ceil(runCount)}`} icon={uiIcon("Move128")} iconClassName="rotate-45 scale-120"
+          amount={getQuantityDisplay(recipe.machine.footprint?.reduce((a, i) => a *= i, 1) || 0, Math.ceil(runCount), "")} />
+      </div>
+    </div >
+  );}
+
+function InfrastructureIcon({
+  name,
+  icon,
+  amount,
+  net,
+  unit,
+  iconClassName = ""
+}: {
+  name: string,
+  icon: string,
+  amount?: string,
+  net?: number,
+  unit?: string,
+  iconClassName?: string
+}) {
+  // If net and unit are provided, use signed formatting
+  let displayAmount = amount;
+  let colorClass = '';
+  let iconColourShift: HTMLAttributes<HTMLDivElement>['className'] = '';
+  if (net !== undefined && unit !== undefined) {
+    const formatted = formatSignedInfra(net, unit);
+    displayAmount = formatted.text;
+
+    if (formatted.color === 'green') {
+      colorClass = 'text-green-600';
+      iconColourShift = 'filterGreenShift';
+    }
+  }
+
+  // Check if value is zero - handle various formatted cases
+  const isZero = net !== undefined
+    ? Math.abs(net) < 0.0001  // Use numeric check for net values
+    : (displayAmount?.startsWith("0 ") || displayAmount === "0");
+
+  return (
+    <div data-zero={isZero ? true : null} className="flex-1 text-center text-xl text-gray-400 data-zero:opacity-20 data-zero:grayscale">
+      <div className="h-8">
+        <img src={icon} className={"h-full mx-auto " + iconColourShift + iconClassName} title={name} />
+      </div>
+      <div className={"text-nowrap " + colorClass}>{displayAmount}</div>
     </div>
   );
 }

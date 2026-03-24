@@ -297,8 +297,8 @@ export async function formatProductData(rawProducts: RawProduct[]) {
   // Mark scrap products (and their pressed variants) with isScrap flag
   const scrapProductNames = new Set(Object.values(recyclablesMaterialToProductName));
   for (const product of productData.values()) {
-    if (scrapProductNames.has(product.name) || 
-        [...scrapProductNames].some(name => product.name === `${name} pressed`)) {
+    if (scrapProductNames.has(product.name) ||
+      [...scrapProductNames].some(name => product.name === `${name} pressed`)) {
       product.isScrap = true;
     }
   }
@@ -316,102 +316,45 @@ function modifyMachineData(rawMachine: RawMachine): RawMachine {
   // Fix any known issues with raw machine data here
   switch (rawMachine.id) {
     case "Housing": {
-      // The values below are per 1000 workers. 
-      // https://wiki.coigame.com/Settlement
-      // storage_capacity is the number of workers for this tier
-      const inputRatio = Big(rawMachine.storage_capacity).div(1000);
       rawMachine.isSettlement = true;
-      rawMachine.recipes.push({
-        id: "Housing_Workers",
-        name: "Worker Settlement",
-        duration: 60,
-        isSettlement: true,
+      rawMachine.recipes = [makeHousingRecipe(rawMachine, {})];
+      break;
+    }
+    case "HousingT2": {
+      rawMachine.isSettlement = true;
+      const adjust: Record<string, Big> = {
+        Electricity: Big(1.1),
+        Water: Big(1.05),
+        "Waste water": Big(1.05),
+      };
 
-        power_multiplier: 1,
-        inputs: [{
-          name: "Water",
-          quantity: inputRatio.mul(48).toNumber(),
-        }, {
-          name: "Household goods",
-          quantity: inputRatio.mul(10).toNumber(),
-        }, {
-          name: "Household appliances",
-          quantity: inputRatio.mul(7).toNumber(),
-        }, {
-          name: "Electricity",
-          quantity: inputRatio.mul(1100).toNumber(), // 1.1 MW per 80 workers
-        }, {
-          name: "Computing",
-          quantity: inputRatio.mul(57.6).toNumber(), // 57.6 TFlops per 80 workers
-        }, {
-          name: "Luxury goods",
-          quantity: inputRatio.mul(3.6).toNumber(),
-        }, {
-          name: "Consumer electronics",
-          quantity: inputRatio.mul(3.6).toNumber(),
-        }, {
-          name: "Medical Supplies",
-          quantity: inputRatio.mul(5).toNumber(),
-        }, {
-          name: "Medical Supplies II",
-          quantity: inputRatio.mul(5).toNumber(),
-        }, {
-          name: "Medical Supplies III",
-          quantity: inputRatio.mul(5).toNumber(),
-        },
-        // Their base numbers are given and adjusted down by what else is provided
-        {
-          name: "Potato",
-          quantity: inputRatio.mul(42).toNumber(),
-        }, {
-          name: "Corn",
-          quantity: inputRatio.mul(30).toNumber(),
-        }, {
-          name: "Bread",
-          quantity: inputRatio.mul(20).toNumber(),
-        }, {
-          name: "Meat",
-          quantity: inputRatio.mul(27).toNumber(),
-        }, {
-          name: "Eggs",
-          quantity: inputRatio.mul(30).toNumber(),
-        }, {
-          name: "Tofu",
-          quantity: inputRatio.mul(18).toNumber(),
-        }, {
-          name: "Sausage",
-          quantity: inputRatio.mul(33.5).toNumber(),
-        }, {
-          name: "Vegetables",
-          quantity: inputRatio.mul(42).toNumber(),
-        }, {
-          name: "Fruit",
-          quantity: inputRatio.mul(31.5).toNumber(),
-        }, {
-          name: "Snack",
-          quantity: inputRatio.mul(26).toNumber(),
-        }, {
-          name: "Cake",
-          quantity: inputRatio.mul(25).toNumber(),
-        }
-        ],
-        outputs: [{
-          name: "Product_Virtual_Workers",
-          quantity: 80,
-        }, {
-          name: "Waste water",
-          quantity: inputRatio.mul(40).toNumber(),
-        }, {
-          name: "Waste",
-          quantity: inputRatio.mul(29.3).toNumber(),
-        }, {
-          name: "Biomass",
-          quantity: 0,
-        }, {
-          name: "Recyclables",
-          quantity: 0,
-        }],
-      });
+      rawMachine.recipes = [makeHousingRecipe(rawMachine, adjust)];
+      break;
+    }
+    case "HousingT3": {
+      rawMachine.isSettlement = true;
+      const adjust: Record<string, Big> = {
+        Electricity: Big(1.2),
+        Water: Big(1.1),
+        "Waste water": Big(1.1),
+        "Household goods": Big(1.05),
+      };
+
+      rawMachine.recipes = [makeHousingRecipe(rawMachine, adjust)];
+      break;
+    }
+    case "HousingT4": {
+      rawMachine.isSettlement = true;
+      const adjust: Record<string, Big> = {
+        Electricity: Big(1.4),
+        Water: Big(1.2),
+        "Waste Water": Big(1.2),
+        "Household goods": Big(1.1),
+        "Luxury goods": Big(1.1),
+        "Household appliances": Big(1.1),
+      }
+
+      rawMachine.recipes = [makeHousingRecipe(rawMachine, adjust)];
       break;
     }
     case 'DataCenter': {
@@ -556,8 +499,9 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       }
     }
 
-    
 
+
+    /** Machine Recipes */
     for (const rawRecipe of rawMachine.recipes) {
       let newRecipeId = rawRecipe.id as Recipe["id"];
       const duration = rawRecipe.duration || 60; // Default to 60 seconds if no duration is specified
@@ -656,6 +600,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
         isFarm: rawMachine.id.includes('Farm'),
         usesSolarPower: SOLAR_PANEL_MACHINE_IDS.has(rawMachine.id),
         isRainWaterHarvester: rawMachine.id === "RainwaterHarvester",
+        powerMult: rawRecipe.power_multiplier || 1,
       };
 
       recipeData.set(newRecipeId, recipe);
@@ -717,6 +662,7 @@ export async function initialMachineAndRecipeData(rawMachinesAndBuildings: RawMa
       isFarm: false,
       usesSolarPower: false,
       isRainWaterHarvester: false,
+      powerMult: 1,
     };
     recipeData.set(BalancerRecipe.id, BalancerRecipe);
     machine.recipes.push(BalancerRecipe.id);
@@ -804,6 +750,7 @@ function addContractRecipes(
       isFarm: false,
       usesSolarPower: false,
       isRainWaterHarvester: false,
+      powerMult: 1,
     };
 
     recipeData.set(recipeId, recipe);
@@ -849,19 +796,21 @@ function addThermalStorageRecipes(
     id: thermalStorageMachineId,
     name: "Thermal Storage",
     category_id: "ThermalStorage" as Machine["category_id"],
-    workers: 0,
+    workers: 4,
     workers_generated: 0,
     recipes: [],
     buildCosts: [],
     isBalancer: false,
     isFarm: false,
-    electricity_consumed: 0,
+    electricity_consumed: 200,
     electricity_generated: 0,
     computing_consumed: 0,
     computing_generated: 0,
     storage_capacity: 0,
     unity_cost: 0,
     research_speed: 0,
+    footprint: [7,18],
+    maintenance_cost: { id: "Product_Virtual_MaintenanceT1" as ProductId, quantity: 3.8 },
   };
   machineData.set(thermalStorageMachineId, thermalStorageMachine);
 
@@ -901,6 +850,7 @@ function addThermalStorageRecipes(
       isFarm: false,
       usesSolarPower: false,
       isRainWaterHarvester: false,
+      powerMult: 1,
     };
 
     recipeData.set(recipeId, recipe);
@@ -953,4 +903,133 @@ function formatColor(rawColor: RawProduct["color"]): string {
   const rgba = rawColor.replace(/[()]/g, "").split(",").map(Number);
   const [r, g, b] = rgba;
   return rgbToHex(r, g, b);
+}
+
+function makeHousingRecipe(rawMachine: RawMachine, adjustments: Record<string, Big>): RawRecipe {
+  rawMachine.isSettlement = true;
+  // Storage capacity is the number of workers it makes
+  const baseRatios = housingBaseRatios(rawMachine.storage_capacity);
+
+  return {
+    id: rawMachine.id + "_Workers",
+    name: rawMachine.name,
+    duration: 60,
+    isSettlement: true,
+    power_multiplier: 1,
+    inputs: baseRatios.inputs.map(i => {
+      return {
+        name: i.name,
+        quantity: i.quantity.mul(adjustments[i.name] ?? Big(1)).toNumber(),
+      }
+    }),
+    outputs: baseRatios.outputs.map(o => {
+      return {
+        name: o.name,
+        quantity: o.quantity.mul(adjustments[o.name] ?? Big(1)).toNumber(),
+      }
+    }),
+  }
+}
+
+/**
+ * Return the amount of each input required for 1 full settlement
+ * Base amounts used here are per 1000 workers. 
+ * https://wiki.coigame.com/Settlement
+ */
+function housingBaseRatios(workersPer: number): {
+  inputs: {
+    name: string;
+    quantity: Big;
+  }[],
+  outputs: {
+    name: string;
+    quantity: Big;
+  }[]
+} {
+  const inputRatio = Big(workersPer).div(1000);
+
+  return {
+    inputs: [{
+      name: "Water",
+      quantity: inputRatio.mul(48),
+    }, {
+      name: "Household goods",
+      quantity: inputRatio.mul(10),
+    }, {
+      name: "Household appliances",
+      quantity: inputRatio.mul(7),
+    }, {
+      name: "Electricity",
+      quantity: inputRatio.mul(1100), // 1.1 MW per 80 workers
+    }, {
+      name: "Computing",
+      quantity: inputRatio.mul(57.6), // 57.6 TFlops per 80 workers
+    }, {
+      name: "Luxury goods",
+      quantity: inputRatio.mul(3.6),
+    }, {
+      name: "Consumer electronics",
+      quantity: inputRatio.mul(3.6),
+    }, {
+      name: "Medical Supplies",
+      quantity: inputRatio.mul(5),
+    }, {
+      name: "Medical Supplies II",
+      quantity: inputRatio.mul(5),
+    }, {
+      name: "Medical Supplies III",
+      quantity: inputRatio.mul(5),
+    }, {
+      name: "Potato",
+      quantity: inputRatio.mul(42),
+    }, {
+      name: "Corn",
+      quantity: inputRatio.mul(30),
+    }, {
+      name: "Bread",
+      quantity: inputRatio.mul(20),
+    }, {
+      name: "Meat",
+      quantity: inputRatio.mul(27),
+    }, {
+      name: "Eggs",
+      quantity: inputRatio.mul(30),
+    }, {
+      name: "Tofu",
+      quantity: inputRatio.mul(18),
+    }, {
+      name: "Sausage",
+      quantity: inputRatio.mul(33.5),
+    }, {
+      name: "Vegetables",
+      quantity: inputRatio.mul(42),
+    }, {
+      name: "Fruit",
+      quantity: inputRatio.mul(31.5),
+    }, {
+      name: "Snack",
+      quantity: inputRatio.mul(26),
+    }, {
+      name: "Cake",
+      quantity: inputRatio.mul(25),
+    }],
+    outputs: [
+      {
+        name: "Product_Virtual_Workers",
+        quantity: Big(workersPer),
+      }, {
+        name: "Waste water",
+        quantity: inputRatio.mul(40),
+      }, {
+        name: "Waste",
+        quantity: inputRatio.mul(29.3),
+      }, {
+        name: "Biomass",
+        quantity: Big(0),
+      }, {
+        name: "Recyclables",
+        quantity: Big(0),
+      }
+    ]
+  };
 }

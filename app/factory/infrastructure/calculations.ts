@@ -5,7 +5,7 @@
  * Extracted from RecipeNodeView for reusability and testability.
  */
 
-import type { Machine } from '../graph/loadJsonData';
+import type { Machine, Recipe } from '../graph/loadJsonData';
 
 /**
  * Infrastructure types that can be calculated
@@ -105,9 +105,9 @@ export function calculateFootprint(machine: Machine, runCount: number): number {
  * @param runCount - Number of times the machine runs
  * @returns Net electricity with consumed, generated, and net values
  */
-export function calculateElectricityNet(machine: Machine, runCount: number): NetInfrastructure {
-  const consumed = machine.electricity_consumed * runCount;
-  const generated = machine.electricity_generated * runCount;
+export function calculateElectricityNet(recipe: Recipe, runCount: number): NetInfrastructure {
+  const consumed = recipe.machine.electricity_consumed * recipe.powerMult * runCount;
+  const generated = recipe.machine.electricity_generated * runCount;
   return {
     consumed,
     generated,
@@ -184,24 +184,24 @@ export function calculateMaintenanceNet(machine: Machine, runCount: number, type
  * @returns Net infrastructure with consumed, generated, and net values
  */
 export function calculateInfrastructureNet(
-  machine: Machine, 
+  recipe: Recipe, 
   runCount: number, 
   type: InfrastructureType
 ): NetInfrastructure {
   switch (type) {
     case 'electricity':
-      return calculateElectricityNet(machine, runCount);
+      return calculateElectricityNet(recipe, runCount);
     case 'computing':
-      return calculateComputingNet(machine, runCount);
+      return calculateComputingNet(recipe.machine, runCount);
     case 'workers':
-      return calculateWorkersNet(machine, runCount);
+      return calculateWorkersNet(recipe.machine, runCount);
     case 'maintenance_1':
     case 'maintenance_2':
     case 'maintenance_3':
-      return calculateMaintenanceNet(machine, runCount, type);
+      return calculateMaintenanceNet(recipe.machine, runCount, type);
     case 'footprint': {
       // Footprint doesn't support generation
-      const consumed = calculateInfrastructure(machine, runCount, type);
+      const consumed = calculateInfrastructure(recipe.machine, runCount, type);
       return {
         consumed,
         generated: 0,
