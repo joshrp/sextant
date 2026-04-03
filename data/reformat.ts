@@ -307,8 +307,9 @@ export async function formatProductData(rawProducts: RawProduct[]) {
 }
 
 function getRecipeQty60(io: RawRecipe["inputs" | "outputs"][0], duration: number): number {
-  // Mech power doesn't scale with duration
+  // Mech power and electricity doesn't scale with duration
   if (io.name === "Mechanical power") return io.quantity
+  if (io.name === "Electricity") return io.quantity
   return (io.quantity * 60) / duration;
 }
 

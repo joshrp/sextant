@@ -14349,7 +14349,7 @@
       "outputs": [
         {
           "id": "Product_Virtual_Electricity",
-          "quantity": 2400
+          "quantity": 800
         },
         {
           "id": "Product_Virtual_PollutedAir",
@@ -14379,7 +14379,7 @@
       "outputs": [
         {
           "id": "Product_Virtual_Electricity",
-          "quantity": 15000
+          "quantity": 5000
         },
         {
           "id": "Product_Exhaust",
