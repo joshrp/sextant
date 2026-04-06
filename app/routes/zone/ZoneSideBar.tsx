@@ -142,7 +142,7 @@ export default function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { 
           </button>
           {expanded && <>
             <Link className="text-xs text-gray-400 hover:text-white cursor-pointer"
-              to={`./settings/importexport`}
+              to={`./settings/import`}
               title="Import Factory"
               data-testid="import-factory-link"
             >
