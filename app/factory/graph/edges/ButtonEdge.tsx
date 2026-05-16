@@ -8,7 +8,7 @@ import {
   useOnSelectionChange,
   useReactFlow
 } from "@xyflow/react";
-import { useCallback, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import useFactory, { useFactoryStore } from "~/context/FactoryContext";
 import type { HighlightModes } from "~/context/store";
 import { loadData, type ProductId } from "../loadJsonData";
@@ -29,18 +29,7 @@ export type ButtonEdge = Edge<ButtonEdgeData> & {
 };
 const products = loadData().products;
 
-// TODO: Component Testing - This component is complex and needs refactoring for testability:
-// 1. Extract product matching logic into a pure function (getAvailableProducts)
-// 2. Extract edge path calculation into a testable utility function
-// 3. Extract manifold state calculation into a pure function
-// 4. Separate edge rendering from edge selection/interaction logic
-// 5. Create smaller components:
-//    - EdgeLabel component (for displaying product info and manifold state)
-//    - EdgePathRenderer component (for rendering the visual edge)
-//    - ProductSelectionMenu component (if applicable)
-// 6. Add unit tests for extracted pure functions
-// 7. Add component tests for sub-components with mocked React Flow context
-export default function ButtonEdge({
+function ButtonEdge({
   id,
   sourceX,
   sourceY,
@@ -58,10 +47,9 @@ export default function ButtonEdge({
 }: EdgeProps<ButtonEdge>) {
   const { setEdges } = useReactFlow();
 
-  const manifoldOptions = useFactoryStore(state => state.manifoldOptions);
-
-  const nodes = useFactory().store.getState().nodes.filter(isRecipeNode);
+  const man = useFactoryStore(state => state.manifoldOptions.find(m => id in m.edges));
   const highlight = useFactoryStore(state => state.highlight);
+  const factoryStore = useFactory().store;
 
   const [hasSelectedHandle, setHasSelectedHandle] = useState(false);
   useOnSelectionChange({
@@ -71,51 +59,44 @@ export default function ButtonEdge({
       } else {
         setHasSelectedHandle(false);
       }
-    }, []),
+    }, [source, target]),
   })
 
-  let svgPathString, edgeCenterX, edgeCenterY;
-  const getSmartEdgeResponse = getSmartEdge({
-    sourceX,
-    sourceY,
-    sourcePosition,
-    targetX,
-    targetY,
-    targetPosition,
-    nodes,
-    options: {
-      gridRatio: 10,
-      nodePadding: 40,
-      generatePath: pathfindingAStarNoDiagonal,
-    },
-  });
-
-  if (getSmartEdgeResponse instanceof Error) {
-    const bezier = getSmoothStepPath({
+  const [svgPathString, edgeCenterX, edgeCenterY] = useMemo(() => {
+    const nodes = factoryStore.getState().nodes.filter(isRecipeNode);
+    const getSmartEdgeResponse = getSmartEdge({
       sourceX,
       sourceY,
       sourcePosition,
       targetX,
       targetY,
       targetPosition,
-
+      nodes,
+      options: {
+        gridRatio: 10,
+        nodePadding: 40,
+        generatePath: pathfindingAStarNoDiagonal,
+      },
     });
-    svgPathString = bezier[0];
-    edgeCenterX = bezier[1];
-    edgeCenterY = bezier[2];
-  } else {
-    svgPathString = getSmartEdgeResponse.svgPathString;
-    edgeCenterX = getSmartEdgeResponse.edgeCenterX;
-    edgeCenterY = getSmartEdgeResponse.edgeCenterY;
-  }
 
-  const onEdgeClick = () => {
+    if (getSmartEdgeResponse instanceof Error) {
+      const bezier = getSmoothStepPath({
+        sourceX,
+        sourceY,
+        sourcePosition,
+        targetX,
+        targetY,
+        targetPosition,
+      });
+      return [bezier[0], bezier[1], bezier[2]];
+    } else {
+      return [getSmartEdgeResponse.svgPathString, getSmartEdgeResponse.edgeCenterX, getSmartEdgeResponse.edgeCenterY];
+    }
+  }, [sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition, factoryStore]);
+
+  const onEdgeClick = useCallback(() => {
     setEdges((edges) => edges.filter((edge) => edge.id !== id));
-  };
-  const man = manifoldOptions.find(man => {
-    return new Set(Object.keys(man.edges)).has(id)
-
-  });
+  }, [id, setEdges]);
 
   const productColor = products.get(sourceHandleId as ProductId)?.color || "#333";
   const product = products.get(sourceHandleId as ProductId);
@@ -135,14 +116,14 @@ export default function ButtonEdge({
   if (man?.free === true)
     classes.push("edgeAlert", "highlightFlow");
 
-  style.stroke = productColor;
+  const edgeStyle = { ...style, stroke: productColor };
   const buttonStyle: Record<string, string> = {
     borderColor: productColor,
     border: 'none'
   };
   return (
     <>
-      <BaseEdge path={svgPathString} markerEnd={markerEnd} style={style} className={classes.join(' ')} />
+      <BaseEdge path={svgPathString} markerEnd={markerEnd} style={edgeStyle} className={classes.join(' ')} />
       <EdgeLabelRenderer>
         {product && (<div
           style={{
@@ -195,6 +176,8 @@ export default function ButtonEdge({
     </>
   );
 }
+
+export default memo(ButtonEdge);
 
 const shouldHighlightProduct = (highlight: HighlightModes | undefined, productId: ProductId): boolean => {
   if (!highlight) return false;

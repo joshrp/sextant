@@ -20,7 +20,8 @@
     "formatData": "npx tsx ./data/reformat.ts",
     "check": "npm run typecheck && npm run lint && npm run test",
     "cosmos": "cosmos",
-    "cosmos-export": "cosmos-export"
+    "cosmos-export": "cosmos-export",
+    "perf:solver": "NODE_ENV=test tsx app/factory/solver/solver.perf.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",

@@ -11,6 +11,7 @@ import * as researchT2 from './research-t2-simple.test.fixture.json';
 import * as steamFreed from './steam-freed-manifold.test.fixture.json';
 import * as settlement from './basic-settlement-potato-waste-water.test.fixture.json';
 import * as farming from './farming-fertilizer.test.fixture.json';
+import * as workersFood20k from './workers-food-20k.test.fixture.json';
 
 /**
  * Test data format for solver tests using the import/export system
@@ -46,6 +47,7 @@ export const fixtures: { [name: string]: FactoryFixture } = {
   'steam-freed-manifold': steamFreed as unknown as FactoryFixture,
   'basic-settlement-potato-waste-water': settlement as unknown as FactoryFixture,
   'farming-fertilizer': farming as unknown as FactoryFixture,
+  'workers-food-20k': workersFood20k as unknown as FactoryFixture,
 };
 
 /**

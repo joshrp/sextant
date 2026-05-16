@@ -1,0 +1,1865 @@
+{
+  "factory": [
+    5,
+    "Workers",
+    "test-zone",
+    "",
+    [
+      [
+        "n",
+        "HousingT4_Workers_1776667167993",
+        964.9992219972239,
+        -929.9418045445248,
+        "HousingT4_Workers",
+        true,
+        "s",
+        {
+          "i": {
+            "Product_Water": true,
+            "Product_HouseholdGoods": true,
+            "Product_HouseholdAppliances": true,
+            "Product_Virtual_Electricity": true,
+            "Product_Virtual_Computing": true,
+            "Product_LuxuryGoods": true,
+            "Product_ConsumerElectronics": false,
+            "Product_MedicalSupplies": false,
+            "Product_MedicalSupplies2": true,
+            "Product_MedicalSupplies3": false,
+            "Product_Potato": true,
+            "Product_Corn": true,
+            "Product_Bread": true,
+            "Product_Meat": true,
+            "Product_Eggs": true,
+            "Product_Tofu": true,
+            "Product_Sausage": true,
+            "Product_Vegetables": true,
+            "Product_Fruit": true,
+            "Product_Snack": true,
+            "Product_Cake": true
+          },
+          "o": {
+            "Product_Virtual_Workers": true,
+            "Product_WasteWater": true,
+            "Product_Waste": true,
+            "Product_Biomass": true,
+            "Product_Recyclables": true,
+            "Product_IronScrap": true,
+            "Product_BrokenGlass": true,
+            "Product_CopperScrap": true,
+            "Product_GoldScrap": true,
+            "Product_AluminumScrap": true
+          }
+        }
+      ],
+      [
+        "n",
+        "BreadProduction_1776667191332",
+        -478.449371857545,
+        -19.90420850934575,
+        "BreadProduction",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "MeatProcessing_1776667199229",
+        -1026.0264303408235,
+        546.3018505170458,
+        "MeatProcessing",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "ChickenFarm_1776667202281",
+        -1678.2446959237182,
+        719.1876341742959,
+        "ChickenFarm",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "AnimalFeedFromCornT2_1776667265212",
+        -2357.4485578708563,
+        409.8249151197715,
+        "AnimalFeedFromCornT2",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "SausageProduction_1776667299336",
+        -1024.7260529668815,
+        1004.9585074454333,
+        "SausageProduction",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "MeatProcessingTrimmings_1776667306904",
+        -1638.5181787114088,
+        1140.7125398076048,
+        "MeatProcessingTrimmings",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "TofuProduction_1777619605952",
+        -984.8556102918094,
+        1978.1737638340915,
+        "TofuProduction",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "AnimalFeedCompostT2_1777619627679",
+        -418.86529661057034,
+        2041.1855788899866,
+        "AnimalFeedCompostT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "OrganicFertilizerProductionDirtT2_1777619640503",
+        295.1783829587182,
+        2951.3997830052276,
+        "OrganicFertilizerProductionDirtT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "FertilizerProductionFromOrganicT2_1777619643571",
+        932.7953183030857,
+        2948.35370785647,
+        "FertilizerProductionFromOrganicT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "DirtMixingT2_1777619651806",
+        -134.23219495590047,
+        3022.0774962908126,
+        "DirtMixingT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "RockCrushingT2_1777619667975",
+        -579.7061186435878,
+        3025.9735435285675,
+        "RockCrushingT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Fertilizer2ProductionT2_1777619674440",
+        1449.2227866378541,
+        2933.166404304647,
+        "Fertilizer2ProductionT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        -2577.55817210799,
+        3129.86769851253,
+        "Balancer_Product_Fertilizer2",
+        false,
+        "b"
+      ],
+      [
+        "n",
+        "WheatMilling_1777619895709",
+        -1717.5103879078652,
+        -288.8088127024871,
+        "WheatMilling",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Balancer_Product_AnimalFeed_1777619916933",
+        -414.3006542685575,
+        558.7914314022935,
+        "Balancer_Product_AnimalFeed",
+        true,
+        "b"
+      ],
+      [
+        "n",
+        "EggsDigestion_1777620377162",
+        -1002.824242303246,
+        1414.7537423382114,
+        "EggsDigestion",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Wheat_Product_Fertilizer2_1777620436948",
+        -2339.8076637690556,
+        -328.16395777468074,
+        "Crop_Wheat_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Soybeans_Product_Fertilizer2_1777620453853",
+        -1486.289606243948,
+        1957.3703143844377,
+        "Crop_Soybeans_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "CanolaMilling_1777620602873",
+        -1723.1110213512409,
+        -701.4524813398598,
+        "CanolaMilling",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Canola_Product_Fertilizer2_1777620608312",
+        -2343.3316669497317,
+        -703.9518204417989,
+        "Crop_Canola_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "CakeProduction_1777620644017",
+        -475.0710246664487,
+        -1303.2333776010073,
+        "CakeProduction",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Fruits_Product_Fertilizer2_1777620672709",
+        -2335.2840094317617,
+        -1081.7845683275239,
+        "Crop_Fruits_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "SugarRefiningCane_1777620685909",
+        -1722.6788452081241,
+        -1559.7863670470742,
+        "SugarRefiningCane",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_SugarCane_Product_Fertilizer2_1777620690739",
+        -2328.03512067646,
+        -1559.4649652503767,
+        "Crop_SugarCane_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "BiomassCompostT2_1777620694841",
+        -487.13556289363146,
+        -1680.0907859824663,
+        "BiomassCompostT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Corn_Product_Fertilizer2_1777620714851",
+        352.8129112591803,
+        947.6117898949097,
+        "Crop_Corn_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Potato_Product_Fertilizer2_1777620721020",
+        346.02317683637125,
+        1297.016154283317,
+        "Crop_Potato_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Vegetables_Product_Fertilizer2_1777620728475",
+        357.4728621017441,
+        1663.6245377459338,
+        "Crop_Vegetables_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Fruits_Product_Fertilizer2_1777620733718",
+        366.2782607907054,
+        2002.6794435276552,
+        "Crop_Fruits_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Corn_Product_Fertilizer2_1777661905224",
+        -2355.6314522136504,
+        33.67326076464184,
+        "Crop_Corn_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Balancer_Product_Fertilizer2_1777708349522",
+        -3322.831338545722,
+        3491.477585279067,
+        "Balancer_Product_Fertilizer2",
+        false,
+        "b"
+      ],
+      [
+        "n",
+        "BiomassCompostT2_1777708444057",
+        1851.0008179575104,
+        -956.001655926321,
+        "BiomassCompostT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Balancer_Product_Compost_1777708456785",
+        -83.58718340407825,
+        2529.496264457021,
+        "Balancer_Product_Compost",
+        true,
+        "b"
+      ],
+      [
+        "n",
+        "Balancer_Product_Compost_1777708512410",
+        632.8493495641394,
+        2515.1721624263864,
+        "Balancer_Product_Compost",
+        true,
+        "b"
+      ],
+      [
+        "n",
+        "Balancer_Product_Compost_1777708533695",
+        -610.7820877924961,
+        2658.9993272824913,
+        "Balancer_Product_Compost",
+        true,
+        "b"
+      ],
+      [
+        "n",
+        "AmmoniaSynthesisT2_1777709262731",
+        342.37516448026577,
+        3528.0031735185516,
+        "AmmoniaSynthesisT2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "HydrogenReforming_1777709284585",
+        -129.41056686315244,
+        3520.1784077181137,
+        "HydrogenReforming",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "AirSeparation_1777709303932",
+        329.00709130176756,
+        3914.4657274459278,
+        "AirSeparation",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "GraphiteProductionCo2_1777709316074",
+        -122.56300677612217,
+        3873.9956666340527,
+        "GraphiteProductionCo2",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "SnackProductionPotato_1777712651848",
+        -481.0661698372345,
+        -535.6655486018485,
+        "SnackProductionPotato",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Crop_Potato_Product_Fertilizer2_1777712665033",
+        -1018.3879016180209,
+        -375.74333180557585,
+        "Crop_Potato_Product_Fertilizer2",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Balancer_Product_Water_1777713253666",
+        -2470.4412262777905,
+        1580.3820661295151,
+        "Balancer_Product_Water",
+        false,
+        "b"
+      ],
+      [
+        "n",
+        "Balancer_Product_Water_1777748345020",
+        528.4403467929008,
+        -880.3145900666563,
+        "Balancer_Product_Water",
+        true,
+        "b"
+      ],
+      [
+        "n",
+        "Balancer_Product_Water_1777805359692",
+        -1596.814422599695,
+        2709.1078094984555,
+        "Balancer_Product_Water",
+        false,
+        "b"
+      ],
+      [
+        "n",
+        "Balancer_Product_Water_1777805378555",
+        -190.78286848340153,
+        1578.9974330579178,
+        "Balancer_Product_Water",
+        true,
+        "b"
+      ],
+      [
+        "n",
+        "DesalinationFromHP_1777805459897",
+        -1697.6498549203634,
+        3017.8583206263124,
+        "DesalinationFromHP",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "Balancer_Product_SteamHi_1777805502030",
+        -2184.044187701192,
+        3364.6904886469188,
+        "Balancer_Product_SteamHi",
+        true,
+        "b"
+      ],
+      [
+        "n",
+        "SteamGenerationElectric_1777805726941",
+        -1694.2862570552365,
+        3437.5394177684925,
+        "SteamGenerationElectric",
+        true,
+        "r"
+      ],
+      [
+        "n",
+        "OceanWaterPumping2x_1777806522145",
+        -1714.4118039672383,
+        3796.636116456364,
+        "OceanWaterPumping2x",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "WaterTreatmentT2_1778424136028",
+        1273.8987690125114,
+        -1478.4587577977074,
+        "WaterTreatmentT2",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "SludgeDigestion_1778424236504",
+        1158.6878915085406,
+        -1878.2454730288696,
+        "SludgeDigestion",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "SteamGenerationFuelGas_1778424250783",
+        661.8747425753984,
+        -1875.0056996255219,
+        "SteamGenerationFuelGas",
+        false,
+        "r"
+      ],
+      [
+        "n",
+        "DesalinationFromHP_1778424257279",
+        105.03033359933852,
+        -1780.8535817920645,
+        "DesalinationFromHP",
+        false,
+        "r"
+      ]
+    ],
+    [
+      [
+        "b",
+        "Product_Bread",
+        "BreadProduction_1776667191332",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_Meat",
+        "MeatProcessing_1776667199229",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_Eggs",
+        "ChickenFarm_1776667202281",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_ChickenCarcass",
+        "ChickenFarm_1776667202281",
+        "MeatProcessing_1776667199229"
+      ],
+      [
+        "b",
+        "Product_AnimalFeed",
+        "AnimalFeedFromCornT2_1776667265212",
+        "ChickenFarm_1776667202281"
+      ],
+      [
+        "b",
+        "Product_Sausage",
+        "SausageProduction_1776667299336",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_MeatTrimmings",
+        "MeatProcessing_1776667199229",
+        "SausageProduction_1776667299336"
+      ],
+      [
+        "b",
+        "Product_MeatTrimmings",
+        "MeatProcessingTrimmings_1776667306904",
+        "SausageProduction_1776667299336"
+      ],
+      [
+        "b",
+        "Product_ChickenCarcass",
+        "ChickenFarm_1776667202281",
+        "MeatProcessingTrimmings_1776667306904"
+      ],
+      [
+        "b",
+        "Product_Tofu",
+        "TofuProduction_1777619605952",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_AnimalFeed",
+        "TofuProduction_1777619605952",
+        "AnimalFeedCompostT2_1777619627679"
+      ],
+      [
+        "b",
+        "Product_FertilizerOrganic",
+        "OrganicFertilizerProductionDirtT2_1777619640503",
+        "FertilizerProductionFromOrganicT2_1777619643571"
+      ],
+      [
+        "b",
+        "Product_Dirt",
+        "DirtMixingT2_1777619651806",
+        "OrganicFertilizerProductionDirtT2_1777619640503"
+      ],
+      [
+        "b",
+        "Product_Gravel",
+        "RockCrushingT2_1777619667975",
+        "DirtMixingT2_1777619651806"
+      ],
+      [
+        "b",
+        "Product_Fertilizer",
+        "FertilizerProductionFromOrganicT2_1777619643571",
+        "Fertilizer2ProductionT2_1777619674440"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Fertilizer2ProductionT2_1777619674440",
+        "Balancer_Product_Fertilizer2_1777619691997"
+      ],
+      [
+        "b",
+        "Product_Flour",
+        "WheatMilling_1777619895709",
+        "BreadProduction_1776667191332"
+      ],
+      [
+        "b",
+        "Product_AnimalFeed",
+        "WheatMilling_1777619895709",
+        "Balancer_Product_AnimalFeed_1777619916933"
+      ],
+      [
+        "b",
+        "Product_Eggs",
+        "ChickenFarm_1776667202281",
+        "EggsDigestion_1777620377162"
+      ],
+      [
+        "b",
+        "Product_Flour",
+        "WheatMilling_1777619895709",
+        "SausageProduction_1776667299336"
+      ],
+      [
+        "b",
+        "Product_Wheat",
+        "Crop_Wheat_Product_Fertilizer2_1777620436948",
+        "WheatMilling_1777619895709"
+      ],
+      [
+        "b",
+        "Product_Soybean",
+        "Crop_Soybeans_Product_Fertilizer2_1777620453853",
+        "TofuProduction_1777619605952"
+      ],
+      [
+        "b",
+        "Product_Canola",
+        "Crop_Canola_Product_Fertilizer2_1777620608312",
+        "CanolaMilling_1777620602873"
+      ],
+      [
+        "b",
+        "Product_Cake",
+        "CakeProduction_1777620644017",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_CookingOil",
+        "CanolaMilling_1777620602873",
+        "CakeProduction_1777620644017"
+      ],
+      [
+        "b",
+        "Product_Eggs",
+        "ChickenFarm_1776667202281",
+        "CakeProduction_1777620644017"
+      ],
+      [
+        "b",
+        "Product_Fruit",
+        "Crop_Fruits_Product_Fertilizer2_1777620672709",
+        "CakeProduction_1777620644017"
+      ],
+      [
+        "b",
+        "Product_Flour",
+        "WheatMilling_1777619895709",
+        "CakeProduction_1777620644017"
+      ],
+      [
+        "b",
+        "Product_Sugar",
+        "SugarRefiningCane_1777620685909",
+        "CakeProduction_1777620644017"
+      ],
+      [
+        "b",
+        "Product_SugarCane",
+        "Crop_SugarCane_Product_Fertilizer2_1777620690739",
+        "SugarRefiningCane_1777620685909"
+      ],
+      [
+        "b",
+        "Product_Biomass",
+        "SugarRefiningCane_1777620685909",
+        "BiomassCompostT2_1777620694841"
+      ],
+      [
+        "b",
+        "Product_Corn",
+        "Crop_Corn_Product_Fertilizer2_1777620714851",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_Potato",
+        "Crop_Potato_Product_Fertilizer2_1777620721020",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_Vegetables",
+        "Crop_Vegetables_Product_Fertilizer2_1777620728475",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_Fruit",
+        "Crop_Fruits_Product_Fertilizer2_1777620733718",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_AnimalFeed",
+        "Balancer_Product_AnimalFeed_1777619916933",
+        "AnimalFeedCompostT2_1777619627679"
+      ],
+      [
+        "b",
+        "Product_Corn",
+        "Crop_Corn_Product_Fertilizer2_1777661905224",
+        "AnimalFeedFromCornT2_1776667265212"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        "Crop_Soybeans_Product_Fertilizer2_1777620453853"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        "Crop_Corn_Product_Fertilizer2_1777661905224"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        "Crop_Wheat_Product_Fertilizer2_1777620436948"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        "Crop_Canola_Product_Fertilizer2_1777620608312"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        "Crop_Fruits_Product_Fertilizer2_1777620672709"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        "Crop_SugarCane_Product_Fertilizer2_1777620690739"
+      ],
+      [
+        "b",
+        "Product_Fertilizer2",
+        "Balancer_Product_Fertilizer2_1777619691997",
+        "Balancer_Product_Fertilizer2_1777708349522"
+      ],
+      [
+        "b",
+        "Product_Biomass",
+        "HousingT4_Workers_1776667167993",
+        "BiomassCompostT2_1777708444057"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "Balancer_Product_Compost_1777708456785",
+        "DirtMixingT2_1777619651806"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "Balancer_Product_Compost_1777708456785",
+        "OrganicFertilizerProductionDirtT2_1777619640503"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "AnimalFeedCompostT2_1777619627679",
+        "Balancer_Product_Compost_1777708456785"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "EggsDigestion_1777620377162",
+        "Balancer_Product_Compost_1777708456785"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "BiomassCompostT2_1777620694841",
+        "Balancer_Product_Compost_1777708456785"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "Balancer_Product_Compost_1777708456785",
+        "Balancer_Product_Compost_1777708512410"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "Balancer_Product_Compost_1777708533695",
+        "Balancer_Product_Compost_1777708456785"
+      ],
+      [
+        "b",
+        "Product_Compost",
+        "BiomassCompostT2_1777708444057",
+        "Balancer_Product_Compost_1777708456785"
+      ],
+      [
+        "b",
+        "Product_Ammonia",
+        "AmmoniaSynthesisT2_1777709262731",
+        "FertilizerProductionFromOrganicT2_1777619643571"
+      ],
+      [
+        "b",
+        "Product_Hydrogen",
+        "HydrogenReforming_1777709284585",
+        "AmmoniaSynthesisT2_1777709262731"
+      ],
+      [
+        "b",
+        "Product_Nitrogen",
+        "AirSeparation_1777709303932",
+        "AmmoniaSynthesisT2_1777709262731"
+      ],
+      [
+        "b",
+        "Product_CarbonDioxide",
+        "HydrogenReforming_1777709284585",
+        "GraphiteProductionCo2_1777709316074"
+      ],
+      [
+        "b",
+        "Product_Snack",
+        "SnackProductionPotato_1777712651848",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_CookingOil",
+        "CanolaMilling_1777620602873",
+        "SnackProductionPotato_1777712651848"
+      ],
+      [
+        "b",
+        "Product_Potato",
+        "Crop_Potato_Product_Fertilizer2_1777712665033",
+        "SnackProductionPotato_1777712651848"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777713253666",
+        "Crop_SugarCane_Product_Fertilizer2_1777620690739"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777713253666",
+        "Crop_Fruits_Product_Fertilizer2_1777620672709"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777713253666",
+        "Crop_Canola_Product_Fertilizer2_1777620608312"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777713253666",
+        "Crop_Wheat_Product_Fertilizer2_1777620436948"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777713253666",
+        "Crop_Corn_Product_Fertilizer2_1777661905224"
+      ],
+      [
+        "b",
+        "Product_AnimalFeed",
+        "CanolaMilling_1777620602873",
+        "Balancer_Product_AnimalFeed_1777619916933"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777748345020",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805359692",
+        "Balancer_Product_Water_1777713253666"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805378555",
+        "Crop_Fruits_Product_Fertilizer2_1777620733718"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805378555",
+        "Crop_Potato_Product_Fertilizer2_1777620721020"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805378555",
+        "Crop_Vegetables_Product_Fertilizer2_1777620728475"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805378555",
+        "Crop_Corn_Product_Fertilizer2_1777620714851"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805359692",
+        "Balancer_Product_Water_1777805378555"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805359692",
+        "Crop_Soybeans_Product_Fertilizer2_1777620453853"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805359692",
+        "ChickenFarm_1776667202281"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "DesalinationFromHP_1777805459897",
+        "Balancer_Product_Water_1777805359692"
+      ],
+      [
+        "b",
+        "Product_SteamHi",
+        "Balancer_Product_SteamHi_1777805502030",
+        "DesalinationFromHP_1777805459897"
+      ],
+      [
+        "b",
+        "Product_SteamHi",
+        "SteamGenerationElectric_1777805726941",
+        "Balancer_Product_SteamHi_1777805502030"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "Balancer_Product_Water_1777805359692",
+        "SteamGenerationElectric_1777805726941"
+      ],
+      [
+        "b",
+        "Product_Seawater",
+        "OceanWaterPumping2x_1777806522145",
+        "DesalinationFromHP_1777805459897"
+      ],
+      [
+        "b",
+        "Product_WasteWater",
+        "HousingT4_Workers_1776667167993",
+        "WaterTreatmentT2_1778424136028"
+      ],
+      [
+        "b",
+        "Product_Sludge",
+        "WaterTreatmentT2_1778424136028",
+        "SludgeDigestion_1778424236504"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "WaterTreatmentT2_1778424136028",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_FuelGas",
+        "SludgeDigestion_1778424236504",
+        "SteamGenerationFuelGas_1778424250783"
+      ],
+      [
+        "b",
+        "Product_SteamHi",
+        "SteamGenerationFuelGas_1778424250783",
+        "DesalinationFromHP_1778424257279"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "DesalinationFromHP_1778424257279",
+        "HousingT4_Workers_1776667167993"
+      ],
+      [
+        "b",
+        "Product_Water",
+        "WaterTreatmentT2_1778424136028",
+        "SteamGenerationFuelGas_1778424250783"
+      ]
+    ],
+    [
+      [
+        "Product_Virtual_Workers",
+        20000,
+        "eq"
+      ]
+    ]
+  ],
+  "manifoldOptions": [],
+  "scoringMethod": "infra",
+  "previousSolutionObjectiveValue": 5033.260398564797,
+  "zoneModifiers": {
+    "recyclingEfficiency": 0.2,
+    "maintenanceConsumption": 1,
+    "maintenanceOutput": 1,
+    "farmYield": 1,
+    "farmWater": 1,
+    "foodConsumption": 1,
+    "settlementWater": 1,
+    "householdGoods": 1,
+    "householdAppliances": 1,
+    "consumerElectronics": 1,
+    "solarOutput": 1,
+    "rainwaterOutput": 4.1,
+    "contractProfitability": 1
+  },
+  "expected": {
+    "objectiveValue": 5033.260398564797,
+    "nodeCounts": [
+      {
+        "nodeId": "BreadProduction_1776667191332",
+        "count": 1.38889
+      },
+      {
+        "nodeId": "MeatProcessing_1776667199229",
+        "count": 2.25
+      },
+      {
+        "nodeId": "ChickenFarm_1776667202281",
+        "count": 9.90278
+      },
+      {
+        "nodeId": "AnimalFeedFromCornT2_1776667265212",
+        "count": 1.04094
+      },
+      {
+        "nodeId": "SausageProduction_1776667299336",
+        "count": 1.74479
+      },
+      {
+        "nodeId": "MeatProcessingTrimmings_1776667306904",
+        "count": 1.05093
+      },
+      {
+        "nodeId": "TofuProduction_1777619605952",
+        "count": 1.875
+      },
+      {
+        "nodeId": "AnimalFeedCompostT2_1777619627679",
+        "count": 1.02881
+      },
+      {
+        "nodeId": "OrganicFertilizerProductionDirtT2_1777619640503",
+        "count": 0.509001
+      },
+      {
+        "nodeId": "FertilizerProductionFromOrganicT2_1777619643571",
+        "count": 0.814402
+      },
+      {
+        "nodeId": "DirtMixingT2_1777619651806",
+        "count": 0.254501
+      },
+      {
+        "nodeId": "RockCrushingT2_1777619667975",
+        "count": 0.0848335
+      },
+      {
+        "nodeId": "Fertilizer2ProductionT2_1777619674440",
+        "count": 1.2216
+      },
+      {
+        "nodeId": "WheatMilling_1777619895709",
+        "count": 4.83336
+      },
+      {
+        "nodeId": "EggsDigestion_1777620377162",
+        "count": 2.17513
+      },
+      {
+        "nodeId": "Crop_Wheat_Product_Fertilizer2_1777620436948",
+        "count": 5.33337
+      },
+      {
+        "nodeId": "Crop_Soybeans_Product_Fertilizer2_1777620453853",
+        "count": 2.04545
+      },
+      {
+        "nodeId": "CanolaMilling_1777620602873",
+        "count": 1.64683
+      },
+      {
+        "nodeId": "Crop_Canola_Product_Fertilizer2_1777620608312",
+        "count": 1.46384
+      },
+      {
+        "nodeId": "CakeProduction_1777620644017",
+        "count": 4.46429
+      },
+      {
+        "nodeId": "Crop_Fruits_Product_Fertilizer2_1777620672709",
+        "count": 0.595238
+      },
+      {
+        "nodeId": "SugarRefiningCane_1777620685909",
+        "count": 1.4881
+      },
+      {
+        "nodeId": "Crop_SugarCane_Product_Fertilizer2_1777620690739",
+        "count": 0.676407
+      },
+      {
+        "nodeId": "BiomassCompostT2_1777620694841",
+        "count": 0.372024
+      },
+      {
+        "nodeId": "Crop_Corn_Product_Fertilizer2_1777620714851",
+        "count": 2.0202
+      },
+      {
+        "nodeId": "Crop_Potato_Product_Fertilizer2_1777620721020",
+        "count": 2.41379
+      },
+      {
+        "nodeId": "Crop_Vegetables_Product_Fertilizer2_1777620728475",
+        "count": 4.66667
+      },
+      {
+        "nodeId": "Crop_Fruits_Product_Fertilizer2_1777620733718",
+        "count": 5.25
+      },
+      {
+        "nodeId": "Crop_Corn_Product_Fertilizer2_1777661905224",
+        "count": 5.04699
+      },
+      {
+        "nodeId": "BiomassCompostT2_1777708444057",
+        "count": 5.37292
+      },
+      {
+        "nodeId": "AmmoniaSynthesisT2_1777709262731",
+        "count": 1.6288
+      },
+      {
+        "nodeId": "HydrogenReforming_1777709284585",
+        "count": 0.698059
+      },
+      {
+        "nodeId": "AirSeparation_1777709303932",
+        "count": 1.08587
+      },
+      {
+        "nodeId": "GraphiteProductionCo2_1777709316074",
+        "count": 0.116343
+      },
+      {
+        "nodeId": "SnackProductionPotato_1777712651848",
+        "count": 3.61111
+      },
+      {
+        "nodeId": "Crop_Potato_Product_Fertilizer2_1777712665033",
+        "count": 2.98851
+      },
+      {
+        "nodeId": "DesalinationFromHP_1777805459897",
+        "count": 22.9486
+      },
+      {
+        "nodeId": "SteamGenerationElectric_1777805726941",
+        "count": 11.4743
+      },
+      {
+        "nodeId": "OceanWaterPumping2x_1777806522145",
+        "count": 11.4743
+      },
+      {
+        "nodeId": "WaterTreatmentT2_1778424136028",
+        "count": 5
+      },
+      {
+        "nodeId": "SludgeDigestion_1778424236504",
+        "count": 10
+      },
+      {
+        "nodeId": "SteamGenerationFuelGas_1778424250783",
+        "count": 1.11111
+      },
+      {
+        "nodeId": "DesalinationFromHP_1778424257279",
+        "count": 4.44444
+      },
+      {
+        "nodeId": "BreadProduction_1776667191332",
+        "count": 1.38889
+      },
+      {
+        "nodeId": "MeatProcessing_1776667199229",
+        "count": 2.25
+      },
+      {
+        "nodeId": "AnimalFeedFromCornT2_1776667265212",
+        "count": 1.04094
+      },
+      {
+        "nodeId": "SausageProduction_1776667299336",
+        "count": 1.74479
+      },
+      {
+        "nodeId": "MeatProcessingTrimmings_1776667306904",
+        "count": 1.05093
+      },
+      {
+        "nodeId": "TofuProduction_1777619605952",
+        "count": 1.875
+      },
+      {
+        "nodeId": "AnimalFeedCompostT2_1777619627679",
+        "count": 1.02881
+      },
+      {
+        "nodeId": "OrganicFertilizerProductionDirtT2_1777619640503",
+        "count": 0.509001
+      },
+      {
+        "nodeId": "FertilizerProductionFromOrganicT2_1777619643571",
+        "count": 0.814402
+      },
+      {
+        "nodeId": "DirtMixingT2_1777619651806",
+        "count": 0.254501
+      },
+      {
+        "nodeId": "RockCrushingT2_1777619667975",
+        "count": 0.0848335
+      },
+      {
+        "nodeId": "Fertilizer2ProductionT2_1777619674440",
+        "count": 1.2216
+      },
+      {
+        "nodeId": "WheatMilling_1777619895709",
+        "count": 4.83336
+      },
+      {
+        "nodeId": "EggsDigestion_1777620377162",
+        "count": 2.17513
+      },
+      {
+        "nodeId": "CanolaMilling_1777620602873",
+        "count": 1.64683
+      },
+      {
+        "nodeId": "CakeProduction_1777620644017",
+        "count": 4.46429
+      },
+      {
+        "nodeId": "SugarRefiningCane_1777620685909",
+        "count": 1.4881
+      },
+      {
+        "nodeId": "BiomassCompostT2_1777620694841",
+        "count": 0.372024
+      },
+      {
+        "nodeId": "BiomassCompostT2_1777708444057",
+        "count": 5.37292
+      },
+      {
+        "nodeId": "AmmoniaSynthesisT2_1777709262731",
+        "count": 1.6288
+      },
+      {
+        "nodeId": "HydrogenReforming_1777709284585",
+        "count": 0.698059
+      },
+      {
+        "nodeId": "AirSeparation_1777709303932",
+        "count": 1.08587
+      },
+      {
+        "nodeId": "GraphiteProductionCo2_1777709316074",
+        "count": 0.116343
+      },
+      {
+        "nodeId": "SnackProductionPotato_1777712651848",
+        "count": 3.61111
+      },
+      {
+        "nodeId": "DesalinationFromHP_1777805459897",
+        "count": 22.9486
+      },
+      {
+        "nodeId": "SteamGenerationElectric_1777805726941",
+        "count": 11.4743
+      },
+      {
+        "nodeId": "OceanWaterPumping2x_1777806522145",
+        "count": 11.4743
+      },
+      {
+        "nodeId": "WaterTreatmentT2_1778424136028",
+        "count": 5
+      },
+      {
+        "nodeId": "SludgeDigestion_1778424236504",
+        "count": 10
+      },
+      {
+        "nodeId": "DesalinationFromHP_1778424257279",
+        "count": 4.44444
+      },
+      {
+        "nodeId": "Crop_Wheat_Product_Fertilizer2_1777620436948",
+        "count": 5.33337
+      },
+      {
+        "nodeId": "Crop_Soybeans_Product_Fertilizer2_1777620453853",
+        "count": 2.04545
+      },
+      {
+        "nodeId": "Crop_Canola_Product_Fertilizer2_1777620608312",
+        "count": 1.46384
+      },
+      {
+        "nodeId": "Crop_Fruits_Product_Fertilizer2_1777620672709",
+        "count": 0.595238
+      },
+      {
+        "nodeId": "Crop_SugarCane_Product_Fertilizer2_1777620690739",
+        "count": 0.676407
+      },
+      {
+        "nodeId": "Crop_Corn_Product_Fertilizer2_1777620714851",
+        "count": 2.0202
+      },
+      {
+        "nodeId": "Crop_Potato_Product_Fertilizer2_1777620721020",
+        "count": 2.41379
+      },
+      {
+        "nodeId": "Crop_Vegetables_Product_Fertilizer2_1777620728475",
+        "count": 4.66667
+      },
+      {
+        "nodeId": "Crop_Fruits_Product_Fertilizer2_1777620733718",
+        "count": 5.25
+      },
+      {
+        "nodeId": "Crop_Corn_Product_Fertilizer2_1777661905224",
+        "count": 5.04699
+      },
+      {
+        "nodeId": "Crop_Potato_Product_Fertilizer2_1777712665033",
+        "count": 2.98851
+      },
+      {
+        "nodeId": "HousingT4_Workers_1776667167993",
+        "count": 50
+      },
+      {
+        "nodeId": "HousingT4_Workers_1776667167993",
+        "count": 50
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777748345020",
+        "count": 258.667
+      },
+      {
+        "nodeId": "SteamGenerationFuelGas_1778424250783",
+        "count": 1.11111
+      },
+      {
+        "nodeId": "ChickenFarm_1776667202281",
+        "count": 9.90278
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777805359692",
+        "count": 1789.99
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777713253666",
+        "count": 585
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777805378555",
+        "count": 658.655
+      },
+      {
+        "nodeId": "Balancer_Product_AnimalFeed_1777619916933",
+        "count": 16.254
+      },
+      {
+        "nodeId": "Balancer_Product_Compost_1777708456785",
+        "count": 107
+      },
+      {
+        "nodeId": "Balancer_Product_Compost_1777708533695",
+        "count": 0.560059
+      },
+      {
+        "nodeId": "Balancer_Product_Compost_1777708512410",
+        "count": 82.5679
+      },
+      {
+        "nodeId": "Balancer_Product_Fertilizer2_1777619691997",
+        "count": 87.9554
+      },
+      {
+        "nodeId": "Balancer_Product_Fertilizer2_1777708349522",
+        "count": 0.00001
+      },
+      {
+        "nodeId": "Balancer_Product_SteamHi_1777805502030",
+        "count": 275.383
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777748345020",
+        "count": 258.667
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777805359692",
+        "count": 1789.99
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777713253666",
+        "count": 585
+      },
+      {
+        "nodeId": "Balancer_Product_Water_1777805378555",
+        "count": 658.655
+      },
+      {
+        "nodeId": "Balancer_Product_AnimalFeed_1777619916933",
+        "count": 16.254
+      },
+      {
+        "nodeId": "Balancer_Product_Compost_1777708456785",
+        "count": 107
+      },
+      {
+        "nodeId": "Balancer_Product_Compost_1777708533695",
+        "count": 0.560059
+      },
+      {
+        "nodeId": "Balancer_Product_Compost_1777708512410",
+        "count": 82.5679
+      },
+      {
+        "nodeId": "Balancer_Product_Fertilizer2_1777619691997",
+        "count": 87.9554
+      },
+      {
+        "nodeId": "Balancer_Product_Fertilizer2_1777708349522",
+        "count": 0.00001
+      },
+      {
+        "nodeId": "Balancer_Product_SteamHi_1777805502030",
+        "count": 275.383
+      }
+    ],
+    "infrastructure": {
+      "workers": 1615,
+      "electricity": 128861,
+      "computing": 0,
+      "maintenance_1": 579.449,
+      "maintenance_2": 10.2382,
+      "maintenance_3": 0,
+      "footprint": 144782,
+      "workers_generated": 0,
+      "electricity_generated": 0,
+      "computing_generated": 0,
+      "maintenance_1_generated": 0,
+      "maintenance_2_generated": 0,
+      "maintenance_3_generated": 0,
+      "frastructure_total": 3585.44
+    },
+    "products": {
+      "inputs": [
+        {
+          "productId": "Product_HouseholdGoods",
+          "amount": -220
+        },
+        {
+          "productId": "Product_HouseholdAppliances",
+          "amount": -154
+        },
+        {
+          "productId": "Product_Virtual_Electricity",
+          "amount": -30800
+        },
+        {
+          "productId": "Product_Virtual_Computing",
+          "amount": -1152
+        },
+        {
+          "productId": "Product_LuxuryGoods",
+          "amount": -79.2
+        },
+        {
+          "productId": "Product_ConsumerElectronics",
+          "amount": 0
+        },
+        {
+          "productId": "Product_MedicalSupplies",
+          "amount": 0
+        },
+        {
+          "productId": "Product_MedicalSupplies2",
+          "amount": -100
+        },
+        {
+          "productId": "Product_MedicalSupplies3",
+          "amount": 0
+        },
+        {
+          "productId": "Product_Water",
+          "amount": -452.441
+        },
+        {
+          "productId": "Product_Salt",
+          "amount": -44.1198
+        },
+        {
+          "productId": "Product_Sulfur",
+          "amount": -17.4717
+        },
+        {
+          "productId": "Product_Limestone",
+          "amount": -17.4717
+        },
+        {
+          "productId": "Product_Oxygen",
+          "amount": -29.3185
+        },
+        {
+          "productId": "Product_Rock",
+          "amount": -12.216
+        },
+        {
+          "productId": "Product_Fertilizer2",
+          "amount": -88.6027
+        },
+        {
+          "productId": "Product_Compost",
+          "amount": -0.560059
+        },
+        {
+          "productId": "Product_FuelGas",
+          "amount": -16.7534
+        },
+        {
+          "productId": "Product_SteamHi",
+          "amount": -1.39612
+        },
+        {
+          "productId": "Product_Plastic",
+          "amount": -10.8333
+        },
+        {
+          "productId": "Product_FilterMedia",
+          "amount": -40
+        },
+        {
+          "productId": "Product_Chlorine",
+          "amount": -80
+        },
+        {
+          "productId": "Product_Seawater",
+          "amount": -480
+        }
+      ],
+      "outputs": [
+        {
+          "productId": "Product_Virtual_Workers",
+          "amount": 20000
+        },
+        {
+          "productId": "Product_Waste",
+          "amount": 586
+        },
+        {
+          "productId": "Product_Recyclables",
+          "amount": 118.26
+        },
+        {
+          "productId": "Product_IronScrap",
+          "amount": 43.5333
+        },
+        {
+          "productId": "Product_BrokenGlass",
+          "amount": 27.1333
+        },
+        {
+          "productId": "Product_CopperScrap",
+          "amount": 43.6333
+        },
+        {
+          "productId": "Product_GoldScrap",
+          "amount": 3.96
+        },
+        {
+          "productId": "Product_AluminumScrap",
+          "amount": 0
+        },
+        {
+          "productId": "Product_FuelGas",
+          "amount": 26.1015
+        },
+        {
+          "productId": "Product_Fertilizer2",
+          "amount": 0.00001
+        },
+        {
+          "productId": "Product_Compost",
+          "amount": 112.568
+        },
+        {
+          "productId": "Product_Oxygen",
+          "amount": 39.0913
+        },
+        {
+          "productId": "Product_Graphite",
+          "amount": 0.698059
+        },
+        {
+          "productId": "Product_Biomass",
+          "amount": 10.8333
+        },
+        {
+          "productId": "Product_Brine",
+          "amount": 1150.51
+        },
+        {
+          "productId": "Product_CarbonDioxide",
+          "amount": 80
+        }
+      ]
+    },
+    "manifolds": {
+      "in_frastructure_total": 3585.44,
+      "in_footprint": 144782,
+      "in_workers": 1615,
+      "in_electricity": 128861,
+      "in_computing": 0,
+      "in_maintenance_1": 579.449,
+      "in_maintenance_2": 10.2382,
+      "in_maintenance_3": 0,
+      "c0": 0,
+      "c_Product_Water_1": 0,
+      "c2": 0,
+      "c3": 0,
+      "c4": 0,
+      "c5": 0,
+      "i_Product_HouseholdGoods": -220,
+      "i_Product_HouseholdAppliances": -154,
+      "i_Product_Virtual_Electricity": -30800,
+      "i_Product_Virtual_Computing": -1152,
+      "i_Product_LuxuryGoods": -79.2,
+      "i_Product_ConsumerElectronics": 0,
+      "i_Product_MedicalSupplies": 0,
+      "i_Product_MedicalSupplies2": -100,
+      "i_Product_MedicalSupplies3": 0,
+      "c6": 0,
+      "c7": 0,
+      "c8": 0,
+      "c9": 0,
+      "c10": 0,
+      "c11": 0,
+      "c12": 0,
+      "c13": 0,
+      "c14": 0,
+      "c15": 0,
+      "c16": 0,
+      "c17": 0,
+      "c18": 0,
+      "c19": 0,
+      "o_Product_Virtual_Workers": 20000,
+      "c20": 0,
+      "o_Product_Waste": 586,
+      "c21": 0,
+      "o_Product_Recyclables": 118.26,
+      "o_Product_IronScrap": 43.5333,
+      "o_Product_BrokenGlass": 27.1333,
+      "o_Product_CopperScrap": 43.6333,
+      "o_Product_GoldScrap": 3.96,
+      "o_Product_AluminumScrap": 0,
+      "c22": 0,
+      "c23": 0,
+      "c24": 0,
+      "c25": 0,
+      "i_Product_Water": -452.441,
+      "c26": 0,
+      "c27": 0,
+      "c28": 0,
+      "i_Product_Salt": -44.1198,
+      "c29": 0,
+      "c30": 0,
+      "c31": 0,
+      "c32": 0,
+      "c33": 0,
+      "c34": 0,
+      "c35": 0,
+      "c36": 0,
+      "c37": 0,
+      "c38": 0,
+      "c39": 0,
+      "c40": 0,
+      "i_Product_Sulfur": -17.4717,
+      "i_Product_Limestone": -17.4717,
+      "c41": 0,
+      "c42": 0,
+      "c43": 0,
+      "c44": 0,
+      "c45": 0,
+      "c46": 0,
+      "c47": 0,
+      "c48": 0,
+      "c49": 0,
+      "c50": 0,
+      "c51": 0,
+      "c52": 0,
+      "c53": 0,
+      "c54": 0,
+      "c55": 0,
+      "c56": 0,
+      "i_Product_Oxygen": -29.3185,
+      "c57": 0,
+      "c58": 0,
+      "i_Product_Rock": -12.216,
+      "c59": 0,
+      "c60": 0,
+      "c61": 0,
+      "c62": 0,
+      "c63": 0,
+      "c64": 0,
+      "c65": 0,
+      "c66": 0,
+      "c67": 0,
+      "c68": 0,
+      "c69": 0,
+      "c70": 0,
+      "c71": 0,
+      "o_Product_FuelGas": 26.1015,
+      "c72": 0,
+      "c73": 0,
+      "c74": 0,
+      "c75": 0,
+      "c76": 0,
+      "c77": 0,
+      "c78": 0,
+      "c79": 0,
+      "c80": 0,
+      "c81": 0,
+      "c82": 0,
+      "c83": 0,
+      "c84": 0,
+      "c85": 0,
+      "c86": 0,
+      "c87": 0,
+      "c88": 0,
+      "c89": 0,
+      "c90": 0,
+      "i_Product_Fertilizer2": -88.6027,
+      "o_Product_Fertilizer2": 0.00001,
+      "o_Product_Compost": 112.568,
+      "i_Product_Compost": -0.560059,
+      "c91": 0,
+      "c92": 0,
+      "i_Product_FuelGas": -16.7534,
+      "i_Product_SteamHi": -1.39612,
+      "c93": 0,
+      "o_Product_Oxygen": 39.0913,
+      "o_Product_Graphite": 0.698059,
+      "c94": 0,
+      "i_Product_Plastic": -10.8333,
+      "o_Product_Biomass": 10.8333,
+      "c95": 0,
+      "c96": 0,
+      "c97": 0,
+      "o_Product_Brine": 1150.51,
+      "c98": 0,
+      "i_Product_FilterMedia": -40,
+      "i_Product_Chlorine": -80,
+      "c99": 0,
+      "c100": 0,
+      "c101": 0,
+      "o_Product_CarbonDioxide": 80,
+      "i_Product_Seawater": -480
+    }
+  }
+}
