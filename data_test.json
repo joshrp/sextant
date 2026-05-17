@@ -225,18 +225,23 @@
       "unit": "",
       "recipes": {
         "input": [
-          "Balancer_Product_Virtual_SpaceCrew"
+          "Balancer_Product_Virtual_SpaceCrew",
+          "Launch_SpaceCrew_T1",
+          "Launch_SpaceCrew_T2"
         ],
         "output": [
-          "Balancer_Product_Virtual_SpaceCrew"
+          "Balancer_Product_Virtual_SpaceCrew",
+          "CrewQuarters_Recipe"
         ]
       },
       "machines": {
         "input": [
-          "BalancerVirtual"
+          "BalancerVirtual",
+          "RocketLaunchPad"
         ],
         "output": [
-          "BalancerVirtual"
+          "BalancerVirtual",
+          "CrewQuarters"
         ]
       }
     },
@@ -252,7 +257,8 @@
           "Balancer_Product_Virtual_SpaceResearchPoints"
         ],
         "output": [
-          "Balancer_Product_Virtual_SpaceResearchPoints"
+          "Balancer_Product_Virtual_SpaceResearchPoints",
+          "SpaceStation_Recipe"
         ]
       },
       "machines": {
@@ -260,7 +266,8 @@
           "BalancerVirtual"
         ],
         "output": [
-          "BalancerVirtual"
+          "BalancerVirtual",
+          "SpaceStation"
         ]
       }
     },
@@ -1354,7 +1361,9 @@
           "HouseholdGoodsAssemblyT1",
           "CoreFuelReprocessing",
           "AnestheticsProduction",
-          "Balancer_Product_Steel"
+          "Balancer_Product_Steel",
+          "RocketAssemblyT1",
+          "RocketAssemblyT2"
         ],
         "output": [
           "SteelCastingCooledT2",
@@ -1364,7 +1373,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketAssemblyDepot"
         ],
         "output": [
           "BalancerFlat"
@@ -2094,7 +2104,8 @@
         "input": [
           "CompositeCoreAssembly",
           "CompactReactorAssembly",
-          "Balancer_Product_TitaniumAlloy"
+          "Balancer_Product_TitaniumAlloy",
+          "RocketAssemblyT2"
         ],
         "output": [
           "TitaniumAlloyCastingT2",
@@ -2103,7 +2114,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketAssemblyDepot"
         ],
         "output": [
           "BalancerFlat"
@@ -3367,7 +3379,21 @@
           "Balancer_Product_Water",
           "ThermalStorage_Product_SteamLP",
           "ThermalStorage_Product_SteamHi",
-          "ThermalStorage_Product_SteamSp"
+          "ThermalStorage_Product_SteamSp",
+          "Launch_SpaceStationParts1_T1",
+          "Launch_SpaceStationParts1_T2",
+          "Launch_SpaceStationParts2_T1",
+          "Launch_SpaceStationParts2_T2",
+          "Launch_CrewSupplies_T1",
+          "Launch_CrewSupplies_T2",
+          "Launch_Electronics4_T1",
+          "Launch_Electronics4_T2",
+          "Launch_AsteroidBoosterParts_T1",
+          "Launch_AsteroidBoosterParts_T2",
+          "Launch_SpaceProbeParts_T1",
+          "Launch_SpaceProbeParts_T2",
+          "Launch_SpaceCrew_T1",
+          "Launch_SpaceCrew_T2"
         ],
         "output": [
           "WaterDesalinationBasic",
@@ -3401,7 +3427,8 @@
       "machines": {
         "input": [
           "BalancerPipe",
-          "ThermalStorage"
+          "ThermalStorage",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerPipe",
@@ -4580,7 +4607,21 @@
           "FlareHydrogen",
           "IncinerationOfWasteHydrogen",
           "IncinerationOfWastePressedHydrogen",
-          "Balancer_Product_Hydrogen"
+          "Balancer_Product_Hydrogen",
+          "Launch_SpaceStationParts1_T1",
+          "Launch_SpaceStationParts1_T2",
+          "Launch_SpaceStationParts2_T1",
+          "Launch_SpaceStationParts2_T2",
+          "Launch_CrewSupplies_T1",
+          "Launch_CrewSupplies_T2",
+          "Launch_Electronics4_T1",
+          "Launch_Electronics4_T2",
+          "Launch_AsteroidBoosterParts_T1",
+          "Launch_AsteroidBoosterParts_T2",
+          "Launch_SpaceProbeParts_T1",
+          "Launch_SpaceProbeParts_T2",
+          "Launch_SpaceCrew_T1",
+          "Launch_SpaceCrew_T2"
         ],
         "output": [
           "WaterElectrolysisT2",
@@ -4595,7 +4636,8 @@
       },
       "machines": {
         "input": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerPipe"
@@ -6720,7 +6762,8 @@
           "OfficeSuppliesAssemblyT1",
           "CompositeCoreBasicAssemblyT1",
           "MaintenanceT2Recycling",
-          "Balancer_Product_Electronics2"
+          "Balancer_Product_Electronics2",
+          "RocketAssemblyT1"
         ],
         "output": [
           "Electronics2AssemblyT3",
@@ -6731,7 +6774,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketAssemblyDepot"
         ],
         "output": [
           "BalancerFlat"
@@ -6755,7 +6799,8 @@
           "LabEquipment4AssemblyT2",
           "ServerAssemblyT1",
           "MaintenanceT3Recycling",
-          "Balancer_Product_Electronics3"
+          "Balancer_Product_Electronics3",
+          "RocketAssemblyT2"
         ],
         "output": [
           "Electronics3AssemblyRoboticT2",
@@ -6765,7 +6810,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketAssemblyDepot"
         ],
         "output": [
           "BalancerFlat"
@@ -6783,7 +6829,9 @@
         "input": [
           "ProbePartsAssembly",
           "CompactReactorAssembly",
-          "Balancer_Product_Electronics4"
+          "Balancer_Product_Electronics4",
+          "Launch_Electronics4_T1",
+          "Launch_Electronics4_T2"
         ],
         "output": [
           "Electronics4Assembly",
@@ -6792,7 +6840,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerFlat"
@@ -7347,7 +7396,9 @@
           "CompositeCoreAssembly",
           "CompositeCoreBasicAssemblyT2",
           "CompositeCoreBasicAssemblyT1",
-          "Balancer_Product_CompositePanel"
+          "Balancer_Product_CompositePanel",
+          "RocketAssemblyT1",
+          "RocketAssemblyT2"
         ],
         "output": [
           "CompositePanelAssemblyT3",
@@ -7358,7 +7409,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketAssemblyDepot"
         ],
         "output": [
           "BalancerFlat"
@@ -7465,7 +7517,9 @@
       "unit": "",
       "recipes": {
         "input": [
-          "Balancer_Product_SpaceStationParts1"
+          "Balancer_Product_SpaceStationParts1",
+          "Launch_SpaceStationParts1_T1",
+          "Launch_SpaceStationParts1_T2"
         ],
         "output": [
           "StationPartsBasicAssemblyT3",
@@ -7476,7 +7530,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerFlat"
@@ -7492,7 +7547,9 @@
       "unit": "",
       "recipes": {
         "input": [
-          "Balancer_Product_SpaceStationParts2"
+          "Balancer_Product_SpaceStationParts2",
+          "Launch_SpaceStationParts2_T1",
+          "Launch_SpaceStationParts2_T2"
         ],
         "output": [
           "StationPartsAssembly",
@@ -7501,7 +7558,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerFlat"
@@ -7517,7 +7575,9 @@
       "unit": "",
       "recipes": {
         "input": [
-          "Balancer_Product_CrewSupplies"
+          "Balancer_Product_CrewSupplies",
+          "Launch_CrewSupplies_T1",
+          "Launch_CrewSupplies_T2"
         ],
         "output": [
           "CrewSuppliesAssemblyT3",
@@ -7528,7 +7588,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerFlat"
@@ -7544,7 +7605,9 @@
       "unit": "",
       "recipes": {
         "input": [
-          "Balancer_Product_SpaceProbeParts"
+          "Balancer_Product_SpaceProbeParts",
+          "Launch_SpaceProbeParts_T1",
+          "Launch_SpaceProbeParts_T2"
         ],
         "output": [
           "ProbePartsAssembly",
@@ -7553,7 +7616,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerFlat"
@@ -7569,7 +7633,9 @@
       "unit": "",
       "recipes": {
         "input": [
-          "Balancer_Product_AsteroidBoosterParts"
+          "Balancer_Product_AsteroidBoosterParts",
+          "Launch_AsteroidBoosterParts_T1",
+          "Launch_AsteroidBoosterParts_T2"
         ],
         "output": [
           "AsteroidBoosterPartsAssembly",
@@ -7578,7 +7644,8 @@
       },
       "machines": {
         "input": [
-          "BalancerFlat"
+          "BalancerFlat",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerFlat"
@@ -7632,7 +7699,21 @@
           "FuelGasReforming",
           "SmokeStackLargeOxygen",
           "SmokeStackOxygen",
-          "Balancer_Product_Oxygen"
+          "Balancer_Product_Oxygen",
+          "Launch_SpaceStationParts1_T1",
+          "Launch_SpaceStationParts1_T2",
+          "Launch_SpaceStationParts2_T1",
+          "Launch_SpaceStationParts2_T2",
+          "Launch_CrewSupplies_T1",
+          "Launch_CrewSupplies_T2",
+          "Launch_Electronics4_T1",
+          "Launch_Electronics4_T2",
+          "Launch_AsteroidBoosterParts_T1",
+          "Launch_AsteroidBoosterParts_T2",
+          "Launch_SpaceProbeParts_T1",
+          "Launch_SpaceProbeParts_T2",
+          "Launch_SpaceCrew_T1",
+          "Launch_SpaceCrew_T2"
         ],
         "output": [
           "WaterElectrolysisT2",
@@ -7644,7 +7725,8 @@
       },
       "machines": {
         "input": [
-          "BalancerPipe"
+          "BalancerPipe",
+          "RocketLaunchPad"
         ],
         "output": [
           "BalancerPipe"
@@ -7880,6 +7962,273 @@
         ],
         "output": [
           "BalancerVirtual"
+        ]
+      }
+    },
+    "Product_RocketT1": {
+      "id": "Product_RocketT1",
+      "name": "Rocket T1",
+      "icon": "rocket.png",
+      "color": "#808080",
+      "transport": "Flat",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_RocketT1",
+          "Launch_SpaceStationParts1_T1",
+          "Launch_SpaceStationParts2_T1",
+          "Launch_CrewSupplies_T1",
+          "Launch_Electronics4_T1",
+          "Launch_AsteroidBoosterParts_T1",
+          "Launch_SpaceProbeParts_T1",
+          "Launch_SpaceCrew_T1"
+        ],
+        "output": [
+          "Balancer_Product_RocketT1",
+          "RocketAssemblyT1"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerFlat",
+          "RocketLaunchPad"
+        ],
+        "output": [
+          "BalancerFlat",
+          "RocketAssemblyDepot"
+        ]
+      }
+    },
+    "Product_RocketT2": {
+      "id": "Product_RocketT2",
+      "name": "Rocket T2",
+      "icon": "rocketT2.png",
+      "color": "#808080",
+      "transport": "Flat",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_RocketT2",
+          "Launch_SpaceStationParts1_T2",
+          "Launch_SpaceStationParts2_T2",
+          "Launch_CrewSupplies_T2",
+          "Launch_Electronics4_T2",
+          "Launch_AsteroidBoosterParts_T2",
+          "Launch_SpaceProbeParts_T2",
+          "Launch_SpaceCrew_T2"
+        ],
+        "output": [
+          "Balancer_Product_RocketT2",
+          "RocketAssemblyT2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerFlat",
+          "RocketLaunchPad"
+        ],
+        "output": [
+          "BalancerFlat",
+          "RocketAssemblyDepot"
+        ]
+      }
+    },
+    "Product_Virtual_SpaceStationParts1_AtStation": {
+      "id": "Product_Virtual_SpaceStationParts1_AtStation",
+      "name": "Station parts (basic) (at station)",
+      "icon": "stationpartsbasic_atstation.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_SpaceStationParts1_AtStation",
+          "SpaceStation_Recipe"
+        ],
+        "output": [
+          "Balancer_Product_Virtual_SpaceStationParts1_AtStation",
+          "Launch_SpaceStationParts1_T1",
+          "Launch_SpaceStationParts1_T2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual",
+          "SpaceStation"
+        ],
+        "output": [
+          "BalancerVirtual",
+          "RocketLaunchPad"
+        ]
+      }
+    },
+    "Product_Virtual_SpaceStationParts2_AtStation": {
+      "id": "Product_Virtual_SpaceStationParts2_AtStation",
+      "name": "Station parts (at station)",
+      "icon": "stationparts_atstation.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_SpaceStationParts2_AtStation",
+          "SpaceStation_Recipe"
+        ],
+        "output": [
+          "Balancer_Product_Virtual_SpaceStationParts2_AtStation",
+          "Launch_SpaceStationParts2_T1",
+          "Launch_SpaceStationParts2_T2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual",
+          "SpaceStation"
+        ],
+        "output": [
+          "BalancerVirtual",
+          "RocketLaunchPad"
+        ]
+      }
+    },
+    "Product_Virtual_CrewSupplies_AtStation": {
+      "id": "Product_Virtual_CrewSupplies_AtStation",
+      "name": "Crew supplies (at station)",
+      "icon": "crewsupplies_atstation.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_CrewSupplies_AtStation",
+          "SpaceStation_Recipe"
+        ],
+        "output": [
+          "Balancer_Product_Virtual_CrewSupplies_AtStation",
+          "Launch_CrewSupplies_T1",
+          "Launch_CrewSupplies_T2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual",
+          "SpaceStation"
+        ],
+        "output": [
+          "BalancerVirtual",
+          "RocketLaunchPad"
+        ]
+      }
+    },
+    "Product_Virtual_Electronics4_AtStation": {
+      "id": "Product_Virtual_Electronics4_AtStation",
+      "name": "Electronics IV (at station)",
+      "icon": "electronics4_atstation.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_Electronics4_AtStation",
+          "SpaceStation_Recipe"
+        ],
+        "output": [
+          "Balancer_Product_Virtual_Electronics4_AtStation",
+          "Launch_Electronics4_T1",
+          "Launch_Electronics4_T2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual",
+          "SpaceStation"
+        ],
+        "output": [
+          "BalancerVirtual",
+          "RocketLaunchPad"
+        ]
+      }
+    },
+    "Product_Virtual_AsteroidBoosterParts_AtStation": {
+      "id": "Product_Virtual_AsteroidBoosterParts_AtStation",
+      "name": "Asteroid booster parts (at station)",
+      "icon": "asteroidboosterparts_atstation.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_AsteroidBoosterParts_AtStation"
+        ],
+        "output": [
+          "Balancer_Product_Virtual_AsteroidBoosterParts_AtStation",
+          "Launch_AsteroidBoosterParts_T1",
+          "Launch_AsteroidBoosterParts_T2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual"
+        ],
+        "output": [
+          "BalancerVirtual",
+          "RocketLaunchPad"
+        ]
+      }
+    },
+    "Product_Virtual_SpaceProbeParts_AtStation": {
+      "id": "Product_Virtual_SpaceProbeParts_AtStation",
+      "name": "Space probe parts (at station)",
+      "icon": "spaceprobeparts_atstation.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_SpaceProbeParts_AtStation"
+        ],
+        "output": [
+          "Balancer_Product_Virtual_SpaceProbeParts_AtStation",
+          "Launch_SpaceProbeParts_T1",
+          "Launch_SpaceProbeParts_T2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual"
+        ],
+        "output": [
+          "BalancerVirtual",
+          "RocketLaunchPad"
+        ]
+      }
+    },
+    "Product_Virtual_SpaceCrew_AtStation": {
+      "id": "Product_Virtual_SpaceCrew_AtStation",
+      "name": "Space crew (at station)",
+      "icon": "spacecrew_atstation.png",
+      "color": "#808080",
+      "transport": "Virtual",
+      "unit": "",
+      "recipes": {
+        "input": [
+          "Balancer_Product_Virtual_SpaceCrew_AtStation",
+          "SpaceStation_Recipe"
+        ],
+        "output": [
+          "Balancer_Product_Virtual_SpaceCrew_AtStation",
+          "Launch_SpaceCrew_T1",
+          "Launch_SpaceCrew_T2"
+        ]
+      },
+      "machines": {
+        "input": [
+          "BalancerVirtual",
+          "SpaceStation"
+        ],
+        "output": [
+          "BalancerVirtual",
+          "RocketLaunchPad"
         ]
       }
     }
@@ -13481,7 +13830,10 @@
       "name": "Rocket assembly depot",
       "category_id": "Rockets",
       "workers": 160,
-      "recipes": [],
+      "recipes": [
+        "RocketAssemblyT1",
+        "RocketAssemblyT2"
+      ],
       "buildCosts": [
         {
           "id": "Product_ConstructionParts4",
@@ -13512,7 +13864,22 @@
       "name": "Rocket launch pad",
       "category_id": "Rockets",
       "workers": 30,
-      "recipes": [],
+      "recipes": [
+        "Launch_SpaceStationParts1_T1",
+        "Launch_SpaceStationParts1_T2",
+        "Launch_SpaceStationParts2_T1",
+        "Launch_SpaceStationParts2_T2",
+        "Launch_CrewSupplies_T1",
+        "Launch_CrewSupplies_T2",
+        "Launch_Electronics4_T1",
+        "Launch_Electronics4_T2",
+        "Launch_AsteroidBoosterParts_T1",
+        "Launch_AsteroidBoosterParts_T2",
+        "Launch_SpaceProbeParts_T1",
+        "Launch_SpaceProbeParts_T2",
+        "Launch_SpaceCrew_T1",
+        "Launch_SpaceCrew_T2"
+      ],
       "buildCosts": [
         {
           "id": "Product_ConstructionParts4",
@@ -13789,7 +14156,9 @@
         "Balancer_Product_AsteroidBoosterParts",
         "Balancer_Product_CompactReactor",
         "Balancer_Product_WastePressed",
-        "Balancer_Product_Flowers"
+        "Balancer_Product_Flowers",
+        "Balancer_Product_RocketT1",
+        "Balancer_Product_RocketT2"
       ],
       "buildCosts": [],
       "isBalancer": true,
@@ -14003,7 +14372,14 @@
         "Balancer_Product_Virtual_Footprint",
         "Balancer_Product_Virtual_Wildcard",
         "Balancer_Product_Virtual_Workers",
-        "Balancer_Product_Virtual_ResearchPoints"
+        "Balancer_Product_Virtual_ResearchPoints",
+        "Balancer_Product_Virtual_SpaceStationParts1_AtStation",
+        "Balancer_Product_Virtual_SpaceStationParts2_AtStation",
+        "Balancer_Product_Virtual_CrewSupplies_AtStation",
+        "Balancer_Product_Virtual_Electronics4_AtStation",
+        "Balancer_Product_Virtual_AsteroidBoosterParts_AtStation",
+        "Balancer_Product_Virtual_SpaceProbeParts_AtStation",
+        "Balancer_Product_Virtual_SpaceCrew_AtStation"
       ],
       "buildCosts": [],
       "isBalancer": true,
@@ -14124,6 +14500,51 @@
         "id": "Product_Virtual_MaintenanceT1",
         "quantity": 3.8
       }
+    },
+    "SpaceStation": {
+      "id": "SpaceStation",
+      "name": "Space Station",
+      "category_id": "SpaceStation",
+      "workers": 0,
+      "workers_generated": 0,
+      "recipes": [
+        "SpaceStation_Recipe"
+      ],
+      "buildCosts": [
+        {
+          "id": "Product_SpaceStationParts2",
+          "quantity": 1
+        }
+      ],
+      "isBalancer": false,
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
+    },
+    "CrewQuarters": {
+      "id": "CrewQuarters",
+      "name": "Crew Quarters",
+      "category_id": "SpaceStation",
+      "workers": 4,
+      "workers_generated": 0,
+      "recipes": [
+        "CrewQuarters_Recipe"
+      ],
+      "buildCosts": [],
+      "isBalancer": false,
+      "isFarm": false,
+      "electricity_consumed": 0,
+      "electricity_generated": 0,
+      "computing_consumed": 0,
+      "computing_generated": 0,
+      "storage_capacity": 0,
+      "unity_cost": 0,
+      "research_speed": 0
     }
   },
   "recipes": {
@@ -14349,7 +14770,7 @@
       "outputs": [
         {
           "id": "Product_Virtual_Electricity",
-          "quantity": 2400
+          "quantity": 800
         },
         {
           "id": "Product_Virtual_PollutedAir",
@@ -14379,7 +14800,7 @@
       "outputs": [
         {
           "id": "Product_Virtual_Electricity",
-          "quantity": 15000
+          "quantity": 5000
         },
         {
           "id": "Product_Exhaust",
@@ -39429,6 +39850,240 @@
       "isRainWaterHarvester": false,
       "powerMult": 1
     },
+    "Balancer_Product_RocketT1": {
+      "id": "Balancer_Product_RocketT1",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerFlat",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_RocketT2": {
+      "id": "Balancer_Product_RocketT2",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerFlat",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_Virtual_SpaceStationParts1_AtStation": {
+      "id": "Balancer_Product_Virtual_SpaceStationParts1_AtStation",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts1_AtStation",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts1_AtStation",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_Virtual_SpaceStationParts2_AtStation": {
+      "id": "Balancer_Product_Virtual_SpaceStationParts2_AtStation",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts2_AtStation",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts2_AtStation",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_Virtual_CrewSupplies_AtStation": {
+      "id": "Balancer_Product_Virtual_CrewSupplies_AtStation",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_CrewSupplies_AtStation",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_CrewSupplies_AtStation",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_Virtual_Electronics4_AtStation": {
+      "id": "Balancer_Product_Virtual_Electronics4_AtStation",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_Electronics4_AtStation",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Electronics4_AtStation",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_Virtual_AsteroidBoosterParts_AtStation": {
+      "id": "Balancer_Product_Virtual_AsteroidBoosterParts_AtStation",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_AsteroidBoosterParts_AtStation",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_AsteroidBoosterParts_AtStation",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_Virtual_SpaceProbeParts_AtStation": {
+      "id": "Balancer_Product_Virtual_SpaceProbeParts_AtStation",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_SpaceProbeParts_AtStation",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceProbeParts_AtStation",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
+    "Balancer_Product_Virtual_SpaceCrew_AtStation": {
+      "id": "Balancer_Product_Virtual_SpaceCrew_AtStation",
+      "name": "Balancer Passthrough",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "balancer",
+      "machine": "BalancerVirtual",
+      "inputs": [
+        {
+          "id": "Product_Virtual_SpaceCrew_AtStation",
+          "quantity": 1
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceCrew_AtStation",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false,
+      "isRainWaterHarvester": false,
+      "powerMult": 1
+    },
     "Contract_Product_Coal_For_Product_Cement": {
       "id": "Contract_Product_Coal_For_Product_Cement",
       "name": "Coal for Cement",
@@ -40986,6 +41641,804 @@
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
       "powerMult": 1
+    },
+    "RocketAssemblyT1": {
+      "id": "RocketAssemblyT1",
+      "name": "Rocket T1 assembly",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "recipe",
+      "machine": "RocketAssemblyDepot",
+      "inputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 300
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 80
+        },
+        {
+          "id": "Product_Electronics2",
+          "quantity": 24
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "RocketAssemblyT2": {
+      "id": "RocketAssemblyT2",
+      "name": "Rocket T2 assembly",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "recipe",
+      "machine": "RocketAssemblyDepot",
+      "inputs": [
+        {
+          "id": "Product_CompositePanel",
+          "quantity": 480
+        },
+        {
+          "id": "Product_TitaniumAlloy",
+          "quantity": 120
+        },
+        {
+          "id": "Product_Steel",
+          "quantity": 80
+        },
+        {
+          "id": "Product_Electronics3",
+          "quantity": 16
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceStationParts1_T1": {
+      "id": "Launch_SpaceStationParts1_T1",
+      "name": "Launch Station parts (basic) (T1)",
+      "tiersLink": "Launch_SpaceStationParts1",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 140
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_SpaceStationParts1",
+          "quantity": 40
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts1_AtStation",
+          "quantity": 40
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceStationParts1_T2": {
+      "id": "Launch_SpaceStationParts1_T2",
+      "name": "Launch Station parts (basic) (T2)",
+      "tiersLink": "Launch_SpaceStationParts1",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 320
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 90
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_SpaceStationParts1",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts1_AtStation",
+          "quantity": 120
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceStationParts2_T1": {
+      "id": "Launch_SpaceStationParts2_T1",
+      "name": "Launch Station parts (T1)",
+      "tiersLink": "Launch_SpaceStationParts2",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 140
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_SpaceStationParts2",
+          "quantity": 40
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts2_AtStation",
+          "quantity": 40
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceStationParts2_T2": {
+      "id": "Launch_SpaceStationParts2_T2",
+      "name": "Launch Station parts (T2)",
+      "tiersLink": "Launch_SpaceStationParts2",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 320
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 90
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_SpaceStationParts2",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts2_AtStation",
+          "quantity": 120
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_CrewSupplies_T1": {
+      "id": "Launch_CrewSupplies_T1",
+      "name": "Launch Crew supplies (T1)",
+      "tiersLink": "Launch_CrewSupplies",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 140
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_CrewSupplies",
+          "quantity": 40
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_CrewSupplies_AtStation",
+          "quantity": 40
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_CrewSupplies_T2": {
+      "id": "Launch_CrewSupplies_T2",
+      "name": "Launch Crew supplies (T2)",
+      "tiersLink": "Launch_CrewSupplies",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 320
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 90
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_CrewSupplies",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_CrewSupplies_AtStation",
+          "quantity": 120
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_Electronics4_T1": {
+      "id": "Launch_Electronics4_T1",
+      "name": "Launch Electronics IV (T1)",
+      "tiersLink": "Launch_Electronics4",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 140
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_Electronics4",
+          "quantity": 40
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Electronics4_AtStation",
+          "quantity": 40
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_Electronics4_T2": {
+      "id": "Launch_Electronics4_T2",
+      "name": "Launch Electronics IV (T2)",
+      "tiersLink": "Launch_Electronics4",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 320
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 90
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_Electronics4",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_Electronics4_AtStation",
+          "quantity": 120
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_AsteroidBoosterParts_T1": {
+      "id": "Launch_AsteroidBoosterParts_T1",
+      "name": "Launch Asteroid booster parts (T1)",
+      "tiersLink": "Launch_AsteroidBoosterParts",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 140
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_AsteroidBoosterParts",
+          "quantity": 40
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_AsteroidBoosterParts_AtStation",
+          "quantity": 40
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_AsteroidBoosterParts_T2": {
+      "id": "Launch_AsteroidBoosterParts_T2",
+      "name": "Launch Asteroid booster parts (T2)",
+      "tiersLink": "Launch_AsteroidBoosterParts",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 320
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 90
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_AsteroidBoosterParts",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_AsteroidBoosterParts_AtStation",
+          "quantity": 120
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceProbeParts_T1": {
+      "id": "Launch_SpaceProbeParts_T1",
+      "name": "Launch Space probe parts (T1)",
+      "tiersLink": "Launch_SpaceProbeParts",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 140
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_SpaceProbeParts",
+          "quantity": 40
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceProbeParts_AtStation",
+          "quantity": 40
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceProbeParts_T2": {
+      "id": "Launch_SpaceProbeParts_T2",
+      "name": "Launch Space probe parts (T2)",
+      "tiersLink": "Launch_SpaceProbeParts",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 320
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 90
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_SpaceProbeParts",
+          "quantity": 120
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceProbeParts_AtStation",
+          "quantity": 120
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceCrew_T1": {
+      "id": "Launch_SpaceCrew_T1",
+      "name": "Launch Space crew (T1)",
+      "tiersLink": "Launch_SpaceCrew",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT1",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 140
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 40
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_Virtual_SpaceCrew",
+          "quantity": 4
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceCrew_AtStation",
+          "quantity": 4
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "Launch_SpaceCrew_T2": {
+      "id": "Launch_SpaceCrew_T2",
+      "name": "Launch Space crew (T2)",
+      "tiersLink": "Launch_SpaceCrew",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "launch",
+      "machine": "RocketLaunchPad",
+      "inputs": [
+        {
+          "id": "Product_RocketT2",
+          "quantity": 1
+        },
+        {
+          "id": "Product_Hydrogen",
+          "quantity": 320
+        },
+        {
+          "id": "Product_Oxygen",
+          "quantity": 90
+        },
+        {
+          "id": "Product_Water",
+          "quantity": 160
+        },
+        {
+          "id": "Product_Virtual_SpaceCrew",
+          "quantity": 12
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceCrew_AtStation",
+          "quantity": 12
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "SpaceStation_Recipe": {
+      "id": "SpaceStation_Recipe",
+      "name": "Space Station",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "space-station",
+      "machine": "SpaceStation",
+      "inputs": [
+        {
+          "id": "Product_Virtual_SpaceStationParts1_AtStation",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Virtual_CrewSupplies_AtStation",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Virtual_SpaceCrew_AtStation",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Virtual_SpaceStationParts2_AtStation",
+          "quantity": 0
+        },
+        {
+          "id": "Product_Virtual_Electronics4_AtStation",
+          "quantity": 0
+        }
+      ],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceResearchPoints",
+          "quantity": 0
+        }
+      ],
+      "levelRegimes": [
+        {
+          "minLevel": 1,
+          "maxLevel": 2,
+          "base": {
+            "inputs": [
+              {
+                "id": "Product_Virtual_SpaceStationParts1_AtStation",
+                "quantity": 0.25
+              },
+              {
+                "id": "Product_Virtual_CrewSupplies_AtStation",
+                "quantity": 0
+              },
+              {
+                "id": "Product_Virtual_SpaceCrew_AtStation",
+                "quantity": 0
+              }
+            ],
+            "outputs": []
+          },
+          "delta": {
+            "inputs": [
+              {
+                "id": "Product_Virtual_SpaceStationParts1_AtStation",
+                "quantity": 0.25
+              },
+              {
+                "id": "Product_Virtual_CrewSupplies_AtStation",
+                "quantity": 0.4
+              },
+              {
+                "id": "Product_Virtual_SpaceCrew_AtStation",
+                "quantity": 2
+              }
+            ],
+            "outputs": []
+          }
+        },
+        {
+          "minLevel": 3,
+          "maxLevel": 100,
+          "base": {
+            "inputs": [
+              {
+                "id": "Product_Virtual_SpaceStationParts2_AtStation",
+                "quantity": 0.75
+              },
+              {
+                "id": "Product_Virtual_CrewSupplies_AtStation",
+                "quantity": 0.8
+              },
+              {
+                "id": "Product_Virtual_SpaceCrew_AtStation",
+                "quantity": 4
+              },
+              {
+                "id": "Product_Virtual_Electronics4_AtStation",
+                "quantity": 2
+              }
+            ],
+            "outputs": [
+              {
+                "id": "Product_Virtual_SpaceResearchPoints",
+                "quantity": 48
+              }
+            ]
+          },
+          "delta": {
+            "inputs": [
+              {
+                "id": "Product_Virtual_SpaceStationParts2_AtStation",
+                "quantity": 0.25
+              },
+              {
+                "id": "Product_Virtual_CrewSupplies_AtStation",
+                "quantity": 0.4
+              },
+              {
+                "id": "Product_Virtual_SpaceCrew_AtStation",
+                "quantity": 2
+              },
+              {
+                "id": "Product_Virtual_Electronics4_AtStation",
+                "quantity": 2
+              }
+            ],
+            "outputs": [
+              {
+                "id": "Product_Virtual_SpaceResearchPoints",
+                "quantity": 48
+              }
+            ]
+          }
+        }
+      ],
+      "defaultLevel": 3,
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
+    },
+    "CrewQuarters_Recipe": {
+      "id": "CrewQuarters_Recipe",
+      "name": "Crew Quarters",
+      "duration": 60,
+      "origDuration": 60,
+      "type": "recipe",
+      "machine": "CrewQuarters",
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "Product_Virtual_SpaceCrew",
+          "quantity": 1
+        }
+      ],
+      "isMaintenance": false,
+      "isMaintenanceProducer": false,
+      "isFarm": false,
+      "usesSolarPower": false
     }
   }
 }

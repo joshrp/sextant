@@ -11,7 +11,7 @@ import type { CustomNodeType } from '../graph/nodeTypes';
 import type { EqualityTypes, FactoryGoal, GraphModel, GraphScoringMethod, NodeConnection, NodeConnections, OpenConnections, Solution } from "./types";
 
 // Regex matchers for parsing HiGHS solution columns
-export const nodeLabelMatcher = /^n_\d+/;
+export const nodeLabelMatcher = /^n_\d+$/;
 export const inputMatcher = /^i_(.+)$/;
 export const outputMatcher = /^o_(.+)$/;
 export const infraMatcher = /^in_(.+)$/;
@@ -76,10 +76,27 @@ export function parseHighsSolution(res: HighsSolution, graph: GraphModel, goals:
     const nodeLabel = k.match(nodeLabelMatcher)?.[0]
     if (nodeLabel) {
       const node = Object.keys(graph.nodeIdToLabels).find(l => graph.nodeIdToLabels[l] == nodeLabel);
-      if (node) nodeResults.push({
-        nodeId: node,
-        count: parseHighsNumberResult(res.Columns[nodeLabel].Primal),
-      });
+      if (node) {
+        // For recipes whose terms all use the continuous `n_X`, the LP pins n_X tightly
+        // through the objective, and nodeCounts = n_X.Primal is correct.
+        //
+        // For recipes with `integerScale` terms (launches, space stations), only `n_X_int`
+        // participates in the objective. The continuous `n_X` then floats anywhere in
+        // [n_int - 0.99999, n_int] and HiGHS typically picks the lower edge. The integer
+        // companion is what drives RP supply, rocket count, etc., so report it instead.
+        const continuous = res.Columns[nodeLabel].Primal;
+        const recipe = recipeData.get(graph.graph[node]?.recipeId);
+        const usesIntegerScale = recipe !== undefined
+          && (recipe.inputs.some(p => p.integerScale) || recipe.outputs.some(p => p.integerScale));
+        const intCol = res.Columns[nodeLabel + "_int"];
+        const count = usesIntegerScale && intCol !== undefined
+          ? Math.max(continuous, intCol.Primal)
+          : continuous;
+        nodeResults.push({
+          nodeId: node,
+          count: parseHighsNumberResult(count),
+        });
+      }
     }
 
     const outputLabel = k.match(outputMatcher)?.[1]
@@ -210,6 +227,12 @@ export function buildNodeConnections(
         options: node.data.options,
         type: "thermal-storage",
       }
+    } else if (node.data.type === "space-station") {
+      nodeConnections[node.id] = {
+        ...nodeData,
+        type: "space-station",
+        options: node.data.options,
+      };
     } else if (node.data.type === "recipe" || node.data.type === "contract") {
       nodeConnections[node.id] = {
         ...nodeData,

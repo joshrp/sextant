@@ -793,6 +793,68 @@ describe("Import Export", () => {
       expect(result.zoneModifiers?.get('Zone C')?.farmYield).toBe(DEFAULT_ZONE_MODIFIERS.farmYield);
     });
   });
+
+  describe('Node type round-trip', () => {
+    // Each entry covers a node data.type that has its own short code in DataTypes.
+    // Without those entries, types would silently downgrade to "recipe" on import —
+    // breaking custom views (settlement options, thermal-storage loss slider,
+    // space-station level display, etc.).
+    test.each([
+      ["recipe", "PowerGeneratorT2"],
+      ["launch", "Launch_SpaceStationParts1_T1"],
+      ["space-station", "SpaceStation_Recipe"],
+      ["thermal-storage", "ThermalStorage_Product_SteamLP"],
+      ["contract", "Contract_Product_FuelGas_For_Product_Dirt"],
+    ] as const)("preserves data.type = %s through minify → unminify", (dataType, recipeId) => {
+      const factory: GraphCoreData = {
+        name: 'Round trip test',
+        nodes: [{
+          id: 'n1',
+          type: 'recipe-node',
+          position: { x: 0, y: 0 },
+          data: dataType === "thermal-storage"
+            ? { type: dataType, recipeId: recipeId as RecipeId, ltr: true, options: { loss: 10 } }
+            : { type: dataType, recipeId: recipeId as RecipeId, ltr: true },
+        }],
+        edges: [],
+        goals: [],
+      };
+
+      const min = imex.minify(factory, "zone");
+      const restored = imex.unminify(min);
+      expect(restored.nodes).toHaveLength(1);
+      const restoredNode = restored.nodes[0];
+      if (restoredNode.type !== "recipe-node") throw new Error("Expected recipe-node");
+      expect(restoredNode.data.type).toBe(dataType);
+      expect(restoredNode.data.recipeId).toBe(recipeId);
+    });
+
+    test("space-station level option round-trips", () => {
+      const factory: GraphCoreData = {
+        name: 'Level round trip',
+        nodes: [{
+          id: 'n1',
+          type: 'recipe-node',
+          position: { x: 0, y: 0 },
+          data: {
+            type: "space-station",
+            recipeId: "SpaceStation_Recipe" as RecipeId,
+            ltr: true,
+            options: { level: 7 },
+          },
+        }],
+        edges: [],
+        goals: [],
+      };
+
+      const min = imex.minify(factory, "zone");
+      const restored = imex.unminify(min);
+      const restoredNode = restored.nodes[0];
+      if (restoredNode.type !== "recipe-node") throw new Error("Expected recipe-node");
+      if (restoredNode.data.type !== "space-station") throw new Error("Expected space-station");
+      expect(restoredNode.data.options?.level).toBe(7);
+    });
+  });
 });
 
 const getIdb = () => {

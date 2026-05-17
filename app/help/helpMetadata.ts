@@ -140,6 +140,14 @@ export const helpTopics: HelpTopic[] = [
     order: 45,
   },
   {
+    id: 'space-research',
+    title: 'Space Research',
+    description: 'Stations, launches, integer-pinned rockets, and why a launch handle shows a full cargo load.',
+    contentKey: 'space-research',
+    category: 'advanced',
+    order: 46,
+  },
+  {
     id: 'bugs',
     title: 'Bugs & Problems',
     description: 'Report bugs, request features, and find the source code',

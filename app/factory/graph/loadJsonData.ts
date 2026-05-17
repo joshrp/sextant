@@ -118,18 +118,46 @@ export type RecipeProduct = {
   product: Product;
   quantity: number;
   optional?: boolean;
+  integerScale?: true;
 }
 
 export type RecipeProductSerialized = {
   id: ProductId;
   quantity: number;
   optional?: boolean;
+  integerScale?: true;
+}
+
+export type LevelRegime = {
+  minLevel: number;
+  maxLevel: number;
+  base: {
+    inputs: RecipeProduct[];
+    outputs: RecipeProduct[];
+  };
+  delta: {
+    inputs: RecipeProduct[];
+    outputs: RecipeProduct[];
+  };
+}
+
+export type LevelRegimeSerialized = {
+  minLevel: number;
+  maxLevel: number;
+  base: {
+    inputs: RecipeProductSerialized[];
+    outputs: RecipeProductSerialized[];
+  };
+  delta: {
+    inputs: RecipeProductSerialized[];
+    outputs: RecipeProductSerialized[];
+  };
 }
 
 export type RecipeBase = {
   id: RecipeId;
   name: string;
-  type: "recipe" | "settlement" | "balancer" | "contract" | "thermal-storage";
+  type: "recipe" | "settlement" | "balancer" | "contract" | "thermal-storage" | "launch" | "space-station";
   tiersLink?: string;
   duration: number;
   origDuration: number;
@@ -148,12 +176,14 @@ export type Recipe = RecipeBase & {
   machine: Machine;
   inputs: RecipeProduct[];
   outputs: RecipeProduct[];
+  levelRegimes?: LevelRegime[];
 }
 
 export type RecipeSerialized = RecipeBase & {
   machine: MachineId;
   inputs: RecipeProductSerialized[];
   outputs: RecipeProductSerialized[];
+  levelRegimes?: LevelRegimeSerialized[];
 }
 
 export type GameDataParsed = {
@@ -245,14 +275,34 @@ export function parseData(unparsedData = gameData) {
       if (!machine)
         throw new Error(`Machine ${recipe.machine} not found for recipe ${recipeId}`);
 
+      const { levelRegimes: _serializedRegimes, ...recipeRest } = recipe;
       newData.recipes.set(recipeId, {
-        ...recipe,
+        ...recipeRest,
         machine: machine,
         inputs: [],
         outputs: [],
       });
       const newRecipe = newData.recipes.get(recipeId)!;
       machine.recipes.push(newRecipe);
+
+      const mapRP = (p: RecipeProductSerialized): RecipeProduct => {
+        const product = newData.products.get(p.id);
+        if (!product) throw new Error(`Product ${p.id} not found in level regime for recipe ${recipeId}`);
+        return {
+          product,
+          quantity: p.quantity,
+          optional: p.optional || false,
+          ...(p.integerScale ? { integerScale: true as const } : {}),
+        };
+      };
+      if (recipe.levelRegimes) {
+        newRecipe.levelRegimes = recipe.levelRegimes.map(r => ({
+          minLevel: r.minLevel,
+          maxLevel: r.maxLevel,
+          base: { inputs: r.base.inputs.map(mapRP), outputs: r.base.outputs.map(mapRP) },
+          delta: { inputs: r.delta.inputs.map(mapRP), outputs: r.delta.outputs.map(mapRP) },
+        }));
+      }
 
       newRecipe.inputs = recipe.inputs.map(input => {
         const product = newData.products.get(input.id);
@@ -264,6 +314,7 @@ export function parseData(unparsedData = gameData) {
           product: product,
           quantity: input.quantity,
           optional: input.optional || false,
+          ...(input.integerScale ? { integerScale: true as const } : {}),
         }
       });
       newRecipe.outputs = recipe.outputs.map(output => {
@@ -276,6 +327,7 @@ export function parseData(unparsedData = gameData) {
           product: product,
           quantity: output.quantity,
           optional: output.optional || false,
+          ...(output.integerScale ? { integerScale: true as const } : {}),
         }
       });
     }

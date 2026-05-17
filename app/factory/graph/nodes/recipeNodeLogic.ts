@@ -22,7 +22,7 @@ export type HandleDropAlignment = {
 export type NodeBaseData = {
   ltr?: boolean; // Left to right layout
   // Type of the node, rendering and calculations may differ based on type. Default is "recipe".
-  type?: "recipe" | "settlement" | "balancer" | "contract" | "thermal-storage";
+  type?: "recipe" | "settlement" | "balancer" | "contract" | "thermal-storage" | "launch" | "space-station";
   alignToDrop?: HandleDropAlignment;
   solution?: {
     solved: true,
@@ -74,7 +74,23 @@ export type ThermalStorageNodeData = NodeBaseData & {
   options: ThermalStorageNodeOptions;
 };
 
-export type NodeDataTypes = RecipeNodeData | BalancerNodeData | SettlementNodeData | ContractNodeData | ThermalStorageNodeData;
+export type LaunchNodeData = NodeBaseData & {
+  type: "launch";
+  recipeId: RecipeId;
+  options?: undefined;
+};
+
+export type SpaceStationNodeOptions = {
+  level: number;
+};
+
+export type SpaceStationNodeData = NodeBaseData & {
+  type: "space-station";
+  recipeId: RecipeId;
+  options?: SpaceStationNodeOptions;
+};
+
+export type NodeDataTypes = RecipeNodeData | BalancerNodeData | SettlementNodeData | ContractNodeData | ThermalStorageNodeData | LaunchNodeData | SpaceStationNodeData;
 
 /**
  * React Flow node type for recipe/balancer/settlement/contract nodes.
@@ -290,6 +306,31 @@ export const RecipeNodeCalculator = (
     },
   };
 }
+
+export const SpaceStationCalculator = (
+  recipe: Recipe,
+  nodeOptions: SpaceStationNodeOptions | undefined,
+  runCount: number,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _modifiers: ZoneModifiers,
+) => {
+  const regimes = recipe.levelRegimes ?? [];
+  const defaultLevel = recipe.defaultLevel ?? regimes[0]?.minLevel ?? 1;
+  const level = nodeOptions?.level ?? defaultLevel;
+  const regime = regimes.find(r => level >= r.minLevel && level <= r.maxLevel);
+
+  const resolve = (id: ProductId, side: 'inputs' | 'outputs'): number => {
+    if (!regime) return 0;
+    const baseQty = regime.base[side].find(p => p.product.id === id)?.quantity ?? 0;
+    const deltaQty = regime.delta[side].find(p => p.product.id === id)?.quantity ?? 0;
+    return baseQty + (level - regime.minLevel) * deltaQty;
+  };
+
+  return {
+    productInput: (productId: ProductId): number => resolve(productId, 'inputs') * runCount,
+    productOutput: (productId: ProductId): number => resolve(productId, 'outputs') * runCount,
+  };
+};
 
 export const ThermalStorageCalculator = (
   recipe: Recipe,

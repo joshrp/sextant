@@ -17,6 +17,7 @@ import * as YourDataContent from './content/your-data.mdx';
 import * as ContractsContent from './content/contracts.mdx';
 import * as BugsContent from './content/bugs.mdx';
 import * as ThermalStorageContent from './content/thermal-storage.mdx';
+import * as SpaceResearchContent from './content/space-research.mdx';
 
 
 // Map topic IDs to their content components
@@ -35,6 +36,7 @@ export const contentMap = {
   contracts: ContractsContent.default,
   bugs: BugsContent.default,
   'thermal-storage': ThermalStorageContent.default,
+  'space-research': SpaceResearchContent.default,
 } as const;
 
 /**

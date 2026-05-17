@@ -37,17 +37,23 @@ describe("Check refomatted data", () => {
     const { recipes } = allData;
     const linkIdMap = new Map<string, { inputs: Set<string>, outputs: Set<string> }>();
 
+    // Strip rocket-tier suffix (T1/T2) when comparing tier-linked Launch recipes.
+    // Launch_X_T1 takes Product_RocketT1, Launch_X_T2 takes Product_RocketT2; everything
+    // else (cargo, fuel set, _AtStation output) matches. Treating RocketT* as equivalent
+    // preserves the tier-link UX without faking input identity.
+    const normalize = (id: string) => id.replace(/^Product_RocketT\d+$/, "Product_Rocket");
+
     for (const recipe of recipes.values()) {
       if (recipe.tiersLink) {
         if (!linkIdMap.has(recipe.tiersLink)) {
           linkIdMap.set(recipe.tiersLink, {
-            inputs: new Set(recipe.inputs.map(i => i.id)),
-            outputs: new Set(recipe.outputs.map(o => o.id)),
+            inputs: new Set(recipe.inputs.map(i => normalize(i.id))),
+            outputs: new Set(recipe.outputs.map(o => normalize(o.id))),
           });
         } else {
           const { inputs, outputs } = linkIdMap.get(recipe.tiersLink)!;
-          expect(new Set(recipe.inputs.map(i => i.id)), `checking inputs for ${recipe.id}`).toEqual(inputs);
-          expect(new Set(recipe.outputs.map(o => o.id)), `checking outputs for ${recipe.id}`).toEqual(outputs);
+          expect(new Set(recipe.inputs.map(i => normalize(i.id))), `checking inputs for ${recipe.id}`).toEqual(inputs);
+          expect(new Set(recipe.outputs.map(o => normalize(o.id))), `checking outputs for ${recipe.id}`).toEqual(outputs);
         }
       }
     }
@@ -87,6 +93,7 @@ describe("Check refomatted data", () => {
     for (const recipe of recipes.values()) {
       const isBreeder0x = recipe.id === "FastBreederReactorEnrichment1" as RecipeId;
       const isHousing = recipe.id.startsWith("Housing");
+      if (recipe.type === "space-station") continue; // Top-level inputs/outputs are stub handles; real values live in levelRegimes
       for (const input of recipe.inputs) {
         const isBlanketOrEnriched = ["Product_BlanketFuel", "Product_BlanketFuelEnriched"].includes(input.id);
         if (isBreeder0x && isBlanketOrEnriched) continue; // There's always an exception to the rule...
@@ -102,6 +109,26 @@ describe("Check refomatted data", () => {
         expect(output.quantity, `Output ${output.id} in recipe ${recipe.id} has invalid quantity`).toBeGreaterThan(0);
       }
     }
+  });
+
+  test("Unified SpaceStation recipe has two populated level regimes", async () => {
+    const { recipes } = allData;
+    const station = recipes.get("SpaceStation_Recipe" as RecipeId);
+    expect(station).toBeDefined();
+    expect(station!.type).toBe("space-station");
+    expect(station!.levelRegimes).toHaveLength(2);
+    const [basic, advanced] = station!.levelRegimes!;
+    expect(basic.minLevel).toBe(1);
+    expect(basic.maxLevel).toBe(2);
+    expect(basic.base.inputs.length).toBeGreaterThan(0);
+    expect(basic.delta.inputs.length).toBeGreaterThan(0);
+    expect(basic.base.outputs).toHaveLength(0);
+    expect(advanced.minLevel).toBe(3);
+    expect(advanced.maxLevel).toBeGreaterThan(3);
+    expect(advanced.base.inputs.length).toBeGreaterThan(0);
+    expect(advanced.base.outputs.length).toBeGreaterThan(0); // RP at L3 base
+    expect(advanced.delta.outputs.length).toBeGreaterThan(0); // RP delta per level
+    expect(station!.defaultLevel).toBe(3);
   });
 
   test("3 synthetic thermal storage recipes are generated", async () => {

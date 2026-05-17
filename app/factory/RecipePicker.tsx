@@ -1,7 +1,7 @@
 import { ChevronDownIcon, ClockIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useMemo, useState } from "react";
 import { formatNumber, machineIcon, productIcon } from "~/uiUtils";
-import { loadData, type ProductId, type Recipe, type RecipeId } from "./graph/loadJsonData";
+import { loadData, type ProductId, type Recipe, type RecipeId, type RecipeProduct } from "./graph/loadJsonData";
 import { getRecipesByProduct } from "~/gameData/utils";
 import { prepareRecipesForSearch, searchRecipes, groupRecipesByTier, createMatchedTermsMap } from "./recipeSearch";
 import HelpLink from "~/components/HelpLink";
@@ -9,6 +9,25 @@ import { useProductionZoneStore } from '~/context/ZoneContext';
 
 const { products } = loadData();
 const MAX_DISPLAY_ITEMS = 6;
+
+/**
+ * For recipes whose per-product quantities depend on a runtime option (currently
+ * just space-station, where the level resolves through SpaceStationCalculator),
+ * pick the value the picker should display. Default level for space-station,
+ * otherwise the raw recipe quantity.
+ */
+function displayQty(recipe: Recipe, item: RecipeProduct, side: 'input' | 'output'): number {
+  if (recipe.type === 'space-station' && recipe.levelRegimes) {
+    const L = recipe.defaultLevel ?? recipe.levelRegimes[0].minLevel;
+    const regime = recipe.levelRegimes.find(r => L >= r.minLevel && L <= r.maxLevel);
+    if (!regime) return 0;
+    const key = side === 'input' ? 'inputs' : 'outputs';
+    const base = regime.base[key].find(p => p.product.id === item.product.id)?.quantity ?? 0;
+    const delta = regime.delta[key].find(p => p.product.id === item.product.id)?.quantity ?? 0;
+    return base + (L - regime.minLevel) * delta;
+  }
+  return item.quantity;
+}
 
 export default function RecipePicker({
   productId,

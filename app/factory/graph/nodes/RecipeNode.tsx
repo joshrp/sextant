@@ -6,7 +6,7 @@ import { useShallow } from 'zustand/shallow';
 import { useFactoryStore } from '../../../context/FactoryContext';
 import BalancerNodeView from './BalancerNodeView';
 import { loadData, type ProductId } from '../loadJsonData';
-import { type RecipeNodeData, type RecipeNodeType } from './recipeNodeLogic';
+import { type RecipeNodeData, type RecipeNodeType, type SpaceStationNodeData } from './recipeNodeLogic';
 import RecipeNodeView from './RecipeNodeView';
 import SettlementNodeView from './SettlementNodeView';
 import ThermalStorageNodeView from './ThermalStorageNodeView';
@@ -38,7 +38,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   if (props.data.ltr === undefined) props.data.ltr = true; // Default to left-to-right layout
   
   // Select all stable actions in a single subscription
-  const { removeNode, setNodeData, setRecipeNodeOptions, onNodesChange, setSettlementOptions, setThermalStorageOptions } = useFactoryStore(
+  const { removeNode, setNodeData, setRecipeNodeOptions, onNodesChange, setSettlementOptions, setThermalStorageOptions, setSpaceStationOptions } = useFactoryStore(
     useShallow(state => ({
       removeNode: state.removeNode,
       setNodeData: state.setNodeData,
@@ -46,6 +46,7 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
       onNodesChange: state.onNodesChange,
       setSettlementOptions: state.setSettlementOptions,
       setThermalStorageOptions: state.setThermalStorageOptions,
+      setSpaceStationOptions: state.setSpaceStationOptions,
     }))
   );
   
@@ -301,6 +302,12 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         modifiers={modifiers}
       />;
     } else {
+      const isSpaceStation = props.data.type === 'space-station';
+      const passedOptions = props.data.type === 'recipe'
+        ? props.data.options
+        : isSpaceStation
+          ? (props.data.options as unknown as RecipeNodeData["options"])
+          : undefined;
       contents = <RecipeNodeView
         recipe={recipe}
         inputEdges={inputEdges}
@@ -312,9 +319,13 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         solution={props.data.solution}
         highlight={highlight}
         nodeId={props.id}
-        nodeOptions={props.data.type === 'recipe' ? props.data.options : undefined}
+        nodeOptions={passedOptions}
         setOptions={opts => {
-          setRecipeNodeOptions(props.id, opts);
+          if (isSpaceStation) {
+            setSpaceStationOptions(props.id, opts as unknown as SpaceStationNodeData["options"]);
+          } else {
+            setRecipeNodeOptions(props.id, opts);
+          }
           updateNodeInternals(props.id);
         }}
         modifiers={modifiers}

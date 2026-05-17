@@ -66,15 +66,18 @@ export type MinifiedStateV2 = [
 ]
 
 // Node data types short codes for minification
+type SerializedDataType = "recipe" | "balancer" | "settlement" | "contract" | "thermal-storage" | "launch" | "space-station";
 const DataTypes = {
   "recipe": "r",
   "balancer": "b",
   "settlement": "s",
   "contract": "c",
+  "launch": "l",
+  "space-station": "ss",
   "thermal-storage": "t",
   get: function (id?: string): string { return this[(id ?? "recipe") as keyof typeof DataTypes] as string || "r" },
-  find: function (val: string | undefined): "recipe" | "balancer" | "settlement" | "contract" | "thermal-storage" {
-    const found = Object.entries(this).find(([, v]) => v === val)?.[0] as "recipe" | "balancer" | "settlement" | "contract" | "thermal-storage" | undefined;
+  find: function (val: string | undefined): SerializedDataType  {
+    const found = Object.entries(this).find(([, v]) => v === val)?.[0] as SerializedDataType | undefined;
     return found ?? "recipe";
   }
 }
@@ -209,6 +212,12 @@ function minifyNodeOptions(data: NodeDataTypes): Record<string, unknown> | undef
     case "recipe": {
       if (data.options?.useRecycling !== undefined) {
         return { r: data.options.useRecycling };
+      }
+      return undefined;
+    }
+    case "space-station": {
+      if (data.options?.level !== undefined) {
+        return { l: data.options.level };
       }
       return undefined;
     }
@@ -495,6 +504,10 @@ class Unminify {
       } else if (dataType === "recipe") {
         if (typeof opts.r === "boolean") {
           node.data.options = { useRecycling: opts.r };
+        }
+      } else if (dataType === "space-station") {
+        if (typeof opts.l === "number") {
+          node.data.options = { level: opts.l };
         }
       } else if (dataType === "thermal-storage") {
         if (typeof opts.l === "number") {

@@ -1065,7 +1065,7 @@ function ModifierImportSection({
           <div className="mt-1 space-y-0.5 pl-2 border-l border-gray-600">
             {nonDefaultIncoming.map(key => (
               <div key={key} className="flex justify-between text-xs text-yellow-300 gap-4">
-                <span>{MODIFIER_META[key].label}</span>
+                <span>{MODIFIER_META[key]?.label}</span>
                 <span className="font-mono">{formatVal(key, availableModifiers[key])}</span>
               </div>
             ))}
@@ -1088,7 +1088,7 @@ function ModifierImportSection({
             <div className="mt-1 space-y-0.5 pl-2 border-l border-gray-500">
               {nonDefaultCurrent.map(key => (
                 <div key={key} className="flex justify-between text-xs text-gray-300 gap-4">
-                  <span>{MODIFIER_META[key].label}</span>
+                  <span>{MODIFIER_META[key]?.label}</span>
                   <span className="font-mono">{formatVal(key, currentModifiers[key])}</span>
                 </div>
               ))}

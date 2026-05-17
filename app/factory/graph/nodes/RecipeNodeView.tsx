@@ -10,7 +10,7 @@ import type { HighlightModes } from '../../../context/store';
 import { HandleList, ProductHandle } from '../handles';
 import type { ProductId, Recipe } from '../loadJsonData';
 import type { RecipeNodeOptions } from './recipeNodeLogic';
-import { getQuantityDisplay, RecipeNodeCalculator } from './recipeNodeLogic';
+import { getQuantityDisplay, RecipeNodeCalculator, SpaceStationCalculator, type SpaceStationNodeOptions } from './recipeNodeLogic';
 
 type ProductEdges = Map<ProductId, boolean>;
 
@@ -56,7 +56,9 @@ export default function RecipeNodeView({
 
   const displayRunCount = solution?.solved && solution.runCount !== undefined ? solution.runCount : 1;
 
-  const Calculator = RecipeNodeCalculator(recipe, nodeOptions, 1, modifiers);
+  const Calculator = recipe.type === 'space-station'
+    ? SpaceStationCalculator(recipe, nodeOptions as unknown as SpaceStationNodeOptions | undefined, 1, modifiers)
+    : RecipeNodeCalculator(recipe, nodeOptions, 1, modifiers);
 
   // Check if this recipe has optional (recycling breakdown) outputs
   const hasRecyclingOutputs = recipe.outputs.some(p => p.product.isScrap);
@@ -85,6 +87,7 @@ export default function RecipeNodeView({
         <div className="flex-10 text-center text-xl flex items-center justify-center gap-2">
           <span>{recipe.machine.name}</span>
           {recipe.type === 'contract' && <HelpLink topic="contracts" title="Learn about Contracts" iconSize="w-5 h-5" />}
+          {(recipe.type === 'space-station' || recipe.type === 'launch') && <HelpLink topic="space-research" title="Learn about Space Research" iconSize="w-5 h-5" />}
         </div>
         <div className="flex-1 justify-end-safe text-right ">
           <button
@@ -128,7 +131,15 @@ export default function RecipeNodeView({
             className="inline-block w-20 min-w-8 p-1 pointer-events-none
         bg-gray-400/10 shadow-md/20 rounded-lg data-flipped:scale-x-[-1]
         " data-flipped={ltr == false || null} />
-          {recipe.type !== 'contract' && <div className="w-full my-1 text-2xl">{formatNumber(runCount, "", runCount < 10 ? 3 : 1)}</div>}
+          {recipe.type === 'space-station' ? (
+            <SpaceStationLevelStepper
+              recipe={recipe}
+              level={(nodeOptions as { level?: number } | undefined)?.level ?? recipe.defaultLevel ?? 3}
+              setOptions={setOptions}
+            />
+          ) : recipe.type !== 'contract' ? (
+            <div className="w-full my-1 text-2xl">{formatNumber(runCount, "", runCount < 10 ? 3 : 1)}</div>
+          ) : null}
           {hasRecyclingOutputs && setOptions && (
             <button
               title={recyclingEnabled ? 'Disable recycling breakdown' : 'Enable recycling breakdown'}
@@ -190,6 +201,41 @@ export default function RecipeNodeView({
     </div >
   );
 
+}
+
+function SpaceStationLevelStepper({
+  recipe,
+  level,
+  setOptions,
+}: {
+  recipe: Recipe;
+  level: number;
+  setOptions?: (options: RecipeNodeOptions) => void;
+}) {
+  const regimes = recipe.levelRegimes ?? [];
+  const minLevel = regimes.length > 0 ? regimes[0].minLevel : 1;
+  const maxLevel = regimes.length > 0 ? regimes[regimes.length - 1].maxLevel : 100;
+  const set = (newLevel: number) => {
+    const clamped = Math.max(minLevel, Math.min(maxLevel, newLevel));
+    setOptions?.({ level: clamped } as RecipeNodeOptions);
+  };
+  return (
+    <div className="w-full my-1 text-xl flex items-center justify-center gap-1">
+      <button
+        className="cursor-pointer w-6 h-6 leading-none rounded bg-gray-700 hover:bg-gray-600 disabled:opacity-30"
+        disabled={level <= minLevel}
+        onClick={() => set(level - 1)}
+        title="Lower level"
+      >−</button>
+      <span className="px-2 min-w-16 text-center">Level {level}</span>
+      <button
+        className="cursor-pointer w-6 h-6 leading-none rounded bg-gray-700 hover:bg-gray-600 disabled:opacity-30"
+        disabled={level >= maxLevel}
+        onClick={() => set(level + 1)}
+        title="Raise level"
+      >+</button>
+    </div>
+  );
 }
 
 function InfrastructureIcon({

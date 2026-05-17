@@ -35,7 +35,59 @@ export default {
 };
 ```
 
-### Complex Example (with store/context setup)
+### Prefer rendering the pure view component
+
+**When a node type uses an existing view component** (e.g. `RecipeNodeView`, `ThermalStorageNodeView`, `BalancerNodeView`), write the fixture against that pure view directly — wrapped only in `ReactFlowProvider`. This avoids dragging in `FactoryContext`, `ProductionZoneProvider`, the Zustand store, and IndexedDB, all of which the full `RecipeNode` wrapper depends on and which can break or render blank in Cosmos.
+
+```tsx
+import { ReactFlowProvider } from '@xyflow/react';
+import { useState } from 'react';
+import { useFixtureInput } from 'react-cosmos/client';
+import { loadData, type ProductId, type RecipeId } from '../loadJsonData';
+import RecipeNodeView from './RecipeNodeView';
+import { DEFAULT_ZONE_MODIFIERS } from '../../../context/zoneModifiers';
+
+const { recipes } = loadData();
+
+const createFixture = (recipeId: string, defaultRunCount: number) => {
+  const [flipped, setFlipped] = useState(false);
+  const [runCount] = useFixtureInput('Run Count', defaultRunCount);
+  const recipe = recipes.get(recipeId as RecipeId);
+  if (!recipe) return <div>Recipe not found</div>;
+
+  const inputEdges = new Map<ProductId, boolean>();
+  const outputEdges = new Map<ProductId, boolean>();
+  for (const { product } of recipe.inputs) inputEdges.set(product.id, false);
+  for (const { product } of recipe.outputs) outputEdges.set(product.id, false);
+
+  return (
+    <ReactFlowProvider>
+      <RecipeNodeView
+        recipe={recipe}
+        inputEdges={inputEdges}
+        outputEdges={outputEdges}
+        solution={{ solved: true, runCount }}
+        ltr={!flipped}
+        zoomLevel={0}
+        onFlip={() => setFlipped(!flipped)}
+        onRemove={() => {}}
+        modifiers={DEFAULT_ZONE_MODIFIERS}
+      />
+    </ReactFlowProvider>
+  );
+};
+
+export default {
+  'Variant A': () => createFixture('SomeRecipeId', 1),
+  'Variant B': () => createFixture('SomeOtherRecipeId', 3),
+};
+```
+
+This is the pattern used by `RecipeNodeView.fixture.tsx`, `ThermalStorageNodeView.fixture.tsx`, and `SpaceStationNode.fixture.tsx`. Use it whenever the new node type's behavior lives in `RecipeNodeView` or one of the other view components rather than in `RecipeNode` itself.
+
+### Full-wrapper pattern (only when you need store-level behavior)
+
+If your fixture genuinely needs the `RecipeNode` wrapper — e.g. you're testing edge connections, store-driven state, or the drag/drop alignment effect — use the full wrapper with `getFactoryWrapper`. Expect Cosmos to need a hard refresh after edits if hot reload glitches.
 
 ```tsx
 import RecipeNode from './factory/graph/RecipeNode';
@@ -50,10 +102,6 @@ export default {
     <RecipeNode data={{ recipeId: 'PowerGeneratorT2', ltr: true }} />,
     { withReactFlow: true, store: testStore, factoryId }
   ),
-  'Another Variant': () => getFactoryWrapper(
-    <RecipeNode data={{ recipeId: 'FBR', ltr: false }} />,
-    { withReactFlow: true, store: testStore, factoryId }
-  )
 };
 ```
 
@@ -86,7 +134,10 @@ Configuration is in `cosmos.config.json`:
 
 Current fixture files in the repository:
 - `app/components/ProductSelector.fixture.tsx` - Basic component fixture example
-- `app/RecipeNode.fixture.tsx` - Complex fixture with store and React Flow integration
+- `app/factory/graph/nodes/RecipeNodeView.fixture.tsx` - **Recommended pattern**: pure view + ReactFlowProvider
+- `app/factory/graph/nodes/ThermalStorageNodeView.fixture.tsx` - Same pattern, with options state
+- `app/factory/graph/nodes/SpaceStationNode.fixture.tsx` - Same pattern across two node-data types
+- `app/factory/graph/nodes/RecipeNode.fixture.tsx` - Full-wrapper pattern with store and React Flow (use sparingly — see above)
 - `app/components/FactoryOverlayBar.fixture.tsx` - Example with multiple states
 - `app/components/SidebarPopover.fixture.tsx` - Popover component variants
 

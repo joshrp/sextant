@@ -73,3 +73,87 @@ General
   n_3_int
 End"
 `;
+
+exports[`Space research solver > low cargo demand scales launches continuously (no integer pinning) 1`] = `
+"
+Maximize
+  obj: i_Product_RocketT1+i_Product_Hydrogen+i_Product_Oxygen+i_Product_Water+i_Product_SpaceStationParts1+-0.01 in_frastructure_total+-0.01 in_footprint
+Subject To 
+  in_frastructure_total: - 1 in_frastructure_total + 1 in_workers + 0.01 in_electricity + 0.01 in_computing + 1 in_maintenance_1 + 10 in_maintenance_2 + 50 in_maintenance_3 = 0
+  in_workers: - 1 in_workers + 30 n_0_int = 0
+  in_electricity: - 1 in_electricity = 0
+  in_computing: - 1 in_computing = 0
+  in_maintenance_1: - 1 in_maintenance_1 = 0
+  in_maintenance_2: - 1 in_maintenance_2 = 0
+  in_maintenance_3: - 1 in_maintenance_3 = 0
+  in_footprint: - 1 in_footprint + 1216 n_0_int = 0
+  i_Product_RocketT1: - 1 i_Product_RocketT1 - 1 n_0 = 0
+  i_Product_Hydrogen: - 1 i_Product_Hydrogen - 140 n_0 = 0
+  i_Product_Oxygen: - 1 i_Product_Oxygen - 40 n_0 = 0
+  i_Product_Water: - 1 i_Product_Water - 160 n_0 = 0
+  i_Product_SpaceStationParts1: - 1 i_Product_SpaceStationParts1 - 40 n_0 = 0
+  o_Product_Virtual_SpaceStationParts1_AtStation: - 1 o_Product_Virtual_SpaceStationParts1_AtStation + 40 n_0 = 0
+  n_0_lower: n_0_int - n_0 >= 0
+  n_0_upper: n_0_int - n_0 <= 0.99999
+Bounds 
+  in_frastructure_total free
+  in_workers free
+  in_electricity free
+  in_computing free
+  in_maintenance_1 free
+  in_maintenance_2 free
+  in_maintenance_3 free
+  in_footprint free
+  i_Product_RocketT1 free
+  i_Product_Hydrogen free
+  i_Product_Oxygen free
+  i_Product_Water free
+  i_Product_SpaceStationParts1 free
+   o_Product_Virtual_SpaceStationParts1_AtStation >= 30
+  n_0 >= 0
+  n_0_int free
+General
+  n_0_int
+End"
+`;
+
+exports[`Space research solver > station node count is pinned at 1 regardless of level 1`] = `
+"
+Maximize
+  obj: i_Product_Virtual_SpaceStationParts1_AtStation+i_Product_Virtual_CrewSupplies_AtStation+i_Product_Virtual_SpaceCrew_AtStation+i_Product_Virtual_SpaceStationParts2_AtStation+i_Product_Virtual_Electronics4_AtStation+-0.01 in_frastructure_total+-0.01 in_footprint
+Subject To 
+  in_frastructure_total: - 1 in_frastructure_total + 1 in_workers + 0.01 in_electricity + 0.01 in_computing + 1 in_maintenance_1 + 10 in_maintenance_2 + 50 in_maintenance_3 = 0
+  in_workers: - 1 in_workers = 0
+  in_electricity: - 1 in_electricity = 0
+  in_computing: - 1 in_computing = 0
+  in_maintenance_1: - 1 in_maintenance_1 = 0
+  in_maintenance_2: - 1 in_maintenance_2 = 0
+  in_maintenance_3: - 1 in_maintenance_3 = 0
+  i_Product_Virtual_SpaceStationParts1_AtStation: - 1 i_Product_Virtual_SpaceStationParts1_AtStation - 0 n_0 = 0
+  i_Product_Virtual_CrewSupplies_AtStation: - 1 i_Product_Virtual_CrewSupplies_AtStation - 1.6 n_0 = 0
+  i_Product_Virtual_SpaceCrew_AtStation: - 1 i_Product_Virtual_SpaceCrew_AtStation - 8 n_0 = 0
+  i_Product_Virtual_SpaceStationParts2_AtStation: - 1 i_Product_Virtual_SpaceStationParts2_AtStation - 1.25 n_0 = 0
+  i_Product_Virtual_Electronics4_AtStation: - 1 i_Product_Virtual_Electronics4_AtStation - 6 n_0 = 0
+  o_Product_Virtual_SpaceResearchPoints: - 1 o_Product_Virtual_SpaceResearchPoints + 144 n_0 = 0
+  n_0_lower: n_0_int - n_0 >= 0
+  n_0_upper: n_0_int - n_0 <= 0.99999
+Bounds 
+  in_frastructure_total free
+  in_workers free
+  in_electricity free
+  in_computing free
+  in_maintenance_1 free
+  in_maintenance_2 free
+  in_maintenance_3 free
+  i_Product_Virtual_SpaceStationParts1_AtStation free
+  i_Product_Virtual_CrewSupplies_AtStation free
+  i_Product_Virtual_SpaceCrew_AtStation free
+  i_Product_Virtual_SpaceStationParts2_AtStation free
+  i_Product_Virtual_Electronics4_AtStation free
+   o_Product_Virtual_SpaceResearchPoints >= 1
+  n_0 = 1
+  n_0_int free
+General
+  n_0_int
+End"
+`;

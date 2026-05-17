@@ -7,7 +7,7 @@ import type { CustomNodeType } from '../graph/nodeTypes';
 import { type Constraint, type FactoryGoal, type GraphModel, type GraphScoringMethod, type ManifoldOptions, type NodeConnections, type Solution } from "./types";
 import { buildNodeConnections, filterAndSortSolutions, findOptionalTerms, getEquality, getInfrastructureWeight, infraMatcher, inputMatcher, makeVertexId, outputMatcher, parseHighsSolution, shouldSkipConstraint } from "./solverUtils";
 import { solveWithHighs } from "./solverClient";
-import { RecipeNodeCalculator, SettlementCalculator, ThermalStorageCalculator } from "../graph/nodes/recipeNodeLogic";
+import { RecipeNodeCalculator, SettlementCalculator, SpaceStationCalculator, ThermalStorageCalculator } from "../graph/nodes/recipeNodeLogic";
 import type { ZoneModifiers } from "~/context/zoneModifiers";
 
 const recipeData = loadData().recipes;
@@ -145,6 +145,15 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
     ]
   });
 
+  // Space-station nodes always represent exactly one station: pin n_X = 1.
+  // (The level is a user-chosen option, not an LP decision.)
+  const pinnedNodes: string[] = [];
+  for (const [nodeId, conn] of Object.entries(graph.graph)) {
+    if (conn.type === "space-station") {
+      pinnedNodes.push(graph.nodeIdToLabels[nodeId]);
+    }
+  }
+
   // Inputs and outpus should maximize (the input constraints we're using are negative, higher number = using less)
   return `
 ${["infra", "footprint"].includes(scoreMethod) ? "Minimize" : "Maximize"}
@@ -154,7 +163,7 @@ Subject To
   ${integerNodes.map(n => n[1]).join("\n  ")}
 Bounds 
   ${boundsList.join("\n  ")}
-  ${Object.values(graph.nodeIdToLabels).map(n => `${n} >= 0`).join("\n  ")}
+  ${Object.values(graph.nodeIdToLabels).map(n => pinnedNodes.includes(n) ? `${n} = 1` : `${n} >= 0`).join("\n  ")}
   ${integerNodes.map(n => n[0] + " free").join("\n  ")}
 General
   ${integerNodes.map(n => n[0]).join("\n  ")}
@@ -328,13 +337,18 @@ export default class Solver {
     } else if (node.type === "thermal-storage") {
       const Calculator = ThermalStorageCalculator(recipe, node.options, 1, this.zoneModifiers);
       qty = isInput ? Calculator.productInput(productId) : Calculator.productOutput(productId);
+    } else if (node.type === "space-station") {
+      const Calculator = SpaceStationCalculator(recipe, node.options, 1, this.zoneModifiers);
+      qty = isInput ? Calculator.productInput(productId) : Calculator.productOutput(productId);
     } else if (node.type === "recipe" || node.type === "contract") {
       const Calculator = RecipeNodeCalculator(recipe, node.options, 1, this.zoneModifiers);
       qty = isInput ? Calculator.productInput(productId) : Calculator.productOutput(productId);
     }
 
     return {
-      id: this.getNodeLabel(nodeId),
+      id: recipeItem.integerScale
+        ? this.getNodeLabel(nodeId) + "_int"
+        : this.getNodeLabel(nodeId),
       nodeId: nodeId,
       isInput,
       value: qty,
