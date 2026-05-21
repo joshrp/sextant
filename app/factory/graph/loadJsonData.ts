@@ -134,10 +134,12 @@ export type LevelRegime = {
   base: {
     inputs: RecipeProduct[];
     outputs: RecipeProduct[];
+    workers?: number;
   };
   delta: {
     inputs: RecipeProduct[];
     outputs: RecipeProduct[];
+    workers?: number;
   };
 }
 
@@ -147,10 +149,12 @@ export type LevelRegimeSerialized = {
   base: {
     inputs: RecipeProductSerialized[];
     outputs: RecipeProductSerialized[];
+    workers?: number;
   };
   delta: {
     inputs: RecipeProductSerialized[];
     outputs: RecipeProductSerialized[];
+    workers?: number;
   };
 }
 
@@ -171,6 +175,15 @@ export type RecipeBase = {
   /** Pre-computed at reformat time: recipe's machine is a solar panel variant */
   usesSolarPower: boolean;
   isRainWaterHarvester: boolean;
+  /** Default level for level-based recipes (currently only `space-station`).
+   *  Resolved by `SpaceStationCalculator` and `RecipePicker.displayQty`. */
+  defaultLevel?: number;
+  /** Launch-cadence quantum. The LP rate `n` is constrained to a *positive integer
+   *  multiple* of `minRate` (`n ∈ {minRate, 2·minRate, …}`). This both floors the rate
+   *  at one event per cycle and quantizes it to whole events — e.g. crew launches happen
+   *  at least once per 24-month cycle (`minRate = 1/24`), and a crew of 6 from a 4-seat
+   *  rocket needs 2 whole launches per cycle, not 1.5. See `buildLpp` cycle vars. */
+  minRate?: number;
 }
 export type Recipe = RecipeBase & {
   machine: Machine;
@@ -275,6 +288,7 @@ export function parseData(unparsedData = gameData) {
       if (!machine)
         throw new Error(`Machine ${recipe.machine} not found for recipe ${recipeId}`);
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { levelRegimes: _serializedRegimes, ...recipeRest } = recipe;
       newData.recipes.set(recipeId, {
         ...recipeRest,
@@ -299,8 +313,8 @@ export function parseData(unparsedData = gameData) {
         newRecipe.levelRegimes = recipe.levelRegimes.map(r => ({
           minLevel: r.minLevel,
           maxLevel: r.maxLevel,
-          base: { inputs: r.base.inputs.map(mapRP), outputs: r.base.outputs.map(mapRP) },
-          delta: { inputs: r.delta.inputs.map(mapRP), outputs: r.delta.outputs.map(mapRP) },
+          base: { inputs: r.base.inputs.map(mapRP), outputs: r.base.outputs.map(mapRP), workers: r.base.workers },
+          delta: { inputs: r.delta.inputs.map(mapRP), outputs: r.delta.outputs.map(mapRP), workers: r.delta.workers },
         }));
       }
 

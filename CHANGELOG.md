@@ -1,5 +1,9 @@
 # CHANGELOG
 
+1.0.4
+- fix: large performance issues with Edge rendering, especially with large plans
+- featu: Producing space research from stations and all the associated rocket logic
+
 1.0.3 
 - feat: Add housing tiers
 - fix: Thermal storage infrastructure costs 

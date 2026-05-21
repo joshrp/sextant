@@ -216,35 +216,6 @@
         ]
       }
     },
-    "Product_Virtual_SpaceCrew": {
-      "id": "Product_Virtual_SpaceCrew",
-      "name": "Space crew",
-      "icon": "spacecrew.png",
-      "color": "#B0A00C",
-      "transport": "Virtual",
-      "unit": "",
-      "recipes": {
-        "input": [
-          "Balancer_Product_Virtual_SpaceCrew",
-          "Launch_SpaceCrew_T1",
-          "Launch_SpaceCrew_T2"
-        ],
-        "output": [
-          "Balancer_Product_Virtual_SpaceCrew",
-          "CrewQuarters_Recipe"
-        ]
-      },
-      "machines": {
-        "input": [
-          "BalancerVirtual",
-          "RocketLaunchPad"
-        ],
-        "output": [
-          "BalancerVirtual",
-          "CrewQuarters"
-        ]
-      }
-    },
     "Product_Virtual_SpaceResearchPoints": {
       "id": "Product_Virtual_SpaceResearchPoints",
       "name": "Space research points",
@@ -3392,8 +3363,8 @@
           "Launch_AsteroidBoosterParts_T2",
           "Launch_SpaceProbeParts_T1",
           "Launch_SpaceProbeParts_T2",
-          "Launch_SpaceCrew_T1",
-          "Launch_SpaceCrew_T2"
+          "Launch_Crew_T1",
+          "Launch_Crew_T2"
         ],
         "output": [
           "WaterDesalinationBasic",
@@ -4620,8 +4591,8 @@
           "Launch_AsteroidBoosterParts_T2",
           "Launch_SpaceProbeParts_T1",
           "Launch_SpaceProbeParts_T2",
-          "Launch_SpaceCrew_T1",
-          "Launch_SpaceCrew_T2"
+          "Launch_Crew_T1",
+          "Launch_Crew_T2"
         ],
         "output": [
           "WaterElectrolysisT2",
@@ -7712,8 +7683,8 @@
           "Launch_AsteroidBoosterParts_T2",
           "Launch_SpaceProbeParts_T1",
           "Launch_SpaceProbeParts_T2",
-          "Launch_SpaceCrew_T1",
-          "Launch_SpaceCrew_T2"
+          "Launch_Crew_T1",
+          "Launch_Crew_T2"
         ],
         "output": [
           "WaterElectrolysisT2",
@@ -7981,7 +7952,7 @@
           "Launch_Electronics4_T1",
           "Launch_AsteroidBoosterParts_T1",
           "Launch_SpaceProbeParts_T1",
-          "Launch_SpaceCrew_T1"
+          "Launch_Crew_T1"
         ],
         "output": [
           "Balancer_Product_RocketT1",
@@ -8015,7 +7986,7 @@
           "Launch_Electronics4_T2",
           "Launch_AsteroidBoosterParts_T2",
           "Launch_SpaceProbeParts_T2",
-          "Launch_SpaceCrew_T2"
+          "Launch_Crew_T2"
         ],
         "output": [
           "Balancer_Product_RocketT2",
@@ -8217,8 +8188,8 @@
         ],
         "output": [
           "Balancer_Product_Virtual_SpaceCrew_AtStation",
-          "Launch_SpaceCrew_T1",
-          "Launch_SpaceCrew_T2"
+          "Launch_Crew_T1",
+          "Launch_Crew_T2"
         ]
       },
       "machines": {
@@ -13877,8 +13848,8 @@
         "Launch_AsteroidBoosterParts_T2",
         "Launch_SpaceProbeParts_T1",
         "Launch_SpaceProbeParts_T2",
-        "Launch_SpaceCrew_T1",
-        "Launch_SpaceCrew_T2"
+        "Launch_Crew_T1",
+        "Launch_Crew_T2"
       ],
       "buildCosts": [
         {
@@ -14363,7 +14334,6 @@
         "Balancer_Product_Virtual_MaintenanceT1",
         "Balancer_Product_Virtual_MaintenanceT2",
         "Balancer_Product_Virtual_MaintenanceT3",
-        "Balancer_Product_Virtual_SpaceCrew",
         "Balancer_Product_Virtual_SpaceResearchPoints",
         "Balancer_Product_Virtual_PollutedWater",
         "Balancer_Product_Virtual_PollutedAir",
@@ -14516,26 +14486,6 @@
           "quantity": 1
         }
       ],
-      "isBalancer": false,
-      "isFarm": false,
-      "electricity_consumed": 0,
-      "electricity_generated": 0,
-      "computing_consumed": 0,
-      "computing_generated": 0,
-      "storage_capacity": 0,
-      "unity_cost": 0,
-      "research_speed": 0
-    },
-    "CrewQuarters": {
-      "id": "CrewQuarters",
-      "name": "Crew Quarters",
-      "category_id": "SpaceStation",
-      "workers": 4,
-      "workers_generated": 0,
-      "recipes": [
-        "CrewQuarters_Recipe"
-      ],
-      "buildCosts": [],
       "isBalancer": false,
       "isFarm": false,
       "electricity_consumed": 0,
@@ -34052,32 +34002,6 @@
       "isRainWaterHarvester": false,
       "powerMult": 1
     },
-    "Balancer_Product_Virtual_SpaceCrew": {
-      "id": "Balancer_Product_Virtual_SpaceCrew",
-      "name": "Balancer Passthrough",
-      "duration": 60,
-      "origDuration": 60,
-      "type": "balancer",
-      "machine": "BalancerVirtual",
-      "inputs": [
-        {
-          "id": "Product_Virtual_SpaceCrew",
-          "quantity": 1
-        }
-      ],
-      "outputs": [
-        {
-          "id": "Product_Virtual_SpaceCrew",
-          "quantity": 1
-        }
-      ],
-      "isMaintenance": false,
-      "isMaintenanceProducer": false,
-      "isFarm": false,
-      "usesSolarPower": false,
-      "isRainWaterHarvester": false,
-      "powerMult": 1
-    },
     "Balancer_Product_Virtual_SpaceResearchPoints": {
       "id": "Balancer_Product_Virtual_SpaceResearchPoints",
       "name": "Balancer Passthrough",
@@ -41672,7 +41596,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "RocketAssemblyT2": {
       "id": "RocketAssemblyT2",
@@ -41708,7 +41634,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_SpaceStationParts1_T1": {
       "id": "Launch_SpaceStationParts1_T1",
@@ -41749,7 +41677,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_SpaceStationParts1_T2": {
       "id": "Launch_SpaceStationParts1_T2",
@@ -41790,7 +41720,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_SpaceStationParts2_T1": {
       "id": "Launch_SpaceStationParts2_T1",
@@ -41831,7 +41763,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_SpaceStationParts2_T2": {
       "id": "Launch_SpaceStationParts2_T2",
@@ -41872,7 +41806,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_CrewSupplies_T1": {
       "id": "Launch_CrewSupplies_T1",
@@ -41913,7 +41849,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_CrewSupplies_T2": {
       "id": "Launch_CrewSupplies_T2",
@@ -41954,7 +41892,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_Electronics4_T1": {
       "id": "Launch_Electronics4_T1",
@@ -41995,7 +41935,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_Electronics4_T2": {
       "id": "Launch_Electronics4_T2",
@@ -42036,7 +41978,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_AsteroidBoosterParts_T1": {
       "id": "Launch_AsteroidBoosterParts_T1",
@@ -42077,7 +42021,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_AsteroidBoosterParts_T2": {
       "id": "Launch_AsteroidBoosterParts_T2",
@@ -42118,7 +42064,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_SpaceProbeParts_T1": {
       "id": "Launch_SpaceProbeParts_T1",
@@ -42159,7 +42107,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "Launch_SpaceProbeParts_T2": {
       "id": "Launch_SpaceProbeParts_T2",
@@ -42200,12 +42150,14 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
-    "Launch_SpaceCrew_T1": {
-      "id": "Launch_SpaceCrew_T1",
+    "Launch_Crew_T1": {
+      "id": "Launch_Crew_T1",
       "name": "Launch Space crew (T1)",
-      "tiersLink": "Launch_SpaceCrew",
+      "tiersLink": "Launch_Crew",
       "duration": 60,
       "origDuration": 60,
       "type": "launch",
@@ -42226,27 +42178,27 @@
         {
           "id": "Product_Water",
           "quantity": 160
-        },
-        {
-          "id": "Product_Virtual_SpaceCrew",
-          "quantity": 4
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_SpaceCrew_AtStation",
-          "quantity": 4
+          "quantity": 4,
+          "optional": true
         }
       ],
+      "minRate": 0.041666666666666664,
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
-    "Launch_SpaceCrew_T2": {
-      "id": "Launch_SpaceCrew_T2",
+    "Launch_Crew_T2": {
+      "id": "Launch_Crew_T2",
       "name": "Launch Space crew (T2)",
-      "tiersLink": "Launch_SpaceCrew",
+      "tiersLink": "Launch_Crew",
       "duration": 60,
       "origDuration": 60,
       "type": "launch",
@@ -42267,22 +42219,22 @@
         {
           "id": "Product_Water",
           "quantity": 160
-        },
-        {
-          "id": "Product_Virtual_SpaceCrew",
-          "quantity": 12
         }
       ],
       "outputs": [
         {
           "id": "Product_Virtual_SpaceCrew_AtStation",
-          "quantity": 12
+          "quantity": 12,
+          "optional": true
         }
       ],
+      "minRate": 0.041666666666666664,
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     },
     "SpaceStation_Recipe": {
       "id": "SpaceStation_Recipe",
@@ -42338,7 +42290,8 @@
                 "quantity": 0
               }
             ],
-            "outputs": []
+            "outputs": [],
+            "workers": 0
           },
           "delta": {
             "inputs": [
@@ -42352,10 +42305,11 @@
               },
               {
                 "id": "Product_Virtual_SpaceCrew_AtStation",
-                "quantity": 2
+                "quantity": 0.08333333333333333
               }
             ],
-            "outputs": []
+            "outputs": [],
+            "workers": 2
           }
         },
         {
@@ -42373,7 +42327,7 @@
               },
               {
                 "id": "Product_Virtual_SpaceCrew_AtStation",
-                "quantity": 4
+                "quantity": 0.16666666666666666
               },
               {
                 "id": "Product_Virtual_Electronics4_AtStation",
@@ -42385,7 +42339,8 @@
                 "id": "Product_Virtual_SpaceResearchPoints",
                 "quantity": 48
               }
-            ]
+            ],
+            "workers": 4
           },
           "delta": {
             "inputs": [
@@ -42399,7 +42354,7 @@
               },
               {
                 "id": "Product_Virtual_SpaceCrew_AtStation",
-                "quantity": 2
+                "quantity": 0.08333333333333333
               },
               {
                 "id": "Product_Virtual_Electronics4_AtStation",
@@ -42411,7 +42366,8 @@
                 "id": "Product_Virtual_SpaceResearchPoints",
                 "quantity": 48
               }
-            ]
+            ],
+            "workers": 2
           }
         }
       ],
@@ -42419,26 +42375,9 @@
       "isMaintenance": false,
       "isMaintenanceProducer": false,
       "isFarm": false,
-      "usesSolarPower": false
-    },
-    "CrewQuarters_Recipe": {
-      "id": "CrewQuarters_Recipe",
-      "name": "Crew Quarters",
-      "duration": 60,
-      "origDuration": 60,
-      "type": "recipe",
-      "machine": "CrewQuarters",
-      "inputs": [],
-      "outputs": [
-        {
-          "id": "Product_Virtual_SpaceCrew",
-          "quantity": 1
-        }
-      ],
-      "isMaintenance": false,
-      "isMaintenanceProducer": false,
-      "isFarm": false,
-      "usesSolarPower": false
+      "usesSolarPower": false,
+      "powerMult": 1,
+      "isRainWaterHarvester": false
     }
   }
 }

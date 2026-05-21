@@ -32,7 +32,6 @@ const LAUNCHABLE_PRODUCT_IDS = [
   "Product_Electronics4",
   "Product_AsteroidBoosterParts",
   "Product_SpaceProbeParts",
-  "Product_Virtual_SpaceCrew",
 ] as const;
 
 function atStationProductId(launchableId: string): string {
@@ -146,8 +145,8 @@ export async function getDataFromRaw(rawPath = "./data/raw"): Promise<Serialized
   addThermalStorageRecipes(machineData.products, machineData.machines, machineData.recipes);
   addRocketRecipes(machineData.products, machineData.machines, machineData.recipes);
   addLaunchRecipes(machineData.products, machineData.machines, machineData.recipes);
+  addCrewLaunchRecipes(machineData.products, machineData.machines, machineData.recipes);
   addSpaceStationRecipe(machineData.products, machineData.machines, machineData.recipes);
-  addCrewQuarters(machineData.products, machineData.machines, machineData.recipes);
 
   return {
     products: machineData.products,
@@ -215,6 +214,9 @@ export async function formatProductData(rawProducts: RawProduct[]) {
   const productData = new Map<string, ProductSerialized>();
 
   for (const rawProduct of rawProducts) {
+    // Space crew is modeled as station infrastructure (workers), not a ground product;
+    // skip the raw entry so nothing on the ground side can produce or consume it.
+    if (rawProduct.id === "Product_Virtual_SpaceCrew") continue;
     assert(productData.has(rawProduct.name) === false, `Product ${rawProduct.name} already exists in product data.`);
     const iconPath = sanitizeFileName(rawProduct.icon) + ".png";
     // const imageExists = statSync(`public/assets/products/${iconPath}`, { throwIfNoEntry: false })?.isFile();
@@ -370,6 +372,20 @@ export async function formatProductData(rawProducts: RawProduct[]) {
       machines: { input: [], output: [] },
     });
   }
+
+  // SpaceCrew has no ground-side product (crew is workforce, sourced from settlements
+  // via station infrastructure), but the station still consumes a `_AtStation` variant
+  // that crew launches produce. Mint it manually since it's not in LAUNCHABLE_PRODUCT_IDS.
+  productData.set("Product_Virtual_SpaceCrew_AtStation", {
+    id: "Product_Virtual_SpaceCrew_AtStation" as Product["id"],
+    name: "Space crew (at station)",
+    icon: "spacecrew_atstation.png",
+    color: "#808080",
+    transport: "Virtual",
+    unit: "",
+    recipes: { input: [], output: [] },
+    machines: { input: [], output: [] },
+  });
 
   // Mark scrap products (and their pressed variants) with isScrap flag
   const scrapProductNames = new Set(Object.values(recyclablesMaterialToProductName));
@@ -887,7 +903,7 @@ function addThermalStorageRecipes(
     storage_capacity: 0,
     unity_cost: 0,
     research_speed: 0,
-    footprint: [7,18],
+    footprint: [7, 18],
     maintenance_cost: { id: "Product_Virtual_MaintenanceT1" as ProductId, quantity: 3.8 },
   };
   machineData.set(thermalStorageMachineId, thermalStorageMachine);
@@ -999,25 +1015,29 @@ const SPACE_PLACEHOLDERS = {
   station_basic_delta_inputs: [
     { id: "Product_Virtual_SpaceStationParts1_AtStation", quantity: 0.25 },
     { id: "Product_Virtual_CrewSupplies_AtStation", quantity: 0.4 },
-    { id: "Product_Virtual_SpaceCrew_AtStation", quantity: 2 },
+    { id: "Product_Virtual_SpaceCrew_AtStation", quantity: new Big(2).div(24).toNumber() },
   ],
   station_advanced_base_inputs: [
     { id: "Product_Virtual_SpaceStationParts2_AtStation", quantity: 0.75 },
     { id: "Product_Virtual_CrewSupplies_AtStation", quantity: 0.8 },
-    { id: "Product_Virtual_SpaceCrew_AtStation", quantity: 4 },
+    { id: "Product_Virtual_SpaceCrew_AtStation", quantity: new Big(4).div(24).toNumber() },
     { id: "Product_Virtual_Electronics4_AtStation", quantity: 2 },
   ],
   station_advanced_delta_inputs: [
     { id: "Product_Virtual_SpaceStationParts2_AtStation", quantity: 0.25 },
     { id: "Product_Virtual_CrewSupplies_AtStation", quantity: 0.4 },
-    { id: "Product_Virtual_SpaceCrew_AtStation", quantity: 2 },
+    { id: "Product_Virtual_SpaceCrew_AtStation", quantity: new Big(2).div(24).toNumber() },
     { id: "Product_Virtual_Electronics4_AtStation", quantity: 2 },
   ],
   station_advanced_base_RP: 48,
   station_advanced_delta_RP: 48,
-  // CrewQuarters: workers consumed and SpaceCrew produced per minute
-  crewQuarters_workers: 4,
-  crewQuarters_crew_per_min: 1,
+  // Station workforce, per regime. base = headcount at minLevel; delta = +per level.
+  // L1 basic regime: 0 + 2(L-1), so L1=0, L2=2.
+  // L3+ advanced regime: 4 + 2(L-3), so L3=4, L7=12, L20=38.
+  station_basic_base_workers: 0,
+  station_basic_delta_workers: 2,
+  station_advanced_base_workers: 4,
+  station_advanced_delta_workers: 2,
 } as const;
 
 /**
@@ -1079,6 +1099,8 @@ function addRocketRecipes(
       isMaintenanceProducer: false,
       isFarm: false,
       usesSolarPower: false,
+      powerMult: 1,
+      isRainWaterHarvester: false,
     };
 
     recipeData.set(recipeId, recipe);
@@ -1154,10 +1176,7 @@ function addLaunchRecipes(
       const stem = launchableId.replace(/^Product_(Virtual_)?/, "");
       const recipeId = `Launch_${stem}_${tier.tier}` as RecipeId;
 
-      let cargoSpace = tier.cargoSpace;
-      if (launchableId == 'Product_Virtual_SpaceCrew') {
-        cargoSpace = tier.crewSpace;
-      }
+      const cargoSpace = tier.cargoSpace;
       const inputs: RecipeProductSerialized[] = [
         { id: rocketProduct!.id, quantity: 1 },
         { id: hydrogen!.id, quantity: tier.hydrogen },
@@ -1183,6 +1202,8 @@ function addLaunchRecipes(
         isMaintenanceProducer: false,
         isFarm: false,
         usesSolarPower: false,
+        powerMult: 1,
+        isRainWaterHarvester: false,
       };
 
       recipeData.set(recipeId, recipe);
@@ -1252,6 +1273,10 @@ function addSpaceStationRecipe(
   const rpProduct = productsById.get("Product_Virtual_SpaceResearchPoints" as ProductId);
   assert(rpProduct, "addSpaceStationRecipe: Product_Virtual_SpaceResearchPoints not found");
 
+  // Note: the over-delivery of crew (a whole rocket's worth vs the station's partial
+  // demand) is sunk by marking the crew-launch *output* optional (see addCrewLaunchRecipes),
+  // not the station's input. Optional-output lets the LP's loose constraint run
+  // production >= consumption; optional-input would instead allow a deficit, which is wrong.
   const mapInputs = (entries: readonly { id: string; quantity: number }[]): RecipeProductSerialized[] =>
     entries.map(e => {
       const p = productsById.get(e.id as ProductId);
@@ -1265,10 +1290,12 @@ function addSpaceStationRecipe(
     base: {
       inputs: mapInputs(SPACE_PLACEHOLDERS.station_basic_base_inputs),
       outputs: [] as RecipeProductSerialized[],
+      workers: SPACE_PLACEHOLDERS.station_basic_base_workers,
     },
     delta: {
       inputs: mapInputs(SPACE_PLACEHOLDERS.station_basic_delta_inputs),
       outputs: [] as RecipeProductSerialized[],
+      workers: SPACE_PLACEHOLDERS.station_basic_delta_workers,
     },
   };
 
@@ -1278,10 +1305,12 @@ function addSpaceStationRecipe(
     base: {
       inputs: mapInputs(SPACE_PLACEHOLDERS.station_advanced_base_inputs),
       outputs: [{ id: rpProduct!.id, quantity: SPACE_PLACEHOLDERS.station_advanced_base_RP }] as RecipeProductSerialized[],
+      workers: SPACE_PLACEHOLDERS.station_advanced_base_workers,
     },
     delta: {
       inputs: mapInputs(SPACE_PLACEHOLDERS.station_advanced_delta_inputs),
       outputs: [{ id: rpProduct!.id, quantity: SPACE_PLACEHOLDERS.station_advanced_delta_RP }] as RecipeProductSerialized[],
+      workers: SPACE_PLACEHOLDERS.station_advanced_delta_workers,
     },
   };
 
@@ -1290,7 +1319,9 @@ function addSpaceStationRecipe(
   for (const r of [basic, advanced]) {
     for (const src of [r.base.inputs, r.delta.inputs]) {
       for (const p of src) {
-        if (!inputUnion.has(p.id)) inputUnion.set(p.id, { id: p.id, quantity: 0 });
+        if (!inputUnion.has(p.id)) {
+          inputUnion.set(p.id, { id: p.id, quantity: 0 });
+        }
       }
     }
   }
@@ -1312,6 +1343,8 @@ function addSpaceStationRecipe(
     isMaintenanceProducer: false,
     isFarm: false,
     usesSolarPower: false,
+    powerMult: 1,
+    isRainWaterHarvester: false,
   };
 
   recipeData.set(recipeId, recipe);
@@ -1332,62 +1365,102 @@ function addSpaceStationRecipe(
 }
 
 /**
- * Synthesize a CrewQuarters machine that produces `Product_Virtual_SpaceCrew`.
- * Worker count is set on the machine, so the LP picks ceil(building count) workers
- * automatically via the existing `_int` infrastructure constraint. No integerScale needed
- * on the recipe itself.
+ * Synthesize crew-launch recipes (T1/T2) on the real `RocketLaunchPad` machine.
+ *
+ * Crew launches mirror cargo launches in shape (1 rocket + fixed fuel → `_AtStation`
+ * crew virtual) but have no ground-side crew input: in the game, crew is workforce
+ * the station consumes per-level, not something produced on the ground. The minimum
+ * cadence (one launch every 24 in-game months for refresh/rotation) is encoded via
+ * `minRate = 1/24` so the LP can't drive the launch rate to zero even when station
+ * crew demand is below that floor.
  */
-function addCrewQuarters(
+function addCrewLaunchRecipes(
   productsById: Map<ProductId, ProductSerialized>,
   machineData: Map<MachineId, MachineSerialized>,
   recipeData: Map<RecipeId, RecipeSerialized>,
 ) {
-  const machineId = "CrewQuarters" as MachineId;
-  const spaceCrew = productsById.get("Product_Virtual_SpaceCrew" as ProductId);
-  assert(spaceCrew, "addCrewQuarters: Product_Virtual_SpaceCrew not found");
+  const launchPadId = "RocketLaunchPad" as MachineId;
+  const machine = machineData.get(launchPadId);
+  if (!machine) {
+    console.warn(`addCrewLaunchRecipes: machine ${launchPadId} not found, skipping.`);
+    return;
+  }
+  const atStationProduct = productsById.get("Product_Virtual_SpaceCrew_AtStation" as ProductId);
+  assert(atStationProduct, "addCrewLaunchRecipes: SpaceCrew_AtStation product not found");
+  const hydrogen = productsById.get("Product_Hydrogen" as ProductId);
+  const oxygen = productsById.get("Product_Oxygen" as ProductId);
+  const water = productsById.get("Product_Water" as ProductId);
+  assert(hydrogen && oxygen && water, "addCrewLaunchRecipes: hydrogen/oxygen/water products missing");
 
-  const machine: MachineSerialized = {
-    id: machineId,
-    name: "Crew Quarters",
-    category_id: "SpaceStation" as Machine["category_id"],
-    workers: SPACE_PLACEHOLDERS.crewQuarters_workers,
-    workers_generated: 0,
-    recipes: [],
-    buildCosts: [],
-    isBalancer: false,
-    isFarm: false,
-    electricity_consumed: 0,
-    electricity_generated: 0,
-    computing_consumed: 0,
-    computing_generated: 0,
-    storage_capacity: 0,
-    unity_cost: 0,
-    research_speed: 0,
+  const minRate = new Big(1).div(24).toNumber();
+
+  type CrewTier = {
+    tier: "T1" | "T2";
+    rocketId: string;
+    crewSpace: number;
+    hydrogen: number;
+    oxygen: number;
+    water: number;
   };
-  machineData.set(machineId, machine);
+  const tiers: CrewTier[] = [
+    { tier: "T1", rocketId: "Product_RocketT1", crewSpace: SPACE_PLACEHOLDERS.crew_T1, hydrogen: SPACE_PLACEHOLDERS.hydrogen_T1, oxygen: SPACE_PLACEHOLDERS.oxygen_T1, water: SPACE_PLACEHOLDERS.water_T1 },
+    { tier: "T2", rocketId: "Product_RocketT2", crewSpace: SPACE_PLACEHOLDERS.crew_T2, hydrogen: SPACE_PLACEHOLDERS.hydrogen_T2, oxygen: SPACE_PLACEHOLDERS.oxygen_T2, water: SPACE_PLACEHOLDERS.water_T2 },
+  ];
 
-  const recipeId = "CrewQuarters_Recipe" as RecipeId;
-  const recipe: RecipeSerialized = {
-    id: recipeId,
-    name: "Crew Quarters",
-    duration: 60,
-    origDuration: 60,
-    type: "recipe",
-    machine: machineId,
-    inputs: [],
-    outputs: [{ id: spaceCrew!.id, quantity: SPACE_PLACEHOLDERS.crewQuarters_crew_per_min }],
-    isMaintenance: false,
-    isMaintenanceProducer: false,
-    isFarm: false,
-    usesSolarPower: false,
-  };
+  for (const tier of tiers) {
+    const rocketProduct = productsById.get(tier.rocketId as ProductId);
+    assert(rocketProduct, `addCrewLaunchRecipes: rocket product ${tier.rocketId} not found`);
 
-  recipeData.set(recipeId, recipe);
-  machine.recipes.push(recipeId);
-  spaceCrew!.recipes.output.push(recipeId);
-  if (!spaceCrew!.machines.output.includes(machineId)) spaceCrew!.machines.output.push(machineId);
+    const recipeId = `Launch_Crew_${tier.tier}` as RecipeId;
+    const inputs: RecipeProductSerialized[] = [
+      { id: rocketProduct!.id, quantity: 1 },
+      { id: hydrogen!.id, quantity: tier.hydrogen },
+      { id: oxygen!.id, quantity: tier.oxygen },
+      { id: water!.id, quantity: tier.water },
+    ];
+    const outputs: RecipeProductSerialized[] = [
+      // Optional: a whole rocket over-delivers crew vs the station's partial demand
+      // (e.g. 2 T1 launches carry 8 crew for a station of 6). Optional-output lets the
+      // LP run production >= consumption and sink the surplus. Marking the station's
+      // input optional instead would allow a deficit (under-crewed station) — wrong.
+      { id: atStationProduct!.id, quantity: tier.crewSpace, optional: true },
+    ];
 
-  console.log(`Added CrewQuarters machine + recipe.`);
+    const recipe: RecipeSerialized = {
+      id: recipeId,
+      name: `Launch Space crew (${tier.tier})`,
+      tiersLink: "Launch_Crew",
+      duration: 60,
+      origDuration: 60,
+      type: "launch",
+      machine: launchPadId,
+      inputs,
+      outputs,
+      minRate,
+      isMaintenance: false,
+      isMaintenanceProducer: false,
+      isFarm: false,
+      usesSolarPower: false,
+      powerMult: 1,
+      isRainWaterHarvester: false,
+    };
+
+    recipeData.set(recipeId, recipe);
+    machine.recipes.push(recipeId);
+
+    for (const input of inputs) {
+      const p = productsById.get(input.id)!;
+      p.recipes.input.push(recipeId);
+      if (!p.machines.input.includes(launchPadId)) p.machines.input.push(launchPadId);
+    }
+    for (const output of outputs) {
+      const p = productsById.get(output.id)!;
+      p.recipes.output.push(recipeId);
+      if (!p.machines.output.includes(launchPadId)) p.machines.output.push(launchPadId);
+    }
+  }
+
+  console.log(`Added ${tiers.length} crew launch recipes to ${launchPadId}.`);
 }
 
 /**

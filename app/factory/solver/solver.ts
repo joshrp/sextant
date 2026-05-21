@@ -148,25 +148,54 @@ export function buildLpp(graph: GraphModel, goals: FactoryGoal[], freeConstraint
   // Space-station nodes always represent exactly one station: pin n_X = 1.
   // (The level is a user-chosen option, not an LP decision.)
   const pinnedNodes: string[] = [];
+
+  // Cycle-quantized nodes (crew launches). `minRate` says one launch per 24-month
+  // cycle, so the launch rate must be a *positive integer multiple* of minRate — you
+  // can't replace a crew of 6 from a 4-seat rocket with 1.5 launches; you need 2 whole
+  // launches per cycle. We introduce an integer var `n_X_cyc = (1/minRate)·n_X` (launches
+  // per cycle), bounded `>= 1`. The crew-balance constraint then drives it up to
+  // ceil(crew/cap) automatically, with the surplus sunk via the launch's optional output.
+  type CycleNode = { label: string; period: number; minCount: number; cap: number };
+  const cycleNodes: CycleNode[] = [];
   for (const [nodeId, conn] of Object.entries(graph.graph)) {
+    const label = graph.nodeIdToLabels[nodeId];
     if (conn.type === "space-station") {
-      pinnedNodes.push(graph.nodeIdToLabels[nodeId]);
+      pinnedNodes.push(label);
+      continue;
+    }
+    const recipe = recipeData.get(conn.recipeId);
+    if (recipe?.minRate && recipe.minRate > 0) {
+      const period = Math.round(1 / recipe.minRate);
+      const minCount = Math.max(1, Math.round(recipe.minRate * period));
+      // Generous integer upper bound: even a max-level station rotated through the
+      // smallest rocket stays well under this. A finite cap keeps the var well-behaved
+      // (HiGHS LP integers default to [0,1] without explicit bounds).
+      cycleNodes.push({ label, period, minCount, cap: 1000 });
     }
   }
+  const cycleVar = (label: string) => `${label}_cyc`;
+
+  const nodeBound = (n: string): string => {
+    if (pinnedNodes.includes(n)) return `${n} = 1`;
+    return `${n} >= 0`;
+  };
 
   // Inputs and outpus should maximize (the input constraints we're using are negative, higher number = using less)
   return `
 ${["infra", "footprint"].includes(scoreMethod) ? "Minimize" : "Maximize"}
   obj: ${objectives.join('+')}
-Subject To 
+Subject To
   ${constraintsList.join("\n  ")}
   ${integerNodes.map(n => n[1]).join("\n  ")}
-Bounds 
+  ${cycleNodes.map(c => `${c.label}_cycdef: ${c.period} ${c.label} - ${cycleVar(c.label)} = 0`).join("\n  ")}
+Bounds
   ${boundsList.join("\n  ")}
-  ${Object.values(graph.nodeIdToLabels).map(n => pinnedNodes.includes(n) ? `${n} = 1` : `${n} >= 0`).join("\n  ")}
+  ${Object.values(graph.nodeIdToLabels).map(nodeBound).join("\n  ")}
   ${integerNodes.map(n => n[0] + " free").join("\n  ")}
+  ${cycleNodes.map(c => `${c.minCount} <= ${cycleVar(c.label)} <= ${c.cap}`).join("\n  ")}
 General
   ${integerNodes.map(n => n[0]).join("\n  ")}
+  ${cycleNodes.map(c => cycleVar(c.label)).join("\n  ")}
 End`;
 
 }
@@ -557,18 +586,23 @@ export default class Solver {
   }
 
   addInfraConstraints(nodeId: string): void {
-    const recipe = recipeData.get(this.graph[nodeId].recipeId)!;
+    const node = this.graph[nodeId];
+    const recipe = recipeData.get(node.recipeId)!;
     const label = this.getNodeLabel(nodeId);
 
-    // Workers
-    if (recipe.machine.workers && recipe.machine.workers > 0) {
+    // Workers — space-station scales workers per level via its calculator;
+    // everything else uses the static machine.workers value.
+    const workersValue = node.type === "space-station"
+      ? SpaceStationCalculator(recipe, node.options, 1, this.zoneModifiers).workers()
+      : recipe.machine.workers;
+    if (workersValue && workersValue > 0) {
       const constraint = this.getOrCreateConstraint("in_workers", "Product_Virtual_Workers" as ProductId);
       constraint.unconnected = true;
 
       constraint.terms.push({
         id: label + "_int",
         nodeId: nodeId,
-        value: recipe.machine.workers,
+        value: workersValue,
         sign: "+",
         weight: 1,
         isInput: true,

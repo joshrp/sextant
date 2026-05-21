@@ -242,7 +242,7 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
             <span className='tooltip rounded shadow-lg p-1 border-1 border-gray-500 bg-gray-900 -top-4 left-1/2 -translate-x-1/2 text-nowrap'>{input.product.name}</span>
             <img src={productIcon(input.product.icon)} alt={input.product.name}
               className="block mb-2 mx-auto max-w-10 transition-opacity data-[matched=false]:opacity-30" data-matched={matched} />
-            {formatNumber(input.quantity, input.product.unit)}
+            {formatNumber(displayQty(recipe, input, 'input'), input.product.unit)}
           </td>
         </>);
       }));
@@ -254,7 +254,8 @@ function RecipeRow({ recipe, maxInputCells, maxOutputCells, selectRecipe, groupC
       </td>]
     : recipe.outputs.map((output, index) => {
         const matched = isMatch(output.product.name);
-        const outputQty = recipe.type === 'contract' ? output.quantity * contractProfitability : output.quantity;
+        const baseQty = displayQty(recipe, output, 'output');
+        const outputQty = recipe.type === 'contract' ? baseQty * contractProfitability : baseQty;
         return (<>
           {index !== 0 && <td className="w-6"><PlusIcon /></td>}
 

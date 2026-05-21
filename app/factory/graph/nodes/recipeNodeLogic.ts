@@ -307,6 +307,29 @@ export const RecipeNodeCalculator = (
   };
 }
 
+/**
+ * Resolve the level a space-station node is operating at, honoring the node's
+ * `options.level` and falling back to the recipe's `defaultLevel` / first regime.
+ */
+export function stationLevel(recipe: Recipe, nodeOptions: SpaceStationNodeOptions | undefined): number {
+  const regimes = recipe.levelRegimes ?? [];
+  const defaultLevel = recipe.defaultLevel ?? regimes[0]?.minLevel ?? 1;
+  return nodeOptions?.level ?? defaultLevel;
+}
+
+/**
+ * Station crew (workers) at a given level: `base.workers + (level - minLevel) × delta.workers`
+ * for the matching regime, else 0. Shared by the solver's infra term, the node view's
+ * workers tile, and the infrastructure roundup so all three agree.
+ */
+export function stationWorkersForLevel(recipe: Recipe, level: number): number {
+  const regime = (recipe.levelRegimes ?? []).find(r => level >= r.minLevel && level <= r.maxLevel);
+  if (!regime) return 0;
+  const base = regime.base.workers ?? 0;
+  const delta = regime.delta.workers ?? 0;
+  return base + (level - regime.minLevel) * delta;
+}
+
 export const SpaceStationCalculator = (
   recipe: Recipe,
   nodeOptions: SpaceStationNodeOptions | undefined,
@@ -314,10 +337,8 @@ export const SpaceStationCalculator = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _modifiers: ZoneModifiers,
 ) => {
-  const regimes = recipe.levelRegimes ?? [];
-  const defaultLevel = recipe.defaultLevel ?? regimes[0]?.minLevel ?? 1;
-  const level = nodeOptions?.level ?? defaultLevel;
-  const regime = regimes.find(r => level >= r.minLevel && level <= r.maxLevel);
+  const level = stationLevel(recipe, nodeOptions);
+  const regime = (recipe.levelRegimes ?? []).find(r => level >= r.minLevel && level <= r.maxLevel);
 
   const resolve = (id: ProductId, side: 'inputs' | 'outputs'): number => {
     if (!regime) return 0;
@@ -329,8 +350,39 @@ export const SpaceStationCalculator = (
   return {
     productInput: (productId: ProductId): number => resolve(productId, 'inputs') * runCount,
     productOutput: (productId: ProductId): number => resolve(productId, 'outputs') * runCount,
+    workers: (): number => stationWorkersForLevel(recipe, level),
   };
 };
+
+/**
+ * Smallest level in `recipe.levelRegimes` whose output of `productId` is `>= targetQty`.
+ * Returns `undefined` if no level in any regime can meet the target.
+ *
+ * Used to power the "Goal needs L<n>" hint on space-station nodes when the
+ * user's RP goal exceeds what the current level produces.
+ */
+export function minLevelForOutput(
+  recipe: Recipe,
+  productId: ProductId,
+  targetQty: number,
+): number | undefined {
+  const regimes = recipe.levelRegimes ?? [];
+  for (const regime of regimes) {
+    const base = regime.base.outputs.find(p => p.product.id === productId)?.quantity ?? 0;
+    const delta = regime.delta.outputs.find(p => p.product.id === productId)?.quantity ?? 0;
+    // qty(L) = base + (L - minLevel) × delta, increasing in L iff delta > 0.
+    // If delta == 0, every level in this regime produces the same amount.
+    if (delta <= 0) {
+      if (base >= targetQty) return regime.minLevel;
+      continue;
+    }
+    const needed = Math.ceil((targetQty - base) / delta) + regime.minLevel;
+    if (needed <= regime.maxLevel) {
+      return Math.max(needed, regime.minLevel);
+    }
+  }
+  return undefined;
+}
 
 export const ThermalStorageCalculator = (
   recipe: Recipe,

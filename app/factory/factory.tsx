@@ -179,6 +179,19 @@ export function Factory() {
           options: { loss: 10 },
         },
       };
+    } else if (recipe.type === "space-station") {
+      newNode = {
+        id: id + "_" + (new Date().getTime()),
+        position,
+        type: 'recipe-node',
+        data: {
+          type: "space-station",
+          recipeId: id,
+          ltr,
+          alignToDrop: recipeAdd.alignToDrop,
+          options: { level: recipe.defaultLevel ?? 3 },
+        },
+      };
     } else {
       newNode = {
         id: id + "_" + (new Date().getTime()),

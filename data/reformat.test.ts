@@ -123,12 +123,63 @@ describe("Check refomatted data", () => {
     expect(basic.base.inputs.length).toBeGreaterThan(0);
     expect(basic.delta.inputs.length).toBeGreaterThan(0);
     expect(basic.base.outputs).toHaveLength(0);
+    expect(basic.base.workers).toBeDefined();
+    expect(basic.delta.workers).toBeDefined();
     expect(advanced.minLevel).toBe(3);
     expect(advanced.maxLevel).toBeGreaterThan(3);
     expect(advanced.base.inputs.length).toBeGreaterThan(0);
     expect(advanced.base.outputs.length).toBeGreaterThan(0); // RP at L3 base
     expect(advanced.delta.outputs.length).toBeGreaterThan(0); // RP delta per level
+    expect(advanced.base.workers).toBeDefined();
+    expect(advanced.delta.workers).toBeDefined();
     expect(station!.defaultLevel).toBe(3);
+  });
+
+  test("SpaceCrew ground product is not minted", async () => {
+    const { products } = allData;
+    expect(products.get("Product_Virtual_SpaceCrew" as ProductId)).toBeUndefined();
+    // The _AtStation variant remains — crew launches produce it, station consumes it.
+    expect(products.get("Product_Virtual_SpaceCrew_AtStation" as ProductId)).toBeDefined();
+  });
+
+  test("CrewQuarters machine is not synthesized", async () => {
+    const { machines, recipes } = allData;
+    expect(machines.get("CrewQuarters" as any)).toBeUndefined();
+    expect(recipes.get("CrewQuarters_Recipe" as RecipeId)).toBeUndefined();
+  });
+
+  test("Crew launch recipes carry minRate = 1/24", async () => {
+    const { recipes } = allData;
+    const t1 = recipes.get("Launch_Crew_T1" as RecipeId);
+    const t2 = recipes.get("Launch_Crew_T2" as RecipeId);
+    expect(t1).toBeDefined();
+    expect(t2).toBeDefined();
+    expect(t1!.minRate).toBeCloseTo(1 / 24, 10);
+    expect(t2!.minRate).toBeCloseTo(1 / 24, 10);
+    // Tier-linked under "Launch_Crew" so the picker chevrons them together.
+    expect(t1!.tiersLink).toBe("Launch_Crew");
+    expect(t2!.tiersLink).toBe("Launch_Crew");
+    // Outputs the AtStation crew product; no ground-side crew input.
+    const crewOut = t1!.outputs.find(o => o.id === ("Product_Virtual_SpaceCrew_AtStation" as ProductId));
+    expect(crewOut).toBeDefined();
+    expect(t1!.inputs.find(i => (i.id as string).includes("SpaceCrew"))).toBeUndefined();
+    // The crew output is optional so the LP can sink the over-delivery (whole rocket vs
+    // partial station demand). The station's input is NOT optional (would allow a deficit).
+    expect(crewOut!.optional).toBe(true);
+  });
+
+  test("Station crew input is not optional (over-delivery sunk on the launch output)", async () => {
+    const { recipes } = allData;
+    const station = recipes.get("SpaceStation_Recipe" as RecipeId);
+    const crewAtStation = "Product_Virtual_SpaceCrew_AtStation" as ProductId;
+    for (const regime of station!.levelRegimes!) {
+      for (const side of [regime.base.inputs, regime.delta.inputs]) {
+        const crew = side.find(p => p.id === crewAtStation);
+        if (crew) expect(crew.optional).toBeFalsy();
+      }
+    }
+    const topLevelCrew = station!.inputs.find(i => i.id === crewAtStation);
+    expect(topLevelCrew?.optional).toBeFalsy();
   });
 
   test("3 synthetic thermal storage recipes are generated", async () => {

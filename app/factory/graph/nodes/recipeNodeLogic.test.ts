@@ -4,7 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import Big from 'big.js';
 import { ProductId, type Recipe } from '../loadJsonData';
-import { getQuantityDisplay, SettlementCalculator, ThermalStorageCalculator } from './recipeNodeLogic';
+import { getQuantityDisplay, minLevelForOutput, SettlementCalculator, SpaceStationCalculator, ThermalStorageCalculator } from './recipeNodeLogic';
 import {
   recyclablesForProduct,
   totalRecyclablesOutput,
@@ -406,6 +406,115 @@ describe('recipeNodeLogic', () => {
     it('returns 0 for unknown product output', () => {
       const calc = ThermalStorageCalculator(thermalRecipe, { loss: 10 }, 1, DEFAULT_ZONE_MODIFIERS);
       expect(calc.productOutput(ProductId('Product_Unknown'))).toBe(0);
+    });
+  });
+
+  describe('minLevelForOutput', () => {
+    const RP = ProductId('Product_Virtual_SpaceResearchPoints');
+
+    // Mirrors the SpaceStation regime shape: L1-L2 produces 0 RP, L3+ produces 48 + 48 * (L-3).
+    function makeStationRecipe(): Recipe {
+      return {
+        levelRegimes: [
+          {
+            minLevel: 1, maxLevel: 2,
+            base: { inputs: [], outputs: [] },
+            delta: { inputs: [], outputs: [] },
+          },
+          {
+            minLevel: 3, maxLevel: 100,
+            base: { inputs: [], outputs: [{ product: { id: RP }, quantity: 48 }] },
+            delta: { inputs: [], outputs: [{ product: { id: RP }, quantity: 48 }] },
+          },
+        ],
+      } as unknown as Recipe;
+    }
+
+    it('returns minimum level whose base already meets the target', () => {
+      const recipe = makeStationRecipe();
+      // L3 base = 48 ≥ 48 → L3 is enough.
+      expect(minLevelForOutput(recipe, RP, 48)).toBe(3);
+    });
+
+    it('rounds up across deltas to the smallest sufficient level', () => {
+      const recipe = makeStationRecipe();
+      // L3 = 48, L4 = 96, L5 = 144. Goal 100 → ceil((100-48)/48) = 2 levels above min, so L5.
+      expect(minLevelForOutput(recipe, RP, 100)).toBe(5);
+    });
+
+    it('returns exact level when the target lines up with a level boundary', () => {
+      const recipe = makeStationRecipe();
+      // L4 = 96 exactly.
+      expect(minLevelForOutput(recipe, RP, 96)).toBe(4);
+    });
+
+    it('skips regimes that cannot produce the product at all', () => {
+      const recipe = makeStationRecipe();
+      // Basic regime (L1-L2) produces 0 RP. Target 1 → must skip into advanced regime, L3.
+      expect(minLevelForOutput(recipe, RP, 1)).toBe(3);
+    });
+
+    it('returns undefined when no level in any regime can meet the target', () => {
+      const recipe = makeStationRecipe();
+      // Advanced regime maxLevel=100 → max RP = 48 + 97*48 = 4704. Anything higher is unreachable.
+      expect(minLevelForOutput(recipe, RP, 5000)).toBeUndefined();
+    });
+
+    it('returns undefined for a recipe with no levelRegimes', () => {
+      const recipe = makeRecipe({ inputs: [], outputs: [{ id: 'rp', quantity: 0 }] });
+      expect(minLevelForOutput(recipe, ProductId('rp'), 1)).toBeUndefined();
+    });
+  });
+
+  describe('SpaceStationCalculator workers', () => {
+    // Mirrors the SpaceStation regime workers shape:
+    //   basic    L1-L2: base=0,  delta=2  → L1=0, L2=2
+    //   advanced L3+:    base=4, delta=2  → L3=4, L7=12
+    function makeWorkersRecipe(): Recipe {
+      return {
+        levelRegimes: [
+          {
+            minLevel: 1, maxLevel: 2,
+            base: { inputs: [], outputs: [], workers: 0 },
+            delta: { inputs: [], outputs: [], workers: 2 },
+          },
+          {
+            minLevel: 3, maxLevel: 100,
+            base: { inputs: [], outputs: [], workers: 4 },
+            delta: { inputs: [], outputs: [], workers: 2 },
+          },
+        ],
+      } as unknown as Recipe;
+    }
+
+    it('returns 0 for L1 basic regime base', () => {
+      const calc = SpaceStationCalculator(makeWorkersRecipe(), { level: 1 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.workers()).toBe(0);
+    });
+
+    it('adds 1× delta for L2', () => {
+      const calc = SpaceStationCalculator(makeWorkersRecipe(), { level: 2 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.workers()).toBe(2);
+    });
+
+    it('jumps to advanced base at L3', () => {
+      const calc = SpaceStationCalculator(makeWorkersRecipe(), { level: 3 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.workers()).toBe(4);
+    });
+
+    it('adds 4× delta for L7 (advanced)', () => {
+      const calc = SpaceStationCalculator(makeWorkersRecipe(), { level: 7 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.workers()).toBe(12);
+    });
+
+    it('returns 0 when no regime matches the level', () => {
+      const calc = SpaceStationCalculator(makeWorkersRecipe(), { level: 999 }, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.workers()).toBe(0);
+    });
+
+    it('returns 0 when the recipe has no levelRegimes', () => {
+      const calc = SpaceStationCalculator({} as unknown as Recipe, undefined, 1, DEFAULT_ZONE_MODIFIERS);
+      expect(calc.workers()).toBe(0);
     });
   });
 

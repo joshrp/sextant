@@ -54,7 +54,8 @@ function calculateMachineUsage(
     if (!recipe) return;
 
     const runCount = node.data.solution?.solved ? node.data.solution.runCount : 1;
-    const netInfra = calculateInfrastructureNet(recipe, runCount, type);
+    const options = node.data.type === 'space-station' ? node.data.options : undefined;
+    const netInfra = calculateInfrastructureNet(recipe, runCount, type, options);
 
     if (netInfra.consumed === 0 && netInfra.generated === 0) return;
 

@@ -6,6 +6,8 @@
  */
 
 import type { Machine, Recipe } from '../graph/loadJsonData';
+import { stationLevel, stationWorkersForLevel } from '../graph/nodes/recipeNodeLogic';
+import type { SpaceStationNodeOptions } from '../graph/nodes/recipeNodeLogic';
 
 /**
  * Infrastructure types that can be calculated
@@ -138,9 +140,13 @@ export function calculateComputingNet(machine: Machine, runCount: number): NetIn
  * @param runCount - Number of times the machine runs (will be ceiled)
  * @returns Net workers with consumed, generated, and net values
  */
-export function calculateWorkersNet(machine: Machine, runCount: number): NetInfrastructure {
-  const consumed = machine.workers * Math.ceil(runCount);
-  const generated = machine.workers_generated * Math.ceil(runCount);
+export function calculateWorkersNet(recipe: Recipe, runCount: number, options?: SpaceStationNodeOptions): NetInfrastructure {
+  // Space stations carry no static `machine.workers` — their crew scales per level via
+  // the regime, resolved here so the infra roundup matches the node view and solver.
+  const consumed = recipe.type === 'space-station'
+    ? stationWorkersForLevel(recipe, stationLevel(recipe, options)) * Math.ceil(runCount)
+    : recipe.machine.workers * Math.ceil(runCount);
+  const generated = recipe.machine.workers_generated * Math.ceil(runCount);
   return {
     consumed,
     generated,
@@ -184,9 +190,10 @@ export function calculateMaintenanceNet(machine: Machine, runCount: number, type
  * @returns Net infrastructure with consumed, generated, and net values
  */
 export function calculateInfrastructureNet(
-  recipe: Recipe, 
-  runCount: number, 
-  type: InfrastructureType
+  recipe: Recipe,
+  runCount: number,
+  type: InfrastructureType,
+  options?: SpaceStationNodeOptions
 ): NetInfrastructure {
   switch (type) {
     case 'electricity':
@@ -194,7 +201,7 @@ export function calculateInfrastructureNet(
     case 'computing':
       return calculateComputingNet(recipe.machine, runCount);
     case 'workers':
-      return calculateWorkersNet(recipe.machine, runCount);
+      return calculateWorkersNet(recipe, runCount, options);
     case 'maintenance_1':
     case 'maintenance_2':
     case 'maintenance_3':

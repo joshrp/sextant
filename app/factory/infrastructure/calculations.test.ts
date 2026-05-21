@@ -365,6 +365,29 @@ describe('Infrastructure Calculations', () => {
       expect(result.generated).toBe(0);
       expect(result.net).toBe(24);
     });
+
+    it('resolves space-station workers from the level regime, not machine.workers', () => {
+      // machine.workers is 0 for the station; crew scales per level via the regime.
+      // Advanced regime: base.workers=4, delta.workers=2 → L3=4, L5=8.
+      const stationRecipe = {
+        type: 'space-station',
+        defaultLevel: 3,
+        machine: { workers: 0, workers_generated: 0 },
+        levelRegimes: [
+          { minLevel: 1, maxLevel: 2, base: { inputs: [], outputs: [], workers: 0 }, delta: { inputs: [], outputs: [], workers: 2 } },
+          { minLevel: 3, maxLevel: 100, base: { inputs: [], outputs: [], workers: 4 }, delta: { inputs: [], outputs: [], workers: 2 } },
+        ],
+      } as unknown as Recipe;
+
+      // Honors the node's chosen level.
+      const l5 = calculateInfrastructureNet(stationRecipe, 1, 'workers', { level: 5 });
+      expect(l5.consumed).toBe(8);
+      expect(l5.net).toBe(8);
+
+      // Falls back to defaultLevel (3) when no options are given.
+      const noOpts = calculateInfrastructureNet(stationRecipe, 1, 'workers');
+      expect(noOpts.consumed).toBe(4);
+    });
   });
 
   describe('backward compatibility', () => {

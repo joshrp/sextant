@@ -6,9 +6,10 @@ import { useShallow } from 'zustand/shallow';
 import { useFactoryStore } from '../../../context/FactoryContext';
 import BalancerNodeView from './BalancerNodeView';
 import { loadData, type ProductId } from '../loadJsonData';
-import { type RecipeNodeData, type RecipeNodeType, type SpaceStationNodeData } from './recipeNodeLogic';
+import { type RecipeNodeData, type RecipeNodeType } from './recipeNodeLogic';
 import RecipeNodeView from './RecipeNodeView';
 import SettlementNodeView from './SettlementNodeView';
+import SpaceStationNodeView from './SpaceStationNodeView';
 import ThermalStorageNodeView from './ThermalStorageNodeView';
 import { useProductionZoneStore } from '~/context/ZoneContext';
 
@@ -54,6 +55,11 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   const nodePosition = useFactoryStore(state => state.nodes.find(n => n.id === props.id)?.position);
   const alignToDrop = props.data.alignToDrop;
   const highlight = useFactoryStore(useShallow(state => state.highlight));
+  // Goals are read here (not inside SpaceStationNodeView) so the view stays
+  // a pure presentational component, consistent with the other *NodeView siblings.
+  const goals = useFactoryStore(useShallow(state =>
+    props.data.type === 'space-station' ? state.goals : []
+  ));
 
   // whenever we toggle collapsed, re‐measure _after_ layout
   useLayoutEffect(() => {
@@ -301,13 +307,27 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         nodeId={props.id}
         modifiers={modifiers}
       />;
+    } else if (props.data.type === "space-station") {
+      contents = <SpaceStationNodeView
+        recipe={recipe}
+        spaceStationOptions={props.data.options}
+        setOptions={options => {
+          setSpaceStationOptions(props.id, options);
+          updateNodeInternals(props.id);
+        }}
+        inputEdges={inputEdges}
+        outputEdges={outputEdges}
+        ltr={!!props.data.ltr}
+        zoomLevel={zoomLevel}
+        onFlip={flipNode}
+        onRemove={() => removeNode(props.id)}
+        solution={props.data.solution}
+        highlight={highlight}
+        nodeId={props.id}
+        modifiers={modifiers}
+        goals={goals}
+      />;
     } else {
-      const isSpaceStation = props.data.type === 'space-station';
-      const passedOptions = props.data.type === 'recipe'
-        ? props.data.options
-        : isSpaceStation
-          ? (props.data.options as unknown as RecipeNodeData["options"])
-          : undefined;
       contents = <RecipeNodeView
         recipe={recipe}
         inputEdges={inputEdges}
@@ -319,20 +339,16 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
         solution={props.data.solution}
         highlight={highlight}
         nodeId={props.id}
-        nodeOptions={passedOptions}
+        nodeOptions={props.data.type === 'recipe' ? props.data.options : undefined}
         setOptions={opts => {
-          if (isSpaceStation) {
-            setSpaceStationOptions(props.id, opts as unknown as SpaceStationNodeData["options"]);
-          } else {
-            setRecipeNodeOptions(props.id, opts);
-          }
+          setRecipeNodeOptions(props.id, opts);
           updateNodeInternals(props.id);
         }}
         modifiers={modifiers}
       />;
     }
     return contents;
-  }, [props.data, props.data.solution, recipe, inputEdges, outputEdges, zoomLevel, highlight, props.id, modifiers]);
+  }, [props.data, props.data.solution, recipe, inputEdges, outputEdges, zoomLevel, highlight, props.id, modifiers, goals]);
 
 }
 

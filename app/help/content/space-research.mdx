@@ -1,47 +1,31 @@
-# Space Station & Research Points
+# Space Research
 
-Space research produces **Space Research Points** from a station in orbit. The station consumes cargo delivered by rockets — station parts, crew supplies, electronics, asteroid booster parts, space probe parts, and crew.
+Rockets, launches, the station and crew all work like any other recipe here — giving a per minute rate. This makes the numbers a little different from in-game, but easier to plan throughput with. 
 
-Almost everything in this feature behaves like any other recipe: continuous per-minute throughput. The one thing that's different is the **space station itself**, which is a single physical object whose level you pick.
+## Launches are averaged
 
-## The space station
+In game, a launch is a single event: build a rocket, load it, fire it. Here, a launch is a **rate**. If a T1 rocket carries 40 parts and the station only needs 4/min, the planner shows `0.1 launches/min` — one launch every ten minutes on average.
 
-There is one **Space Station** node. Its consumption and research output depend on the **level** you choose with the `−` `+` stepper in the middle of the node. The node count is always 1 — you can't have half a station, and you can't have two.
+That's fine. The numbers add up over time. Rockets, fuel and cargo all scale the same way — a tenth of a launch uses a tenth of a rocket and a tenth of the fuel.
 
-Levels fall into two regimes:
+## Crew is part of the station
 
-- **Levels 1–2 (basic):** consumes basic station parts (Parts I), crew supplies, and crew. Produces **no** research points — these levels exist for tracking the prerequisite cost of reaching L3.
-- **Levels 3+ (advanced):** consumes advanced station parts (Parts II), crew supplies, crew, and Electronics IV. Produces research points.
+The crew working on the station is **station infrastructure** — sourced from your settlements like the workers in any other building. The station's worker count grows with its level, and shows up on the station node like Workers on any other machine.
 
-Within each regime, consumption is **affine**: a base amount at the regime's minimum level plus a per-input increment for every additional level. So L4 = L3 base + 1 × delta, L5 = L3 base + 2 × delta, etc. The increments differ per input — Crew Supplies grows faster than Space Crew, for example — which is why each level has its own set of numbers and not a simple linear scaling.
+You still need to launch crew, though: in game, a fresh crew rotation goes up roughly **once every 24 months** regardless of station size. That's set as a floor here — even at low levels the planner runs at least 1/24 of a crew launch per minute, so the rocket and fuel cost shows up in the bill.
 
-The calculator does **not** choose the level for you. Pick the level you're building toward; the station's per-minute inputs/outputs update accordingly. If you need more research throughput, click `+` and see what it costs.
+Pick the tier (T1 or T2) you want for crew launches based on fuel cost — it doesn't change the cadence.
 
-## Launches scale like any other recipe
+## Research points come in big steps
 
-A launch recipe takes one rocket + a fixed amount of fuel and delivers a full cargo load (e.g. one T1 rocket carries 40 Electronics IV). But you don't need a whole launch per cycle — the calculator works in **per-minute throughput**, so a 4/min Electronics IV demand becomes `4 ÷ 40 = 0.1 launches/min`, i.e. one launch every 10 minutes averaged.
+The station is one building. Its **level** sets how much it produces — you choose it with the `−` `+` buttons on the node.
 
-That means:
+- **L1 and L2 produce nothing.** They're only there to show the cost of getting to L3.
+- **L3 gives 48 RP/min.** Each level up adds another 48 (L4 = 96, L5 = 144, and so on).
 
-- **Rocket assembly, fuel demand, and cargo consumption all scale continuously** with the launch rate. 0.1 launches/min uses 0.1 rockets, 0.1 × the hydrogen/oxygen/water, and exactly the cargo the station needs.
-- **Launch pads and rocket factories are sized by building count**, not by the launch rate. The integer building count comes from the standard infrastructure constraint that every machine uses (workers, footprint) — same as any other recipe.
-- **One launch pad can serve many cargo types.** Each `Launch_X` recipe is a separate option on the same `RocketLaunchPad` machine; the pad's monthly throughput is shared across whichever recipes you place. You only need additional pads if your combined throughput exceeds one pad's capacity.
-
-## Rockets
-
-Rocket assembly happens on the **Rocket assembly depot**. Two recipes are available:
-
-- **Rocket T1 assembly** — cheaper, smaller cargo cap and lower fuel cost per launch.
-- **Rocket T2 assembly** — more expensive build, but higher cap and better fuel economy per cargo unit.
-
-Each launch recipe consumes one rocket of the matching tier plus a fixed amount of hydrogen, oxygen, and water. The fuel quantities are per-launch — at fractional launch rates, you consume a proportional fraction of each.
-
-## Crew quarters
-
-**Crew Quarters** turn workers into Space Crew at a fixed rate. Space Crew is launched to the station the same way as any other cargo. There's no separate "crew launch" — it uses the standard launch pipeline via the Virtual Space Crew cargo product.
+There is no in-between. If you want 50 RP/min you have to build for 96 and pay for the rest. For small goals, that overhead is most of the bill — it's usually worth raising the goal to the next step before deciding it's too much.
 
 ## Tips
 
-- If only the **T1 launch recipe** is visible in the recipe picker, click the `2 ⌄` button next to the machine icon to expand the T1/T2 tier pair. They're grouped because they're equivalent options for the same cargo.
-- Levels 1 and 2 don't produce research, so leaving the station at L1 or L2 won't fulfil any RP goal — bump it to L3 or above.
-- Handles for inputs not used at the current level still show on the node, but with a quantity of 0. That's normal — it keeps edges stable when you change levels.
+- Only see the T1 launch in the picker? Click the `2 ⌄` chevron next to the machine icon to show T2 as well.
+- Empty input handles on the station are normal — they stay so edges don't move when you change level.

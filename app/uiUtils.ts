@@ -40,7 +40,7 @@ export function formatNumber(value: number, unit: string = '', maximumFractionDi
   if (!isFinite(adjustedValue)) return (adjustedValue < 0 ? "-" : "") + "∞ " + unitstr;
   if (adjustedValue === 0) return "0 " + unitstr;
   if (Math.abs(adjustedValue) <= 0.001) return adjustedValue.toExponential(2) + unitstr;
-
+  if (value < 1) maximumFractionDigits = Math.max(maximumFractionDigits, 2);
 
   return adjustedValue.toLocaleString(LANG, { maximumFractionDigits }) + " " + unitstr;
 }
