@@ -1,5 +1,6 @@
-import { ArrowPathIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { default as useProductionZone, useProductionZoneStore } from '~/context/ZoneContext';
+import { usePlannerStore } from '~/context/PlannerContext';
 import {
   DEFAULT_ZONE_MODIFIERS,
   MODIFIER_GROUP_LABELS,
@@ -26,12 +27,17 @@ function WikiLink({ href, children }: { href: string; children: React.ReactNode 
 }
 
 function Header() {
-  const { name } = useProductionZone();
+  const { id, name } = useProductionZone();
+  const icon = usePlannerStore(state => state.zones.find(z => z.id === id)?.icon);
   return (
     <div className="mb-8">
       <h2 className="text-lg font-semibold text-white mb-1">
         Edicts &amp; Research
-        <span className="ml-2 font-normal text-blue-300">— {name}</span>
+        <span className="ml-2 font-normal text-blue-300 inline-flex items-center gap-1.5 align-middle">
+          — Zone:
+          {icon && <img src={icon} alt="" className="w-5 h-5" />}
+          {name}
+        </span>
       </h2>
       <p className="text-sm text-gray-400 leading-relaxed">
         Adjust these multipliers to match your current difficulty settings,{' '}
@@ -78,26 +84,14 @@ function ModifierRow({ modKey }: { modKey: keyof ZoneModifiers }) {
 
   return (
     <tr className={`border-b border-gray-800/60 ${isDefault ? '' : 'bg-blue-950/25'}`}>
-      {/* Label + info icon */}
+      {/* Label + description */}
       <td className="py-2.5 pr-6 w-1/2">
-        <div className="flex items-center gap-2">
-          <span className={`text-sm ${isDefault ? 'text-gray-300' : 'text-blue-200 font-medium'}`}>
-            {meta.label}
-          </span>
-          <button
-            className="text-gray-600 hover:text-gray-300 focus:text-gray-300 cursor-help flex-shrink-0"
-            title={meta.tooltip}
-            aria-label={`Info: ${meta.label}`}
-            tabIndex={0}
-          >
-            <InformationCircleIcon className="w-4 h-4" />
-          </button>
+        <div className={`text-sm ${isDefault ? 'text-gray-300' : 'text-blue-200 font-medium'}`}>
+          {meta.label}
         </div>
-        {!isDefault && (
-          <div className="text-xs text-gray-500 mt-0.5">
-            default: {meta.isAbsolute ? meta.default : Math.round(meta.default * 100)+'%'}
-          </div>
-        )}
+        <p className="text-xs text-gray-500 mt-0.5 leading-snug">
+          {meta.description}
+        </p>
       </td>
 
       {/* Controls */}
@@ -126,6 +120,9 @@ function ModifierRow({ modKey }: { modKey: keyof ZoneModifiers }) {
           >
             +
           </button>
+        </div>
+        <div className="text-xs text-gray-600 mt-1 ml-9 w-20 text-center">
+          default: {meta.isAbsolute ? meta.default : Math.round(meta.default * 100)+'%'}
         </div>
       </td>
 

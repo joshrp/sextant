@@ -46,7 +46,7 @@ export type ModifierGroup =
 
 export interface ModifierMeta {
   label: string;
-  tooltip: string;     // edict/research source description shown in ⓘ tooltip
+  description: string; // short explanation shown beneath the label in the modifiers panel
   isMultiplier?: boolean; // if true it's used a multiplier on recipes
   isAbsolute?: boolean; // if true it's used as an absolute value (e.g. rainwater harvester output in m³/s)
   unbounded?: boolean; // true only for contractProfitability; omits min/max
@@ -60,7 +60,7 @@ export interface ModifierMeta {
 export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   recyclingEfficiency: {
     label: 'Recycling Efficiency',
-    tooltip: 'Base 60%. Recycling Increase I–IV each add +20%, +15%, +10%, +10% (hard cap 75%).',
+    description: 'Base 60%. Recycling Edicts + Research (hard cap 75%).',
     min: 0.01,
     max: 1,
     step: 0.05,
@@ -71,7 +71,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   maintenanceConsumption: {
     label: 'Maintenance Consumption',
-    tooltip: 'Maintenance Cost adjustment',
+    description: 'Scales the maintenance parts buildings consume.',
     isMultiplier: true,
     min: 0.01,
     max: 10,
@@ -81,7 +81,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   maintenanceOutput: {
     label: 'Maintenance Yield',
-    tooltip: 'Maintenance output adjustment',
+    description: 'Scales the maintenance parts your depots produce.',
     isMultiplier: true,
     min: 0.01,
     max: 10,
@@ -91,7 +91,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   farmYield: {
     label: 'Crop Yield',
-    tooltip: 'Crop yield adjustment for farms',
+    description: 'Scales the crops harvested by farms.',
     min: 0.01,
     isMultiplier: true,
     max: 10,
@@ -101,7 +101,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   farmWater: {
     label: 'Crop Water Use',
-    tooltip: 'Water used by farms',
+    description: 'Scales the water farms consume.',
     min: 0.01,
     max: 10,
     step: 0.05,
@@ -111,7 +111,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   foodConsumption: {
     label: 'Food Consumption',
-    tooltip: 'Food consumption adjustment for settlements. Difficulty + Edicts + Research',
+    description: 'Scales the food settlements eat — difficulty + edicts + research',
     min: 0.01,
     max: 10,
     step: 0.05,
@@ -121,7 +121,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   settlementWater: {
     label: 'Settlement Water',
-    tooltip: 'Settlement water consumption adjustment',
+    description: 'Scales the water settlements consume.',
     min: 0.01,
     max: 10,
     step: 0.05,
@@ -131,7 +131,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   householdGoods: {
     label: 'Household Goods',
-    tooltip: 'Household goods settlement consumption adjustment',
+    description: 'Scales the household goods settlements consume.',
     min: 0.01,
     max: 10,
     step: 0.05,
@@ -141,7 +141,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   householdAppliances: {
     label: 'Household Appliances',
-    tooltip: 'Household appliances settlement consumption adjustment',
+    description: 'Scales the household appliances settlements consume.',
     min: 0.01,
     max: 10,
     step: 0.05,
@@ -151,7 +151,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   consumerElectronics: {
     label: 'Consumer Electronics',
-    tooltip: 'Consumer Electronics Settlement consumption adjustment',
+    description: 'Scales the consumer electronics settlements consume.',
     min: 0.01,
     max: 10,
     step: 0.05,
@@ -161,7 +161,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   solarOutput: {
     label: 'Solar Output',
-    tooltip: 'Solar panel output adjustment',
+    description: 'Scales the power solar panels generate.',
     min: 0.01,
     max: 10,
     step: 0.05,
@@ -171,7 +171,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   rainwaterOutput: {
     label: 'Rainwater Harvester Output',
-    tooltip: 'Absolute value of Rainwater harvester output',
+    description: 'Water each rainwater harvester collects, in m³/s.',
     min: 0.1,
     max: 1000,
     step: 0.1,
@@ -182,7 +182,7 @@ export const MODIFIER_META: Record<keyof ZoneModifiers, ModifierMeta> = {
   },
   contractProfitability: {
     label: 'Contract Profitability',
-    tooltip: 'Scales contract output quantities. Increase to model higher trade profitability from edicts/research.',
+    description: 'Scales contract output quantities to model higher trade profitability.',
     unbounded: true,
     step: 0.05,
     default: 1.0,

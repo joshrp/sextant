@@ -5,7 +5,7 @@ import { helpImage } from "../../uiUtils";
 Manifold is a name for a series of related connections. This water manifold has 2 outputs and 1 input:
 <img  className='my-4'  src={helpImage('water-manifold.png')} alt="water manifold" />
 
-In normal operation manifolds are what set production constraints and force buildings to have balanced inputs and outputs. Here water manifold is forcing the 2 outputs must always match the total input needed.
+In normal operation manifolds are what set the constraints to force buildings to have balanced inputs and outputs. Here water manifold is forcing the 2 outputs must always match the total input needed.
 
 The water treatment plant can only output 30 water because it only receives 40 wastewater, the water pump is forced to output 18 water to make up the remainder. 
 
@@ -13,7 +13,7 @@ The padlock on each manifold in the sidebar allow you to explore what happens wh
 
 <img className='my-4' src={helpImage('water-manifold-free.png')} alt="water manifold freed" />
 
-When a manifold is freed it will pulse red to show that it is not constrained, it won't actually work in your factory. 
+When a manifold is freed it will pulse red to show that it is allowing imports/exports, it won't actually work in your factory. 
 
 The sidebar will indicate what is being imported or exported from the manifold and you can click it again to lock it. 
 
@@ -26,4 +26,6 @@ When your factory doesn't solve, the solver will automatically try freeing manif
 Manifolds are generally only useful if something has gone wrong and your factory doesn't solve. Or if you want to explore the solution space and see what happens when you relax certain constraints.
 
 - Hover a manifold to show all its connections
-- Click the padlock to free or constrain the manifold
+- Click the padlock to allow the manifold to freely import / export materials
+
+Free'ing manifolds should be a temporary measure to spot where the problem is in your factory balancing. Lock them again to allow the calculator to optimize the usage again. 
