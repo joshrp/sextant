@@ -161,6 +161,8 @@ export const SettlementCalculator = (
 
     if (input.product.id === ProductId('Product_Water')) {
       baseQty = baseQty.mul(modifiers.settlementWater);
+    } else if (input.product.id === ProductId('Product_WasteWater')) {
+      baseQty = baseQty.mul(modifiers.settlementWater);
     }
 
     if (input.product.id === ProductId('Product_HouseholdGoods')) {
