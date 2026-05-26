@@ -1,5 +1,9 @@
 # CHANGELOG
 
+1.0.5
+- fix: Waste water not being scaled by settlement water multiplier
+- fix: Modifiers UI now doesn't use tooltips for key info
+
 1.0.4
 - fix: large performance issues with Edge rendering, especially with large plans
 - featu: Producing space research from stations and all the associated rocket logic
