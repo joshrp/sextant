@@ -1,5 +1,5 @@
 import { ReactFlowProvider } from '@xyflow/react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useFixtureInput, useFixtureSelect } from 'react-cosmos/client';
 import { loadData, type ProductId, type RecipeId } from '../loadJsonData';
 import type { RecipeNodeViewProps } from './RecipeNodeView';
@@ -9,7 +9,13 @@ import { DEFAULT_ZONE_MODIFIERS } from '../../../context/zoneModifiers';
 
 const { recipes } = loadData();
 
-const createFixture = (recipeIdStart: string, width: number, propsOverrides?: Partial<RecipeNodeViewProps>) => {
+const createFixture = (
+  recipeIdStart: string,
+  width: number,
+  propsOverrides?: Partial<RecipeNodeViewProps>,
+  /** Simulate React Flow's mid-drag "connecting to this handle" state. */
+  connectSim?: { index?: number; valid?: boolean },
+) => {
   const [flipped, setFlipped] = useState(false);
   const [removed, setRemoved] = useState(false);
   const zoomLevel = useFixtureInput('Zoom Level', 0)[0] as 0 | 1 | 2 | 3;
@@ -57,12 +63,32 @@ const createFixture = (recipeIdStart: string, width: number, propsOverrides?: Pa
     outputEdges.set(product.id, connectedOutputs[i]);
   }
 
+  // Simulate React Flow's mid-drag connection state. React Flow toggles
+  // `connectingto` on the handle a connection is snapped to and adds `valid`
+  // when the connection would be accepted; both only exist during a real drag.
+  // We apply them directly to a handle's DOM so the connecting-target highlight
+  // (.handle.connectingto / .valid in nodes.css) can be reviewed in Cosmos.
+  const containerRef = useRef<HTMLDivElement>(null);
+  const simulateConnecting = useFixtureInput('Simulate Connection Hover', !!connectSim)[0];
+  const connectIndex = useFixtureInput('Connection Handle Index', connectSim?.index ?? 0)[0];
+  const connectValid = useFixtureInput('Connection Valid', connectSim?.valid ?? true)[0];
+  useEffect(() => {
+    const handles = containerRef.current?.querySelectorAll<HTMLElement>('.react-flow__handle');
+    if (!handles) return;
+    handles.forEach(h => h.classList.remove('connectingto', 'valid'));
+    const target = handles[connectIndex];
+    if (simulateConnecting && target) {
+      target.classList.add('connectingto');
+      if (connectValid) target.classList.add('valid');
+    }
+  });
+
   return <ReactFlowProvider>
-    <div style={{ background: '#1a1a1a', padding: '20px', resize: 'both', overflow: 'auto' 
+    <div ref={containerRef} style={{ background: '#1a1a1a', padding: '20px', resize: 'both', overflow: 'auto'
       , width: `${width}px`,
       transform: `scale(${scaleVal})`,
 
-    }}> 
+    }}>
       {removed && <h2>Removed</h2>}      
       <RecipeNodeView {...{
           recipe,
@@ -97,4 +123,9 @@ export default {
   }),
 
   'Balancer - Water': () => createFixture('Balancer_Product_Water', 400),
+
+  // Simulates the connecting-target highlight (React Flow's mid-drag
+  // `connectingto`/`valid` classes). Toggle "Connection Valid" and
+  // "Connection Handle Index" in the controls panel to explore variants.
+  'Hover - Connecting Target': () => createFixture('TurbineHighPressT2', 500, undefined, { index: 0, valid: true }),
 };

@@ -47,6 +47,12 @@
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 70% 50%);
     }
   }
+
+  &:has(.handle.connectingto) {
+    .handle .clipped {
+      display: none;
+    }
+  }
 }
 
 .recipe-output {
@@ -64,6 +70,25 @@
       clip-path: polygon(0 0, 40% 0, 100% 50%, 40% 100%, 0 100%);
     }
   }
+
+  &:has(.handle.connectingto) {
+    .handle .clipped {
+      display: none;
+    }
+  }
+}
+
+.handle.connectingto {
+  scale: 1.2;
+  border-radius: 9999px;
+  @apply outline-2 outline-dashed outline-red-500;
+  outline-offset: 3px;
+  transition: scale 0.1s ease-out;
+}
+
+.handle.connectingto.valid {
+  outline: 3px solid var(--color-green-500);
+  box-shadow: 0 0 10px 4px rgba(74, 222, 128, 0.75);
 }
 
 .react-flow__edges svg {
@@ -167,7 +192,7 @@
   z-index: 1000 !important
 }
 
-:has( > .filterGreenShift) {
+:has(> .filterGreenShift) {
   .filterGreenShift {
     filter: drop-shadow(0 100px 0 var(--color-green-600));
     @apply -translate-y-[100px];
@@ -182,7 +207,7 @@
   @apply text-xl p-4;
 
   & h1 {
-    @apply text-6xl font-bold mb-4 ;
+    @apply text-6xl font-bold mb-4;
   }
 
   & h2 {
@@ -209,6 +234,7 @@
   & ul {
     @apply list-disc;
   }
+
   & ol {
     @apply list-decimal;
   }

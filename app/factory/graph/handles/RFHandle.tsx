@@ -2,13 +2,13 @@ import { Handle, Position } from '@xyflow/react';
 import { productIcon } from '~/uiUtils';
 import type { Product } from '../loadJsonData';
 
-const handleStyle: React.CSSProperties = { 
-  width: "auto", 
-  height: "auto", 
-  position: "initial", 
-  transform: "initial", 
-  border: 'none', 
-  backgroundColor: 'transparent' 
+const handleStyle: React.CSSProperties = {
+  width: "auto",
+  height: "auto",
+  position: "initial",
+  transform: "initial",
+  border: 'none',
+  backgroundColor: 'transparent'
 };
 
 export interface RFHandleProps {

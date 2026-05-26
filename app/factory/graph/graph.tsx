@@ -4,7 +4,8 @@ import {
   Controls,
   ReactFlow,
   useReactFlow,
-  type FinalConnectionState
+  type FinalConnectionState,
+  type IsValidConnection
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
@@ -24,6 +25,10 @@ import { estimateNodeSize, findAvailableSlot, getExistingNodeRects, getExistingN
 import { getViewportBounds } from "./viewportHelpers";
 
 const { recipes } = loadData();
+
+const isValidConnection: IsValidConnection = (connection) => {
+  return connection.sourceHandle === connection.targetHandle && connection.source !== connection.target;
+}
 
 const selector = (state: GraphStore) => ({
   nodes: state.nodes,
@@ -139,9 +144,13 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
   }, [smartPositionRef, getSmartPositionForRecipe]);
 
   const onConnectEnd = useCallback((event: MouseEvent | TouchEvent, connectionState: FinalConnectionState) => {
-    // when a connection is dropped on the pane it's not valid 
+    // Spawn a new recipe node only when the connection is released over empty
+    // pane (no target handle). We key off `toHandle` rather than `isValid`
+    // because, now that isValidConnection rejects product mismatches, a drop on a
+    // mismatched handle is also `!isValid` — but that should do nothing (as
+    // before), not spawn a node on top of the handle the user was aiming at.
     const productId = connectionState.fromHandle?.id as ProductId | undefined;
-    if (!connectionState.isValid && connectionState.fromHandle && productId) {
+    if (!connectionState.toHandle && connectionState.fromHandle && productId) {
       // we need to remove the wrapper bounds, in order to get the correct position
       const { clientX, clientY } =
         'changedTouches' in event ? event.changedTouches[0] : event;
@@ -202,7 +211,9 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
       onEdgesChange={onEdgesChange}
       onConnectEnd={onConnectEnd}
       onConnect={onConnect}
+      isValidConnection={isValidConnection}
       minZoom={0.1}
+      connectionRadius={80}
       elevateEdgesOnSelect={true}
       colorMode="dark"
     // snapGrid={[20,20]}
