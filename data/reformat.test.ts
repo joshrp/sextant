@@ -60,6 +60,44 @@ describe("Check refomatted data", () => {
     expect(linkIdMap.size).toBeLessThan(recipes.size / 2);
   })
 
+  test("Tier ladders (tierUp/tierDown) are consistent and ordered low→high", () => {
+    const { recipes } = allData;
+    const outputMagnitude = (r: { outputs: { quantity: number }[] }) =>
+      r.outputs.reduce((sum, o) => sum + o.quantity, 0);
+
+    let linkedCount = 0;
+    for (const recipe of recipes.values()) {
+      // Neighbours only exist for tier-linked recipes.
+      if (recipe.tierUp || recipe.tierDown) {
+        linkedCount++;
+        expect(recipe.tiersLink, `${recipe.id} has a tiersLink`).toBeDefined();
+      }
+      if (recipe.tierUp) {
+        const up = recipes.get(recipe.tierUp);
+        expect(up, `tierUp ${recipe.tierUp} of ${recipe.id} exists`).toBeDefined();
+        // Reciprocal link, same group + type, and up is the faster (higher-throughput) tier.
+        expect(up!.tierDown, `${recipe.tierUp}.tierDown points back to ${recipe.id}`).toBe(recipe.id);
+        expect(up!.tiersLink).toBe(recipe.tiersLink);
+        expect(up!.type).toBe(recipe.type);
+        expect(outputMagnitude(up!)).toBeGreaterThanOrEqual(outputMagnitude(recipe));
+      }
+      if (recipe.tierDown) {
+        const down = recipes.get(recipe.tierDown);
+        expect(down, `tierDown ${recipe.tierDown} of ${recipe.id} exists`).toBeDefined();
+        expect(down!.tierUp).toBe(recipe.id);
+      }
+    }
+    expect(linkedCount).toBeGreaterThan(0);
+
+    // Known two-rung ladder: TurbineHighPress (slow) → TurbineHighPressT2 (fast).
+    const slow = recipes.get("TurbineHighPress" as RecipeId);
+    const fast = recipes.get("TurbineHighPressT2" as RecipeId);
+    expect(slow?.tierUp).toBe("TurbineHighPressT2");
+    expect(slow?.tierDown).toBeUndefined();
+    expect(fast?.tierDown).toBe("TurbineHighPress");
+    expect(fast?.tierUp).toBeUndefined();
+  });
+
   test("All products should have their relevant recipes in their array", async () => {
     const { recipes, products } = allData;
     for (const recipe of recipes.values()) {

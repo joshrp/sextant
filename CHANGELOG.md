@@ -1,5 +1,8 @@
 # CHANGELOG
 
+1.0.6
+- feat: Add button for switching between machine tiers where available. Fixes Issue #3
+
 1.0.5
 - fix: Waste water not being scaled by settlement water multiplier
 - fix: Modifiers UI now doesn't use tooltips for key info

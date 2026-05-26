@@ -148,11 +148,52 @@ export async function getDataFromRaw(rawPath = "./data/raw"): Promise<Serialized
   addCrewLaunchRecipes(machineData.products, machineData.machines, machineData.recipes);
   addSpaceStationRecipe(machineData.products, machineData.machines, machineData.recipes);
 
+  // Precompute tier ladders (tierUp / tierDown) once all recipes exist, so the
+  // app can switch a node between faster/slower machines without scanning at runtime.
+  linkRecipeTiers(machineData.recipes);
+
   return {
     products: machineData.products,
     machines: machineData.machines,
     recipes: machineData.recipes,
   };
+}
+
+/** Total output throughput of a recipe, used to order a tier group low→high. */
+function tierOutputMagnitude(recipe: RecipeSerialized): number {
+  return recipe.outputs.reduce((sum, o) => sum + o.quantity, 0);
+}
+
+/**
+ * Links each recipe to its adjacent tiers via `tierUp` / `tierDown`.
+ *
+ * Recipes sharing a `tiersLink` have identical product ids and input:output ratios
+ * (the link is the dedup hash — see `makeRecipeDeduplicationKey`), differing only by
+ * a single throughput scale factor. Ordering a group by total output quantity is
+ * therefore an exact low→high tier ordering. Groups are partitioned by `type` so a
+ * settlement and a recipe that happen to dedup together are never linked as tiers.
+ */
+function linkRecipeTiers(recipes: Map<RecipeId, RecipeSerialized>): void {
+  const groups = new Map<string, RecipeSerialized[]>();
+  for (const recipe of recipes.values()) {
+    if (!recipe.tiersLink) continue;
+    const key = `${recipe.tiersLink}|${recipe.type}`;
+    const group = groups.get(key);
+    if (group) group.push(recipe);
+    else groups.set(key, [recipe]);
+  }
+
+  for (const group of groups.values()) {
+    if (group.length < 2) continue;
+    group.sort((a, b) => {
+      const diff = tierOutputMagnitude(a) - tierOutputMagnitude(b);
+      return diff !== 0 ? diff : a.id.localeCompare(b.id);
+    });
+    group.forEach((recipe, i) => {
+      recipe.tierDown = i > 0 ? group[i - 1].id : undefined;
+      recipe.tierUp = i < group.length - 1 ? group[i + 1].id : undefined;
+    });
+  }
 }
 
 export function writeRawData(allData: SerializedData, path = "./data/data.ts"): void {

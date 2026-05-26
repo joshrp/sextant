@@ -1,5 +1,5 @@
 import { TrashIcon } from '@heroicons/react/24/outline';
-import { ArrowsRightLeftIcon } from '@heroicons/react/24/solid';
+import { ArrowsRightLeftIcon, ChevronDoubleDownIcon, ChevronDoubleUpIcon } from '@heroicons/react/24/solid';
 import { Position } from '@xyflow/react';
 import type { HTMLAttributes } from 'react';
 import HelpLink from '~/components/HelpLink';
@@ -31,6 +31,12 @@ export interface RecipeNodeViewProps {
   nodeOptions?: RecipeNodeOptions;
   setOptions?: (options: RecipeNodeOptions) => void;
   modifiers: ZoneModifiers;
+  /** Tier switching: whether a faster/slower compatible recipe exists, and how to swap to it.
+   *  Drives the up/down double-chevron buttons in the node header. */
+  canUpgrade?: boolean;
+  canDowngrade?: boolean;
+  onUpgrade?: () => void;
+  onDowngrade?: () => void;
 }
 
 /**
@@ -51,6 +57,10 @@ export default function RecipeNodeView({
   nodeOptions,
   setOptions,
   modifiers,
+  canUpgrade,
+  canDowngrade,
+  onUpgrade,
+  onDowngrade,
 }: RecipeNodeViewProps) {
   const runCount = solution?.runCount ?? 1;
 
@@ -73,21 +83,29 @@ export default function RecipeNodeView({
     <div
       data-zoomlevel={zoomLevel}
       className="recipe-node min-w-10 min-h-20 relative p-2 bg-gray-800 rounded-lg shadow-md ">
-      <div className="recipe-node-title-bar flex justify-between border-white/20 mb-8 pb-2 border-b-2 items-center-safe ">
-        <div className="flex-1 text-left p-1">
+      <div className="recipe-node-title-bar flex gap-4 justify-between border-white/20 mb-8 pb-2 border-b-2 items-center-safe ">
+        <div className="flex-1 flex items-center gap-1 p-1">
           <button
             title="Flip Direction"
             className="cursor-pointer text-white/50 hover:text-white/80 hover:bg-gray-500/50 p-1 rounded"
             onClick={onFlip}>
             <ArrowsRightLeftIcon className={`transition-[scale] duration-200 inline-block w-6 ${ltr ? "" : "scale-x-[-1]"}`} />
           </button>
+          {/* Invisible mirror of the tier buttons keeps the machine name centered in the node. */}
+          <TierSwitchButtons canUpgrade={canUpgrade} canDowngrade={canDowngrade} mirror />
         </div>
         <div className="flex-10 text-center text-xl flex items-center justify-center gap-2">
           <span>{recipe.machine.name}</span>
           {recipe.type === 'contract' && <HelpLink topic="contracts" title="Learn about Contracts" iconSize="w-5 h-5" />}
           {recipe.type === 'launch' && <HelpLink topic="space-research" title="Learn about Space Research" iconSize="w-5 h-5" />}
         </div>
-        <div className="flex-1 justify-end-safe text-right ">
+        <div className="flex-1 flex items-center justify-end gap-1">
+          <TierSwitchButtons
+            canUpgrade={canUpgrade}
+            canDowngrade={canDowngrade}
+            onUpgrade={onUpgrade}
+            onDowngrade={onDowngrade}
+          />
           <button
             className="cursor-pointer text-red-500/50 hover:text-white/80 hover:bg-red-500/50 p-1 rounded"
             onClick={onRemove}>
@@ -193,6 +211,56 @@ export default function RecipeNodeView({
     </div >
   );
 
+}
+
+/**
+ * Up/down tier-switch buttons shown in the node header next to the trash icon.
+ * Each button only renders when that move is possible.
+ *
+ * When `mirror` is set the buttons render invisible and non-interactive — a copy
+ * placed on the opposite side of the header to balance its width so the machine
+ * name stays centered in the node as a whole.
+ */
+function TierSwitchButtons({
+  canUpgrade,
+  canDowngrade,
+  onUpgrade,
+  onDowngrade,
+  mirror = false,
+}: {
+  canUpgrade?: boolean;
+  canDowngrade?: boolean;
+  onUpgrade?: () => void;
+  onDowngrade?: () => void;
+  mirror?: boolean;
+}) {
+  if (!canUpgrade && !canDowngrade) return null;
+  const buttonClass = "cursor-pointer border-1 border-white/20 text-white/50 hover:text-white/80 hover:bg-gray-500/50 p-1 rounded";
+  return (
+    <span
+      aria-hidden={mirror || undefined}
+      className={`flex items-center gap-1 ${mirror ? "invisible pointer-events-none" : ""}`}
+    >
+      {canDowngrade && (
+        <button
+          title="Downgrade to the next slower machine"
+          tabIndex={mirror ? -1 : undefined}
+          className={buttonClass}
+          onClick={onDowngrade}>
+          <ChevronDoubleDownIcon className="w-5" />
+        </button>
+      )}
+      {canUpgrade && (
+        <button
+          title="Upgrade to the next faster machine"
+          tabIndex={mirror ? -1 : undefined}
+          className={buttonClass}
+          onClick={onUpgrade}>
+          <ChevronDoubleUpIcon className="w-5" />
+        </button>
+      )}
+    </span>
+  );
 }
 
 function InfrastructureIcon({

@@ -56,6 +56,8 @@ export interface GraphStoreActions {
   onNodesChange: OnNodesChange<CustomNodeType>;
   onEdgesChange: OnEdgesChange;
   setNodeData: (nodeId: string, data: Partial<RecipeNodeData | AnnotationNodeData>) => void,
+  /** Swap a node's recipe (e.g. tier up/down) and rebuild + re-solve the graph. */
+  setNodeRecipe: (nodeId: string, recipeId: RecipeId) => void,
   setEdgeData: (edgeId: string, data: Partial<ButtonEdgeData>) => void,
   onConnect: OnConnect;
   forceSetNodesEdges: () => void,
@@ -327,6 +329,13 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZon
           },
           setNodeData: (nodeId: string, data: Partial<NodeDataTypes>) => {
             set(state => reducers.updateNodeData(state, nodeId, data), false, "setNodeData");
+          },
+          setNodeRecipe: (nodeId: string, recipeId: RecipeId) => {
+            // Tier swaps stay within a `tiersLink` group, so all product handles
+            // are identical and existing edges remain valid — only the recipe id
+            // changes. Rebuild the graph and re-solve so machine counts update.
+            set(state => reducers.updateNodeData(state, nodeId, { recipeId }), false, "setNodeRecipe");
+            get().graphUpdateAction();
           },
           setRecipeNodeOptions: (nodeId: string, options: RecipeNodeData["options"]) => {
             set(state => reducers.updateRecipeNodeOptions(state, nodeId, options), false, "setRecipeNodeOptions");

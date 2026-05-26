@@ -14557,7 +14557,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "TurbineHighPress"
     },
     "TurbineHighPress": {
       "id": "TurbineHighPress",
@@ -14588,7 +14589,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "TurbineHighPressT2"
     },
     "TurbineLowPressT2": {
       "id": "TurbineLowPressT2",
@@ -14619,7 +14621,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "TurbineLowPress"
     },
     "TurbineLowPress": {
       "id": "TurbineLowPress",
@@ -14650,7 +14653,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "TurbineLowPressT2"
     },
     "PowerGeneratorT1": {
       "id": "PowerGeneratorT1",
@@ -15381,7 +15385,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "OceanWaterPumpingT2"
     },
     "OceanWaterPumping2x": {
       "id": "OceanWaterPumping2x",
@@ -15403,7 +15408,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 3
+      "powerMult": 3,
+      "tierUp": "OceanWaterPumping2xT2"
     },
     "OceanWaterPumpingT2": {
       "id": "OceanWaterPumpingT2",
@@ -15425,7 +15431,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "OceanWaterPumping"
     },
     "OceanWaterPumping2xT2": {
       "id": "OceanWaterPumping2xT2",
@@ -15447,7 +15454,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 3
+      "powerMult": 3,
+      "tierDown": "OceanWaterPumping2x"
     },
     "SteamGenerationCoal": {
       "id": "SteamGenerationCoal",
@@ -15848,7 +15856,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 2
+      "powerMult": 2,
+      "tierDown": "SteamGenerationElectricHalf"
     },
     "SteamGenerationElectricHalf": {
       "id": "SteamGenerationElectricHalf",
@@ -15875,7 +15884,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SteamGenerationElectric"
     },
     "SteamGenerationSpElectric": {
       "id": "SteamGenerationSpElectric",
@@ -15928,7 +15938,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "BrineMaking"
     },
     "SaltMakingHeated": {
       "id": "SaltMakingHeated",
@@ -15955,7 +15966,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SaltMaking"
     },
     "SaltMakingFromBrineHeated": {
       "id": "SaltMakingFromBrineHeated",
@@ -15982,7 +15994,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SaltMakingFromBrine"
     },
     "BrineMaking": {
       "id": "BrineMaking",
@@ -16009,7 +16022,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "BrineMakingHeated"
     },
     "SaltMaking": {
       "id": "SaltMaking",
@@ -16036,7 +16050,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SaltMakingHeated"
     },
     "SaltMakingFromBrine": {
       "id": "SaltMakingFromBrine",
@@ -16063,7 +16078,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SaltMakingFromBrineHeated"
     },
     "DesalinationFromSP": {
       "id": "DesalinationFromSP",
@@ -16298,7 +16314,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CpAssemblyT4"
     },
     "CpAssemblySteelT5": {
       "id": "CpAssemblySteelT5",
@@ -16333,7 +16350,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CpAssemblySteelT4"
     },
     "Cp2AssemblyT5": {
       "id": "Cp2AssemblyT5",
@@ -16364,7 +16382,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp2AssemblyT4"
     },
     "Cp3AssemblyT4": {
       "id": "Cp3AssemblyT4",
@@ -16395,7 +16414,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp3AssemblyT3"
     },
     "Cp4AssemblyRoboticT2": {
       "id": "Cp4AssemblyRoboticT2",
@@ -16426,7 +16446,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp4AssemblyRoboticT1"
     },
     "MechPartsAssemblyT5Iron": {
       "id": "MechPartsAssemblyT5Iron",
@@ -16453,7 +16474,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MechPartsAssemblyT4Iron"
     },
     "MechPartsAssemblyT5": {
       "id": "MechPartsAssemblyT5",
@@ -16480,7 +16502,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MechPartsAssemblyT4"
     },
     "VehicleParts1AssemblyT5": {
       "id": "VehicleParts1AssemblyT5",
@@ -16511,7 +16534,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts1AssemblyT4"
     },
     "VehicleParts2AssemblyT3": {
       "id": "VehicleParts2AssemblyT3",
@@ -16546,7 +16570,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts2AssemblyT2"
     },
     "VehicleParts3AssemblyT3": {
       "id": "VehicleParts3AssemblyT3",
@@ -16577,7 +16602,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts3AssemblyT2"
     },
     "LabEquipment1AssemblyT4": {
       "id": "LabEquipment1AssemblyT4",
@@ -16608,7 +16634,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment1AssemblyT3"
     },
     "LabEquipment2AssemblyT4": {
       "id": "LabEquipment2AssemblyT4",
@@ -16643,7 +16670,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment2AssemblyT3"
     },
     "LabEquipment3AssemblyT3": {
       "id": "LabEquipment3AssemblyT3",
@@ -16674,7 +16702,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment3AssemblyT2"
     },
     "LabEquipment4AssemblyT3": {
       "id": "LabEquipment4AssemblyT3",
@@ -16705,7 +16734,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment4AssemblyT2"
     },
     "RailPartsAssemblyT3": {
       "id": "RailPartsAssemblyT3",
@@ -16736,7 +16766,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "RailPartsAssemblyT2"
     },
     "HouseholdGoodsAssemblyT4": {
       "id": "HouseholdGoodsAssemblyT4",
@@ -16771,7 +16802,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "HouseholdGoodsAssemblyT3"
     },
     "HouseholdAppliancesAssemblyT3": {
       "id": "HouseholdAppliancesAssemblyT3",
@@ -16806,7 +16838,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "HouseholdAppliancesAssemblyT2"
     },
     "LuxuryGoodsAssemblyT3": {
       "id": "LuxuryGoodsAssemblyT3",
@@ -16837,7 +16870,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LuxuryGoodsAssemblyT2"
     },
     "PCBAssemblyT3": {
       "id": "PCBAssemblyT3",
@@ -16872,7 +16906,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "PCBAssemblyT2"
     },
     "ElectronicsAssemblyT5": {
       "id": "ElectronicsAssemblyT5",
@@ -16903,7 +16938,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ElectronicsAssemblyT4"
     },
     "Electronics2AssemblyT3": {
       "id": "Electronics2AssemblyT3",
@@ -16938,7 +16974,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Electronics2AssemblyT2"
     },
     "UraniumRodsAssemblyT3": {
       "id": "UraniumRodsAssemblyT3",
@@ -16969,7 +17006,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "UraniumRodsAssemblyT2"
     },
     "SolarCellAssemblyT3": {
       "id": "SolarCellAssemblyT3",
@@ -17004,7 +17042,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SolarCellAssemblyT2"
     },
     "SolarCellMonoAssemblyT1": {
       "id": "SolarCellMonoAssemblyT1",
@@ -17069,7 +17108,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Electronics3AssemblyRoboticT1"
     },
     "Electronics4Assembly": {
       "id": "Electronics4Assembly",
@@ -17134,7 +17174,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ServerAssemblyT1"
     },
     "ConsumerElectronicsAssemblyT1": {
       "id": "ConsumerElectronicsAssemblyT1",
@@ -17199,7 +17240,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalEquipmentAssemblyT2"
     },
     "MedicalSuppliesAssemblyT3": {
       "id": "MedicalSuppliesAssemblyT3",
@@ -17230,7 +17272,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalSuppliesAssemblyT2"
     },
     "MedicalSupplies2AssemblyT3": {
       "id": "MedicalSupplies2AssemblyT3",
@@ -17261,7 +17304,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalSupplies2AssemblyT2"
     },
     "MedicalSupplies3AssemblyT3": {
       "id": "MedicalSupplies3AssemblyT3",
@@ -17296,7 +17340,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalSupplies3AssemblyT2"
     },
     "FoodPackAssemblyMeatT3": {
       "id": "FoodPackAssemblyMeatT3",
@@ -17327,7 +17372,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FoodPackAssemblyMeatT2"
     },
     "FoodPackAssemblyEggsT3": {
       "id": "FoodPackAssemblyEggsT3",
@@ -17358,7 +17404,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FoodPackAssemblyEggsT2"
     },
     "FoodPackAssemblyTofuT3": {
       "id": "FoodPackAssemblyTofuT3",
@@ -17389,7 +17436,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FoodPackAssemblyTofuT2"
     },
     "OfficeSuppliesAssemblyT3": {
       "id": "OfficeSuppliesAssemblyT3",
@@ -17424,7 +17472,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "OfficeSuppliesAssemblyT2"
     },
     "CompositePanelAssemblyT3": {
       "id": "CompositePanelAssemblyT3",
@@ -17459,7 +17508,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CompositePanelAssemblyT2"
     },
     "CompositeCoreBasicAssemblyT3": {
       "id": "CompositeCoreBasicAssemblyT3",
@@ -17494,7 +17544,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CompositeCoreBasicAssemblyT2"
     },
     "CompositeCoreAssembly": {
       "id": "CompositeCoreAssembly",
@@ -17563,7 +17614,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "StationPartsBasicAssemblyT2"
     },
     "StationPartsAssembly": {
       "id": "StationPartsAssembly",
@@ -17632,7 +17684,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CrewSuppliesAssemblyT2"
     },
     "ProbePartsAssembly": {
       "id": "ProbePartsAssembly",
@@ -17769,7 +17822,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CpAssemblyT3",
+      "tierUp": "CpAssemblyT5"
     },
     "CpAssemblySteelT4": {
       "id": "CpAssemblySteelT4",
@@ -17804,7 +17859,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CpAssemblySteelT3",
+      "tierUp": "CpAssemblySteelT5"
     },
     "Cp2AssemblyT4": {
       "id": "Cp2AssemblyT4",
@@ -17835,7 +17892,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp2AssemblyT3",
+      "tierUp": "Cp2AssemblyT5"
     },
     "Cp3AssemblyT3": {
       "id": "Cp3AssemblyT3",
@@ -17866,7 +17925,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp3AssemblyT2",
+      "tierUp": "Cp3AssemblyT4"
     },
     "Cp4AssemblyRoboticT1": {
       "id": "Cp4AssemblyRoboticT1",
@@ -17897,7 +17958,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp4AssemblyElectrifiedT2",
+      "tierUp": "Cp4AssemblyRoboticT2"
     },
     "MechPartsAssemblyT4Iron": {
       "id": "MechPartsAssemblyT4Iron",
@@ -17924,7 +17987,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MechPartsAssemblyT3Iron",
+      "tierUp": "MechPartsAssemblyT5Iron"
     },
     "MechPartsAssemblyT4": {
       "id": "MechPartsAssemblyT4",
@@ -17951,7 +18016,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MechPartsAssemblyT3",
+      "tierUp": "MechPartsAssemblyT5"
     },
     "VehicleParts1AssemblyT4": {
       "id": "VehicleParts1AssemblyT4",
@@ -17982,7 +18049,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts1AssemblyT3",
+      "tierUp": "VehicleParts1AssemblyT5"
     },
     "VehicleParts2AssemblyT2": {
       "id": "VehicleParts2AssemblyT2",
@@ -18017,7 +18086,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts2AssemblyT1",
+      "tierUp": "VehicleParts2AssemblyT3"
     },
     "VehicleParts3AssemblyT2": {
       "id": "VehicleParts3AssemblyT2",
@@ -18048,7 +18119,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts3AssemblyT1",
+      "tierUp": "VehicleParts3AssemblyT3"
     },
     "LabEquipment1AssemblyT3": {
       "id": "LabEquipment1AssemblyT3",
@@ -18079,7 +18152,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment1AssemblyT2",
+      "tierUp": "LabEquipment1AssemblyT4"
     },
     "LabEquipment2AssemblyT3": {
       "id": "LabEquipment2AssemblyT3",
@@ -18114,7 +18189,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment2AssemblyT2",
+      "tierUp": "LabEquipment2AssemblyT4"
     },
     "LabEquipment3AssemblyT2": {
       "id": "LabEquipment3AssemblyT2",
@@ -18145,7 +18222,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment3AssemblyT1",
+      "tierUp": "LabEquipment3AssemblyT3"
     },
     "LabEquipment4AssemblyT2": {
       "id": "LabEquipment4AssemblyT2",
@@ -18176,7 +18255,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "LabEquipment4AssemblyT3"
     },
     "RailPartsAssemblyT2": {
       "id": "RailPartsAssemblyT2",
@@ -18207,7 +18287,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "RailPartsAssemblyT1",
+      "tierUp": "RailPartsAssemblyT3"
     },
     "HouseholdGoodsAssemblyT3": {
       "id": "HouseholdGoodsAssemblyT3",
@@ -18242,7 +18324,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "HouseholdGoodsAssemblyT2",
+      "tierUp": "HouseholdGoodsAssemblyT4"
     },
     "HouseholdAppliancesAssemblyT2": {
       "id": "HouseholdAppliancesAssemblyT2",
@@ -18277,7 +18361,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "HouseholdAppliancesAssemblyT1",
+      "tierUp": "HouseholdAppliancesAssemblyT3"
     },
     "LuxuryGoodsAssemblyT2": {
       "id": "LuxuryGoodsAssemblyT2",
@@ -18308,7 +18394,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LuxuryGoodsAssemblyT1",
+      "tierUp": "LuxuryGoodsAssemblyT3"
     },
     "PCBAssemblyT2": {
       "id": "PCBAssemblyT2",
@@ -18343,7 +18431,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "PCBAssemblyT1",
+      "tierUp": "PCBAssemblyT3"
     },
     "ElectronicsAssemblyT4": {
       "id": "ElectronicsAssemblyT4",
@@ -18374,7 +18464,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ElectronicsAssemblyT3",
+      "tierUp": "ElectronicsAssemblyT5"
     },
     "Electronics2AssemblyT2": {
       "id": "Electronics2AssemblyT2",
@@ -18409,7 +18501,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Electronics2AssemblyT1",
+      "tierUp": "Electronics2AssemblyT3"
     },
     "UraniumRodsAssemblyT2": {
       "id": "UraniumRodsAssemblyT2",
@@ -18440,7 +18534,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "UraniumRodsAssemblyT1",
+      "tierUp": "UraniumRodsAssemblyT3"
     },
     "UraniumEnrichedAssemblyT1": {
       "id": "UraniumEnrichedAssemblyT1",
@@ -18505,7 +18601,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SolarCellAssemblyT1",
+      "tierUp": "SolarCellAssemblyT3"
     },
     "Electronics3AssemblyRoboticT1": {
       "id": "Electronics3AssemblyRoboticT1",
@@ -18536,7 +18634,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "Electronics3AssemblyRoboticT2"
     },
     "ServerAssemblyT1": {
       "id": "ServerAssemblyT1",
@@ -18567,7 +18666,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "ServerAssemblyT2"
     },
     "MedicalEquipmentAssemblyT2": {
       "id": "MedicalEquipmentAssemblyT2",
@@ -18598,7 +18698,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalEquipmentAssemblyT1",
+      "tierUp": "MedicalEquipmentAssemblyT3"
     },
     "MedicalSuppliesAssemblyT2": {
       "id": "MedicalSuppliesAssemblyT2",
@@ -18629,7 +18731,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalSuppliesAssemblyT1",
+      "tierUp": "MedicalSuppliesAssemblyT3"
     },
     "MedicalSupplies2AssemblyT2": {
       "id": "MedicalSupplies2AssemblyT2",
@@ -18660,7 +18764,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalSupplies2AssemblyT1",
+      "tierUp": "MedicalSupplies2AssemblyT3"
     },
     "MedicalSupplies3AssemblyT2": {
       "id": "MedicalSupplies3AssemblyT2",
@@ -18695,7 +18801,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MedicalSupplies3AssemblyT1",
+      "tierUp": "MedicalSupplies3AssemblyT3"
     },
     "FoodPackAssemblyMeatT2": {
       "id": "FoodPackAssemblyMeatT2",
@@ -18726,7 +18834,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FoodPackAssemblyMeat",
+      "tierUp": "FoodPackAssemblyMeatT3"
     },
     "FoodPackAssemblyEggsT2": {
       "id": "FoodPackAssemblyEggsT2",
@@ -18757,7 +18867,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FoodPackAssemblyEggs",
+      "tierUp": "FoodPackAssemblyEggsT3"
     },
     "FoodPackAssemblyTofuT2": {
       "id": "FoodPackAssemblyTofuT2",
@@ -18788,7 +18900,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FoodPackAssemblyTofu",
+      "tierUp": "FoodPackAssemblyTofuT3"
     },
     "OfficeSuppliesAssemblyT2": {
       "id": "OfficeSuppliesAssemblyT2",
@@ -18823,7 +18937,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "OfficeSuppliesAssemblyT1",
+      "tierUp": "OfficeSuppliesAssemblyT3"
     },
     "CompositePanelAssemblyT2": {
       "id": "CompositePanelAssemblyT2",
@@ -18858,7 +18974,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CompositePanelAssemblyT1",
+      "tierUp": "CompositePanelAssemblyT3"
     },
     "CompositeCoreBasicAssemblyT2": {
       "id": "CompositeCoreBasicAssemblyT2",
@@ -18893,7 +19011,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CompositeCoreBasicAssemblyT1",
+      "tierUp": "CompositeCoreBasicAssemblyT3"
     },
     "StationPartsBasicAssemblyT2": {
       "id": "StationPartsBasicAssemblyT2",
@@ -18928,7 +19048,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "StationPartsBasicAssemblyT1",
+      "tierUp": "StationPartsBasicAssemblyT3"
     },
     "CrewSuppliesAssemblyT2": {
       "id": "CrewSuppliesAssemblyT2",
@@ -18963,7 +19085,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CrewSuppliesAssemblyT1",
+      "tierUp": "CrewSuppliesAssemblyT3"
     },
     "CpAssemblyT3": {
       "id": "CpAssemblyT3",
@@ -18998,7 +19122,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CpAssemblyT2",
+      "tierUp": "CpAssemblyT4"
     },
     "CpAssemblySteelT3": {
       "id": "CpAssemblySteelT3",
@@ -19033,7 +19159,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "CpAssemblySteelT4"
     },
     "Cp2AssemblyT3": {
       "id": "Cp2AssemblyT3",
@@ -19064,7 +19191,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp2AssemblyT2",
+      "tierUp": "Cp2AssemblyT4"
     },
     "Cp3AssemblyT2": {
       "id": "Cp3AssemblyT2",
@@ -19095,7 +19224,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp3AssemblyT1",
+      "tierUp": "Cp3AssemblyT3"
     },
     "Cp4AssemblyElectrifiedT2": {
       "id": "Cp4AssemblyElectrifiedT2",
@@ -19126,7 +19257,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "Cp4AssemblyRoboticT1"
     },
     "MechPartsAssemblyT3Iron": {
       "id": "MechPartsAssemblyT3Iron",
@@ -19153,7 +19285,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MechPartsAssemblyT2",
+      "tierUp": "MechPartsAssemblyT4Iron"
     },
     "MechPartsAssemblyT3": {
       "id": "MechPartsAssemblyT3",
@@ -19180,7 +19314,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MechPartsAssemblyT4"
     },
     "VehicleParts1AssemblyT3": {
       "id": "VehicleParts1AssemblyT3",
@@ -19211,7 +19346,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts1AssemblyT2",
+      "tierUp": "VehicleParts1AssemblyT4"
     },
     "VehicleParts2AssemblyT1": {
       "id": "VehicleParts2AssemblyT1",
@@ -19246,7 +19383,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "VehicleParts2AssemblyT2"
     },
     "VehicleParts3AssemblyT1": {
       "id": "VehicleParts3AssemblyT1",
@@ -19277,7 +19415,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "VehicleParts3AssemblyT2"
     },
     "LabEquipment1AssemblyT2": {
       "id": "LabEquipment1AssemblyT2",
@@ -19308,7 +19447,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "LabEquipment1AssemblyT1",
+      "tierUp": "LabEquipment1AssemblyT3"
     },
     "LabEquipment2AssemblyT2": {
       "id": "LabEquipment2AssemblyT2",
@@ -19343,7 +19484,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "LabEquipment2AssemblyT3"
     },
     "LabEquipment3AssemblyT1": {
       "id": "LabEquipment3AssemblyT1",
@@ -19374,7 +19516,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "LabEquipment3AssemblyT2"
     },
     "RailPartsAssemblyT1": {
       "id": "RailPartsAssemblyT1",
@@ -19405,7 +19548,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "RailPartsAssemblyT2"
     },
     "HouseholdGoodsAssemblyT2": {
       "id": "HouseholdGoodsAssemblyT2",
@@ -19440,7 +19584,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "HouseholdGoodsAssemblyT1",
+      "tierUp": "HouseholdGoodsAssemblyT3"
     },
     "HouseholdAppliancesAssemblyT1": {
       "id": "HouseholdAppliancesAssemblyT1",
@@ -19475,7 +19621,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "HouseholdAppliancesAssemblyT2"
     },
     "LuxuryGoodsAssemblyT1": {
       "id": "LuxuryGoodsAssemblyT1",
@@ -19506,7 +19653,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "LuxuryGoodsAssemblyT2"
     },
     "PCBAssemblyT1": {
       "id": "PCBAssemblyT1",
@@ -19541,7 +19689,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "PCBAssemblyT2"
     },
     "ElectronicsAssemblyT3": {
       "id": "ElectronicsAssemblyT3",
@@ -19572,7 +19721,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ElectronicsAssemblyT2",
+      "tierUp": "ElectronicsAssemblyT4"
     },
     "Electronics2AssemblyT1": {
       "id": "Electronics2AssemblyT1",
@@ -19607,7 +19758,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "Electronics2AssemblyT2"
     },
     "UraniumRodsAssemblyT1": {
       "id": "UraniumRodsAssemblyT1",
@@ -19638,7 +19790,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "UraniumRodsAssemblyT2"
     },
     "SolarCellAssemblyT1": {
       "id": "SolarCellAssemblyT1",
@@ -19673,7 +19826,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SolarCellAssemblyT2"
     },
     "MedicalEquipmentAssemblyT1": {
       "id": "MedicalEquipmentAssemblyT1",
@@ -19704,7 +19858,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MedicalEquipmentAssemblyT2"
     },
     "MedicalSuppliesAssemblyT1": {
       "id": "MedicalSuppliesAssemblyT1",
@@ -19735,7 +19890,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MedicalSuppliesAssemblyT2"
     },
     "MedicalSupplies2AssemblyT1": {
       "id": "MedicalSupplies2AssemblyT1",
@@ -19766,7 +19922,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MedicalSupplies2AssemblyT2"
     },
     "MedicalSupplies3AssemblyT1": {
       "id": "MedicalSupplies3AssemblyT1",
@@ -19801,7 +19958,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MedicalSupplies3AssemblyT2"
     },
     "FoodPackAssemblyMeat": {
       "id": "FoodPackAssemblyMeat",
@@ -19832,7 +19990,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "FoodPackAssemblyMeatT2"
     },
     "FoodPackAssemblyEggs": {
       "id": "FoodPackAssemblyEggs",
@@ -19863,7 +20022,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "FoodPackAssemblyEggsT2"
     },
     "FoodPackAssemblyTofu": {
       "id": "FoodPackAssemblyTofu",
@@ -19894,7 +20054,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "FoodPackAssemblyTofuT2"
     },
     "OfficeSuppliesAssemblyT1": {
       "id": "OfficeSuppliesAssemblyT1",
@@ -19929,7 +20090,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "OfficeSuppliesAssemblyT2"
     },
     "CompositePanelAssemblyT1": {
       "id": "CompositePanelAssemblyT1",
@@ -19964,7 +20126,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "CompositePanelAssemblyT2"
     },
     "CompositeCoreBasicAssemblyT1": {
       "id": "CompositeCoreBasicAssemblyT1",
@@ -19999,7 +20162,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "CompositeCoreBasicAssemblyT2"
     },
     "StationPartsBasicAssemblyT1": {
       "id": "StationPartsBasicAssemblyT1",
@@ -20034,7 +20198,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "StationPartsBasicAssemblyT2"
     },
     "CrewSuppliesAssemblyT1": {
       "id": "CrewSuppliesAssemblyT1",
@@ -20069,7 +20234,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "CrewSuppliesAssemblyT2"
     },
     "CpAssemblyT2": {
       "id": "CpAssemblyT2",
@@ -20104,7 +20270,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CpAssemblyT1",
+      "tierUp": "CpAssemblyT3"
     },
     "Cp2AssemblyT2": {
       "id": "Cp2AssemblyT2",
@@ -20135,7 +20303,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Cp2AssemblyT1",
+      "tierUp": "Cp2AssemblyT3"
     },
     "Cp3AssemblyT1": {
       "id": "Cp3AssemblyT1",
@@ -20166,7 +20336,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "Cp3AssemblyT2"
     },
     "MechPartsAssemblyT2": {
       "id": "MechPartsAssemblyT2",
@@ -20193,7 +20364,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MechPartsAssemblyT1",
+      "tierUp": "MechPartsAssemblyT3Iron"
     },
     "VehicleParts1AssemblyT2": {
       "id": "VehicleParts1AssemblyT2",
@@ -20224,7 +20397,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "VehicleParts1AssemblyT1",
+      "tierUp": "VehicleParts1AssemblyT3"
     },
     "LabEquipment1AssemblyT1": {
       "id": "LabEquipment1AssemblyT1",
@@ -20255,7 +20430,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "LabEquipment1AssemblyT2"
     },
     "HouseholdGoodsAssemblyT1": {
       "id": "HouseholdGoodsAssemblyT1",
@@ -20290,7 +20466,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "HouseholdGoodsAssemblyT2"
     },
     "ElectronicsAssemblyT2": {
       "id": "ElectronicsAssemblyT2",
@@ -20321,7 +20498,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ElectronicsAssemblyT1",
+      "tierUp": "ElectronicsAssemblyT3"
     },
     "CpAssemblyT1": {
       "id": "CpAssemblyT1",
@@ -20356,7 +20535,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "CpAssemblyT2"
     },
     "Cp2AssemblyT1": {
       "id": "Cp2AssemblyT1",
@@ -20387,7 +20567,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "Cp2AssemblyT2"
     },
     "MechPartsAssemblyT1": {
       "id": "MechPartsAssemblyT1",
@@ -20414,7 +20595,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MechPartsAssemblyT2"
     },
     "VehicleParts1AssemblyT1": {
       "id": "VehicleParts1AssemblyT1",
@@ -20445,7 +20627,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "VehicleParts1AssemblyT2"
     },
     "ElectronicsAssemblyT1": {
       "id": "ElectronicsAssemblyT1",
@@ -20476,7 +20659,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "ElectronicsAssemblyT2"
     },
     "ConcreteMixingSlagT3": {
       "id": "ConcreteMixingSlagT3",
@@ -20515,7 +20699,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingSlagT2"
     },
     "ConcreteMixingGravelT3": {
       "id": "ConcreteMixingGravelT3",
@@ -20554,7 +20739,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingGravelT2"
     },
     "ConcreteMixingSlagMT3": {
       "id": "ConcreteMixingSlagMT3",
@@ -20593,7 +20779,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingSlagMT2"
     },
     "ConcreteMixingGravelMT3": {
       "id": "ConcreteMixingGravelMT3",
@@ -20632,7 +20819,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingGravelMT2"
     },
     "ConcreteMixingSlagT2": {
       "id": "ConcreteMixingSlagT2",
@@ -20671,7 +20859,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingSlag",
+      "tierUp": "ConcreteMixingSlagT3"
     },
     "ConcreteMixingGravelT2": {
       "id": "ConcreteMixingGravelT2",
@@ -20710,7 +20900,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingGravel",
+      "tierUp": "ConcreteMixingGravelT3"
     },
     "ConcreteMixingSlagMT2": {
       "id": "ConcreteMixingSlagMT2",
@@ -20749,7 +20941,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingSlagM",
+      "tierUp": "ConcreteMixingSlagMT3"
     },
     "ConcreteMixingGravelMT2": {
       "id": "ConcreteMixingGravelMT2",
@@ -20788,7 +20982,9 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "ConcreteMixingGravelM",
+      "tierUp": "ConcreteMixingGravelMT3"
     },
     "ConcreteMixingSlag": {
       "id": "ConcreteMixingSlag",
@@ -20827,7 +21023,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "ConcreteMixingSlagT2"
     },
     "ConcreteMixingGravel": {
       "id": "ConcreteMixingGravel",
@@ -20866,7 +21063,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "ConcreteMixingGravelT2"
     },
     "ConcreteMixingGravelM": {
       "id": "ConcreteMixingGravelM",
@@ -20905,7 +21103,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "ConcreteMixingGravelMT2"
     },
     "ConcreteMixingSlagM": {
       "id": "ConcreteMixingSlagM",
@@ -20944,7 +21143,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "ConcreteMixingSlagMT2"
     },
     "CementProductionGas": {
       "id": "CementProductionGas",
@@ -21213,7 +21413,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage1A"
     },
     "MicrochipMachineT2_MicrochipProdStage2A": {
       "id": "MicrochipMachineT2_MicrochipProdStage2A",
@@ -21248,7 +21449,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage2A"
     },
     "MicrochipMachineT2_MicrochipProdStage3A": {
       "id": "MicrochipMachineT2_MicrochipProdStage3A",
@@ -21313,7 +21515,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage1B"
     },
     "MicrochipMachineT2_MicrochipProdStage2B": {
       "id": "MicrochipMachineT2_MicrochipProdStage2B",
@@ -21348,7 +21551,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage2B"
     },
     "MicrochipMachineT2_MicrochipProdStage3B": {
       "id": "MicrochipMachineT2_MicrochipProdStage3B",
@@ -21413,7 +21617,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage1C"
     },
     "MicrochipMachineT2_MicrochipProdStage2C": {
       "id": "MicrochipMachineT2_MicrochipProdStage2C",
@@ -21448,7 +21653,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage2C"
     },
     "MicrochipMachineT2_MicrochipProdStage3C": {
       "id": "MicrochipMachineT2_MicrochipProdStage3C",
@@ -21479,7 +21685,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage3C"
     },
     "MicrochipMachineT2_MicrochipProdStage1D": {
       "id": "MicrochipMachineT2_MicrochipProdStage1D",
@@ -21514,7 +21721,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage1D"
     },
     "MicrochipMachineT2_MicrochipProdStage2D": {
       "id": "MicrochipMachineT2_MicrochipProdStage2D",
@@ -21549,7 +21757,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdStage2D"
     },
     "MicrochipMachineT2_MicrochipProdFinalStage": {
       "id": "MicrochipMachineT2_MicrochipProdFinalStage",
@@ -21580,7 +21789,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MicrochipMachine_MicrochipProdFinalStage"
     },
     "MicrochipMachine_MicrochipProdStage1A": {
       "id": "MicrochipMachine_MicrochipProdStage1A",
@@ -21615,7 +21825,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage1A"
     },
     "MicrochipMachine_MicrochipProdStage2A": {
       "id": "MicrochipMachine_MicrochipProdStage2A",
@@ -21650,7 +21861,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage2A"
     },
     "MicrochipMachine_MicrochipProdStage3A": {
       "id": "MicrochipMachine_MicrochipProdStage3A",
@@ -21715,7 +21927,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage1B"
     },
     "MicrochipMachine_MicrochipProdStage2B": {
       "id": "MicrochipMachine_MicrochipProdStage2B",
@@ -21750,7 +21963,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage2B"
     },
     "MicrochipMachine_MicrochipProdStage3B": {
       "id": "MicrochipMachine_MicrochipProdStage3B",
@@ -21815,7 +22029,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage1C"
     },
     "MicrochipMachine_MicrochipProdStage2C": {
       "id": "MicrochipMachine_MicrochipProdStage2C",
@@ -21850,7 +22065,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage2C"
     },
     "MicrochipMachine_MicrochipProdStage3C": {
       "id": "MicrochipMachine_MicrochipProdStage3C",
@@ -21881,7 +22097,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage3C"
     },
     "MicrochipMachine_MicrochipProdStage1D": {
       "id": "MicrochipMachine_MicrochipProdStage1D",
@@ -21916,7 +22133,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage1D"
     },
     "MicrochipMachine_MicrochipProdStage2D": {
       "id": "MicrochipMachine_MicrochipProdStage2D",
@@ -21951,7 +22169,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdStage2D"
     },
     "MicrochipMachine_MicrochipProdFinalStage": {
       "id": "MicrochipMachine_MicrochipProdFinalStage",
@@ -21982,7 +22201,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MicrochipMachineT2_MicrochipProdFinalStage"
     },
     "BrineElectrolysisT2": {
       "id": "BrineElectrolysisT2",
@@ -22009,7 +22229,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "BrineElectrolysis"
     },
     "WaterElectrolysisT2": {
       "id": "WaterElectrolysisT2",
@@ -22040,7 +22261,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 4
+      "powerMult": 4,
+      "tierDown": "WaterElectrolysis"
     },
     "AmmoniaElectrolysisT2": {
       "id": "AmmoniaElectrolysisT2",
@@ -22071,7 +22293,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AmmoniaElectrolysis"
     },
     "BrineElectrolysis": {
       "id": "BrineElectrolysis",
@@ -22098,7 +22321,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "BrineElectrolysisT2"
     },
     "WaterElectrolysis": {
       "id": "WaterElectrolysis",
@@ -22129,7 +22353,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 4
+      "powerMult": 4,
+      "tierUp": "WaterElectrolysisT2"
     },
     "AmmoniaElectrolysis": {
       "id": "AmmoniaElectrolysis",
@@ -22160,7 +22385,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AmmoniaElectrolysisT2"
     },
     "SugarToEthanolFermentation": {
       "id": "SugarToEthanolFermentation",
@@ -23039,7 +23265,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "IronOreCrushingT2"
     },
     "CopperOreCrushing": {
       "id": "CopperOreCrushing",
@@ -23066,7 +23293,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "CopperOreCrushingT2"
     },
     "SlagCrushing": {
       "id": "SlagCrushing",
@@ -23093,7 +23321,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SlagCrushingT2"
     },
     "RockCrushing": {
       "id": "RockCrushing",
@@ -23120,7 +23349,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "RockCrushingT2"
     },
     "GravelCrushing": {
       "id": "GravelCrushing",
@@ -23147,7 +23377,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "GravelCrushingT2"
     },
     "QuartzCrushing": {
       "id": "QuartzCrushing",
@@ -23174,7 +23405,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "QuartzCrushingT2"
     },
     "QuartzMilling": {
       "id": "QuartzMilling",
@@ -23201,7 +23433,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "QuartzMillingT2"
     },
     "UraniumCrushing": {
       "id": "UraniumCrushing",
@@ -23228,7 +23461,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "UraniumCrushingT2"
     },
     "GoldOreCrushing": {
       "id": "GoldOreCrushing",
@@ -23255,7 +23489,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "GoldOreCrushingT2"
     },
     "GoldMilling": {
       "id": "GoldMilling",
@@ -23282,7 +23517,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "GoldOreMillingT2"
     },
     "BauxiteMilling": {
       "id": "BauxiteMilling",
@@ -23309,7 +23545,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "BauxiteMillingT2"
     },
     "IlmeniteMilling": {
       "id": "IlmeniteMilling",
@@ -23336,7 +23573,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "IlmeniteMillingT2"
     },
     "IronOreCrushingT2": {
       "id": "IronOreCrushingT2",
@@ -23363,7 +23601,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "IronOreCrushing"
     },
     "CopperOreCrushingT2": {
       "id": "CopperOreCrushingT2",
@@ -23390,7 +23629,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CopperOreCrushing"
     },
     "SlagCrushingT2": {
       "id": "SlagCrushingT2",
@@ -23417,7 +23657,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SlagCrushing"
     },
     "RockCrushingT2": {
       "id": "RockCrushingT2",
@@ -23444,7 +23685,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "RockCrushing"
     },
     "GravelCrushingT2": {
       "id": "GravelCrushingT2",
@@ -23471,7 +23713,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "GravelCrushing"
     },
     "QuartzCrushingT2": {
       "id": "QuartzCrushingT2",
@@ -23498,7 +23741,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "QuartzCrushing"
     },
     "QuartzMillingT2": {
       "id": "QuartzMillingT2",
@@ -23525,7 +23769,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "QuartzMilling"
     },
     "UraniumCrushingT2": {
       "id": "UraniumCrushingT2",
@@ -23552,7 +23797,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "UraniumCrushing"
     },
     "GoldOreCrushingT2": {
       "id": "GoldOreCrushingT2",
@@ -23579,7 +23825,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "GoldOreCrushing"
     },
     "GoldOreMillingT2": {
       "id": "GoldOreMillingT2",
@@ -23606,7 +23853,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "GoldMilling"
     },
     "BauxiteMillingT2": {
       "id": "BauxiteMillingT2",
@@ -23633,7 +23881,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "BauxiteMilling"
     },
     "IlmeniteMillingT2": {
       "id": "IlmeniteMillingT2",
@@ -23660,7 +23909,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "IlmeniteMilling"
     },
     "IronSmeltingArcScrap": {
       "id": "IronSmeltingArcScrap",
@@ -24917,7 +25167,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SteelCastingCooled"
     },
     "TitaniumAlloyCastingT2": {
       "id": "TitaniumAlloyCastingT2",
@@ -24978,7 +25229,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SteelCastingCooledT2"
     },
     "IronCastingCooled": {
       "id": "IronCastingCooled",
@@ -25005,7 +25257,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "IronCasting"
     },
     "CopperCastingCooled": {
       "id": "CopperCastingCooled",
@@ -25032,7 +25285,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "CopperCasting"
     },
     "AluminumCastingT2": {
       "id": "AluminumCastingT2",
@@ -25059,7 +25313,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AluminumCasting"
     },
     "IronCasting": {
       "id": "IronCasting",
@@ -25086,7 +25341,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "IronCastingCooled"
     },
     "CopperCasting": {
       "id": "CopperCasting",
@@ -25113,7 +25369,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "CopperCastingCooled"
     },
     "AluminumCasting": {
       "id": "AluminumCasting",
@@ -25140,7 +25397,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AluminumCastingT2"
     },
     "TitaniumAlloyMixing": {
       "id": "TitaniumAlloyMixing",
@@ -25535,7 +25793,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "GlassMixMixing"
     },
     "GlassMixMixingWithAcidT2": {
       "id": "GlassMixMixingWithAcidT2",
@@ -25574,7 +25833,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "GlassMixMixingWithAcid"
     },
     "AcidMixMixingT2": {
       "id": "AcidMixMixingT2",
@@ -25605,7 +25865,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AcidMixMixing"
     },
     "SulfurNeutralizationT2": {
       "id": "SulfurNeutralizationT2",
@@ -25636,7 +25897,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SulfurNeutralization"
     },
     "BrineProductionT2": {
       "id": "BrineProductionT2",
@@ -25667,7 +25929,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "BrineProduction"
     },
     "FilterMediaMixingT2": {
       "id": "FilterMediaMixingT2",
@@ -25702,7 +25965,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FilterMediaMixing"
     },
     "FilterMediaMixingMT2": {
       "id": "FilterMediaMixingMT2",
@@ -25737,7 +26001,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FilterMediaMixingM"
     },
     "OrganicFertilizerProductionT2": {
       "id": "OrganicFertilizerProductionT2",
@@ -25768,7 +26033,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "OrganicFertilizerProduction"
     },
     "OrganicFertilizerProductionDirtT2": {
       "id": "OrganicFertilizerProductionDirtT2",
@@ -25803,7 +26069,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "OrganicFertilizerProductionDirt"
     },
     "Fertilizer2ProductionT2": {
       "id": "Fertilizer2ProductionT2",
@@ -25838,7 +26105,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "Fertilizer2Production"
     },
     "DirtMixingT2": {
       "id": "DirtMixingT2",
@@ -25869,7 +26137,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "DirtMixing"
     },
     "AnimalFeedFromPotatoT2": {
       "id": "AnimalFeedFromPotatoT2",
@@ -25896,7 +26165,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AnimalFeedFromPotato"
     },
     "AnimalFeedFromWheatT2": {
       "id": "AnimalFeedFromWheatT2",
@@ -25923,7 +26193,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AnimalFeedFromWheat"
     },
     "AnimalFeedFromCornT2": {
       "id": "AnimalFeedFromCornT2",
@@ -25950,7 +26221,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AnimalFeedFromCorn"
     },
     "AnimalFeedFromSoybeanT2": {
       "id": "AnimalFeedFromSoybeanT2",
@@ -25977,7 +26249,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AnimalFeedFromSoybean"
     },
     "AnimalFeedCompostT2": {
       "id": "AnimalFeedCompostT2",
@@ -26004,7 +26277,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "AnimalFeedCompost"
     },
     "BiomassCompostT2": {
       "id": "BiomassCompostT2",
@@ -26031,7 +26305,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "BiomassCompost"
     },
     "MeatTrimmingsCompostT2": {
       "id": "MeatTrimmingsCompostT2",
@@ -26058,7 +26333,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "MeatTrimmingsCompost"
     },
     "GlassMixMixing": {
       "id": "GlassMixMixing",
@@ -26093,7 +26369,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "GlassMixMixingT2"
     },
     "GlassMixMixingWithAcid": {
       "id": "GlassMixMixingWithAcid",
@@ -26132,7 +26409,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "GlassMixMixingWithAcidT2"
     },
     "AcidMixMixing": {
       "id": "AcidMixMixing",
@@ -26163,7 +26441,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AcidMixMixingT2"
     },
     "SulfurNeutralization": {
       "id": "SulfurNeutralization",
@@ -26194,7 +26473,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SulfurNeutralizationT2"
     },
     "BrineProduction": {
       "id": "BrineProduction",
@@ -26225,7 +26505,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "BrineProductionT2"
     },
     "FilterMediaMixing": {
       "id": "FilterMediaMixing",
@@ -26260,7 +26541,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "FilterMediaMixingT2"
     },
     "FilterMediaMixingM": {
       "id": "FilterMediaMixingM",
@@ -26295,7 +26577,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "FilterMediaMixingMT2"
     },
     "OrganicFertilizerProduction": {
       "id": "OrganicFertilizerProduction",
@@ -26326,7 +26609,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "OrganicFertilizerProductionT2"
     },
     "OrganicFertilizerProductionDirt": {
       "id": "OrganicFertilizerProductionDirt",
@@ -26361,7 +26645,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "OrganicFertilizerProductionDirtT2"
     },
     "Fertilizer2Production": {
       "id": "Fertilizer2Production",
@@ -26396,7 +26681,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "Fertilizer2ProductionT2"
     },
     "DirtMixing": {
       "id": "DirtMixing",
@@ -26427,7 +26713,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "DirtMixingT2"
     },
     "AnimalFeedFromPotato": {
       "id": "AnimalFeedFromPotato",
@@ -26454,7 +26741,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AnimalFeedFromPotatoT2"
     },
     "AnimalFeedFromWheat": {
       "id": "AnimalFeedFromWheat",
@@ -26481,7 +26769,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AnimalFeedFromWheatT2"
     },
     "AnimalFeedFromCorn": {
       "id": "AnimalFeedFromCorn",
@@ -26508,7 +26797,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AnimalFeedFromCornT2"
     },
     "AnimalFeedFromSoybean": {
       "id": "AnimalFeedFromSoybean",
@@ -26535,7 +26825,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AnimalFeedFromSoybeanT2"
     },
     "AnimalFeedCompost": {
       "id": "AnimalFeedCompost",
@@ -26562,7 +26853,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "AnimalFeedCompostT2"
     },
     "BiomassCompost": {
       "id": "BiomassCompost",
@@ -26589,7 +26881,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "BiomassCompostT2"
     },
     "MeatTrimmingsCompost": {
       "id": "MeatTrimmingsCompost",
@@ -26616,7 +26909,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "MeatTrimmingsCompostT2"
     },
     "FertilizerProductionT2": {
       "id": "FertilizerProductionT2",
@@ -26647,7 +26941,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FertilizerProduction"
     },
     "FertilizerProductionFromOrganicT2": {
       "id": "FertilizerProductionFromOrganicT2",
@@ -26682,7 +26977,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "FertilizerProductionFromOrganic"
     },
     "AmmoniaSynthesisT2": {
       "id": "AmmoniaSynthesisT2",
@@ -26713,7 +27009,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 2
+      "powerMult": 2,
+      "tierDown": "AmmoniaSynthesis"
     },
     "PaperProductionT2": {
       "id": "PaperProductionT2",
@@ -26748,7 +27045,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "PaperProduction"
     },
     "EthanolCookingOilReformingT2": {
       "id": "EthanolCookingOilReformingT2",
@@ -26779,7 +27077,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "EthanolCookingOilReforming"
     },
     "FuelGasSynthesis": {
       "id": "FuelGasSynthesis",
@@ -26848,7 +27147,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 2
+      "powerMult": 2,
+      "tierDown": "GraphiteProductionT1"
     },
     "GraphiteProductionCo2": {
       "id": "GraphiteProductionCo2",
@@ -26939,7 +27239,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "DisinfectantProduction"
     },
     "AnestheticsProduction": {
       "id": "AnestheticsProduction",
@@ -27396,7 +27697,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "FertilizerProductionT2"
     },
     "FertilizerProductionFromOrganic": {
       "id": "FertilizerProductionFromOrganic",
@@ -27431,7 +27733,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "FertilizerProductionFromOrganicT2"
     },
     "AmmoniaSynthesis": {
       "id": "AmmoniaSynthesis",
@@ -27462,7 +27765,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 2
+      "powerMult": 2,
+      "tierUp": "AmmoniaSynthesisT2"
     },
     "PaperProduction": {
       "id": "PaperProduction",
@@ -27497,7 +27801,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "PaperProductionT2"
     },
     "EthanolCookingOilReforming": {
       "id": "EthanolCookingOilReforming",
@@ -27528,7 +27833,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "EthanolCookingOilReformingT2"
     },
     "GraphiteProductionT1": {
       "id": "GraphiteProductionT1",
@@ -27563,7 +27869,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 2
+      "powerMult": 2,
+      "tierUp": "GraphiteProductionT2"
     },
     "DisinfectantProduction": {
       "id": "DisinfectantProduction",
@@ -27594,7 +27901,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "DisinfectantProductionT2"
     },
     "CrudeOilRefiningT1": {
       "id": "CrudeOilRefiningT1",
@@ -28427,7 +28735,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SmokeStackExhaust"
     },
     "SmokeStackLargeCarbonDioxide": {
       "id": "SmokeStackLargeCarbonDioxide",
@@ -28454,7 +28763,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "SmokeStackCarbonDioxide"
     },
     "SmokeStackDepletedSteam": {
       "id": "SmokeStackDepletedSteam",
@@ -28607,7 +28917,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SmokeStackLargeExhaust"
     },
     "SmokeStackCarbonDioxide": {
       "id": "SmokeStackCarbonDioxide",
@@ -28634,7 +28945,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "SmokeStackLargeCarbonDioxide"
     },
     "OceanWaterDumping": {
       "id": "OceanWaterDumping",
@@ -33581,7 +33893,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierDown": "NuclearReactor1"
     },
     "NuclearReactor1": {
       "id": "NuclearReactor1",
@@ -33616,7 +33929,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "isRainWaterHarvester": false,
-      "powerMult": 1
+      "powerMult": 1,
+      "tierUp": "NuclearReactorT22"
     },
     "FastBreederReactorEnrichment1": {
       "id": "FastBreederReactorEnrichment1",
@@ -41679,7 +41993,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierUp": "Launch_SpaceStationParts1_T2"
     },
     "Launch_SpaceStationParts1_T2": {
       "id": "Launch_SpaceStationParts1_T2",
@@ -41722,7 +42037,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierDown": "Launch_SpaceStationParts1_T1"
     },
     "Launch_SpaceStationParts2_T1": {
       "id": "Launch_SpaceStationParts2_T1",
@@ -41765,7 +42081,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierUp": "Launch_SpaceStationParts2_T2"
     },
     "Launch_SpaceStationParts2_T2": {
       "id": "Launch_SpaceStationParts2_T2",
@@ -41808,7 +42125,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierDown": "Launch_SpaceStationParts2_T1"
     },
     "Launch_CrewSupplies_T1": {
       "id": "Launch_CrewSupplies_T1",
@@ -41851,7 +42169,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierUp": "Launch_CrewSupplies_T2"
     },
     "Launch_CrewSupplies_T2": {
       "id": "Launch_CrewSupplies_T2",
@@ -41894,7 +42213,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierDown": "Launch_CrewSupplies_T1"
     },
     "Launch_Electronics4_T1": {
       "id": "Launch_Electronics4_T1",
@@ -41937,7 +42257,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierUp": "Launch_Electronics4_T2"
     },
     "Launch_Electronics4_T2": {
       "id": "Launch_Electronics4_T2",
@@ -41980,7 +42301,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierDown": "Launch_Electronics4_T1"
     },
     "Launch_AsteroidBoosterParts_T1": {
       "id": "Launch_AsteroidBoosterParts_T1",
@@ -42023,7 +42345,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierUp": "Launch_AsteroidBoosterParts_T2"
     },
     "Launch_AsteroidBoosterParts_T2": {
       "id": "Launch_AsteroidBoosterParts_T2",
@@ -42066,7 +42389,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierDown": "Launch_AsteroidBoosterParts_T1"
     },
     "Launch_SpaceProbeParts_T1": {
       "id": "Launch_SpaceProbeParts_T1",
@@ -42109,7 +42433,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierUp": "Launch_SpaceProbeParts_T2"
     },
     "Launch_SpaceProbeParts_T2": {
       "id": "Launch_SpaceProbeParts_T2",
@@ -42152,7 +42477,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierDown": "Launch_SpaceProbeParts_T1"
     },
     "Launch_Crew_T1": {
       "id": "Launch_Crew_T1",
@@ -42193,7 +42519,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierUp": "Launch_Crew_T2"
     },
     "Launch_Crew_T2": {
       "id": "Launch_Crew_T2",
@@ -42234,7 +42561,8 @@
       "isFarm": false,
       "usesSolarPower": false,
       "powerMult": 1,
-      "isRainWaterHarvester": false
+      "isRainWaterHarvester": false,
+      "tierDown": "Launch_Crew_T1"
     },
     "SpaceStation_Recipe": {
       "id": "SpaceStation_Recipe",

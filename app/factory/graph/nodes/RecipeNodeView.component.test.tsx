@@ -258,4 +258,51 @@ describe('RecipeNodeView Component', () => {
       expect(screen.getByText(/Fast/i)).toBeInTheDocument();
     });
   });
+
+  describe('Tier Switching', () => {
+    // Each tier button is rendered twice: the real interactive button plus an
+    // invisible mirror on the opposite side that keeps the title centered. The
+    // mirror lives inside an `.invisible` span, so filter it out to get the real one.
+    const realButton = (container: HTMLElement, title: string) =>
+      Array.from(container.querySelectorAll(`button[title="${title}"]`))
+        .find(b => !b.closest('.invisible')) as HTMLElement | undefined;
+
+    it('renders no tier buttons when neither swap is possible', () => {
+      const props = getRecipeProps('TurbineHighPressT2' as RecipeId);
+      const { container } = renderWithReactFlow(<RecipeNodeView {...props} />);
+
+      expect(container.querySelector('button[title^="Upgrade"]')).toBeNull();
+      expect(container.querySelector('button[title^="Downgrade"]')).toBeNull();
+    });
+
+    it('calls onUpgrade and onDowngrade when the chevrons are clicked', async () => {
+      const user = userEvent.setup();
+      const onUpgrade = vi.fn();
+      const onDowngrade = vi.fn();
+      const props = getRecipeProps('TurbineHighPressT2' as RecipeId, {
+        canUpgrade: true,
+        canDowngrade: true,
+        onUpgrade,
+        onDowngrade,
+      });
+      const { container } = renderWithReactFlow(<RecipeNodeView {...props} />);
+
+      await user.click(realButton(container, 'Upgrade to the next faster machine')!);
+      expect(onUpgrade).toHaveBeenCalledTimes(1);
+
+      await user.click(realButton(container, 'Downgrade to the next slower machine')!);
+      expect(onDowngrade).toHaveBeenCalledTimes(1);
+    });
+
+    it('shows only the upgrade chevron at the bottom of the ladder', () => {
+      const props = getRecipeProps('TurbineHighPressT2' as RecipeId, {
+        canUpgrade: true,
+        canDowngrade: false,
+      });
+      const { container } = renderWithReactFlow(<RecipeNodeView {...props} />);
+
+      expect(realButton(container, 'Upgrade to the next faster machine')).toBeTruthy();
+      expect(realButton(container, 'Downgrade to the next slower machine')).toBeUndefined();
+    });
+  });
 });

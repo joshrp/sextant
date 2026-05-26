@@ -20,14 +20,23 @@ const createFixture = (
   const [removed, setRemoved] = useState(false);
   const zoomLevel = useFixtureInput('Zoom Level', 0)[0] as 0 | 1 | 2 | 3;
   const [runCount] = useFixtureInput('Run Count', 1);
-  const recipeId = useFixtureSelect('Recipe ID', {
+  const selectedRecipeId = useFixtureSelect('Recipe ID', {
     options:  recipes.keys().toArray(),
     defaultValue: recipeIdStart
   })[0];
 
+  // Live tier switching: clicking the up/down buttons swaps the recipe in place.
+  // Reset the override whenever a different recipe is picked from the dropdown.
+  const [tierOverride, setTierOverride] = useState<RecipeId | null>(null);
+  useEffect(() => { setTierOverride(null); }, [selectedRecipeId]);
+  const recipeId = tierOverride ?? selectedRecipeId;
+
   const recipe = recipes.get(recipeId as RecipeId);
   if (!recipe) throw new Error(`Recipe ${recipeId} not found`);
-  
+
+  const upRecipe = recipe.tierUp ? recipes.get(recipe.tierUp) : undefined;
+  const downRecipe = recipe.tierDown ? recipes.get(recipe.tierDown) : undefined;
+
   const highlightMode = useFixtureInput('Highlight', false)[0];
   let highlight: HighlightProduct | HighlightNone = {
     mode: "none"
@@ -102,6 +111,10 @@ const createFixture = (
           onRemove: () => setRemoved(true),
           highlight,
           modifiers: DEFAULT_ZONE_MODIFIERS,
+          canUpgrade: !!upRecipe,
+          canDowngrade: !!downRecipe,
+          onUpgrade: () => upRecipe && setTierOverride(upRecipe.id),
+          onDowngrade: () => downRecipe && setTierOverride(downRecipe.id),
           ...propsOverrides
         }} />
     </div>
@@ -120,6 +133,16 @@ export default {
 
   'Complex - Turbine High Press': () => createFixture('TurbineHighPressT2', 500, {
     solution: { solved: true, runCount: 3.5 }
+  }),
+
+  // Tier switching. The first two are live — click the chevrons to swap tiers.
+  // The last forces both buttons on to check the header layout (title stays
+  // centered, node widens to fit).
+  'Tiers - Live (top, downgrade only)': () => createFixture('TurbineHighPressT2', 500),
+  'Tiers - Live (bottom, upgrade only)': () => createFixture('TurbineHighPress', 500),
+  'Tiers - Both buttons (layout)': () => createFixture('TurbineHighPressT2', 500, {
+    canUpgrade: true,
+    canDowngrade: true,
   }),
 
   'Balancer - Water': () => createFixture('Balancer_Product_Water', 400),

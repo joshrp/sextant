@@ -5,7 +5,7 @@ import { memo, useCallback, useLayoutEffect, useMemo } from 'react';
 import { useShallow } from 'zustand/shallow';
 import { useFactoryStore } from '../../../context/FactoryContext';
 import BalancerNodeView from './BalancerNodeView';
-import { loadData, type ProductId } from '../loadJsonData';
+import { loadData, type ProductId, type Recipe } from '../loadJsonData';
 import { type RecipeNodeData, type RecipeNodeType } from './recipeNodeLogic';
 import RecipeNodeView from './RecipeNodeView';
 import SettlementNodeView from './SettlementNodeView';
@@ -39,10 +39,11 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
   if (props.data.ltr === undefined) props.data.ltr = true; // Default to left-to-right layout
   
   // Select all stable actions in a single subscription
-  const { removeNode, setNodeData, setRecipeNodeOptions, onNodesChange, setSettlementOptions, setThermalStorageOptions, setSpaceStationOptions } = useFactoryStore(
+  const { removeNode, setNodeData, setNodeRecipe, setRecipeNodeOptions, onNodesChange, setSettlementOptions, setThermalStorageOptions, setSpaceStationOptions } = useFactoryStore(
     useShallow(state => ({
       removeNode: state.removeNode,
       setNodeData: state.setNodeData,
+      setNodeRecipe: state.setNodeRecipe,
       setRecipeNodeOptions: state.setRecipeNodeOptions,
       onNodesChange: state.onNodesChange,
       setSettlementOptions: state.setSettlementOptions,
@@ -260,6 +261,25 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
     return { inputEdges, outputEdges };
   }, [recipe, connectedEdges, props.id]);
 
+  // Tier up/down: swap this node to the next faster/slower recipe in its
+  // `tiersLink` group. Neighbours are precomputed in gameData (`tierUp`/`tierDown`),
+  // and all members share product handles, so edges are untouched.
+  const { onUpgrade, onDowngrade, canUpgrade, canDowngrade } = useMemo(() => {
+    const up = recipe.tierUp ? recipes.get(recipe.tierUp) : undefined;
+    const down = recipe.tierDown ? recipes.get(recipe.tierDown) : undefined;
+    const swapTo = (target?: Recipe) => {
+      if (!target) return;
+      setNodeRecipe(props.id, target.id);
+      updateNodeInternals(props.id); // handles are identical, but re-measure to be safe
+    };
+    return {
+      canUpgrade: !!up,
+      canDowngrade: !!down,
+      onUpgrade: () => swapTo(up),
+      onDowngrade: () => swapTo(down),
+    };
+  }, [recipe, props.id, setNodeRecipe, updateNodeInternals]);
+
   return useMemo(() => {
     let contents;
     if (props.data.type === "balancer") {
@@ -345,10 +365,14 @@ function RecipeNode(props: NodeProps<RecipeNode>) {
           updateNodeInternals(props.id);
         }}
         modifiers={modifiers}
+        canUpgrade={canUpgrade}
+        canDowngrade={canDowngrade}
+        onUpgrade={onUpgrade}
+        onDowngrade={onDowngrade}
       />;
     }
     return contents;
-  }, [props.data, props.data.solution, recipe, inputEdges, outputEdges, zoomLevel, highlight, props.id, modifiers, goals]);
+  }, [props.data, props.data.solution, recipe, inputEdges, outputEdges, zoomLevel, highlight, props.id, modifiers, goals, canUpgrade, canDowngrade, onUpgrade, onDowngrade]);
 
 }
 

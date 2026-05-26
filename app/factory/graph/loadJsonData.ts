@@ -163,6 +163,11 @@ export type RecipeBase = {
   name: string;
   type: "recipe" | "settlement" | "balancer" | "contract" | "thermal-storage" | "launch" | "space-station";
   tiersLink?: string;
+  /** Adjacent tiers within this recipe's `tiersLink` group, precomputed at reformat time
+   *  (see `linkRecipeTiers` in `data/reformat.ts`). `tierUp` is the next faster /
+   *  higher-throughput recipe, `tierDown` the next slower. Absent at the ends / when untiered. */
+  tierUp?: RecipeId;
+  tierDown?: RecipeId;
   duration: number;
   origDuration: number;
   powerMult: number;
