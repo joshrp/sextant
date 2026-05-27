@@ -27,6 +27,57 @@ export function getRecipesByProduct(
 }
 
 /**
+ * Get recipes that produce (output) or consume (input) the product, excluding the
+ * generic balancer (import/export) recipe. Used to decide whether a goal has a
+ * single "real" recipe that can be auto-placed without showing the picker.
+ * @param productId - The product to search for
+ * @param produce - true for recipes that produce the product, false for recipes that consume it
+ */
+export function getProducerConsumerRecipes(productId: ProductId, produce: boolean): Recipe[] {
+  return getRecipesByProduct(productId, produce ? 'output' : 'input')
+    .filter(r => !r.machine.isBalancer);
+}
+
+/**
+ * Decide which recipe to auto-place when adding a producer/consumer for a goal,
+ * using tier grouping so fast/slow machine variants of the same recipe count as
+ * one logical recipe. Returns the recipe id to place, or `null` to open the
+ * picker (which expands a single recipe's tiers itself, see RecipePicker):
+ *
+ *  - one logical recipe with a single variant → place it;
+ *  - one logical recipe with several tier variants (fast/slow machines) → reuse
+ *    the variant whose machine already appears in the graph, else `null`;
+ *  - zero or several distinct recipes → `null`.
+ *
+ * `candidates` should be the non-balancer producing/consuming recipes for the
+ * product (see {@link getProducerConsumerRecipes}); `machinesInGraph` is the set
+ * of machine ids already placed on the current graph.
+ */
+export function resolveGoalRecipe(
+  candidates: Recipe[],
+  machinesInGraph: Set<MachineId>
+): RecipeId | null {
+  // Collapse tier variants (shared tiersLink) into logical recipe groups.
+  const groups = new Map<string, Recipe[]>();
+  for (const recipe of candidates) {
+    const key = recipe.tiersLink ?? recipe.id;
+    const group = groups.get(key);
+    if (group) group.push(recipe);
+    else groups.set(key, [recipe]);
+  }
+
+  // Zero or several distinct recipes: let the user pick.
+  if (groups.size !== 1) return null;
+
+  const variants = [...groups.values()][0];
+  if (variants.length === 1) return variants[0].id;
+
+  // Single recipe, multiple tiers: reuse a tier whose machine is already placed,
+  // otherwise let the user pick the tier (the picker expands them by default).
+  return variants.find(r => machinesInGraph.has(r.machine.id))?.id ?? null;
+}
+
+/**
  * Get all recipes that can be crafted in a specific machine
  */
 export function getRecipesByMachine(machineId: MachineId): Recipe[] {

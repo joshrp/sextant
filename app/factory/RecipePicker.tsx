@@ -55,6 +55,13 @@ export default function RecipePicker({
     return <div className="text-gray-500">No recipes available for {product.name} {productIs !== "any" ? `as an ${productIs}` : ""}</div>;
   }
 
+  // When the product has a single (non-balancer) recipe, the only choice left is
+  // which tier — so expand its tiers by default to make that choice immediate.
+  const nonBalancerTierGroups = new Set(
+    recipesList.filter(r => !r.machine.isBalancer).map(r => r.tiersLink || r.id)
+  );
+  const autoExpandSingleGroup = nonBalancerTierGroups.size === 1;
+
   const maxInputs = Math.min(Math.max(...recipesList.map(recipe => recipe.inputs.length)), MAX_DISPLAY_ITEMS);
   const maxOutputs = Math.min(Math.max(...recipesList.map(recipe => recipe.outputs.length)), MAX_DISPLAY_ITEMS);
 
@@ -121,7 +128,7 @@ export default function RecipePicker({
       {matchedRecipesByLinkId.values().map(recipeGroup => {
         const parentMatch = recipeGroup[0];
 
-        const isOpen = tiersOpen[parentMatch.recipe.tiersLink || parentMatch.recipe.id] || false;
+        const isOpen = tiersOpen[parentMatch.recipe.tiersLink || parentMatch.recipe.id] ?? autoExpandSingleGroup;
 
         return (<>
           <RecipeRow key={parentMatch.recipe.id} recipe={parentMatch.recipe}
@@ -147,7 +154,7 @@ export default function RecipePicker({
         </td></tr>
         {unmatchedRecipesByLinkId.values().map(recipeGroup => {
           const parentMatch = recipeGroup[0];
-          const isOpen = tiersOpen[parentMatch.recipe.tiersLink || parentMatch.recipe.id] || false;
+          const isOpen = tiersOpen[parentMatch.recipe.tiersLink || parentMatch.recipe.id] ?? autoExpandSingleGroup;
 
           return (<>
             <RecipeRow key={parentMatch.recipe.id} recipe={parentMatch.recipe}

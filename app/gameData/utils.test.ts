@@ -1,13 +1,15 @@
 import { describe, expect, test } from 'vitest';
 import {
   getRecipesByProduct,
+  getProducerConsumerRecipes,
+  resolveGoalRecipe,
   getRecipesByMachine,
   getRecipeInputs,
   getRecipeOutputs,
   getRecipeDependencies,
   findRecipes,
 } from './utils';
-import type { ProductId, RecipeId, MachineId } from '../factory/graph/loadJsonData';
+import { loadData, type ProductId, type RecipeId, type MachineId, type Recipe } from '../factory/graph/loadJsonData';
 
 describe('Game Data Utils', () => {
   describe('getRecipesByProduct', () => {
@@ -51,6 +53,101 @@ describe('Game Data Utils', () => {
       const recipes = getRecipesByProduct('Product_Virtual_Electricity' as ProductId, 'output');
       // Should return array (may be empty or have balancer recipes)
       expect(Array.isArray(recipes)).toBe(true);
+    });
+  });
+
+  describe('getProducerConsumerRecipes', () => {
+    test('should return the single real producer, excluding the balancer', () => {
+      // Woodchips are produced only by ShreddingWood (plus the generic balancer).
+      const recipes = getProducerConsumerRecipes('Product_Woodchips' as ProductId, true);
+
+      expect(recipes).toHaveLength(1);
+      expect(recipes[0].id).toBe('ShreddingWood' as RecipeId);
+      expect(recipes.some(r => r.machine.isBalancer)).toBe(false);
+    });
+
+    test('should return multiple producers when more than one exists', () => {
+      const recipes = getProducerConsumerRecipes('Product_Wood' as ProductId, true);
+
+      expect(recipes.length).toBeGreaterThan(1);
+      // The balancer recipe is filtered out.
+      expect(recipes.some(r => r.machine.isBalancer)).toBe(false);
+      expect(recipes.map(r => r.id)).not.toContain('Balancer_Product_Wood' as RecipeId);
+    });
+
+    test('should return empty when the only producer is the balancer', () => {
+      // Rock has no real producing recipe — only the generic balancer.
+      const recipes = getProducerConsumerRecipes('Product_Rock' as ProductId, true);
+      expect(recipes).toEqual([]);
+    });
+
+    test('should return consumers when produce is false', () => {
+      const recipes = getProducerConsumerRecipes('Product_IronOre' as ProductId, false);
+
+      expect(recipes.length).toBeGreaterThan(1);
+      expect(recipes.some(r => r.machine.isBalancer)).toBe(false);
+      // IronOre is consumed by smelting/crushing recipes.
+      const recipeIds = recipes.map(r => r.id);
+      expect(recipeIds).toContain('IronSmeltingT1Coal' as RecipeId);
+    });
+
+    test('should return empty array for non-existent product', () => {
+      const recipes = getProducerConsumerRecipes('NonExistentProduct' as ProductId, true);
+      expect(recipes).toEqual([]);
+    });
+  });
+
+  describe('resolveGoalRecipe', () => {
+    const { recipes } = loadData();
+    const recipe = (id: string): Recipe => {
+      const r = recipes.get(id as RecipeId);
+      if (!r) throw new Error(`Test recipe not found: ${id}`);
+      return r;
+    };
+
+    // Gravel is produced by two tier variants of one recipe: RockCrushing on the
+    // Crusher and RockCrushingT2 on the CrusherLarge — same tiersLink group.
+    const rockCrushing = () => recipe('RockCrushing');
+    const rockCrushingT2 = () => recipe('RockCrushingT2');
+
+    test('precondition: the two Gravel tiers share a tiersLink', () => {
+      expect(rockCrushing().tiersLink).toBeTruthy();
+      expect(rockCrushing().tiersLink).toBe(rockCrushingT2().tiersLink);
+      expect(rockCrushing().machine.id).toBe('Crusher' as MachineId);
+      expect(rockCrushingT2().machine.id).toBe('CrusherLarge' as MachineId);
+    });
+
+    test('places directly when there is a single recipe with one variant', () => {
+      // Woodchips has exactly one producer (Shredding wood).
+      const candidates = [recipe('ShreddingWood')];
+      expect(resolveGoalRecipe(candidates, new Set())).toBe('ShreddingWood' as RecipeId);
+    });
+
+    test('reuses the tier whose machine is already in the graph', () => {
+      const candidates = [rockCrushing(), rockCrushingT2()];
+      // The larger crusher is already placed → pick the T2 tier.
+      expect(resolveGoalRecipe(candidates, new Set(['CrusherLarge' as MachineId]))).toBe(
+        'RockCrushingT2' as RecipeId
+      );
+      // The base crusher is already placed → pick the base tier.
+      expect(resolveGoalRecipe(candidates, new Set(['Crusher' as MachineId]))).toBe(
+        'RockCrushing' as RecipeId
+      );
+    });
+
+    test('defers to the picker when a multi-tier recipe has no machine in the graph', () => {
+      const candidates = [rockCrushing(), rockCrushingT2()];
+      expect(resolveGoalRecipe(candidates, new Set(['SomeOtherMachine' as MachineId]))).toBeNull();
+    });
+
+    test('defers to the picker when there are several distinct recipes', () => {
+      // Two unrelated recipes (different tiersLink) → the user must choose.
+      const candidates = [recipe('ShreddingWood'), rockCrushing()];
+      expect(resolveGoalRecipe(candidates, new Set())).toBeNull();
+    });
+
+    test('defers to the picker when there are no candidates', () => {
+      expect(resolveGoalRecipe([], new Set())).toBeNull();
     });
   });
 

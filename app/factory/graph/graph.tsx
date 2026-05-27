@@ -44,6 +44,7 @@ const selector = (state: GraphStore) => ({
 type props = {
   addNewRecipe: (addRecipeNode: AddRecipeNode) => void;
   smartPositionRef: MutableRefObject<((recipeId: RecipeId) => { x: number; y: number }) | null>;
+  focusNodeRef: MutableRefObject<((nodeId: string) => void) | null>;
 };
 
 // TODO: Component Testing - This component manages complex graph state and needs refactoring:
@@ -60,7 +61,7 @@ type props = {
 //    - GraphController component (state management)
 // 5. Add unit tests for position calculation logic
 // 6. Mock React Flow context for component testing
-export default function Graph({ addNewRecipe, smartPositionRef }: props) {
+export default function Graph({ addNewRecipe, smartPositionRef, focusNodeRef }: props) {
   const store = useFactory().store;
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
   const clearAll = useFactoryStore(state => state.clearAll);
@@ -73,7 +74,7 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
   // Only fit viewport to nodes when we go from none to some,
   // This could fire other times, but mostly it's just the page loading
   const fit = nodes.length > 0;
-  const { fitBounds, getNodesBounds, screenToFlowPosition, getViewport } = useReactFlow();
+  const { fitBounds, getNodesBounds, screenToFlowPosition, getViewport, getNode, setCenter } = useReactFlow();
   
   // Cache container reference for dimension queries
   const containerRef = useRef<HTMLElement | null>(null);
@@ -142,6 +143,35 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
     smartPositionRef.current = getSmartPositionForRecipe;
     return () => { smartPositionRef.current = null; };
   }, [smartPositionRef, getSmartPositionForRecipe]);
+
+  // Highlight a freshly placed node and bring it into view. Used by Factory when
+  // a node is auto-added from the goal flow, where it may land off-screen.
+  const focusNode = useCallback((nodeId: string) => {
+    const currentNodes = store.getState().nodes;
+    // Highlight: select only this node (clears any other selection).
+    onNodesChange(currentNodes.map(n => ({ id: n.id, type: "select" as const, selected: n.id === nodeId })));
+    // The first node on an empty graph is already framed by the fit-to-view
+    // effect above; for later adds, recentre on the new node keeping the zoom.
+    if (currentNodes.length <= 1) return;
+    // Defer two frames so React Flow has measured the new node (its size is
+    // needed to centre on it rather than its top-left corner).
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const node = getNode(nodeId);
+      if (!node) return;
+      const width = node.measured?.width ?? 0;
+      const height = node.measured?.height ?? 0;
+      setCenter(node.position.x + width / 2, node.position.y + height / 2, {
+        zoom: getViewport().zoom,
+        duration: 400,
+      });
+    }));
+  }, [store, onNodesChange, getNode, setCenter, getViewport]);
+
+  // Register focus callback with Factory via ref
+  useEffect(() => {
+    focusNodeRef.current = focusNode;
+    return () => { focusNodeRef.current = null; };
+  }, [focusNodeRef, focusNode]);
 
   const onConnectEnd = useCallback((event: MouseEvent | TouchEvent, connectionState: FinalConnectionState) => {
     // Spawn a new recipe node only when the connection is released over empty
