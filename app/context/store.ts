@@ -1,7 +1,7 @@
 import { createStore } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-import { addEdge, applyEdgeChanges, applyNodeChanges, getConnectedEdges, type OnConnect, type OnEdgesChange, type OnNodesChange } from "@xyflow/react";
+import { addEdge, applyEdgeChanges, applyNodeChanges, getConnectedEdges, type OnConnect, type OnEdgesChange, type OnNodesChange, type Viewport } from "@xyflow/react";
 
 import type { StorageValue } from "zustand/middleware";
 import hydration from "~/hydration";
@@ -74,6 +74,8 @@ export interface GraphStoreActions {
   setThermalStorageOptions: (nodeId: string, options: ThermalStorageNodeData["options"]) => void;
   setSpaceStationOptions: (nodeId: string, options: SpaceStationNodeData["options"]) => void;
   clearAll: () => void;
+  /** Persist the React Flow viewport (pan/zoom) so it can be restored when switching back to this factory. */
+  setViewport: (viewport: Viewport) => void;
 }
 
 export type HighlightNone = {
@@ -114,6 +116,8 @@ export interface GraphStore extends GraphSolutionState, GraphStoreActions {
   manifoldOptions: ManifoldOptions[];
   highlight: HighlightModes;
 
+  /** Saved React Flow viewport (pan/zoom). Undefined means "auto-fit" (e.g. new or imported factories). */
+  viewport?: Viewport;
 }
 
 // export type FactoryStore = UseBoundStore<StoreApi<GraphStore>>;
@@ -178,6 +182,8 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZon
           manifoldOptions: [],
 
           highlight: { mode: "none" },
+
+          viewport: undefined,
 
           addNode: (node) => {
             set({ nodes: [...get().nodes.concat(node)] }, false, "addNode");
@@ -358,6 +364,9 @@ const Store = (idb: IDB, { id, name }: GraphStoreProps, getZoneModifiers: GetZon
           },
           clearAll: () => {
             set({ nodes: [], edges: [], graph: undefined, solution: undefined, solutionStatus: undefined, goalErrors: [] }, false, "clearAll");
+          },
+          setViewport: (viewport: Viewport) => {
+            set({ viewport }, false, "setViewport");
           },
           // Sometimes ReactFlow just needs a kick
           forceSetNodesEdges: () => {

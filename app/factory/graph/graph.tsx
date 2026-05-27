@@ -5,7 +5,8 @@ import {
   ReactFlow,
   useReactFlow,
   type FinalConnectionState,
-  type IsValidConnection
+  type IsValidConnection,
+  type Viewport
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
@@ -33,12 +34,16 @@ const isValidConnection: IsValidConnection = (connection) => {
 const selector = (state: GraphStore) => ({
   nodes: state.nodes,
   edges: state.edges,
+  viewport: state.viewport,
   onNodesChange: state.onNodesChange,
   onEdgesChange: state.onEdgesChange,
   onConnect: state.onConnect,
   addEdge: state.addEdge,
   addNode: state.addNode,
 });
+
+/** Debounce interval (ms) for persisting the viewport while the user pans/zooms. */
+const VIEWPORT_SAVE_DEBOUNCE_MS = 500;
 
 
 type props = {
@@ -61,32 +66,77 @@ type props = {
 // 5. Add unit tests for position calculation logic
 // 6. Mock React Flow context for component testing
 export default function Graph({ addNewRecipe, smartPositionRef }: props) {
-  const store = useFactory().store;
+  const { store, id: factoryId } = useFactory();
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
   const clearAll = useFactoryStore(state => state.clearAll);
 
-  const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useStore(
+  const { nodes, edges, viewport, onNodesChange, onEdgesChange, onConnect } = useStore(
     store,
     useShallow(selector),
   );
 
-  // Only fit viewport to nodes when we go from none to some,
-  // This could fire other times, but mostly it's just the page loading
-  const fit = nodes.length > 0;
-  const { fitBounds, getNodesBounds, screenToFlowPosition, getViewport } = useReactFlow();
-  
+  const { fitBounds, getNodesBounds, setViewport, screenToFlowPosition, getViewport } = useReactFlow();
+
   // Cache container reference for dimension queries
   const containerRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     containerRef.current = document.querySelector('.react-flow');
   }, []);
-  
+
+  // Restore the saved viewport when switching to this factory, or auto-fit when
+  // there is no saved viewport (new/imported factories). The Graph component is
+  // reused across factory switches (the store is swapped via context, not
+  // remounted), so React Flow keeps the previous factory's viewport unless we
+  // actively restore it here.
+  //
+  // `restoredFactoryId` guards against re-running for the same factory: we only
+  // restore/auto-fit once per factory, and the effect re-runs (via the `viewport`
+  // and `nodes` deps) until it has something to act on — needed because the store
+  // hydrates from IndexedDB asynchronously after mount.
+  const restoredFactoryId = useRef<string | null>(null);
   useEffect(() => {
-    fitBounds(getNodesBounds(nodes), {
-      padding: 0.4,
-      duration: 400
-    }); return;
-  }, [fitBounds, fit]);
+    if (restoredFactoryId.current === factoryId) return;
+
+    if (viewport) {
+      setViewport(viewport);
+      restoredFactoryId.current = factoryId;
+    } else if (nodes.length > 0) {
+      fitBounds(getNodesBounds(nodes), { padding: 0.4, duration: 400 });
+      restoredFactoryId.current = factoryId;
+    }
+    // No saved viewport and no nodes yet: likely still hydrating — leave the
+    // guard unset so a later render (once viewport or nodes arrive) retries.
+  }, [factoryId, viewport, nodes, setViewport, fitBounds, getNodesBounds]);
+
+  // Persist the viewport as the user pans/zooms, debounced so we don't hammer
+  // IndexedDB. `pendingViewportRef` holds the latest unsaved viewport so we can
+  // flush it eagerly when the factory changes or the component unmounts.
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingViewportRef = useRef<Viewport | null>(null);
+  const onMove = useCallback((_event: MouseEvent | TouchEvent | null, nextViewport: Viewport) => {
+    pendingViewportRef.current = nextViewport;
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => {
+      store.getState().setViewport(nextViewport);
+      saveTimerRef.current = null;
+      pendingViewportRef.current = null;
+    }, VIEWPORT_SAVE_DEBOUNCE_MS);
+  }, [store]);
+
+  // Flush any pending save when the active factory changes or on unmount, so the
+  // last pan isn't lost if the user switches/leaves within the debounce window.
+  // The cleanup captures the store it was set up with, so it always lands the
+  // pending viewport on the correct factory.
+  useEffect(() => () => {
+    if (saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+      saveTimerRef.current = null;
+      if (pendingViewportRef.current) {
+        store.getState().setViewport(pendingViewportRef.current);
+        pendingViewportRef.current = null;
+      }
+    }
+  }, [store]);
 
   // Calculate smart position for button-placed nodes
   // Pass null as recipeId for annotation nodes (uses a fixed default size).
@@ -211,6 +261,7 @@ export default function Graph({ addNewRecipe, smartPositionRef }: props) {
       onEdgesChange={onEdgesChange}
       onConnectEnd={onConnectEnd}
       onConnect={onConnect}
+      onMove={onMove}
       isValidConnection={isValidConnection}
       minZoom={0.1}
       connectionRadius={80}
