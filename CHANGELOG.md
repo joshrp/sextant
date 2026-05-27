@@ -2,6 +2,7 @@
 
 1.0.7
 - feat: Save viewport position to storage of factory and restore on switch
+- feat: Add checkbox for automatically adding a producer for goals 
 
 1.0.6
 - feat: Add button for switching between machine tiers where available. Fixes Issue #3
