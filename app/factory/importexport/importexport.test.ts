@@ -1,28 +1,42 @@
-import 'fake-indexeddb/auto';
+import "fake-indexeddb/auto";
 
-import { describe, expect, test } from 'vitest';
-import '@ungap/compression-stream/poly';
+import { describe, expect, test } from "vitest";
+import "@ungap/compression-stream/poly";
 import * as imex from "./importexport";
 import testFactories from "./testFactories.json";
 import testExports from "./testExports.json";
-import { default as FactoryStore, type GraphCoreData } from '../../context/store';
-import { openDB } from 'idb';
-import {setDebugSolver} from '../solver/solver';
-import type { RecipeId, ProductId } from '../graph/loadJsonData';
-import { DEFAULT_ZONE_MODIFIERS } from '~/context/zoneModifiers';
+import {
+  default as FactoryStore,
+  type GraphCoreData,
+} from "../../context/store";
+import { openDB } from "idb";
+import { setDebugSolver } from "../solver/solver";
+import type { RecipeId, ProductId } from "../graph/loadJsonData";
+import { DEFAULT_ZONE_MODIFIERS } from "~/context/zoneModifiers";
 
 describe("Import Export", () => {
-  describe.each(Object.entries(testFactories))('Exporting %s', (key, data) => {
+  describe.each(Object.entries(testFactories))("Exporting %s", (key, data) => {
     test(`Basic export`, async () => {
       const str = imex.getBasicB64(data);
       expect(str).toMatchSnapshot();
     });
-    test('Minify', async () => {
+    test("Minify", async () => {
       const min = imex.minify(data as GraphCoreData, "zone");
       expect(min).toMatchSnapshot();
     });
-    test('Minify and compress, decompress', async () => {
+    test("Minify and compress, decompress", async () => {
       const min = imex.minify(data as GraphCoreData, "zone");
+      console.log(JSON.stringify(min, null, 2).substring(0, 400));
+      console.log(
+        "decompressed snapshot: ",
+        JSON.stringify(
+          await imex.decompress(
+            "H4sIAAAAAAAAE61TTWsbQQz9K0Vn7SJpR5qZuzG9teBCD8aErT0xJuvddDKGOr++rJNt4lBTG3qW5n3ovVkqwizdt4eufJq36zLkIyA8D30CBMDlEnpA+Hzc5GGb+q952BzWZTf08zzsFyW1+8XjHXt1qkzs1RtgZbGOFFhj4MC+McNK1NfmKLhAJsTM/8AEvG+7p4SQYYUvGmbpqe12fTttztJjl0ra/KEXozjSO6sji8YmqvexCREra0LNMUZy3lHkwJfhAEs+nBHPUy67bvec8pvUbzLRsoiXCFh51TqwNE69d2LksBJqahMKviF1jqLZJbS/+F3sh4e0KO36YZJ2us3EK86ryWhX66DkG0cmasFH5CB1UPFGDQWVoHYR7Z3b1Rj2D0B41XX3vS0p33D4m1oyunxPdtp6y+C2xl0r8SPpl1/Hbbq539cV4v8avK4MLxl+yI8JIf086TnTMn6yyhEhbMvZdFI2PuXX8Wr1GywE/DwpBAAA",
+          ),
+          null,
+          2,
+        ).substring(0, 400),
+      );
       const compressed = await imex.compress(min);
       expect(compressed).toMatchSnapshot();
       const decompressed = await imex.decompress(compressed);
@@ -30,146 +44,206 @@ describe("Import Export", () => {
     });
   });
 
-  describe.each(Object.entries(testExports['version-1']))('Importing %s', (key, data) => {
-    test('Decompress and unminify', async () => {
-      if (typeof data !== "string") throw new Error("Test data is not a string");
-      const decompressed = await imex.decompress(data);
-      expect(decompressed).toMatchSnapshot();
-      const core = imex.unminify(decompressed);
-      expect(core).toMatchSnapshot();
-    });
-  });
+  describe.each(Object.entries(testExports["version-1"]))(
+    "Importing %s",
+    (key, data) => {
+      test("Decompress and unminify", async () => {
+        if (typeof data !== "string")
+          throw new Error("Test data is not a string");
+        const decompressed = await imex.decompress(data);
+        expect(decompressed).toMatchSnapshot();
+        const core = imex.unminify(decompressed);
+        expect(core).toMatchSnapshot();
+      });
+    },
+  );
 
-  describe('Full Store Export/Import', () => {
-    test('Compress and decompress full store', async () => {
-
+  describe("Full Store Export/Import", () => {
+    test("Compress and decompress full store", async () => {
       setDebugSolver(false);
-      const exportStr = testExports['version-1']['steam-large'];
-      const min = await imex.decompress(exportStr) as imex.MinifiedStateV1;
+      const exportStr = testExports["version-1"]["steam-large"];
+      const min = (await imex.decompress(exportStr)) as imex.MinifiedStateV1;
       const data = imex.unminify(min);
       const idb = getIdb();
-      const store = FactoryStore(idb, {id: "test", name: "Test Factory" }, () => DEFAULT_ZONE_MODIFIERS);
-      
-      await (store.Graph.getState().importData(data));
+      const store = FactoryStore(
+        idb,
+        { id: "test", name: "Test Factory" },
+        () => DEFAULT_ZONE_MODIFIERS,
+      );
 
-      expect(store.Graph.getState().solution?.ObjectiveValue).toBeCloseTo(10326.85, 1);
-      const newExport = imex.minify(store.Graph.getState(), "zone-power-generation-steam");
+      await store.Graph.getState().importData(data);
+
+      expect(store.Graph.getState().solution?.ObjectiveValue).toBeCloseTo(
+        10326.85,
+        1,
+      );
+      const newExport = imex.minify(
+        store.Graph.getState(),
+        "zone-power-generation-steam",
+      );
       // Exported format should be V5 now (with node options support)
       expect(newExport[0]).toBe(5);
-      
+
       // Verify round-trip: compress, decompress, unminify should preserve data
       const recompressed = await imex.compress(newExport);
       const redecompressed = await imex.decompress(recompressed);
       expect(redecompressed).toEqual(newExport);
-      
     });
 
-    test('parse version 5 with settlement options correctly set', async () => {
+    test("parse version 5 with settlement options correctly set", async () => {
       setDebugSolver(false);
 
-      const exportStr = testExports['version-5']['settlement-options'];
-      const decompressed = await imex.decompress(exportStr) as imex.MinifiedStateV5;
+      const exportStr = testExports["version-5"]["settlement-options"];
+      const decompressed = (await imex.decompress(
+        exportStr,
+      )) as imex.MinifiedStateV5;
       const data = imex.unminifyBulk(decompressed);
       const idb = getIdb();
-      const store = FactoryStore(idb, {id: "test-settlement", name: "Test Settlement Factory" }, () => DEFAULT_ZONE_MODIFIERS);
-      
-      await (store.Graph.getState().importData(data.factories[0]));
+      const store = FactoryStore(
+        idb,
+        { id: "test-settlement", name: "Test Settlement Factory" },
+        () => DEFAULT_ZONE_MODIFIERS,
+      );
 
-      const settlementNode = store.Graph.getState().nodes.find(n => n.type === "recipe-node" && n.data.type === "settlement");
+      await store.Graph.getState().importData(data.factories[0]);
+
+      const settlementNode = store.Graph.getState().nodes.find(
+        (n) => n.type === "recipe-node" && n.data.type === "settlement",
+      );
       expect(settlementNode).toBeDefined();
-      if (settlementNode && settlementNode.type === "recipe-node" && settlementNode.data.type === "settlement") {
+      if (
+        settlementNode &&
+        settlementNode.type === "recipe-node" &&
+        settlementNode.data.type === "settlement"
+      ) {
         expect(settlementNode.data.options).toBeDefined();
-        expect(settlementNode.data.options!.inputs["Product_Water" as ProductId]).toBe(true);
-        expect(settlementNode.data.options!.inputs["Product_Potato" as ProductId]).toBe(true);
-        expect(settlementNode.data.options!.inputs["Product_Snack" as ProductId]).toBe(false);
-        expect(settlementNode.data.options!.outputs["Product_WasteWater" as ProductId]).toBe(true);
+        expect(
+          settlementNode.data.options!.inputs["Product_Water" as ProductId],
+        ).toBe(true);
+        expect(
+          settlementNode.data.options!.inputs["Product_Potato" as ProductId],
+        ).toBe(true);
+        expect(
+          settlementNode.data.options!.inputs["Product_Snack" as ProductId],
+        ).toBe(false);
+        expect(
+          settlementNode.data.options!.outputs[
+            "Product_WasteWater" as ProductId
+          ],
+        ).toBe(true);
       }
     });
 
-    test('parse version 5 with contract node correctly set', async () => {
+    test("parse version 5 with contract node correctly set", async () => {
       setDebugSolver(false);
-      const exportStr = testExports['version-5']['contracts'];
-      const decompressed = await imex.decompress(exportStr) as imex.MinifiedStateV5;
+      const exportStr = testExports["version-5"]["contracts"];
+      const decompressed = (await imex.decompress(
+        exportStr,
+      )) as imex.MinifiedStateV5;
       const data = imex.unminifyBulk(decompressed);
       const idb = getIdb();
-      const store = FactoryStore(idb, {id: "test-contract", name: "Test Contract Factory" }, () => DEFAULT_ZONE_MODIFIERS);
-      
-      await (store.Graph.getState().importData(data.factories[0]));
+      const store = FactoryStore(
+        idb,
+        { id: "test-contract", name: "Test Contract Factory" },
+        () => DEFAULT_ZONE_MODIFIERS,
+      );
 
-      const contractNode = store.Graph.getState().nodes.find(n => n.type === "recipe-node" && n.data.type === "contract");
+      await store.Graph.getState().importData(data.factories[0]);
+
+      const contractNode = store.Graph.getState().nodes.find(
+        (n) => n.type === "recipe-node" && n.data.type === "contract",
+      );
       console.log("Contract Node:", store.Graph.getState().nodes); // --- IGNORE ---
       expect(contractNode).toBeDefined();
     });
 
-    test('Should fail to solve the exported goal product', async () => {
+    test("Should fail to solve the exported goal product", async () => {
       setDebugSolver(false);
-      const exportStr = testExports['version-5']['goal-as-input-failure'];
-      const decompressed = await imex.decompress(exportStr) as imex.MinifiedStateV5;
+      const exportStr = testExports["version-5"]["goal-as-input-failure"];
+      const decompressed = (await imex.decompress(
+        exportStr,
+      )) as imex.MinifiedStateV5;
       const data = imex.unminifyBulk(decompressed);
       const idb = getIdb();
-      const store = FactoryStore(idb, {id: "test-goal-input", name: "Test Goal Input Factory" }, () => DEFAULT_ZONE_MODIFIERS);
-      await (store.Graph.getState().importData(data.factories[0]));
-      expect(store.Graph.getState().solutionStatus).toEqual('Unbounded');
+      const store = FactoryStore(
+        idb,
+        { id: "test-goal-input", name: "Test Goal Input Factory" },
+        () => DEFAULT_ZONE_MODIFIERS,
+      );
+      await store.Graph.getState().importData(data.factories[0]);
+      expect(store.Graph.getState().solutionStatus).toEqual("Unbounded");
     });
 
-    test('Should solve thermal storage node with loss and preserve loss on export', async () => {
+    test("Should solve thermal storage node with loss and preserve loss on export", async () => {
       setDebugSolver(true);
-      const exportStr = testExports['version-5']['thermal-storage'];
-      const decompressed = await imex.decompress(exportStr) as imex.MinifiedStateV5;
+      const exportStr = testExports["version-5"]["thermal-storage"];
+      const decompressed = (await imex.decompress(
+        exportStr,
+      )) as imex.MinifiedStateV5;
       const data = imex.unminifyBulk(decompressed);
       const idb = getIdb();
-      const store = FactoryStore(idb, {id: "test-thermal-storage", name: "Test Thermal Storage Factory" }, () => DEFAULT_ZONE_MODIFIERS);
-      await (store.Graph.getState().importData(data.factories[0]));
-      expect(store.Graph.getState().solutionStatus).toEqual('Solved');
-      const thermalNode = store.Graph.getState().nodes.find(n => n.type === "recipe-node" && n.data.type === "thermal-storage");
+      const store = FactoryStore(
+        idb,
+        { id: "test-thermal-storage", name: "Test Thermal Storage Factory" },
+        () => DEFAULT_ZONE_MODIFIERS,
+      );
+      await store.Graph.getState().importData(data.factories[0]);
+      expect(store.Graph.getState().solutionStatus).toEqual("Solved");
+      const thermalNode = store.Graph.getState().nodes.find(
+        (n) => n.type === "recipe-node" && n.data.type === "thermal-storage",
+      );
       expect(thermalNode).toBeDefined();
-      if (thermalNode && thermalNode.type === "recipe-node" && thermalNode.data.type === "thermal-storage") {
+      if (
+        thermalNode &&
+        thermalNode.type === "recipe-node" &&
+        thermalNode.data.type === "thermal-storage"
+      ) {
         expect(thermalNode.data.options).toBeDefined();
         expect(thermalNode.data.options!.loss).toBe(20);
       }
     });
   });
 
-  describe('Icon Export/Import', () => {
-    test('Export with icon and import preserves it', async () => {
-      const testIcon = '/assets/products/Product_Iron.png';
+  describe("Icon Export/Import", () => {
+    test("Export with icon and import preserves it", async () => {
+      const testIcon = "/assets/products/Product_Iron.png";
       const testData: GraphCoreData = {
         name: "Test Factory with Icon",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
-      
+
       // Export with icon
       const minified = imex.minify(testData, "zone", testIcon);
       expect(minified[3]).toBe(testIcon);
-      
+
       // Compress and decompress
       const compressed = await imex.compress(minified);
       const decompressed = await imex.decompress(compressed);
-      
+
       // Import and verify icon is preserved
       const imported = imex.unminify(decompressed);
       expect(imported.icon).toBe(testIcon);
       expect(imported.name).toBe("Test Factory with Icon");
     });
 
-    test('Export without icon works correctly', async () => {
+    test("Export without icon works correctly", async () => {
       const testData: GraphCoreData = {
         name: "Test Factory without Icon",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
-      
+
       // Export without icon
       const minified = imex.minify(testData, "zone");
       expect(minified[3]).toBe("");
-      
+
       // Compress and decompress
       const compressed = await imex.compress(minified);
       const decompressed = await imex.decompress(compressed);
-      
+
       // Import and verify icon is undefined
       const imported = imex.unminify(decompressed);
       expect(imported.icon).toBe("");
@@ -177,8 +251,8 @@ describe("Import Export", () => {
     });
   });
 
-  describe('Annotation Node Export/Import', () => {
-    test('round-trip preserves annotation nodes alongside recipe nodes', async () => {
+  describe("Annotation Node Export/Import", () => {
+    test("round-trip preserves annotation nodes alongside recipe nodes", async () => {
       const testData: GraphCoreData = {
         name: "Mixed Nodes Factory",
         nodes: [
@@ -186,7 +260,11 @@ describe("Import Export", () => {
             id: "r1",
             type: "recipe-node",
             position: { x: 100, y: 200 },
-            data: { type: "recipe", recipeId: "PowerGeneratorT2" as RecipeId, ltr: true },
+            data: {
+              type: "recipe",
+              recipeId: "PowerGeneratorT2" as RecipeId,
+              ltr: true,
+            },
           },
           {
             id: "a1",
@@ -210,19 +288,23 @@ describe("Import Export", () => {
 
       expect(imported.nodes).toHaveLength(2);
 
-      const recipeNode = imported.nodes.find(n => n.type === "recipe-node");
+      const recipeNode = imported.nodes.find((n) => n.type === "recipe-node");
       expect(recipeNode).toBeDefined();
       expect(recipeNode!.id).toBe("r1");
       expect(recipeNode!.position).toEqual({ x: 100, y: 200 });
 
-      const annotationNode = imported.nodes.find(n => n.type === "annotation-node");
+      const annotationNode = imported.nodes.find(
+        (n) => n.type === "annotation-node",
+      );
       expect(annotationNode).toBeDefined();
       expect(annotationNode!.id).toBe("a1");
       expect(annotationNode!.position).toEqual({ x: 300, y: 400 });
-      expect(annotationNode!.data).toEqual({ text: "This is a **markdown** note" });
+      expect(annotationNode!.data).toEqual({
+        text: "This is a **markdown** note",
+      });
     });
 
-    test('annotation-only factory round-trips correctly', async () => {
+    test("annotation-only factory round-trips correctly", async () => {
       const testData: GraphCoreData = {
         name: "Notes Only",
         nodes: [
@@ -247,8 +329,8 @@ describe("Import Export", () => {
     });
   });
 
-  describe('Node Options Export/Import', () => {
-    test('settlement node options round-trip', async () => {
+  describe("Node Options Export/Import", () => {
+    test("settlement node options round-trip", async () => {
       const testData: GraphCoreData = {
         name: "Settlement Options Test",
         nodes: [
@@ -304,7 +386,7 @@ describe("Import Export", () => {
       }
     });
 
-    test('recipe node useRecycling=false round-trip', async () => {
+    test("recipe node useRecycling=false round-trip", async () => {
       const testData: GraphCoreData = {
         name: "Recipe Options Test",
         nodes: [
@@ -342,7 +424,7 @@ describe("Import Export", () => {
       }
     });
 
-    test('recipe node without options has no 8th element', () => {
+    test("recipe node without options has no 8th element", () => {
       const testData: GraphCoreData = {
         name: "No Options Test",
         nodes: [
@@ -366,7 +448,7 @@ describe("Import Export", () => {
       expect(nodeTuple).toHaveLength(7); // No 8th element
     });
 
-    test('balancer node has no options element', () => {
+    test("balancer node has no options element", () => {
       const testData: GraphCoreData = {
         name: "Balancer Test",
         nodes: [
@@ -390,7 +472,7 @@ describe("Import Export", () => {
       expect(nodeTuple).toHaveLength(7); // No 8th element
     });
 
-    test('thermal-storage node loss round-trip', async () => {
+    test("thermal-storage node loss round-trip", async () => {
       const testData: GraphCoreData = {
         name: "Thermal Storage Test",
         nodes: [
@@ -435,7 +517,7 @@ describe("Import Export", () => {
       }
     });
 
-    test('thermal-storage node default loss (10%) round-trip', async () => {
+    test("thermal-storage node default loss (10%) round-trip", async () => {
       const testData: GraphCoreData = {
         name: "Thermal Storage Default Loss Test",
         nodes: [
@@ -460,7 +542,9 @@ describe("Import Export", () => {
       expect(nodeTuple[6]).toBe("t");
       expect(nodeTuple[7]).toEqual({ l: 10 });
 
-      const imported = imex.unminify(await imex.decompress(await imex.compress(minified)));
+      const imported = imex.unminify(
+        await imex.decompress(await imex.compress(minified)),
+      );
       const node = imported.nodes[0];
       if (node.type === "recipe-node") {
         expect(node.data.type).toBe("thermal-storage");
@@ -469,7 +553,7 @@ describe("Import Export", () => {
       }
     });
 
-    test('mixed nodes with options: settlement + recipe + balancer + annotation', async () => {
+    test("mixed nodes with options: settlement + recipe + balancer + annotation", async () => {
       const testData: GraphCoreData = {
         name: "Mixed Options",
         nodes: [
@@ -559,24 +643,24 @@ describe("Import Export", () => {
     });
   });
 
-  describe('Bulk Export/Import', () => {
-    test('minifyBulk creates bulk export data with factories', () => {
+  describe("Bulk Export/Import", () => {
+    test("minifyBulk creates bulk export data with factories", () => {
       const factory1: GraphCoreData = {
         name: "Factory 1",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
       const factory2: GraphCoreData = {
         name: "Factory 2",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
 
       const bulk = imex.minifyBulk([
         { state: factory1, zoneName: "Zone A", icon: "/icon1.png" },
-        { state: factory2, zoneName: "Zone B" }
+        { state: factory2, zoneName: "Zone B" },
       ]);
 
       expect(bulk.factories).toHaveLength(2);
@@ -588,14 +672,14 @@ describe("Import Export", () => {
       expect(bulk.factories[1][3]).toBe("");
     });
 
-    test('unminifyBulk handles single factory (backward compatible)', () => {
+    test("unminifyBulk handles single factory (backward compatible)", () => {
       const factory: GraphCoreData = {
         name: "Single Factory",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
-      
+
       const minified = imex.minify(factory, "Zone Single");
       const bulk = imex.unminifyBulk(minified);
 
@@ -607,23 +691,23 @@ describe("Import Export", () => {
       expect(bulk.zoneGroups.get("Zone Single")).toEqual([0]);
     });
 
-    test('unminifyBulk handles multiple factories in same zone', () => {
+    test("unminifyBulk handles multiple factories in same zone", () => {
       const factory1: GraphCoreData = {
         name: "Factory 1",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
       const factory2: GraphCoreData = {
         name: "Factory 2",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
 
       const bulk = imex.minifyBulk([
         { state: factory1, zoneName: "Same Zone" },
-        { state: factory2, zoneName: "Same Zone" }
+        { state: factory2, zoneName: "Same Zone" },
       ]);
 
       const result = imex.unminifyBulk(bulk);
@@ -634,30 +718,30 @@ describe("Import Export", () => {
       expect(result.zoneGroups.get("Same Zone")).toEqual([0, 1]);
     });
 
-    test('unminifyBulk handles multiple factories in different zones', () => {
+    test("unminifyBulk handles multiple factories in different zones", () => {
       const factory1: GraphCoreData = {
         name: "Factory A1",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
       const factory2: GraphCoreData = {
         name: "Factory B1",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
       const factory3: GraphCoreData = {
         name: "Factory A2",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
 
       const bulk = imex.minifyBulk([
         { state: factory1, zoneName: "Zone A" },
         { state: factory2, zoneName: "Zone B" },
-        { state: factory3, zoneName: "Zone A" }
+        { state: factory3, zoneName: "Zone A" },
       ]);
 
       const result = imex.unminifyBulk(bulk);
@@ -669,27 +753,27 @@ describe("Import Export", () => {
       expect(result.zoneGroups.get("Zone B")).toEqual([1]);
     });
 
-    test('compressBulk and decompressBulk roundtrip', async () => {
+    test("compressBulk and decompressBulk roundtrip", async () => {
       const factory1: GraphCoreData = {
         name: "Factory X",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
       const factory2: GraphCoreData = {
         name: "Factory Y",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
 
       const bulk = imex.minifyBulk([
         { state: factory1, zoneName: "Zone X", icon: "/iconX.png" },
-        { state: factory2, zoneName: "Zone Y" }
+        { state: factory2, zoneName: "Zone Y" },
       ]);
 
       const compressed = await imex.compressBulk(bulk);
-      expect(typeof compressed).toBe('string');
+      expect(typeof compressed).toBe("string");
 
       const decompressed = await imex.decompressBulk(compressed);
       expect(decompressed.factories).toHaveLength(2);
@@ -700,12 +784,12 @@ describe("Import Export", () => {
       expect(decompressed.factories[1].zoneName).toBe("Zone Y");
     });
 
-    test('getFactoryMetadataFromMinified extracts metadata', () => {
+    test("getFactoryMetadataFromMinified extracts metadata", () => {
       const factory: GraphCoreData = {
         name: "Metadata Test Factory",
         nodes: [],
         edges: [],
-        goals: []
+        goals: [],
       };
 
       const minified = imex.minify(factory, "Test Zone", "/test-icon.png");
@@ -719,34 +803,53 @@ describe("Import Export", () => {
       expect(metadata.goalCount).toBe(0);
     });
 
-    test('backward compatibility: decompressBulk handles existing single factory export', async () => {
+    test("backward compatibility: decompressBulk handles existing single factory export", async () => {
       // Use an existing export (it's actually v2 format with zone name)
-      const exportStr = testExports['version-1']['steam-large'];
-      
+      const exportStr = testExports["version-1"]["steam-large"];
+
       const result = await imex.decompressBulk(exportStr);
-      
+
       expect(result.factories).toHaveLength(1);
       expect(result.isSingleZone).toBe(true);
       // The steam-large export has a zone name already (it's v2 format despite being in version-1 folder)
       expect(result.factories[0].zoneName).toBe("zone-power-generation-steam");
     });
 
-    test('round-trip with zone modifiers: preserves modifiers through compress/decompress', async () => {
-      const factory: GraphCoreData = { name: 'Modifier Test', nodes: [], edges: [], goals: [] };
-      const customModifiers = { ...DEFAULT_ZONE_MODIFIERS, recyclingEfficiency: 0.75, farmYield: 1.5 };
-      const bulk = imex.minifyBulk([{ state: factory, zoneName: 'Steel Zone' }], { 'Steel Zone': customModifiers });
+    test("round-trip with zone modifiers: preserves modifiers through compress/decompress", async () => {
+      const factory: GraphCoreData = {
+        name: "Modifier Test",
+        nodes: [],
+        edges: [],
+        goals: [],
+      };
+      const customModifiers = {
+        ...DEFAULT_ZONE_MODIFIERS,
+        recyclingEfficiency: 0.75,
+        farmYield: 1.5,
+      };
+      const bulk = imex.minifyBulk(
+        [{ state: factory, zoneName: "Steel Zone" }],
+        { "Steel Zone": customModifiers },
+      );
 
       const compressed = await imex.compressBulk(bulk);
 
       const result = await imex.decompressBulk(compressed);
       expect(result.factories).toHaveLength(1);
       expect(result.zoneModifiers).toBeDefined();
-      expect(result.zoneModifiers?.get('Steel Zone')).toEqual(customModifiers);
+      expect(result.zoneModifiers?.get("Steel Zone")).toEqual(customModifiers);
     });
 
-    test('all-default modifiers: zones field omitted, zoneModifiers undefined after round-trip', async () => {
-      const factory: GraphCoreData = { name: 'Default Mods', nodes: [], edges: [], goals: [] };
-      const bulk = imex.minifyBulk([{ state: factory, zoneName: 'Zone A' }], { 'Zone A': DEFAULT_ZONE_MODIFIERS });
+    test("all-default modifiers: zones field omitted, zoneModifiers undefined after round-trip", async () => {
+      const factory: GraphCoreData = {
+        name: "Default Mods",
+        nodes: [],
+        edges: [],
+        goals: [],
+      };
+      const bulk = imex.minifyBulk([{ state: factory, zoneName: "Zone A" }], {
+        "Zone A": DEFAULT_ZONE_MODIFIERS,
+      });
 
       // All-default: zones field should be absent from the export object
       expect(bulk.zones).toBeUndefined();
@@ -756,19 +859,32 @@ describe("Import Export", () => {
       expect(result.zoneModifiers).toBeUndefined();
     });
 
-    test('no modifiers: zoneModifiers is undefined after round-trip', async () => {
-      const factory: GraphCoreData = { name: 'No Mods', nodes: [], edges: [], goals: [] };
-      const bulk = imex.minifyBulk([{ state: factory, zoneName: 'Old Zone' }]);
+    test("no modifiers: zoneModifiers is undefined after round-trip", async () => {
+      const factory: GraphCoreData = {
+        name: "No Mods",
+        nodes: [],
+        edges: [],
+        goals: [],
+      };
+      const bulk = imex.minifyBulk([{ state: factory, zoneName: "Old Zone" }]);
       const compressed = await imex.compressBulk(bulk);
 
       const result = await imex.decompressBulk(compressed);
       expect(result.zoneModifiers).toBeUndefined();
     });
 
-    test('export object without zones field: no modifiers applied', async () => {
-      const factory: GraphCoreData = { name: 'No Zones Field', nodes: [], edges: [], goals: [] };
+    test("export object without zones field: no modifiers applied", async () => {
+      const factory: GraphCoreData = {
+        name: "No Zones Field",
+        nodes: [],
+        edges: [],
+        goals: [],
+      };
       // Manually construct an export object without a zones field
-      const exportObj = { factories: imex.minifyBulk([{ state: factory, zoneName: 'Zone B' }]).factories };
+      const exportObj = {
+        factories: imex.minifyBulk([{ state: factory, zoneName: "Zone B" }])
+          .factories,
+      };
       const raw = await imex.compress(exportObj);
       const result = imex.unminifyBulk(await imex.decompress(raw));
 
@@ -776,25 +892,40 @@ describe("Import Export", () => {
       expect(result.zoneModifiers).toBeUndefined();
     });
 
-    test('partial ZoneModifiers: missing keys filled from defaults', async () => {
-      const factory: GraphCoreData = { name: 'Partial Mods', nodes: [], edges: [], goals: [] };
+    test("partial ZoneModifiers: missing keys filled from defaults", async () => {
+      const factory: GraphCoreData = {
+        name: "Partial Mods",
+        nodes: [],
+        edges: [],
+        goals: [],
+      };
 
       // Manually build export object with partial modifiers (simulates future schema additions)
-      const partialModifiers = { recyclingEfficiency: 0.60 }; // only one key
+      const partialModifiers = { recyclingEfficiency: 0.6 }; // only one key
       const exportObj = {
-        factories: imex.minifyBulk([{ state: factory, zoneName: 'Zone C' }]).factories,
-        zones: { 'Zone C': { modifiers: partialModifiers as import('~/context/zoneModifiers').ZoneModifiers } },
+        factories: imex.minifyBulk([{ state: factory, zoneName: "Zone C" }])
+          .factories,
+        zones: {
+          "Zone C": {
+            modifiers:
+              partialModifiers as import("~/context/zoneModifiers").ZoneModifiers,
+          },
+        },
       };
       const raw = await imex.compress(exportObj);
       const result = imex.unminifyBulk(await imex.decompress(raw));
 
-      expect(result.zoneModifiers?.get('Zone C')?.recyclingEfficiency).toBe(0.60);
+      expect(result.zoneModifiers?.get("Zone C")?.recyclingEfficiency).toBe(
+        0.6,
+      );
       // Missing keys should fall back to defaults
-      expect(result.zoneModifiers?.get('Zone C')?.farmYield).toBe(DEFAULT_ZONE_MODIFIERS.farmYield);
+      expect(result.zoneModifiers?.get("Zone C")?.farmYield).toBe(
+        DEFAULT_ZONE_MODIFIERS.farmYield,
+      );
     });
   });
 
-  describe('Node type round-trip', () => {
+  describe("Node type round-trip", () => {
     // Each entry covers a node data.type that has its own short code in DataTypes.
     // Without those entries, types would silently downgrade to "recipe" on import —
     // breaking custom views (settlement options, thermal-storage loss slider,
@@ -805,44 +936,62 @@ describe("Import Export", () => {
       ["space-station", "SpaceStation_Recipe"],
       ["thermal-storage", "ThermalStorage_Product_SteamLP"],
       ["contract", "Contract_Product_FuelGas_For_Product_Dirt"],
-    ] as const)("preserves data.type = %s through minify → unminify", (dataType, recipeId) => {
-      const factory: GraphCoreData = {
-        name: 'Round trip test',
-        nodes: [{
-          id: 'n1',
-          type: 'recipe-node',
-          position: { x: 0, y: 0 },
-          data: dataType === "thermal-storage"
-            ? { type: dataType, recipeId: recipeId as RecipeId, ltr: true, options: { loss: 10 } }
-            : { type: dataType, recipeId: recipeId as RecipeId, ltr: true },
-        }],
-        edges: [],
-        goals: [],
-      };
+    ] as const)(
+      "preserves data.type = %s through minify → unminify",
+      (dataType, recipeId) => {
+        const factory: GraphCoreData = {
+          name: "Round trip test",
+          nodes: [
+            {
+              id: "n1",
+              type: "recipe-node",
+              position: { x: 0, y: 0 },
+              data:
+                dataType === "thermal-storage"
+                  ? {
+                      type: dataType,
+                      recipeId: recipeId as RecipeId,
+                      ltr: true,
+                      options: { loss: 10 },
+                    }
+                  : {
+                      type: dataType,
+                      recipeId: recipeId as RecipeId,
+                      ltr: true,
+                    },
+            },
+          ],
+          edges: [],
+          goals: [],
+        };
 
-      const min = imex.minify(factory, "zone");
-      const restored = imex.unminify(min);
-      expect(restored.nodes).toHaveLength(1);
-      const restoredNode = restored.nodes[0];
-      if (restoredNode.type !== "recipe-node") throw new Error("Expected recipe-node");
-      expect(restoredNode.data.type).toBe(dataType);
-      expect(restoredNode.data.recipeId).toBe(recipeId);
-    });
+        const min = imex.minify(factory, "zone");
+        const restored = imex.unminify(min);
+        expect(restored.nodes).toHaveLength(1);
+        const restoredNode = restored.nodes[0];
+        if (restoredNode.type !== "recipe-node")
+          throw new Error("Expected recipe-node");
+        expect(restoredNode.data.type).toBe(dataType);
+        expect(restoredNode.data.recipeId).toBe(recipeId);
+      },
+    );
 
     test("space-station level option round-trips", () => {
       const factory: GraphCoreData = {
-        name: 'Level round trip',
-        nodes: [{
-          id: 'n1',
-          type: 'recipe-node',
-          position: { x: 0, y: 0 },
-          data: {
-            type: "space-station",
-            recipeId: "SpaceStation_Recipe" as RecipeId,
-            ltr: true,
-            options: { level: 7 },
+        name: "Level round trip",
+        nodes: [
+          {
+            id: "n1",
+            type: "recipe-node",
+            position: { x: 0, y: 0 },
+            data: {
+              type: "space-station",
+              recipeId: "SpaceStation_Recipe" as RecipeId,
+              ltr: true,
+              options: { level: 7 },
+            },
           },
-        }],
+        ],
         edges: [],
         goals: [],
       };
@@ -850,8 +999,10 @@ describe("Import Export", () => {
       const min = imex.minify(factory, "zone");
       const restored = imex.unminify(min);
       const restoredNode = restored.nodes[0];
-      if (restoredNode.type !== "recipe-node") throw new Error("Expected recipe-node");
-      if (restoredNode.data.type !== "space-station") throw new Error("Expected space-station");
+      if (restoredNode.type !== "recipe-node")
+        throw new Error("Expected recipe-node");
+      if (restoredNode.data.type !== "space-station")
+        throw new Error("Expected space-station");
       expect(restoredNode.data.options?.level).toBe(7);
     });
   });
@@ -863,9 +1014,10 @@ const getIdb = () => {
       if (oldVersion < 1) {
         await db.createObjectStore("factories");
         await db.createObjectStore("factory-history");
-      }
-      else
-        throw new Error("Database version not supported, please clear site data for this site.");
-    }
+      } else
+        throw new Error(
+          "Database version not supported, please clear site data for this site.",
+        );
+    },
   });
-}
+};
