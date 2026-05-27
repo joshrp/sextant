@@ -7,6 +7,7 @@ import Sidebar from "app/factory/graph/sidebar";
 
 import {
   loadData,
+  type MachineId,
   type ProductId,
   type RecipeId
 } from "./graph/loadJsonData";
@@ -16,12 +17,13 @@ import { ReactFlowProvider } from "@xyflow/react";
 import { FactoryOverlayBar } from "~/components/FactoryOverlayBar";
 import FactoryControls from "~/context/FactoryControls";
 import { usePlannerStore } from "~/context/PlannerContext";
-import { useFactoryStore } from "../context/FactoryContext";
+import useFactory, { useFactoryStore } from "../context/FactoryContext";
 import RecipePicker from "./RecipePicker";
 import type { RecipeNode } from "./graph/nodes/RecipeNode";
 import type { AnnotationNodeType } from "./graph/nodes/annotationNode";
 import { isSentinelPosition } from "./graph/nodePositioning";
 import type { HandleDropAlignment } from "./graph/nodes/recipeNodeLogic";
+import { getProducerConsumerRecipes, resolveGoalRecipe } from "../gameData/utils";
 
 const { products, machines, recipes } = loadData();
 console.log("Loaded products", products);
@@ -36,9 +38,16 @@ export type AddRecipeNode = {
   ltr?: boolean;
   alignToDrop?: HandleDropAlignment;
   getSmartPosition?: (recipeId: RecipeId) => { x: number; y: number };
+  // When set, try to resolve the recipe automatically (see resolveGoalRecipe):
+  // place it directly when unambiguous, otherwise fall back to the picker.
+  autoSelectSingle?: boolean;
+  // When set, the placed node is highlighted and centred in the view (keeping
+  // zoom) once added — used by the goal flow where the node may land off-screen.
+  centerOnPlace?: boolean;
 };
 
 export function Factory() {
+  const { store } = useFactory();
   const addNode = useFactoryStore(state => state.addNode);
   const onConnect = useFactoryStore(state => state.onConnect);
   const hasNodes = useFactoryStore(state => state.nodes.length > 0);
@@ -117,13 +126,9 @@ export function Factory() {
   // Accepts RecipeId | null — null is used by annotation nodes.
   const smartPositionRef = useRef<((recipeId: RecipeId | null) => { x: number; y: number }) | null>(null);
 
-  const addNewRecipe = useCallback((recipe: AddRecipeNode) => {
-    // For sidebar/controls calls with sentinel position, inject the smart positioning callback from Graph
-    if (isSentinelPosition(recipe.position) && !recipe.getSmartPosition && smartPositionRef.current) {
-      recipe = { ...recipe, getSmartPosition: smartPositionRef.current };
-    }
-    setAddRecipeNode(recipe);
-  }, []);
+  // Ref for Graph to register its "select + centre on a node" callback, used to
+  // surface nodes auto-placed by the goal flow (which may land off-screen).
+  const focusNodeRef = useRef<((nodeId: string) => void) | null>(null);
 
   const addProductToGraph = useCallback((id: RecipeId, isBalancer: boolean, recipeAdd: AddRecipeNode) => {
 
@@ -222,7 +227,39 @@ export function Factory() {
       });
     setAddRecipeNode(null);
 
+    // When added via the goal flow, highlight the node and bring it into view
+    // (the smart-placed position may be off-screen). No-op until Graph mounts.
+    if (recipeAdd.centerOnPlace) focusNodeRef.current?.(newNode.id);
+
   }, [addNode, onConnect]);
+
+  const addNewRecipe = useCallback((recipe: AddRecipeNode) => {
+    // For sidebar/controls calls with sentinel position, inject the smart positioning callback from Graph
+    if (isSentinelPosition(recipe.position) && !recipe.getSmartPosition && smartPositionRef.current) {
+      recipe = { ...recipe, getSmartPosition: smartPositionRef.current };
+    }
+    // Goal-save flow: try to resolve the recipe automatically. A single recipe
+    // (counting fast/slow machine tiers as one) is placed directly — reusing a
+    // tier whose machine is already on the graph when there's a choice. Anything
+    // ambiguous falls back to the picker (which expands a single recipe's tiers).
+    // Smart positioning still applies via the getSmartPosition injected above.
+    if (recipe.autoSelectSingle) {
+      const candidates = getProducerConsumerRecipes(recipe.productId, recipe.produce);
+      const machinesInGraph = new Set<MachineId>();
+      for (const node of store.getState().nodes) {
+        if (node.type !== "recipe-node") continue;
+        const placed = recipes.get(node.data.recipeId);
+        if (placed) machinesInGraph.add(placed.machine.id);
+      }
+      const recipeId = resolveGoalRecipe(candidates, machinesInGraph);
+      if (recipeId) {
+        addProductToGraph(recipeId, false, recipe);
+        return;
+      }
+    }
+    setAddRecipeNode(recipe);
+  }, [addProductToGraph, store]);
+
   const blankRecipeSelectorProduct = () => {
     setAddRecipeNode(null);
   }
@@ -269,7 +306,7 @@ export function Factory() {
             </div>
           )}
           <ReactFlowProvider>
-            <Graph addNewRecipe={addNewRecipe} smartPositionRef={smartPositionRef} />
+            <Graph addNewRecipe={addNewRecipe} smartPositionRef={smartPositionRef} focusNodeRef={focusNodeRef} />
           </ReactFlowProvider>
         </div>
       </div>

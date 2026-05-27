@@ -1,5 +1,5 @@
-import { Button, Field, Fieldset, Input, Label, Radio, RadioGroup } from '@headlessui/react';
-import { Bars3Icon, ClockIcon, ExclamationTriangleIcon, PlusIcon } from '@heroicons/react/24/solid';
+import { Button, Checkbox, Field, Fieldset, Input, Label, Radio, RadioGroup } from '@headlessui/react';
+import { Bars3Icon, CheckIcon, ClockIcon, ExclamationTriangleIcon, PlusIcon } from '@heroicons/react/24/solid';
 import { useCallback, useEffect, useState, type ChangeEvent } from 'react';
 
 import { SelectorDialog } from 'app/components/Dialog';
@@ -221,6 +221,22 @@ function SideBar({ addNewRecipe }: props) {
     });
   }, [setEditGoal]);
 
+  // Save handler for the goal dialog: persists the goal, and if the user left
+  // the "also add a producer/consumer" box ticked, opens the recipe picker
+  // (auto-placing when there's a single real recipe). Kept separate from
+  // `addGoal` so inline GoalCard edits don't trigger the picker.
+  const saveGoalFromDialog = useCallback((goal: FactoryGoal, addRecipe: boolean, produce: boolean) => {
+    addGoal(goal);
+    if (addRecipe) addNewRecipe({
+      productId: goal.productId,
+      produce,
+      position: { x: 0, y: 0 },
+      otherNode: "",
+      autoSelectSingle: true,
+      centerOnPlace: true,
+    });
+  }, [addGoal, addNewRecipe]);
+
   // Any constrain that doesn't have a parent and isn't unconnected is a manifold in the UI
   const manifolds = model?.constraints
     ? Object.keys(model.constraints)
@@ -426,7 +442,11 @@ function SideBar({ addNewRecipe }: props) {
         setIsOpen={() => setEditGoal(null)}
         widthClassName='min-w-140 max-w-[90vw]'
       >
-        <NewProductOptions addGoal={addGoal} goal={editGoal} />
+        <NewProductOptions
+          goal={editGoal}
+          isNew={!goals.some(g => g.productId === editGoal.productId)}
+          onSave={saveGoalFromDialog}
+        />
       </SelectorDialog>
     ) : ("")}
   </>);
@@ -434,11 +454,16 @@ function SideBar({ addNewRecipe }: props) {
 
 type NewProductOptionsProps = {
   goal: FactoryGoal,
-  addGoal: (goal: FactoryGoal) => void,
+  // True when this product isn't already a goal — controls whether the
+  // "also add a producer/consumer" box defaults to ticked.
+  isNew: boolean,
+  onSave: (goal: FactoryGoal, addRecipe: boolean, produce: boolean) => void,
 }
-function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
+export function NewProductOptions({ goal, isNew, onSave }: NewProductOptionsProps) {
   const [goalData, setGoalData] = useState(goal);
   const [rawInput, setRawInput] = useState(goal.qty === 0 ? '' : String(goal.qty));
+  // Default to ticked for new goals, unticked when editing an existing one.
+  const [addRecipeChecked, setAddRecipeChecked] = useState(isNew);
 
   // Derive direction reactively from the raw string — no separate isInput state
   const isInput = rawInput.startsWith('-');
@@ -472,7 +497,9 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
 
   const submitGoal = () => {
     const qty = parseFloat(rawInput);
-    addGoal({ ...goalData, qty: isNaN(qty) ? 0 : qty });
+    // produce comes from the direction radio (isInput), not the qty sign, so the
+    // qty=0 edge (no leading "-") still resolves to the correct direction.
+    onSave({ ...goalData, qty: isNaN(qty) ? 0 : qty }, addRecipeChecked, !isInput);
   }
 
   return <>
@@ -511,6 +538,16 @@ function NewProductOptions({ goal, addGoal }: NewProductOptionsProps) {
         <span className="text-xs mt-2 text-gray-400">
           60 <ClockIcon className="inline w-4 pb-1  text-gray-500" />
         </span>
+      </Field>
+      <Field className="flex gap-2 items-center justify-center">
+        <Checkbox
+          checked={addRecipeChecked}
+          onChange={setAddRecipeChecked}
+          className="addRecipeWithGoal group flex size-5 items-center justify-center rounded border-1 border-gray-600 bg-gray-700 cursor-pointer data-checked:bg-teal-700 data-checked:border-teal-600"
+        >
+          <CheckIcon className="hidden size-4 text-white group-data-checked:block" />
+        </Checkbox>
+        <Label className="cursor-pointer">{isInput ? "Also add a consumer" : "Also add a producer"}</Label>
       </Field>
       <Field>
         <Button onClick={submitGoal} className="addItemAsGoal p-2 px-8 cursor-pointer mt-8 hover:bg-gray-900 rounded bg-gray-700 border-2 border-gray-500">Save</Button>

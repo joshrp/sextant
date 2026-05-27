@@ -1,4 +1,4 @@
-import { expect, type Page } from '@playwright/test';
+import { expect, type Page, type Locator } from '@playwright/test';
 
 /**
  * Wait for the sidebar goal list to reach a specific count.
@@ -11,9 +11,11 @@ export async function waitForGoalCount(page: Page, count: number, timeout = 3000
 }
 
 /**
- * Add a goal via the sidebar goal dialog.
+ * Open the goal dialog for a product and fill in the quantity. Returns the
+ * dialog locator so callers can interact with it (e.g. the "also add a
+ * producer/consumer" checkbox) before saving.
  */
-export async function addGoal(page: Page, productName: string, qty: number) {
+async function openGoalDialog(page: Page, productName: string, qty: number): Promise<Locator> {
   const goalList = page.getByTestId('sidebar-goals-list');
 
   // Click "Add Goal" button in the goals list to open product selector
@@ -41,6 +43,29 @@ export async function addGoal(page: Page, productName: string, qty: number) {
   // Set the quantity
   await qtyInput.fill(String(qty));
 
+  return dialog;
+}
+
+/** Set the "also add a producer/consumer" checkbox to the desired state. */
+async function setAddRecipeCheckbox(dialog: Locator, checked: boolean) {
+  const box = dialog.locator('.addRecipeWithGoal');
+  const isChecked = (await box.getAttribute('aria-checked')) === 'true';
+  if (isChecked !== checked) {
+    await box.click();
+  }
+}
+
+/**
+ * Add a goal via the sidebar goal dialog, without placing any recipe.
+ * New goals default the "also add a producer/consumer" box to ticked, so we
+ * untick it here to preserve this helper's "just add a goal" contract.
+ */
+export async function addGoal(page: Page, productName: string, qty: number) {
+  const goalList = page.getByTestId('sidebar-goals-list');
+  const dialog = await openGoalDialog(page, productName, qty);
+
+  await setAddRecipeCheckbox(dialog, false);
+
   // Save the goal
   await dialog.locator('button.addItemAsGoal').click();
 
@@ -49,6 +74,20 @@ export async function addGoal(page: Page, productName: string, qty: number) {
   await expect(
     goalList.locator(`.output-goal:has-text("${productName}")`)
   ).toBeVisible({ timeout: 5000 });
+}
+
+/**
+ * Add a goal AND trigger the "also add a producer/consumer" flow via the goal
+ * dialog checkbox (ticked by default for new goals). Does not wait for a result
+ * — the caller asserts whether a node was auto-placed (single recipe) or the
+ * recipe picker opened (multiple recipes).
+ */
+export async function addGoalWithRecipe(page: Page, productName: string, qty: number) {
+  const dialog = await openGoalDialog(page, productName, qty);
+
+  await setAddRecipeCheckbox(dialog, true);
+
+  await dialog.locator('button.addItemAsGoal').click();
 }
 
 /**
