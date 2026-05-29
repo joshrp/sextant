@@ -3142,7 +3142,7 @@
       "id": "Product_SiliconWafer",
       "name": "Silicon wafer",
       "icon": "siliconwafer.png",
-      "color": "#BCBCBC",
+      "color": "#DFDAD9",
       "transport": "Flat",
       "unit": "",
       "recipes": {
@@ -5812,7 +5812,7 @@
       "id": "Product_Antibiotics",
       "name": "Antibiotics",
       "icon": "antibiotics.png",
-      "color": "#BCBCBC",
+      "color": "#31ECDC",
       "transport": "Flat",
       "unit": "",
       "recipes": {
