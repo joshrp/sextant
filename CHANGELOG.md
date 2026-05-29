@@ -1,8 +1,5 @@
 # CHANGELOG
 
-1.0.8
-- feat: Add factory re-ordering
-
 1.0.7
 - feat: Save viewport position to storage of factory and restore on switch
 - feat: Add checkbox for automatically adding a producer for goals 
