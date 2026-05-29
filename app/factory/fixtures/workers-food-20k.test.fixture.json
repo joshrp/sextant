@@ -1465,15 +1465,15 @@
       },
       {
         "nodeId": "Balancer_Product_Compost_1777708456785",
-        "count": 107
+        "count": 106.44
       },
       {
         "nodeId": "Balancer_Product_Compost_1777708533695",
-        "count": 0.560059
+        "count": 0.0001
       },
       {
         "nodeId": "Balancer_Product_Compost_1777708512410",
-        "count": 82.5679
+        "count": 82.0079
       },
       {
         "nodeId": "Balancer_Product_Fertilizer2_1777619691997",
@@ -1509,15 +1509,15 @@
       },
       {
         "nodeId": "Balancer_Product_Compost_1777708456785",
-        "count": 107
+        "count": 106.44
       },
       {
         "nodeId": "Balancer_Product_Compost_1777708533695",
-        "count": 0.560059
+        "count": 0.000059
       },
       {
         "nodeId": "Balancer_Product_Compost_1777708512410",
-        "count": 82.5679
+        "count": 82.0079
       },
       {
         "nodeId": "Balancer_Product_Fertilizer2_1777619691997",
@@ -1616,7 +1616,7 @@
         },
         {
           "productId": "Product_Compost",
-          "amount": -0.560059
+          "amount": -0.000059
         },
         {
           "productId": "Product_FuelGas",
@@ -1686,7 +1686,7 @@
         },
         {
           "productId": "Product_Compost",
-          "amount": 112.568
+          "amount": 112.008
         },
         {
           "productId": "Product_Oxygen",
@@ -1836,8 +1836,8 @@
       "c90": 0,
       "i_Product_Fertilizer2": -88.6027,
       "o_Product_Fertilizer2": 0.00001,
-      "o_Product_Compost": 112.568,
-      "i_Product_Compost": -0.560059,
+      "o_Product_Compost": 112.008,
+      "i_Product_Compost": -0.000059,
       "c91": 0,
       "c92": 0,
       "i_Product_FuelGas": -16.7534,
