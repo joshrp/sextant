@@ -1,6 +1,6 @@
 import { ArchiveBoxIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import { InboxArrowDownIcon, PencilIcon, PlusIcon } from "@heroicons/react/24/solid";
-import { useMemo, useState } from "react";
+import { Bars3Icon, InboxArrowDownIcon, PencilIcon, PlusIcon } from "@heroicons/react/24/solid";
+import { Fragment, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router";
 
 import ArchiveBrowser from "~/components/ArchiveBrowser";
@@ -14,6 +14,54 @@ export default function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { 
   const factories = useProductionZoneStore(state => state.factories);
   const newFactory = useProductionZoneStore(state => state.newFactory);
   const updateFactory = useProductionZoneStore(state => state.updateFactory);
+  const reorderFactories = useProductionZoneStore(state => state.reorderFactories);
+
+  const sortedFactories = useMemo(
+    () => [...factories].sort((a, b) => a.order - b.order),
+    [factories]
+  );
+
+  const [draggingId, setDraggingId] = useState<string | null>(null);
+  // dropIndex is the slot index in sortedFactories where the dragged item would land
+  // (0 = before first item, sortedFactories.length = after last item)
+  const [dropIndex, setDropIndex] = useState<number | null>(null);
+  const draggingIdRef = useRef<string | null>(null);
+  draggingIdRef.current = draggingId;
+
+  const handleListDragOver = (e: React.DragEvent<HTMLUListElement>) => {
+    if (!draggingIdRef.current) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    const tiles = Array.from(e.currentTarget.querySelectorAll<HTMLLIElement>('li[data-factory-id]'));
+    if (tiles.length === 0) return;
+    let next = tiles.length;
+    for (let i = 0; i < tiles.length; i++) {
+      const r = tiles[i].getBoundingClientRect();
+      if (e.clientY < r.top + r.height / 2) {
+        next = i;
+        break;
+      }
+    }
+    setDropIndex(prev => (prev === next ? prev : next));
+  };
+
+  const handleListDrop = (e: React.DragEvent<HTMLUListElement>) => {
+    if (!draggingIdRef.current || dropIndex === null) return;
+    e.preventDefault();
+    const ids = sortedFactories.map(f => f.id);
+    const from = ids.indexOf(draggingIdRef.current);
+    if (from === -1) return;
+    let to = dropIndex;
+    ids.splice(from, 1);
+    if (from < to) to -= 1;
+    ids.splice(to, 0, draggingIdRef.current);
+    reorderFactories(ids);
+  };
+
+  const clearDrag = () => {
+    setDraggingId(null);
+    setDropIndex(null);
+  };
 
   const changeTab = (e: React.MouseEvent<unknown, MouseEvent>, id: string) => {
     nav(`/zones/${zoneId}/${id}`);
@@ -59,6 +107,10 @@ export default function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { 
     nav(`/zones/${zoneId}/${newFactoryId}`);
   };
 
+  const dragFromIndex = draggingId ? sortedFactories.findIndex(f => f.id === draggingId) : -1;
+  // The drop slot equals the source's own slot when dropIndex matches fromIndex or fromIndex+1 — both are no-ops.
+  const isNoOpDropSlot = dropIndex === dragFromIndex || dropIndex === dragFromIndex + 1;
+
   return useMemo(() => <aside
     data-expanded={expanded || null}
     className="group h-full w-12 data-expanded:w-60 
@@ -68,7 +120,11 @@ export default function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { 
     flex flex-col shrink-0 texture-panel">
 
     <div className="factoryTabs w-full overflow-hidden flex flex-col h-full">
-      <ul className="pl-1 flex flex-col gap-1 text-center flex-1">
+      <ul
+        onDragEnter={handleListDragOver}
+        onDragOver={handleListDragOver}
+        onDrop={handleListDrop}
+        className="pl-1 flex flex-col gap-1 text-center flex-1">
         {/* Zone Hub Tab - Top level with prominent styling */}
         <li title="Zone Hub" className="flex flex-row justify-center-safe gap-2 p-2 
          text-white bg-zinc-950 hover:bg-zinc-800 texture-embossed
@@ -84,40 +140,72 @@ export default function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { 
         </li>
 
         {/* Factory Tabs - Indented underneath Zone Hub */}
-        {factories.map(f => (
-          <li key={f.id} data-is-selected={f.id == selectedFactoryId || null}
-
-            className="group/li flex flex-row gap-1 bg-gray-800 rounded-l text-gray-400 border-1 
-                      border-gray-700 border-r-0 hover:text-white hover:bg-gray-700
-                      data-is-selected:border-amber-600 data-is-selected:text-white
-                      data-is-selected:bg-zinc-950 data-is-selected:cursor-default 
-
-                      whitespace-nowrap items-center-safe texture-riveted
-                      p-1 pr-0 justify-center relative text-left
-                      shadow-[2px_0_4px_0_rgba(0,0,0,0.25)]
-                      data-is-selected:shadow-none
-          ">
-            <Link className="flex-1 overflow-ellipsis overflow-hidden"
-              onClick={(e) => changeTab(e, f.id)}
-              title={f.name}
-              to={`/factories/${f.id}`}>
-
-              {f.icon && <img src={f.icon} alt="" className="inline-block w-10 group-data-expanded:w-8 group-data-expanded:mr-2 align-middle" />}
-              {f.name}
-            </Link>
-
-            <button
-              onClick={() => setEditingFactoryId(f.id)}
+        {sortedFactories.map((f, i) => {
+          const isDragged = draggingId === f.id;
+          const showLineAbove = dropIndex === i && !isNoOpDropSlot;
+          const showLineBelowLast = dropIndex === i + 1 && i === sortedFactories.length - 1 && !isNoOpDropSlot;
+          return (
+          <Fragment key={f.id}>
+            {showLineAbove && (
+              <li aria-hidden="true" className="h-0 -my-1 border-t-2 border-amber-400 mx-1 pointer-events-none" />
+            )}
+            <li
+              data-factory-id={f.id}
               data-is-selected={f.id == selectedFactoryId || null}
-              className="shrink-1 justify-self-end-safe -mt-1 cursor-pointer hover:text-gray-700 pr-2 group-expanded:mr-3
-                  group-data-expanded:block hidden data-is-selected:group-hover/li:block hover:block bg-transparent
-                "
-              title="Edit Factory"
-            >
-              <PencilIcon className="w-4 h-full inline-block" />
-            </button>
-          </li>)
-        )}
+              data-dragging={isDragged || null}
+
+              className="group/li flex flex-row gap-1 bg-gray-800 rounded-l text-gray-400 border-1
+                        border-gray-700 border-r-0 hover:text-white hover:bg-gray-700
+                        data-is-selected:border-amber-600 data-is-selected:text-white
+                        data-is-selected:bg-zinc-950 data-is-selected:cursor-default
+
+                        whitespace-nowrap items-center-safe texture-riveted
+                        p-1 pr-0 justify-center relative text-left
+                        shadow-[2px_0_4px_0_rgba(0,0,0,0.25)]
+                        data-is-selected:shadow-none
+                        data-dragging:opacity-50 data-dragging:outline-2 data-dragging:outline-amber-500
+            ">
+              {expanded && sortedFactories.length > 1 && (
+                <button
+                  draggable
+                  onDragStart={(e) => {
+                    e.dataTransfer.effectAllowed = 'move';
+                    e.dataTransfer.setData('text/plain', f.id);
+                    setDraggingId(f.id);
+                  }}
+                  onDragEnd={clearDrag}
+                  className="cursor-grab active:cursor-grabbing text-gray-500 hover:text-white shrink-0 px-1 -ml-1"
+                  title="Drag to reorder"
+                  aria-label="Drag to reorder"
+                >
+                  <Bars3Icon className="w-4 h-4 inline-block" />
+                </button>
+              )}
+              <Link className="flex-1 overflow-ellipsis overflow-hidden"
+                onClick={(e) => changeTab(e, f.id)}
+                title={f.name}
+                to={`/factories/${f.id}`}>
+
+                {f.icon && <img src={f.icon} alt="" className="inline-block w-10 group-data-expanded:w-8 group-data-expanded:mr-2 align-middle" />}
+                {f.name}
+              </Link>
+
+              <button
+                onClick={() => setEditingFactoryId(f.id)}
+                data-is-selected={f.id == selectedFactoryId || null}
+                className="shrink-1 justify-self-end-safe -mt-1 cursor-pointer hover:text-gray-700 pr-2 group-expanded:mr-3
+                    group-data-expanded:block hidden data-is-selected:group-hover/li:block hover:block bg-transparent
+                  "
+                title="Edit Factory"
+              >
+                <PencilIcon className="w-4 h-full inline-block" />
+              </button>
+            </li>
+            {showLineBelowLast && (
+              <li aria-hidden="true" className="h-0 -my-1 border-t-2 border-amber-400 mx-1 pointer-events-none" />
+            )}
+          </Fragment>);
+        })}
 
         {/* Hint when only one factory */}
         {factories.length <= 1 && expanded && (
@@ -193,5 +281,5 @@ export default function ZoneSideBar({ selectedFactoryId, onArchiveSelected }: { 
       onRestored={handleArchiveRestored}
     />
 
-  </aside>, [factories, selectedFactoryId, expanded, zoneId, isCreatingNew, editingFactoryId, existingFactoryNames, showArchiveBrowser]);
+  </aside>, [factories, sortedFactories, selectedFactoryId, expanded, zoneId, isCreatingNew, editingFactoryId, existingFactoryNames, showArchiveBrowser, draggingId, dropIndex]);
 }

@@ -31,6 +31,7 @@ export interface ProductionZoneStoreData {
   setLastFactory(id: string): void;
   renameFactory(id: string, newName: string): void;
   updateFactory(id: string, updates: { name?: string; icon?: string; description?: string }): void;
+  reorderFactories(orderedIds: string[]): void;
   removeFactory(id: string): void;
 }
 
@@ -113,6 +114,16 @@ function buildZoneStore(idb: IDB, { id, name }: { id: string, name: string }) {
             },
             setLastFactory: (id: string) => {
               set({ lastFactory: id });
+            },
+            reorderFactories: (orderedIds: string[]) => {
+              const settings = get();
+              const orderMap = new Map(orderedIds.map((id, i) => [id, i]));
+              set({
+                factories: settings.factories.map(f => ({
+                  ...f,
+                  order: orderMap.get(f.id) ?? f.order,
+                })),
+              });
             },
             removeFactory: (id: string) => {
               const settings = get();

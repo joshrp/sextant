@@ -169,8 +169,9 @@ export const PlannerProvider = ({ children }: { children: ReactNode }) => {
 
       // Get factory data for each factory
       const exportableFactories: ExportableFactory[] = [];
-      
-      for (const factory of factories) {
+
+      const sortedFactoriesForExport = [...factories].sort((a, b) => a.order - b.order);
+      for (const factory of sortedFactoriesForExport) {
         try {
           const db = await zoneIdb;
           const factoryData = await db.get('factories', factory.id);

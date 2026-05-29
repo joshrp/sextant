@@ -21,7 +21,7 @@ export default function Zone() {
   let redirectTarget: string | null = null;
 
   if (selectedFactoryId === "" && factories.length > 0) {
-    selectedFactoryId = store.getState().lastFactory || factories[0]?.id;
+    selectedFactoryId = store.getState().lastFactory || [...factories].sort((a, b) => a.order - b.order)[0]?.id;
     redirectTarget = `/zones/${zoneId}/${selectedFactoryId}`;
   }
 
@@ -30,7 +30,7 @@ export default function Zone() {
   // If the selected factory no longer exists (e.g. the onboarding placeholder was removed)
   // but other factories are available, redirect to the first available one.
   if (!selectedFactory && factories.length > 0 && selectedFactoryId !== "") {
-    selectedFactoryId = store.getState().lastFactory ?? factories[0].id;
+    selectedFactoryId = store.getState().lastFactory ?? [...factories].sort((a, b) => a.order - b.order)[0].id;
     selectedFactory = factories.find(f => f.id === selectedFactoryId);
     redirectTarget = `/zones/${zoneId}/${selectedFactoryId}`;
   }
